@@ -1,41 +1,128 @@
-# Research Digest — Content Aggregation
+# Research Digest — Content & Competitive Intelligence
 
-Fetch, categorize, and summarize robotics news for newsletter prep.
+Two modes: news aggregation (quincenal) and competitive website intelligence (on demand).
 
 ## When to activate
 
 - "research digest", "agrega noticias", "prepara el digest", "busca noticias de robots"
+- "website intelligence", "competitive analysis", "analiza la competencia", "scrape competitors"
+- "5 questions", "website brief", "analiza estos sitios"
+
+## Tools
+
+- **Firecrawl MCP** (preferred): `mcp__firecrawl__scrape`, `mcp__firecrawl__map`, `mcp__firecrawl__search`
+- **WebFetch** (fallback): if Firecrawl is not connected, use WebFetch for individual page scraping
+- **WebSearch**: for finding competitors and trending topics
+
+If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + WebSearch.
 
 ## Script
 
 `utilities/research_aggregator.py` (TODO: implementar)
 
-## Manual workflow (hasta que el script esté listo)
+---
 
-1. Use Firecrawl MCP to scrape key sources:
-   - IEEE Spectrum Robotics, The Robot Report, TechCrunch Robotics
-   - Xataka (robotics/smart home), ComputerHoy domótica
-   - r/RobotVacuums, newsrooms iRobot/Roborock/Ecovacs/Dreame
+## MODE 1: News Digest (quincenal)
 
+### Sources to scrape
+
+**Tier 1 (always):**
+- IEEE Spectrum Robotics, The Robot Report, TechCrunch Robotics, The Verge
+
+**Tier 2 (home robotics):**
+- r/RobotVacuums, newsrooms iRobot/Roborock/Ecovacs/Dreame
+- Xataka (robotics/smart home), ComputerHoy domótica
+
+**Tier 3 (monitoring):**
+- Humanoid Press, Robotics 24/7, integrarobot.com
+
+### Workflow
+
+1. Scrape key sources (Firecrawl `scrape` or WebFetch)
 2. Filter last 14 days, deduplicate similar stories
-
 3. Categorize each story:
    - Categories: Consumer Robots, Robot Vacuums, Lawn Robots, Humanoids, AI/Software, Industry, Reviews
    - Relevance score 1-5 for Spanish home robotics audience
+4. Output to `content/drafts/research-digest-YYYY-MM-DD.md`
 
-4. Output to `content/drafts/research-digest-YYYY-MM-DD.md`:
-   ```markdown
-   # Research Digest — YYYY-MM-DD
+### Output format
 
-   ## Top Stories (relevance 4-5)
-   - **[Title]** — Source — 1-line summary
-     - Ángulo ROBOHOGAR: [por qué importa a nuestra audiencia]
+```markdown
+# Research Digest — YYYY-MM-DD
 
-   ## Notable (relevance 3)
-   - ...
+## Top Stories (relevance 4-5)
+- **[Title]** — Source — 1-line summary
+  - Ángulo ROBOHOGAR: [por qué importa a nuestra audiencia]
 
-   ## Monitoring (relevance 1-2)
-   - ...
-   ```
+## Notable (relevance 3)
+- ...
+
+## Monitoring (relevance 1-2)
+- ...
+```
 
 5. Rafael picks 3-5 stories, adds his angle, and drafts the newsletter
+
+---
+
+## MODE 2: Website / Competitive Intelligence
+
+Research-driven analysis of competitor websites for design, content, and conversion strategy.
+
+### Step 1 — Find competitors
+
+Use Firecrawl `search` or WebSearch to find top 10 sites in the target niche.
+Score each against these criteria (1-10):
+
+| Criterion | What to look for |
+|---|---|
+| Search visibility | Page 1 rankings for key industry terms? |
+| Review quality | Google reviews, Trustpilot, G2 — 4.5+ stars? |
+| Visual design | Modern, professional, not template-looking? |
+| Mobile responsive | Clean on mobile, not just "it works"? |
+| Content depth | Real copy or placeholder garbage? |
+| Social proof | Testimonials, logos, case studies visible? |
+| CTA strategy | Clear next step for the visitor? |
+| Page speed | Fast load, no layout shift? |
+
+### Step 2 — Deep scrape top 5
+
+For each of the top 5 scoring sites, scrape and extract:
+
+- **Visual identity** — colors (hex), typography, photography style, design aesthetic
+- **Content strategy** — headline formula, CTA copy, value prop structure
+- **Site architecture** — number of pages, nav structure, depth
+- **Conversion strategy** — primary CTA, lead capture method, social proof placement
+
+### Step 3 — Identify patterns
+
+What do ALL top sites do that the bottom ones don't? Find the 3-5 patterns that separate elite from average.
+
+### Step 4 — Brand extraction (if client site exists)
+
+Scrape client's current site and extract: logo, brand colors (from CSS), fonts, tone of voice, key messaging, site structure.
+
+### Output
+
+Save research outputs to `docs/`:
+- `docs/competitive-analysis.md` — Full competitor breakdown with comparison table
+- `docs/website-brief.md` — 5 Questions answered + consolidated prompt for builder
+
+### 5 Questions Framework
+
+Every website brief must answer:
+
+1. **Who is this website for?** — The visitor, not the business
+2. **What's the ONE action?** — Single primary CTA
+3. **What objections does the visitor have?** — Maps to sections needed
+4. **What's the vibe?** — Feeds design direction
+5. **Do you have existing brand assets?** — What exists vs what to create
+
+---
+
+## Rules
+
+- ALWAYS save research outputs as files — every phase is a deliverable
+- NEVER start design/build without answering the 5 Questions first
+- Cite sources with URLs when using specific data
+- Firecrawl credits are limited (500/month free) — be efficient, don't scrape entire sites when a homepage suffices
