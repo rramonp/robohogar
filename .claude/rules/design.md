@@ -1,20 +1,20 @@
 # Design System — ROBOHOGAR
 
-## Color Palette
+## Color Palette (alineada con Figma landing)
 
 | Role | Hex | Use |
 |---|---|---|
-| Fondo crudo | `#F5F3EF` | Background principal |
-| Acento verde lima | `#C8FF00` | CTAs, highlights, badges |
-| Negro | `#0D0D0D` | Texto principal |
-| Blanco | `#FFFFFF` | Cards, contrast |
+| Background | `#FFFFFF` | Fondo principal |
+| Acento naranja | `#F5A623` | CTAs primarios, highlights, badges |
+| Negro | `#0C0C0C` | Texto principal |
+| Gris lightest | `#F2F2F2` | Botones secundarios, foreground |
 | Gris medio | `#6B7280` | Texto secundario |
-| Gris claro | `#E5E7EB` | Borders, separadores |
+| Border | `rgba(12,12,12,0.15)` | Borders, separadores |
 
 ## Typography
 
-- **Títulos/Headers:** Syne (Bold, SemiBold)
-- **Cuerpo/Labels:** DM Sans (Regular, Medium)
+- **Títulos/Headers:** Jost (Regular, weight 400)
+- **Cuerpo/Labels:** DM Sans (Regular, Medium, SemiBold, Bold)
 - **Code/Mono:** JetBrains Mono o similar
 
 ## Mascota

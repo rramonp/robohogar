@@ -2,7 +2,7 @@
 
 ## Proyecto
 
-Newsletter + blog en español sobre robótica doméstica. Hobby personal de Rafael (3-5 hrs/semana). Dominio: robohogar.com. Mercado objetivo: España/Europa hispanohablante.
+Newsletter + blog en español sobre robótica doméstica. Hobby personal de Rafael (3-5 hrs/semana). Dominio: robohogar.com. Plataforma: Substack (migración a Ghost cuando escale). Mercado objetivo: España/Europa hispanohablante.
 
 ## Scope
 

@@ -69,9 +69,9 @@
 
 ### Ideal si: priorizas crecimiento agresivo y monetización desde el inicio
 
-## Opción híbrida recomendada
+## DECISIÓN (2026-04-12): Substack
 
-**Empezar en Substack** (gratis, cero fricción, validas la idea) → **migrar a Ghost** cuando tengas 500+ subs y quieras control total. La migración es sencilla (export CSV de suscriptores).
+**Substack para arrancar** → migrar a Ghost cuando se cumplan 2 de 3: 500+ subs, diseño limita, 10% comisión duele. Migración sencilla (export CSV de suscriptores).
 
 ## Fuentes
 - Beehiiv vs Substack: beehiiv.com/comparisons/substack

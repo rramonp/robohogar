@@ -150,8 +150,8 @@ La investigación de mercado confirma que **no existe competencia directa en esp
 ### Opción principal: NEXUS
 - Pros: corto, memorable, suena tecnológico, ya tiene identidad visual diseñada
 - Contras: nombre muy genérico (hay decenas de "Nexus" en tech), difícil de posicionar SEO, dominio .com/.es probablemente ocupado
-- Paleta actual: fondo crudo `#f5f3ef`, acento verde lima `#c8ff00`, negro `#0d0d0d`
-- Tipografía: Syne (títulos) + DM Sans (cuerpo)
+- Paleta actual: fondo `#ffffff`, acento naranja `#f5a623`, negro `#0c0c0c`
+- Tipografía: Jost (títulos) + DM Sans (cuerpo)
 
 ### Alternativas propuestas (verificar disponibilidad de dominio)
 
@@ -189,10 +189,21 @@ La investigación de mercado confirma que **no existe competencia directa en esp
 - **Puntos débiles:** 49€/mes para desbloquear monetización (caro para hobby), sin red orgánica como Substack
 - **Ideal para:** Si priorizas crecimiento agresivo y monetización temprana
 
-### Mi recomendación
-**Ghost** si quieres la experiencia editorial magazine que describe tu documento. **Substack** si prefieres cero coste y aprovechar la red para crecer. Ambas son viables — la decisión depende de si priorizas marca/SEO (Ghost) o crecimiento orgánico (Substack).
+### DECISIÓN (2026-04-12): Substack → Ghost cuando escale
 
-**Opción híbrida:** Empezar en Substack (gratis, cero fricción, validas la idea) → migrar a Ghost cuando tengas 500+ subs y quieras control total. La migración es sencilla (export CSV de subs).
+**Substack para arrancar.** Razones:
+- Coste cero — presupuesto mensual baja a ~17€ (dominio + Buffer + Make.com)
+- Red de descubrimiento — todas las newsletters de robótica en inglés están aquí (cross-pollination)
+- Cero fricción — 15 min de setup, las 3-5 hrs/semana van a contenido, no a CMS
+- Validación rápida — si en 3 meses no hay tracción, no se perdió dinero en infra
+- robohogar.com redirige a Substack mientras tanto
+
+**Migrar a Ghost cuando se cumplan 2 de 3:**
+- 500+ suscriptores
+- El diseño de Substack limita la visión editorial
+- El 10% de comisión en suscripciones de pago empieza a doler
+
+**SEO de Substack (débil) mitigado por:** competencia cero en español — no necesitas SEO perfecto, necesitas existir. Cuando migres a Ghost, el contenido migra y el SEO real arranca con base de contenido probado.
 
 ---
 
@@ -300,7 +311,7 @@ La investigación de mercado confirma que **no existe competencia directa en esp
 ### Coste mensual total: ~25-50€
 | Concepto | Coste |
 |---|---|
-| Plataforma (Ghost/Substack) | 0-25€ |
+| Plataforma (Substack) | 0€ |
 | Dominio | ~1€/mes (10€/año) |
 | Buffer (3 redes sociales) | 6€ |
 | Make.com (automatización social) | 9€ |
@@ -364,7 +375,7 @@ La investigación de mercado confirma que **no existe competencia directa en esp
 11. **Participar en Spain AI meetups**: red de contactos tech en España
 
 ### Branding (recomendación)
-12. **NO reutilizar estilo Neon Cyan/Pink cyberpunk de RRP-DEV** — el cyberpunk aliena al público general de la newsletter (familias, early adopters no-técnicos). Mantener la identidad editorial de la landing: fondo `#f5f3ef`, acento `#c8ff00`, Syne + DM Sans. Mascota oficial definida → ver `assets/branding/mascota-prompt.md`.
+12. **NO reutilizar estilo Neon Cyan/Pink cyberpunk de RRP-DEV** — el cyberpunk aliena al público general de la newsletter (familias, early adopters no-técnicos). Mantener la identidad editorial de la landing: fondo `#ffffff`, acento naranja `#f5a623`, Jost + DM Sans. Mascota oficial definida → ver `assets/branding/mascota-prompt.md`.
 
 ---
 
@@ -792,11 +803,11 @@ tags: [personal, robotica, newsletter]
 8. Migrar los dos archivos originales desde Google Drive a `docs/` y `assets/`
 9. Primer commit
 
-### Fase 1: Decisiones fundamentales (esta semana)
-10. Verificar disponibilidad de dominios para NEXUS y alternativas
-11. Decidir nombre definitivo
-12. Decidir plataforma (Ghost vs Substack vs Beehiiv)
-13. Comprar dominio
+### Fase 1: Decisiones fundamentales ✓ (completada 2026-04-12)
+10. ~~Verificar disponibilidad de dominios~~ → robohogar.com disponible y comprado
+11. ~~Decidir nombre definitivo~~ → **ROBOHOGAR**
+12. ~~Decidir plataforma~~ → **Substack** (migración a Ghost cuando escale)
+13. ~~Comprar dominio~~ → **robohogar.com** comprado
 
 ### Fase 2: Infraestructura web (semana 2-3)
 14. Configurar plataforma elegida (Ghost/Substack/Beehiiv)
