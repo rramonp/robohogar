@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@playwright/mcp@latest"]
+    },
+    "firecrawl-mcp": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "firecrawl-mcp"]
+    }
+  }
+}
