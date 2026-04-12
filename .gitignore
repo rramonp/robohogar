@@ -138,6 +138,10 @@ celerybeat.pid
 .claude/settings.local.json
 .playwright-mcp/
 
+# Test screenshots from Playwright MCP
+*.png
+!assets/**/*.png
+
 # Environments
 .env
 .envrc
