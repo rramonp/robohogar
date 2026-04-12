@@ -134,6 +134,10 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
+# Secrets & local settings
+.claude/settings.local.json
+.playwright-mcp/
+
 # Environments
 .env
 .envrc
