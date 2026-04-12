@@ -30,7 +30,7 @@ Catálogo vivo de todos los assets visuales generados. **Actualizar después de 
 
 | Archivo | Carpeta | Fecha | Descripción |
 |---|---|---|---|
-| _(vacío)_ | `images/` | — | Aún no hay imágenes de artículos |
+| `hero-landing-mascota-hogar.png` | `images/` | 2026-04-12 | Hero section landing — mascota en salón con robot aspirador, smart speakers. Flash, landscape |
 
 ---
 

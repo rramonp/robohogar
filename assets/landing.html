@@ -1,0 +1,1921 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROBOHOGAR — Robótica doméstica explicada para humanos</title>
+
+  <!-- SEO meta tags — keywords primarias de @rules/seo.md -->
+  <meta name="description" content="Newsletter quincenal sobre robótica doméstica en español. Noticias curadas, reviews honestos y opinión propia sobre los robots que llegan a tu casa. Gratis, siempre.">
+  <meta name="keywords" content="robot aspirador, robótica doméstica, robots para casa, newsletter robots, robot cortacésped">
+
+  <!-- Open Graph — para compartir en redes sociales -->
+  <meta property="og:title" content="ROBOHOGAR — Robótica doméstica explicada para humanos">
+  <meta property="og:description" content="Quincenal en tu mail. 5 minutos. Noticias curadas, reviews sin filtro y opinión propia.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://robohogar.com">
+  <meta property="og:image" content="https://robohogar.com/assets/images/hero-landing-mascota-hogar.png">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ROBOHOGAR — Robótica doméstica explicada para humanos">
+  <meta name="twitter:description" content="Quincenal en tu mail. 5 minutos. Noticias curadas, reviews sin filtro y opinión propia.">
+
+  <!-- Schema.org — structured data para SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ROBOHOGAR",
+    "url": "https://robohogar.com",
+    "description": "Newsletter quincenal sobre robótica doméstica en español",
+    "logo": "https://robohogar.com/assets/branding/master/robohogar-mascot-principal.png"
+  }
+  </script>
+
+  <!-- Google Fonts: Jost (headings) + DM Sans (body) — pesos según Figma -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════════════════
+       DESIGN TOKENS — Extraídos del Figma de ROBOHOGAR.
+       Colores, tipografía y espaciado base.
+       ═══════════════════════════════════════════════════════ */
+    :root {
+      --bg-white: #FFFFFF;
+      --primary-btn: #fdedd3;        /* Buttercup claro — botón primario */
+      --secondary-btn: #f2f2f2;      /* Gris suave — botón secundario */
+      --negro: #0c0c0c;              /* Texto principal */
+      --blanco: #FFFFFF;
+      --gris-medio: #6B7280;         /* Texto secundario */
+      --gris-claro: #E5E7EB;         /* Bordes, separadores */
+      --border-color: rgba(12, 12, 12, 0.15); /* Bordes sutiles del Figma */
+      --font-heading: 'Jost', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --page-padding: 48px;          /* Padding lateral — reducido para escala real */
+      --section-padding: 80px;       /* Padding vertical de secciones */
+      --radius-large: 8px;           /* Radius estándar del Figma */
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESET — Normalización base sin dependencias externas
+       ═══════════════════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--negro);
+      background-color: var(--bg-white);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       CONTENEDOR — Max-width 1280px con padding lateral 64px.
+       Centrado para diseño de 1440px.
+       ═══════════════════════════════════════════════════════ */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--page-padding);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       BOTONES — Primary (#fdedd3) y Secondary (#f2f2f2)
+       con bordes, sombras externas e internas (pseudo-3D).
+       ═══════════════════════════════════════════════════════ */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 20px;
+      background: var(--primary-btn);
+      color: var(--negro);
+      border: 1.5px solid var(--negro);
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      /* Sombra exterior + internas para efecto 3D del Figma */
+      box-shadow:
+        0px 2px 2px rgba(12, 12, 12, 0.15),
+        inset 0 4px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -5px 0 rgba(12, 12, 12, 0.15);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0px 4px 8px rgba(12, 12, 12, 0.2),
+        inset 0 4px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -5px 0 rgba(12, 12, 12, 0.15);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 20px;
+      background: var(--secondary-btn);
+      color: var(--negro);
+      border: 1.5px solid var(--negro);
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow:
+        0px 2px 2px rgba(12, 12, 12, 0.15),
+        inset 0 4px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -5px 0 rgba(12, 12, 12, 0.15);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0px 4px 8px rgba(12, 12, 12, 0.2),
+        inset 0 4px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -5px 0 rgba(12, 12, 12, 0.15);
+    }
+
+    /* Nav buttons — padding más pequeño (8px) como en Figma */
+    .btn-nav {
+      padding: 8px 20px;
+    }
+
+    /* Contenedor de par de botones */
+    .button-pair {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Link con flecha — CTA secundario tipo texto */
+    .arrow-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--negro);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+
+    .arrow-link:hover {
+      gap: 12px;
+    }
+
+    .arrow-link svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.2s;
+    }
+
+    .arrow-link:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       NAV (Navbar 6) — Barra fija 72px.
+       Logo izquierda, links centro, botones derecha.
+       Border-bottom sutil rgba(12,12,12,0.15).
+       ═══════════════════════════════════════════════════════ */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--blanco);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      padding: 0 var(--page-padding);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    /* Logo — Jost Regular 24px como texto */
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 20px;
+      color: var(--negro);
+      letter-spacing: -0.02em;
+    }
+
+    /* Links de navegación — DM Sans Regular 18px */
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--negro);
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.65;
+    }
+
+    /* "Más" con chevron down — trigger del mega menu */
+    .nav-more-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--negro);
+      padding: 0;
+      transition: opacity 0.2s;
+    }
+
+    .nav-more-trigger:hover {
+      opacity: 0.65;
+    }
+
+    .nav-more-trigger svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s;
+    }
+
+    /* Rotar chevron cuando el mega menu está abierto */
+    .nav-more-trigger[aria-expanded="true"] svg {
+      transform: rotate(180deg);
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    /* Hamburger — visible solo en móvil */
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--negro);
+    }
+
+    .nav-hamburger svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Menú móvil — oculto por defecto en todas las resoluciones */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      padding: 24px var(--page-padding);
+      border-top: 1px solid var(--border-color);
+      background: var(--blanco);
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--negro);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       MEGA MENU — Desplegable bajo "Más" con 3 columnas
+       (Explorar, Recursos, Destacado) + sidebar de blog.
+       Ancho completo, animado con max-height.
+       ═══════════════════════════════════════════════════════ */
+    .mega-menu {
+      display: none;
+      border-top: 1px solid var(--border-color);
+      background: var(--blanco);
+    }
+
+    .mega-menu.open {
+      display: flex;
+    }
+
+    .mega-menu-columns {
+      flex: 1;
+      display: flex;
+      gap: 32px;
+      padding: 32px 32px 32px var(--page-padding);
+    }
+
+    /* Cada columna del mega menu */
+    .mega-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mega-col-title {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--negro);
+    }
+
+    .mega-col-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Cada item del mega menu — icono + título + descripción */
+    .mega-item {
+      display: flex;
+      gap: 12px;
+      padding: 8px 0;
+      text-decoration: none;
+      color: var(--negro);
+      transition: opacity 0.2s;
+    }
+
+    .mega-item:hover {
+      opacity: 0.7;
+    }
+
+    .mega-item-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .mega-item-content {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+    }
+
+    .mega-item-title {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .mega-item-desc {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--negro);
+    }
+
+    /* Sidebar derecho del mega menu — artículo destacado */
+    .mega-sidebar {
+      width: 320px;
+      flex-shrink: 0;
+      background: var(--bg-white);
+      border-left: 1px solid var(--border-color);
+      padding: 32px 32px 32px 32px;
+      padding-right: var(--page-padding);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mega-sidebar-title {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--negro);
+    }
+
+    .mega-sidebar-image {
+      width: 160px;
+      height: 107px;
+      border-radius: var(--radius-large);
+      overflow: hidden;
+    }
+
+    .mega-sidebar-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mega-sidebar-article-title {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--negro);
+    }
+
+    .mega-sidebar-article-desc {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--negro);
+    }
+
+    .mega-sidebar-link {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--negro);
+      text-decoration: underline;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       HERO (Header 5) — 900px, imagen de fondo + overlay,
+       contenido alineado izquierda. H1 Jost 84px.
+       ═══════════════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      height: 75vh;                  /* Relativo al viewport, no fijo */
+      min-height: 480px;
+      max-height: 700px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Imagen de fondo — full bleed con object-fit cover */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: #3a3028;          /* Tono oscuro del salón para rellenar huecos */
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;           /* Imagen completa sin recortar */
+      object-position: right center; /* Anclada a la derecha para dejar espacio al texto */
+    }
+
+    /* Overlay oscuro — mitad izquierda opaca para legibilidad del texto */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.65) 0%,
+        rgba(0, 0, 0, 0.55) 30%,
+        rgba(0, 0, 0, 0.25) 50%,
+        rgba(0, 0, 0, 0) 65%
+      );
+    }
+
+    /* Wrapper interno del hero — max-width 1280px como el resto */
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--page-padding);
+    }
+
+    /* Contenido del hero — anclado a la izquierda, max 440px */
+    .hero-content {
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* H1 — Jost Regular, escalado con clamp para ajustar a pantalla */
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: clamp(32px, 4vw, 56px);
+      line-height: 1.1;
+      color: var(--blanco);
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--blanco);
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       TWO-COL — Patrón de dos columnas reutilizado en
+       Features, About y Stats. Gap 80px entre columnas.
+       ═══════════════════════════════════════════════════════ */
+    .two-col {
+      display: flex;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .two-col-content {
+      flex: 1;
+    }
+
+    .two-col-image {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .two-col-image img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-large);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       TAGLINE + SECTION HEADINGS — Reutilizados en About,
+       Stats y Features. Siguen specs exactas del Figma.
+       ═══════════════════════════════════════════════════════ */
+    .section-tagline {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--negro);
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 1.2;
+      letter-spacing: -0.4px;
+      color: var(--negro);
+      margin-bottom: 16px;
+    }
+
+    .section-body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--negro);
+      margin-bottom: 24px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       FEATURES (Layout 29) — Grid de 6 items (3 filas x 2 cols).
+       Iconos 48px, títulos Jost 32px, descripción DM Sans 18px.
+       Padding 112px vertical según Figma.
+       ═══════════════════════════════════════════════════════ */
+    .features {
+      padding: var(--section-padding) 0;
+      background: var(--bg-white);
+    }
+
+    .features-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    /* Cada fila de features — 2 items lado a lado */
+    .features-row {
+      display: flex;
+      gap: 24px;
+      padding: 8px 0;
+    }
+
+    .feature-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Icono — 48px cuadrado, sin borde (como en Figma) */
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke-width: 1.5;
+    }
+
+    /* Título de feature — Jost Regular 22px */
+    .feature-item h3 {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 1.3;
+      letter-spacing: -0.2px;
+      color: var(--negro);
+    }
+
+    .feature-item p {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--negro);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       ABOUT (Layout 13) — Bio de Rafael izquierda,
+       mascota leyendo derecha. Tagline + H2 60px.
+       ═══════════════════════════════════════════════════════ */
+    .about {
+      padding: var(--section-padding) 0;
+      background: var(--bg-white);
+    }
+
+    /* Logos de plataformas — placeholder, flexbox wrap */
+    .about-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 32px;
+      padding: 8px 0;
+      margin-bottom: 32px;
+    }
+
+    .about-logo-item {
+      width: 120px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.4;
+    }
+
+    .about-logo-item svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       STATS (Layout 216) — Imagen IZQUIERDA, contenido DERECHA.
+       Invertido respecto a Features y About.
+       Stats "Quincenal" y "5 minutos" en Jost 60px.
+       ═══════════════════════════════════════════════════════ */
+    .stats {
+      padding: var(--section-padding) 0;
+      background: var(--bg-white);
+    }
+
+    .stats-numbers {
+      display: flex;
+      gap: 24px;
+      padding: 8px 0;
+      margin-bottom: 32px;
+    }
+
+    .stat-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .stat-item h3 {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 1.2;
+      letter-spacing: -0.4px;
+      color: var(--negro);
+    }
+
+    .stat-item p {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--negro);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       FAQ (FAQ 5) — Acordeón con 5 preguntas.
+       Items con borde + radius 8px. Toggle JS con animación.
+       Gap 16px entre items, gap 80px tras el header.
+       ═══════════════════════════════════════════════════════ */
+    .faq {
+      padding: var(--section-padding) 0;
+      background: var(--bg-white);
+    }
+
+    .faq-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    /* Header del FAQ */
+    .faq-header {
+      max-width: 768px;
+    }
+
+    .faq-header h2 {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 1.2;
+      letter-spacing: -0.4px;
+      color: var(--negro);
+      margin-bottom: 16px;
+    }
+
+    .faq-header p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--negro);
+    }
+
+    /* Lista de preguntas — gap 16px */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Cada item del FAQ — caja con borde y radius */
+    .faq-item {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-large);
+      overflow: hidden;
+    }
+
+    /* Pregunta — DM Sans Bold 20px, clicable */
+    .faq-question {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--negro);
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+    }
+
+    .faq-question:hover {
+      opacity: 0.8;
+    }
+
+    /* Icono toggle — X cuando abierto, + cuando cerrado */
+    .faq-toggle-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      position: relative;
+      transition: transform 0.3s;
+    }
+
+    /* Barras del icono + que se convierte en × */
+    .faq-toggle-icon::before,
+    .faq-toggle-icon::after {
+      content: '';
+      position: absolute;
+      background: var(--negro);
+      transition: transform 0.3s;
+    }
+
+    .faq-toggle-icon::before {
+      width: 14px;
+      height: 2px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-toggle-icon::after {
+      width: 2px;
+      height: 14px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Cuando está abierto, rotar para formar × */
+    .faq-item.open .faq-toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Respuesta — oculta por defecto, animada con height */
+    .faq-answer {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--negro);
+      max-width: 768px;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 20px;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 20px 20px;
+    }
+
+    /* Contacto debajo del FAQ — H4 + texto + botón */
+    .faq-contact {
+      max-width: 560px;
+    }
+
+    .faq-contact h4 {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 1.3;
+      letter-spacing: -0.3px;
+      color: var(--negro);
+      margin-bottom: 12px;
+    }
+
+    .faq-contact p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--negro);
+      margin-bottom: 20px;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       CTA (CTA 31) — Sección final centrada.
+       H2 60px, subtítulo, dos botones, imagen grande.
+       ═══════════════════════════════════════════════════════ */
+    .cta-final {
+      padding: var(--section-padding) 0;
+      background: var(--bg-white);
+      text-align: center;
+    }
+
+    .cta-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .cta-content {
+      max-width: 768px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .cta-final h2 {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 1.2;
+      letter-spacing: -0.4px;
+      color: var(--negro);
+    }
+
+    .cta-final .cta-subtitle {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--negro);
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    /* Imagen grande — ratio 1:1, ancho completo, radius 8px */
+    .cta-mascot {
+      width: 100%;
+      border-radius: var(--radius-large);
+      overflow: hidden;
+    }
+
+    .cta-mascot img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-large);
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       FOOTER (Footer 4) — Logo, links de redes, iconos sociales.
+       Divider horizontal, copyright y links legales.
+       Padding 80px vertical.
+       ═══════════════════════════════════════════════════════ */
+    footer {
+      padding: 48px 0;
+      background: var(--bg-white);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    /* Fila principal — logo, links texto, iconos sociales */
+    .footer-top {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .footer-logo {
+      flex: 1;
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 20px;
+      color: var(--negro);
+    }
+
+    /* Links de redes — texto DM Sans SemiBold 16px */
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--negro);
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.65;
+    }
+
+    /* Iconos sociales — grupo de SVGs a la derecha */
+    .footer-social {
+      flex: 1;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      color: var(--negro);
+      transition: opacity 0.2s;
+    }
+
+    .footer-social a:hover {
+      opacity: 0.65;
+    }
+
+    .footer-social svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Bloque inferior — divider + row de copyright */
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .footer-divider {
+      border: none;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .footer-credits {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--negro);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-legal a {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--negro);
+      text-decoration: underline;
+      transition: opacity 0.2s;
+    }
+
+    .footer-legal a:hover {
+      opacity: 0.65;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESPONSIVE — Adaptación tablet y móvil.
+       ═══════════════════════════════════════════════════════ */
+
+    /* Tablet — 1024px y menor */
+    @media (max-width: 1024px) {
+      :root {
+        --page-padding: 32px;
+        --section-padding: 64px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .section-heading,
+      .faq-header h2,
+      .cta-final h2 {
+        font-size: 32px;
+      }
+
+      .stat-item h3 {
+        font-size: 32px;
+      }
+
+      .faq-contact h4 {
+        font-size: 24px;
+      }
+
+      /* Columnas se apilan en tablet */
+      .two-col {
+        flex-direction: column;
+        gap: 48px;
+      }
+
+      .features-row {
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      /* Mega menu se oculta en tablet */
+      .mega-menu {
+        display: none !important;
+      }
+
+      .nav-more-trigger {
+        display: none;
+      }
+    }
+
+    /* Móvil — 768px y menor */
+    @media (max-width: 768px) {
+      :root {
+        --page-padding: 20px;
+        --section-padding: 48px;
+      }
+
+      .nav-links,
+      .nav-buttons {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      .mobile-menu.open {
+        display: flex;
+      }
+
+      .hero {
+        height: 50vh;
+        min-height: 360px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero-subtitle {
+        font-size: 14px;
+      }
+
+      .section-heading,
+      .faq-header h2,
+      .cta-final h2 {
+        font-size: 28px;
+      }
+
+      .stat-item h3 {
+        font-size: 28px;
+      }
+
+      .stats-numbers {
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .button-pair {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Footer se apila */
+      .footer-top {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+
+      .footer-social {
+        justify-content: center;
+      }
+
+      .footer-credits {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .footer-legal {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .faq-inner {
+        gap: 48px;
+      }
+
+      .about-logos {
+        justify-content: center;
+      }
+    }
+
+    /* Móvil pequeño — 480px */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .section-heading,
+      .faq-header h2,
+      .cta-final h2 {
+        font-size: 24px;
+      }
+
+      .feature-item h3 {
+        font-size: 18px;
+      }
+
+      .faq-contact h4 {
+        font-size: 20px;
+      }
+
+      .stat-item h3 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAV (Navbar 6) — Barra fija 72px.
+       Logo + links + "Más" con mega menu + botones.
+       Hamburger en móvil.
+       ═══════════════════════════════════════════════════════ -->
+  <nav class="navbar">
+    <div class="nav-header">
+      <div class="nav-left">
+        <!-- Logo como texto — Jost Regular -->
+        <a href="#" class="nav-logo">ROBOHOGAR</a>
+
+        <!-- Links principales — DM Sans Regular 18px -->
+        <ul class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#issues">Issues</a></li>
+          <li><a href="#autor">Autor</a></li>
+          <!-- "Más" abre el mega menu -->
+          <li>
+            <button class="nav-more-trigger" aria-expanded="false" aria-controls="mega-menu" onclick="toggleMegaMenu()">
+              Más
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Botones CTA — secundario + primario -->
+      <div class="nav-buttons">
+        <a href="#suscribirse" class="btn-secondary btn-nav">Archivo</a>
+        <a href="#suscribirse" class="btn-primary btn-nav">Suscribirse</a>
+      </div>
+
+      <!-- Hamburger para móvil -->
+      <button class="nav-hamburger" aria-label="Menú" onclick="toggleMobileMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         MEGA MENU — 3 columnas (Explorar, Recursos, Destacado)
+         + sidebar con artículo destacado del blog.
+         ═══════════════════════════════════════════════════════ -->
+    <div class="mega-menu" id="mega-menu">
+      <div class="mega-menu-columns">
+        <!-- Columna 1: Explorar -->
+        <div class="mega-col">
+          <span class="mega-col-title">Explorar</span>
+          <div class="mega-col-list">
+            <a href="#" class="mega-item">
+              <svg class="mega-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V9a2 2 0 012-2h2a2 2 0 012 2v9a2 2 0 01-2 2h-2z"/></svg>
+              <div class="mega-item-content">
+                <span class="mega-item-title">Últimos issues</span>
+                <span class="mega-item-desc">Los newsletters más recientes</span>
+              </div>
+            </a>
+            <a href="#faq" class="mega-item">
+              <svg class="mega-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <div class="mega-item-content">
+                <span class="mega-item-title">Preguntas</span>
+                <span class="mega-item-desc">Respuestas sobre ROBOHOGAR</span>
+              </div>
+            </a>
+            <a href="#suscribirse" class="mega-item">
+              <svg class="mega-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <div class="mega-item-content">
+                <span class="mega-item-title">Suscripción</span>
+                <span class="mega-item-desc">Únete a la comunidad</span>
+              </div>
+            </a>
+            <a href="#" class="mega-item">
+              <svg class="mega-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+              <div class="mega-item-content">
+                <span class="mega-item-title">Redes</span>
+                <span class="mega-item-desc">Síguenos en línea</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna 2: Recursos -->
+        <div class="mega-col">
+          <span class="mega-col-title">Recursos</span>
+          <div class="mega-col-list">
+            <a href="#" class="mega-item">
+              <svg class="mega-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <div class="mega-item-content">
+                <span class="mega-item-title">Archivo</span>
+                <span class="mega-item-desc">Todos los issues publicados</span>
+              </div>
+            </a>
+            <a href="#" class="mega-item">
+              <svg class="mega-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+              <div class="mega-item-content">
+                <span class="mega-item-title">Contacto</span>
+                <span class="mega-item-desc">Escribe si tienes dudas</span>
+              </div>
+            </a>
+            <a href="#" class="mega-item">
+              <svg class="mega-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              <div class="mega-item-content">
+                <span class="mega-item-title">Comunidad</span>
+                <span class="mega-item-desc">Únete al grupo</span>
+              </div>
+            </a>
+            <a href="#" class="mega-item">
+              <svg class="mega-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14z"/><path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg>
+              <div class="mega-item-content">
+                <span class="mega-item-title">Recomendaciones</span>
+                <span class="mega-item-desc">Productos que probamos</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna 3: Destacado -->
+        <div class="mega-col">
+          <span class="mega-col-title">Destacado</span>
+          <div class="mega-col-list">
+            <a href="#" class="mega-item">
+              <svg class="mega-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <div class="mega-item-content">
+                <span class="mega-item-title">Issue especial</span>
+                <span class="mega-item-desc">Robots humanoides llegan a España</span>
+              </div>
+            </a>
+            <a href="#" class="mega-item">
+              <svg class="mega-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+              <div class="mega-item-content">
+                <span class="mega-item-title">Leer más</span>
+                <span class="mega-item-desc">Ver todos</span>
+              </div>
+            </a>
+            <a href="#suscribirse" class="mega-item">
+              <svg class="mega-item-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <div class="mega-item-content">
+                <span class="mega-item-title">Suscribir</span>
+                <span class="mega-item-desc">Entrar</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar — artículo destacado del blog -->
+      <div class="mega-sidebar">
+        <span class="mega-sidebar-title">Destacado del blog</span>
+        <div style="padding: 8px 0; display: flex; flex-direction: column; gap: 16px;">
+          <div class="mega-sidebar-image">
+            <img src="branding/master/robohogar-mascot-detective.png"
+                 alt="Mascota ROBOHOGAR detective — análisis profundo"
+                 loading="lazy">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span class="mega-sidebar-article-title">Robots humanoides en España</span>
+            <span class="mega-sidebar-article-desc">¿Cuándo llegarán realmente a nuestras casas?</span>
+            <a href="#" class="mega-sidebar-link">Leer más</a>
+          </div>
+        </div>
+        <a href="#" class="arrow-link" style="padding: 4px 0;">
+          Ver todos
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Menú móvil — se muestra con hamburger -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#issues">Issues</a>
+      <a href="#autor">Autor</a>
+      <a href="#faq">Preguntas</a>
+      <a href="#suscribirse">Suscribirse</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO (Header 5) — 900px, imagen de fondo full-bleed.
+       Overlay oscuro gradiente. Contenido izquierda.
+       H1 84px + subtítulo 20px + 2 botones.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg">
+      <img src="images/hero-landing-mascota-hogar.png"
+           alt="Mascota ROBOHOGAR en un salón con robot aspirador y dispositivos smart home"
+           loading="eager">
+    </div>
+
+    <!-- Wrapper centrado + contenido anclado a la izquierda -->
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div>
+          <h1>Robótica doméstica explicada para humanos.</h1>
+          <p class="hero-subtitle" style="margin-top: 24px;">
+            Quincenal en tu mail. Cinco minutos de lectura. Noticias curadas,
+            reviews sin filtro y opinión propia sobre los robots que ya están
+            llegando a nuestras casas. Gratis, siempre.
+          </p>
+        </div>
+        <div class="button-pair">
+          <a href="#suscribirse" class="btn-primary">Suscribirse</a>
+          <a href="#suscribirse" class="btn-secondary">Suscribirse</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FEATURES (Layout 29) — Contenido izquierda con 6 features
+       en grid 3x2 + mascota saludando a la derecha.
+       Cada feature: icono 48px + título H5 32px + desc 18px.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="features" id="issues">
+    <div class="container two-col">
+      <div class="two-col-content">
+        <div class="features-grid">
+
+          <!-- Fila 1: Noticias curadas + Reviews honestos -->
+          <div class="features-row">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <!-- Robot icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/>
+                </svg>
+              </div>
+              <h3>Noticias curadas</h3>
+              <p>Lo importante de la semana en robótica doméstica, sin ruido.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <!-- Reviews icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/>
+                </svg>
+              </div>
+              <h3>Reviews honestos</h3>
+              <p>Aspiradores, cortacésped y humanoides: qué funciona, qué no, y por qué.</p>
+            </div>
+          </div>
+
+          <!-- Fila 2: Comparativas claras + Opinión propia -->
+          <div class="features-row">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <!-- Compare icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="8" height="18" rx="1"/><rect x="14" y="3" width="8" height="18" rx="1"/>
+                </svg>
+              </div>
+              <h3>Comparativas claras</h3>
+              <p>Modelos lado a lado para que decidas sin confusión ni tecnicismos innecesarios.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <!-- Topic/opinion icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                </svg>
+              </div>
+              <h3>Opinión propia</h3>
+              <p>Mi voz, mis dudas, mis descubrimientos. Sin IA, sin guiones, sin filtro.</p>
+            </div>
+          </div>
+
+          <!-- Fila 3: Placeholders del Figma — pendientes de contenido -->
+          <div class="features-row">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <h3>Guías prácticas</h3>
+              <p>Tutoriales paso a paso para sacar el máximo partido a tu robot desde el primer día.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+                </svg>
+              </div>
+              <h3>Comunidad activa</h3>
+              <p>Conecta con otros entusiastas que comparten tu curiosidad por la robótica doméstica.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Botones de sección — secundario + link con flecha -->
+        <div class="button-pair">
+          <a href="#suscribirse" class="btn-secondary">Suscribirse</a>
+          <a href="#suscribirse" class="arrow-link">
+            Explorar
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna derecha — mascota saludando -->
+      <div class="two-col-image">
+        <img src="branding/master/robohogar-mascot-saludando.png"
+             alt="Mascota ROBOHOGAR saludando — robot amigable que te da la bienvenida"
+             loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ABOUT (Layout 13) — Biografía de Rafael.
+       Tagline "Quién soy" + H2 60px + body 20px.
+       Logos de plataformas + botones.
+       Mascota leyendo a la derecha.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="about" id="autor">
+    <div class="container two-col">
+      <div class="two-col-content">
+        <p class="section-tagline">Quién soy</p>
+        <h2 class="section-heading">Un entusiasta de la robótica doméstica sin pretensiones</h2>
+        <p class="section-body">
+          No soy ingeniero. No trabajo para ninguna marca. Solo alguien que lleva
+          años observando cómo estos robots entran en nuestras casas, probándolos,
+          rompiéndolos a veces, y compartiendo lo que aprendo sin filtros.
+        </p>
+
+        <!-- Logos de plataformas — placeholder con SVGs genéricos -->
+        <div class="about-logos">
+          <div class="about-logo-item">
+            <svg viewBox="0 0 120 20" fill="currentColor"><text x="0" y="16" font-family="DM Sans, sans-serif" font-size="14" font-weight="600">Substack</text></svg>
+          </div>
+          <div class="about-logo-item">
+            <svg viewBox="0 0 120 20" fill="currentColor"><text x="0" y="16" font-family="DM Sans, sans-serif" font-size="14" font-weight="600">LinkedIn</text></svg>
+          </div>
+          <div class="about-logo-item">
+            <svg viewBox="0 0 120 20" fill="currentColor"><text x="0" y="16" font-family="DM Sans, sans-serif" font-size="14" font-weight="600">YouTube</text></svg>
+          </div>
+          <div class="about-logo-item">
+            <svg viewBox="0 0 120 20" fill="currentColor"><text x="0" y="16" font-family="DM Sans, sans-serif" font-size="14" font-weight="600">Twitter/X</text></svg>
+          </div>
+        </div>
+
+        <div class="button-pair">
+          <a href="#suscribirse" class="btn-secondary">Suscribirse</a>
+          <a href="#suscribirse" class="arrow-link">
+            Conóceme
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mascota leyendo — columna derecha -->
+      <div class="two-col-image">
+        <img src="branding/master/robohogar-mascot-leyendo.png"
+             alt="Mascota ROBOHOGAR leyendo — entusiasta de la robótica doméstica"
+             loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       STATS (Layout 216) — Imagen IZQUIERDA, contenido DERECHA.
+       Tagline "Por qué confiar" + H2 + body.
+       Stats: "Quincenal" y "5 minutos" en Jost 60px.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="stats">
+    <div class="container two-col">
+      <!-- Imagen izquierda — mascota trofeo -->
+      <div class="two-col-image">
+        <img src="branding/master/robohogar-mascot-trofeo.png"
+             alt="Mascota ROBOHOGAR con trofeo — compromiso de calidad y consistencia"
+             loading="lazy">
+      </div>
+
+      <!-- Contenido derecha -->
+      <div class="two-col-content">
+        <p class="section-tagline">Por qué confiar</p>
+        <h2 class="section-heading">Números que hablan por sí solos</h2>
+        <p class="section-body">
+          Consistencia brutal desde el primer día. Sin promesas vacías, solo entregas.
+        </p>
+
+        <!-- Stats — dos números grandes -->
+        <div class="stats-numbers">
+          <div class="stat-item">
+            <h3>Quincenal</h3>
+            <p>Cada dos semanas, sin falta, en tu bandeja de entrada.</p>
+          </div>
+          <div class="stat-item">
+            <h3>5 minutos</h3>
+            <p>Tiempo real de lectura. Respeto por tu tiempo, siempre.</p>
+          </div>
+        </div>
+
+        <div class="button-pair">
+          <a href="#suscribirse" class="btn-secondary">Suscribirse</a>
+          <a href="#suscribirse" class="arrow-link">
+            Ver issues
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FAQ (FAQ 5) — 5 preguntas con acordeón interactivo.
+       H2 + subtítulo arriba, gap 80px al listado.
+       Cada item: borde, radius 8px, toggle +/×.
+       Sección de contacto al final.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-inner">
+        <!-- Header del FAQ -->
+        <div class="faq-header">
+          <h2>Preguntas</h2>
+          <p>Lo que necesitas saber antes de suscribirte al newsletter.</p>
+        </div>
+
+        <!-- Lista de preguntas — acordeón con toggle JS -->
+        <div class="faq-list">
+
+          <!-- FAQ 1 — abierto por defecto -->
+          <div class="faq-item open">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              ¿Es completamente gratis?
+              <span class="faq-toggle-icon"></span>
+            </button>
+            <div class="faq-answer">
+              Sí. Sin costos ocultos, sin versiones premium, sin sorpresas.
+              Cada issue llega a tu correo sin pagar nada. Así es desde el
+              primer día y así seguirá siendo.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              ¿Con qué frecuencia llega?
+              <span class="faq-toggle-icon"></span>
+            </button>
+            <div class="faq-answer">
+              Cada dos semanas, sin falta. Recibirás un email los martes
+              con todo lo que pasó en robótica doméstica durante esos
+              catorce días. Consistencia brutal.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              ¿Puedo cancelar cuando quiera?
+              <span class="faq-toggle-icon"></span>
+            </button>
+            <div class="faq-answer">
+              Por supuesto. Un click en el enlace de desuscripción al pie
+              de cualquier email y listo. Sin preguntas, sin culpa, sin
+              intentos de retenerte.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              ¿Cuánto tiempo toma leer cada issue?
+              <span class="faq-toggle-icon"></span>
+            </button>
+            <div class="faq-answer">
+              Cinco minutos. Ese es el tiempo real de lectura. No inflamos
+              los números ni te hacemos perder el tiempo con relleno
+              innecesario.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              ¿Hay contenido generado por IA?
+              <span class="faq-toggle-icon"></span>
+            </button>
+            <div class="faq-answer">
+              No. Todo lo que lees es escrito por mí después de probar,
+              investigar y pensar en lo que importa. Mi voz, mis opiniones,
+              mis descubrimientos reales.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Contacto — debajo del FAQ -->
+        <div class="faq-contact">
+          <h4>¿Tienes más dudas?</h4>
+          <p>Escríbeme en redes sociales o responde directamente a cualquier email.</p>
+          <a href="#" class="btn-secondary">Contactar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CTA (CTA 31) — Sección final centrada.
+       H2 60px + subtítulo + dos botones + imagen grande.
+       ═══════════════════════════════════════════════════════ -->
+  <section class="cta-final" id="suscribirse">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-content">
+          <div>
+            <h2>No esperes más para empezar</h2>
+            <p class="cta-subtitle" style="margin-top: 24px;">
+              Tu primer issue llega en dos semanas. Suscríbete ahora y no te lo pierdas.
+            </p>
+          </div>
+          <div class="cta-buttons">
+            <a href="#" class="btn-primary">Suscribirse</a>
+            <a href="#" class="btn-secondary">Sígueme</a>
+          </div>
+        </div>
+        <div class="cta-mascot">
+          <img src="branding/master/robohogar-mascot-herramientas.png"
+               alt="Mascota ROBOHOGAR con herramientas — lista para construir contigo"
+               loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER (Footer 4) — Tres bloques:
+       1. Logo + links texto + iconos sociales
+       2. Divider
+       3. Copyright + links legales
+       ═══════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <!-- Fila superior -->
+        <div class="footer-top">
+          <span class="footer-logo">ROBOHOGAR</span>
+
+          <!-- Links de redes como texto -->
+          <ul class="footer-links">
+            <li><a href="https://twitter.com/robohogar" target="_blank" rel="noopener">Twitter</a></li>
+            <li><a href="https://linkedin.com/company/robohogar" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://instagram.com/robohogar" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://youtube.com/@robohogar" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a href="/rss.xml">RSS</a></li>
+          </ul>
+
+          <!-- Iconos sociales -->
+          <div class="footer-social">
+            <!-- Facebook -->
+            <a href="#" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://instagram.com/robohogar" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </a>
+            <!-- X/Twitter -->
+            <a href="https://twitter.com/robohogar" target="_blank" rel="noopener" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/company/robohogar" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com/@robohogar" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Divider + credits -->
+        <div class="footer-bottom">
+          <hr class="footer-divider">
+          <div class="footer-credits">
+            <span>&copy; 2025 ROBOHOGAR. Todos los derechos reservados.</span>
+            <ul class="footer-legal">
+              <li><a href="#">Privacidad</a></li>
+              <li><a href="#">Términos de servicio</a></li>
+              <li><a href="#">Configuración de cookies</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════
+       JAVASCRIPT — Interactividad mínima.
+       Toggle mega menu, FAQ accordion, menú móvil.
+       Sin dependencias externas.
+       ═══════════════════════════════════════════════════════ -->
+  <script>
+    /* --- Mega Menu toggle ---
+       Abre/cierra el mega menu al hacer click en "Más".
+       Cierra al hacer click fuera del menú. */
+    function toggleMegaMenu() {
+      var menu = document.getElementById('mega-menu');
+      var trigger = document.querySelector('.nav-more-trigger');
+      var isOpen = menu.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen);
+    }
+
+    /* --- FAQ Accordion toggle ---
+       Abre/cierra cada pregunta individualmente.
+       Solo una pregunta abierta a la vez. */
+    function toggleFaq(button) {
+      var item = button.parentElement;
+      var wasOpen = item.classList.contains('open');
+
+      /* Cerrar todas las preguntas antes de abrir la seleccionada */
+      document.querySelectorAll('.faq-item').forEach(function(el) {
+        el.classList.remove('open');
+      });
+
+      /* Si no estaba abierta, abrirla; si estaba abierta, queda cerrada */
+      if (!wasOpen) {
+        item.classList.add('open');
+      }
+    }
+
+    /* --- Menú móvil toggle ---
+       Muestra/oculta el panel de links en pantallas pequeñas. */
+    function toggleMobileMenu() {
+      var menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('open');
+    }
+
+    /* --- Cerrar mega menu al hacer click fuera --- */
+    document.addEventListener('click', function(e) {
+      var menu = document.getElementById('mega-menu');
+      var trigger = document.querySelector('.nav-more-trigger');
+      if (menu && trigger && !menu.contains(e.target) && !trigger.contains(e.target)) {
+        menu.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+
+</body>
+</html>
