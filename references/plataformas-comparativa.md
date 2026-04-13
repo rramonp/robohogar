@@ -69,9 +69,24 @@
 
 ### Ideal si: priorizas crecimiento agresivo y monetización desde el inicio
 
-## DECISIÓN (2026-04-12): Substack
+## DECISIÓN (2026-04-13): Beehiiv
 
-**Substack para arrancar** → migrar a Ghost cuando se cumplan 2 de 3: 500+ subs, diseño limita, 10% comisión duele. Migración sencilla (export CSV de suscriptores).
+**Beehiiv (free plan) para arrancar.** Razones de la decisión:
+
+1. **Landing page visual sin código** — AI website builder + drag-and-drop. Resuelve el problema de responsive mobile/desktop que frustró con HTML custom.
+2. **Newsletter Operator (Matt McGarry, $5.27M revenue, 50K subs) usa Beehiiv** para todo: newsletter, web, blog, lead magnets, media kit, automations. Es la plataforma de referencia para el playbook que vamos a seguir.
+3. **Email gating nativo** — cada artículo puede funcionar como lead magnet sin herramientas externas. Clave para la estrategia "lazy lead magnets" de Newsletter Operator.
+4. **SEO indexado automático** — cada post se publica como web post con dominio propio, meta titles, URLs limpias, sitemap. Suficiente para un nicho sin competencia en español.
+5. **Segmentación avanzada** — permite el "money button" (automation a suscriptores más engaged) desde el primer día.
+6. **0% comisión** en todo (vs Substack 10%). Afiliación Amazon sin restricciones.
+7. **Plan gratuito hasta 2.500 suscriptores** con envíos ilimitados — no hay coste hasta que el proyecto valide tracción.
+8. **Ad Network y Boosts** disponibles para monetización futura (con cautela: Boosts genera subs de baja calidad según datos reales de Newsletter Operator).
+
+**Descartados:**
+- **Substack:** SEO débil (subdominio), sin dominio propio, 10% comisión, diseño restrictivo.
+- **Ghost:** SEO excelente pero sin editor visual drag-and-drop, sin herramientas de growth (referrals, boosts, ad network), requiere coding para personalizar landing pages. Ideal para magazine editorial tipo Stratechery, no para nuestro modelo de crecimiento rápido + afiliación.
+
+**Migración futura:** Evaluar Ghost solo si el proyecto madura hacia membresía de pago premium y necesita CMS editorial completo (escenario 2028+).
 
 ## Fuentes
 - Beehiiv vs Substack: beehiiv.com/comparisons/substack
