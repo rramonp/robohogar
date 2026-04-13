@@ -8,9 +8,11 @@ Automatizar todo EXCEPTO juicio editorial y voz. La opinión y personalidad son 
 
 ```
 RSS feeds → Script Python → Claude API categoriza → Research Digest .md
-Rafael elige temas + ángulos → Claude genera borrador → Rafael edita → Publicar
-Publicación → RSS → Make.com → Claude API posts sociales → Buffer → Redes
+Rafael elige temas + ángulos → Claude genera borrador → Rafael edita → Publicar en Beehiiv
+Publicación → Canva Reels + Buffer → Instagram, LinkedIn, X
 ```
+
+Detalle completo: `docs/plan-v2.md` sección 4.
 
 ## Scripts (utilities/)
 
