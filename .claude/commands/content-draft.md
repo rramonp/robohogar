@@ -116,7 +116,7 @@ Cada artículo NECESITA su imagen hero (1200x630) antes de publicar. Sin imagen,
 **Invocar `/nano-banana` en modo hero de artículo:**
 
 ```bash
-uv run "C:/Users/cri-c/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
+uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
   --prompt "[ver prompt template por tipo de artículo en asset-catalog.md]" \
   --output "content/articulos/<slug>/assets/hero-<slug>.png" \
   --model flash \

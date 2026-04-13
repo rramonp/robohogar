@@ -10,7 +10,7 @@
 Si es la primera vez en este PC o no tienes el repo clonado:
 
 ```bash
-cd C:/Users/bakal
+cd $HOME
 git clone https://github.com/rramonp/robohogar.git
 cd robohogar
 ```
@@ -18,7 +18,7 @@ cd robohogar
 Si ya lo tienes clonado, actualiza:
 
 ```bash
-cd C:/Users/bakal/robohogar
+cd $HOME/robohogar
 git pull
 ```
 

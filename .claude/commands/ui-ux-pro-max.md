@@ -10,22 +10,22 @@ External skill for UI/UX design decisions. BM25 search across 15+ databases.
 
 ## Location
 
-Scripts in RRP-DEV: `C:/Users/bakal/RRP-DEV/skills/external/ui_ux_pro_max/`
+Scripts in RRP-DEV: `$HOME/RRP-DEV/skills/external/ui_ux_pro_max/`
 
 ## Usage
 
 ### Generate Design System
 
 ```bash
-python C:/Users/bakal/RRP-DEV/skills/external/ui_ux_pro_max/scripts/search.py "home robotics newsletter editorial" --design-system -p "ROBOHOGAR"
+python $HOME/RRP-DEV/skills/external/ui_ux_pro_max/scripts/search.py "home robotics newsletter editorial" --design-system -p "ROBOHOGAR"
 ```
 
 ### Domain Search
 
 ```bash
-python C:/Users/bakal/RRP-DEV/skills/external/ui_ux_pro_max/scripts/search.py "editorial magazine clean" --domain style
-python C:/Users/bakal/RRP-DEV/skills/external/ui_ux_pro_max/scripts/search.py "newsletter signup" --domain landing
-python C:/Users/bakal/RRP-DEV/skills/external/ui_ux_pro_max/scripts/search.py "tech blog modern" --domain typography
+python $HOME/RRP-DEV/skills/external/ui_ux_pro_max/scripts/search.py "editorial magazine clean" --domain style
+python $HOME/RRP-DEV/skills/external/ui_ux_pro_max/scripts/search.py "newsletter signup" --domain landing
+python $HOME/RRP-DEV/skills/external/ui_ux_pro_max/scripts/search.py "tech blog modern" --domain typography
 ```
 
 ### Available Domains
