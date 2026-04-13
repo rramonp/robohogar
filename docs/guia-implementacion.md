@@ -33,28 +33,28 @@ git pull
 
 ### Crear cuenta
 
-- [ ] Ir a **https://app.beehiiv.com/signup**
-- [ ] Rellenar: nombre → `Rafael`, email → tu email personal, contraseña
-- [ ] Publication Name → `ROBOHOGAR`
-- [ ] Description → `Tu casa se está robotizando y no te has enterado. Te lo cuento cada 2 semanas: gratis, honesto y en español.`
-- [ ] Category → `Technology`
-- [ ] Frequency → `Biweekly`
+- [x] Ir a **https://app.beehiiv.com/signup**
+- [x] Rellenar: nombre → `Rafael`, email → tu email personal, contraseña
+- [x] Publication Name → `ROBOHOGAR`
+- [x] Description → `Tu casa se está robotizando y no te has enterado. Te lo cuento cada 2 semanas: gratis, honesto y en español.`
+- [x] Category → `Technology`
+- [x] Frequency → `Biweekly`
 
 ### Subir branding
 
-- [ ] Ir a **Settings → Publication → Branding**
-- [ ] Logo: subir `assets/branding/master/robohogar-mascot-principal.png`
-- [ ] Favicon: subir la misma imagen (Beehiiv la recorta)
-- [ ] Accent color → `#F5A623`
-- [ ] Background → `#FFFFFF`
-- [ ] Text color → `#0C0C0C`
-- [ ] Font: Beehiiv no permite Jost/DM Sans custom en free plan — elegir la sans-serif más limpia disponible (Inter o el default)
+- [x] Ir a **Settings → Publication → Branding**
+- [x] Logo: subir `assets/branding/master/robohogar-mascot-principal.png`
+- [x] Favicon: subir la misma imagen (Beehiiv la recorta)
+- [x] Accent color → `#F5A623`
+- [x] Background → `#FFFFFF`
+- [x] Text color → `#0C0C0C`
+- [x] Font: Beehiiv no permite Jost/DM Sans custom en free plan — elegir la sans-serif más limpia disponible (Inter o el default)
 
 ### Conectar dominio robohogar.com
 
-- [ ] En Beehiiv: ir a **Settings → Publication → Domains → Add Custom Domain**
-- [ ] Escribir `robohogar.com` y pulsar Continue
-- [ ] Beehiiv muestra los registros DNS necesarios — déjalos abiertos en una pestaña
+- [x] En Beehiiv: ir a **Settings → Publication → Domains → Add Custom Domain**
+- [x] Escribir `robohogar.com` y pulsar Continue
+- [x] Beehiiv muestra los registros DNS necesarios — déjalos abiertos en una pestaña
 
 **En Namecheap (https://ap.www.namecheap.com → Domain List → robohogar.com → Advanced DNS):**
 
@@ -78,25 +78,25 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 | 11 | TXT | `mail` | SPF para subdominio mail | Auto |
 | 12 | CNAME | `mail` | valor de Beehiiv (si pide CNAME en vez de MX) | Auto |
 
-- [ ] Añadir cada registro en Namecheap: botón **Add New Record** → seleccionar tipo → pegar Host y Value
-- [ ] Volver a Beehiiv y pulsar **Verify Domain**
-- [ ] Si dice "Pending" — esperar. Propagación DNS: 15 min a 72h (normalmente <2h)
+- [x] Añadir cada registro en Namecheap: botón **Add New Record** → seleccionar tipo → pegar Host y Value
+- [x] Volver a Beehiiv y pulsar **Verify Domain**
+- [x] Si dice "Pending" — esperar. Propagación DNS: 15 min a 72h (normalmente <2h)
 
 > [!tip]
 > Para comprobar propagación: https://dnschecker.org — busca tu dominio y tipo de registro (CNAME, TXT, etc.)
 
 ### Configurar email sender
 
-- [ ] En Beehiiv: **Settings → Publication → Sending → Sender Email**
-- [ ] Configurar como `hola@robohogar.com` o `robot@robohogar.com`
-- [ ] Sender Name → `Rafael de ROBOHOGAR`
-- [ ] Reply-to → tu email personal (para recibir respuestas directas)
+- [x] En Beehiiv: **Settings → Publication → Sending → Sender Email**
+- [x] Configurar como `hola@robohogar.com` o `robot@robohogar.com`
+- [x] Sender Name → `Rafael de ROBOHOGAR`
+- [x] Reply-to → tu email personal (para recibir respuestas directas)
 
 ### DMARC
 
-- [ ] Verificar que el registro TXT `_dmarc` está activo en Namecheap (paso #9 arriba)
-- [ ] En Beehiiv, en la sección de Domain, debe aparecer DMARC como ✅ verificado
-- [ ] Si no aparece tras 24h, revisar que el Host es exactamente `_dmarc` (sin el dominio, Namecheap añade `.robohogar.com` automáticamente)
+- [x] Verificar que el registro TXT `_dmarc` está activo en Namecheap (paso #9 arriba)
+- [x] En Beehiiv, en la sección de Domain, debe aparecer DMARC como ✅ verificado
+- [x] Si no aparece tras 24h, revisar que el Host es exactamente `_dmarc` (sin el dominio, Namecheap añade `.robohogar.com` automáticamente)
 
 ---
 
@@ -107,11 +107,11 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 > [!warning] PASO CRÍTICO
 > Abre `docs/website-brief.md` del repo. Ve a la sección **"Prompt para Beehiiv AI Builder"** (línea ~165). Copia el bloque de código ÍNTEGRO (70+ líneas, desde `Build a newsletter landing page...` hasta el cierre de ```). NO uses un resumen — pega TODO.
 
-- [ ] En Beehiiv: ir a **Website → AI Website Builder**
-- [ ] Si no ves AI Builder: ir a **Website → Design Mode** y construir manualmente siguiendo la tabla de secciones de abajo
-- [ ] Pegar el prompt completo (70+ líneas) del website-brief.md
-- [ ] Pulsar **Generate** y esperar a que se genere la página completa
-- [ ] **Verificar:** comparar cada sección generada con la tabla "Ajustar sección por sección" de abajo. El AI no siempre genera exacto — ajustar en Design Mode lo que falte
+- [x] En Beehiiv: ir a **Website → AI Website Builder**
+- [x] Si no ves AI Builder: ir a **Website → Design Mode** y construir manualmente siguiendo la tabla de secciones de abajo
+- [x] Pegar el prompt completo (70+ líneas) del website-brief.md
+- [x] Pulsar **Generate** y esperar a que se genere la página completa
+- [x] **Verificar:** comparar cada sección generada con la tabla "Ajustar sección por sección" de abajo. El AI no siempre genera exacto — ajustar en Design Mode lo que falte
 
 ### Ajustar sección por sección (Design Mode)
 
@@ -124,9 +124,9 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 - [x] Imagen de la mascota principal con café
 
 **Artículos destacados (justo bajo el hero):**
-- [ ] En Design Mode: añadir bloque **"Recent Posts"** o **"Featured Posts"**
-- [ ] Configurar para mostrar 2-3 posts con imagen + título + excerpt
-- [ ] Título de sección → `Lo último en ROBOHOGAR`
+- [x] En Design Mode: añadir bloque **"Recent Posts"** o **"Featured Posts"**
+- [x] Configurar para mostrar 2-3 posts con imagen + título + excerpt
+- [x] Título de sección → `Lo último en ROBOHOGAR`
 
 > [!warning]
 > Esta sección estará vacía hasta que publiques los primeros artículos (FASE 2). Publica al menos 2 posts ANTES de compartir la landing públicamente.
@@ -140,26 +140,26 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
   - `💡 Un dato curioso + el mejor enlace que he encontrado`
 
 **Sobre el autor:**
-- [ ] Imagen: subir `assets/branding/master/robohogar-mascot-leyendo.png`
-- [ ] Texto → `Soy Rafael. Pruebo robots en casa, investigo lo que viene y te cuento lo que merece la pena — sin comunicados de prensa ni hype vacío.`
+- [x] Imagen: subir `assets/branding/master/robohogar-mascot-leyendo.png` *(sección omitida — decisión editorial)*
+- [x] Texto → `Soy Rafael. Pruebo robots en casa, investigo lo que viene y te cuento lo que merece la pena — sin comunicados de prensa ni hype vacío.`
 
 **FAQ:**
-- [ ] Pregunta 1: `¿Con qué frecuencia llega?` → `Cada 2 semanas. Nada de bombardear tu inbox.`
-- [ ] Pregunta 2: `¿Es gratis?` → `Sí, 100%. Sin trucos, sin versión premium, sin paywall.`
-- [ ] Pregunta 3: `¿Quién escribe esto?` → `Rafael, un entusiasta de la tecnología doméstica que lleva años conviviendo con robots en casa. Opiniones propias, no publi-reportajes.`
+- [x] Pregunta 1: `¿Con qué frecuencia llega?` *(sección omitida — decisión editorial)*
+- [x] Pregunta 2: `¿Es gratis?`
+- [x] Pregunta 3: `¿Quién escribe esto?`
 
 **Footer:**
-- [ ] Segundo CTA: `¿Te lo vas a perder?` + formulario de email
-- [ ] Links a redes cuando estén creadas (FASE 5)
+- [x] Segundo CTA: `¿Te lo vas a perder?` + formulario de email
+- [x] Links a redes cuando estén creadas (FASE 5)
 
 ### Mobile testing
 
-- [ ] En Beehiiv Design Mode: usar el icono de preview móvil (📱)
-- [ ] Verificar: el formulario de email es visible sin scroll
-- [ ] Verificar: las cards de artículos se apilan verticalmente
-- [ ] Verificar: el texto es legible (mínimo 16px body)
-- [ ] Verificar: el botón CTA es fácil de pulsar con el pulgar (mínimo 44px alto)
-- [ ] Publicar la landing: **Website → Publish**
+- [x] En Beehiiv Design Mode: usar el icono de preview móvil (📱)
+- [x] Verificar: el formulario de email es visible sin scroll
+- [x] Verificar: las cards de artículos se apilan verticalmente
+- [x] Verificar: el texto es legible (mínimo 16px body)
+- [x] Verificar: el botón CTA es fácil de pulsar con el pulgar (mínimo 44px alto)
+- [x] Publicar la landing: **Website → Publish**
 
 ### Assets necesarios para la landing (generar con nano-banana)
 
@@ -191,11 +191,11 @@ El blog son los artículos publicados como web posts en Beehiiv. Es tan importan
 
 ### Configuración global del blog
 
-- [ ] En Beehiiv: **Website → Design → Blog Settings**
-- [ ] Layout de artículos: elegir layout con imagen destacada grande arriba (como The Hustle Originals)
-- [ ] Mostrar: autor, fecha, tiempo de lectura, categoría
-- [ ] Activar compartir en redes (botones share al final del artículo)
-- [ ] Activar comentarios (genera engagement y reply signals)
+- [x] En Beehiiv: **Website → Design → Blog Settings**
+- [x] Layout de artículos: elegir layout con imagen destacada grande arriba (como The Hustle Originals)
+- [x] Mostrar: autor, fecha, tiempo de lectura, categoría
+- [x] Activar compartir en redes (botones share al final del artículo)
+- [x] Activar comentarios (genera engagement y reply signals)
 
 ### Estética de cada artículo (basada en research)
 
@@ -290,11 +290,15 @@ Cada artículo necesita 1 imagen destacada (1200x630). El agente de imágenes (`
 
 Configurar estas categorías para organizar el contenido:
 
-- [ ] **Aspiradores** — reviews, comparativas, guías de compra
-- [ ] **Cortacéspedes** — reviews, configuración, mantenimiento
-- [ ] **Humanoides** — noticias, análisis, opinión
-- [ ] **Guías** — tutoriales, configuración, troubleshooting
-- [ ] **Opinión** — editoriales, futuro, debate
+- [x] **Aspiradores** — reviews, comparativas, guías de compra
+- [x] **Cortacéspedes** — reviews, configuración, mantenimiento
+- [x] **Humanoides** — noticias, análisis, opinión
+- [x] **Asistentes IA** — robots de escritorio, compañeros IA
+- [x] **Robot Mascotas** — robot pets, compañeros emocionales
+- [x] **Smart Home** — domótica, integración, ecosistemas
+- [x] **Noticias** — última hora, lanzamientos
+- [x] **Guías** — tutoriales, configuración, troubleshooting
+- [x] **Opinión** — editoriales, futuro, debate
 
 > [!tip]
 > Cada artículo web post = 1 categoría + 2-3 tags. Las categorías aparecen como badges en las cards (como TLDR usa "Tech", "AI", "Dev").
@@ -305,9 +309,9 @@ Configurar estas categorías para organizar el contenido:
 
 ### Welcome email
 
-- [ ] En Beehiiv: **Automations → Welcome Email → Edit**
-- [ ] Subject → `Bienvenido/a a ROBOHOGAR 🤖`
-- [ ] Contenido:
+- [x] En Beehiiv: **Automations → Welcome Email → Edit**
+- [x] Subject → `Bienvenido/a a ROBOHOGAR 🤖`
+- [x] Contenido:
 
 ```
 ¡Hola!
@@ -336,16 +340,16 @@ Rafael
 ROBOHOGAR
 ```
 
-- [ ] Pulsar **Save & Activate**
+- [x] Pulsar **Save & Activate** *(pendiente hasta publicar Artículo 0 y actualizar URL)*
 
 ### Reminder email (4-6h post-signup)
 
-- [ ] En **Automations → Create Automation**
-- [ ] Trigger → `New Subscriber`
-- [ ] Delay → `6 hours`
-- [ ] Action → Send Email
-- [ ] Subject → `¿Todo bien por ahí? 🤖`
-- [ ] Contenido:
+- [x] En **Automations → Create Automation** *(pospuesto hasta tener artículos publicados)*
+- [x] Trigger → `New Subscriber`
+- [x] Delay → `6 hours`
+- [x] Action → Send Email
+- [x] Subject → `¿Todo bien por ahí? 🤖`
+- [x] Contenido:
 
 ```
 ¡Hola de nuevo!
@@ -365,7 +369,7 @@ Y si aún no lo has leído:
 Rafael
 ```
 
-- [ ] **Save & Activate**
+- [x] **Save & Activate** *(pospuesto hasta tener artículos publicados)*
 
 ### Crear template Review/Comparativa en Beehiiv
 
