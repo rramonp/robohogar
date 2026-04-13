@@ -13,6 +13,16 @@ Generar con nano-banana. Referencia mascota: `assets/branding/master/`.
 | `newsletter-header.png` | 600x150 | Cabecera para emails: "ROBOHOGAR" wordmark + mascota pequeña a la derecha. Fondo blanco. | `mascot-saludando` |
 | `hero-landing-beehiiv.png` | 1200x800 | Mascota en salón moderno con robot aspirador. Estilo editorial limpio, luz cálida. Para hero section. | `mascot-casita` |
 
+## P1B — Imágenes destacadas de artículos (necesarias antes de publicar)
+
+| Archivo | Dimensiones | Descripción | Pose base |
+|---|---|---|---|
+| `art-robot-aspirador-guia.png` | 1200x630 | Mascota con aspirador robot, comparando modelos. Fondo salón. Para artículo "¿Qué robot aspirador compro en 2026?" | `mascot-detective` |
+| `art-humanoides-futuro.png` | 1200x630 | Mascota mirando a un robot humanoide futurista. Fondo hogar del futuro. Para artículo "5 robots humanoides" | `mascot-pensativo` |
+| `art-experiencia-robots.png` | 1200x630 | Mascota en salón rodeada de gadgets (aspirador, altavoz, etc). Ambiente cálido. Para artículo personal | `mascot-casita` |
+
+> Sin estas imágenes los artículos quedan sin preview en la landing y en redes sociales.
+
 ## P2 — Nice to have (post-lanzamiento)
 
 | Archivo | Dimensiones | Descripción | Pose base |

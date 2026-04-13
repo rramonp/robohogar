@@ -81,19 +81,8 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 ### AI Website Builder
 
 - [ ] En Beehiiv: **Website → AI Website Builder** (o Design Mode si no aparece AI)
-- [ ] Pegar este prompt exacto:
-
-```
-Newsletter sobre robótica doméstica en español. Audiencia: adultos españoles
-30-55, curiosos de tecnología. Acento naranja #F5A623 sobre fondo blanco.
-Tono: editorial cálido, como revista tech accesible. Hero con email input
-visible, CTA "Suscríbete gratis". JUSTO debajo del hero: sección de artículos
-destacados con cards visuales (imagen + título + excerpt) estilo magazine.
-Después: qué recibirás (4 bullets), sobre el autor, FAQ (3 preguntas),
-footer con segundo CTA. Mobile-first. Sin navegación compleja.
-Foco total en conversión a suscriptor.
-```
-
+- [ ] Pegar el prompt completo de `docs/website-brief.md` → sección "Prompt para Beehiiv AI Builder"
+- [ ] El prompt tiene 70+ líneas con instrucciones detalladas por sección, referencias a los 5 top newsletters analizados, y reglas de diseño específicas
 - [ ] Pulsar Generate y esperar
 
 ### Ajustar sección por sección (Design Mode)
@@ -143,6 +132,130 @@ Foco total en conversión a suscriptor.
 - [ ] Verificar: el texto es legible (mínimo 16px body)
 - [ ] Verificar: el botón CTA es fácil de pulsar con el pulgar (mínimo 44px alto)
 - [ ] Publicar la landing: **Website → Publish**
+
+### Assets necesarios para la landing (generar con nano-banana)
+
+| Asset | Archivo | Dónde se usa | Prioridad |
+|---|---|---|---|
+| **Hero mascota** | `hero-landing-beehiiv.png` (1200x800) | Hero section, lado derecho | P1 — sin esto la landing queda vacía |
+| **OG image** | `og-image-robohogar.png` (1200x630) | Meta tag, compartir en redes | P1 — necesario antes de compartir links |
+| **Favicon** | `favicon-robohogar.png` (512x512) | Pestaña del navegador | P1 — credibilidad básica |
+| **About mascota** | Reutilizar `mascot-leyendo.png` del master | Sección "Sobre el autor" | Ya existe |
+
+> [!tip]
+> Generar los 3 assets P1 con `/nano-banana` ANTES de montar la landing en Beehiiv. Así al configurar solo hay que subir los archivos.
+
+### Referencia visual: cómo se ven los mejores
+
+| Referente | Qué copiar para la landing |
+|---|---|
+| **Newsletter Operator** | Hero con social proof ("50K+ founders") + email campo con borde naranja. "Featured" articles como cards justo debajo. 3 CTAs por página (hero, mid, footer). |
+| **Morning Brew** | Tagline memorable ("Become smarter in 5 minutes"). Segundo CTA con mockup de móvil. Juegos como engagement (futuro). |
+| **The Hustle** | Headlines GRANDES (54px). Separación clara entre "News Briefs" (corto) y "Originals" (largo). Lead magnet mid-page. |
+| **TLDR** | Subscribe button después de CADA artículo (agresivo pero efectivo). Social proof "1.6M readers" prominente. Layout ultra-minimal. |
+| **Milk Road** | Ticker de datos relevantes al nicho (futuro: "Últimos robots lanzados"). Pill buttons modernos. |
+
+---
+
+## FASE 1B: Estética del Blog (formato de artículos en Beehiiv)
+
+El blog son los artículos publicados como web posts en Beehiiv. Es tan importante como la landing — el visitante que llega por SEO aterrizará en un artículo, NO en la landing.
+
+### Configuración global del blog
+
+- [ ] En Beehiiv: **Website → Design → Blog Settings**
+- [ ] Layout de artículos: elegir layout con imagen destacada grande arriba (como The Hustle Originals)
+- [ ] Mostrar: autor, fecha, tiempo de lectura, categoría
+- [ ] Activar compartir en redes (botones share al final del artículo)
+- [ ] Activar comentarios (genera engagement y reply signals)
+
+### Estética de cada artículo (basada en research)
+
+Cada artículo publicado en Beehiiv debe seguir esta estructura visual:
+
+```
+[Imagen destacada — 1200x630, mascota + contexto temático]
+
+CATEGORÍA · 5 min de lectura
+
+# Título SEO optimizado (H1)
+
+Subtítulo con hook (1-2 frases que enganchen)
+
+---
+
+Contenido con H2s para cada sección principal.
+Párrafos cortos (3-4 líneas máx).
+Listas con bullets para datos concretos.
+Imágenes inline donde aporten (screenshots, comparativas).
+
+> Callout con opinión personal o dato destacado
+
+[CTA mid-article: "¿Te está gustando? Suscríbete para recibir esto cada 2 semanas →"]
+
+Más contenido...
+
+[Link de afiliado natural dentro del contexto, no banner]
+
+---
+
+**¿Te ha gustado?** Comparte con alguien que tenga un robot en casa.
+
+[Botones: Compartir en Twitter · LinkedIn · WhatsApp]
+
+---
+
+**Más en ROBOHOGAR:**
+[Card artículo relacionado 1] [Card artículo relacionado 2]
+```
+
+### Assets necesarios para artículos (generar con nano-banana)
+
+| Asset | Archivo | Uso | Prioridad |
+|---|---|---|---|
+| **Header newsletter** | `newsletter-header.png` (600x150) | Cabecera de cada email enviado | P1 |
+| **Social card template** | `social-card-template.png` (1080x1080) | Compartir artículos en redes | P2 |
+| **Imagen artículo 1** | `art-robot-aspirador-guia.png` (1200x630) | Imagen destacada del artículo de aspiradores | P1 |
+| **Imagen artículo 2** | `art-humanoides-futuro.png` (1200x630) | Imagen destacada del artículo de humanoides | P1 |
+| **Imagen artículo 3** | `art-experiencia-robots.png` (1200x630) | Imagen destacada del artículo personal | P1 |
+
+> [!warning]
+> Cada artículo NECESITA su imagen destacada (1200x630) antes de publicar. Sin imagen, las cards en la landing y las previews en redes sociales quedan vacías y la conversión cae.
+
+### Patrones de formato por tipo de contenido
+
+**Review/Comparativa (70% del contenido):**
+- Tabla comparativa specs al inicio
+- Pros/Contras con iconos ✅/❌
+- Veredicto claro: "¿Lo compraría? Sí/No y por qué"
+- Link de afiliado al final de cada review individual
+- Reference: Newsletter Operator usa inline CTA mid-article con lead magnet
+
+**Editorial/Futuro (30% del contenido):**
+- Hook con dato sorprendente o imagen evocadora
+- Opinión personal fuerte (no hedging)
+- Dato + especulación + consecuencia para el lector
+- Sin links de afiliado (este contenido construye marca, no revenue)
+- Reference: The Hustle "Originals" — reportajes largos con titulares creativos
+
+**Newsletter quincenal:**
+- Template fijo de 5 secciones (ver FASE 4)
+- Máximo 1.500 palabras
+- Email gating en el artículo web más valioso de cada issue
+- Reference: TLDR — cada item es link + resumen de 2-3 líneas. Conciso.
+
+### Categorías/Tags en Beehiiv
+
+Configurar estas categorías para organizar el contenido:
+
+- [ ] **Aspiradores** — reviews, comparativas, guías de compra
+- [ ] **Cortacéspedes** — reviews, configuración, mantenimiento
+- [ ] **Humanoides** — noticias, análisis, opinión
+- [ ] **Guías** — tutoriales, configuración, troubleshooting
+- [ ] **Opinión** — editoriales, futuro, debate
+
+> [!tip]
+> Cada artículo web post = 1 categoría + 2-3 tags. Las categorías aparecen como badges en las cards (como TLDR usa "Tech", "AI", "Dev").
 
 ---
 

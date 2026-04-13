@@ -164,17 +164,113 @@ Es un **consumidor curioso** que quiere opiniones honestas.
 
 ## Prompt para Beehiiv AI Builder
 
+Usar en **Website → AI Website Builder**. Pegar íntegro:
+
 ```
-Newsletter sobre robótica doméstica en español. Audiencia: adultos españoles
-30-55, curiosos de tecnología. Acento naranja #F5A623 sobre fondo blanco.
-Tipografía: Jost (títulos) + DM Sans (cuerpo). Tono: editorial cálido,
-como revista tech accesible. Hero con email input visible, CTA "Suscríbete
-gratis". JUSTO debajo del hero: sección de artículos destacados con cards
-visuales (imagen + título + excerpt) estilo magazine — es lo que retiene
-al visitante. Después: qué recibirás (4 bullets), sobre el autor, FAQ
-(3 preguntas), footer con segundo CTA. Mobile-first. Sin navegación
-compleja. Foco total en conversión a suscriptor.
+Build a newsletter landing page for ROBOHOGAR, a Spanish-language biweekly 
+newsletter about home robotics (robot vacuums, lawnmowers, humanoid robots).
+
+BRAND:
+- Primary accent color: #F5A623 (amber/orange). Use ONLY this color for buttons, 
+  links, highlights. Everything else is neutral: white background, #0C0C0C text, 
+  #F2F2F2 secondary backgrounds.
+- Tone: warm editorial, like a tech magazine you'd read on the couch with coffee.
+  NOT cold/corporate. NOT dark theme.
+- We have a robot mascot character (will upload images manually after generation).
+
+PAGE STRUCTURE (this exact order, based on top-performing newsletter landings):
+
+SECTION 1 — HERO (above the fold, most important):
+- Left side: headline + subtitle + email signup form + trust text
+- Headline: "Los robots ya están en tu casa. Solo que aún no lo sabes."
+- Subtitle: "Cada 2 semanas, en 5 minutos: reviews honestos, noticias curadas 
+  y opinión propia sobre robótica doméstica. En español."
+- Email input field with placeholder "tu@email.com"
+- Submit button: "Suscríbete gratis" in amber #F5A623
+- Below button: "100% gratis · Sin spam · Cancela cuando quieras" in small gray text
+- Right side: space for mascot image (I'll upload after)
+- Reference: Newsletter Operator uses hero with social proof tagline + single email 
+  field. Copy that simplicity.
+
+SECTION 2 — FEATURED ARTICLES (immediately after hero):
+- Title: "Lo último en ROBOHOGAR"
+- Show 3 most recent posts as visual cards: image + title + excerpt + "Leer →" link
+- Cards should have subtle border, 12-16px border-radius, hover shadow effect
+- Grid: 3 columns desktop, 1 column mobile
+- Reference: Newsletter Operator shows "Featured" section with 3 article thumbnails 
+  right after hero. The Hustle shows "Top Stories" with images. TLDR shows featured 
+  stories with category badges. Copy the pattern of showing REAL content immediately 
+  after the signup form — this is what retains visitors.
+
+SECTION 3 — WHAT YOU'LL GET:
+- Title: "¿Qué recibirás cada 2 semanas?"
+- 4 items with icons:
+  • "La noticia más relevante en robótica doméstica — explicada sin jerga"
+  • "Reviews honestos de robots que ya puedes comprar"  
+  • "Avances en humanoides y el futuro del hogar robotizado"
+  • "Datos curiosos y el mejor enlace de la quincena"
+- Reference: Morning Brew uses "Become smarter in 5 minutes" — clear value prop. 
+  TLDR uses a numbered list of what each issue contains.
+
+SECTION 4 — ABOUT THE AUTHOR:
+- Small section, not too long
+- Image placeholder on left (mascot reading pose)
+- Text: "Soy Rafael. Pruebo robots en casa, investigo lo que viene y te cuento 
+  lo que merece la pena — sin comunicados de prensa ni hype vacío."
+- Keep it human, authentic, short
+
+SECTION 5 — FAQ (3 questions, accordion style):
+- "¿Con qué frecuencia llega?" → "Cada 2 semanas. Nada de bombardear tu inbox."
+- "¿Es gratis?" → "Sí, 100%. Sin trucos, sin versión premium, sin paywall."
+- "¿Quién escribe esto?" → "Rafael, entusiasta de la tecnología doméstica que 
+  lleva años conviviendo con robots. Opiniones propias, no publi-reportajes."
+
+SECTION 6 — FINAL CTA (before footer):
+- Title: "¿Te lo vas a perder?"
+- Subtitle: "Tu primer issue llega en dos semanas."
+- Repeat email signup form
+- Reference: All 5 top newsletters have a second CTA before footer. Morning Brew 
+  repeats "Become smarter in 5 minutes" with phone mockup. Copy this repetition.
+
+SECTION 7 — FOOTER:
+- Logo text "ROBOHOGAR"
+- Social links (Instagram, LinkedIn, X, YouTube, RSS)
+- Copyright 2026
+- Legal links (Privacidad, Términos)
+
+DESIGN RULES:
+- Maximum 7 sections total. No more.
+- ONE vibrant color (#F5A623) for all CTAs. Everything else neutral.
+- Email signup form must appear AT LEAST twice (hero + final CTA).
+- Border-radius: 6-8px for cards and buttons (not rounded pill, not sharp square).
+- Generous whitespace between sections. Don't crowd.
+- Mobile-first: everything must stack cleanly on 375px screens.
+- No complex navigation. No sidebar. No mega menus.
+- The page has ONE job: convert visitors to email subscribers.
 ```
+
+### Después de generar: ajustes manuales en Design Mode
+
+El AI Builder genera una base. Ajustar manualmente:
+
+| Elemento | Ajuste | Por qué |
+|---|---|---|
+| Hero headline | Verificar tamaño ≥36px desktop, ≥24px móvil | The Hustle usa 54px — headlines grandes convierten |
+| Botón CTA | Verificar contraste texto blanco sobre #F5A623 | Newsletter Operator usa naranja similar con texto oscuro — probar ambos |
+| Cards artículos | Verificar que muestran imagen + título + excerpt | Si solo muestra títulos, cambiar a layout "card" en las opciones del bloque |
+| Spacing entre secciones | Mínimo 48px, máximo 80px | Supahub y Newsletter Operator usan spacing generoso pero no excesivo |
+| Footer CTA | Debe ser idéntico al hero CTA | Mismo campo, mismo botón, mismo copy — consistencia |
+| Mobile preview | Verificar con el icono 📱 del editor | Formulario visible sin scroll, cards apiladas, botón fácil de pulsar |
+
+### Checklist de calidad visual
+
+- [ ] ¿El formulario de email es visible sin hacer scroll? (above the fold)
+- [ ] ¿Hay artículos reales visibles justo después del hero?
+- [ ] ¿El botón CTA destaca claramente del resto? (único elemento naranja)
+- [ ] ¿La mascota aparece en al menos 2 sitios? (hero + about)
+- [ ] ¿El mobile se ve limpio? (texto legible, botón pulsable, sin overflow)
+- [ ] ¿Hay al menos 2 formularios de signup? (hero + footer)
+- [ ] ¿Las FAQ resuelven las 3 objeciones principales?
 
 ---
 
