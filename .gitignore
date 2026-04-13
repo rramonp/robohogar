@@ -141,6 +141,7 @@ celerybeat.pid
 # Test screenshots from Playwright MCP
 *.png
 !assets/**/*.png
+!content/articulos/**/*.png
 
 # Environments
 .env
