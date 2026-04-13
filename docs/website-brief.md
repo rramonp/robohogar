@@ -43,14 +43,16 @@ Es un **consumidor curioso** que quiere opiniones honestas.
 | "¿Es gratis?" | Texto explícito: "100% gratis. Sin spam. Cancela cuando quieras." |
 | "No sé si me interesa" | Hook: "Los robots ya están en tu casa. Solo que aún no lo sabes." |
 
-**Secciones resultantes:**
+**Secciones resultantes (orden crítico — content-first):**
 1. Hero — headline + CTA email (above the fold)
-2. Qué recibirás — 3-4 bullets concretos
-3. Preview — extracto de issue real
+2. **Artículos destacados** — 2-3 cards visuales con artículos reales publicados en Beehiiv. Imagen + título + excerpt + "Leer →". Formato magazine atractivo. **Esta sección es la que retiene al visitante** — demuestra calidad del contenido antes de pedir la suscripción.
+3. Qué recibirás — 3-4 bullets concretos
 4. Sobre el autor — 2 líneas + mascota
 5. Social proof — stats o frecuencia/duración
 6. FAQ — 3 preguntas cortas
 7. Footer — redes + segundo CTA
+
+**Principio:** Enseñar antes de pedir. El visitante necesita ver contenido REAL atractivo justo después del hero. Si ve solo texto informativo sin artículos, se va.
 
 ---
 
@@ -103,10 +105,12 @@ Es un **consumidor curioso** que quiere opiniones honestas.
 
 ### Layout — qué hacer
 
-- **Hero above the fold:** headline + descripción + email input + botón. Nada más.
+- **Hero above the fold:** headline + descripción + email input + botón.
   Patrón universal en los 5 sitios analizados.
+- **Artículos destacados JUSTO después del hero.** 2-3 cards con imagen, título y excerpt.
+  Formato magazine visual. **Es lo que retiene al visitante** — sin contenido real visible,
+  la página es aburrida y el visitante se va. Beehiiv puede mostrar posts recientes automáticamente.
 - **Un solo color vibrante (#F5A623)** para CTAs. El resto neutro (blanco/negro/gris).
-  Confirmado: cada top performer usa exactamente 1 color acento.
 - **Social proof con números** cuando los tengamos. Mientras tanto: "Quincenal · 5 min de lectura · Gratis".
 - **Mascota en hero** como diferenciador visual (ningún competidor tiene esto).
 - **Font pairing con contraste:** Jost (geométrica) vs DM Sans (humanist) ya cumple el patrón.
@@ -165,9 +169,11 @@ Newsletter sobre robótica doméstica en español. Audiencia: adultos españoles
 30-55, curiosos de tecnología. Acento naranja #F5A623 sobre fondo blanco.
 Tipografía: Jost (títulos) + DM Sans (cuerpo). Tono: editorial cálido,
 como revista tech accesible. Hero con email input visible, CTA "Suscríbete
-gratis". Secciones: hero, qué recibirás (4 bullets), preview de issue,
-sobre el autor, FAQ (3 preguntas), footer con segundo CTA. Mobile-first.
-Sin navegación compleja. Sin sidebar. Foco total en conversión a suscriptor.
+gratis". JUSTO debajo del hero: sección de artículos destacados con cards
+visuales (imagen + título + excerpt) estilo magazine — es lo que retiene
+al visitante. Después: qué recibirás (4 bullets), sobre el autor, FAQ
+(3 preguntas), footer con segundo CTA. Mobile-first. Sin navegación
+compleja. Foco total en conversión a suscriptor.
 ```
 
 ---
