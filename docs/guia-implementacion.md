@@ -36,7 +36,7 @@ git pull
 - [ ] Ir a **https://app.beehiiv.com/signup**
 - [ ] Rellenar: nombre → `Rafael`, email → tu email personal, contraseña
 - [ ] Publication Name → `ROBOHOGAR`
-- [ ] Description → `Robots que llegan (y llegarán) a tu casa. Reviews honestos, noticias curadas y opinión sobre robótica doméstica. Quincenal, 5 min, gratis.`
+- [ ] Description → `Tu casa se está robotizando y no te has enterado. Te lo cuento cada 2 semanas: gratis, honesto y en español.`
 - [ ] Category → `Technology`
 - [ ] Frequency → `Biweekly`
 
@@ -116,12 +116,12 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 ### Ajustar sección por sección (Design Mode)
 
 **Hero (above the fold):**
-- [ ] Headline → `Los robots ya están en tu casa. Solo que aún no lo sabes.`
-- [ ] Subtítulo → `Cada 2 semanas, en 5 minutos: reviews honestos, noticias curadas y opinión sobre robótica doméstica.`
-- [ ] Placeholder del input → `tu@email.com`
-- [ ] Botón → `Suscríbete gratis` con fondo `#F5A623`, texto `#FFFFFF`
-- [ ] Texto bajo botón → `100% gratis · Sin spam · Cancela cuando quieras`
-- [ ] Añadir imagen de la mascota: subir `assets/branding/master/robohogar-mascot-saludando.png`
+- [x] Headline → `Tu casa se esta robotizando y no te has enterado`
+- [x] Subtítulo → `Te lo cuento cada 2 semanas: Gratis, honesto y en español`
+- [x] Placeholder del input → `tu@email.com`
+- [x] Botón → `Suscríbete gratis` con fondo `#F5A623`, texto `#FFFFFF`
+- [x] Texto bajo botón → `100% gratis · Sin spam · Cancela cuando quieras`
+- [x] Imagen de la mascota principal con café
 
 **Artículos destacados (justo bajo el hero):**
 - [ ] En Design Mode: añadir bloque **"Recent Posts"** o **"Featured Posts"**
@@ -132,12 +132,12 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 > Esta sección estará vacía hasta que publiques los primeros artículos (FASE 2). Publica al menos 2 posts ANTES de compartir la landing públicamente.
 
 **Qué recibirás:**
-- [ ] Título → `¿Qué recibirás cada 2 semanas?`
-- [ ] 4 bullets:
-  - `🤖 La noticia más relevante en robótica doméstica — explicada sin jerga`
-  - `🔍 Reviews honestos de robots que ya puedes comprar`
-  - `🚀 Avances en humanoides y el futuro del hogar robotizado`
-  - `💡 Datos curiosos y el mejor enlace de la quincena`
+- [x] Título → `¿Qué recibirás cada 2 semanas?`
+- [x] 4 bullets:
+  - `🤖 Lo que ha pasado en robótica doméstica, sin tecnicismos`
+  - `🔍 Reviews sin filtro de robots que ya están a la venta`
+  - `🚀 Humanoides y el futuro de tu casa robotizada`
+  - `💡 Un dato curioso + el mejor enlace que he encontrado`
 
 **Sobre el autor:**
 - [ ] Imagen: subir `assets/branding/master/robohogar-mascot-leyendo.png`
@@ -239,16 +239,30 @@ Más contenido...
 
 ### Assets necesarios para artículos (generar con nano-banana)
 
+**Templates (generar una vez):**
+
 | Asset | Archivo | Uso | Prioridad |
 |---|---|---|---|
 | **Header newsletter** | `newsletter-header.png` (600x150) | Cabecera de cada email enviado | P1 |
 | **Social card template** | `social-card-template.png` (1080x1080) | Compartir artículos en redes | P2 |
-| **Imagen artículo 1** | `art-robot-aspirador-guia.png` (1200x630) | Imagen destacada del artículo de aspiradores | P1 |
-| **Imagen artículo 2** | `art-humanoides-futuro.png` (1200x630) | Imagen destacada del artículo de humanoides | P1 |
-| **Imagen artículo 3** | `art-experiencia-robots.png` (1200x630) | Imagen destacada del artículo personal | P1 |
+
+**Imágenes por artículo (genera el agente de imágenes automáticamente):**
+
+Cada artículo necesita 1 imagen destacada (1200x630). El agente de imágenes (`/nano-banana`) la genera automáticamente como parte del pipeline de publicación y la cataloga en `assets/branding/asset-catalog.md`.
+
+### Estrategia de imágenes
+
+| Tipo | Origen | Ejemplo |
+|---|---|---|
+| **Imagen destacada (hero)** | Siempre branded con nano-banana | Mascota + contexto temático, estilo ROBOHOGAR |
+| **Imágenes inline (dentro del artículo)** | Originales de la fuente/fabricante | Fotos de producto, screenshots, renders oficiales |
+
+**Por qué branded para el hero:** Las cards en la landing, el OG al compartir y la preview en redes deben tener identidad visual consistente. Si cada artículo usa una foto distinta (Samsung, iRobot, stock), la landing parece un collage.
+
+**Por qué originales inline:** Dentro del artículo el lector quiere ver el producto real, no ilustraciones. Fotos del fabricante + capturas aportan realismo y credibilidad.
 
 > [!warning]
-> Cada artículo NECESITA su imagen destacada (1200x630) antes de publicar. Sin imagen, las cards en la landing y las previews en redes sociales quedan vacías y la conversión cae.
+> Cada artículo NECESITA su imagen destacada branded (1200x630) antes de publicar. Sin imagen, las cards en la landing y las previews en redes quedan vacías y la conversión cae. El agente de imágenes se encarga de esto como paso del pipeline.
 
 ### Patrones de formato por tipo de contenido
 
@@ -298,13 +312,14 @@ Configurar estas categorías para organizar el contenido:
 ```
 ¡Hola!
 
-Soy Rafael, y esto es ROBOHOGAR — tu dosis quincenal sobre los robots
-que llegan (y llegarán) a tu casa.
+Soy Rafael, y esto es ROBOHOGAR — tu casa se está robotizando
+y yo te lo cuento cada 2 semanas.
 
-Cada 2 semanas recibirás:
-• La noticia más relevante en robótica doméstica
-• Reviews sin filtro de robots que puedes comprar hoy
-• Un vistazo al futuro: humanoides, IA en el hogar, y lo que viene
+Esto es lo que vas a recibir:
+• Lo que ha pasado en robótica doméstica, sin tecnicismos
+• Reviews sin filtro de robots que ya están a la venta
+• Humanoides y el futuro de tu casa robotizada
+• Un dato curioso + el mejor enlace que he encontrado
 
 Para que no me pierda en tu spam, haz esto:
 → Arrastra este email a tu bandeja principal
@@ -351,6 +366,87 @@ Rafael
 ```
 
 - [ ] **Save & Activate**
+
+### Crear template Review/Comparativa en Beehiiv
+
+Antes de escribir artículos, crear el template reutilizable en Beehiiv.
+Archivo de referencia: `content/templates/review-comparativa.md`
+
+**Micropasos:**
+
+- [ ] **Paso 1** — En Beehiiv: **Posts → Create Post → Template Post**
+- [ ] **Paso 2** — Elegir base: **Classic Editorial** (el que ya configuramos)
+- [ ] **Paso 3** — Nombrar template: `Review Comparativa`
+- [ ] **Paso 4** — Montar la estructura del post con estos bloques (en orden):
+  1. **Párrafo** — placeholder para HOOK (1-2 frases de enganche)
+  2. **Párrafo** — placeholder para CONTEXTO (1 párrafo con dato concreto)
+  3. **Heading H2** — "Cómo he evaluado estos robots"
+  4. **Lista con bullets** — placeholder para criterios de selección
+  5. **Separator** — línea divisoria
+  6. **Heading H2** — "[Producto 1] — [veredicto corto]"
+  7. **Párrafo** — placeholder: qué es en una frase
+  8. **Heading H3** — "Lo bueno"
+  9. **Lista** — bullets placeholder
+  10. **Heading H3** — "Lo malo"
+  11. **Lista** — bullets placeholder
+  12. **Heading H3** — "Para quién es"
+  13. **Párrafo** — placeholder
+  14. **Párrafo** — **Precio: XX€** → [Disponible en Amazon](link) *(placeholder de afiliado)*
+  15. **Párrafo en cursiva** — *Mi opinión:* placeholder
+  16. **Separator** — línea divisoria
+  17. Repetir bloques 6-16 para Producto 2 y Producto 3 (mínimo 3 productos)
+  18. **Heading H2** — "¿Y los que NO recomiendo?"
+  19. **Párrafo** — placeholder para productos descartados con razón
+  20. **Heading H2** — "Comparativa rápida"
+  21. **Tabla** — placeholder (Producto | Precio | Suscripción | Lo mejor | Lo peor | Veredicto)
+  22. **Heading H2** — "Entonces, ¿cuál me compro?"
+  23. **Párrafo** — placeholder para veredicto final
+  24. **Párrafo** — CTA suave: "Si te ha servido, en ROBOHOGAR publicamos esto cada 2 semanas. Suscríbete gratis."
+  25. **Separator** — línea divisoria
+  26. **Párrafo pequeño (gris)** — Disclaimer: "Algunos links son de afiliado — si compras a través de ellos, nos ayudas a mantener ROBOHOGAR sin coste extra para ti."
+- [ ] **Paso 5** — Guardar: **Save as Template** (si Beehiiv lo permite desde el editor)
+- [ ] **Paso 6** — Verificar: crear un post nuevo y comprobar que el template aparece disponible
+
+---
+
+### Artículo 0: "Robots de escritorio con IA: cuál merece tu dinero (y cuál es humo)"
+
+> Este es el PRIMER artículo real de ROBOHOGAR. Se escribe usando el template Review/Comparativa.
+
+**SEO:**
+- [ ] Title (H1) → `Robots de escritorio con IA: cuál merece tu dinero (y cuál es humo)`
+- [ ] SEO Title → `Mejor robot asistente IA escritorio 2026 — Comparativa honesta`
+- [ ] Meta description → `Eilik, EMO, LOOI, Loona y Vector: los comparamos sin filtro. Cuál vale la pena, cuál es hype y cuál es tirar el dinero.`
+- [ ] URL slug → `mejor-robot-asistente-ia-2026`
+- [ ] Tags: `Asistentes IA`, `Robot Mascotas`
+
+**Productos a comparar:**
+- [ ] **Eilik** (~140€) — Energize Lab. 60K vendidos, sin suscripción
+- [ ] **EMO Go Home** (~280-370€) — Living.ai. ChatGPT, 1000+ expresiones. Trustpilot 2.4/5
+- [ ] **LOOI** (~160-190€) — TangibleFuture. Usa tu smartphone, ChatGPT integrado
+- [ ] **Loona** (~500€) — KEYi Tech. GPT-4o, 4.8/5 estrellas, sin suscripción
+- [ ] **No recomendados**: Vector 2.0 (empresa con problemas, baterías mueren), Miko 3 (tablet disfrazada)
+
+**Micropasos para escribir el artículo:**
+
+- [ ] **Paso 1** — En Beehiiv: **Posts → Create Post** → seleccionar template "Review Comparativa"
+- [ ] **Paso 2** — Research profundo: leer fuentes de `references/fuentes-por-categoria.md` → sección "Asistentes IA"
+- [ ] **Paso 3** — Generar borrador usando Claude Code + template `content/templates/review-comparativa.md`
+- [ ] **Paso 4** — Guardar borrador en `content/drafts/2026-04-XX-mejor-robot-asistente-ia.md`
+- [ ] **Paso 5** — Editar con voz propia: añadir opiniones, humor, experiencias
+- [ ] **Paso 6** — Generar imagen destacada con `/nano-banana` (1200x630, mascota en contexto)
+- [ ] **Paso 7** — Configurar en Beehiiv:
+  - Settings → SEO → rellenar SEO Title + Meta Description
+  - Settings → URL → slug `mejor-robot-asistente-ia-2026`
+  - Settings → Content Gating → mostrar primeros 3 párrafos, pedir email para leer más
+  - Settings → Publish as Web Post → Audience: Public
+- [ ] **Paso 8** — Revisar checklist pre-publicación (en `content/templates/review-comparativa.md`)
+- [ ] **Paso 9** — Publicar
+- [ ] **Paso 10** — Copiar URL real y pegarla en el Welcome Email (reemplazar `URL_DEL_ARTICULO_1`)
+- [ ] **Paso 11** — Activar Welcome Email: **Automations → Welcome Email → Save & Activate**
+- [ ] **Paso 12** — Mover borrador a `content/published/`
+
+---
 
 ### Artículo 1: "¿Qué robot aspirador compro en 2026?"
 
@@ -863,48 +959,174 @@ productos pueden variar.
 
 ## FASE 7: Automatización
 
-### Research aggregator
+### Visión general del pipeline
 
-- [ ] Fuentes RSS para el script (`utilities/research_aggregator.py`):
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  AUTOMÁTICO (sin intervención)                                  │
+│                                                                 │
+│  RSS feeds ──→ research_aggregator.py ──→ Claude API            │
+│  (8+ fuentes)    (fetch + scrape)          (categoriza por tag, │
+│                                             puntúa relevancia,  │
+│                                             resume en español)  │
+│                          ↓                                      │
+│              content/drafts/YYYY-MM-DD-raw-digest.md            │
+└─────────────────────────────────────────────────────────────────┘
+                           ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  MANUAL (Rafael, ~15 min)                                       │
+│                                                                 │
+│  Lee el digest → elige 5-6 noticias → decide ángulo/tema       │
+└─────────────────────────────────────────────────────────────────┘
+                           ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  SEMIAUTOMÁTICO (Claude API + templates)                        │
+│                                                                 │
+│  Rafael indica: tema + ángulo + tipo (review/noticias/opinión)  │
+│       ↓                                                         │
+│  Claude API + template del tipo de artículo                     │
+│       ↓                                                         │
+│  content/drafts/YYYY-MM-DD-borrador-slug.md                    │
+└─────────────────────────────────────────────────────────────────┘
+                           ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  MANUAL (Rafael, ~30-45 min)                                    │
+│                                                                 │
+│  Edita borrador: añade voz propia, opinión, humor               │
+│  → Publica en Beehiiv                                           │
+│  → Mueve a content/published/                                   │
+└─────────────────────────────────────────────────────────────────┘
+                           ↓
+┌─────────────────────────────────────────────────────────────────┐
+│  AUTOMÁTICO (post-publicación)                                  │
+│                                                                 │
+│  Claude API genera posts sociales desde artículo publicado      │
+│       ↓                                                         │
+│  Make.com / Buffer programa publicación:                        │
+│    → LinkedIn (martes 9:00 CET)                                 │
+│    → X/Twitter (martes 12:00 CET)                               │
+│    → Instagram Reel (miércoles 12:00 CET)                       │
+│    → WhatsApp Channel (martes 10:00 CET)                        │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Principio clave:** automatizar TODO excepto juicio editorial y voz propia.
+Rafael decide QUÉ contar y CÓMO contarlo. El resto lo hacen scripts + API.
+
+---
+
+### Paso 1 — Research aggregator
+
+- [ ] Script: `utilities/research_aggregator.py`
+- [ ] Fuentes RSS:
 
 ```python
 RSS_FEEDS = [
+    # Robótica general (EN)
     "https://www.therobotreport.com/feed/",
     "https://spectrum.ieee.org/feeds/topic/robotics.rss",
     "https://weeklyrobotics.com/feed.xml",
+    "https://techcrunch.com/tag/robotics/feed/",
+    # Robótica doméstica / smart home (ES)
     "https://www.xataka.com/tag/robots/feed",
     "https://www.xatakahome.com/feed",
+    # Marcas (solo novedades de producto, no marketing)
     "https://global.roborock.com/blogs/news.atom",
     "https://www.dreametech.com/blogs/news.atom",
-    "https://techcrunch.com/tag/robotics/feed/",
 ]
 ```
 
-- [ ] Pipeline quincenal (día antes de escribir newsletter):
-  1. Ejecutar aggregator → genera `content/drafts/YYYY-MM-DD-raw-digest.md`
-  2. Revisar manualmente (15 min) → seleccionar 5-6 noticias
-  3. Usar Claude Code para generar borrador con el template del newsletter
-  4. Editar con voz propia (30-45 min)
-  5. Publicar en Beehiiv
-  6. Mover a `content/published/`
+- [ ] Fuentes web (scraping con Firecrawl, sin RSS):
+  - robotsaroundthehouse.com — foro companion robots
+  - robotinhouse.com — blog español competidor
+  - mia-cat.com — reviews de companion robots
 
-### Flujo social media (post-newsletter)
+- [ ] Ejecución: programada cada lunes (cron o Make.com trigger)
+- [ ] Output: `content/drafts/YYYY-MM-DD-raw-digest.md`
 
-De cada newsletter publicado, generar:
-- [ ] 1 Reel de IG: noticia principal con texto animado (Canva template)
-- [ ] 1 post de LinkedIn: resumen + opinión + link en primer comentario
-- [ ] 1 mensaje en WhatsApp Channel: resumen de 3 líneas + link al issue web
+### Paso 2 — Categorización con Claude API
 
-Programar los 3 en Buffer el mismo día de publicación.
+Qué hace la API con el digest crudo:
 
-### Calendario editorial en Obsidian
+1. **Clasifica cada noticia** por content tag de Beehiiv (Aspiradores, Cortacéspedes, Humanoides, Asistentes IA, Robot Mascotas, Smart Home, Noticias, Opinión, Guías)
+2. **Puntúa relevancia** (1-5) según: novedad, impacto en consumidor, potencial editorial
+3. **Resume en español** cada noticia en 2-3 frases (aunque la fuente sea en inglés)
+4. **Detecta duplicados** entre fuentes (la misma noticia en 3 sitios = 1 entrada)
+5. **Output**: digest estructurado por tag, ordenado por relevancia
+
+Prompt base para la API (se guardará en `utilities/prompts/categorize-digest.md`):
+```
+Eres el asistente editorial de ROBOHOGAR, una newsletter sobre robótica
+doméstica en español. Clasifica estas noticias por categoría, puntúa
+su relevancia (1-5), resume en español y elimina duplicados.
+Categorías: [lista de tags de Beehiiv]
+Criterios de relevancia: producto disponible para compra > anuncio con
+fecha > rumor. España/Europa > EEUU > Asia. Consumidor > industria.
+```
+
+### Paso 3 — Generación de borrador con Claude API
+
+Cuando Rafael elige tema y ángulo, la API genera un borrador usando:
+
+1. **Template del tipo de artículo** (de `content/templates/`)
+   - `review-comparativa.md` — para reviews y comparativas de productos
+   - `noticias-roundup.md` — para newsletter quincenal (futuro)
+   - `editorial-opinion.md` — para piezas de opinión (futuro)
+2. **Fuentes seleccionadas** del digest + fuentes de `references/fuentes-por-categoria.md`
+3. **Reglas editoriales** de `.claude/rules/editorial.md` (tono, estructura, voz)
+4. **Reglas SEO** de `.claude/rules/seo.md` (title tag, meta, estructura H2/H3)
+
+Output: `content/drafts/YYYY-MM-DD-borrador-slug.md`
+
+### Paso 4 — Edición manual (Rafael)
+
+- Lee el borrador, añade opinión personal, humor, experiencias
+- Ajusta tono (el borrador será correcto pero necesita VOZ)
+- Publica en Beehiiv
+- Mueve archivo a `content/published/`
+
+### Paso 5 — Social media automático (post-publicación)
+
+Claude API genera desde el artículo publicado:
+
+- [ ] **LinkedIn**: resumen profesional (150 palabras) + opinión + "link en primer comentario"
+- [ ] **X/Twitter**: hilo de 3-5 tweets con los puntos clave
+- [ ] **Instagram**: texto para Reel (30s) + caption con hashtags
+- [ ] **WhatsApp Channel**: resumen ultra-corto (3 líneas) + link
+
+Prompt base (se guardará en `utilities/prompts/social-posts.md`):
+```
+Genera posts para redes sociales a partir de este artículo de ROBOHOGAR.
+Tono: cercano, informado, con humor sutil. Nunca clickbait.
+LinkedIn: profesional pero no corporativo. X: directo y punchy.
+Instagram: visual, con emojis moderados. WhatsApp: ultra-breve.
+```
+
+Programación con Make.com → Buffer:
+- [ ] Make.com scenario: webhook recibe los posts → envía a Buffer API
+- [ ] Buffer programa publicación según horarios configurados
+
+### Herramientas y costes
+
+| Herramienta | Función en el pipeline | Coste |
+|---|---|---|
+| Claude API (Haiku) | Categorización del digest (paso 2) | ~$0.02/run |
+| Claude API (Sonnet) | Generación de borradores + social (pasos 3, 5) | ~$0.10/run |
+| Make.com | Orquestación: cron → aggregator → API → Buffer | 9€/mes |
+| Buffer | Programación de posts sociales | 6€/mes |
+| Firecrawl | Scraping de fuentes sin RSS | Free tier (500 créditos/mes) |
+
+**Coste total pipeline**: ~15€/mes + ~$0.25 por issue de newsletter
+
+### Calendario editorial
 
 - [ ] Cadencia: newsletter cada 2 semanas, en martes
 - [ ] Calendario:
-  - Semana A (lunes): Research Digest → selección de temas
-  - Semana A (martes-miércoles): Borrador con Claude Code → edición personal
-  - Semana A (jueves): Publicar + crear posts sociales
-  - Semana B: Escribir artículo evergreen SEO + 2-3 Reels
+  - Semana A (lunes): Aggregator corre automático → digest listo
+  - Semana A (lunes-martes): Rafael revisa digest, elige tema, lanza borrador
+  - Semana A (miércoles): Edición personal → publicar en Beehiiv
+  - Semana A (miércoles): Social posts se generan y programan automáticamente
+  - Semana B: Artículo evergreen SEO + 2-3 Reels para Instagram
 
 ---
 
@@ -982,11 +1204,17 @@ Cada 3 meses, revisar contra los objetivos de `docs/plan-v2.md`:
 
 ### Workflow quincenal (cada 2 semanas, ~30 min con Claude Code)
 
-- [ ] `/research-digest` — genera el digest quincenal (output a repo + vault Obsidian + wiki update)
-- [ ] `/content-draft` — genera borrador del newsletter desde el digest
-- [ ] Editar borrador manualmente (añadir voz, opinión, humor) — 45-75 min
-- [ ] Publicar en Beehiiv (copiar contenido, programar envío)
-- [ ] `/social-content` — genera posts para LinkedIn, X, Instagram, WhatsApp
+**Agentes automáticos (Claude Code ejecuta):**
+- [ ] `/research-digest` — Agente Research: scrape RSS → digest + wiki update
+- [ ] `/content-draft` — Agente Escritura: genera borrador SEO desde el digest
+- [ ] `/nano-banana` — Agente Imágenes: genera hero branded (1200x630) + actualiza catálogo
+
+**Manual (Rafael):**
+- [ ] Editar borrador (añadir voz, opinión, humor) — 45-75 min
+- [ ] Publicar en Beehiiv (copiar contenido + subir hero image + programar envío)
+
+**Post-publicación (Claude Code ejecuta):**
+- [ ] `/social-content` — Agente Social: genera posts para LinkedIn, X, Instagram, WhatsApp
 - [ ] Revisar y programar posts en Buffer
 - [ ] `/obsidian-robohogar sync-published` — copia el artículo publicado al vault
 - [ ] `/obsidian-robohogar wiki-update` — actualiza wiki con robots/empresas mencionados
@@ -1042,6 +1270,38 @@ Cada 3 meses, revisar contra los objetivos de `docs/plan-v2.md`:
 | `/obsidian-robohogar` | "sync vault", "wiki update" | Mantiene wiki, calendario, archivado |
 | `/nano-banana` | "genera imagen" | Assets visuales (mascota, headers, OG) |
 | `/commit` | "commitea" | Git commit con formato estándar |
+
+## FASE 10: Crecimiento de suscriptores (cuando haya >50 subs)
+
+Tácticas para aumentar la base de suscriptores de forma orgánica y no invasiva.
+
+### Content gate ("Subscribe to keep reading")
+
+- Beehiiv permite bloquear el contenido a mitad de artículo con un muro de suscripción gratuita
+- El lector ve el inicio del artículo, se engancha, y debe suscribirse para seguir leyendo
+- **Cuándo activar:** en artículos largos tipo review o comparativa (>1200 palabras), NO en newsletters
+- **Configuración en Beehiiv:** Settings → Content → Content Gate (activar por artículo, no globalmente)
+- **Referencia visual:** pantallazo guardado — modal con "Subscribe to keep reading", email input y "Not now"
+
+### Engagement-based emails
+
+- Configurar emails automáticos cuando un lector interactúa (likes, clicks, shares)
+- Ejemplo: "Veo que te gustó el artículo de humanoides — te aviso cuando publique la parte 2"
+- **En Beehiiv:** Automations → Triggers (disponible en planes de pago, planificar para cuando escale)
+
+### Referral program
+
+- Beehiiv tiene sistema de referidos integrado (Refer a Friend)
+- Recompensar con contenido exclusivo o mención en la newsletter
+- **Cuándo activar:** cuando haya masa crítica (~200+ subs)
+
+### Otras tácticas pendientes de evaluar
+
+- [ ] Lead magnet (PDF "Guía de compra de robots 2026") a cambio de email
+- [ ] Cross-promotion con newsletters similares en español
+- [ ] Pop-up de salida en artículos web (exit intent)
+- [ ] Firma de email personal con link a ROBOHOGAR
+- [ ] Compartir en comunidades (Reddit r/homeautomation, foros de domótica España)
 
 ---
 

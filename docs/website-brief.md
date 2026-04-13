@@ -182,9 +182,8 @@ PAGE STRUCTURE (this exact order, based on top-performing newsletter landings):
 
 SECTION 1 — HERO (above the fold, most important):
 - Left side: headline + subtitle + email signup form + trust text
-- Headline: "Los robots ya están en tu casa. Solo que aún no lo sabes."
-- Subtitle: "Cada 2 semanas, en 5 minutos: reviews honestos, noticias curadas 
-  y opinión propia sobre robótica doméstica. En español."
+- Headline: "Tu casa se esta robotizando y no te has enterado"
+- Subtitle: "Te lo cuento cada 2 semanas: Gratis, honesto y en español"
 - Email input field with placeholder "tu@email.com"
 - Submit button: "Suscríbete gratis" in amber #F5A623
 - Below button: "100% gratis · Sin spam · Cancela cuando quieras" in small gray text
@@ -205,10 +204,10 @@ SECTION 2 — FEATURED ARTICLES (immediately after hero):
 SECTION 3 — WHAT YOU'LL GET:
 - Title: "¿Qué recibirás cada 2 semanas?"
 - 4 items with icons:
-  • "La noticia más relevante en robótica doméstica — explicada sin jerga"
-  • "Reviews honestos de robots que ya puedes comprar"  
-  • "Avances en humanoides y el futuro del hogar robotizado"
-  • "Datos curiosos y el mejor enlace de la quincena"
+  • "Lo que ha pasado en robótica doméstica, sin tecnicismos"
+  • "Reviews sin filtro de robots que ya están a la venta"
+  • "Humanoides y el futuro de tu casa robotizada"
+  • "Un dato curioso + el mejor enlace que he encontrado"
 - Reference: Morning Brew uses "Become smarter in 5 minutes" — clear value prop. 
   TLDR uses a numbered list of what each issue contains.
 

@@ -87,21 +87,38 @@ affiliate: [true|false]
 - [ ] Internal linking: 2-3 artículos relacionados
 - [ ] Mínimo 800 palabras para artículos SEO
 
-### 5. Output DUAL
+### 5. Output
 
-- **Repo:** `content/drafts/YYYY-MM-DD-slug.md`
+- **Carpeta del artículo:** `content/articulos/<slug>/borrador.md`
+- **Assets:** `content/articulos/<slug>/assets/`
 - **Vault Obsidian:** `C:\Users\bakal\OneDrive - HBX Group\Desktop\DEMAND\Obsidian\RRP\RRP_ONEDRIVE\HBX\05_Personal\05-01_Robotica Newsletter\02-Drafts\YYYY-MM-DD-slug.md`
   (usar template vault: `Templates/Template Article Draft.md`)
 
-### 6. Assets necesarios
+### 6. Generar hero image (OBLIGATORIO)
 
-Avisar a Rafael de los assets que necesita antes de publicar:
+Cada artículo NECESITA su imagen hero (1200x630) antes de publicar. Sin imagen, las cards en la landing y las previews en redes quedan vacías.
 
-- [ ] Imagen destacada (1200x630) — generar con `/nano-banana`
-- [ ] Screenshots/imágenes inline si aplica
-- [ ] Si review: foto del producto (buscar en web o pedir a Rafael)
+**Invocar `/nano-banana` en modo hero de artículo:**
 
-### 7. Prohibiciones (de `rules/editorial.md`)
+```bash
+uv run "<path>/image.py" \
+  --prompt "Eye-catching editorial hero image for an article about [TEMA]. [PRODUCTO/ESCENA]. Warm amber lighting, editorial photography style, high contrast. Absolutely NO text, NO letters, NO words, NO signs, NO writing of any kind." \
+  --output "content/articulos/<slug>/assets/hero-<slug>.png" \
+  --model flash \
+  --aspect landscape \
+  --size 1K
+```
+
+**Estilo:** Product-hero cinematográfico (tipo YouTube thumbnail). Reglas completas en `assets/branding/asset-catalog.md` sección "Estilo ROBOHOGAR para heros de artículos".
+
+**NO usar `--reference`** para heros. NO incluir la mascota. El producto/robot es el protagonista.
+
+### 7. Otros assets
+
+- [ ] Screenshots/imágenes inline → guardar en `content/articulos/<slug>/assets/`
+- [ ] Si review: foto del producto (buscar en web del fabricante o pedir a Rafael)
+
+### 8. Prohibiciones (de `rules/editorial.md`)
 
 - NUNCA copiar/pegar de fuentes — reescribir con voz propia
 - NUNCA superlativos vacíos ("revolucionario", "increíble", "game-changer")

@@ -55,18 +55,49 @@ uv run "C:/Users/bakal/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
 | Mascot new poses (master quality) | `assets/branding/master/` |
 | Mascot drafts/tests | `assets/branding/flash-1K/` |
 | Mascot in context/scene | `assets/branding/con-fondo/` |
-| Article images, banners, social cards | `assets/images/` |
+| **Hero de artículo** | **`content/articulos/<slug>/assets/hero-<slug>.png`** |
+| Templates genéricos (newsletter, social card) | `assets/images/` |
+
+## Dos modos de generación
+
+### Modo 1: Mascota (poses, variaciones, social cards)
+
+- Leer `assets/branding/mascota-prompt.md` — prompt base + reglas de consistencia
+- Usar `--reference` apuntando a una imagen master para anclar el estilo
+- Modelo: `2` o `pro`. Aspect: `square`
+
+### Modo 2: Hero de artículo (thumbnails para blog/newsletter)
+
+**Estilo obligatorio: Product-hero cinematográfico (tipo YouTube thumbnail)**
+
+- Leer `assets/branding/asset-catalog.md` sección "Estilo ROBOHOGAR para heros de artículos"
+- Ahí están los prompts exactos por tipo de artículo, las reglas visuales y los parámetros
+- **NO usar `--reference`** — contamina el estilo fotográfico con ilustración/texto asiático
+- Modelo: `flash`. Aspect: `landscape`. Size: `1K`
+- Output: `content/articulos/<slug>/assets/hero-<slug>.png`
+
+Prompt template rápido:
+```
+Eye-catching editorial hero image for an article about [TEMA].
+[PRODUCTO/ROBOT protagonista, dramáticamente iluminado].
+[Contexto hogar moderno, desenfocado].
+Warm amber lighting, editorial photography style, high contrast, shallow depth of field.
+Absolutely NO text, NO letters, NO words, NO signs, NO writing of any kind.
+```
+
+**Invocado automáticamente por `/content-draft`** como paso del pipeline de creación de artículos.
 
 ## Workflow
 
 1. **Read `assets/branding/asset-catalog.md`** — check what already exists, avoid duplicates
-2. **Read `assets/branding/mascota-prompt.md`** — character spec, base prompts, pose catalog
-3. If mascot variation → use base prompt template + variation text from mascota-prompt.md
-4. If general image (not mascot) → build prompt freely but keep ROBOHOGAR visual identity (clean, editorial, warm)
-5. Run the script via `uv run`
-6. Confirm output path to user
-7. NEVER overwrite existing images — use versioned filenames (-v2, -v3)
-8. **Update `assets/branding/asset-catalog.md`** — add the new image with file, folder, date, description
+2. Determinar modo: ¿mascota o hero de artículo?
+3. Si mascota → read `mascota-prompt.md`, usar prompt base + `--reference`
+4. Si hero de artículo → read `asset-catalog.md` sección estilo, usar prompt template SIN `--reference`
+5. Crear carpeta del artículo si no existe: `content/articulos/<slug>/assets/`
+6. Run the script via `uv run`
+7. Confirm output path to user
+8. NEVER overwrite existing images — use versioned filenames (-v2, -v3)
+9. **Update `assets/branding/asset-catalog.md`** — añadir nueva fila en tabla "Heros de artículos"
 
 ## Requirements
 

@@ -52,11 +52,12 @@ Before generating any final output (publishing an article, generating a definiti
 | Path | Purpose |
 |---|---|
 | `content/drafts/` | Borradores de artículos |
+| `content/articulos/<slug>/` | Artículos (borrador.md + assets/ por artículo) |
 | `content/published/` | Artículos publicados (backup) |
 | `assets/branding/master/` | Mascota 2K — assets definitivos |
 | `assets/branding/flash-1K/` | Mascota 1K — borradores |
 | `assets/branding/con-fondo/` | Mascota en contexto hogar |
-| `assets/images/` | Imágenes para artículos |
+| `assets/images/` | Templates genéricos (newsletter header, social card) |
 | `docs/` | Planes y estrategia |
 | `references/` | Investigación de mercado |
 | `utilities/` | Scripts (research aggregator, etc.) |
