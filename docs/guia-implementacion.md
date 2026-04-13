@@ -5,6 +5,30 @@
 
 ---
 
+## Preparación: Clonar el repo (si estás en otro PC)
+
+Si es la primera vez en este PC o no tienes el repo clonado:
+
+```bash
+cd C:/Users/bakal
+git clone https://github.com/rramonp/robohogar.git
+cd robohogar
+```
+
+Si ya lo tienes clonado, actualiza:
+
+```bash
+cd C:/Users/bakal/robohogar
+git pull
+```
+
+> [!tip]
+> Esta guía también está disponible en Obsidian:
+> `05_Personal/05-01_Robotica Newsletter/Guia Implementacion.md`
+> Si modificas la guía en el repo, copia la versión actualizada al vault de Obsidian.
+
+---
+
 ## FASE 0: Beehiiv Setup (30 min)
 
 ### Crear cuenta
@@ -80,10 +104,14 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 
 ### AI Website Builder
 
-- [ ] En Beehiiv: **Website → AI Website Builder** (o Design Mode si no aparece AI)
-- [ ] Pegar el prompt completo de `docs/website-brief.md` → sección "Prompt para Beehiiv AI Builder"
-- [ ] El prompt tiene 70+ líneas con instrucciones detalladas por sección, referencias a los 5 top newsletters analizados, y reglas de diseño específicas
-- [ ] Pulsar Generate y esperar
+> [!warning] PASO CRÍTICO
+> Abre `docs/website-brief.md` del repo. Ve a la sección **"Prompt para Beehiiv AI Builder"** (línea ~165). Copia el bloque de código ÍNTEGRO (70+ líneas, desde `Build a newsletter landing page...` hasta el cierre de ```). NO uses un resumen — pega TODO.
+
+- [ ] En Beehiiv: ir a **Website → AI Website Builder**
+- [ ] Si no ves AI Builder: ir a **Website → Design Mode** y construir manualmente siguiendo la tabla de secciones de abajo
+- [ ] Pegar el prompt completo (70+ líneas) del website-brief.md
+- [ ] Pulsar **Generate** y esperar a que se genere la página completa
+- [ ] **Verificar:** comparar cada sección generada con la tabla "Ajustar sección por sección" de abajo. El AI no siempre genera exacto — ajustar en Design Mode lo que falte
 
 ### Ajustar sección por sección (Design Mode)
 
@@ -947,6 +975,73 @@ Cada 3 meses, revisar contra los objetivos de `docs/plan-v2.md`:
 
 > [!warning]
 > Si después de 6 meses con cadencia consistente (12 newsletters enviados sin fallar) hay **menos de 100 suscriptores**, el nicho no funciona en español. Opciones: pivotar el posicionamiento o cerrar.
+
+---
+
+## FASE 9: Post-lanzamiento y mantenimiento con Claude Code
+
+### Workflow quincenal (cada 2 semanas, ~30 min con Claude Code)
+
+- [ ] `/research-digest` — genera el digest quincenal (output a repo + vault Obsidian + wiki update)
+- [ ] `/content-draft` — genera borrador del newsletter desde el digest
+- [ ] Editar borrador manualmente (añadir voz, opinión, humor) — 45-75 min
+- [ ] Publicar en Beehiiv (copiar contenido, programar envío)
+- [ ] `/social-content` — genera posts para LinkedIn, X, Instagram, WhatsApp
+- [ ] Revisar y programar posts en Buffer
+- [ ] `/obsidian-robohogar sync-published` — copia el artículo publicado al vault
+- [ ] `/obsidian-robohogar wiki-update` — actualiza wiki con robots/empresas mencionados
+- [ ] Mover borrador a `content/published/` y hacer commit
+
+### Mantenimiento mensual (~15 min)
+
+- [ ] `/obsidian-robohogar calendar-update` — actualizar calendario editorial
+- [ ] `/obsidian-robohogar audit` — revisar naming, frontmatter, wikilinks
+- [ ] Revisar métricas en Beehiiv (subs, open rate, CTR)
+- [ ] Revisar Google Search Console (qué keywords posicionan)
+- [ ] Actualizar `Metricas/` en el vault con los datos del mes
+
+### Mantenimiento trimestral (~30 min)
+
+- [ ] `/obsidian-robohogar archive` — archivar digests y borradores viejos
+- [ ] Actualizar artículos evergreen (precios, modelos nuevos, links rotos)
+- [ ] Revisar y actualizar SEO: meta descriptions, títulos, keywords
+- [ ] Evaluar: ¿Qué artículos generan más tráfico? → escribir más de ese tipo
+- [ ] Evaluar: ¿Qué lead magnets convierten? → mantener gated o abrir
+
+### Actualizar landing en Beehiiv
+
+**Añadir secciones:**
+- En Beehiiv: **Website → Design Mode → Add Section**
+- Secciones candidatas: testimonios (cuando haya), contador de suscriptores, vídeo embed de YouTube
+
+**Cambiar imágenes:**
+- En Beehiiv: **Design Mode → clic en imagen → Replace**
+- Generar nuevas con `/nano-banana` → subir a Beehiiv
+- Assets van a `assets/images/` en el repo (backup)
+
+**Añadir vídeos:**
+- En Beehiiv: **Design Mode → Add Section → Video/Embed**
+- Pegar URL de YouTube — Beehiiv genera el embed automáticamente
+- Recomendado: 1 vídeo en la landing cuando haya contenido en YouTube
+
+**Actualizar FAQ:**
+- En Beehiiv: **Design Mode → FAQ section → Edit**
+- Añadir preguntas nuevas basadas en feedback de suscriptores
+
+**Actualizar social proof:**
+- Cuando alcances 100 subs: cambiar "Quincenal · 5 min" → "Únete a 100+ lectores"
+- Cuando alcances 500: "Únete a 500+ lectores que ya viven con robots"
+
+### Skills de Claude Code disponibles
+
+| Skill | Trigger | Qué hace |
+|---|---|---|
+| `/research-digest` | "agrega noticias", "digest" | Scrape RSS → digest + wiki update |
+| `/content-draft` | "borrador", "nuevo artículo" | Genera borrador con SEO desde digest |
+| `/social-content` | "genera social", "posts" | Posts para LinkedIn, X, Instagram, WhatsApp |
+| `/obsidian-robohogar` | "sync vault", "wiki update" | Mantiene wiki, calendario, archivado |
+| `/nano-banana` | "genera imagen" | Assets visuales (mascota, headers, OG) |
+| `/commit` | "commitea" | Git commit con formato estándar |
 
 ---
 

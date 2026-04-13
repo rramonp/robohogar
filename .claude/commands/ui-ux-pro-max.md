@@ -34,7 +34,8 @@ style, color, typography, google-fonts, chart, ux, product, landing, icons, reac
 
 ## ROBOHOGAR Design Context
 
-- Palette: fondo crudo `#F5F3EF`, acento verde lima `#C8FF00`, negro `#0D0D0D`
-- Typography: Syne (títulos) + DM Sans (cuerpo)
-- Style: editorial magazine, clean, generous whitespace
-- Inspiration: MIT Technology Review, The Verge
+- Palette: fondo `#FFFFFF`, acento ámbar `#F5A623`, negro `#0C0C0C`, gris `#F2F2F2`
+- Typography: Jost (títulos) + DM Sans (cuerpo)
+- Style: editorial cálido, magazine-style, generous whitespace
+- Inspiration: Newsletter Operator, Morning Brew, The Hustle
+- Platform: Beehiiv (free plan)

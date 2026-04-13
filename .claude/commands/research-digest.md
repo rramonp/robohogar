@@ -43,7 +43,10 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
 3. Categorize each story:
    - Categories: Consumer Robots, Robot Vacuums, Lawn Robots, Humanoids, AI/Software, Industry, Reviews
    - Relevance score 1-5 for Spanish home robotics audience
-4. Output to `content/drafts/research-digest-YYYY-MM-DD.md`
+4. Output DUAL:
+   - Repo: `content/drafts/research-digest-YYYY-MM-DD.md`
+   - Vault Obsidian: `C:\Users\bakal\OneDrive - HBX Group\Desktop\DEMAND\Obsidian\RRP\RRP_ONEDRIVE\HBX\05_Personal\05-01_Robotica Newsletter\Research\Research Digest YYYY-MM-DD.md`
+   (usar template del vault: `Templates/Template Research Digest.md`)
 
 ### Output format
 
@@ -61,7 +64,11 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
 - ...
 ```
 
-5. Rafael picks 3-5 stories, adds his angle, and drafts the newsletter
+5. **Wiki update**: para cada robot/empresa mencionado en el digest:
+   - Si NO existe nota en `Wiki/Robots/` o `Wiki/Empresas/` → crear desde template
+   - Si existe → añadir bullet con la noticia + fecha + fuente
+   - Ruta vault Wiki: `C:\Users\bakal\OneDrive - HBX Group\Desktop\DEMAND\Obsidian\RRP\RRP_ONEDRIVE\HBX\05_Personal\05-01_Robotica Newsletter\Wiki\`
+6. Rafael picks 3-5 stories, adds his angle, and drafts the newsletter
 
 ---
 
