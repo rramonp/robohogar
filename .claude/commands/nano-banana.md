@@ -9,7 +9,7 @@ Generate images using Google's Gemini image models.
 
 ## Script
 
-Located in RRP-DEV: `C:/Users/bakal/RRP-DEV/skills/external/nano_banana/scripts/image.py`
+Located in RRP-DEV: `C:/Users/cri-c/RRP-DEV/skills/external/nano_banana/scripts/image.py`
 Invoked via `uv run`.
 
 ## Style Reference (MANDATORY)
@@ -29,7 +29,7 @@ When the user asks for mascot images, variations, or "de mi estilo" / "estilo RO
 ## Invocation
 
 ```bash
-uv run "C:/Users/bakal/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
+uv run "C:/Users/cri-c/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
   --prompt "<description>" \
   --output "<output_path>.png" \
   [--model flash|2|pro] \

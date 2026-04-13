@@ -4,9 +4,10 @@
 
 | Ruta | Qué es | Cuándo usar |
 |---|---|---|
-| `c:\Users\bakal\robohogar\` | **Repo Git** — código, docs, assets | Desarrollo, commits, scripts |
-| `C:\Users\bakal\OneDrive - HBX Group\Desktop\DEMAND\Obsidian\RRP\RRP_ONEDRIVE\HBX\05_Personal\05-01_Robotica Newsletter\` | **Vault Obsidian** — sección ROBOHOGAR | Notas, wiki, templates, calendario editorial |
-| `C:\Users\bakal\RRP-DEV\projects\robohogar\` | **Mirror RRP-DEV** — docs espejo | Solo referencia cruzada desde RRP-DEV |
+| Repo Git (desktop) | `c:\Users\cri-c\robohogar\` | Desarrollo, commits, scripts |
+| Repo Git (laptop) | `c:\Users\bakal\robohogar\` | Desarrollo, commits, scripts |
+| **Vault Obsidian** | `$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/` | Notas, wiki, templates, calendario editorial |
+| Mirror RRP-DEV | `$HOME/RRP-DEV/projects/robohogar/` | Solo referencia cruzada desde RRP-DEV |
 
 **REGLAS:**
 - Archivos `.md` de consulta/wiki/templates → Obsidian vault

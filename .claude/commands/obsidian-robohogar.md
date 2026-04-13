@@ -11,11 +11,15 @@ calendario editorial. Skill autónomo — NO depende del vault-organizer de RRP-
 - "audita vault robohogar", "revisa obsidian"
 - "archiva artículos viejos", "limpia vault"
 
-## Vault Path (FIJA — NUNCA buscar)
+## Vault Path
 
 ```
-C:\Users\bakal\OneDrive - HBX Group\Desktop\DEMAND\Obsidian\RRP\RRP_ONEDRIVE\HBX\05_Personal\05-01_Robotica Newsletter\
+$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/
 ```
+
+`$HBX_VAULT` se resuelve automáticamente según la máquina:
+- Desktop (cri-c): `C:\Users\cri-c\OneDrive - HBX Group\Desktop\DEMAND\Obsidian`
+- Laptop (bakal): `C:\Users\bakal\OneDrive - HBX Group\Desktop\DEMAND\Obsidian`
 
 ## Estructura del vault
 
@@ -46,7 +50,7 @@ C:\Users\bakal\OneDrive - HBX Group\Desktop\DEMAND\Obsidian\RRP\RRP_ONEDRIVE\HBX
 
 ### 1. `sync-published` — Sincronizar artículos publicados
 
-Copia artículos de `c:\Users\bakal\robohogar\content\published\` al vault `03-Published/`.
+Copia artículos de `content/published/` al vault `03-Published/`.
 - Añade frontmatter si no tiene (type: published, tags, fecha)
 - Actualiza wikilinks internos a formato Obsidian `[[Page Name]]`
 - NO sobreescribe archivos existentes en el vault

@@ -18,7 +18,7 @@ Preguntar si no está claro:
 
 | Tipo | Contenido | Monetización | Ejemplo |
 |---|---|---|---|
-| **Review/Comparativa** (70%) | Producto real, specs, precios, opinión, veredicto | Links afiliado Amazon | "Roborock S8 vs Dreame X40" |
+| **Review/Comparativa** (70%) | Producto real, specs, precios, opinión, veredicto | Links afiliado Amazon | "Robots de escritorio con IA: cuál merece tu dinero" |
 | **Guía de compra** (70%) | Selección de productos, recomendaciones por presupuesto | Links afiliado Amazon | "Mejor robot aspirador 2026" |
 | **Editorial** (30%) | Futuro, opinión, tendencias, humanoides | Sin afiliados — construye marca | "Robots humanoides en 2030" |
 | **Personal** (30%) | Experiencia propia, anécdota, reflexión | Sin afiliados — autenticidad | "Mi vida con un aspirador robot" |
@@ -26,20 +26,36 @@ Preguntar si no está claro:
 ### 2. Recopilar input
 
 - Leer el research digest más reciente de `content/drafts/research-digest-*.md`
+- Consultar fuentes catalogadas en `references/fuentes-por-categoria.md` (organizado por tags de Beehiiv)
 - Si Rafael da un tema específico, investigar con Firecrawl/WebSearch
 - Identificar keyword SEO principal y 2-3 secundarias (consultar `rules/seo.md`)
 
 ### 3. Generar borrador
 
-Estructura del artículo (consultar `rules/editorial.md` para tono):
+**Usar el template del tipo de artículo** (consultar `rules/editorial.md` para tono):
+
+| Tipo | Template | Ubicación |
+|---|---|---|
+| Review/Comparativa | `review-comparativa.md` | `content/templates/review-comparativa.md` |
+| Noticias/Roundup | `noticias-roundup.md` | `content/templates/` *(pendiente)* |
+| Editorial/Opinión | `editorial-opinion.md` | `content/templates/` *(pendiente)* |
+
+**Tags de Beehiiv disponibles:** Aspiradores, Cortacéspedes, Humanoides, Asistentes IA, Robot Mascotas, Smart Home, Noticias, Opinión, Guías
+
+Para **Review/Comparativa**, seguir la estructura completa del template:
+1. Hook (1-2 frases) → Contexto (1 párrafo) → Criterios de selección
+2. Producto por producto: qué es, lo bueno, lo malo, para quién, precio + afiliado, opinión personal
+3. Los que NO recomiendo → Tabla resumen comparativa → Veredicto final
+4. CTA suave + Disclaimer afiliados
+
+Para otros tipos, usar la estructura genérica:
 
 ```markdown
 ---
 title: "[Título SEO — max 60 chars, keyword principal incluida]"
 meta_description: "[155 chars max, con CTA]"
 slug: "[url-corto-descriptivo]"
-category: "[Aspiradores|Cortacéspedes|Humanoides|Guías|Opinión]"
-tags: ["tag1", "tag2", "tag3"]
+tags: ["tag1", "tag2"]
 type: "[review|comparativa|guia|editorial|personal]"
 status: borrador
 created: YYYY-MM-DD
@@ -62,8 +78,6 @@ affiliate: [true|false]
 
 [Más contenido...]
 
-[Si review: tabla de specs, pros/contras con ✅/❌, veredicto claro]
-[Si comparativa: tabla comparativa lado a lado]
 [Si editorial: opinión fuerte, sin hedging]
 
 ---
@@ -91,8 +105,9 @@ affiliate: [true|false]
 
 - **Carpeta del artículo:** `content/articulos/<slug>/borrador.md`
 - **Assets:** `content/articulos/<slug>/assets/`
-- **Vault Obsidian:** `C:\Users\bakal\OneDrive - HBX Group\Desktop\DEMAND\Obsidian\RRP\RRP_ONEDRIVE\HBX\05_Personal\05-01_Robotica Newsletter\02-Drafts\YYYY-MM-DD-slug.md`
+- **Vault Obsidian:** `$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/02-Drafts/YYYY-MM-DD-slug.md`
   (usar template vault: `Templates/Template Article Draft.md`)
+  `$HBX_VAULT` se resuelve automáticamente en cada máquina (desktop=cri-c, laptop=bakal)
 
 ### 6. Generar hero image (OBLIGATORIO)
 
@@ -101,17 +116,20 @@ Cada artículo NECESITA su imagen hero (1200x630) antes de publicar. Sin imagen,
 **Invocar `/nano-banana` en modo hero de artículo:**
 
 ```bash
-uv run "<path>/image.py" \
-  --prompt "Eye-catching editorial hero image for an article about [TEMA]. [PRODUCTO/ESCENA]. Warm amber lighting, editorial photography style, high contrast. Absolutely NO text, NO letters, NO words, NO signs, NO writing of any kind." \
+uv run "C:/Users/cri-c/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
+  --prompt "[ver prompt template por tipo de artículo en asset-catalog.md]" \
   --output "content/articulos/<slug>/assets/hero-<slug>.png" \
   --model flash \
   --aspect landscape \
   --size 1K
 ```
 
-**Estilo:** Product-hero cinematográfico (tipo YouTube thumbnail). Reglas completas en `assets/branding/asset-catalog.md` sección "Estilo ROBOHOGAR para heros de artículos".
+**Estilo:** Product-hero cinematográfico (tipo YouTube thumbnail).
+**Reglas completas + prompts por tipo:** `assets/branding/asset-catalog.md` → sección "Estilo ROBOHOGAR para heros de artículos"
+**Prompts que ya funcionaron:** en la misma sección, hay 4 prompts probados (review, futuro, lifestyle, gadget)
 
-**NO usar `--reference`** para heros. NO incluir la mascota. El producto/robot es el protagonista.
+**NO usar `--reference`** para heros — contamina el estilo fotográfico con ilustración.
+**NO incluir la mascota** — reservada para landing, emails, social cards.
 
 ### 7. Otros assets
 
