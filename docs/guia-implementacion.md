@@ -504,9 +504,7 @@ Rafael
 1. **Claude** genera research + borrador HTML → `content/articulos/<slug>/borrador.html`
 2. **Rafael** copia secciones del HTML a Beehiiv bloque por bloque
 3. **Rafael** edita con su voz, añade imágenes de producto (fotos fabricante)
-4. **Claude** genera 2 imágenes con `/nano-banana`:
-   - **Hero** (square/landscape) → imagen dentro del artículo
-   - **Thumbnail** (16:9) → post thumbnail para feed, cards, SEO, redes
+4. **Claude** genera hero image con `/nano-banana` (square o landscape) → sirve para artículo + thumbnail + OG/SEO. Verificar en opengraph.xyz tras publicar
 5. **Rafael** configura en Beehiiv (ver settings abajo)
 6. **Rafael** revisa checklist pre-publicación (`content/templates/review-comparativa.md`)
 7. **Publicar** → actualizar Welcome Email con URL real → mover borrador a `content/published/`

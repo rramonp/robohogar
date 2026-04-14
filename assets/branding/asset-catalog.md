@@ -59,18 +59,15 @@ Ruta de cada hero: `content/articulos/<slug>/assets/hero-<slug>[-vN].png`
 
 ## Estrategia de imágenes por artículo
 
-**Cada artículo necesita 2 imágenes generadas + imágenes inline de fabricante:**
+**Cada artículo necesita 1 imagen hero + imágenes inline de fabricante:**
 
 | Tipo de imagen | Aspect | Uso | Nombre archivo |
 |---|---|---|---|
-| **Hero** (dentro del artículo) | `square` o `landscape` | Imagen grande al inicio del artículo | `hero-<slug>.png` |
-| **Thumbnail** (post thumbnail) | `16:9` | Feed landing, cards, OG/SEO, redes sociales | `thumbnail-<slug>.png` |
+| **Hero** (artículo + thumbnail) | `square` o `landscape` | Imagen del artículo + post thumbnail + OG/SEO + redes | `hero-<slug>.png` |
 | **Inline** (producto) | Variable | Fotos dentro del artículo | Originales de fabricante, no generadas |
 | **Templates** (newsletter, social) | Variable | Newsletter header, social card | En `assets/images/`, no por artículo |
 
-**SIEMPRE generar ambas** (hero + thumbnail) con el mismo prompt para mantener consistencia visual. La única diferencia es el `--aspect`:
-- Hero: `--aspect square` o `--aspect landscape`
-- Thumbnail: `--aspect 16:9`
+La hero se usa tanto dentro del artículo como post thumbnail — Beehiiv recorta automáticamente para cards/OG y el resultado es bueno. **Verificar en [opengraph.xyz](https://opengraph.xyz) tras publicar.** Solo si el recorte sale mal, generar una versión 16:9 adicional (`thumbnail-<slug>.png`).
 
 ### Estructura de carpetas por artículo
 
