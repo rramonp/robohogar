@@ -34,7 +34,7 @@ Preguntar si no está claro:
 
 ### 3. Generar borrador
 
-**Usar el template del tipo de artículo** (consultar `rules/editorial.md` para tono):
+**Usar el template del tipo de artículo** (consultar `docs/brand-voice.md` para voz de marca + `rules/editorial.md` para tono):
 
 | Tipo | Template | Ubicación |
 |---|---|---|

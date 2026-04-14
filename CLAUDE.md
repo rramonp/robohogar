@@ -58,6 +58,7 @@ Before generating any final output (publishing an article, generating a definiti
 | `assets/branding/flash-1K/` | Mascota 1K — borradores |
 | `assets/branding/con-fondo/` | Mascota en contexto hogar |
 | `assets/images/` | Templates genéricos (newsletter header, social card) |
+| `docs/brand-voice.md` | **Voz de marca — consultar SIEMPRE para contenido** |
 | `docs/` | Planes y estrategia |
 | `references/` | Investigación de mercado |
 | `utilities/` | Scripts (research aggregator, etc.) |
