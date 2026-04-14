@@ -499,105 +499,87 @@ Rafael
 
 ---
 
+### Workflow por artículo (aplica a todos)
+
+1. **Claude** genera research + borrador HTML → `content/articulos/<slug>/borrador.html`
+2. **Rafael** copia secciones del HTML a Beehiiv bloque por bloque
+3. **Rafael** edita con su voz, añade imágenes de producto (fotos fabricante)
+4. **Claude** genera hero image con `/nano-banana` (1200x630)
+5. **Rafael** configura en Beehiiv: SEO (title, meta, slug), content gating, publish as web post
+6. **Rafael** revisa checklist pre-publicación (`content/templates/review-comparativa.md`)
+7. **Publicar** → actualizar Welcome Email con URL real → mover borrador a `content/published/`
+
+---
+
 ### Artículo 0: "Robots de escritorio con IA: cuál merece tu dinero (y cuál es humo)"
 
-> Este es el PRIMER artículo real de ROBOHOGAR. Se escribe usando el template Review/Comparativa.
+| Campo | Valor |
+|-------|-------|
+| SEO Title | `Mejor robot asistente IA escritorio 2026 — Comparativa honesta` |
+| Meta description | `Eilik, EMO, LOOI, Loona y Vector: los comparamos sin filtro. Cuál vale la pena, cuál es hype y cuál es tirar el dinero.` |
+| Slug | `mejor-robot-asistente-ia-2026` |
+| Tags | `Asistentes IA`, `Robot Mascotas` |
+| Tipo | Review/Comparativa |
+| Borrador | `content/articulos/mejor-robot-asistente-ia-2026/borrador.html` |
 
-**SEO:**
-- [ ] Title (H1) → `Robots de escritorio con IA: cuál merece tu dinero (y cuál es humo)`
-- [ ] SEO Title → `Mejor robot asistente IA escritorio 2026 — Comparativa honesta`
-- [ ] Meta description → `Eilik, EMO, LOOI, Loona y Vector: los comparamos sin filtro. Cuál vale la pena, cuál es hype y cuál es tirar el dinero.`
-- [ ] URL slug → `mejor-robot-asistente-ia-2026`
-- [ ] Tags: `Asistentes IA`, `Robot Mascotas`
+**Productos:** Eilik (~140€), LOOI (~160-190€), Loona (~500€). No recomendados: EMO Go Home, Vector 2.0, Miko 3.
 
-**Productos a comparar:**
-- [ ] **Eilik** (~140€) — Energize Lab. 60K vendidos, sin suscripción
-- [ ] **EMO Go Home** (~280-370€) — Living.ai. ChatGPT, 1000+ expresiones. Trustpilot 2.4/5
-- [ ] **LOOI** (~160-190€) — TangibleFuture. Usa tu smartphone, ChatGPT integrado
-- [ ] **Loona** (~500€) — KEYi Tech. GPT-4o, 4.8/5 estrellas, sin suscripción
-- [ ] **No recomendados**: Vector 2.0 (empresa con problemas, baterías mueren), Miko 3 (tablet disfrazada)
-
-**Workflow para escribir el artículo:**
-
-- [ ] **Paso 1** — Research: leer fuentes de `references/fuentes-por-categoria.md` → sección "Asistentes IA"
-- [ ] **Paso 2** — Generar borrador con `/content-draft` → output en `content/articulos/mejor-robot-asistente-ia-2026/borrador.md`
-- [ ] **Paso 3** — Generar HTML del artículo usando `content/templates/review-comparativa-output.html` como base
-- [ ] **Paso 4** — Rafael copia secciones del HTML a Beehiiv bloque por bloque
-- [ ] **Paso 5** — Editar con voz propia en Beehiiv: ajustar opiniones, humor, matices
-- [ ] **Paso 6** — Generar hero image con `/nano-banana` (1200x630, cinematográfico, sin mascota)
-- [ ] **Paso 7** — Añadir imágenes de producto (fotos fabricante, NO generadas)
-- [ ] **Paso 8** — Configurar en Beehiiv:
-  - Settings → SEO → rellenar SEO Title + Meta Description
-  - Settings → URL → slug `mejor-robot-asistente-ia-2026`
-  - Settings → Content Gating → mostrar primeros 3 párrafos, pedir email para leer más
-  - Settings → Publish as Web Post → Audience: Public
-- [ ] **Paso 9** — Revisar checklist pre-publicación (en `content/templates/review-comparativa.md`)
-- [ ] **Paso 10** — Publicar
-- [ ] **Paso 11** — Copiar URL real y pegarla en el Welcome Email (reemplazar `URL_DEL_ARTICULO_1`)
-- [ ] **Paso 12** — Activar Welcome Email: **Automations → Welcome Email → Save & Activate**
-- [ ] **Paso 13** — Mover borrador a `content/published/`
+- [x] Research completado
+- [x] Borrador HTML generado
+- [ ] Copiar a Beehiiv + editar voz
+- [ ] Hero image generada
+- [ ] SEO configurado en Beehiiv
+- [ ] Publicado
+- [ ] Welcome Email actualizado con URL
 
 ---
 
 ### Artículo 1: "¿Qué robot aspirador compro en 2026?"
 
-**Estructura SEO:**
-- [ ] En Beehiiv: **Posts → Create Post**
-- [ ] Title (H1) → `¿Qué robot aspirador me compro en 2026? Guía sin rodeos`
-- [ ] SEO Title (Settings → SEO) → `Mejor robot aspirador 2026 — Guía de compra honesta`
-- [ ] Meta description → `Comparativa de los mejores robots aspiradores de 2026. Sin publi, sin hype — solo cuál merece tu dinero según uso y presupuesto.`
-- [ ] URL slug → `mejor-robot-aspirador-2026`
-- [ ] Estructura del artículo:
-  - H2: `¿Qué necesitas realmente?` (3 perfiles de usuario)
-  - H2: `Mi top 3 por rango de precio` (cada uno con H3: nombre del modelo)
-  - H2: `¿Y los que NO recomiendo?`
-  - H2: `Veredicto final`
-- [ ] Incluir links de afiliado Amazon en cada modelo mencionado (ver FASE 6)
-- [ ] Imágenes: fotos de producto de Amazon (o propias), alt text descriptivo
-- [ ] Mínimo 1.000 palabras
-- [ ] Añadir internal link al artículo 3 cuando esté publicado
+| Campo | Valor |
+|-------|-------|
+| SEO Title | `Mejor robot aspirador 2026 — Guía de compra honesta` |
+| Meta description | `Comparativa de los mejores robots aspiradores de 2026. Sin publi, sin hype — solo cuál merece tu dinero según uso y presupuesto.` |
+| Slug | `mejor-robot-aspirador-2026` |
+| Tags | `Aspiradores` |
+| Tipo | Review/Comparativa |
 
-**Email gating (lead magnet):**
-- [ ] En el post editor → **Settings → Content Gating**
-- [ ] Activar **Web Content Gating**
-- [ ] Seleccionar: mostrar los primeros ~3 párrafos, luego pedir email para seguir leyendo
-- [ ] Esto convierte el artículo en lead magnet automático sin crear nada extra
-
-**Publicar:**
-- [ ] Settings → **Publish as web post** (NO como email)
-- [ ] Audience → Public (para SEO)
-- [ ] Pulsar **Publish**
+- [ ] Research
+- [ ] Borrador HTML
+- [ ] Copiar a Beehiiv + editar
+- [ ] Hero image
+- [ ] Publicado
 
 ### Artículo 2: "5 robots humanoides que llegarán a tu casa"
 
-- [ ] Create Post
-- [ ] Title → `Los 5 robots humanoides que llegarán a tu casa antes de 2030`
-- [ ] SEO Title → `Robots humanoides para casa — 5 que llegarán antes de 2030`
-- [ ] Meta desc → `Figure, Optimus, Unitree, 1X Neo y Xiaomi CyberOne. Cuáles son reales, cuáles humo, y cuándo podrías tener uno en el salón.`
-- [ ] Slug → `robots-humanoides-casa-2030`
-- [ ] Estructura: H2 por cada robot, H2 opinión personal final
-- [ ] SIN email gating — este es contenido editorial abierto para SEO
-- [ ] SIN links de afiliado (no hay producto a la venta)
-- [ ] Publicar como web post
+| Campo | Valor |
+|-------|-------|
+| SEO Title | `Robots humanoides para casa — 5 que llegarán antes de 2030` |
+| Meta description | `Figure, Optimus, Unitree, 1X Neo y Xiaomi CyberOne. Cuáles son reales, cuáles humo, y cuándo podrías tener uno en el salón.` |
+| Slug | `robots-humanoides-casa-2030` |
+| Tags | `Humanoides` |
+| Tipo | Editorial (30%) — sin afiliados, sin gating |
+
+- [ ] Research
+- [ ] Borrador HTML
+- [ ] Copiar a Beehiiv + editar
+- [ ] Hero image
+- [ ] Publicado
 
 ### Artículo 3: "Mi experiencia con robots en casa"
 
-- [ ] Title → `Así es convivir con un robot: mi experiencia real`
-- [ ] SEO Title → `Convivir con robots en casa — experiencia real`
-- [ ] Meta desc → `Llevo años con robots en casa. Te cuento qué funciona, qué no, y qué cambiaría si empezara de cero.`
-- [ ] Slug → `experiencia-robots-casa`
-- [ ] Tono personal y honesto — este artículo construye confianza
-- [ ] Publicar como web post, sin gating
+| Campo | Valor |
+|-------|-------|
+| SEO Title | `Convivir con robots en casa — experiencia real` |
+| Meta description | `Llevo años con robots en casa. Te cuento qué funciona, qué no, y qué cambiaría si empezara de cero.` |
+| Slug | `experiencia-robots-casa` |
+| Tags | `Opinión` |
+| Tipo | Personal — sin afiliados, sin gating. Construye confianza |
 
-### SEO checklist por artículo
-
-- [ ] H1 contiene keyword principal
-- [ ] H2/H3 usan variaciones semánticas
-- [ ] Meta description < 155 caracteres, incluye CTA implícito
-- [ ] URL slug corto, sin stop words
-- [ ] Alt text en todas las imágenes
-- [ ] Al menos 2 internal links a otros artículos propios
-- [ ] Mínimo 800 palabras
+- [ ] Borrador (Rafael escribe, Claude apoya)
+- [ ] Copiar a Beehiiv + editar
+- [ ] Hero image
+- [ ] Publicado
 
 ---
 
