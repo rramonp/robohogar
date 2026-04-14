@@ -382,12 +382,12 @@ Configurar estas categorías para organizar el contenido:
 6. Iterar según cómo se ve publicado
 7. Documentar versión final con ejemplos
 
-**Template 1: Review/Comparativa (EN ITERACIÓN)**
-- [ ] Revisar estructura vs patrones de referentes (Newsletter Operator, The Hustle)
-- [ ] Verificar slots de frontmatter para `/content-draft`
-- [ ] Ajustar tabla comparativa (horizontal vs vertical)
-- [ ] Probar en Beehiiv con artículo real, verificar mobile
-- [ ] Finalizar checklist (23 puntos actuales)
+**Template 1: Review/Comparativa (✅ COMPLETADO)**
+- [x] Revisar estructura vs patrones de referentes
+- [x] Verificar slots de frontmatter para `/content-draft`
+- [x] Ajustar tabla comparativa → 4 columnas (Producto/Precio/Lo clave/Nota ⭐)
+- [x] Probar en Beehiiv con post de prueba, verificar mobile
+- [x] Finalizar checklist (22 puntos)
 
 **Template 2: Newsletter Issue (NUEVO)**
 - [ ] Crear `content/templates/newsletter-issue.md`
@@ -488,43 +488,14 @@ Rafael
 
 ### Crear template Review/Comparativa en Beehiiv
 
-Antes de escribir artículos, crear el template reutilizable en Beehiiv.
-Archivo de referencia: `content/templates/review-comparativa.md`
+- [x] Template creado directamente en Beehiiv (Design Mode)
+- [x] HTML exportado: `content/templates/review-comparativa-beehiiv.html`
+- [x] Template .md actualizado: `content/templates/review-comparativa.md`
+- [x] Template HTML de output: `content/templates/review-comparativa-output.html`
+- [x] Voz de marca documentada: `docs/brand-voice.md`
+- [x] Verificado en mobile preview
 
-**Micropasos:**
-
-- [ ] **Paso 1** — En Beehiiv: **Posts → Create Post → Template Post**
-- [ ] **Paso 2** — Elegir base: **Classic Editorial** (el que ya configuramos)
-- [ ] **Paso 3** — Nombrar template: `Review Comparativa`
-- [ ] **Paso 4** — Montar la estructura del post con estos bloques (en orden):
-  1. **Párrafo** — placeholder para HOOK (1-2 frases de enganche)
-  2. **Párrafo** — placeholder para CONTEXTO (1 párrafo con dato concreto)
-  3. **Heading H2** — "Cómo he evaluado estos robots"
-  4. **Lista con bullets** — placeholder para criterios de selección
-  5. **Separator** — línea divisoria
-  6. **Heading H2** — "[Producto 1] — [veredicto corto]"
-  7. **Párrafo** — placeholder: qué es en una frase
-  8. **Heading H3** — "Lo bueno"
-  9. **Lista** — bullets placeholder
-  10. **Heading H3** — "Lo malo"
-  11. **Lista** — bullets placeholder
-  12. **Heading H3** — "Para quién es"
-  13. **Párrafo** — placeholder
-  14. **Párrafo** — **Precio: XX€** → [Disponible en Amazon](link) *(placeholder de afiliado)*
-  15. **Párrafo en cursiva** — *Mi opinión:* placeholder
-  16. **Separator** — línea divisoria
-  17. Repetir bloques 6-16 para Producto 2 y Producto 3 (mínimo 3 productos)
-  18. **Heading H2** — "¿Y los que NO recomiendo?"
-  19. **Párrafo** — placeholder para productos descartados con razón
-  20. **Heading H2** — "Comparativa rápida"
-  21. **Tabla** — placeholder (Producto | Precio | Suscripción | Lo mejor | Lo peor | Veredicto)
-  22. **Heading H2** — "Entonces, ¿cuál me compro?"
-  23. **Párrafo** — placeholder para veredicto final
-  24. **Párrafo** — CTA suave: "Si te ha servido, en ROBOHOGAR publicamos esto cada 2 semanas. Suscríbete gratis."
-  25. **Separator** — línea divisoria
-  26. **Párrafo pequeño (gris)** — Disclaimer: "Algunos links son de afiliado — si compras a través de ellos, nos ayudas a mantener ROBOHOGAR sin coste extra para ti."
-- [ ] **Paso 5** — Guardar: **Save as Template** (si Beehiiv lo permite desde el editor)
-- [ ] **Paso 6** — Verificar: crear un post nuevo y comprobar que el template aparece disponible
+**Estructura final del template (43 bloques):** ver tabla completa en `review-comparativa.md`
 
 ---
 
@@ -546,24 +517,25 @@ Archivo de referencia: `content/templates/review-comparativa.md`
 - [ ] **Loona** (~500€) — KEYi Tech. GPT-4o, 4.8/5 estrellas, sin suscripción
 - [ ] **No recomendados**: Vector 2.0 (empresa con problemas, baterías mueren), Miko 3 (tablet disfrazada)
 
-**Micropasos para escribir el artículo:**
+**Workflow para escribir el artículo:**
 
-- [ ] **Paso 1** — En Beehiiv: **Posts → Create Post** → seleccionar template "Review Comparativa"
-- [ ] **Paso 2** — Research profundo: leer fuentes de `references/fuentes-por-categoria.md` → sección "Asistentes IA"
-- [ ] **Paso 3** — Generar borrador usando Claude Code + template `content/templates/review-comparativa.md`
-- [ ] **Paso 4** — Guardar borrador en `content/drafts/2026-04-XX-mejor-robot-asistente-ia.md`
-- [ ] **Paso 5** — Editar con voz propia: añadir opiniones, humor, experiencias
-- [ ] **Paso 6** — Generar imagen destacada con `/nano-banana` (1200x630, mascota en contexto)
-- [ ] **Paso 7** — Configurar en Beehiiv:
+- [ ] **Paso 1** — Research: leer fuentes de `references/fuentes-por-categoria.md` → sección "Asistentes IA"
+- [ ] **Paso 2** — Generar borrador con `/content-draft` → output en `content/articulos/mejor-robot-asistente-ia-2026/borrador.md`
+- [ ] **Paso 3** — Generar HTML del artículo usando `content/templates/review-comparativa-output.html` como base
+- [ ] **Paso 4** — Rafael copia secciones del HTML a Beehiiv bloque por bloque
+- [ ] **Paso 5** — Editar con voz propia en Beehiiv: ajustar opiniones, humor, matices
+- [ ] **Paso 6** — Generar hero image con `/nano-banana` (1200x630, cinematográfico, sin mascota)
+- [ ] **Paso 7** — Añadir imágenes de producto (fotos fabricante, NO generadas)
+- [ ] **Paso 8** — Configurar en Beehiiv:
   - Settings → SEO → rellenar SEO Title + Meta Description
   - Settings → URL → slug `mejor-robot-asistente-ia-2026`
   - Settings → Content Gating → mostrar primeros 3 párrafos, pedir email para leer más
   - Settings → Publish as Web Post → Audience: Public
-- [ ] **Paso 8** — Revisar checklist pre-publicación (en `content/templates/review-comparativa.md`)
-- [ ] **Paso 9** — Publicar
-- [ ] **Paso 10** — Copiar URL real y pegarla en el Welcome Email (reemplazar `URL_DEL_ARTICULO_1`)
-- [ ] **Paso 11** — Activar Welcome Email: **Automations → Welcome Email → Save & Activate**
-- [ ] **Paso 12** — Mover borrador a `content/published/`
+- [ ] **Paso 9** — Revisar checklist pre-publicación (en `content/templates/review-comparativa.md`)
+- [ ] **Paso 10** — Publicar
+- [ ] **Paso 11** — Copiar URL real y pegarla en el Welcome Email (reemplazar `URL_DEL_ARTICULO_1`)
+- [ ] **Paso 12** — Activar Welcome Email: **Automations → Welcome Email → Save & Activate**
+- [ ] **Paso 13** — Mover borrador a `content/published/`
 
 ---
 
