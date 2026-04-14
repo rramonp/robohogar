@@ -109,6 +109,21 @@ El lector debe sentir que hay alguien al otro lado que ha pasado horas investiga
 - "Hoy analizamos las características técnicas del modelo XYZ-3000"
 - "Sin lugar a dudas, el mejor robot del mercado actual"
 
+### Formato inline (negritas y cursivas)
+
+Las negritas y cursivas dan vida visual al texto — el lector escanea y los ojos se enganchan en los puntos clave.
+
+| Formato | Cuándo usar | Ejemplo |
+|---------|-------------|---------|
+| **Negrita** | Nombres de marca/empresa | **Energize Lab**, **KEYi Tech** |
+| **Negrita** | Datos duros (cifras, ratings, precios) | **60.000 unidades**, **4.8/5**, **140€** |
+| **Negrita** | Afirmaciones clave (el dato que define al producto) | **Sin suscripción**, **GPT-4o integrado** |
+| *Cursiva* | Matices, coloquialismos, comentarios con personalidad | *brilla por su ausencia*, *una tablet disfrazada de robot* |
+| *Cursiva* | Palabras en otro idioma | *mainstream*, *early adopter* |
+| Normal | Descripciones, comentarios, opinión general | "No se conecta a ChatGPT, no hace café" |
+
+**Regla:** No saturar. Máximo 2-3 negritas por párrafo. Si todo es negrita, nada destaca.
+
 ### Palabras prohibidas
 
 Superlativos vacíos: "revolucionario", "increíble", "game-changer", "sin lugar a dudas", "sin duda alguna", "el mejor del mercado"
