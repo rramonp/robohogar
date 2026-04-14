@@ -156,6 +156,10 @@ Todos los links deben ser reales — nunca placeholders (#).
 
 Cuando tengamos Amazon Associates, añadir `?tag=robohogar-21` a cada URL de Amazon.
 
+### Sección "Más en ROBOHOGAR"
+
+Al generar cada artículo, incluir la sección 📚 Más en ROBOHOGAR con links a los artículos ya publicados. Consultar `content/published/` y los posts en robohogar.com para obtener títulos y URLs reales. Si no hay artículos publicados todavía, omitir la sección.
+
 ---
 
 ## 9. La mascota como extensión de marca

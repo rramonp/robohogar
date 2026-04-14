@@ -158,11 +158,11 @@ Dato curioso relacionado con la temática del artículo. 2-3 frases. Sorprendent
 
 ## 📚 Más en ROBOHOGAR
 
-<!-- Bloque nativo de Beehiiv: "Recent Posts" — imagen clicable + título, sin botón "Acceder" -->
+<!-- Rellenar con artículos publicados reales (títulos + URLs de robohogar.com) -->
+<!-- Si no hay artículos publicados todavía, OMITIR esta sección -->
 
-### Artículo 1
-### Artículo 2
-### Artículo 3
+👉 [Título del artículo 1](URL real robohogar.com)
+👉 [Título del artículo 2](URL real robohogar.com)
 
 ---
 
@@ -234,7 +234,7 @@ Algunos links son de afiliado — si compras a través de ellos, nos ayudas a ma
 | 37 | Image | Banner ROBOHOGAR (mascota) |
 | 38 | Heading H2 | Suscríbete gratis (link) |
 | 39 | Heading H2 | 📚 Más en ROBOHOGAR |
-| 40 | Recent Posts | 3 cards (imagen clicable + título) |
+| 40 | Links | 2-3 artículos publicados con título + URL real. Omitir si no hay |
 | 41 | Paragraph | Disclaimer afiliados |
 | 42 | Share | Facebook, Threads, X, LinkedIn — automático |
 | 43 | Footer | © 2026, Darse de baja, beehiiv — automático |
