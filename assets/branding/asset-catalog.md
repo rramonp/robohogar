@@ -129,7 +129,47 @@ Warm amber lighting, editorial photography style, high contrast, shallow depth o
 Absolutely NO text, NO letters, NO words, NO signs, NO writing of any kind.
 ```
 
+#### Estilo ganador: "Thumbnail v1" (REFERENCIA PRINCIPAL)
+
+Basado en el hero de `mejor-robot-asistente-ia-2026` (v1) — la imagen que mejor funcionó y que define el estilo visual ROBOHOGAR para thumbnails.
+
+**Análisis del estilo v1 (lo que lo hace funcionar):**
+
+| Elemento | Qué hace la v1 | Por qué funciona |
+|----------|----------------|------------------|
+| **Composición** | Robot centrado, mano humana entrando desde la derecha | Interacción humano-robot = gancho emocional inmediato |
+| **Profundidad** | 3 planos: primer plano (taza, fruta), medio (robot+mano), fondo (ventana, estantes) | Da vida, contexto, y profundidad cinematográfica |
+| **Iluminación** | Luz cálida ambiental + neones de fondo + ojos ámbar del robot como punto focal | Los ojos brillantes enganchan la mirada primero |
+| **Paleta** | Ámbar/naranja dominante + acentos neón (cian, rosa, morado) en fondo | Cálido pero vibrante — no es frío ni aburrido |
+| **Contexto** | Hogar real (encimera cocina, estantes, plantas) | El lector se imagina teniendo el robot en su casa |
+| **Estilo 3D** | Render 3D estilizado — ni foto real ni cartoon | Atractivo, moderno, thumbnail-friendly |
+| **Escala** | Robot pequeño en encimera — proporción realista | El lector entiende el tamaño del producto al instante |
+| **Mood** | Acogedor + futurista + curiosidad | "Quiero saber qué es este robot" |
+
+**Principios clave para replicar en futuros heros:**
+
+1. **Siempre incluir interacción humana** — una mano, un dedo tocando, alguien cerca. El robot solo en una mesa no engancha
+2. **3 planos de profundidad** — objetos cotidianos en primer plano, producto en medio, contexto hogar en fondo
+3. **Ojos/luces ámbar como punto focal** — los ojos brillantes del robot son lo primero que mira el espectador
+4. **Contexto hogar real** — cocina, salón, escritorio con objetos cotidianos (taza, plantas, libros)
+5. **Estilo 3D estilizado** — no buscar fotorrealismo puro, el render estilizado funciona mejor como thumbnail
+6. **Permitir elementos de fondo vibrantes** — neones, luces de ciudad, pantallas. Dan vida y color sin distraer del producto
+
+> **Nota sobre el texto asiático en neones:** La v1 tiene neones con caracteres asiáticos a través de la ventana. Esto es un artefacto de Gemini, pero visualmente funciona porque le da un toque cyberpunk/futurista que encaja con el tema tech. No intentar eliminarlo si el resultado general es bueno — aporta más de lo que resta.
+
 #### Prompts que funcionaron (referencia para futuros artículos)
+
+**Artículo de producto nuevo/gadget — ESTILO V1 (PREFERIDO):**
+```
+Eye-catching editorial hero image for an article about AI robot assistants
+to buy in 2026. A small cute desktop companion robot with expressive LED
+eyes and a rounded friendly design, sitting on a modern desk or kitchen
+counter. Warm amber glow from its eyes. A person's hand reaching toward
+it or interacting with it naturally, like talking to a friend. Cozy home
+setting, warm natural light. The robot is the clear hero of the image —
+product-hero style like a YouTube thumbnail. High contrast, clean composition.
+Absolutely NO text, NO letters, NO words, NO writing of any kind.
+```
 
 **Review/Comparativa de producto** (ej: aspiradores):
 ```
@@ -166,26 +206,14 @@ amber tones, shallow depth of field on the closest robot.
 Absolutely NO text, NO letters, NO words, NO writing of any kind.
 ```
 
-**Artículo de producto nuevo/gadget** (ej: asistentes IA):
-```
-Eye-catching editorial hero image for an article about AI robot assistants
-to buy in 2026. A small cute desktop companion robot with expressive LED
-eyes and a rounded friendly design, sitting on a modern desk or kitchen
-counter. Warm amber glow from its eyes. A person's hand reaching toward
-it or interacting with it naturally, like talking to a friend. Cozy home
-setting, warm natural light. The robot is the clear hero of the image —
-product-hero style like a YouTube thumbnail. High contrast, clean composition.
-Absolutely NO text, NO letters, NO words, NO writing of any kind.
-```
-
 #### Patrones por tipo de contenido
 
-| Tipo de artículo | Composición | Ejemplo de foco |
+| Tipo de artículo | Composición (estilo v1) | Ejemplo de foco |
 |---|---|---|
-| **Review/Comparativa** | Producto centrado, luz cenital dramática, fondo salón desenfocado | Robot aspirador iluminado en parquet |
-| **Futuro/Tendencia** | Escena cinematográfica, robot en contexto impactante | Humanoide entrando por una puerta |
-| **Lifestyle/Experiencia** | Gran angular, hogar acogedor, varios robots visibles | Salón con aspirador + robot + smart speaker |
-| **Gadget/Producto nuevo** | Producto en mesa/encimera, mano humana interactuando | Robot asistente con ojos ámbar en cocina |
+| **Review/Comparativa** | Producto centrado + mano humana + contexto hogar 3 planos | Robot aspirador en salón, mano acercándose |
+| **Futuro/Tendencia** | Escena cinematográfica + interacción humana + ojos ámbar | Humanoide en puerta, persona mirándolo |
+| **Lifestyle/Experiencia** | Gran angular + múltiples robots + hogar vivido + luz cálida | Salón con aspirador + robot escritorio + persona |
+| **Gadget/Producto nuevo** | Producto en encimera + mano tocando + fondo vibrante (estilo v1) | Robot ojos ámbar en cocina, dedo acercándose |
 | **Opinión/Editorial** | Escena evocadora, conceptual, menos literal | (Aquí sí se puede usar mascota pensativa) |
 
 ### Cuándo SÍ usar la mascota en heros
