@@ -422,70 +422,6 @@ Configurar estas categorías para organizar el contenido:
 
 ## FASE 2: Contenido Base (semana 1-2)
 
-### Welcome email
-
-- [x] En Beehiiv: **Automations → Welcome Email → Edit**
-- [x] Subject → `Bienvenido/a a ROBOHOGAR 🤖`
-- [x] Contenido:
-
-```
-¡Hola!
-
-Soy Rafael, y esto es ROBOHOGAR — tu casa se está robotizando
-y yo te lo cuento cada 2 semanas.
-
-Esto es lo que vas a recibir:
-• Lo que ha pasado en robótica doméstica, sin tecnicismos
-• Reviews sin filtro de robots que ya están a la venta
-• Humanoides y el futuro de tu casa robotizada
-• Un dato curioso + el mejor enlace que he encontrado
-
-Para que no me pierda en tu spam, haz esto:
-→ Arrastra este email a tu bandeja principal
-→ Añade hola@robohogar.com a tus contactos
-
-Mientras tanto, empieza por aquí:
-👉 [¿Qué robot aspirador compro en 2026?](URL_DEL_ARTICULO_1)
-
-Si tienes un robot en casa y quieres contarme tu experiencia,
-responde a este email — los leo todos.
-
-Un saludo robótico,
-Rafael
-ROBOHOGAR
-```
-
-- [x] Pulsar **Save & Activate** *(pendiente hasta publicar Artículo 0 y actualizar URL)*
-
-### Reminder email (4-6h post-signup)
-
-- [x] En **Automations → Create Automation** *(pospuesto hasta tener artículos publicados)*
-- [x] Trigger → `New Subscriber`
-- [x] Delay → `6 hours`
-- [x] Action → Send Email
-- [x] Subject → `¿Todo bien por ahí? 🤖`
-- [x] Contenido:
-
-```
-¡Hola de nuevo!
-
-Solo quería asegurarme de que recibiste bien el email de bienvenida.
-
-Una pregunta rápida: ¿tienes algún robot en casa? ¿Aspirador,
-friegasuelos, cortacésped?
-
-Respóndeme con una línea — me ayuda a saber qué contenido te
-interesa más.
-
-Y si aún no lo has leído:
-👉 [Los 5 robots humanoides que llegarán a tu casa](URL_DEL_ARTICULO_2)
-
-¡Nos leemos en la próxima!
-Rafael
-```
-
-- [x] **Save & Activate** *(pospuesto hasta tener artículos publicados)*
-
 ### Crear template Review/Comparativa en Beehiiv
 
 - [x] Template creado directamente en Beehiiv (Design Mode)
@@ -539,11 +475,71 @@ Rafael
 
 - [x] Research completado
 - [x] Borrador HTML generado
-- [ ] Copiar a Beehiiv + editar voz
-- [ ] Hero image generada
-- [ ] SEO configurado en Beehiiv
-- [ ] Publicado
-- [ ] Welcome Email actualizado con URL
+- [x] Copiar a Beehiiv + editar voz
+- [x] Hero image generada
+- [x] SEO configurado en Beehiiv
+- [x] Publicado → https://robohogar.com/p/mejor-robot-asistente-ia-2026
+- [ ] Welcome Email configurado y activado (ver sección abajo)
+
+---
+
+### Welcome Email (configurar AHORA — después de publicar Artículo 0)
+
+> El Welcome Email es lo primero que recibe alguien al suscribirse.
+> **50-55% de open rate** — el doble que un email normal. Es tu mejor oportunidad de causar buena impresión.
+> Según el playbook: pedir reply (señal #1 para Gmail Primary) + pedir mover a bandeja principal.
+
+**Paso 1** — Ir a **Automations** en el menú lateral de Beehiiv
+
+**Paso 2** — Buscar **Welcome Email** (Beehiiv lo tiene como automatización predeterminada). Click en **Edit**
+
+**Paso 3** — Configurar:
+
+| Campo | Valor |
+|-------|-------|
+| Subject | `Bienvenido/a a ROBOHOGAR 🤖` |
+| Preview text | `Tu casa se está robotizando y yo te lo cuento` |
+| Sender name | `Rafael de ROBOHOGAR` |
+
+**Paso 4** — Pegar este contenido en el editor (copy-paste):
+
+```
+¡Hola!
+
+Soy Rafael, y esto es ROBOHOGAR — tu casa se está robotizando
+y yo te lo cuento cada 2 semanas.
+
+Esto es lo que vas a recibir:
+
+• Lo que ha pasado en robótica doméstica, sin tecnicismos
+• Reviews sin filtro de robots que ya están a la venta
+• Humanoides y el futuro de tu casa robotizada
+• Un dato curioso + el mejor enlace que he encontrado
+
+Para que no me pierda en tu spam, haz esto:
+→ Arrastra este email a tu bandeja principal
+→ Añade hola@robohogar.com a tus contactos
+
+Mientras tanto, empieza por aquí:
+👉 Robots de escritorio con IA: cuál merece tu dinero
+    https://robohogar.com/p/mejor-robot-asistente-ia-2026
+
+Si tienes un robot en casa y quieres contarme tu experiencia,
+responde a este email — los leo todos.
+
+Un saludo robótico,
+Rafael
+ROBOHOGAR
+```
+
+**Paso 5** — Verificar:
+- [ ] ¿El link al artículo funciona?
+- [ ] ¿El sender name dice "Rafael de ROBOHOGAR"?
+- [ ] ¿El subject tiene el emoji 🤖?
+
+**Paso 6** — Pulsar **Save & Activate**
+
+**Paso 7** — Probar: suscríbete tú mismo con un email alternativo y verifica que llega
 
 ---
 
