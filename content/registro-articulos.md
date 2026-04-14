@@ -12,4 +12,4 @@
 
 | # | Fecha | Título | Slug | URL | Tipo | Tags |
 |---|-------|--------|------|-----|------|------|
-| 0 | 2026-04-14 | Robots de escritorio con IA: cuál merece tu dinero (y cuál es humo) | mejor-robot-asistente-ia-2026 | https://robohogar.com/p/robots-de-escritorio-con-ia-cul-merece-tu-dinero-y-cul-es | Review/Comparativa | Asistentes IA, Robot Mascotas |
+| 0 | 2026-04-14 | Robots de escritorio con IA: cuál merece tu dinero (y cuál es humo) | mejor-robot-asistente-ia-2026 | https://robohogar.com/p/mejor-robot-asistente-ia-2026 | Review/Comparativa | Asistentes IA, Robot Mascotas |
