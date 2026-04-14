@@ -54,6 +54,7 @@ Copia artículos de `content/published/` al vault `03-Published/`.
 - Añade frontmatter si no tiene (type: published, tags, fecha)
 - Actualiza wikilinks internos a formato Obsidian `[[Page Name]]`
 - NO sobreescribe archivos existentes en el vault
+- **SIEMPRE sincronizar `content/registro-articulos.md`** al vault como `Registro Articulos.md`
 
 ### 2. `wiki-update` — Actualizar base de datos wiki
 
@@ -93,6 +94,20 @@ Escanea y reporta sin modificar:
 - Wikilinks rotos `[[Page]]` que no apuntan a nada
 - Notas huérfanas (sin backlinks)
 - Carpetas vacías
+
+## Archivos que SIEMPRE se sincronizan al vault
+
+Al ejecutar CUALQUIER modo de este skill, sincronizar estos archivos del repo al vault:
+
+| Repo | Vault | Notas |
+|------|-------|-------|
+| `docs/guia-implementacion.md` | `Guia Implementacion.md` | Guía maestra del proyecto |
+| `content/registro-articulos.md` | `Registro Articulos.md` | Catálogo de artículos publicados — fuente de verdad |
+
+```bash
+cp "$HOME/robohogar/content/registro-articulos.md" "$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Registro Articulos.md"
+cp "$HOME/robohogar/docs/guia-implementacion.md" "$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Guia Implementacion.md"
+```
 
 ## Reglas de Obsidian (heredadas del vault-organizer)
 
