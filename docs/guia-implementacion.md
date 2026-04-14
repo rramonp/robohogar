@@ -543,6 +543,73 @@ ROBOHOGAR
 
 ---
 
+### Redes sociales (configurar ANTES de crear más contenido)
+
+> Todo esto se configura una vez. Cuando publiques artículos nuevos, solo tienes que compartir desde Buffer.
+
+**Instagram**
+
+- [ ] Crear cuenta: username `robohogar_es`
+- [ ] Convertir a profesional: Settings → Account → Switch to professional → Creator → Technology
+- [ ] Foto de perfil: mascota principal
+- [ ] Bio: `🤖 Robots que llegan a tu casa | 📬 Newsletter gratis cada 2 semanas | 🔍 Reviews · Noticias · Opinión | 👇 Suscríbete`
+- [ ] Link en bio → `https://robohogar.com`
+
+**LinkedIn**
+
+- [ ] Añadir a tu headline: `| Fundador de ROBOHOGAR 🤖`
+- [ ] Publicar post de lanzamiento (link en primer comentario, NO en el cuerpo)
+
+**WhatsApp Channel**
+
+- [ ] WhatsApp → Updates → Channels → `+` → Create Channel
+- [ ] Nombre: `ROBOHOGAR 🤖`
+- [ ] Descripción: `Newsletter quincenal sobre robótica doméstica. robohogar.com`
+- [ ] Foto: mascota principal
+- [ ] Publicar primer mensaje de bienvenida
+
+**Buffer**
+
+- [ ] Registrarse en buffer.com (plan gratuito: 3 canales, 10 posts/canal)
+- [ ] Conectar: Instagram + LinkedIn
+- [ ] Horarios: IG lunes/miércoles/viernes 12:00 CET · LinkedIn martes/jueves 9:00 CET
+
+**Canva Brand Kit**
+
+- [ ] Registrarse/login en canva.com
+- [ ] Brand Kit: logo mascota + colores (#F5A623, #0C0C0C, #FFFFFF, #F2F2F2)
+- [ ] Guardar 2-3 templates adaptados para posts de IG
+
+---
+
+### Monetización y legal (configurar ANTES de crear más contenido)
+
+**Amazon Afiliados España**
+
+- [ ] Registrarse en afiliados.amazon.es (necesitas NIF + IBAN)
+- [ ] Website → `robohogar.com`
+- [ ] Categorías → Electrónica, Hogar
+
+> ⚠️ Tienes **180 días** para generar al menos 1 venta. Comisiones: 3-7%. Cookie: 24h (89 días si añade al carrito).
+
+- [ ] Insertar tag de afiliado en los links de Amazon del Artículo 0
+
+**Páginas legales (obligatorias)**
+
+Crear en Beehiiv: **Website → Pages → Add Page**
+
+- [ ] **Aviso Legal** (slug: `aviso-legal`) — Titular, NIF, email, descripción del sitio
+- [ ] **Política de Privacidad** (slug: `privacidad`) — Responsable, finalidad, legitimación, derechos, proveedor (Beehiiv)
+- [ ] Añadir links a ambas en el footer de la landing
+
+**Picos de conversión (marcar en calendario)**
+
+- [ ] Prime Day (julio) → comparativas 1-2 semanas antes
+- [ ] Black Friday (noviembre) → actualizar precios día del evento
+- [ ] Navidad (diciembre) → "Guía de regalos tech: robots para casa"
+
+---
+
 ### Artículo 1: "¿Qué robot aspirador compro en 2026?"
 
 | Campo | Valor |
@@ -851,202 +918,7 @@ Cada newsletter sigue este template (de `docs/plan-v2.md`):
 
 ---
 
-## FASE 5: Social Media Setup
-
-### Instagram
-
-- [ ] Descargar Instagram (si no lo tienes) o ir a instagram.com
-- [ ] Crear cuenta nueva: username `robohogar_es`
-- [ ] Convertir a cuenta profesional: Settings → Account → Switch to professional → Creator → Technology
-- [ ] Foto de perfil: `assets/branding/master/robohogar-mascot-principal.png`
-- [ ] Bio:
-
-```
-🤖 Robots que llegan a tu casa
-📬 Newsletter quincenal gratis
-🔍 Reviews · Noticias · Opinión
-👇 Suscríbete
-```
-
-- [ ] Link en bio → `https://robohogar.com`
-- [ ] Primeros 3 Reels (ideas):
-  1. "3 robots que ya puedes tener en casa por menos de 300€" (15s, texto animado sobre B-roll)
-  2. "Este robot humanoid sirve café" (clip viral + comentario en texto)
-  3. "El error que todos cometen al comprar un robot aspirador" (hook fuerte, 20s)
-
-> [!tip]
-> Primeros 3 segundos del Reel son críticos — empieza con un hook visual o texto que detenga el scroll. Objetivo: 60%+ de retención. Duración ideal: 7-30 segundos.
-
-### LinkedIn
-
-- [ ] Usar tu perfil personal de LinkedIn (no crear company page — el alcance orgánico de páginas es muy bajo)
-- [ ] Añadir a la bio/headline: `...| Fundador de ROBOHOGAR 🤖`
-- [ ] Primer post (plantilla):
-
-```
-He lanzado ROBOHOGAR — una newsletter quincenal sobre los robots
-que llegan a nuestras casas.
-
-¿Por qué? Porque en español no hay nadie que cubra robótica doméstica
-para consumidores normales. Ni un solo newsletter.
-
-Cada 2 semanas: reviews sin filtro, noticias curadas, y opinión sobre
-el futuro del hogar robotizado.
-
-100% gratis. Sin spam.
-
-👉 Link en primer comentario
-
-¿Tienes un robot en casa? Cuéntame cuál en los comentarios.
-```
-
-- [ ] Publicar el link a `robohogar.com` en el PRIMER COMENTARIO (no en el post — LinkedIn penaliza links en el cuerpo)
-
-### WhatsApp Channel
-
-- [ ] Abrir WhatsApp → Updates (pestaña) → Channels → botón `+` → **Create Channel**
-- [ ] Nombre: `ROBOHOGAR 🤖`
-- [ ] Descripción: `Newsletter quincenal sobre robótica doméstica. Reviews, noticias y opinión. robohogar.com`
-- [ ] Foto: mascota principal
-- [ ] Primer mensaje:
-
-```
-¡Bienvenido/a a ROBOHOGAR! 🤖
-
-Aquí compartiré:
-• Resúmenes de cada newsletter
-• Noticias urgentes de robótica doméstica
-• Links a reviews y guías
-
-📬 Para la versión completa, suscríbete gratis:
-robohogar.com
-```
-
-> [!tip]
-> WhatsApp Channels tiene ~98% de tasa de apertura. Es unidireccional (broadcast), perfecto para notificaciones de nuevo contenido sin gestionar comunidad.
-
-### Buffer
-
-- [ ] Ir a **https://buffer.com** → Sign up (plan gratuito: 3 canales, 10 posts/canal)
-- [ ] Conectar: Instagram, LinkedIn, y 1 canal más (X/Twitter si decides usarlo)
-- [ ] Configurar horarios de publicación:
-  - Instagram: Lunes/Miércoles/Viernes 12:00 CET
-  - LinkedIn: Martes/Jueves 9:00 CET
-- [ ] Cada vez que publiques newsletter → crear 2-3 posts derivados y programarlos en Buffer
-
-### Canva Brand Kit
-
-- [ ] Ir a **https://canva.com** → Sign up / Login
-- [ ] **Brand Kit** (disponible en free con limitaciones):
-  - Subir logo: mascota principal
-  - Color primario: `#F5A623`
-  - Color texto: `#0C0C0C`
-  - Color fondo: `#FFFFFF`
-  - Color secundario: `#F2F2F2`
-- [ ] Buscar templates: `tech newsletter instagram` → elegir 2-3 que encajen con el estilo editorial
-- [ ] Adaptar con colores ROBOHOGAR y guardar como templates propios
-
-### ManyChat (cuando tengas >100 seguidores en IG)
-
-- [ ] Ir a **https://manychat.com** → Sign up (free hasta 1.000 contactos)
-- [ ] Conectar cuenta de Instagram
-- [ ] Crear automation: **"Comment to get"**
-  - Trigger: comentario con keyword `ROBOT` en un Reel
-  - Action: enviar DM automático con link a la guía de compra (artículo 1)
-  - Mensaje DM: `¡Hola! 🤖 Aquí tienes la guía: [link]. Y si quieres recibirla quincenal, suscríbete gratis en robohogar.com`
-- [ ] Publicar un Reel con CTA: "Comenta ROBOT y te envío mi guía de compra"
-
-> [!tip]
-> 90% de tasa de apertura en DMs de Instagram. Mucho más efectivo que el link en bio.
-
----
-
-## FASE 6: Monetización Inicial
-
-### Amazon Afiliados España
-
-- [ ] Ir a **https://afiliados.amazon.es**
-- [ ] Pulsar **Únete ahora gratis**
-- [ ] Rellenar datos personales (necesitas datos fiscales / NIF español)
-- [ ] Website → `robohogar.com`
-- [ ] Descripción del sitio → `Newsletter y blog sobre robótica doméstica: reviews, comparativas y guías de compra de robots aspiradores, friegasuelos, cortacéspedes y humanoides.`
-- [ ] Categorías → Electrónica, Hogar
-- [ ] Método de pago → transferencia bancaria (requiere IBAN)
-
-> [!warning]
-> Tienes **180 días** para generar al menos 1 venta o Amazon cierra la cuenta. Publica la guía de compra con links de afiliado cuanto antes.
-
-**Comisiones relevantes:**
-| Categoría | Comisión |
-|---|---|
-| Electrónica | 3% |
-| Hogar y cocina | 3-7% |
-| Aspiradoras | ~3% |
-
-**Cookie window:** 24h desde el clic. Si el usuario añade al carrito, 89 días.
-
-**Las mejores conversiones:** comparativas "X vs Y" y guías de compra (no reviews individuales).
-
-### Insertar links de afiliado en artículos
-
-- [ ] En Amazon Afiliados → **SiteStripe** (barra de herramientas en Amazon cuando estás logueado)
-- [ ] Buscar el producto → clic en **Text** en SiteStripe → copiar el link corto
-- [ ] En el artículo de Beehiiv: insertar como hyperlink normal en el nombre del producto
-
-> [!warning]
-> **NUNCA** pongas links de afiliado directamente en emails. Amazon puede cerrarte la cuenta. Los links van en los artículos WEB, y el email enlaza al artículo.
-
-### Páginas legales obligatorias
-
-Crear 3 páginas en Beehiiv (**Website → Pages → Add Page**):
-
-**Aviso Legal** (slug: `aviso-legal`):
-```
-AVISO LEGAL
-
-Titular: [Tu nombre completo]
-NIF: [Tu NIF]
-Email: hola@robohogar.com
-Dominio: robohogar.com
-
-Este sitio web es un proyecto personal de divulgación sobre robótica doméstica.
-El contenido es informativo y refleja opiniones personales del autor.
-```
-
-**Política de Privacidad** (slug: `privacidad`):
-```
-POLÍTICA DE PRIVACIDAD
-
-Responsable: [Tu nombre]
-Finalidad: Envío de newsletter quincenal sobre robótica doméstica.
-Legitimación: Consentimiento del interesado.
-Destinatarios: Beehiiv Inc. (proveedor de email marketing, servidores en EEUU,
-adherido a las cláusulas contractuales tipo de la UE).
-Derechos: Acceso, rectificación, supresión, portabilidad. Escribe a hola@robohogar.com.
-Baja: Link de cancelación en cada email.
-
-No compartimos datos con terceros con fines comerciales.
-```
-
-**Disclosure de afiliados** (añadir al footer de cada artículo con links de afiliado):
-```
-En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas
-que cumplen los requisitos aplicables. Los precios y disponibilidad de los
-productos pueden variar.
-```
-
-- [ ] Añadir link a Aviso Legal y Privacidad en el footer de la landing
-
-### Picos de conversión (planificar contenido)
-
-- [ ] **Prime Day** (julio): publicar comparativas 1-2 semanas antes
-- [ ] **Black Friday** (noviembre): idem, actualizar precios día del evento
-- [ ] **Navidad** (diciembre): "Guía de regalos tech: robots para casa"
-- [ ] Marcar estas fechas en el calendario editorial de Obsidian
-
----
-
-## FASE 7: Automatización
+## FASE 5: Automatización
 
 ### Visión general del pipeline
 
@@ -1241,7 +1113,7 @@ Programación con Make.com → Buffer:
 
 ---
 
-## FASE 8: Métricas y Revisión
+## FASE 6: Métricas y Revisión
 
 ### Qué rastrear
 
@@ -1311,7 +1183,7 @@ Cada 3 meses, revisar contra los objetivos de `docs/plan-v2.md`:
 
 ---
 
-## FASE 9: Post-lanzamiento y mantenimiento con Claude Code
+## FASE 7: Post-lanzamiento y mantenimiento con Claude Code
 
 ### Workflow quincenal (cada 2 semanas, ~30 min con Claude Code)
 
@@ -1382,7 +1254,7 @@ Cada 3 meses, revisar contra los objetivos de `docs/plan-v2.md`:
 | `/nano-banana` | "genera imagen" | Assets visuales (mascota, headers, OG) |
 | `/commit` | "commitea" | Git commit con formato estándar |
 
-## FASE 10: Crecimiento de suscriptores (cuando haya >50 subs)
+## FASE 8: Crecimiento de suscriptores (cuando haya >50 subs)
 
 Tácticas para aumentar la base de suscriptores de forma orgánica y no invasiva.
 
@@ -1416,7 +1288,7 @@ Tácticas para aumentar la base de suscriptores de forma orgánica y no invasiva
 
 ---
 
-## FASE 11: Optimización Newsletter (cuando haya >200 subs)
+## FASE 9: Optimización Newsletter (cuando haya >200 subs)
 
 ### A/B Testing
 
@@ -1457,7 +1329,7 @@ Tácticas para aumentar la base de suscriptores de forma orgánica y no invasiva
 
 ---
 
-## FASE 12: Pipeline Avanzado (cuando el workflow manual sea el bottleneck)
+## FASE 10: Pipeline Avanzado (cuando el workflow manual sea el bottleneck)
 
 ### Research Aggregator Script
 
