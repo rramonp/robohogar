@@ -305,6 +305,121 @@ Configurar estas categorías para organizar el contenido:
 
 ---
 
+## FASE 1C: Base de Conocimiento Newsletter & Email
+
+> Antes de crear contenido o templates, instalamos el conocimiento base de email marketing
+> que informará todas las decisiones de newsletter, templates y automatización.
+> Fuentes: beehiiv-newsletter-advisor (datos de plataforma) + email-marketing-bible (best practices generales).
+
+### Referencia unificada de email marketing
+
+- [x] Clonar temporalmente repos fuente (beehiiv-newsletter-advisor + email-marketing-bible)
+- [x] Curar y fusionar contenido relevante por tema (excluir: ecommerce, cold email, case studies)
+- [x] Crear `references/newsletter/email-marketing-playbook.md` con 11 secciones:
+  - Benchmarks & KPIs (beehiiv 2025 + genéricos)
+  - Growth Stack (canales ordenados por impacto)
+  - Welcome Series (6 emails adaptados a ROBOHOGAR)
+  - Subject Lines & Copywriting (frameworks PAS/BAB/1-3-1)
+  - Email Design Patterns (specs + anti-slop + 57 diseños curados)
+  - Deliverability (autenticación + Gmail Primary + cambios 2025-2026)
+  - Segmentation (5 tiers de engagement)
+  - Testing (prioridades)
+  - Compliance GDPR (audiencia EU)
+  - Creator Milestones (revenue stack, inflexión 10K)
+  - Send Timing (martes/miércoles, 9:00 CET)
+- [x] Verificar: archivo accesible y referenciado desde `/content-draft`
+
+### Regla compacta de newsletter
+
+- [x] Crear `rules/newsletter.md` (≤40 líneas) — mecánicas de email
+- [x] Ownership claro: `editorial.md` = voz/tono, `newsletter.md` = entrega/diseño/optimización
+- [x] Añadir `@rules/newsletter.md` a `CLAUDE.md`
+- [x] Verificar: ≤40 líneas, sin duplicación con `editorial.md`
+
+### Actualizar skill de contenido
+
+- [x] Añadir tipo "Newsletter" a la tabla de tipos en `.claude/commands/content-draft.md`
+- [x] Añadir template en tabla de templates
+- [x] Añadir referencia condicional al playbook para tipo Newsletter
+
+### Investigación de templates de referentes
+
+> Investigar qué estructuras usan las newsletters exitosas antes de diseñar los nuestros.
+
+- [ ] Scrape 2-3 issues de cada referente con Firecrawl:
+  - **TLDR** — estructura ultra-concisa (emoji + bold + 2-line summary + link)
+  - **The Hustle** — storytelling + data, reviews largos, headers grandes
+  - **Morning Brew** — gold standard (estructura de secciones, ratio texto/imagen, CTAs)
+  - **Newsletter Operator** — reviews, comparison tables
+  - **Chartr** — data-driven, uso de charts/tablas inline
+- [ ] Extraer: estructura HTML, ancho, tipografía, espaciado, ratio imagen/texto
+- [ ] Documentar patrones en `references/newsletter/template-patterns.md`
+
+### Sistema de templates ROBOHOGAR
+
+**Principios de diseño:**
+1. **Automation-ready**: slots claros que `/content-draft` puede rellenar
+2. **Mobile-first**: 600px max, 14-16px body, single-column, touch targets 44px
+3. **Consistencia visual**: misma estructura = lectores saben qué esperar
+4. **Anti-slop**: personalidad > perfección. Voz ROBOHOGAR visible
+5. **Escalable**: añadir secciones o tipos sin rediseñar
+
+**Templates a crear/iterar:**
+
+| Template | Archivo | Tipo | Status |
+|---|---|---|---|
+| Review/Comparativa | `content/templates/review-comparativa.md` | 70% — productos | 🔄 En iteración |
+| Newsletter Issue | `content/templates/newsletter-issue.md` | Email quincenal | ⏳ Pendiente |
+| Noticias/Roundup | `content/templates/noticias-roundup.md` | Noticias curadas | ⏳ Pendiente |
+| Editorial/Opinión | `content/templates/editorial-opinion.md` | 30% — futuro | ⏳ Pendiente |
+
+**Proceso por template (7 pasos):**
+1. Investigar 3+ ejemplos reales del mismo tipo
+2. Diseñar estructura (secciones, headings, slots)
+3. Definir frontmatter (campos YAML para `/content-draft`)
+4. Crear checklist pre-publicación
+5. Probar en Beehiiv (post de prueba + mobile preview)
+6. Iterar según cómo se ve publicado
+7. Documentar versión final con ejemplos
+
+**Template 1: Review/Comparativa (EN ITERACIÓN)**
+- [ ] Revisar estructura vs patrones de referentes (Newsletter Operator, The Hustle)
+- [ ] Verificar slots de frontmatter para `/content-draft`
+- [ ] Ajustar tabla comparativa (horizontal vs vertical)
+- [ ] Probar en Beehiiv con artículo real, verificar mobile
+- [ ] Finalizar checklist (23 puntos actuales)
+
+**Template 2: Newsletter Issue (NUEVO)**
+- [ ] Crear `content/templates/newsletter-issue.md`
+- [ ] Estructura: 5 secciones + frontmatter + pre-send checklist
+- [ ] Consultar playbook para fórmula 1-3-1 y subject lines
+- [ ] CTA placement: mid-article + footer
+
+**Template 3: Noticias/Roundup (NUEVO)**
+- [ ] Crear `content/templates/noticias-roundup.md`
+- [ ] Formato: emoji + bold título + resumen + "Por qué importa:" + link
+- [ ] SEO-friendly con H2 por noticia para artículos web
+
+**Template 4: Editorial/Opinión (NUEVO)**
+- [ ] Crear `content/templates/editorial-opinion.md`
+- [ ] Estructura: hook → contexto → desarrollo → contraargumento → posición → cierre
+
+### Template visual de email en Beehiiv
+
+- [ ] Configurar en **Settings → Email → Default Template**
+- [ ] Header: `newsletter-header.png` (ya generado)
+- [ ] Colores: fondo #FFFFFF, texto #0C0C0C, CTAs #F5A623
+- [ ] Footer: social links + unsubscribe
+- [ ] Verificar dark mode y mobile
+- [ ] Enviar test email a personal
+
+### Limpiar
+
+- [x] Eliminar repos clonados temporales
+- [x] Commit con cambios de conocimiento base
+
+---
+
 ## FASE 2: Contenido Base (semana 1-2)
 
 ### Welcome email
@@ -743,6 +858,13 @@ Cada newsletter sigue este template (de `docs/plan-v2.md`):
 [Suscríbete aquí si te lo han reenviado](URL_LANDING)
 ```
 
+### Preparar el issue
+
+- [ ] Consultar `references/newsletter/email-marketing-playbook.md` para subject line (<25 chars)
+- [ ] Usar template `content/templates/newsletter-issue.md` (cuando esté creado)
+- [ ] Verificar estructura 1-3-1 (intro, 3 puntos, CTA) — ver `rules/newsletter.md`
+- [ ] Subject line: curiosity gap o pregunta, sin clickbait
+
 ### Escribir en Beehiiv
 
 - [ ] **Posts → Create Post**
@@ -1110,6 +1232,28 @@ Programación con Make.com → Buffer:
 - [ ] Make.com scenario: webhook recibe los posts → envía a Buffer API
 - [ ] Buffer programa publicación según horarios configurados
 
+### Welcome Series completa (6 emails)
+
+> Referencia detallada: `references/newsletter/email-marketing-playbook.md` sección 3.
+> Beehiiv free plan: solo welcome + reminder. Serie completa requiere plan de pago.
+
+- [ ] **Email 1** (día 0): Bienvenida + mejor artículo + pedir reply (ya existe como Welcome Email)
+- [ ] **Email 2** (día 1): Pregunta engagement "¿Qué robot tienes?" (ya existe como Reminder)
+- [ ] **Email 3** (día 3): Artículo editorial (humanoides) — construye marca, muestra el 30%
+- [ ] **Email 4** (día 5): Guía de compra — muestra valor práctico, el 70%
+- [ ] **Email 5** (día 10): Experiencia personal con robots — genera confianza
+- [ ] **Email 6** (día 14): Resumen de lo que viene + CTA referral + link preferencias
+- [ ] Configurar en Beehiiv Automations cuando se upgrade a plan de pago
+
+### HTML Email Template (cuando sea necesario)
+
+> Para campañas especiales o templates personalizados. Workflow: generar HTML → copy-paste en Beehiiv.
+
+- [ ] Consultar playbook sección "Email Design Patterns" para specs (600px, inline CSS, dark mode)
+- [ ] Generar HTML con inline styles, ancho max 600px
+- [ ] Testear dark mode y mobile (enviar test email)
+- [ ] Pegar en Beehiiv editor (bloque HTML)
+
 ### Herramientas y costes
 
 | Herramienta | Función en el pipeline | Coste |
@@ -1309,5 +1453,115 @@ Tácticas para aumentar la base de suscriptores de forma orgánica y no invasiva
 
 ---
 
+## FASE 11: Optimización Newsletter (cuando haya >200 subs)
+
+### A/B Testing
+
+- [ ] Testear sender name: "Rafael" vs "ROBOHOGAR" vs "Rafael de ROBOHOGAR"
+- [ ] Testear formato CTA: botón ámbar vs text link
+- [ ] Testear template: minimalista vs con hero image
+- [ ] Testear subject: pregunta vs statement vs número
+- [ ] Referencia: `references/newsletter/email-marketing-playbook.md` sección Testing
+- [ ] Solo 1 de cada 7 tests da resultado significativo — paciencia
+
+### Segmentación por engagement
+
+> Implementar 5 tiers del playbook (sección Segmentation).
+
+- [ ] Tier 1 (clicked 30d): recibe todo
+- [ ] Tier 2 (clicked 60d): recibe 75% de envíos
+- [ ] Tier 3 (opened 90d): solo el mejor contenido
+- [ ] Tier 4 (sin engagement 90-180d): solo re-engagement flow
+- [ ] Tier 5 (180+ días): sunset flow → suprimir
+- [ ] Resultados esperados: +15-30% opens, -20-40% complaints
+- [ ] Requiere plan Scale de Beehiiv para segmentación avanzada
+
+### Deliverability audit
+
+- [ ] Verificar SPF/DKIM/DMARC con herramienta online (ej: mxtoolbox.com)
+- [ ] Monitorear Gmail Primary vs Promotions (enviar test emails)
+- [ ] Revisar bounce rate y spam complaints vs benchmarks del playbook
+- [ ] Implementar sunset flow para inactivos >90 días
+- [ ] Referencia: playbook sección Deliverability
+
+### Upgrade a Beehiiv Scale (cuando >2,500 subs o revenue lo justifique)
+
+- [ ] Evaluar ROI: ¿el revenue (afiliados + sponsors) cubre los $34/mes?
+- [ ] Activar: segmentación avanzada, A/B testing nativo, analytics detallados
+- [ ] Activar: automations completas (welcome series de 6 emails)
+- [ ] Evaluar: API access para subscribers → integrar en pipeline de automatización
+- [ ] Considerar: Beehiiv MCP (si disponible en el plan)
+
+---
+
+## FASE 12: Pipeline Avanzado (cuando el workflow manual sea el bottleneck)
+
+### Research Aggregator Script
+
+- [ ] Implementar `utilities/research_aggregator.py` (diseñado en FASE 7)
+- [ ] Conectar RSS feeds (8+ fuentes) + Firecrawl para scraping
+- [ ] Integrar Claude API (Haiku) para categorización automática
+- [ ] Output: `content/drafts/YYYY-MM-DD-raw-digest.md`
+- [ ] Cron job semanal (lunes) via Make.com o cron local
+
+### Make.com Integration
+
+- [ ] Crear scenario: cron semanal → trigger research_aggregator
+- [ ] Crear scenario: artículo publicado → genera posts sociales → Buffer API
+- [ ] Coste: 9€/mes
+
+### Buffer Integration
+
+- [ ] Conectar Instagram, LinkedIn, WhatsApp Channel
+- [ ] Configurar horarios: IG Lun/Mié/Vie 12:00, LinkedIn Mar/Jue 9:00
+- [ ] Coste: 6€/mes
+
+### Beehiiv MCP (cuando esté disponible en tu plan)
+
+- [ ] Solicitar acceso si upgradeas a plan de pago
+- [ ] Configurar en `.mcp.json`:
+  ```json
+  {
+    "beehiiv": {
+      "url": "https://mcp.beehiiv.com/mcp",
+      "headers": { "Authorization": "Bearer <token>" }
+    }
+  }
+  ```
+- [ ] V1: consultar métricas directamente desde Claude Code
+- [ ] V2 (futuro): crear borradores directamente en Beehiiv desde Claude Code
+
+### Pipeline end-to-end automatizado
+
+Workflow objetivo — tiempo de Rafael: ~1h por issue (vs 3h+ manual):
+
+```
+┌── AUTOMÁTICO ────────────────────────────────────────────────┐
+│ /research-digest → digest automático (lunes)                  │
+│ Fuentes RSS + Firecrawl → Claude API categoriza → digest.md  │
+└──────────────────────────────────────────────────────────────┘
+                           ↓
+┌── MANUAL (~15 min) ──────────────────────────────────────────┐
+│ Rafael lee digest → elige 3-5 temas → define ángulo          │
+└──────────────────────────────────────────────────────────────┘
+                           ↓
+┌── SEMIAUTOMÁTICO ────────────────────────────────────────────┐
+│ /content-draft → borrador con SEO + playbook de newsletter   │
+│ /nano-banana → hero image automático                          │
+└──────────────────────────────────────────────────────────────┘
+                           ↓
+┌── MANUAL (~45 min) ──────────────────────────────────────────┐
+│ Rafael edita voz/opinión/humor → publica en Beehiiv          │
+└──────────────────────────────────────────────────────────────┘
+                           ↓
+┌── AUTOMÁTICO ────────────────────────────────────────────────┐
+│ /social-content → posts generados                             │
+│ Buffer programa publicación automática                        │
+│ /obsidian-robohogar sync → vault actualizado                  │
+└──────────────────────────────────────────────────────────────┘
+```
+
+---
+
 *Guía viva — actualizar cuando se complete cada FASE.*
-*Fuentes: `docs/plan-v2.md`, `docs/website-brief.md`, research de mercado (abr 2026)*
+*Fuentes: `docs/plan-v2.md`, `docs/website-brief.md`, `references/newsletter/email-marketing-playbook.md`, research de mercado (abr 2026)*

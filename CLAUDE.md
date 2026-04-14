@@ -82,3 +82,4 @@ Stage files by name (NOT `git add -A`). Do NOT auto-push unless Rafael asks.
 @rules/automation.md
 @rules/config.md
 @rules/literate-code.md
+@rules/newsletter.md
