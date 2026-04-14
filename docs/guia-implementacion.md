@@ -504,10 +504,25 @@ Rafael
 1. **Claude** genera research + borrador HTML → `content/articulos/<slug>/borrador.html`
 2. **Rafael** copia secciones del HTML a Beehiiv bloque por bloque
 3. **Rafael** edita con su voz, añade imágenes de producto (fotos fabricante)
-4. **Claude** genera hero image con `/nano-banana` (1200x630)
-5. **Rafael** configura en Beehiiv: SEO (title, meta, slug), content gating, publish as web post
+4. **Claude** genera 2 imágenes con `/nano-banana`:
+   - **Hero** (square/landscape) → imagen dentro del artículo
+   - **Thumbnail** (16:9) → post thumbnail para feed, cards, SEO, redes
+5. **Rafael** configura en Beehiiv (ver settings abajo)
 6. **Rafael** revisa checklist pre-publicación (`content/templates/review-comparativa.md`)
 7. **Publicar** → actualizar Welcome Email con URL real → mover borrador a `content/published/`
+
+### Settings de publicación en Beehiiv
+
+| Setting | Valor | Notas |
+|---------|-------|-------|
+| **Publish to** | `Web only` | Artículos de blog. `Email and web` solo para newsletter quincenal |
+| **Post URL** | `<slug>` definido en SEO del artículo | Siempre corto, sin stop words |
+| **Post thumbnail** | Subir `thumbnail-<slug>.png` (16:9) | Aparece en landing, cards, OG, Google |
+| **Show thumbnail on top** | ✅ Activado | La hero se muestra dentro del artículo |
+| **Advanced email capture** | `Content Gate` | Primeros párrafos gratis, luego pide email |
+| **Comments** | Activados | Engagement + señales SEO |
+| **Meta title** | Copiar del frontmatter del borrador | Max 60 chars |
+| **Meta description** | Copiar del frontmatter del borrador | Max 155 chars, con CTA implícito |
 
 ---
 

@@ -59,11 +59,18 @@ Ruta de cada hero: `content/articulos/<slug>/assets/hero-<slug>[-vN].png`
 
 ## Estrategia de imágenes por artículo
 
-| Tipo de imagen | Origen | Dónde va |
-|---|---|---|
-| **Hero/destacada** (1200x630) | Siempre branded con nano-banana | `content/articulos/<slug>/assets/hero-<slug>.png` |
-| **Inline** (dentro del artículo) | Originales de la fuente/fabricante | `content/articulos/<slug>/assets/` |
-| **Templates** (newsletter header, social card) | Branded con nano-banana | `assets/images/` (no van por artículo) |
+**Cada artículo necesita 2 imágenes generadas + imágenes inline de fabricante:**
+
+| Tipo de imagen | Aspect | Uso | Nombre archivo |
+|---|---|---|---|
+| **Hero** (dentro del artículo) | `square` o `landscape` | Imagen grande al inicio del artículo | `hero-<slug>.png` |
+| **Thumbnail** (post thumbnail) | `16:9` | Feed landing, cards, OG/SEO, redes sociales | `thumbnail-<slug>.png` |
+| **Inline** (producto) | Variable | Fotos dentro del artículo | Originales de fabricante, no generadas |
+| **Templates** (newsletter, social) | Variable | Newsletter header, social card | En `assets/images/`, no por artículo |
+
+**SIEMPRE generar ambas** (hero + thumbnail) con el mismo prompt para mantener consistencia visual. La única diferencia es el `--aspect`:
+- Hero: `--aspect square` o `--aspect landscape`
+- Thumbnail: `--aspect 16:9`
 
 ### Estructura de carpetas por artículo
 
