@@ -143,6 +143,19 @@ Coloquiales con criterio: "merece la pena", "va como un tiro", "se queda corto",
 
 Si falta alguna de estas cuatro, el artículo no está listo.
 
+### Links obligatorios en cada artículo
+
+Todos los links deben ser reales — nunca placeholders (#).
+
+| Dónde | Qué enlazar |
+|-------|-------------|
+| Botones "Consultar en Amazon" | URL real de Amazon.es para cada producto recomendado |
+| Veredicto final (botón ganador) | URL del producto ganador en Amazon.es |
+| 💡 ¿Sabías que...? | URL de la fuente del dato curioso (medio verificable: NPR, SCMP, etc.) |
+| Internal links | URLs de otros artículos de ROBOHOGAR (cuando existan) |
+
+Cuando tengamos Amazon Associates, añadir `?tag=robohogar-21` a cada URL de Amazon.
+
 ---
 
 ## 9. La mascota como extensión de marca
