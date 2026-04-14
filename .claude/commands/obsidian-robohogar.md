@@ -95,11 +95,50 @@ Escanea y reporta sin modificar:
 - Notas huérfanas (sin backlinks)
 - Carpetas vacías
 
+### 7. `repo-mirror` — Mirror del repositorio al vault
+
+Sincroniza el repositorio robohogar completo al vault como notas Markdown navegables
+bajo `03_Resources/03-01_Claude/Repo Mirrors/ROBOHOGAR/`. Mismo patrón que el Mode 12
+del vault-organizer de RRP-DEV.
+
+**Motor:** `skills/vault_sync/repo_mirror.py` + `skills/vault_sync/config.py`
+
+**Qué se mirrorea:**
+- Configuración: CLAUDE.md, .mcp.json, .gitignore
+- Rules, Commands, Memory (.claude/)
+- Artículos (content/articulos/) — cada slug = subcarpeta
+- Templates Beehiiv, registro de artículos
+- Docs (brand voice, guía implementación, planes)
+- References (investigación, competencia)
+- Utilities, Scripts
+- Landing page, asset catalog, mascota prompt
+- El propio vault_sync engine
+
+**Cada nota incluye:**
+- Frontmatter: `mirror-source`, `mirror-hash` (SHA-256), `mirror-date`, `mirror-commit`
+- Archivos .md → contenido embebido directamente
+- Archivos .py/.html/.json → fenced code blocks con syntax highlighting
+- Link a `[[ROBOHOGAR Mirror Index]]` para navegación
+
+**Reconciliación incremental:** solo actualiza notas cuyo hash cambió. `--full` fuerza rebuild completo.
+
+**Ejecutar:**
+```python
+from skills.vault_sync.repo_mirror import execute_mirror
+from skills.vault_sync.config import resolve_vault_path
+result = execute_mirror(repo_root, resolve_vault_path(), full_rebuild=False)
+```
+
+**CLI:**
+```bash
+python skills/vault_sync/repo_mirror.py [vault_path] [repo_path] [--full] [--dry-run]
+```
+
 ## Archivos que SIEMPRE se sincronizan al vault
 
-Al ejecutar CUALQUIER modo de este skill, sincronizar estos archivos del repo al vault:
+Al ejecutar CUALQUIER modo de este skill, sincronizar estos archivos del repo al área editorial del vault:
 
-| Repo | Vault | Notas |
+| Repo | Vault (editorial area) | Notas |
 |------|-------|-------|
 | `docs/guia-implementacion.md` | `Guia Implementacion.md` | Guía maestra del proyecto |
 | `content/registro-articulos.md` | `Registro Articulos.md` | Catálogo de artículos publicados — fuente de verdad |
@@ -108,6 +147,17 @@ Al ejecutar CUALQUIER modo de este skill, sincronizar estos archivos del repo al
 cp "$HOME/robohogar/content/registro-articulos.md" "$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Registro Articulos.md"
 cp "$HOME/robohogar/docs/guia-implementacion.md" "$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Guia Implementacion.md"
 ```
+
+**Nota:** estos archivos se copian al área editorial (05_Personal) para que Rafael los trabaje en Obsidian. El `repo-mirror` (Mode 7) los copia TAMBIÉN al área de mirror (03_Resources) como parte del backup completo. Ambas copias son válidas — editorial para uso diario, mirror para disaster recovery.
+
+## Ejecución autónoma (sin modo específico)
+
+Cuando Rafael ejecuta este skill sin especificar modo (e.g. "actualiza obsidian"), ejecutar la secuencia completa:
+
+1. **Sync always-sync files** → copiar guia-implementacion.md y registro-articulos.md al área editorial
+2. **Repo mirror** (Mode 7) → sincronizar repo completo al vault mirror
+3. **Audit** (Mode 6) → escanear y reportar violaciones
+4. **Presentar resumen** → single report con archivos sincronizados + stats del mirror + hallazgos del audit
 
 ## Reglas de Obsidian (heredadas del vault-organizer)
 
@@ -128,11 +178,20 @@ cp "$HOME/robohogar/docs/guia-implementacion.md" "$HBX_VAULT/RRP/RRP_ONEDRIVE/HB
 7. **Auto-apply** operaciones rutinarias sin preguntar
 8. **Preguntar** antes de: borrar >10 archivos, archivar >3 carpetas, cambios estructurales
 
+## File Index
+
+| File | Purpose |
+|------|---------|
+| `skills/vault_sync/__init__.py` | Package init |
+| `skills/vault_sync/config.py` | Mirror sections, vault paths, ignore patterns, language map |
+| `skills/vault_sync/repo_mirror.py` | Mirror engine: inventory, diff, generate notes, index, architecture |
+
 ## Relación con vault-organizer de RRP-DEV
 
 | Aspecto | vault-organizer (RRP-DEV) | obsidian-robohogar (este skill) |
 |---|---|---|
-| Scope | TODO el vault HBX | Solo `05-01_Robotica Newsletter/` |
-| Función | Estructura, naming, binarios, indexes | Contenido editorial, wiki, research |
-| Mode 12 (repo-mirror) | Sincroniza repo → vault como notas | NO duplicar — dejar que vault-organizer haga esto |
-| Conflictos | 0 — este skill NO toca nada fuera de 05-01 | 0 — vault-organizer NO gestiona contenido editorial |
+| Scope | TODO el vault HBX | `05-01_Robotica Newsletter/` + `Repo Mirrors/ROBOHOGAR/` |
+| Función | Estructura, naming, binarios, indexes globales | Contenido editorial, wiki, research, repo mirror propio |
+| Repo mirror | Sincroniza RRP-DEV → `Repo Mirrors/RRP-DEV/` | Sincroniza robohogar → `Repo Mirrors/ROBOHOGAR/` |
+| Indexes globales | Genera `All Deliverables.md`, `Presentation Index` | NO toca — vault-organizer ve el contenido de ROBOHOGAR al regenerar |
+| Conflictos | 0 — no toca el mirror de ROBOHOGAR | 0 — no toca nada fuera de 05-01 y Repo Mirrors/ROBOHOGAR |

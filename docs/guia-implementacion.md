@@ -326,7 +326,7 @@ Configurar estas categorías para organizar el contenido:
   - Testing (prioridades)
   - Compliance GDPR (audiencia EU)
   - Creator Milestones (revenue stack, inflexión 10K)
-  - Send Timing (martes/miércoles, 9:00 CET)
+  - Send Timing (martes/miércoles, 9:00 AM)
 - [x] Verificar: archivo accesible y referenciado desde `/content-draft`
 
 ### Regla compacta de newsletter
@@ -572,7 +572,7 @@ ROBOHOGAR
 
 - [ ] Registrarse en buffer.com (plan gratuito: 3 canales, 10 posts/canal)
 - [ ] Conectar: Instagram + LinkedIn
-- [ ] Horarios: IG lunes/miércoles/viernes 12:00 CET · LinkedIn martes/jueves 9:00 CET
+- [ ] Horarios: IG lunes/miércoles/viernes 12:00 PM · LinkedIn martes/jueves 9:00 AM
 
 **Canva Brand Kit**
 
@@ -584,23 +584,71 @@ ROBOHOGAR
 
 ### Monetización y legal (configurar ANTES de crear más contenido)
 
-**Amazon Afiliados España**
+**Amazon Afiliados España** ⏳ PENDIENTE — registrarse cuando haya tráfico y artículos con enlaces de producto
 
-- [ ] Registrarse en afiliados.amazon.es (necesitas NIF + IBAN)
+- [ ] Registrarse en afiliados.amazon.es (necesitas NIF + IBAN personal, no hace falta empresa)
 - [ ] Website → `robohogar.com`
 - [ ] Categorías → Electrónica, Hogar
+- [ ] Insertar tag de afiliado en los links de Amazon de los artículos
 
-> ⚠️ Tienes **180 días** para generar al menos 1 venta. Comisiones: 3-7%. Cookie: 24h (89 días si añade al carrito).
+> ⚠️ Tienes **180 días** para generar al menos 1 venta. No registrarse sin audiencia. Comisiones: 3-7%. Cookie: 24h (89 días si añade al carrito).
 
-- [ ] Insertar tag de afiliado en los links de Amazon del Artículo 0
+**Páginas legales (obligatorias por ley española para cualquier web)**
 
-**Páginas legales (obligatorias)**
+Paso a paso en Beehiiv:
 
-Crear en Beehiiv: **Website → Pages → Add Page**
+1. Ve a **Settings** (rueda dentada) → **Website** → busca la sección **Pages**
+2. Pulsa **Add Page** (o **New Page**)
+3. Crea cada página rellenando título, slug y contenido como se indica abajo
 
-- [ ] **Aviso Legal** (slug: `aviso-legal`) — Titular, NIF, email, descripción del sitio
-- [ ] **Política de Privacidad** (slug: `privacidad`) — Responsable, finalidad, legitimación, derechos, proveedor (Beehiiv)
-- [ ] Añadir links a ambas en el footer de la landing
+**Página 1: Aviso Legal**
+
+- [ ] Título: `Aviso Legal`
+- [ ] Slug: `aviso-legal` (la URL será robohogar.com/aviso-legal)
+- [ ] Contenido a poner:
+
+```
+AVISO LEGAL
+
+Titular: Rafael [tu apellido]
+NIF: [tu DNI]
+Email de contacto: robohogar@gmail.com
+Dominio: robohogar.com
+
+Este sitio web es un proyecto personal de divulgación sobre robótica doméstica.
+El contenido publicado refleja opiniones personales del autor.
+Los enlaces a productos pueden incluir enlaces de afiliado (Amazon Afiliados).
+```
+
+**Página 2: Política de Privacidad**
+
+- [ ] Título: `Política de Privacidad`
+- [ ] Slug: `privacidad` (la URL será robohogar.com/privacidad)
+- [ ] Contenido a poner:
+
+```
+POLÍTICA DE PRIVACIDAD
+
+Responsable: Rafael [tu apellido]
+Email: robohogar@gmail.com
+Finalidad: Envío de newsletter quincenal sobre robótica doméstica
+Legitimación: Consentimiento del interesado (doble opt-in)
+Datos recogidos: Email
+Destinatarios: Beehiiv Inc. (proveedor de email marketing, EEUU,
+               sujeto a cláusulas contractuales tipo UE)
+Conservación: Mientras mantengas tu suscripción activa
+Derechos: Puedes acceder, rectificar o eliminar tus datos
+          escribiendo a robohogar@gmail.com
+          Puedes darte de baja en cualquier momento desde
+          el enlace en cada email
+
+Última actualización: abril 2026
+```
+
+**Añadir links en el footer**
+
+- [ ] Ve a **Settings** → **Website** → sección de diseño/footer
+- [ ] Añade enlaces a `/aviso-legal` y `/privacidad` en el pie de página
 
 **Picos de conversión (marcar en calendario)**
 
@@ -909,7 +957,7 @@ Cada newsletter sigue este template (de `docs/plan-v2.md`):
 - [ ] Audience → All subscribers
 - [ ] Preview: pulsar **Send Test Email** a tu email personal
 - [ ] Verificar en móvil que se ve bien
-- [ ] Programar envío: **Schedule** → elegir día y hora (martes o jueves, 9:00 AM CET)
+- [ ] Programar envío: **Schedule** → elegir día y hora (martes o jueves, 9:00 AM)
 
 ### Backup
 
@@ -964,10 +1012,10 @@ Cada newsletter sigue este template (de `docs/plan-v2.md`):
 │  Claude API genera posts sociales desde artículo publicado      │
 │       ↓                                                         │
 │  Make.com / Buffer programa publicación:                        │
-│    → LinkedIn (martes 9:00 CET)                                 │
-│    → X/Twitter (martes 12:00 CET)                               │
-│    → Instagram Reel (miércoles 12:00 CET)                       │
-│    → WhatsApp Channel (martes 10:00 CET)                        │
+│    → LinkedIn (martes 9:00 AM)                                  │
+│    → X/Twitter (martes 12:00 PM)                                │
+│    → Instagram Reel (miércoles 12:00 PM)                        │
+│    → WhatsApp Channel (martes 10:00 AM)                         │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
