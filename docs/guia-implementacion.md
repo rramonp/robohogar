@@ -741,40 +741,17 @@ Derechos: Puedes acceder, rectificar o eliminar tus datos
 
 ---
 
-## FASE 3: Obsidian Knowledge Base
+## FASE 3: Obsidian Knowledge Base (✅ COMPLETADA)
 
-### Crear estructura de carpetas
+> Estructura de carpetas, templates y wiki creados. Claude Code mantiene el vault automáticamente via `/obsidian-robohogar` (wiki-update, sync-published, etc.). No se necesitan plugins de Obsidian — la automatización la hace Claude Code.
 
-- [ ] Abrir Obsidian → Create New Vault → nombre `ROBOHOGAR` → ubicación donde Syncthing ya sincroniza
+### Estado actual
 
-> [!tip]
-> Si ya tienes un vault principal, puedes crear estas carpetas dentro de él en una carpeta `ROBOHOGAR/`.
-
-- [ ] Crear carpetas:
-
-```
-00-Inbox/
-01-Research/
-02-Drafts/
-03-Published/
-04-Wiki/
-  04-Wiki/Robots/
-  04-Wiki/Empresas/
-05-Templates/
-06-Calendar/
-07-Resources/
-```
-
-### Instalar plugins
-
-- [ ] Settings → Community Plugins → Turn on community plugins
-- [ ] Browse → buscar e instalar cada uno:
-  1. **Templater** — templates con variables dinámicas
-  2. **Dataview** — consultas tipo base de datos
-  3. **QuickAdd** — macros para crear notas rápido
-  4. **Periodic Notes** — notas periódicas (semanal)
-  5. **Omnivore** o **ReadItLater** — guardar artículos web para investigación
-- [ ] Activar todos en Settings → Community Plugins
+- [x] Carpetas creadas en el vault (Research, Wiki/Robots, Wiki/Empresas, Templates, etc.)
+- [x] 6 templates creados (Research Digest, Article Draft, Robot Wiki, Empresa Wiki, Editorial Calendar, Issue)
+- [x] 11 fichas de robots + 11 fichas de empresas creadas
+- [x] Guía de implementación sincronizada
+- [x] Plugins de Obsidian: **no necesarios** — Claude Code gestiona creación de notas y sincronización
 
 ### Templates (crear en `05-Templates/`)
 
