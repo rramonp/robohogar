@@ -22,6 +22,8 @@ Output listo para copiar/pegar en cada plataforma.
 
 Aplicar tono de `rules/editorial.md`: cercano, informado, humor sutil, opiniones propias.
 
+**REGLA CRÍTICA:** Primera persona SIEMPRE en plural: "hemos investigado", "os contamos", "nos parece". NUNCA singular ("he investigado", "te cuento"). Esto aplica a TODOS los posts en TODAS las plataformas.
+
 **LinkedIn (1 post):**
 ```
 [Hook en 1 línea — dato sorprendente o pregunta]
