@@ -215,6 +215,8 @@ Fuentes con perspectiva editorial/debate sobre robótica y sociedad.
 | Rolling Stone | rollingstone.com | Magazine | Perspectiva cultural sobre robot pets |
 | Xataka editorial | xataka.com | Medio tech | Editoriales fuertes ("carrera absurda") |
 | Medium — Cogni Down Under | medium.com/@cognidownunder | Blog | Análisis crítico de hype vs. realidad |
+| CNN Tech | cnn.com/tech | Prensa generalista | Reportaje sobre entrenamiento de robots con vídeos humanos (abr 2026). Usado en art.1 editorial |
+| Stanford Report | news.stanford.edu | Académico | Estudio robots domésticos para ancianos (abr 2026). Usado en art.1 editorial |
 
 ---
 

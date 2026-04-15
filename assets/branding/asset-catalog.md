@@ -42,6 +42,7 @@ Catálogo vivo de todos los assets visuales generados. **Actualizar después de 
 | 2 | `robots-humanoides-casa-2030` | 2026-04-13 | Futuro | flash | Humanoide entrando por puerta, backlit cinematográfico |
 | 3 | `experiencia-robots-casa` | 2026-04-13 | Lifestyle | flash | Salón acogedor con aspirador + robot servicio + gato |
 | 4 | `mejor-robot-asistente-ia-2026` | 2026-04-13 | Gadget | flash | Robot asistente ojos ámbar en encimera, mano interactuando |
+| 5 | `humanoides-en-casa-cuanto-falta` (v10) | 2026-04-15 | Editorial | flash | "Creación de Adán" — mano robot + mano humana en cocina, jardín, luz dorada |
 
 Ruta de cada hero: `content/articulos/<slug>/assets/hero-<slug>[-vN].png`
 
