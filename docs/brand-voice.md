@@ -63,11 +63,12 @@ En un mundo donde el 90% del contenido tech será generado por IA, el toque huma
 
 ### Cómo se consigue
 
-- **Opiniones específicas en primera persona:** "Yo lo compraría para un piso de 60m², pero para una casa con jardín ni de broma"
-- **Anécdotas concretas:** "Mi Roborock lleva 2 años y sigue como el primer día" > "Este producto tiene una durabilidad excelente"
-- **Imperfecciones naturales:** Una frase coloquial, un "la verdad es que", un "no me acaba de convencer" — señales de autenticidad
+- **Primera persona plural (nosotros):** "Hemos investigado", "nos parece", "os contamos". La voz de marca es de equipo/medio, no de blog personal. Excepción: bio de Rafael en "Sobre el autor"
+- **Opiniones con personalidad:** "No nos lo compraríamos para un piso de 60m², pero para una casa con jardín ni de broma"
+- **Anécdotas concretas:** "Nuestro Roborock lleva 2 años y sigue como el primer día" > "Este producto tiene una durabilidad excelente"
+- **Imperfecciones naturales:** Una frase coloquial, un "la verdad es que", un "no nos acaba de convencer" — señales de autenticidad
 - **Preguntas retóricas:** "¿Merece la pena pagar 200€ más? Depende de si..."
-- **Admitir limitaciones:** "No lo he probado, pero por los datos que he visto..." > fingir experiencia directa
+- **Admitir limitaciones:** "No lo hemos probado, pero por los datos que hemos visto..." > fingir experiencia directa
 
 ### Por qué importa
 

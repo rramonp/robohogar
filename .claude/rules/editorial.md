@@ -20,6 +20,7 @@
 - Incluir siempre al menos 1 opinión/valoración personal por artículo
 - Evitar superlativos vacíos ("revolucionario", "increíble", "game-changer")
 - Usar "tú" (no "usted") — registro informal pero profesional
+- Primera persona SIEMPRE en plural: "hemos investigado", "os contamos", "nos parece". NUNCA singular ("he investigado", "te cuento"). La voz de marca es plural (equipo/medio), no personal (blog de un tío). Excepción: la bio de Rafael en "Sobre el autor" puede usar singular
 - Robots se refiere siempre a robótica DOMÉSTICA (aspiradores, cortacésped, humanoides para hogar)
 
 ## Newsletter (semanal)
