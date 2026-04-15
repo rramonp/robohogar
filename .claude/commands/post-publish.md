@@ -63,7 +63,26 @@ Registrar el hero image elegido en la sección de assets generados del catálogo
 | hero-<slug>-v<N> | <fecha> | <prompt resumido> | <modelo> |
 ```
 
-### 7. Sugerir actualización de Welcome Email
+### 7. Actualizar templates HTML (si aplica)
+
+Evaluar si el artículo publicado implica cambios en los templates:
+
+**Si el artículo usa un template existente** (Review/Comparativa o Editorial/Opinión):
+- Descargar el HTML final publicado desde Beehiiv (pedir a Rafael el export HTML)
+- Si Rafael ha hecho cambios de formato significativos respecto al template anterior (nuevos bloques, cambio de estructura, nuevos estilos), reemplazar el HTML base en `content/templates/`:
+  - `review-comparativa-beehiiv-export.html` para reviews
+  - `editorial-opinion-beehiiv-export.html` para editoriales
+- Actualizar `content/templates/estructura-templates.md` si la estructura de bloques ha cambiado
+
+**Si el artículo es de un tipo NUEVO** (ej: primer Newsletter, primer Roundup):
+- Pedir a Rafael el export HTML de Beehiiv
+- Guardarlo como nuevo template: `content/templates/<tipo>-beehiiv-export.html`
+- Documentar la estructura de bloques en `estructura-templates.md` (nueva sección)
+- Actualizar la tabla de templates en `content-draft.md`
+
+**Si no hay cambios de formato:** no hacer nada en este paso.
+
+### 8. Sugerir actualización de Welcome Email
 
 Evaluar si el artículo nuevo debería reemplazar o complementar el link del Welcome Email actual. Mostrar a Rafael:
 - El link actual del Welcome Email
@@ -72,7 +91,7 @@ Evaluar si el artículo nuevo debería reemplazar o complementar el link del Wel
 
 Rafael decide. NO cambiar automáticamente.
 
-### 8. Generar contenido social
+### 9. Generar contenido social
 
 Invocar `/social-content` con el artículo publicado para generar posts para:
 - LinkedIn (1 post)
@@ -82,7 +101,7 @@ Invocar `/social-content` con el artículo publicado para generar posts para:
 
 Recordar a Rafael: **programar los posts en Buffer** después de revisarlos. Generar no es publicar.
 
-### 9. Sincronizar con Obsidian
+### 10. Sincronizar con Obsidian
 
 Tres acciones:
 
@@ -95,7 +114,7 @@ cp docs/guia-implementacion.md "$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-0
 
 3. **Wiki update (OBLIGATORIO)** — ejecutar `/obsidian-robohogar wiki-update`: crear fichas de robots en `Wiki/Robots/` y empresas en `Wiki/Empresas/` para TODOS los mencionados en el artículo. Usar templates del vault. Si la ficha ya existe, añadir bullet con la noticia
 
-### 10. Commit y push
+### 11. Commit y push
 
 Commit con todos los cambios de esta sesión post-publicación:
 ```
@@ -107,7 +126,7 @@ Cleaned <N> unused hero variants, updated sources/catalog, synced Obsidian.
 
 Push automático.
 
-### 11. Reportar resumen
+### 12. Reportar resumen
 
 Mostrar a Rafael un resumen completo:
 ```
