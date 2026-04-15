@@ -151,21 +151,25 @@ Cada artículo necesita imágenes inline de las fuentes originales (fabricantes,
 - La imagen debe reforzar un dato concreto que el lector acaba de leer
 - Secciones de opinión pura (veredicto, "lo que no te cuentan") van SIN imagen — el texto es el protagonista
 
-**Control de peso (OBLIGATORIO — verificar antes de entregar):**
-- Cada imagen inline: <200 KB
-- Peso total imágenes inline: <800 KB sumando todas (regla del email playbook)
-- Calcular y reportar el peso total en el PASOS.md:
+**Control de peso (verificar antes de entregar):**
+
+Dos reglas distintas según el tipo de publicación:
+
+| Tipo | Publish to | Límite por imagen | Límite total | Motivo |
+|------|-----------|-------------------|-------------|--------|
+| **Artículo web** | `Web only` | Sin límite estricto (razonable: <300 KB) | Sin límite | El navegador carga con lazy loading |
+| **Newsletter email** | `Email and web` | <200 KB | <800 KB total | Clientes de email recortan/bloquean imágenes pesadas |
+
+- Siempre reportar el peso en el PASOS.md para que Rafael tenga visibilidad:
   ```
   ## Peso imágenes inline
   | Imagen | KB |
   |--------|----|
   | ces-2026-collage.jpg | 288 |
   | tesla-optimus.jpg | 98 |
-  | figure-02-hands.jpg | 141 |
-  | **TOTAL** | **527 / 800 KB** |
+  | **TOTAL** | **386 KB** (web only — sin límite estricto) |
   ```
-- Si una imagen supera 200 KB, comprimirla con Pillow antes de incluirla
-- Si el total supera 800 KB, eliminar la imagen menos esencial o comprimir
+- Para newsletters email: si el total supera 800 KB, comprimir o eliminar la menos esencial
 
 ### 8. Generar PASOS.md + mapa visual (OBLIGATORIO)
 
