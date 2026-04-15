@@ -144,14 +144,28 @@ Cada artículo necesita imágenes inline de las fuentes originales (fabricantes,
 3. Nombrar descriptivamente: `figure-02-bmw-factory.jpg`, `tesla-optimus-gen3.jpg`
 4. Colocarlas en el HTML del borrador en la posición óptima (ver reglas abajo)
 
-**Criterio de cantidad:** ~1 imagen cada 300-400 palabras. Para un artículo de 1.200 palabras → 3 imágenes inline.
+**Criterio de cantidad:** ~1 imagen cada 300-400 palabras. Para un artículo de 1.200 palabras → 3-5 imágenes inline. Productos/robots que el lector no conoce NECESITAN foto — sin foto, un precio no dice nada.
 
 **Dónde colocar imágenes (NUNCA debajo del H2):**
 - Colocar DESPUÉS del párrafo que justifica la imagen, no debajo del título
 - La imagen debe reforzar un dato concreto que el lector acaba de leer
 - Secciones de opinión pura (veredicto, "lo que no te cuentan") van SIN imagen — el texto es el protagonista
 
-**Peso total imágenes inline:** <800 KB sumando todas (regla del email playbook)
+**Control de peso (OBLIGATORIO — verificar antes de entregar):**
+- Cada imagen inline: <200 KB
+- Peso total imágenes inline: <800 KB sumando todas (regla del email playbook)
+- Calcular y reportar el peso total en el PASOS.md:
+  ```
+  ## Peso imágenes inline
+  | Imagen | KB |
+  |--------|----|
+  | ces-2026-collage.jpg | 288 |
+  | tesla-optimus.jpg | 98 |
+  | figure-02-hands.jpg | 141 |
+  | **TOTAL** | **527 / 800 KB** |
+  ```
+- Si una imagen supera 200 KB, comprimirla con Pillow antes de incluirla
+- Si el total supera 800 KB, eliminar la imagen menos esencial o comprimir
 
 ### 8. Generar PASOS.md + mapa visual (OBLIGATORIO)
 
