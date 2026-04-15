@@ -34,7 +34,10 @@ Cada agente es invocable individualmente o como parte del pipeline semanal (FASE
 - Cada imagen generada se registra en `assets/branding/asset-catalog.md`
 - Consultar el catálogo ANTES de generar para evitar duplicados
 - Modelo: `flash`. Aspect: `landscape`. Size: `1K`
-- **Ruta de output por artículo:** `content/articulos/<slug>/assets/hero-<slug>.png`
+- **Siempre generar 3 variantes** por artículo: `hero-<slug>-v1.png`, `-v2.png`, `-v3.png`. Rafael elige
+- **Post-generación:** el script genera automáticamente una copia `.webp` (<500 KB) junto a cada PNG
+- **Ruta de output por artículo:** `content/articulos/<slug>/assets/hero-<slug>-v{1,2,3}.png` (+ `.webp` auto)
+- **Para OG/Beehiiv/redes:** usar siempre el `.webp` (peso <500 KB). PNG solo como master
 - Templates genéricos (newsletter header, social card) → `assets/images/`
 - Prompt base y reglas de estilo completas en `assets/branding/asset-catalog.md`
 

@@ -8,8 +8,8 @@
 
 ## Estructura SEO por artículo
 
-- Title tag: keyword principal + gancho (max 60 chars)
-- Meta description: resumen con CTA (max 155 chars)
+- Title tag: keyword principal + gancho (max 55 chars — OG trunca a 60, dejar margen)
+- Meta description: resumen con CTA (min 110, max 155 chars — <110 se ve corto en OG cards)
 - H1: 1 por página, incluye keyword principal
 - H2/H3: variaciones semánticas de la keyword
 - URL slug: corto, descriptivo, sin stop words
@@ -23,6 +23,8 @@
 
 ## Prioridades técnicas
 
-- Core Web Vitals: imágenes optimizadas (WebP), lazy loading
+- Core Web Vitals: imágenes optimizadas (WebP <500KB), lazy loading
+- OG/thumbnail: usar la copia .webp generada por nano-banana (no el PNG original)
+- Hero image: estilo cinematográfico sin texto. Thumbnails con texto solo para YouTube
 - Mobile-first: todo debe verse perfecto en móvil
 - Sitemap XML actualizado automáticamente (depende de plataforma elegida)

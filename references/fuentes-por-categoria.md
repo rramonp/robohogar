@@ -85,9 +85,16 @@ Robots humanoides para tareas domésticas.
 
 | Fuente | URL | Tipo | Notas |
 |--------|-----|------|-------|
-| The Robot Report | therobotreport.com | Medio especializado | Noticias y análisis profesional de robótica |
+| The Robot Report | therobotreport.com | Medio especializado | Noticias y análisis profesional de robótica. Buena cobertura NEO |
 | Fortune | fortune.com (buscar: NEO 1X humanoid) | Medio business | Cobertura crítica de NEO y sus limitaciones |
 | Medium — Cogni Down Under | medium.com/@cognidownunder | Blog independiente | "El robot de $20.000 que necesita niñera humana" |
+| Engadget | engadget.com | Medio tech | Cobertura CES 2026 Atlas production. Buena calidad |
+| Interesting Engineering | interestingengineering.com/ai-robotics | Medio tech | Excelente cobertura CES 2026 humanoides (9 robots). Xiaomi CyberOne |
+| Washington Post | washingtonpost.com/technology | Prensa generalista | Investigación profunda sobre Musk/Optimus |
+| CNN | cnn.com/tech | Prensa generalista | Reportaje sobre entrenamiento de robots con vídeos humanos (abr 2026) |
+| Teslarati | teslarati.com | Medio Tesla-focused | Buena fuente para novedades Optimus (sesgo pro-Tesla) |
+| Robotics 24/7 | robotics247.com | Medio especializado | Cobertura CES 2026 Atlas, buena para industria |
+| Stanford Report | news.stanford.edu | Académico | Estudio robots domésticos para ancianos (abr 2026) |
 
 ### Fuentes independientes (ES)
 
@@ -97,16 +104,25 @@ Robots humanoides para tareas domésticas.
 | Gizmodo España | es.gizmodo.com | Medio tech | Análisis de polémica NEO + privacidad |
 | El Economista | eleconomista.es/tecnologia | Medio económico | "¿Pagarías 20.000€ por un robot que te limpie la casa?" |
 | Independent Español | independentespanol.com | Medio noticias | Cobertura lanzamiento NEO |
+| Euronews | euronews.com | Medio europeo | Cobertura MWC Barcelona humanoides (mar 2026) |
 
 ### Robots en esta categoría
 
 | Robot | Marca | Precio | Valoración real |
 |-------|-------|--------|-----------------|
 | NEO | 1X Technologies | $20,000 / $499/mes | POLÉMICO: WSJ documentó que no completó tareas solo. Teleoperado |
-| CLOiD | LG | Sin precio | CES 2026 demo. Sin fecha consumidor |
-| 4NE1 | Neura Robotics (Alemania) | ~60.000€ | Primer humanoide europeo. Sin reviews reales |
-| Iron | Xpeng | Sin precio | Ultra-realista. Producción masiva finales 2026 (solo comercial) |
-| Amazon Astro | Amazon | $1,450 + $20/mes | Solo invitación. Línea business cancelada |
+| Figure 03 | Figure AI | ~$20,000 | Diseñado para hogar. Figure 02 produjo 30K BMWs. Textiles lavables, carga inalámbrica |
+| Atlas (eléctrico) | Boston Dynamics | ~$150,000 | CES 2026 production-ready. 56 DoF. Solo industrial (Hyundai/DeepMind) |
+| Optimus (Gen 3) | Tesla | $20-25K objetivo | Silueta revelada mar 2026. Sin producto real para consumidor aún |
+| G1 | Unitree | desde $13,500 | Ya a la venta. 127cm, 43 DoF. Kit de desarrollo, no mayordomo |
+| R1 | Unitree | desde $4,900 | El humanoide más barato del mercado |
+| Iron | Xpeng | Sin precio | Ultra-realista (video viral 30M vistas). Se cayó en evento público. Comercial primero |
+| CyberOne | Xiaomi | Sin precio | Mano biónica 1:1, refrigeración por "sudoración". Sin planes consumidor |
+| CLOiD | LG | Sin precio | CES 2026 demo. "Zero Labor Home". Sin fecha consumidor |
+| Digit | Agility Robotics | Sin precio | Pilotos con Amazon. RoboFab 10K unidades/año. Solo logística |
+| Onero H1 | SwitchBot | <$10,000 objetivo | CES 2026. Con ruedas (no bípedo). Enfoque doméstico |
+| GR-3 | Fourier | ~$27,500 | CES 2026. "Care-bot" para ancianos. B2B |
+| Apollo | Apptronik | Sin precio | $520M levantados a $5B valoración (feb 2026) |
 
 ---
 

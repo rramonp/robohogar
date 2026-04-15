@@ -383,27 +383,36 @@ Configurar estas categorías para organizar el contenido:
 6. Iterar según cómo se ve publicado
 7. Documentar versión final con ejemplos
 
-**Template 1: Review/Comparativa (✅ COMPLETADO)**
+**Template 1: Review/Comparativa (✅ COMPLETADO — TEMPLATE MAESTRO)**
+
+Este template es la referencia visual para TODOS los demás. Tiene el formato definitivo de Beehiiv: fuentes, colores, espaciado, CTAs, estructura de bloques. Los templates 2-4 se ADAPTAN a partir de este, no se crean de cero.
+
 - [x] Revisar estructura vs patrones de referentes
 - [x] Verificar slots de frontmatter para `/content-draft`
 - [x] Ajustar tabla comparativa → 4 columnas (Producto/Precio/Lo clave/Nota ⭐)
 - [x] Probar en Beehiiv con post de prueba, verificar mobile
 - [x] Finalizar checklist (22 puntos)
 
-**Template 2: Newsletter Issue (NUEVO)**
+**Template 2: Newsletter Issue (NUEVO) — adaptar de Template 1**
 - [ ] Crear `content/templates/newsletter-issue.md`
+- [ ] Copiar estilos base del template Review/Comparativa (fuentes, colores, CTAs, espaciado)
 - [ ] Estructura: 5 secciones + frontmatter + pre-send checklist
 - [ ] Consultar playbook para fórmula 1-3-1 y subject lines
 - [ ] CTA placement: mid-article + footer
+- [ ] **Se crea junto con:** Newsletter #1 (FASE 4)
 
-**Template 3: Noticias/Roundup (NUEVO)**
+**Template 3: Noticias/Roundup (NUEVO) — adaptar de Template 1**
 - [ ] Crear `content/templates/noticias-roundup.md`
+- [ ] Copiar estilos base del template Review/Comparativa
 - [ ] Formato: emoji + bold título + resumen + "Por qué importa:" + link
 - [ ] SEO-friendly con H2 por noticia para artículos web
+- [ ] **Se crea junto con:** Artículo de noticias curadas (FASE 2)
 
-**Template 4: Editorial/Opinión (NUEVO)**
+**Template 4: Editorial/Opinión (NUEVO) — adaptar de Template 1**
 - [ ] Crear `content/templates/editorial-opinion.md`
+- [ ] Copiar estilos base del template Review/Comparativa
 - [ ] Estructura: hook → contexto → desarrollo → contraargumento → posición → cierre
+- [ ] **Se crea junto con:** Artículo editorial (FASE 2)
 
 ### Template visual de email en Beehiiv
 
@@ -481,6 +490,30 @@ Configurar estas categorías para organizar el contenido:
 - [x] SEO configurado en Beehiiv
 - [x] Publicado → https://robohogar.com/p/mejor-robot-asistente-ia-2026
 - [ ] Welcome Email configurado y activado (ver sección abajo)
+
+---
+
+### Artículo 1: "Humanoides en casa: ¿cuánto falta de verdad?"
+
+| Campo | Valor |
+|-------|-------|
+| SEO Title | `Humanoides en casa 2026 — ¿Cuánto falta de verdad?` |
+| Meta description | `Ya puedes comprar un robot humanoide por el precio de un coche usado. El problema: no sabe limpiar tu baño. Investigamos todos los de 2026.` |
+| Slug | `humanoides-en-casa-cuanto-falta` |
+| Tags | `Humanoides`, `Opinión` |
+| Tipo | Editorial/Opinión (30% — construye marca) |
+| Borrador | `content/articulos/humanoides-en-casa-cuanto-falta/borrador.html` |
+| Template | Adaptado de Review/Comparativa (base para template Editorial) |
+
+**Robots cubiertos:** Tesla Optimus, Figure 03, Boston Dynamics Atlas, Xpeng Iron, 1X NEO, Unitree G1.
+
+- [x] Research completado (fuentes actualizadas en fuentes-por-categoria.md)
+- [x] Borrador HTML generado
+- [ ] Rafael edita voz + decide imágenes inline
+- [ ] Crear template Editorial en Beehiiv basado en este borrador
+- [ ] Hero image con `/nano-banana`
+- [ ] SEO configurado en Beehiiv
+- [ ] Publicar
 
 ---
 
@@ -917,7 +950,7 @@ Cada newsletter sigue este template (de `docs/plan-v2.md`):
 ```
 🤖 ROBOHOGAR #01 — [Título del issue]
 
-1. LA NOTICIA — [Novedad más relevante de la quincena]
+1. LA NOTICIA — [Novedad más relevante de la semana]
    (2-3 párrafos con contexto y opinión propia)
 
 2. EN PRUEBA — [Review o experiencia con un robot]
@@ -929,7 +962,7 @@ Cada newsletter sigue este template (de `docs/plan-v2.md`):
 4. DATO CURIOSO — [Estadística o curiosidad]
    (1 párrafo corto, sorprendente)
 
-5. ENLACE DE LA QUINCENA — [Mejor artículo/vídeo que he leído]
+5. ENLACE DE LA SEMANA — [Mejor artículo/vídeo que he leído]
    (Link + 2 líneas de por qué merece la pena)
 
 ---

@@ -82,32 +82,42 @@ content/articulos/
 
 El agente de imágenes genera el hero automáticamente como parte del pipeline semanal, lo guarda en la carpeta del artículo y lo registra en este catálogo.
 
+**Post-generación:** Nano-banana genera automáticamente una copia `.webp` comprimida (<500 KB) junto al PNG original. Usar el WebP para OG/thumbnail en Beehiiv y redes. El PNG se mantiene como master de calidad.
+
 ### Estilo ROBOHOGAR para heros de artículos
 
 **Nombre del estilo:** Product-hero cinematográfico
 **Referencia visual:** Thumbnails de YouTube tech + portadas de revistas editoriales
 
-#### Principio #1: GANCHO VISUAL = CLICK
+#### Principio #1: MINIATURA QUE FUNCIONA A 300px
 
-La imagen hero es una **miniatura de YouTube**. Su único trabajo es que la gente haga click.
-- El lector ve la imagen en una card de 300px en la landing, en una preview de redes sociales, o en un feed de email
-- En menos de 1 segundo tiene que entender DE QUÉ VA el artículo y sentir curiosidad
-- Si la imagen no genera "quiero saber más", ha fallado
-- Referencia: los mejores canales tech de YouTube (MKBHD, Linus Tech Tips) — sus thumbnails son el 50% del éxito de cada vídeo
+La imagen hero se ve como miniatura en cards de Beehiiv (~300px), previews de WhatsApp, OG cards de redes. A ese tamaño tiene que funcionar.
+
+**Regla de oro:** cuanto menos elementos, más impacto a tamaño pequeño. Un solo punto focal claro + contraste entre dos elementos (humano/robot, antes/después) genera más CTR que escenas complejas.
+
+#### Principio #2: COMPOSICIÓN PARA NEWSLETTER (no YouTube)
+
+| Hacer | NO hacer |
+|---|---|
+| **1-2 elementos máximo** — un punto focal claro que se lee en milisegundos | Escenas con 5+ elementos compitiendo por atención |
+| **Close-ups e interacción** — manos, dedos, ojos. Gancho emocional inmediato | Figuras de cuerpo entero lejos de cámara — a 300px parecen siluetas genéricas |
+| **Referencia cultural** si encaja — "Creación de Adán", iconografía reconocible | Composiciones literales sin concepto (robot de pie en un salón) |
+| **Fondo limpio y luminoso** — cocina, jardín, luz natural dorada | Skylines urbanos con neones (Gemini mete texto asiático siempre) |
+| **Contraste conceptual** — humano vs robot, cotidiano vs futurista | Escenas puramente decorativas sin tensión narrativa |
 
 #### Características visuales (TODAS obligatorias)
 
 | Elemento | Especificación |
 |---|---|
-| **Protagonista** | El producto/robot es el centro absoluto de la imagen. Ocupa ~30-50% del frame |
-| **Iluminación** | Dramática, cálida. Luz principal desde arriba o detrás (backlit). Tonos ámbar/dorados |
-| **Paleta** | Blancos cálidos, ámbar (#F5A623), grises suaves, sombras profundas. Alto contraste |
-| **Fondo** | Hogar moderno (salón, cocina, entrada). Siempre desenfocado (shallow depth of field) |
-| **Composición** | El robot/producto se entiende al instante — "YouTube thumbnail energy" |
-| **Estilo fotográfico** | Editorial, magazine-quality. Realismo con toque cinematográfico |
+| **Punto focal** | 1-2 elementos máximo. Si no se entiende a 300px, la composición falla |
+| **Iluminación** | Golden hour natural, cálida. Luz dorada desde ventanas. Tonos ámbar/crema |
+| **Paleta** | Blancos cálidos, ámbar (#F5A623), crema, madera natural. Sin neones |
+| **Fondo** | Hogar moderno luminoso (cocina, salón). Ventanas con jardín/cielo, NO ciudad |
+| **Interacción humana** | Siempre. Una mano, un dedo, una persona cercana. Robot solo = no engancha |
+| **Estilo** | Render 3D estilizado. Ni foto real ni cartoon — moderno y thumbnail-friendly |
 | **Mascota** | NO incluir la mascota ROBOHOGAR. Reservada para landing, emails, social cards |
 | **Texto** | NUNCA. Ni letras, ni palabras, ni carteles, ni pantallas con texto |
-| **Ventanas/exterior** | Evitar skylines urbanos (Gemini mete neones con texto asiático) |
+| **Neones/skyline** | NUNCA en heros de artículos. Evitar ventanas con edificios o carteles |
 
 #### Parámetros técnicos nano-banana
 
@@ -126,99 +136,106 @@ uv run "<path>/image.py" \
 
 ```
 Eye-catching editorial hero image for an article about [TEMA DEL ARTÍCULO].
-[DESCRIPCIÓN DEL PRODUCTO/ROBOT: qué es, cómo se ve, dónde está].
-[COMPOSICIÓN: ángulo de cámara, qué está en foco, qué en el fondo].
-[MOOD: qué sensación transmite — futurista, acogedor, impresionante, etc.].
-Warm amber lighting, editorial photography style, high contrast, shallow depth of field.
-Absolutely NO text, NO letters, NO words, NO signs, NO writing of any kind.
+[PUNTO FOCAL: 1-2 elementos máximo. Close-up preferido. Qué interacción humano-robot].
+[FONDO: cocina/salón luminoso, ventana con jardín/cielo. NO ciudad, NO neones].
+[MOOD: qué sensación transmite — futurista, acogedor, íntimo, esperanzador, etc.].
+Warm golden natural light, 3D stylized render, editorial magazine quality,
+warm amber and cream palette, shallow depth of field.
+Absolutely NO text, NO letters, NO words, NO writing of any kind.
 ```
 
-#### Estilo ganador: "Thumbnail v1" (REFERENCIA PRINCIPAL)
+**Generar siempre 3 variantes** con composiciones DISTINTAS entre sí (no 3 versiones del mismo encuadre). Cada variante debe probar un concepto/composición diferente para que Rafael elija.
 
-Basado en el hero de `mejor-robot-asistente-ia-2026` (v1) — la imagen que mejor funcionó y que define el estilo visual ROBOHOGAR para thumbnails.
+#### Estilo ganador: "Creación de Adán" v10 (REFERENCIA PRINCIPAL)
 
-**Análisis del estilo v1 (lo que lo hace funcionar):**
+Basado en el hero de `humanoides-en-casa-cuanto-falta` (v10) — la imagen que mejor funciona como miniatura de newsletter y define el nuevo estilo ROBOHOGAR.
 
-| Elemento | Qué hace la v1 | Por qué funciona |
-|----------|----------------|------------------|
-| **Composición** | Robot centrado, mano humana entrando desde la derecha | Interacción humano-robot = gancho emocional inmediato |
-| **Profundidad** | 3 planos: primer plano (taza, fruta), medio (robot+mano), fondo (ventana, estantes) | Da vida, contexto, y profundidad cinematográfica |
-| **Iluminación** | Luz cálida ambiental + neones de fondo + ojos ámbar del robot como punto focal | Los ojos brillantes enganchan la mirada primero |
-| **Paleta** | Ámbar/naranja dominante + acentos neón (cian, rosa, morado) en fondo | Cálido pero vibrante — no es frío ni aburrido |
-| **Contexto** | Hogar real (encimera cocina, estantes, plantas) | El lector se imagina teniendo el robot en su casa |
-| **Estilo 3D** | Render 3D estilizado — ni foto real ni cartoon | Atractivo, moderno, thumbnail-friendly |
-| **Escala** | Robot pequeño en encimera — proporción realista | El lector entiende el tamaño del producto al instante |
-| **Mood** | Acogedor + futurista + curiosidad | "Quiero saber qué es este robot" |
+**Por qué funciona v10:**
 
-**Principios clave para replicar en futuros heros:**
+| Elemento | Qué hace | Por qué funciona a 300px |
+|----------|----------|--------------------------|
+| **Punto focal único** | Dos manos acercándose (robot + humana) | Se entiende en milisegundos. Cero ambigüedad |
+| **Referencia cultural** | "Creación de Adán" de Miguel Ángel | Reconocible universalmente. Genera reacción emocional inmediata |
+| **Contraste conceptual** | Tecnología vs humanidad, casi tocándose | Transmite el mensaje del artículo sin necesitar texto |
+| **Fondo limpio** | Cocina luminosa, ventana con jardín verde, sin neones | No distrae. El foco está 100% en las manos |
+| **Paleta cálida** | Ámbar/crema/madera, luz natural dorada | Acogedor, editorial, no frío-tech |
+| **Objetos cotidianos** | Taza de café, frutero en primer plano | Contexto hogar real sin saturar |
+| **Render 3D estilizado** | Ni foto real ni cartoon | Moderno, atractivo como thumbnail |
 
-1. **Siempre incluir interacción humana** — una mano, un dedo tocando, alguien cerca. El robot solo en una mesa no engancha
-2. **3 planos de profundidad** — objetos cotidianos en primer plano, producto en medio, contexto hogar en fondo
-3. **Ojos/luces ámbar como punto focal** — los ojos brillantes del robot son lo primero que mira el espectador
-4. **Contexto hogar real** — cocina, salón, escritorio con objetos cotidianos (taza, plantas, libros)
-5. **Estilo 3D estilizado** — no buscar fotorrealismo puro, el render estilizado funciona mejor como thumbnail
-6. **Permitir elementos de fondo vibrantes** — neones, luces de ciudad, pantallas. Dan vida y color sin distraer del producto
+**Principios para TODOS los heros futuros:**
 
-> **Nota sobre el texto asiático en neones:** La v1 tiene neones con caracteres asiáticos a través de la ventana. Esto es un artefacto de Gemini, pero visualmente funciona porque le da un toque cyberpunk/futurista que encaja con el tema tech. No intentar eliminarlo si el resultado general es bueno — aporta más de lo que resta.
+1. **1-2 elementos máximo como punto focal** — la miniatura se ve a 300px. Si necesitas "mirar más" para entenderla, no funciona
+2. **Interacción humano-robot siempre** — mano tocando, dedo acercándose, persona cerca. Gancho emocional
+3. **Close-ups > planos generales** — una mano con un robot > un salón entero con figuras lejanas
+4. **Concepto visual > escena literal** — una metáfora (Creación de Adán) impacta más que una foto de producto
+5. **Fondo luminoso y limpio** — jardín, cielo, cocina con luz natural. NUNCA skylines ni neones
+6. **Contraste entre dos elementos** — humano/robot, cotidiano/futurista, real/posible. Genera tensión narrativa
+7. **Paleta cálida sin excepciones** — ámbar, crema, madera, dorado. Sin azules fríos, sin neones
+
+> **Nota sobre neones:** Los neones (cian, rosa, morado) son un artefacto de Gemini y del sign guard. Aunque el primer artículo los usó, la línea editorial definitiva es **sin neones**. Fondos limpios con jardín/cielo funcionan mejor para newsletters.
 
 #### Prompts que funcionaron (referencia para futuros artículos)
 
-**Artículo de producto nuevo/gadget — ESTILO V1 (PREFERIDO):**
+**Editorial/Futuro — "Creación de Adán" (ESTILO V10 — PREFERIDO):**
 ```
-Eye-catching editorial hero image for an article about AI robot assistants
-to buy in 2026. A small cute desktop companion robot with expressive LED
-eyes and a rounded friendly design, sitting on a modern desk or kitchen
-counter. Warm amber glow from its eyes. A person's hand reaching toward
-it or interacting with it naturally, like talking to a friend. Cozy home
-setting, warm natural light. The robot is the clear hero of the image —
-product-hero style like a YouTube thumbnail. High contrast, clean composition.
+Eye-catching editorial hero image inspired by Michelangelo's Creation of Adam.
+A sleek white robotic hand with elegant articulated fingers and warm amber LED
+joints, reaching out from the left. A human hand reaching from the right. Their
+fingertips almost touching in the center of the frame. Warm golden afternoon
+light coming from a window showing green garden trees, no urban elements. Modern
+kitchen background softly blurred: marble counter, warm wood cabinets. A coffee
+mug and a fruit bowl on the counter add warmth. The moment is intimate and
+symbolic — technology meets humanity. 3D stylized render, warm amber and cream
+tones, editorial photography quality, shallow depth of field focused on the
+two hands.
 Absolutely NO text, NO letters, NO words, NO writing of any kind.
 ```
 
-**Review/Comparativa de producto** (ej: aspiradores):
+**Editorial/Futuro — Robot dando café (ESTILO V8):**
 ```
-Eye-catching editorial hero image for a robot vacuum buying guide article.
-A premium robot vacuum in the center of frame, dramatically lit from above
-with warm amber light. Sleek modern living room out of focus in the background.
-The vacuum is the star — product-hero photography style like a magazine cover
-or YouTube thumbnail. Clean, high contrast, professional. Warm color palette:
-whites, amber highlights, soft shadows.
+Eye-catching editorial hero image. Close-up scene in a bright modern kitchen.
+A white humanoid robot with amber-glowing eyes is carefully holding a coffee cup,
+handing it to a person whose hand is reaching in from the right side of frame.
+The robot has elegant articulated fingers with warm amber LED joints. Kitchen
+counter with morning light coming from a window showing a garden with green trees,
+no urban elements. Warm natural golden light. Foreground: a breakfast plate
+slightly out of focus. 3D stylized render, editorial magazine quality, warm amber
+palette, shallow depth of field on the robot hands and cup.
 Absolutely NO text, NO letters, NO words, NO writing of any kind.
 ```
 
-**Artículo futurista/tendencia** (ej: humanoides):
+**Review/Comparativa de producto** (ej: robots escritorio):
 ```
-Eye-catching editorial hero image about humanoid robots entering homes.
-A tall sleek humanoid robot standing in a modern living room doorway,
-backlit with dramatic warm amber light streaming in. The humanoid is
-stepping into the home for the first time. Cinematic framing, shallow
-depth of field. The mood is exciting and slightly futuristic but welcoming.
-High contrast, warm whites and ambers. YouTube thumbnail energy — instantly
-clear this is about humanoid robots at home.
+Eye-catching editorial hero image for an article about AI robot assistants.
+A small cute desktop companion robot with expressive LED eyes and a rounded
+friendly design, sitting on a modern kitchen counter. Warm amber glow from its
+eyes. A person's hand reaching toward it, fingertips close. Cozy home setting,
+window showing garden, warm golden natural light. Close-up composition: the robot
+and the hand fill most of the frame. 3D stylized render, warm amber and cream
+palette, shallow depth of field.
 Absolutely NO text, NO letters, NO words, NO writing of any kind.
 ```
 
-**Artículo lifestyle/experiencia** (ej: vivir con robots):
+**Review/Comparativa — Aspiradores:**
 ```
-Eye-catching editorial hero image about living with robots at home.
-A cozy modern living room seen from a wide angle. Multiple domestic robots
-visible: a robot vacuum on the floor, a small robot on the kitchen counter,
-a smart speaker glowing amber on a shelf. The room is warm, lived-in,
-natural light from a big window. The feeling is: this is already happening,
-robots are already part of daily life. Editorial photography style, warm
-amber tones, shallow depth of field on the closest robot.
+Eye-catching editorial hero image for a robot vacuum buying guide. Close-up of
+a premium robot vacuum on a warm wooden floor, a person's bare foot visible
+nearby for scale. Warm golden light from a nearby window showing a garden.
+The vacuum is the clear star, filling the center of the frame. Soft blurred
+living room background. 3D stylized render, warm amber and cream palette,
+editorial magazine quality.
 Absolutely NO text, NO letters, NO words, NO writing of any kind.
 ```
 
 #### Patrones por tipo de contenido
 
-| Tipo de artículo | Composición (estilo v1) | Ejemplo de foco |
+| Tipo de artículo | Composición | Ejemplo de foco |
 |---|---|---|
-| **Review/Comparativa** | Producto centrado + mano humana + contexto hogar 3 planos | Robot aspirador en salón, mano acercándose |
-| **Futuro/Tendencia** | Escena cinematográfica + interacción humana + ojos ámbar | Humanoide en puerta, persona mirándolo |
-| **Lifestyle/Experiencia** | Gran angular + múltiples robots + hogar vivido + luz cálida | Salón con aspirador + robot escritorio + persona |
-| **Gadget/Producto nuevo** | Producto en encimera + mano tocando + fondo vibrante (estilo v1) | Robot ojos ámbar en cocina, dedo acercándose |
-| **Opinión/Editorial** | Escena evocadora, conceptual, menos literal | (Aquí sí se puede usar mascota pensativa) |
+| **Review/Comparativa** | Close-up producto + mano humana interactuando + fondo cocina/salón luminoso | Robot en encimera, dedo acercándose |
+| **Futuro/Tendencia** | Metáfora visual (ej: "Creación de Adán") + close-up + contraste conceptual | Mano robot + mano humana casi tocándose |
+| **Lifestyle/Experiencia** | Close-up robot haciendo tarea cotidiana + humano cerca + hogar cálido | Robot dando café a una mano |
+| **Gadget/Producto nuevo** | Close-up producto + ojos ámbar como punto focal + mano humana | Robot con ojos brillantes en encimera |
+| **Opinión/Editorial** | Escena evocadora y conceptual, close-up, referencia cultural si encaja | Dos manos, robot sirviendo, metáfora visual |
 
 ### Cuándo SÍ usar la mascota en heros
 
