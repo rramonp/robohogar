@@ -13,3 +13,4 @@
 | # | Fecha | Título | Slug | URL | Tipo | Tags |
 |---|-------|--------|------|-----|------|------|
 | 0 | 2026-04-14 | Robots de escritorio con IA: cuál merece tu dinero (y cuál es humo) | mejor-robot-asistente-ia-2026 | https://robohogar.com/p/mejor-robot-asistente-ia-2026 | Review/Comparativa | Asistentes IA, Robot Mascotas |
+| 1 | 2026-04-15 | Humanoides en casa: ¿cuánto falta de verdad? | humanoides-en-casa-cuanto-falta | https://robohogar.com/p/humanoides-en-casa-cuanto-falta | Editorial/Opinión | Humanoides, Opinión |

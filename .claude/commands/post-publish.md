@@ -49,21 +49,30 @@ Marcar todos los checkboxes del artículo como completados y añadir la URL publ
 - [x] Publicado → <URL>
 ```
 
-### 5. Verificar fuentes en fuentes-por-categoria.md
+### 5. Actualizar registro de artículos (OBLIGATORIO)
+
+Añadir el artículo a `content/registro-articulos.md` — la fuente de verdad de todo lo publicado:
+```
+| <N> | <fecha> | <título> | <slug> | <URL> | <tipo> | <tags> |
+```
+
+Este archivo se sincroniza a Obsidian automáticamente en el paso 10.
+
+### 6. Verificar fuentes en fuentes-por-categoria.md
 
 Leer el artículo publicado y verificar que TODAS las fuentes usadas están catalogadas en `references/fuentes-por-categoria.md`. Si falta alguna, añadirla con URL, tipo y notas. Incluir fuentes de:
 - Datos y cifras citadas en el artículo
 - Imágenes inline descargadas de fuentes oficiales
 - Estudios o reportajes enlazados
 
-### 6. Actualizar asset-catalog.md
+### 7. Actualizar asset-catalog.md
 
 Registrar el hero image elegido en la sección de assets generados del catálogo:
 ```
 | hero-<slug>-v<N> | <fecha> | <prompt resumido> | <modelo> |
 ```
 
-### 7. Actualizar templates HTML (si aplica)
+### 8. Actualizar templates HTML (si aplica)
 
 Evaluar si el artículo publicado implica cambios en los templates:
 
@@ -82,7 +91,7 @@ Evaluar si el artículo publicado implica cambios en los templates:
 
 **Si no hay cambios de formato:** no hacer nada en este paso.
 
-### 8. Sugerir actualización de Welcome Email
+### 9. Sugerir actualización de Welcome Email
 
 Evaluar si el artículo nuevo debería reemplazar o complementar el link del Welcome Email actual. Mostrar a Rafael:
 - El link actual del Welcome Email
@@ -91,7 +100,7 @@ Evaluar si el artículo nuevo debería reemplazar o complementar el link del Wel
 
 Rafael decide. NO cambiar automáticamente.
 
-### 9. Generar contenido social
+### 10. Generar contenido social
 
 Invocar `/social-content` con el artículo publicado para generar posts para:
 - LinkedIn (1 post)
@@ -101,7 +110,7 @@ Invocar `/social-content` con el artículo publicado para generar posts para:
 
 Recordar a Rafael: **programar los posts en Buffer** después de revisarlos. Generar no es publicar.
 
-### 10. Sincronizar con Obsidian
+### 11. Sincronizar con Obsidian
 
 Tres acciones:
 
@@ -114,7 +123,7 @@ cp docs/guia-implementacion.md "$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-0
 
 3. **Wiki update (OBLIGATORIO)** — ejecutar `/obsidian-robohogar wiki-update`: crear fichas de robots en `Wiki/Robots/` y empresas en `Wiki/Empresas/` para TODOS los mencionados en el artículo. Usar templates del vault. Si la ficha ya existe, añadir bullet con la noticia
 
-### 11. Commit y push
+### 12. Commit y push
 
 Commit con todos los cambios de esta sesión post-publicación:
 ```
@@ -126,7 +135,7 @@ Cleaned <N> unused hero variants, updated sources/catalog, synced Obsidian.
 
 Push automático.
 
-### 12. Reportar resumen
+### 13. Reportar resumen
 
 Mostrar a Rafael un resumen completo:
 ```
