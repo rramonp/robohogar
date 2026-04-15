@@ -34,14 +34,16 @@ Preguntar si no está claro:
 
 ### 3. Generar borrador
 
-**Usar el template del tipo de artículo** (consultar `docs/brand-voice.md` para voz de marca + `rules/editorial.md` para tono):
+**Usar el template HTML del tipo de artículo** como base — copiar el HTML y reemplazar el contenido:
 
-| Tipo | Template | Ubicación |
+| Tipo | HTML base (copiar y modificar) | Estructura documentada |
 |---|---|---|
-| Review/Comparativa | `review-comparativa.md` | `content/templates/review-comparativa.md` |
-| Newsletter | `newsletter-issue.md` | `content/templates/newsletter-issue.md` *(pendiente)* |
-| Noticias/Roundup | `noticias-roundup.md` | `content/templates/` *(pendiente)* |
-| Editorial/Opinión | `editorial-opinion.md` | `content/templates/` *(pendiente)* |
+| Review/Comparativa | `content/templates/review-comparativa-beehiiv-export.html` | `content/templates/estructura-templates.md` → Template 1 |
+| Editorial/Opinión | `content/templates/editorial-opinion-beehiiv-export.html` | `content/templates/estructura-templates.md` → Template 2 |
+| Newsletter | *(pendiente — se creará con el primer newsletter)* | |
+| Noticias/Roundup | *(pendiente — se creará con el primer roundup)* | |
+
+**Proceso:** leer el HTML base, reemplazar título/subtítulo/contenido manteniendo la estructura de bloques. Consultar `estructura-templates.md` para saber qué bloques van en cada tipo.
 
 **Tags de Beehiiv disponibles:** Aspiradores, Cortacéspedes, Humanoides, Asistentes IA, Robot Mascotas, Smart Home, Noticias, Opinión, Guías
 
