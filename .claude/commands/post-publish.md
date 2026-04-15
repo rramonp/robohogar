@@ -93,7 +93,7 @@ cp docs/guia-implementacion.md "$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-0
 
 2. **Sync artículo publicado** — si `/obsidian-robohogar sync-published` está disponible, invocar para copiar el artículo al vault en `03-Published/`
 
-3. **Wiki update** — invocar `/obsidian-robohogar wiki-update` para crear/actualizar fichas de robots y empresas mencionados en el artículo
+3. **Wiki update (OBLIGATORIO)** — ejecutar `/obsidian-robohogar wiki-update`: crear fichas de robots en `Wiki/Robots/` y empresas en `Wiki/Empresas/` para TODOS los mencionados en el artículo. Usar templates del vault. Si la ficha ya existe, añadir bullet con la noticia
 
 ### 10. Commit y push
 
