@@ -112,32 +112,71 @@ affiliate: [true|false]
   (usar template vault: `Templates/Template Article Draft.md`)
   `$HBX_VAULT` se resuelve automáticamente en cada máquina (desktop=cri-c, laptop=bakal)
 
-### 6. Generar hero image (OBLIGATORIO)
+### 6. Generar hero image (OBLIGATORIO — 3 variantes)
 
-Cada artículo NECESITA su imagen hero (1200x630) antes de publicar. Sin imagen, las cards en la landing y las previews en redes quedan vacías.
-
-**Invocar `/nano-banana` en modo hero de artículo:**
+Cada artículo NECESITA su imagen hero antes de publicar. Generar **3 variantes con composiciones distintas** para que Rafael elija.
 
 ```bash
 uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
-  --prompt "[ver prompt template por tipo de artículo en asset-catalog.md]" \
-  --output "content/articulos/<slug>/assets/hero-<slug>.png" \
+  --prompt "[ver prompt template en asset-catalog.md]" \
+  --output "content/articulos/<slug>/assets/hero-<slug>-v1.png" \
   --model flash \
   --aspect landscape \
   --size 1K
+# Repetir con -v2.png y -v3.png, cada una con composición diferente
 ```
 
-**Estilo:** Product-hero cinematográfico (tipo YouTube thumbnail).
-**Reglas completas + prompts por tipo:** `assets/branding/asset-catalog.md` → sección "Estilo ROBOHOGAR para heros de artículos"
-**Prompts que ya funcionaron:** en la misma sección, hay 4 prompts probados (review, futuro, lifestyle, gadget)
+**Reglas de composición para newsletter** (de `asset-catalog.md`):
+- 1-2 elementos máximo, close-ups, punto focal único (debe funcionar a 300px)
+- Interacción humano-robot siempre (mano, dedo, persona cerca)
+- Fondo luminoso: jardín, cielo, cocina con luz natural. NUNCA skylines ni neones
+- Concepto visual > escena literal (metáfora como "Creación de Adán" > foto de producto)
 
-**NO usar `--reference`** para heros — contamina el estilo fotográfico con ilustración.
-**NO incluir la mascota** — reservada para landing, emails, social cards.
+El script genera automáticamente una copia `.webp` (<500 KB) junto a cada PNG. Subir el WebP a Beehiiv.
 
-### 7. Otros assets
+### 7. Descargar imágenes inline de fuentes (OBLIGATORIO)
 
-- [ ] Screenshots/imágenes inline → guardar en `content/articulos/<slug>/assets/`
-- [ ] Si review: foto del producto (buscar en web del fabricante o pedir a Rafael)
+Cada artículo necesita imágenes inline de las fuentes originales (fabricantes, prensa, eventos). NO generar estas imágenes — usar fotos reales.
+
+**Proceso:**
+1. Durante el research, identificar 2-4 imágenes clave de fuentes oficiales/prensa
+2. Descargar con `curl` a `content/articulos/<slug>/assets/`
+3. Nombrar descriptivamente: `figure-02-bmw-factory.jpg`, `tesla-optimus-gen3.jpg`
+4. Colocarlas en el HTML del borrador en la posición óptima (ver reglas abajo)
+
+**Criterio de cantidad:** ~1 imagen cada 300-400 palabras. Para un artículo de 1.200 palabras → 3 imágenes inline.
+
+**Dónde colocar imágenes (NUNCA debajo del H2):**
+- Colocar DESPUÉS del párrafo que justifica la imagen, no debajo del título
+- La imagen debe reforzar un dato concreto que el lector acaba de leer
+- Secciones de opinión pura (veredicto, "lo que no te cuentan") van SIN imagen — el texto es el protagonista
+
+**Peso total imágenes inline:** <800 KB sumando todas (regla del email playbook)
+
+### 8. Generar PASOS.md + mapa visual (OBLIGATORIO)
+
+Cada artículo genera un archivo `PASOS.md` en su carpeta con:
+1. SEO metadata (title, description, slug, tags) para copiar a Beehiiv
+2. Hero image elegida (o las 3 para elegir)
+3. Checklist paso a paso para publicar
+4. **Mapa visual del artículo** — diagrama ASCII mostrando exactamente dónde va cada imagen:
+
+```
+HERO IMAGE (v10 — WebP)
+H1: Título
+  Intro callout (texto)
+H2: Sección 1
+  Párrafo 1
+  📷 IMAGEN-NOMBRE.jpg ← después de qué párrafo y por qué
+  Párrafo 2
+H2: Sección 2 (solo texto — opinión pura)
+  ...
+CTA mid-article
+H2: Sección N
+FOOTER CTA
+```
+
+Este mapa es la guía principal de Rafael para montar el artículo en Beehiiv.
 
 ### 8. Prohibiciones (de `rules/editorial.md`)
 

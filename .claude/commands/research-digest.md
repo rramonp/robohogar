@@ -56,13 +56,21 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
 ## Top Stories (relevance 4-5)
 - **[Title]** — Source — 1-line summary
   - Ángulo ROBOHOGAR: [por qué importa a nuestra audiencia]
+  - 📷 Imagen: [URL de imagen editorial/prensa si existe]
 
 ## Notable (relevance 3)
 - ...
 
 ## Monitoring (relevance 1-2)
 - ...
+
+## Imágenes recopiladas
+| Imagen | URL fuente | Uso sugerido |
+|--------|-----------|--------------|
+| [descripción] | [URL directa] | [qué sección del artículo] |
 ```
+
+**Recopilar imágenes durante el research:** Para cada Top Story (relevance 4-5), buscar al menos 1 imagen editorial/prensa de la fuente oficial (blog del fabricante, nota de prensa, medio tech). Priorizar fotos reales de producto/evento sobre renders genéricos. Estas imágenes se descargarán en el paso de `/content-draft` para colocarlas en el HTML.
 
 5. **Wiki update**: para cada robot/empresa mencionado en el digest:
    - Si NO existe nota en `Wiki/Robots/` o `Wiki/Empresas/` → crear desde template
