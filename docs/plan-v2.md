@@ -72,10 +72,10 @@ Elementos de la landing (del website-brief.md):
 
 ### Frecuencia
 
-**Quincenal.** Un newsletter cada 2 semanas. Razones:
-- 3-5 horas/semana de dedicación = una newsletter quincenal es sostenible
-- Baja frecuencia = bajo compromiso para el suscriptor = menor barrera de entrada
-- Permite calidad > cantidad desde el inicio
+**Semanal.** Un newsletter cada semana. Razones:
+- Pipeline automatizado (research-digest + content-draft + social-content) reduce la carga manual
+- Mayor frecuencia = más puntos de contacto = crece más rápido
+- Consistencia semanal construye hábito en el lector
 
 ### Estructura del newsletter
 
@@ -84,11 +84,11 @@ Cada issue sigue un formato fijo (framework "Numbered Completeness" de Newslette
 ```
 🤖 ROBOHOGAR #XX — [Título del issue]
 
-1. LA NOTICIA — La novedad más relevante de la quincena en robótica doméstica
+1. LA NOTICIA — La novedad más relevante de la semana en robótica doméstica
 2. EN PRUEBA — Review o experiencia propia con un robot (cuando aplique)
 3. EL FUTURO — Un avance en humanoides o robótica avanzada + opinión
 4. DATO CURIOSO — Estadística, dato histórico, o curiosidad sobre robots
-5. ENLACE DE LA QUINCENA — El mejor artículo/vídeo que he leído
+5. ENLACE DE LA SEMANA — El mejor artículo/vídeo que he leído
 
 [CTA de afiliado o recomendación natural cuando encaje]
 ```
@@ -115,7 +115,7 @@ Testear un lead magnet nuevo cada mes. Los que no funcionan se abren como conten
 
 ### Curación semiautomática (Claude Code)
 
-Pipeline quincenal en el repo:
+Pipeline semanal en el repo:
 
 1. **Aggregator script** (`utilities/research-aggregator.py`): scraping de fuentes RSS (The Robot Report, IEEE Spectrum, Weekly Robotics, Xataka, blogs de Roborock/Dreame/iRobot) → genera un digest en `content/drafts/YYYY-MM-DD-raw-digest.md`
 2. **Revisión manual** (15 min): Rafael selecciona las 5-6 noticias más relevantes del digest
@@ -157,7 +157,7 @@ Cada artículo publicado en Beehiiv se indexa automáticamente. Adicionalmente:
 
 **Objetivo:** Establecer cadencia y empezar a generar tráfico orgánico.
 
-- Newsletter quincenal sin fallar
+- Newsletter semanal sin fallar
 - Instagram Reels 2-3x/semana (S-Tier para cualquier nicho): clips de robots, unboxings, demos cortas. Usar las 11 poses de la mascota como identidad visual.
 - SEO: los artículos de reviews empiezan a posicionar en Google (3-6 meses para resultados)
 - Lead magnets: testear 1 nuevo por mes (lazy lead magnets — reutilizar newsletters)
@@ -168,7 +168,7 @@ Cada artículo publicado en Beehiiv se indexa automáticamente. Adicionalmente:
 **Objetivo:** Alcanzar masa crítica para monetización inicial.
 
 - Mantener cadencia + calidad
-- YouTube: 1 vídeo quincenal (B-roll sin cámara + voz en off, como planeaste originalmente). Cada vídeo tiene un lead magnet custom en la descripción.
+- YouTube: 1 vídeo quincenal (B-roll sin cámara + voz en off). Cada vídeo tiene un lead magnet custom en la descripción.
 - ManyChat para Instagram: "comment to get" giveaways (meta actual según Newsletter Operator)
 - Evaluar primeros sponsors directos cuando el tráfico supere 3.000 visitas/mes
 
@@ -191,7 +191,7 @@ Los productos de una sola categoría están muriendo. La IA commoditiza el conte
 
 | Categoría | Qué es para Robohogar | Cuándo |
 |---|---|---|
-| Content | Newsletter quincenal + artículos SEO | Desde día 1 |
+| Content | Newsletter semanal + artículos SEO | Desde día 1 |
 | Implementation | Guías de compra comparativas, calculadoras de precio, templates de configuración | Desde día 1 (como lead magnets) |
 | Community | Canal de WhatsApp/Telegram de early adopters de robots en España | Cuando haya 300+ subs |
 | Experience | — (futuro: meetups, unboxing events) | Cuando haya 2.000+ subs |
@@ -262,7 +262,7 @@ Los productos de una sola categoría están muriendo. La IA commoditiza el conte
 - [ ] Dar de alta Amazon Afiliados
 
 ### Mes 2-3
-- [ ] Cadencia quincenal establecida (sin fallar)
+- [ ] Cadencia semanal establecida (sin fallar)
 - [ ] 2-3 Reels/semana en Instagram
 - [ ] 1 post/semana en LinkedIn
 - [ ] Testear primer lead magnet adicional
@@ -271,7 +271,7 @@ Los productos de una sola categoría están muriendo. La IA commoditiza el conte
 ### Mes 4-6
 - [ ] Evaluar SEO: ¿están posicionando los artículos?
 - [ ] Evaluar: ¿cuántos subs? Si <100, revisar discovery content
-- [ ] Empezar YouTube (B-roll + voz, quincenal)
+- [ ] Empezar YouTube (B-roll + voz, quincenal o semanal según capacidad)
 - [ ] Buscar 2-3 cross-promotions con newsletters tech en español
 - [ ] Primer intento de sponsor directo si >500 subs
 
@@ -288,7 +288,7 @@ Los productos de una sola categoría están muriendo. La IA commoditiza el conte
 | Artículos publicados | 6 | 12 | 24 |
 | Instagram followers | 100 | 500 | 1.500 |
 
-**Criterio de abandono:** Si después de 6 meses con cadencia consistente (12 newsletters sin fallar) hay menos de 100 suscriptores, el nicho no funciona en español y hay que pivotar o abandonar.
+**Criterio de abandono:** Si después de 6 meses con cadencia consistente (24 newsletters sin fallar) hay menos de 100 suscriptores, el nicho no funciona en español y hay que pivotar o abandonar.
 
 ---
 

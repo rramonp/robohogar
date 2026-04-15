@@ -25,7 +25,7 @@ Es un **consumidor curioso** que quiere opiniones honestas.
 **Formato:** Un solo campo (email) + botón. Sin nombre, sin empresa.
 
 **CTA recomendado (basado en research):**
-- Principal: **"Únete gratis — cada 2 semanas en tu inbox"**
+- Principal: **"Únete gratis — cada semana en tu inbox"**
 - Alternativo: **"Suscríbete gratis"** (simple como Morning Brew)
 - Social proof cuando tengamos datos: "Únete a [X]+ lectores"
 
@@ -37,7 +37,7 @@ Es un **consumidor curioso** que quiere opiniones honestas.
 
 | Objeción | Cómo resolverla |
 |---|---|
-| "Otro newsletter más" | Hero: "Quincenal. 5 min. Solo lo que importa." |
+| "Otro newsletter más" | Hero: "Semanal. 5 min. Solo lo que importa." |
 | "¿Quién eres?" | Sección autor: entusiasta que prueba robots en casa |
 | "¿Contenido genérico de IA?" | Preview de issue real con opinión y humor |
 | "¿Es gratis?" | Texto explícito: "100% gratis. Sin spam. Cancela cuando quieras." |
@@ -111,7 +111,7 @@ Es un **consumidor curioso** que quiere opiniones honestas.
   Formato magazine visual. **Es lo que retiene al visitante** — sin contenido real visible,
   la página es aburrida y el visitante se va. Beehiiv puede mostrar posts recientes automáticamente.
 - **Un solo color vibrante (#F5A623)** para CTAs. El resto neutro (blanco/negro/gris).
-- **Social proof con números** cuando los tengamos. Mientras tanto: "Quincenal · 5 min de lectura · Gratis".
+- **Social proof con números** cuando los tengamos. Mientras tanto: "Semanal · 5 min de lectura · Gratis".
 - **Mascota en hero** como diferenciador visual (ningún competidor tiene esto).
 - **Font pairing con contraste:** Jost (geométrica) vs DM Sans (humanist) ya cumple el patrón.
 - **Email input visible** — no detrás de un clic, no al final de la página.
@@ -122,7 +122,7 @@ Es un **consumidor curioso** que quiere opiniones honestas.
 |---|---|
 | Botón hero | "Suscríbete gratis" |
 | Input placeholder | "tu@email.com" |
-| Bajo el botón | "Quincenal. 5 min. Sin spam." |
+| Bajo el botón | "Semanal. 5 min. Sin spam." |
 | Con social proof (futuro) | "Únete a 500+ lectores" |
 | Footer CTA | "¿Te lo vas a perder?" + mismo formulario |
 
@@ -130,11 +130,9 @@ Es un **consumidor curioso** que quiere opiniones honestas.
 
 ```
 [Mascota robot]  ROBOHOGAR
-                 Los robots ya están en tu casa.
-                 Solo que aún no lo sabes.
+                 Tu dosis de robótica doméstica
                  
-                 Cada 2 semanas, en 5 minutos: reviews honestos,
-                 noticias curadas y opinión sobre robótica doméstica.
+                 Te lo contamos cada semana · Gratis, honesto y en español
                  
                  [tu@email.com] [Suscríbete gratis]
                  
@@ -167,7 +165,7 @@ Es un **consumidor curioso** que quiere opiniones honestas.
 Usar en **Website → AI Website Builder**. Pegar íntegro:
 
 ```
-Build a newsletter landing page for ROBOHOGAR, a Spanish-language biweekly 
+Build a newsletter landing page for ROBOHOGAR, a Spanish-language weekly 
 newsletter about home robotics (robot vacuums, lawnmowers, humanoid robots).
 
 BRAND:
@@ -182,8 +180,8 @@ PAGE STRUCTURE (this exact order, based on top-performing newsletter landings):
 
 SECTION 1 — HERO (above the fold, most important):
 - Left side: headline + subtitle + email signup form + trust text
-- Headline: "Tu casa se esta robotizando y no te has enterado"
-- Subtitle: "Te lo cuento cada 2 semanas: Gratis, honesto y en español"
+- Headline: "Tu dosis de robótica doméstica"
+- Subtitle: "Te lo contamos cada semana · Gratis, honesto y en español"
 - Email input field with placeholder "tu@email.com"
 - Submit button: "Suscríbete gratis" in amber #F5A623
 - Below button: "100% gratis · Sin spam · Cancela cuando quieras" in small gray text
@@ -202,12 +200,12 @@ SECTION 2 — FEATURED ARTICLES (immediately after hero):
   after the signup form — this is what retains visitors.
 
 SECTION 3 — WHAT YOU'LL GET:
-- Title: "¿Qué recibirás cada 2 semanas?"
+- Title: "¿Qué recibirás cada semana?"
 - 4 items with icons:
   • "Lo que ha pasado en robótica doméstica, sin tecnicismos"
   • "Reviews sin filtro de robots que ya están a la venta"
   • "Humanoides y el futuro de tu casa robotizada"
-  • "Un dato curioso + el mejor enlace que he encontrado"
+  • "Un dato curioso que no conocías cada semana"
 - Reference: Morning Brew uses "Become smarter in 5 minutes" — clear value prop. 
   TLDR uses a numbered list of what each issue contains.
 
@@ -219,14 +217,14 @@ SECTION 4 — ABOUT THE AUTHOR:
 - Keep it human, authentic, short
 
 SECTION 5 — FAQ (3 questions, accordion style):
-- "¿Con qué frecuencia llega?" → "Cada 2 semanas. Nada de bombardear tu inbox."
+- "¿Con qué frecuencia llega?" → "Cada semana. Nada de bombardear tu inbox."
 - "¿Es gratis?" → "Sí, 100%. Sin trucos, sin versión premium, sin paywall."
 - "¿Quién escribe esto?" → "Rafael, entusiasta de la tecnología doméstica que 
   lleva años conviviendo con robots. Opiniones propias, no publi-reportajes."
 
 SECTION 6 — FINAL CTA (before footer):
 - Title: "¿Te lo vas a perder?"
-- Subtitle: "Tu primer issue llega en dos semanas."
+- Subtitle: "Tu primer issue llega esta semana."
 - Repeat email signup form
 - Reference: All 5 top newsletters have a second CTA before footer. Morning Brew 
   repeats "Become smarter in 5 minutes" with phone mockup. Copy this repetition.

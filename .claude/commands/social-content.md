@@ -30,7 +30,7 @@ Aplicar tono de `rules/editorial.md`: cercano, informado, humor sutil, opiniones
 
 [Opinión personal fuerte — tomar partido]
 
-[CTA suave: "Si te interesa la robótica doméstica, cada 2 semanas publico un newsletter con lo que importa."]
+[CTA suave: "Si te interesa la robótica doméstica, cada semana publicamos un newsletter con lo que importa."]
 
 // Link en primer comentario, NO en el post (LinkedIn penaliza links en post)
 ```
@@ -88,7 +88,7 @@ Generar 1-2 ideas de Reel basadas en el contenido:
 | LinkedIn | Martes/Miércoles 9:00 CET | 1/semana |
 | X/Twitter | Lunes-Viernes 14:00 CET | 3-5/semana |
 | Instagram Reel | Martes/Jueves 12:00 CET | 2-3/semana |
-| WhatsApp Channel | Día de envío del newsletter | Quincenal |
+| WhatsApp Channel | Día de envío del newsletter | Semanal |
 
 ## Rules
 

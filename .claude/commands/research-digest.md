@@ -1,6 +1,6 @@
 # Research Digest — Content & Competitive Intelligence
 
-Two modes: news aggregation (quincenal) and competitive website intelligence (on demand).
+Two modes: news aggregation (semanal) and competitive website intelligence (on demand).
 
 ## When to activate
 
@@ -22,7 +22,7 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
 
 ---
 
-## MODE 1: News Digest (quincenal)
+## MODE 1: News Digest (semanal)
 
 ### Sources to scrape
 
@@ -39,7 +39,7 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
 ### Workflow
 
 1. Scrape key sources (Firecrawl `scrape` or WebFetch)
-2. Filter last 14 days, deduplicate similar stories
+2. Filter last 7 days, deduplicate similar stories
 3. Categorize each story:
    - Categories: Consumer Robots, Robot Vacuums, Lawn Robots, Humanoids, AI/Software, Industry, Reviews
    - Relevance score 1-5 for Spanish home robotics audience

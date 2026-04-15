@@ -65,7 +65,7 @@ mid_cta_html = (
     '<p style="font-family:\'Inter\',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;'
     'font-style:italic;font-size:16px;line-height:1.5;color:#0C0C0C;'
     'padding:0;margin:0;">'
-    '\u00bfTe est\u00e1 sirviendo? Publicamos esto cada 2 semanas.</p>'
+    '\u00bfTe est\u00e1 sirviendo? Publicamos cada semana.</p>'
     '<p style="padding:8px 0 0 0;margin:0;">'
     '<a href="https://robohogar.com" style="color:#F5A623 !important;'
     'font-weight:bold;text-decoration:none;'

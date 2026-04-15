@@ -15,12 +15,12 @@ Proyecto personal de Rafael. Nace de un interés de toda la vida en tecnología 
 
 ## 2. La promesa al lector
 
-Cada 2 semanas, en tu bandeja:
+Cada semana, en tu bandeja:
 
 - 🤖 Lo que ha pasado en robótica doméstica, sin tecnicismos
 - 🔍 Reviews sin filtro de robots que ya están a la venta
 - 🚀 Humanoides y el futuro de tu casa robotizada
-- 💡 Un dato curioso + el mejor enlace que he encontrado
+- 💡 Un dato curioso que no conocías cada semana
 
 **Tres pilares:** Gratis · Honesto · En español
 

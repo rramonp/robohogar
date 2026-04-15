@@ -36,9 +36,9 @@ git pull
 - [x] Ir a **https://app.beehiiv.com/signup**
 - [x] Rellenar: nombre → `Rafael`, email → tu email personal, contraseña
 - [x] Publication Name → `ROBOHOGAR`
-- [x] Description → `Tu casa se está robotizando y no te has enterado. Te lo cuento cada 2 semanas: gratis, honesto y en español.`
+- [x] Description → `Tu dosis de robótica doméstica. Te lo contamos cada semana: gratis, honesto y en español.`
 - [x] Category → `Technology`
-- [x] Frequency → `Biweekly`
+- [x] Frequency → `Weekly`
 
 ### Subir branding
 
@@ -116,8 +116,8 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 ### Ajustar sección por sección (Design Mode)
 
 **Hero (above the fold):**
-- [x] Headline → `Tu casa se esta robotizando y no te has enterado`
-- [x] Subtítulo → `Te lo cuento cada 2 semanas: Gratis, honesto y en español`
+- [x] Headline → `Tu dosis de robótica doméstica`
+- [x] Subtítulo → `Te lo contamos cada semana · Gratis, honesto y en español`
 - [x] Placeholder del input → `tu@email.com`
 - [x] Botón → `Suscríbete gratis` con fondo `#F5A623`, texto `#FFFFFF`
 - [x] Texto bajo botón → `100% gratis · Sin spam · Cancela cuando quieras`
@@ -132,16 +132,17 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 > Esta sección estará vacía hasta que publiques los primeros artículos (FASE 2). Publica al menos 2 posts ANTES de compartir la landing públicamente.
 
 **Qué recibirás:**
-- [x] Título → `¿Qué recibirás cada 2 semanas?`
+- [x] Título → `¿Qué recibirás cada semana?`
 - [x] 4 bullets:
   - `🤖 Lo que ha pasado en robótica doméstica, sin tecnicismos`
   - `🔍 Reviews sin filtro de robots que ya están a la venta`
   - `🚀 Humanoides y el futuro de tu casa robotizada`
-  - `💡 Un dato curioso + el mejor enlace que he encontrado`
+  - `💡 Un dato curioso que no conocías cada semana`
 
 **Sobre el autor:**
 - [x] Imagen: subir `assets/branding/master/robohogar-mascot-leyendo.png` *(sección omitida — decisión editorial)*
 - [x] Texto → `Soy Rafael. Pruebo robots en casa, investigo lo que viene y te cuento lo que merece la pena — sin comunicados de prensa ni hype vacío.`
+> Nota: la bio personal mantiene "te cuento" (singular). El plural "contamos" se usa solo en la voz de marca (tagline, subtítulo).
 
 **FAQ:**
 - [x] Pregunta 1: `¿Con qué frecuencia llega?` *(sección omitida — decisión editorial)*
@@ -219,7 +220,7 @@ Imágenes inline donde aporten (screenshots, comparativas).
 
 > Callout con opinión personal o dato destacado
 
-[CTA mid-article: "¿Te está gustando? Suscríbete para recibir esto cada 2 semanas →"]
+[CTA mid-article: "¿Te está sirviendo? Publicamos cada semana →"]
 
 Más contenido...
 
@@ -280,7 +281,7 @@ Cada artículo necesita 1 imagen destacada (1200x630). El agente de imágenes (`
 - Sin links de afiliado (este contenido construye marca, no revenue)
 - Reference: The Hustle "Originals" — reportajes largos con titulares creativos
 
-**Newsletter quincenal:**
+**Newsletter semanal:**
 - Template fijo de 5 secciones (ver FASE 4)
 - Máximo 1.500 palabras
 - Email gating en el artículo web más valioso de cada issue
@@ -369,7 +370,7 @@ Configurar estas categorías para organizar el contenido:
 | Template | Archivo | Tipo | Status |
 |---|---|---|---|
 | Review/Comparativa | `content/templates/review-comparativa.md` | 70% — productos | 🔄 En iteración |
-| Newsletter Issue | `content/templates/newsletter-issue.md` | Email quincenal | ⏳ Pendiente |
+| Newsletter Issue | `content/templates/newsletter-issue.md` | Email semanal | ⏳ Pendiente |
 | Noticias/Roundup | `content/templates/noticias-roundup.md` | Noticias curadas | ⏳ Pendiente |
 | Editorial/Opinión | `content/templates/editorial-opinion.md` | 30% — futuro | ⏳ Pendiente |
 
@@ -449,7 +450,7 @@ Configurar estas categorías para organizar el contenido:
 
 | Setting | Valor | Notas |
 |---------|-------|-------|
-| **Publish to** | `Web only` | Artículos de blog. `Email and web` solo para newsletter quincenal |
+| **Publish to** | `Web only` | Artículos de blog. `Email and web` solo para newsletter semanal |
 | **Post URL** | `<slug>` definido en SEO del artículo | Siempre corto, sin stop words |
 | **Post thumbnail** | Subir `thumbnail-<slug>.png` (16:9) | Aparece en landing, cards, OG, Google |
 | **Show thumbnail on top** | ✅ Activado | La hero se muestra dentro del artículo |
@@ -498,7 +499,7 @@ Configurar estas categorías para organizar el contenido:
 | Campo | Valor |
 |-------|-------|
 | Subject | `Bienvenido/a a ROBOHOGAR 🤖` |
-| Preview text | `Tu casa se está robotizando y yo te lo cuento` |
+| Preview text | `Tu dosis de robótica doméstica empieza aquí` |
 | Sender name | `Rafael de ROBOHOGAR` |
 
 **Paso 4** — Pegar este contenido en el editor (copy-paste):
@@ -506,15 +507,15 @@ Configurar estas categorías para organizar el contenido:
 ```
 ¡Hola!
 
-Soy Rafael, y esto es ROBOHOGAR — tu casa se está robotizando
-y yo te lo cuento cada 2 semanas.
+Soy Rafael, y esto es ROBOHOGAR — tu dosis semanal
+de robótica doméstica.
 
-Esto es lo que vas a recibir:
+Esto es lo que vas a recibir cada semana:
 
 • Lo que ha pasado en robótica doméstica, sin tecnicismos
 • Reviews sin filtro de robots que ya están a la venta
 • Humanoides y el futuro de tu casa robotizada
-• Un dato curioso + el mejor enlace que he encontrado
+• Un dato curioso que no conocías
 
 Para que no me pierda en tu spam, haz esto:
 → Arrastra este email a tu bandeja principal
@@ -552,7 +553,7 @@ ROBOHOGAR
 - [ ] Crear cuenta: username `robohogar_es`
 - [ ] Convertir a profesional: Settings → Account → Switch to professional → Creator → Technology
 - [ ] Foto de perfil: mascota principal
-- [ ] Bio: `🤖 Robots que llegan a tu casa | 📬 Newsletter gratis cada 2 semanas | 🔍 Reviews · Noticias · Opinión | 👇 Suscríbete`
+- [ ] Bio: `🤖 Robots que llegan a tu casa | 📬 Tu dosis semanal de robótica doméstica | 🔍 Reviews · Noticias · Opinión | 👇 Suscríbete`
 - [ ] Link en bio → `https://robohogar.com`
 
 **LinkedIn**
@@ -564,7 +565,7 @@ ROBOHOGAR
 
 - [ ] WhatsApp → Updates → Channels → `+` → Create Channel
 - [ ] Nombre: `ROBOHOGAR 🤖`
-- [ ] Descripción: `Newsletter quincenal sobre robótica doméstica. robohogar.com`
+- [ ] Descripción: `Tu dosis semanal de robótica doméstica. robohogar.com`
 - [ ] Foto: mascota principal
 - [ ] Publicar primer mensaje de bienvenida
 
@@ -631,7 +632,7 @@ POLÍTICA DE PRIVACIDAD
 
 Responsable: Rafael [tu apellido]
 Email: robohogar@gmail.com
-Finalidad: Envío de newsletter quincenal sobre robótica doméstica
+Finalidad: Envío de newsletter semanal sobre robótica doméstica
 Legitimación: Consentimiento del interesado (doble opt-in)
 Datos recogidos: Email
 Destinatarios: Beehiiv Inc. (proveedor de email marketing, EEUU,
@@ -738,7 +739,7 @@ Derechos: Puedes acceder, rectificar o eliminar tus datos
   1. **Templater** — templates con variables dinámicas
   2. **Dataview** — consultas tipo base de datos
   3. **QuickAdd** — macros para crear notas rápido
-  4. **Periodic Notes** — notas periódicas (quincenal)
+  4. **Periodic Notes** — notas periódicas (semanal)
   5. **Omnivore** o **ReadItLater** — guardar artículos web para investigación
 - [ ] Activar todos en Settings → Community Plugins
 
@@ -871,7 +872,7 @@ period: {{date:YYYY-MM}}
 ---
 # Calendario Editorial — {{date:YYYY MMMM}}
 
-## Newsletter (quincenales)
+## Newsletter (semanales)
 | # | Fecha envío | Título tentativo | Status |
 |---|---|---|---|
 | | | | 📝 idea / ✍️ borrador / ✅ enviado |
@@ -900,7 +901,7 @@ period: {{date:YYYY-MM}}
 
 ### Configurar Periodic Notes
 
-- [ ] Settings → Periodic Notes → activar **Weekly Note** (o crear macro quincenal manual)
+- [ ] Settings → Periodic Notes → activar **Weekly Note**
 - [ ] Format: `YYYY-[W]ww`
 - [ ] Template: `05-Templates/Editorial-Calendar.md`
 - [ ] Folder: `06-Calendar`
@@ -1079,7 +1080,7 @@ Cuando Rafael elige tema y ángulo, la API genera un borrador usando:
 
 1. **Template del tipo de artículo** (de `content/templates/`)
    - `review-comparativa.md` — para reviews y comparativas de productos
-   - `noticias-roundup.md` — para newsletter quincenal (futuro)
+   - `noticias-roundup.md` — para newsletter semanal (futuro)
    - `editorial-opinion.md` — para piezas de opinión (futuro)
 2. **Fuentes seleccionadas** del digest + fuentes de `references/fuentes-por-categoria.md`
 3. **Reglas editoriales** de `.claude/rules/editorial.md` (tono, estructura, voz)
@@ -1151,7 +1152,7 @@ Programación con Make.com → Buffer:
 
 ### Calendario editorial
 
-- [ ] Cadencia: newsletter cada 2 semanas, en martes
+- [ ] Cadencia: newsletter semanal, en martes
 - [ ] Calendario:
   - Semana A (lunes): Aggregator corre automático → digest listo
   - Semana A (lunes-martes): Rafael revisa digest, elige tema, lanza borrador
@@ -1233,7 +1234,7 @@ Cada 3 meses, revisar contra los objetivos de `docs/plan-v2.md`:
 
 ## FASE 7: Post-lanzamiento y mantenimiento con Claude Code
 
-### Workflow quincenal (cada 2 semanas, ~30 min con Claude Code)
+### Workflow semanal (~30 min con Claude Code)
 
 **Agentes automáticos (Claude Code ejecuta):**
 - [ ] `/research-digest` — Agente Research: scrape RSS → digest + wiki update
@@ -1288,7 +1289,7 @@ Cada 3 meses, revisar contra los objetivos de `docs/plan-v2.md`:
 - Añadir preguntas nuevas basadas en feedback de suscriptores
 
 **Actualizar social proof:**
-- Cuando alcances 100 subs: cambiar "Quincenal · 5 min" → "Únete a 100+ lectores"
+- Cuando alcances 100 subs: cambiar "Semanal · 5 min" → "Únete a 100+ lectores"
 - Cuando alcances 500: "Únete a 500+ lectores que ya viven con robots"
 
 ### Skills de Claude Code disponibles

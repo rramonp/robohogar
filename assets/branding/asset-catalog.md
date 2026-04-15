@@ -80,7 +80,7 @@ content/articulos/
       *.png/jpg          ← Imágenes inline, capturas, fotos producto
 ```
 
-El agente de imágenes genera el hero automáticamente como parte del pipeline quincenal, lo guarda en la carpeta del artículo y lo registra en este catálogo.
+El agente de imágenes genera el hero automáticamente como parte del pipeline semanal, lo guarda en la carpeta del artículo y lo registra en este catálogo.
 
 ### Estilo ROBOHOGAR para heros de artículos
 

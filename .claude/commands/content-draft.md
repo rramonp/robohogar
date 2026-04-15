@@ -22,7 +22,7 @@ Preguntar si no está claro:
 | **Guía de compra** (70%) | Selección de productos, recomendaciones por presupuesto | Links afiliado Amazon | "Mejor robot aspirador 2026" |
 | **Editorial** (30%) | Futuro, opinión, tendencias, humanoides | Sin afiliados — construye marca | "Robots humanoides en 2030" |
 | **Personal** (30%) | Experiencia propia, anécdota, reflexión | Sin afiliados — autenticidad | "Mi vida con un aspirador robot" |
-| **Newsletter** (quincenal) | 3-5 noticias curadas + editorial + dato + enlace | Sin afiliados — engagement | "ROBOHOGAR #01" |
+| **Newsletter** (semanal) | 3-5 noticias curadas + editorial + dato + enlace | Sin afiliados — engagement | "ROBOHOGAR #01" |
 
 ### 2. Recopilar input
 
@@ -85,7 +85,7 @@ affiliate: [true|false]
 
 ---
 
-**¿Te ha gustado?** Suscríbete para recibir esto cada 2 semanas → [link Beehiiv]
+**¿Te está sirviendo?** Publicamos cada semana → [link Beehiiv]
 
 ---
 

@@ -22,7 +22,7 @@
 - Usar "tú" (no "usted") — registro informal pero profesional
 - Robots se refiere siempre a robótica DOMÉSTICA (aspiradores, cortacésped, humanoides para hogar)
 
-## Newsletter (quincenal)
+## Newsletter (semanal)
 
 - 3-5 noticias curadas con comentario editorial
 - 1 sección fija rotativa (review, comparativa, tutorial, opinión)

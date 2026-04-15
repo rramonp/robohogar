@@ -2,7 +2,7 @@
 
 > Referencia unificada de best practices para newsletter y email marketing.
 > Fuentes: beehiiv State of Newsletters 2026 (28B emails) + Email Marketing Bible V2 (908 fuentes, 68K palabras).
-> Curado para: newsletter quincenal en español sobre robótica doméstica, Beehiiv free plan, audiencia España/EU + LATAM.
+> Curado para: newsletter semanal en español sobre robótica doméstica, Beehiiv free plan, audiencia España/EU + LATAM.
 > Consultar desde: `/content-draft` (tipo Newsletter), diseño de templates, optimización de envíos.
 
 ---
@@ -356,6 +356,6 @@ Adaptada al contexto ROBOHOGAR:
 
 ### Para ROBOHOGAR
 
-- **Newsletter quincenal:** Martes 9:00 CET (peak 1, mejor día)
+- **Newsletter semanal:** Martes 9:00 CET (peak 1, mejor día)
 - **Artículos web:** Publicar sin restricción de timing (SEO, no email)
 - **Social posts:** Post-publicación según calendario de Buffer

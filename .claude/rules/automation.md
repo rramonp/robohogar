@@ -24,7 +24,7 @@ Detalle completo: `docs/plan-v2.md` sección 4.
 | **Imágenes** | `/nano-banana` | Genera hero branded por artículo, cataloga en `asset-catalog.md` | `assets/images/art-slug.png` |
 | **Social** | `/social-content` | Genera posts adaptados por plataforma | Posts listos para Buffer |
 
-Cada agente es invocable individualmente o como parte del pipeline quincenal (FASE 9).
+Cada agente es invocable individualmente o como parte del pipeline semanal (FASE 7).
 
 ## Agente de imágenes — reglas específicas
 
