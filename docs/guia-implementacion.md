@@ -509,11 +509,11 @@ Este template es la referencia visual para TODOS los demás. Tiene el formato de
 
 - [x] Research completado (fuentes actualizadas en fuentes-por-categoria.md)
 - [x] Borrador HTML generado
-- [ ] Rafael edita voz + decide imágenes inline
-- [ ] Crear template Editorial en Beehiiv basado en este borrador
-- [ ] Hero image con `/nano-banana`
-- [ ] SEO configurado en Beehiiv
-- [ ] Publicar
+- [x] Rafael edita voz + decide imágenes inline
+- [x] Crear template Editorial en Beehiiv basado en este borrador
+- [x] Hero image con `/nano-banana` (v10 elegida — "Creación de Adán")
+- [x] SEO configurado en Beehiiv
+- [x] Publicado → https://robohogar.com/p/humanoides-en-casa-cuanto-falta
 
 ---
 
