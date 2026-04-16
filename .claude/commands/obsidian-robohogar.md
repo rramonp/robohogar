@@ -23,28 +23,7 @@ $HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/
 
 ## Estructura del vault
 
-```
-05-01_Robotica Newsletter/
-  _archive/              # Contenido archivado
-  _deliverables/         # PDFs, exports finales
-  Issues/                # Backup de cada issue (EP001/, EP002/...)
-  Metricas/              # Suscriptores, tráfico, ingresos
-  Research/              # Research digests auto-generados
-    Clippings/           # Artículos guardados manualmente
-  Templates/             # Plantillas Obsidian (6 templates)
-  Wiki/                  # BASE DE DATOS CRECIENTE
-    Robots/              # Una nota por robot/producto
-    Empresas/            # Una nota por empresa
-    Conceptos/           # Temas evergreen
-    Mercado/             # Datos acumulativos
-  02-Drafts/             # Borradores de artículos (mirror del repo)
-  03-Published/          # Artículos publicados (mirror del repo)
-  06-Calendar/           # Planificación editorial
-  Guia Implementacion.md
-  Proyecto ROBOHOGAR.md  # MOC principal
-  Research Mercado EN.md
-  Research Mercado ES.md
-```
+Subcarpetas principales de `05-01_Robotica Newsletter/`: `_archive/`, `Issues/`, `Metricas/`, `Research/` (+ `Clippings/`), `Templates/`, `Wiki/` (`Robots/`, `Empresas/`, `Conceptos/`, `Mercado/`), `02-Drafts/`, `03-Published/`, `06-Calendar/`. MOC: `Proyecto ROBOHOGAR.md`.
 
 ## Modos de operación
 
@@ -97,39 +76,8 @@ Escanea y reporta sin modificar:
 
 ### 7. `repo-mirror` — Mirror del repositorio al vault
 
-Sincroniza el repositorio robohogar completo al vault como notas Markdown navegables
-bajo `03_Resources/03-01_Claude/Repo Mirrors/ROBOHOGAR/`. Mismo patrón que el Mode 12
-del vault-organizer de RRP-DEV.
+Sincroniza el repo completo a `03_Resources/03-01_Claude/Repo Mirrors/ROBOHOGAR/` como notas Markdown navegables. Motor: `skills/vault_sync/repo_mirror.py` + `config.py`. Reconciliación incremental por hash SHA-256 (`--full` para rebuild completo).
 
-**Motor:** `skills/vault_sync/repo_mirror.py` + `skills/vault_sync/config.py`
-
-**Qué se mirrorea:**
-- Configuración: CLAUDE.md, .mcp.json, .gitignore
-- Rules, Commands, Memory (.claude/)
-- Artículos (content/articulos/) — cada slug = subcarpeta
-- Templates Beehiiv, registro de artículos
-- Docs (brand voice, guía implementación, planes)
-- References (investigación, competencia)
-- Utilities, Scripts
-- Landing page, asset catalog, mascota prompt
-- El propio vault_sync engine
-
-**Cada nota incluye:**
-- Frontmatter: `mirror-source`, `mirror-hash` (SHA-256), `mirror-date`, `mirror-commit`
-- Archivos .md → contenido embebido directamente
-- Archivos .py/.html/.json → fenced code blocks con syntax highlighting
-- Link a `[[ROBOHOGAR Mirror Index]]` para navegación
-
-**Reconciliación incremental:** solo actualiza notas cuyo hash cambió. `--full` fuerza rebuild completo.
-
-**Ejecutar:**
-```python
-from skills.vault_sync.repo_mirror import execute_mirror
-from skills.vault_sync.config import resolve_vault_path
-result = execute_mirror(repo_root, resolve_vault_path(), full_rebuild=False)
-```
-
-**CLI:**
 ```bash
 python skills/vault_sync/repo_mirror.py [vault_path] [repo_path] [--full] [--dry-run]
 ```
@@ -142,6 +90,8 @@ Al ejecutar CUALQUIER modo de este skill, sincronizar estos archivos del repo al
 |------|-------|-------|
 | `docs/guia-implementacion.md` | `Guia Implementacion.md` | Guía maestra del proyecto |
 | `content/registro-articulos.md` | `Registro Articulos.md` | Catálogo de artículos publicados — fuente de verdad |
+| `content/calendario-editorial.md` | `Calendario Editorial.md` | Cadencia semanal, backlog de temas, planificación |
+| `content/registro-newsletters.md` | `Registro Newsletters.md` | Catálogo de newsletters enviados |
 
 ```bash
 cp "$HOME/robohogar/content/registro-articulos.md" "$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Registro Articulos.md"
@@ -152,12 +102,7 @@ cp "$HOME/robohogar/docs/guia-implementacion.md" "$HBX_VAULT/RRP/RRP_ONEDRIVE/HB
 
 ## Ejecución autónoma (sin modo específico)
 
-Cuando Rafael ejecuta este skill sin especificar modo (e.g. "actualiza obsidian"), ejecutar la secuencia completa:
-
-1. **Sync always-sync files** → copiar guia-implementacion.md y registro-articulos.md al área editorial
-2. **Repo mirror** (Mode 7) → sincronizar repo completo al vault mirror
-3. **Audit** (Mode 6) → escanear y reportar violaciones
-4. **Presentar resumen** → single report con archivos sincronizados + stats del mirror + hallazgos del audit
+Sin modo explícito → ejecutar: 1) Sync always-sync files, 2) Repo mirror, 3) Audit, 4) Resumen.
 
 ## Reglas de Obsidian (heredadas del vault-organizer)
 
@@ -178,20 +123,6 @@ Cuando Rafael ejecuta este skill sin especificar modo (e.g. "actualiza obsidian"
 7. **Auto-apply** operaciones rutinarias sin preguntar
 8. **Preguntar** antes de: borrar >10 archivos, archivar >3 carpetas, cambios estructurales
 
-## File Index
-
-| File | Purpose |
-|------|---------|
-| `skills/vault_sync/__init__.py` | Package init |
-| `skills/vault_sync/config.py` | Mirror sections, vault paths, ignore patterns, language map |
-| `skills/vault_sync/repo_mirror.py` | Mirror engine: inventory, diff, generate notes, index, architecture |
-
 ## Relación con vault-organizer de RRP-DEV
 
-| Aspecto | vault-organizer (RRP-DEV) | obsidian-robohogar (este skill) |
-|---|---|---|
-| Scope | TODO el vault HBX | `05-01_Robotica Newsletter/` + `Repo Mirrors/ROBOHOGAR/` |
-| Función | Estructura, naming, binarios, indexes globales | Contenido editorial, wiki, research, repo mirror propio |
-| Repo mirror | Sincroniza RRP-DEV → `Repo Mirrors/RRP-DEV/` | Sincroniza robohogar → `Repo Mirrors/ROBOHOGAR/` |
-| Indexes globales | Genera `All Deliverables.md`, `Presentation Index` | NO toca — vault-organizer ve el contenido de ROBOHOGAR al regenerar |
-| Conflictos | 0 — no toca el mirror de ROBOHOGAR | 0 — no toca nada fuera de 05-01 y Repo Mirrors/ROBOHOGAR |
+Este skill opera SOLO en `05-01_Robotica Newsletter/` + `Repo Mirrors/ROBOHOGAR/`. El vault-organizer de RRP-DEV maneja el resto del vault. Sin conflictos — scopes disjuntos.

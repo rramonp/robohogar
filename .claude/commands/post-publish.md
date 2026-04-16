@@ -11,15 +11,7 @@ Se invoca después de que Rafael confirme que el artículo está publicado en Be
 
 ## Input necesario
 
-Preguntar a Rafael si no lo ha dado:
-1. **URL del artículo publicado** (ej: `https://robohogar.com/p/slug`) — si es newsletter email-only, no habrá URL web
-2. **Tipo de publicación**: artículo (`Email and web`) o newsletter (`Email only`)
-3. **Hero image elegida** (ej: v10) — para saber cuáles borrar (solo artículos, newsletters no tienen hero)
-4. **Slug del artículo** — se deduce de la URL si no lo da
-
-> **Recordatorio de tipos:**
-> - Artículos (review, editorial, guía) → `Email and web` → aparecen en landing + inbox
-> - Newsletter semanal → `Email only` → solo inbox, NO en landing
+Preguntar si no lo ha dado: URL del artículo, tipo de publicación (`Email and web` / `Email only`), hero image elegida (ej: v10), slug.
 
 ## Workflow (ejecutar en orden)
 
@@ -142,32 +134,7 @@ Push automático.
 
 ### 13. Reportar resumen
 
-Mostrar a Rafael un resumen completo:
-```
-## Post-publicación completada: "<título>"
-
-**Verificación:**
-- ✅/❌ Artículo carga correctamente
-- ✅/❌ OG image se ve bien en previews
-- ✅/❌ Links internos funcionan
-- ✅/❌ Imágenes inline cargan
-
-**Repo:**
-- ✅ Borrador → content/published/YYYY-MM-DD-slug.html
-- ✅ Limpiadas N variantes no usadas
-- ✅ Fuentes verificadas en fuentes-por-categoria.md
-- ✅ Asset catalog actualizado
-- ✅ Commit + push
-
-**Distribución:**
-- ✅ Social content generado → PROGRAMAR EN BUFFER
-- ✅ Welcome Email: [recomendación]
-
-**Obsidian:**
-- ✅ Guía sincronizada
-- ✅ Artículo copiado a 03-Published/
-- ✅ Wiki actualizada (robots/empresas)
-```
+Mostrar a Rafael un resumen con 4 secciones: **Verificación** (artículo, OG, links, imágenes), **Repo** (published, limpieza, fuentes, catalog, commit), **Distribución** (social + welcome email), **Obsidian** (guía, artículo, wiki). Cada línea con ✅/❌.
 
 ## Rules
 
