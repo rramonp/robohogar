@@ -75,7 +75,7 @@ La hero se usa tanto dentro del artículo como post thumbnail — Beehiiv recort
 ```
 content/articulos/
   <slug>/
-    borrador.md          ← Draft del artículo
+    borrador.html        ← Draft del artículo (HTML de Beehiiv)
     assets/
       hero-<slug>.png    ← Imagen destacada branded (1200x630)
       *.png/jpg          ← Imágenes inline, capturas, fotos producto

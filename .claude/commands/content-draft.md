@@ -111,7 +111,7 @@ affiliate: [true|false]
 
 ### 5. Output
 
-- **Carpeta del artículo:** `content/articulos/<slug>/borrador.md`
+- **Carpeta del artículo:** `content/articulos/<slug>/borrador.html`
 - **Assets:** `content/articulos/<slug>/assets/`
 - **Vault Obsidian:** `$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/02-Drafts/YYYY-MM-DD-slug.md`
   (usar template vault: `Templates/Template Article Draft.md`)
@@ -201,7 +201,7 @@ FOOTER CTA
 
 Este mapa es la guía principal de Rafael para montar el artículo en Beehiiv.
 
-### 8. Prohibiciones (de `rules/editorial.md`)
+### 9. Prohibiciones (de `rules/editorial.md`)
 
 - NUNCA copiar/pegar de fuentes — reescribir con voz propia
 - NUNCA superlativos vacíos ("revolucionario", "increíble", "game-changer")

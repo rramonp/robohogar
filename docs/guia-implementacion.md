@@ -459,7 +459,7 @@ Este template es la referencia visual para TODOS los demás. Tiene el formato de
 
 | Setting | Valor | Notas |
 |---------|-------|-------|
-| **Publish to** | `Web only` | Artículos de blog. `Email and web` solo para newsletter semanal |
+| **Publish to** | `Email and web` | Artículos = email + web (SEO + inbox). Newsletter semanal = `Email only` |
 | **Post URL** | `<slug>` definido en SEO del artículo | Siempre corto, sin stop words |
 | **Post thumbnail** | Subir `thumbnail-<slug>.png` (16:9) | Aparece en landing, cards, OG, Google |
 | **Show thumbnail on top** | ✅ Activado | La hero se muestra dentro del artículo |

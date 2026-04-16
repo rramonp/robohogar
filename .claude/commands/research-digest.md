@@ -18,7 +18,7 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
 
 ## Script
 
-`utilities/research_aggregator.py` (TODO: implementar)
+`utilities/research_aggregator.py` — pendiente FASE 10. El skill usa Firecrawl/WebSearch directamente.
 
 ---
 

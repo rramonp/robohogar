@@ -46,7 +46,7 @@ Cada agente es invocable individualmente o como parte del pipeline semanal (FASE
 Cada artículo tiene su propia carpeta con assets. SIEMPRE crear esta estructura:
 ```
 content/articulos/<slug>/
-  borrador.md
+  borrador.html
   assets/
     hero-<slug>.png
 ```
@@ -54,7 +54,7 @@ El slug viene del URL slug SEO definido en la guía de implementación.
 
 ## Scripts (utilities/)
 
-- `research_aggregator.py` — fetch RSS, scrape con Firecrawl, categoriza con Claude API
+- `research_aggregator.py` — (FASE 10, no implementado). El skill `/research-digest` usa Firecrawl/WebSearch directamente
 
 ## Herramientas externas
 
