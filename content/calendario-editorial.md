@@ -26,12 +26,16 @@
 |-----------|------|------|-------------|---|-------|
 | Alta | Roborock Saros Z70: review del brazo robot | Review | roborock saros z70 review | 🔥🔥🔥 | 10+ reviews, 1.699€ España, debate brazo=gimmick |
 | Alta | Robots aspirador que suben escaleras (3 enfoques) | Editorial | robot aspirador escaleras | 🔥🔥🔥 | Saros Rover + Dreame Cyber X + eufy MarsWalker |
-| Alta | Humanoides que ya puedes comprar (NEO vs R1) | Comparativa | robot humanoide comprar 2026 | 🔥🔥🔥 | NEO se entrega, R1 en AliExpress |
+| Alta | Humanoides domésticos 2026: los 5 que puedes comprar | Comparativa | robot humanoide comprar 2026 | 🔥🔥🔥 | NEO, R1, Memo, Onero H1, Panther |
+| Alta | Sunday Memo: el anti-humanoide de $1.150M | Editorial | sunday robotics memo | 🔥🔥🔥 | Bloomberg+TechCrunch. Ruedas>piernas |
+| Alta | Apple entra en robótica doméstica | Editorial | apple home robot 2026 | 🔥🔥🔥 | Hub 2026, robot 2027. Mainstream masivo |
 | Alta | Mejor robot aspirador 2026 | Review/Comparativa | robot aspirador | 🔥🔥 | Evergreen, alto volumen SEO |
 | Alta | Robot cortacésped: guía de compra | Guía | robot cortacésped | 🔥🔥 | Temporada primavera/verano |
 | Media | MOVA V70 Ultra: submarca de Dreame llega a España | Review | mova v70 ultra | 🔥🔥 | 1.399€ mayo 2026, 40.000 Pa |
+| Media | SwitchBot Onero H1: humanoide por <$10K | Review | switchbot onero h1 | 🔥🔥 | El más barato y práctico |
 | Media | Roborock: "humanoides no son eficientes para casa" | Editorial | robot humanoide hogar | 🔥🔥 | Entrevista española, contrapunto |
-| Media | Ecovacs LilMilo: tu marca de aspiradores vende un perro robot | Editorial | ecovacs lilmilo robot mascota | 🔥🔥 | TechRadar "me hizo llorar" |
+| Media | Roborock cortacéspedes: RockMow X1 LiDAR | Review | roborock cortacésped | 🔥🔥 | AWD, sin cables, IA. España 2026 |
+| Media | Ecovacs LilMilo: tu marca de aspiradores vende un perro | Editorial | ecovacs lilmilo robot mascota | 🔥🔥 | TechRadar "me hizo llorar" |
 | Media | Dreame vs Roborock vs Ecovacs: guerra 2026 | Comparativa | dreame vs roborock 2026 | 🔥🔥 | Datos frescos digest 2026-04-16 |
 | Baja | Xiaomi Miloco: tu casa se convierte en robot | Editorial | xiaomi hogar inteligente ia | 🔥 | MWC 2026, concepto no producto |
 | Baja | Historia de la robótica doméstica | Editorial | robótica doméstica | 🔥 | Pilar SEO |

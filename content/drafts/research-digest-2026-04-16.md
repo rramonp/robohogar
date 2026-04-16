@@ -94,16 +94,46 @@
 - **Relevancia:** ⭐⭐⭐⭐ — Tema con mucho interés en foros y medios
 - **🔥 Viralidad:** 🔥🔥🔥 — Dreame Cyber X con patas fue viral en redes, múltiples threads en Reddit, cobertura masiva en CES e IFA
 
+### 10. Sunday Robotics "Memo": $1.150M de valoración para un robot que friega platos ($165M levantados)
+- **Fuente:** TechCrunch, Bloomberg, Yahoo Finance, Humanoids Daily
+- **Resumen:** Sunday sale de stealth con $165M Serie B (Coatue, Tiger Global, Benchmark) a $1.15B de valoración. Su robot "Memo" es con ruedas (no bípedo), entrenado con datos de 10M tareas domésticas reales de 500+ hogares via "Skill Capture Glove" ($200). Puede lavar platos, doblar ropa, hacer espresso. Beta con 50 hogares en 2026, producción a escala después. Compite directamente con NEO y Figure.
+- **Ángulo ROBOHOGAR:** La startup más financiada del sector doméstico. Enfoque pragmático: ruedas, no piernas. Entrenamiento con datos reales de hogares, no simulación. El "anti-humanoide" que podría ganar la carrera.
+- **Relevancia:** ⭐⭐⭐⭐⭐
+- **🔥 Viralidad:** 🔥🔥🔥 — Bloomberg + TechCrunch + Yahoo Finance. Cobertura mainstream. Neuron Daily: "el robot que aman los expertos". 10+ medios tech
+
+### 11. SwitchBot Onero H1: humanoide doméstico por menos de $10.000 (CES 2026)
+- **Fuente:** Engadget, WebProNews, Interesting Engineering, Uncrate
+- **Resumen:** SwitchBot (la marca de domótica) presenta un humanoide con ruedas de 1,3m, 22 grados de libertad en los brazos, IA visual OmniSense VLA. Enfoque pragmático: ruedas en vez de piernas, centrado en lavandería y recogida. Precio objetivo: <$10.000 (algunos medios dicen $1.500). Disponible finales de 2026, beta mediados de 2026.
+- **Ángulo ROBOHOGAR:** SwitchBot ya está en muchas casas con interruptores inteligentes. Si alguien puede meter un robot en el hogar "normal", son ellos. El más barato y práctico de todos los humanoides anunciados.
+- **Relevancia:** ⭐⭐⭐⭐
+- **🔥 Viralidad:** 🔥🔥 — Engadget: "un robot de lavandería que podrías comprar de verdad". Buena cobertura CES pero sin explosión viral post-evento
+
+### 12. Apple entra en el hogar robótico: hub inteligente 2026, robot de mesa 2027
+- **Fuente:** MacRumors, BGR, Tom's Guide, Apple Insider
+- **Resumen:** Apple prepara un hub doméstico con pantalla de 7" para otoño 2026 (~$350), y un robot de mesa con brazo motorizado y pantalla de 9" para 2027 (~$1.000). Nuevo OS "Charismatic" para el hogar. Siri reconstruido desde cero con IA (codename Linwood). Están probando Claude de Anthropic como backup (codename Glenwood).
+- **Ángulo ROBOHOGAR:** Apple entrando en robótica doméstica es la noticia del año para el sector. Si Apple valida la categoría, todo cambia. Pero por ahora es un hub, no un robot que limpia.
+- **Relevancia:** ⭐⭐⭐⭐
+- **🔥 Viralidad:** 🔥🔥🔥 — Threads activos en MacRumors Forums (centenares de comentarios), cobertura en Hypebeast, BGR, PhoneArena. Reacción mixta: emoción por el concepto, escepticismo por el precio y necesidad real
+
+### 13. Roborock entra en cortacéspedes: RockMow X1 LiDAR (AWD, sin cables, IA)
+- **Fuente:** Xataka, Andro4All, El Español/Omicrono, Geeknetic
+- **Resumen:** Roborock lanza su primera familia de cortacéspedes autónomos. El RockMow X1 LiDAR tiene tracción 4x4, sube pendientes del 80%, visión 3D 360° sin cables perimetrales. También RockMow Z1 (5.000 m²), S1 y RockNeo Q1 (gama entrada). Disponibles en España 2026, precios sin confirmar.
+- **Ángulo ROBOHOGAR:** Roborock saliendo del interior al jardín. Es la misma IA de navegación de los aspiradores aplicada al césped. Para el artículo de cortacéspedes.
+- **Relevancia:** ⭐⭐⭐⭐
+- **🔥 Viralidad:** 🔥🔥 — Buena cobertura en medios españoles (Xataka, Omicrono, Andro4All). Sin explosión viral pero interés sólido
+
 ---
 
 ## Monitoring (relevance 1-2)
 
-- **Ecovacs Deebot X12 OmniCyclone + T90** — Nuevo sistema OSMO Roller 3.0 con rodillo de 26cm. Evolución incremental, no noticia.
-- **Ecovacs GOAT cortacéspedes + Winbot + Ultramarine (limpiapiscinas)** — Diversificación de Ecovacs. El limpiapiscinas es nuevo en su catálogo.
-- **Mammotion LUBA 3 AWD** — Sistema Tri-Fusion (LiDAR 360° + NetRTK + visión AI). Para el artículo de cortacéspedes.
-- **Gig workers entrenando humanoides** (MIT Technology Review) — Fascinante pero no directamente doméstico. Para editorial futuro sobre la economía detrás de los robots.
-- **National Robotics Week 2026** (NVIDIA) — Evento de awareness, no noticia concreta.
-- **Roborock Saros 20** — Review en El Androide Libre. Ultrafino, 1.499€ en España. Evolución, no ruptura.
+- **Ecovacs Deebot X12 OmniCyclone + T90** — OSMO Roller 3.0 con rodillo de 26cm. Evolución incremental.
+- **Ecovacs GOAT cortacéspedes** — Series A y O para jardines grandes. Para artículo cortacéspedes.
+- **Mammotion LUBA 3 AWD** — Tri-Fusion (LiDAR 360° + NetRTK + visión AI). Para artículo cortacéspedes.
+- **Gig workers entrenando humanoides** (MIT Technology Review) — Fascinante. Sunday usa este modelo ($200 gloves).
+- **National Robotics Week 2026** (NVIDIA) — Evento de awareness.
+- **Roborock Saros 20** — Review El Androide Libre. Ultrafino, 1.499€ España. Evolución, no ruptura.
+- **Lucid Bots** — $20M para drones limpia-ventanas (TechCrunch). Nicho comercial, no doméstico.
+- **Matic Robots + Apple Home** — Primer aspirador con soporte nativo Apple Home/Siri (9to5Mac). Nicho.
 
 ---
 
@@ -127,8 +157,12 @@
 |-----------|------|------|-------------|---|--------------|
 | **Alta** | Roborock Saros Z70 — review del brazo robot | Review | roborock saros z70 review | 🔥🔥🔥 | 10+ reviews, precio España (1.699€), debate brazo=gimmick |
 | **Alta** | Robots aspirador que suben escaleras (3 enfoques) | Editorial | robot aspirador escaleras | 🔥🔥🔥 | Saros Rover + Dreame Cyber X + eufy MarsWalker. Tema más viral |
-| **Alta** | Humanoides que ya puedes comprar (NEO vs R1) | Comparativa | robot humanoide comprar 2026 | 🔥🔥🔥 | Continuación del artículo de humanoides. NEO ya se entrega |
-| **Media** | MOVA V70 Ultra: la submarca de Dreame llega a España | Review | mova v70 ultra | 🔥🔥 | 1.399€ desde mayo 2026 en España. Nueva marca |
-| **Media** | Roborock dice que los humanoides son ineficientes para casa | Editorial | robot humanoide hogar | 🔥🔥 | Entrevista Roborock España, contrapunto a nuestra línea editorial |
-| **Media** | Ecovacs LilMilo: tu marca de aspiradores vende un perro robot | Editorial | ecovacs lilmilo robot mascota | 🔥🔥 | Sorprendente, TechRadar "me hizo llorar" |
-| **Media** | Xiaomi Miloco: tu casa se convierte en robot | Editorial | xiaomi hogar inteligente ia | 🔥 | MWC 2026, concepto, no producto. Visión futuro |
+| **Alta** | Humanoides domésticos 2026: los 5 que puedes comprar/reservar | Comparativa | robot humanoide comprar 2026 | 🔥🔥🔥 | NEO, R1, Memo, Onero H1, Panther. Continuación art. humanoides |
+| **Alta** | Sunday Memo: el anti-humanoide de $1.150M que friega platos | Editorial | sunday robotics memo | 🔥🔥🔥 | Bloomberg+TechCrunch. Ruedas>piernas. 10M tareas reales |
+| **Alta** | Apple entra en robótica doméstica (hub 2026, robot 2027) | Editorial | apple home robot 2026 | 🔥🔥🔥 | Mainstream masivo. Apple valida la categoría |
+| **Media** | MOVA V70 Ultra: la submarca de Dreame llega a España | Review | mova v70 ultra | 🔥🔥 | 1.399€ mayo 2026. 40.000 Pa récord |
+| **Media** | Roborock dice que los humanoides son ineficientes para casa | Editorial | robot humanoide hogar | 🔥🔥 | Entrevista Roborock España, contrapunto editorial |
+| **Media** | SwitchBot Onero H1: humanoide doméstico por <$10K | Review | switchbot onero h1 | 🔥🔥 | El más barato. SwitchBot ya está en hogares |
+| **Media** | Roborock entra en cortacéspedes: RockMow X1 LiDAR | Review | roborock cortacésped | 🔥🔥 | AWD, sin cables, IA. Disponible España 2026 |
+| **Media** | Ecovacs LilMilo: tu marca de aspiradores vende un perro robot | Editorial | ecovacs lilmilo robot mascota | 🔥🔥 | TechRadar "me hizo llorar" |
+| **Baja** | Xiaomi Miloco: tu casa se convierte en robot | Editorial | xiaomi hogar inteligente ia | 🔥 | MWC 2026, concepto, no producto |
