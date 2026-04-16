@@ -76,7 +76,8 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
    - Si NO existe nota en `Wiki/Robots/` o `Wiki/Empresas/` → crear desde template
    - Si existe → añadir bullet con la noticia + fecha + fuente
    - Ruta vault Wiki: `$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Wiki/`
-6. Rafael picks 3-5 stories, adds his angle, and drafts the newsletter
+6. **Actualizar backlog** en `content/calendario-editorial.md` — añadir temas candidatos del digest al backlog con prioridad y keyword SEO
+7. Rafael picks 3-5 stories, adds his angle, and drafts the newsletter
 
 ---
 
