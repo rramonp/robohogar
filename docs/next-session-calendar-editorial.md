@@ -14,6 +14,7 @@ Decidir con Rafael:
 - ¿El newsletter incluye el artículo de esa semana o es contenido independiente?
 - ¿Semanas alternas (semana A = artículo, semana B = newsletter) o ambos cada semana?
 - Realista con 3-5 hrs/semana de dedicación
+- **Decisión tomada:** Artículos → `Email and web` (inbox + SEO). Newsletter → `Email only` (solo suscriptores, no aparece en landing)
 
 ### 2. Crear template Newsletter Issue
 
