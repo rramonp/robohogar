@@ -43,7 +43,12 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
 3. Categorize each story:
    - Categories: Consumer Robots, Robot Vacuums, Lawn Robots, Humanoids, AI/Software, Industry, Reviews
    - Relevance score 1-5 for Spanish home robotics audience
-4. Output DUAL:
+4. **Evaluar viralidad** de cada Top Story (relevance 4-5):
+   - Buscar cuántos medios cubren el mismo tema (WebSearch del tema)
+   - Buscar threads en Reddit/foros (WebSearch "tema + reddit") y notar upvotes/comentarios
+   - Comprobar si medios mainstream (no solo tech) cubren la noticia
+   - Asignar escala: 🔥 = pocos medios, sin debate / 🔥🔥 = varios medios + algo de debate / 🔥🔥🔥 = cobertura masiva + foros activos + mainstream
+5. Output DUAL:
    - Repo: `content/drafts/research-digest-YYYY-MM-DD.md`
    - Vault Obsidian: `$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Research/Research Digest YYYY-MM-DD.md`
    (usar template del vault: `Templates/Template Research Digest.md`)
@@ -56,6 +61,7 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
 ## Top Stories (relevance 4-5)
 - **[Title]** — Source — 1-line summary
   - Ángulo ROBOHOGAR: [por qué importa a nuestra audiencia]
+  - 🔥 Viralidad: [🔥/🔥🔥/🔥🔥🔥] — [evidencia: nº medios, Reddit threads, mainstream]
   - 📷 Imagen: [URL de imagen editorial/prensa si existe]
 
 ## Notable (relevance 3)

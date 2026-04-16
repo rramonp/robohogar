@@ -141,6 +141,7 @@ Reviews, comparativas, guías de compra de robots aspiradores.
 
 | Fuente | URL | Tipo | Notas |
 |--------|-----|------|-------|
+| El Androide Libre | elespanol.com/elandroidelibre/ | Medio tech (El Español) | Reviews con pruebas reales de aspiradores. Publicación diaria. También canal YouTube. Review Saros Z70 con precio España (1.699€) |
 | Xataka Smart Home | xatakahome.com | Medio tech | Comparativas de aspiradores frecuentes |
 | Robot in House | robotinhouse.com | Blog español | Competidor. Reviews de aspiradores en español |
 | PC Componentes Blog | pccomponentes.com/ces-* | eCommerce/blog | Resúmenes CES con novedades hogar |
@@ -196,6 +197,7 @@ Fuentes para noticias de última hora en robótica doméstica.
 
 | Fuente | URL | Tipo |
 |--------|-----|------|
+| El Androide Libre | elespanol.com/elandroidelibre/ | Medio tech ES (El Español) |
 | FayerWayer | fayerwayer.com | Medio LATAM |
 | Gizmodo España | es.gizmodo.com | Medio tech ES |
 | Robots Around The House | robotsaroundthehouse.com | Foro comunidad |
