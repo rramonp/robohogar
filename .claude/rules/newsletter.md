@@ -20,20 +20,10 @@ Mecánicas de email (entrega, diseño, optimización). Voz/tono → `editorial.m
 - Fórmula **1-3-1**: 1 intro + 3 puntos + 1 CTA
 - CTA único por email, botón > enlace (+27%). Above fold + final (+35%)
 
-## Benchmarks objetivo
-- Open >41%, CTR >3.2%, Delivery >98.9%
-- Bounce <2%, Complaints <0.05%, Unsub <0.3%
+## Benchmarks, diseño y deliverability
 
-## Email Design
-- Mobile-first: 600px max, 14-16px body, single-column
-- Dark mode safe: PNGs transparentes, off-white bg. Contraste 4.5:1
-- **Anti-slop:** voz propia > templates genéricos. Personalidad > perfección
-
-## Deliverability
-- SPF/DKIM/DMARC configurados (activos en robohogar.com)
-- Pedir replies en welcome email (señal #1 para Gmail Primary)
-- Sunset inactivos 90d: reducir frecuencia → re-engagement → suprimir
-- Sender personal ("Rafael de ROBOHOGAR") > solo marca
+Resumen: Open >41%, CTR >3.2%, mobile-first 600px, dark mode safe, SPF/DKIM/DMARC activos.
+Detalle completo → `references/newsletter/email-marketing-playbook.md`.
 
 ## Timing & Frecuencia
 - Martes/miércoles, 9:00 CET. Consistencia > volumen

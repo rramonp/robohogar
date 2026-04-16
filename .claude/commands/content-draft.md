@@ -29,6 +29,7 @@ Preguntar si no está claro:
 
 ### 2. Recopilar input
 
+- **Consultar `content/calendario-editorial.md`** — verificar backlog de temas y temas usados (no repetir)
 - Leer el research digest más reciente de `content/drafts/research-digest-*.md`
 - Consultar fuentes catalogadas en `references/fuentes-por-categoria.md` (organizado por tags de Beehiiv)
 - Si Rafael da un tema específico, investigar con Firecrawl/WebSearch
@@ -56,48 +57,7 @@ Para **Review/Comparativa**, seguir la estructura completa del template:
 3. Los que NO recomiendo → Tabla resumen comparativa → Veredicto final
 4. CTA suave + Disclaimer afiliados
 
-Para otros tipos, usar la estructura genérica:
-
-```markdown
----
-title: "[Título SEO — max 60 chars, keyword principal incluida]"
-meta_description: "[155 chars max, con CTA]"
-slug: "[url-corto-descriptivo]"
-tags: ["tag1", "tag2"]
-type: "[review|comparativa|guia|editorial|personal]"
-status: borrador
-created: YYYY-MM-DD
-affiliate: [true|false]
----
-
-# [H1 — Título con keyword principal]
-
-[Hook: 1-2 frases que enganchan. Dato sorprendente, pregunta, o imagen concreta.]
-
----
-
-## [H2 — Sección 1]
-
-[Contenido. Párrafos de 3-4 líneas máx. Listas con bullets para datos.]
-
-> [Callout con opinión personal o dato destacado]
-
-## [H2 — Sección 2]
-
-[Más contenido...]
-
-[Si editorial: opinión fuerte, sin hedging]
-
----
-
-**¿Te está sirviendo?** Publicamos cada semana → [link Beehiiv]
-
----
-
-**Más en ROBOHOGAR:**
-- [[Artículo relacionado 1]]
-- [[Artículo relacionado 2]]
-```
+Para otros tipos, usar la estructura documentada en `content/templates/estructura-templates.md` (Template 2 para editorial/opinión). Incluir siempre frontmatter YAML con: title, seo_title, meta_description, slug, tags, type, status, created, affiliate.
 
 ### 4. Checklist SEO (de `rules/seo.md`)
 
@@ -119,25 +79,9 @@ affiliate: [true|false]
 
 ### 6. Generar hero image (OBLIGATORIO — 3 variantes)
 
-Cada artículo NECESITA su imagen hero antes de publicar. Generar **3 variantes con composiciones distintas** para que Rafael elija.
+Generar 3 variantes con composiciones distintas → `content/articulos/<slug>/assets/hero-<slug>-v{1,2,3}.png`. Modelo: `flash`, aspect: `landscape`, size: `1K`. Script: `$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py`.
 
-```bash
-uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
-  --prompt "[ver prompt template en asset-catalog.md]" \
-  --output "content/articulos/<slug>/assets/hero-<slug>-v1.png" \
-  --model flash \
-  --aspect landscape \
-  --size 1K
-# Repetir con -v2.png y -v3.png, cada una con composición diferente
-```
-
-**Reglas de composición para newsletter** (de `asset-catalog.md`):
-- 1-2 elementos máximo, close-ups, punto focal único (debe funcionar a 300px)
-- Interacción humano-robot siempre (mano, dedo, persona cerca)
-- Fondo luminoso: jardín, cielo, cocina con luz natural. NUNCA skylines ni neones
-- Concepto visual > escena literal (metáfora como "Creación de Adán" > foto de producto)
-
-El script genera automáticamente una copia `.webp` (<500 KB) junto a cada PNG. Subir el WebP a Beehiiv.
+Composición y prompts → `assets/branding/asset-catalog.md`. El script genera `.webp` automáticamente — subir WebP a Beehiiv.
 
 ### 7. Descargar imágenes inline de fuentes (OBLIGATORIO)
 
@@ -156,25 +100,7 @@ Cada artículo necesita imágenes inline de las fuentes originales (fabricantes,
 - La imagen debe reforzar un dato concreto que el lector acaba de leer
 - Secciones de opinión pura (veredicto, "lo que no te cuentan") van SIN imagen — el texto es el protagonista
 
-**Control de peso (verificar antes de entregar):**
-
-Dos reglas distintas según el tipo de publicación:
-
-| Tipo | Publish to | Límite por imagen | Límite total | Motivo |
-|------|-----------|-------------------|-------------|--------|
-| **Artículo web** | `Web only` | Sin límite estricto (razonable: <300 KB) | Sin límite | El navegador carga con lazy loading |
-| **Newsletter email** | `Email and web` | <200 KB | <800 KB total | Clientes de email recortan/bloquean imágenes pesadas |
-
-- Siempre reportar el peso en el PASOS.md para que Rafael tenga visibilidad:
-  ```
-  ## Peso imágenes inline
-  | Imagen | KB |
-  |--------|----|
-  | ces-2026-collage.jpg | 288 |
-  | tesla-optimus.jpg | 98 |
-  | **TOTAL** | **386 KB** (web only — sin límite estricto) |
-  ```
-- Para newsletters email: si el total supera 800 KB, comprimir o eliminar la menos esencial
+**Control de peso:** Artículos web → <300 KB/imagen razonable. Newsletter email → <200 KB/imagen, <800 KB total. Reportar siempre peso en PASOS.md.
 
 ### 8. Generar PASOS.md + mapa visual (OBLIGATORIO)
 
@@ -182,32 +108,11 @@ Cada artículo genera un archivo `PASOS.md` en su carpeta con:
 1. SEO metadata (title, description, slug, tags) para copiar a Beehiiv
 2. Hero image elegida (o las 3 para elegir)
 3. Checklist paso a paso para publicar
-4. **Mapa visual del artículo** — diagrama ASCII mostrando exactamente dónde va cada imagen:
+4. **Mapa visual del artículo** — diagrama ASCII con la posición exacta de cada imagen (H1 → secciones → imágenes → CTAs). Este mapa es la guía principal de Rafael para montar en Beehiiv.
 
-```
-HERO IMAGE (v10 — WebP)
-H1: Título
-  Intro callout (texto)
-H2: Sección 1
-  Párrafo 1
-  📷 IMAGEN-NOMBRE.jpg ← después de qué párrafo y por qué
-  Párrafo 2
-H2: Sección 2 (solo texto — opinión pura)
-  ...
-CTA mid-article
-H2: Sección N
-FOOTER CTA
-```
+### 9. Prohibiciones
 
-Este mapa es la guía principal de Rafael para montar el artículo en Beehiiv.
-
-### 9. Prohibiciones (de `rules/editorial.md`)
-
-- NUNCA copiar/pegar de fuentes — reescribir con voz propia
-- NUNCA superlativos vacíos ("revolucionario", "increíble", "game-changer")
-- NUNCA frases de IA ("En el vertiginoso mundo de...", "Es importante destacar...")
-- SIEMPRE incluir opinión/valoración personal
-- SIEMPRE usar "tú" (no "usted")
+Aplicar todas las de `rules/editorial.md` (voz, tono, primera persona plural, prohibiciones de contenido).
 
 ## Rules
 

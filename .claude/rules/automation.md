@@ -26,35 +26,14 @@ Detalle completo: `docs/plan-v2.md` sección 4.
 
 Cada agente es invocable individualmente o como parte del pipeline semanal (FASE 7).
 
-## Agente de imágenes — reglas específicas
+## Agente de imágenes
 
-- Hero de artículo: estilo product-hero/YouTube thumbnail — SIN mascota, cinematográfico
-- El producto/robot protagonista es el centro, iluminación dramática ámbar, contexto hogar
-- Imágenes inline: usar originales de la fuente/fabricante (no generar)
-- Cada imagen generada se registra en `assets/branding/asset-catalog.md`
-- Consultar el catálogo ANTES de generar para evitar duplicados
-- Modelo: `flash`. Aspect: `landscape`. Size: `1K`
-- **Siempre generar 3 variantes** por artículo: `hero-<slug>-v1.png`, `-v2.png`, `-v3.png`. Rafael elige
-- **Post-generación:** el script genera automáticamente una copia `.webp` (<500 KB) junto a cada PNG
-- **Ruta de output por artículo:** `content/articulos/<slug>/assets/hero-<slug>-v{1,2,3}.png` (+ `.webp` auto)
-- **Para OG/Beehiiv/redes:** usar siempre el `.webp` (peso <500 KB). PNG solo como master
-- Templates genéricos (newsletter header, social card) → `assets/images/`
-- Prompt base y reglas de estilo completas en `assets/branding/asset-catalog.md`
+Resumen: 3 variantes hero por artículo (`flash`, `landscape`, `1K`), estilo product-hero cinematográfico, WebP para OG/redes. Imágenes inline = originales de fabricante.
+Reglas completas de composición, prompts y estilo → `assets/branding/asset-catalog.md`.
 
 ## Estructura de carpetas por artículo
 
-Cada artículo tiene su propia carpeta con assets. SIEMPRE crear esta estructura:
-```
-content/articulos/<slug>/
-  borrador.html
-  assets/
-    hero-<slug>.png
-```
-El slug viene del URL slug SEO definido en la guía de implementación.
-
-## Scripts (utilities/)
-
-- `research_aggregator.py` — (FASE 10, no implementado). El skill `/research-digest` usa Firecrawl/WebSearch directamente
+SIEMPRE: `content/articulos/<slug>/borrador.html` + `assets/hero-<slug>.png`. Slug = URL slug SEO.
 
 ## Herramientas externas
 
