@@ -8,7 +8,7 @@
 | **Meta description** | `Ya puedes comprar un robot humanoide por el precio de un coche usado. El problema: no sabe limpiar tu baño. Investigamos todos los de 2026.` (139 chars) |
 | **Slug** | `humanoides-en-casa-cuanto-falta` |
 | **Tags** | `Humanoides`, `Opinión` |
-| **Publish to** | `Web only` (no email — es artículo web, no newsletter) |
+| **Publish to** | `Email and web` (aparece en landing + se envía por email) |
 
 ## Hero image elegida
 

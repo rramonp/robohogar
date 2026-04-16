@@ -51,9 +51,12 @@ Before generating any final output (publishing an article, generating a definiti
 
 | Path | Purpose |
 |---|---|
-| `content/drafts/` | Borradores de artículos |
+| `content/drafts/` | Borradores y research digests |
 | `content/articulos/<slug>/` | Artículos (borrador.html + assets/ por artículo) |
 | `content/published/` | Artículos publicados (backup) |
+| `content/calendario-editorial.md` | Cadencia semanal, backlog de temas, planificación |
+| `content/registro-articulos.md` | Catálogo de artículos publicados |
+| `content/registro-newsletters.md` | Catálogo de newsletters enviados |
 | `assets/branding/master/` | Mascota 2K — assets definitivos |
 | `assets/branding/flash-1K/` | Mascota 1K — borradores |
 | `assets/branding/con-fondo/` | Mascota en contexto hogar |
