@@ -17,16 +17,24 @@ Fuentes de referencia para assets propios. Beehiiv controla las fuentes de la we
 - **Títulos/Headers:** Jost (Regular, weight 400)
 - **Cuerpo/Labels:** DM Sans (Regular, Medium, SemiBold, Bold)
 
+## Marca principal: Monograma R
+
+**Archivo:** `assets/branding/master/robohogar-logo-monogram-v11.png/jpg`
+R bold negra con ojos ámbar grandes + antena espiral. Sin pie decorativo.
+- **Uso:** landing hero, avatar, OG image, favicon, cualquier contexto "marca editorial"
+- Es la imagen de marca principal de ROBOHOGAR
+
 ## Mascota
 
 Robot pequeño, cabeza esférica, ojos LED ámbar, delantal azul a cuadros con corazón, taza de café.
-- Reference definitiva: `assets/branding/master/`
+- Reference: `assets/branding/master/`
 - Prompt base: `assets/branding/mascota-prompt.md`
-- Usar siempre como referencia visual (`--reference`) al generar variaciones
+- **Uso:** emails, social cards, CTAs cercanos, 404 — contextos personales/cálidos
+- NO usar mascota donde va el monograma (landing hero, navbar, OG)
 
 ## Principios visuales
 
 - Clean, editorial, magazine-style (inspiración: MIT Technology Review)
 - Espaciado generoso — no saturar
 - Imágenes grandes y de calidad
-- La mascota aparece en headers, newsletters, 404, social cards — NO en cada imagen
+- Monograma R = marca editorial. Mascota = tono cercano/personal

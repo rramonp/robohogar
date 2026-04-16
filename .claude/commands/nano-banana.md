@@ -99,6 +99,30 @@ Absolutely NO text, NO letters, NO words, NO signs, NO writing of any kind.
 8. NEVER overwrite existing images — use versioned filenames (-v2, -v3)
 9. **Update `assets/branding/asset-catalog.md`** — añadir nueva fila en tabla "Heros de artículos"
 
+## Post-generación: fondo blanco y recorte (OBLIGATORIO para branding)
+
+Toda imagen de branding (logos, monogramas, badges, lockups) debe entregarse con:
+
+1. **Fondo blanco puro (255,255,255)** — nunca transparente, nunca checkerboard horneado
+2. **Recortada al contenido** — sin espacio blanco sobrante, solo ~15px padding
+3. **Formato JPG** además de PNG — para uso en email/Beehiiv donde la transparencia da problemas
+4. Si Gemini genera checkerboard horneado en los píxeles (grises ~204-240 alternando), limpiar con script antes de entregar
+
+```python
+# Limpiar checker + recortar + exportar JPG
+from PIL import Image
+img = Image.open(path).convert('RGB')
+pixels = img.load()
+w, h = img.size
+for y in range(h):
+    for x in range(w):
+        r, g, b = pixels[x, y]
+        if r > 230 and g > 230 and b > 230:
+            pixels[x, y] = (255, 255, 255)
+# Crop to content bbox + pad
+# Save as JPG quality=95 + PNG
+```
+
 ## Requirements
 
 - `uv` in PATH

@@ -41,7 +41,7 @@ POR CADA PRODUCTO RECOMENDADO:
 
 --- separador ---
 
-CTA MID-ARTICLE (fondo gris, centrado)
+CTA MID-ARTICLE (solo texto, centrado, SIN imagen, SIN borde)
   "¿Te está sirviendo? Publicamos cada semana"
   Botón ámbar: "Suscríbete gratis"
 
@@ -65,9 +65,9 @@ H2: "💡 ¿Sabías que…?"
 
 H2: "¿Te ha servido?"
 H2: "Cada semana más como esto en tu bandeja"
-  📷 OG image del artículo
   Botón: "Suscríbete gratis"
   Texto legal afiliados
+  (SIN imagen — solo texto + botón, compacto)
 
 FOOTER (automático Beehiiv)
   "Keep Reading" (automático)
@@ -112,7 +112,7 @@ H2: Sección análisis principal (ej: "Los que más ruido hacen")
 
 --- separador ---
 
-CTA MID-ARTICLE (fondo gris, centrado)
+CTA MID-ARTICLE (solo texto, centrado, SIN imagen, SIN borde)
   "¿Te está sirviendo? Publicamos cada semana"
   Botón ámbar: "Suscríbete gratis"
 
@@ -151,9 +151,9 @@ H2: "💡 ¿Sabías que…?"
 
 H2: "¿Te ha servido?"
 H2: "Cada semana más como esto en tu bandeja"
-  📷 OG image del artículo
   Botón: "Suscríbete gratis"
   Texto legal afiliados
+  (SIN imagen — solo texto + botón, compacto)
 
 FOOTER (automático Beehiiv)
   "Keep Reading" (automático)
