@@ -36,7 +36,7 @@ POR CADA PRODUCTO RECOMENDADO:
       Lista con bullets (3-4 puntos)
     H3: "🎯 Para quién es"
       Párrafo corto
-    CALLOUT GRIS: "Mi opinión:" + texto en cursiva
+    CALLOUT GRIS: "Nuestra opinión:" + texto en cursiva
     BOTÓN CTA: "Consultar [Producto] en Amazon" (link afiliado)
 
 --- separador ---
@@ -171,7 +171,7 @@ FOOTER (automático Beehiiv)
 | **Tabla comparativa** | Sí (obligatoria) | No |
 | **Botones afiliado** | Sí (por cada producto recomendado) | No |
 | **Sección "No recomiendo"** | Sí | No aplica |
-| **Callouts** | "Mi opinión" por producto (gris) | Callouts ámbar para datos bomba |
+| **Callouts** | "Nuestra opinión" por producto (gris) | Callouts ámbar para datos bomba |
 | **Tono** | Práctico, concreto, "esto sí, esto no" | Analítico, opinado, con predicciones |
 | **Sección solo texto** | No | Sí ("lo que no te cuentan" — ritmo H3+párrafo rápido) |
 

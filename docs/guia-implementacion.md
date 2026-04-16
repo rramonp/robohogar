@@ -145,7 +145,7 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 > Nota: la bio personal mantiene "te cuento" (singular). El plural "contamos" se usa solo en la voz de marca (tagline, subtítulo).
 
 **FAQ:**
-- [x] Pregunta 1: `¿Con qué frecuencia llega?` *(sección omitida — decisión editorial)*
+- [x] Pregunta 1: `¿Con qué frecuencia llega?` *(omitida en implementación final — la frecuencia ya se indica en el tagline)*
 - [x] Pregunta 2: `¿Es gratis?`
 - [x] Pregunta 3: `¿Quién escribe esto?`
 
@@ -748,7 +748,7 @@ Derechos: Puedes acceder, rectificar o eliminar tus datos
 ### Estado actual
 
 - [x] Carpetas creadas en el vault (Research, Wiki/Robots, Wiki/Empresas, Templates, etc.)
-- [x] 6 templates creados (Research Digest, Article Draft, Robot Wiki, Empresa Wiki, Editorial Calendar, Issue)
+- [x] 2 templates activos (Robot Wiki, Empresa Wiki). Los demás (Research Digest, Article Draft, Editorial Calendar, Issue) se borraron — el workflow real usa HTML exports directamente
 - [x] 11 fichas de robots + 11 fichas de empresas creadas
 - [x] Guía de implementación sincronizada
 - [x] Plugins de Obsidian: **no necesarios** — Claude Code gestiona creación de notas y sincronización

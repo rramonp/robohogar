@@ -72,7 +72,7 @@ Descripción breve del producto. Qué es en 1-2 frases.
 
 Placeholder — perfil de usuario ideal. 1-2 frases.
 
-> 🤖 *Mi opinión:* placeholder — 2-3 frases con voz propia, en primera persona. Opinión real, no resumen.
+> 🤖 *Nuestra opinión:* placeholder — 2-3 frases con voz propia, en primera persona plural. Opinión real, no resumen.
 
 **[Consultar en Amazon](link-afiliado)**
 
@@ -180,7 +180,7 @@ Algunos links son de afiliado — si compras a través de ellos, nos ayudas a ma
 | 👍    | Lo bueno | Pros del producto |
 | 👎    | Lo malo | Contras del producto |
 | 🎯    | Para quién es | Perfil de usuario ideal |
-| 🤖    | Mi opinión | Veredicto personal (blockquote) |
+| 🤖    | Nuestra opinión | Veredicto personal (blockquote) |
 | ❌    | No recomiendo | Productos descartados |
 | 📊    | Comparativa | Tabla resumen |
 | 🏆    | ¿Cuál me compro? | Veredicto final |
@@ -208,7 +208,7 @@ Algunos links son de afiliado — si compras a través de ellos, nos ayudas a ma
 | 13 | Bullet list | 2-3 contras (1 línea cada uno) |
 | 14 | Heading H3 | 🎯 Para quién es |
 | 15 | Paragraph | Perfil de usuario (1-2 frases) |
-| 16 | Blockquote | 🤖 Mi opinión: 2-3 frases con voz propia |
+| 16 | Blockquote | 🤖 Nuestra opinión: 2-3 frases con voz propia |
 | 17 | Button | Consultar en Amazon (link afiliado) |
 | 18 | Divider | --- |
 | — | *(repetir 6-18 por cada producto)* | |
@@ -265,7 +265,7 @@ Algunos links son de afiliado — si compras a través de ellos, nos ayudas a ma
 - **Lo malo**: OBLIGATORIO — un review sin contras es un anuncio
 - **Specs rápidas**: línea Precio/Suscripción/Lo clave antes de Lo bueno
 - **Bullets**: máximo 3 por Lo bueno/Lo malo, 1 línea cada uno
-- **Afiliados**: botón "Consultar en Amazon" DESPUÉS de Mi opinión
+- **Afiliados**: botón "Consultar en Amazon" DESPUÉS de Nuestra opinión
 - **CTA mid-article**: entre producto 2 y 3 (o 3 y 4 si hay 5 productos)
 - **CTA final**: ¿Te ha servido? + banner mascota + Suscríbete
 - **💡 ¿Sabías que...?**: SIEMPRE presente, entre veredicto y CTA final
@@ -284,8 +284,8 @@ Algunos links son de afiliado — si compras a través de ellos, nos ayudas a ma
 - [ ] ¿Cada producto tiene imagen del fabricante?
 - [ ] ¿Cada producto tiene specs rápidas (Precio/Suscripción/Lo clave)?
 - [ ] ¿Cada producto tiene 👎 Lo malo (máx 3 bullets)?
-- [ ] ¿Cada producto tiene 🤖 Mi opinión?
-- [ ] ¿Botón Amazon DESPUÉS de Mi opinión?
+- [ ] ¿Cada producto tiene 🤖 Nuestra opinión?
+- [ ] ¿Botón Amazon DESPUÉS de Nuestra opinión?
 - [ ] ¿CTA mid-article entre productos (no al final)?
 - [ ] ¿Sección ❌ No recomiendo con formato ligero?
 - [ ] ¿Tabla 📊 comparativa con 4 columnas (Producto/Precio/Lo clave/Nota)?
