@@ -16,13 +16,16 @@ Aplica reglas editoriales, SEO, y formato Beehiiv automáticamente.
 
 Preguntar si no está claro:
 
-| Tipo | Contenido | Monetización | Ejemplo |
+| Tipo | Contenido | Beehiiv publish | Ejemplo |
 |---|---|---|---|
-| **Review/Comparativa** (70%) | Producto real, specs, precios, opinión, veredicto | Links afiliado Amazon | "Robots de escritorio con IA: cuál merece tu dinero" |
-| **Guía de compra** (70%) | Selección de productos, recomendaciones por presupuesto | Links afiliado Amazon | "Mejor robot aspirador 2026" |
-| **Editorial** (30%) | Futuro, opinión, tendencias, humanoides | Sin afiliados — construye marca | "Robots humanoides en 2030" |
-| **Personal** (30%) | Experiencia propia, anécdota, reflexión | Sin afiliados — autenticidad | "Mi vida con un aspirador robot" |
-| **Newsletter** (semanal) | 3-5 noticias curadas + editorial + dato + enlace | Sin afiliados — engagement | "ROBOHOGAR #01" |
+| **Review/Comparativa** (70%) | Producto real, specs, precios, opinión, veredicto | `Email and web` | "Robots de escritorio con IA" |
+| **Guía de compra** (70%) | Selección de productos, recomendaciones por presupuesto | `Email and web` | "Mejor robot aspirador 2026" |
+| **Editorial** (30%) | Futuro, opinión, tendencias, humanoides | `Email and web` | "Humanoides en casa" |
+| **Personal** (30%) | Experiencia propia, anécdota, reflexión | `Email and web` | "Mi vida con un aspirador robot" |
+| **Newsletter** (semanal) | 3-5 noticias curadas + editorial + dato + enlace | `Email only` | "ROBOHOGAR #01" |
+
+> **IMPORTANTE:** Artículos = `Email and web` (aparecen en landing + se envían por email).
+> Newsletter = `Email only` (solo inbox, NO aparece en la landing).
 
 ### 2. Recopilar input
 

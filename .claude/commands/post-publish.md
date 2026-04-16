@@ -12,9 +12,14 @@ Se invoca después de que Rafael confirme que el artículo está publicado en Be
 ## Input necesario
 
 Preguntar a Rafael si no lo ha dado:
-1. **URL del artículo publicado** (ej: `https://robohogar.com/p/slug`)
-2. **Hero image elegida** (ej: v10) — para saber cuáles borrar
-3. **Slug del artículo** — se deduce de la URL si no lo da
+1. **URL del artículo publicado** (ej: `https://robohogar.com/p/slug`) — si es newsletter email-only, no habrá URL web
+2. **Tipo de publicación**: artículo (`Email and web`) o newsletter (`Email only`)
+3. **Hero image elegida** (ej: v10) — para saber cuáles borrar (solo artículos, newsletters no tienen hero)
+4. **Slug del artículo** — se deduce de la URL si no lo da
+
+> **Recordatorio de tipos:**
+> - Artículos (review, editorial, guía) → `Email and web` → aparecen en landing + inbox
+> - Newsletter semanal → `Email only` → solo inbox, NO en landing
 
 ## Workflow (ejecutar en orden)
 
