@@ -92,6 +92,15 @@ Generar 1-2 ideas de Reel basadas en el contenido:
 | Instagram Reel | Martes/Jueves 12:00 CET | 2-3/semana |
 | WhatsApp Channel | Día de envío del newsletter | Semanal |
 
+## Formato del .md
+
+El output debe ser visualmente escaneable en Obsidian/VS Code para copiar rápido a Buffer:
+
+- **Negrita** para datos duros (cifras, precios, scores, nombres de producto)
+- *Cursiva* para matices, coloquialismos, nombres de medios, citas
+- Cada plataforma con `## H2` y cada post con `### H3`
+- Hashtags en bloques de código inline para distinguirlos del copy
+
 ## Rules
 
 - NUNCA publicar automáticamente — Rafael revisa y aprueba antes

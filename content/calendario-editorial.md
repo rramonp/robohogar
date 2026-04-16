@@ -24,7 +24,7 @@
 
 | Prioridad | Tema | Tipo | Keyword SEO | 🔥 | Notas |
 |-----------|------|------|-------------|---|-------|
-| Alta | Roborock Saros Z70: review del brazo robot | Review | roborock saros z70 review | 🔥🔥🔥 | 10+ reviews, 1.699€ España, debate brazo=gimmick |
+| ~~Alta~~ | ~~Roborock Saros Z70: review del brazo robot~~ | ~~Review~~ | ~~roborock saros z70 review~~ | ~~🔥🔥🔥~~ | ✅ Publicado 2026-04-16 |
 | Alta | Robots aspirador que suben escaleras (3 enfoques) | Editorial | robot aspirador escaleras | 🔥🔥🔥 | Saros Rover + Dreame Cyber X + eufy MarsWalker |
 | Alta | Humanoides domésticos 2026: los 5 que puedes comprar | Comparativa | robot humanoide comprar 2026 | 🔥🔥🔥 | NEO, R1, Memo, Onero H1, Panther |
 | Alta | Sunday Memo: el anti-humanoide de $1.150M | Editorial | sunday robotics memo | 🔥🔥🔥 | Bloomberg+TechCrunch. Ruedas>piernas |
@@ -48,3 +48,4 @@
 |-------|------|------|------|
 | 2026-04-14 | Review/Comparativa | Robots de escritorio con IA | mejor-robot-asistente-ia-2026 |
 | 2026-04-15 | Editorial/Opinión | Humanoides en casa | humanoides-en-casa-cuanto-falta |
+| 2026-04-16 | Editorial/Opinión | Roborock Saros Z70 brazo mecánico | roborock-saros-z70-review |

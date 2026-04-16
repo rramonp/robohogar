@@ -136,6 +136,9 @@ Reviews, comparativas, guías de compra de robots aspiradores.
 |--------|-----|------|-------|
 | The Robot Report | therobotreport.com | Medio especializado | Cubre también aspiradores inteligentes |
 | Tom's Guide | tomsguide.com | Reviews tech | Reviews detalladas con tests reales |
+| Vacuum Wars | vacuumwars.com | YouTube + blog | Referencia #1 en tests de aspiradores. Tests estandarizados con datos comparables. Usado en art.2 Z70 |
+| WIRED | wired.com | Medio tech premium | Reviews de larga duración (1 mes+). Review Z70: 5/10. Usado en art.2 Z70 |
+| Good Housekeeping UK | goodhousekeeping.com/uk | Medio consumo | Tests en laboratorio propio. Review Z70: 85/100 |
 
 ### Fuentes independientes (ES)
 
