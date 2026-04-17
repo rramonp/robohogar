@@ -791,422 +791,293 @@ Derechos: Puedes acceder, rectificar o eliminar tus datos
 - [x] Guía de implementación sincronizada
 - [x] Plugins de Obsidian: **no necesarios** — Claude Code gestiona creación de notas y sincronización
 
-### Templates (crear en `05-Templates/`)
+### Notas sobre templates antiguos
 
-**`05-Templates/Research-Digest.md`:**
-```markdown
----
-date: {{date}}
-type: research-digest
-status: raw
----
-# Research Digest — {{date:YYYY-MM-DD}}
+Los templates de Research Digest, Article Draft y Editorial Calendar que existían en `05-Templates/` se eliminaron. El workflow real usa los skills de Claude Code:
 
-## Fuentes revisadas
-- [ ] The Robot Report
-- [ ] IEEE Spectrum
-- [ ] Weekly Robotics
-- [ ] Xataka
-- [ ] Blogs de marcas (Roborock, Dreame, iRobot, Ecovacs)
+- **Research digest** → `/research-digest` genera `content/drafts/research-digest-YYYY-MM-DD.md` y lo copia al vault (`Research/Research Digest YYYY-MM-DD.md`) automáticamente
+- **Article draft** → `/content-draft` genera `content/articulos/<slug>/borrador.html` directamente (HTML, no markdown)
+- **Editorial calendar** → `content/calendario-editorial.md` es fuente de verdad. Se sincroniza a `Calendario Editorial.md` del vault tras cada cambio
+- **Robot / Empresa Wiki** → siguen vivos en `Templates/Template Robot Wiki.md` y `Template Empresa Wiki.md`. `/research-digest` crea fichas nuevas automáticamente cuando detecta robots/empresas sin nota
 
-## Noticias relevantes
-### 1. [Título]
-- **Fuente:** 
-- **Resumen:** 
-- **Ángulo ROBOHOGAR:** 
-- **Prioridad:** 🔴 alta / 🟡 media / 🟢 baja
-
-### 2. [Título]
-(repetir)
-
-## Selección para newsletter
-- [ ] Noticia para sección LA NOTICIA:
-- [ ] Tema para EL FUTURO:
-- [ ] Candidato a DATO CURIOSO:
-- [ ] Enlace para ENLACE DE LA QUINCENA:
-```
-
-**`05-Templates/Article-Draft.md`:**
-```markdown
----
-date: {{date}}
-type: article
-status: draft
-slug: 
-seo-title: 
-meta-desc: 
-keyword: 
-category: review | editorial | guia | opinion
-affiliate: true | false
----
-# {{title}}
-
-## SEO checklist
-- [ ] H1 con keyword principal
-- [ ] Meta desc < 155 chars
-- [ ] Slug corto y descriptivo
-- [ ] Alt text en imágenes
-- [ ] 2+ internal links
-- [ ] 800+ palabras
-- [ ] Opinión personal incluida
-
-## Borrador
-
-### [H2 — sección 1]
-
-### [H2 — sección 2]
-
-### [H2 — veredicto / cierre]
-
-## Notas de edición
-- 
-```
-
-**`05-Templates/Robot-Wiki.md`:**
-```markdown
----
-type: robot
-brand: 
-model: 
-category: aspirador | friegasuelos | cortacesped | humanoid | piscina | cocina
-price-range: 
-amazon-link: 
-date-reviewed: 
-rating: /10
----
-# {{title}}
-
-## Specs clave
-- **Precio:** 
-- **Navegación:** 
-- **Batería:** 
-- **Punto fuerte:** 
-- **Punto débil:** 
-
-## Mi experiencia
-(notas personales)
-
-## Artículos donde aparece
-- [[]]
-
-## Competidores directos
-- [[]]
-```
-
-**`05-Templates/Company-Wiki.md`:**
-```markdown
----
-type: company
-sector: consumer | humanoid | industrial
-country: 
-website: 
----
-# {{title}}
-
-## Productos relevantes
-- [[]]
-
-## Noticias recientes
-- {{date}} — 
-
-## Notas
-```
-
-**`05-Templates/Editorial-Calendar.md`:**
-```markdown
----
-type: calendar
-period: {{date:YYYY-MM}}
----
-# Calendario Editorial — {{date:YYYY MMMM}}
-
-## Newsletter (semanales)
-| # | Fecha envío | Título tentativo | Status |
-|---|---|---|---|
-| | | | 📝 idea / ✍️ borrador / ✅ enviado |
-| | | | |
-
-## Artículos web (SEO)
-| Fecha pub | Título | Keyword | Afiliado |
-|---|---|---|---|
-| | | | sí/no |
-
-## Redes sociales
-| Fecha | Canal | Contenido | Status |
-|---|---|---|---|
-| | IG Reel | | |
-| | LinkedIn | | |
-| | WhatsApp | | |
-```
-
-### Configurar QuickAdd
-
-- [ ] Settings → QuickAdd → Add Choice:
-  - Name: `Nuevo Research Digest` → Type: Template → Template path: `05-Templates/Research-Digest.md` → Folder: `01-Research` → File name: `{{date:YYYY-MM-DD}}-digest`
-  - Name: `Nuevo Artículo` → Type: Template → Template path: `05-Templates/Article-Draft.md` → Folder: `02-Drafts`
-  - Name: `Nuevo Robot` → Type: Template → Template path: `05-Templates/Robot-Wiki.md` → Folder: `04-Wiki/Robots`
-  - Name: `Nueva Empresa` → Type: Template → Template path: `05-Templates/Company-Wiki.md` → Folder: `04-Wiki/Empresas`
-
-### Configurar Periodic Notes
-
-- [ ] Settings → Periodic Notes → activar **Weekly Note**
-- [ ] Format: `YYYY-[W]ww`
-- [ ] Template: `05-Templates/Editorial-Calendar.md`
-- [ ] Folder: `06-Calendar`
+No se necesitan plugins de Obsidian (QuickAdd, Periodic Notes, Templater). Claude Code gestiona creación de notas y sincronización directamente.
 
 ---
 
-## FASE 4: Newsletter #1 (semana 3-4)
+## FASE 4: Ciclo de creación de contenido (modo actual)
 
-### Estructura del issue
+> Estado actual: cadencia objetivo **1 artículo/semana** + **1 Ficción Doméstica cada 3-4 semanas**. La newsletter semanal se activa cuando haya 30-50 suscriptores (ver FASE 9). Mientras, todo el foco va a artículos + ficciones que construyen catálogo SEO y voz.
 
-Cada newsletter sigue este template (de `docs/plan-v2.md`):
+### Vista general del ciclo
 
 ```
-🤖 ROBOHOGAR #01 — [Título del issue]
-
-1. LA NOTICIA — [Novedad más relevante de la semana]
-   (2-3 párrafos con contexto y opinión propia)
-
-2. EN PRUEBA — [Review o experiencia con un robot]
-   (Opcional si no hay review — sustituir por mini-comparativa)
-
-3. EL FUTURO — [Avance en humanoides o robótica avanzada]
-   (1-2 párrafos + opinión: ¿por qué importa?)
-
-4. DATO CURIOSO — [Estadística o curiosidad]
-   (1 párrafo corto, sorprendente)
-
-5. ENLACE DE LA SEMANA — [Mejor artículo/vídeo que he leído]
-   (Link + 2 líneas de por qué merece la pena)
-
----
-¿Te ha gustado? Reenvíaselo a alguien a quien le mole la robótica.
-[Suscríbete aquí si te lo han reenviado](URL_LANDING)
+  ┌───────────────────────────────┐
+  │ LUNES — Digest (opcional)     │  /research-digest
+  │ Scraping + semillas narrativas│  → drafts/research-digest-YYYY-MM-DD.md
+  └───────────────────────────────┘
+               ↓
+  ┌───────────────────────────────┐
+  │ LUNES/MARTES — Decidir tema   │  Backlog en calendario-editorial.md
+  │ (leer digest, elegir del      │  - Backlog de artículos
+  │ backlog, anotar ángulo)       │  - Backlog Ficciones Domésticas
+  └───────────────────────────────┘
+               ↓
+  ┌───────────────────────────────┐
+  │ MARTES/MIÉRCOLES — Borrador   │  /content-draft  (artículo)
+  │ Genera HTML + hero + inlines  │  /ficcion-draft  (relato)
+  │ (45-60 min de Claude)         │  /nano-banana    (hero, ejecuta automático)
+  └───────────────────────────────┘
+               ↓
+  ┌───────────────────────────────┐
+  │ MIÉRCOLES/JUEVES — Edición    │  Rafael (45-90 min)
+  │ Añade voz, humor, opinión     │  Siguiendo rules/editorial.md + brand-voice.md
+  └───────────────────────────────┘
+               ↓
+  ┌───────────────────────────────┐
+  │ Copy-paste a Beehiiv + SEO    │  Manual (20-30 min)
+  │ + hero + publicar             │  Settings según tabla FASE 2
+  └───────────────────────────────┘
+               ↓
+  ┌───────────────────────────────┐
+  │ POST-PUBLISH — Limpieza       │  /post-publish
+  │ 14 pasos automáticos          │  (ver detalle abajo)
+  └───────────────────────────────┘
+               ↓
+  ┌───────────────────────────────┐
+  │ Social (cuando IG/LinkedIn    │  /social-content
+  │  estén configurados)          │  → programar en Buffer
+  └───────────────────────────────┘
 ```
-
-### Preparar el issue
-
-- [ ] Consultar `references/newsletter/email-marketing-playbook.md` para subject line (<25 chars)
-- [ ] Usar template `content/templates/newsletter-issue.md` (cuando esté creado)
-- [ ] Verificar estructura 1-3-1 (intro, 3 puntos, CTA) — ver `rules/newsletter.md`
-- [ ] Subject line: curiosity gap o pregunta, sin clickbait
-
-### Escribir en Beehiiv
-
-- [ ] **Posts → Create Post**
-- [ ] Escribir siguiendo la estructura de arriba
-- [ ] Usar `/` (slash commands) en el editor para insertar bloques:
-  - `/heading` para H2 de cada sección
-  - `/divider` para separadores entre secciones
-  - `/button` para el CTA final
-  - `/image` para imágenes (usar mascota como separador visual)
-- [ ] Settings → **Send as email** (esta vez sí como email, no solo web post)
-- [ ] Settings → **Also publish as web post** → activar (para SEO)
-- [ ] Audience → All subscribers
-- [ ] Preview: pulsar **Send Test Email** a tu email personal
-- [ ] Verificar en móvil que se ve bien
-- [ ] Programar envío: **Schedule** → elegir día y hora (martes o jueves, 9:00 AM)
-
-### Backup
-
-- [ ] Copiar el contenido final (markdown) a `content/published/2026-XX-XX-issue-01.md` en el repo
-- [ ] En Obsidian: mover el borrador de `02-Drafts/` a `03-Published/`
 
 ---
 
-## FASE 5: Automatización
+### Paso a paso — Artículo semanal
 
-### Visión general del pipeline
+**1. (Opcional) Actualizar research digest**
+
+- [ ] Si han pasado >5 días desde el último digest → ejecutar `/research-digest`
+- [ ] Revisar Top Stories y backlog de artículos actualizado
+- [ ] Elegir tema del backlog (priorizar 🔥🔥🔥 o tendencias de temporada)
+
+**2. Generar borrador**
+
+- [ ] Ejecutar `/content-draft` indicando: tema, ángulo, tipo (Review/Editorial/Comparativa/Guía), slug
+- [ ] El skill genera:
+  - `content/articulos/<slug>/borrador.html` — HTML listo para Beehiiv
+  - `content/articulos/<slug>/assets/` — hero (3 variantes: flash / landscape / 1K) + imágenes inline descargadas de fuentes
+  - `content/articulos/<slug>/PASOS.md` — checklist específico de ese artículo con mapa visual
+
+**3. Editar voz (Rafael)**
+
+- [ ] Leer borrador completo
+- [ ] Aplicar voz: plural editorial ("hemos investigado", "os contamos"), sin superlativos vacíos, opiniones propias
+- [ ] Verificar contra `docs/brand-voice.md` y `rules/editorial.md`
+- [ ] Ajustar títulos/H2 si hace falta (mobile-first: ≤40 chars en headlines)
+
+**4. Publicar en Beehiiv**
+
+- [ ] Seguir `PASOS.md` del artículo (contiene settings específicos + mapa visual del HTML)
+- [ ] Settings según tabla FASE 2 (Publish to `Email and web`, Content Gate activo, etc.)
+- [ ] Subir hero `.webp` (no el PNG original — ver FASE 5 rules/seo.md)
+- [ ] Preview en mobile (375px) y desktop antes de enviar
+- [ ] Publicar → capturar la URL definitiva
+
+**5. Post-publish** (dar URL a Claude)
+
+- [ ] Ejecutar `/post-publish <URL>` — ejecuta 14 pasos:
+  1. Fetch URL + verificar OG image en opengraph.xyz
+  2. Mover borrador a `content/published/YYYY-MM-DD-<slug>.html`
+  3. Limpiar variantes de hero no usadas
+  4. Actualizar `docs/guia-implementacion.md` (marcar artículo como publicado)
+  5. Actualizar `content/registro-articulos.md` (OBLIGATORIO)
+  6. Regenerar `content/llms.txt`
+  7. Verificar `references/fuentes-por-categoria.md`
+  8. Actualizar `assets/branding/asset-catalog.md`
+  9. Actualizar templates HTML si el artículo añadió patrón nuevo
+  10. Sugerir actualización del Welcome Email (si el artículo es mejor que los actuales)
+  11. Generar contenido social preliminar (opcional)
+  12. Sincronizar al vault Obsidian (published + registro)
+  13. Commit + push
+  14. Reportar resumen final
+
+**6. Social (opcional, cuando redes estén configuradas)**
+
+- [ ] `/social-content` — genera posts adaptados a LinkedIn, X, IG, WhatsApp
+- [ ] Revisar y editar tono si hace falta
+- [ ] Programar en Buffer
+
+---
+
+### Paso a paso — Ficción Doméstica (cada 3-4 semanas)
+
+> Pilar experimental — ~10% del content mix. Relatos cortos de ciencia ficción doméstica próxima (2030-2040) con personajes recurrentes. Voz narrativa distinta (3ª persona omnisciente o 1ª persona del personaje POV — ver `rules/editorial.md` § Narrativa especulativa).
+
+**1. Elegir semilla**
+
+- [ ] Ver `content/calendario-editorial.md` → sección "Backlog Ficciones Domésticas"
+- [ ] `/research-digest` rellena este backlog cada ejecución (paso 8b del skill)
+- [ ] Cada semilla tiene: gancho + **dato real ancla** (obligatorio) + **villano humano** + personajes tipo + formato sugerido
+
+**2. Generar borrador**
+
+- [ ] Ejecutar `/ficcion-draft` — si no pasas argumentos, el skill lee el backlog y propone 3 opciones
+- [ ] Elegir longitud: `flash` (500-1.000) · `corto` (1.500-3.000) · `mini-serie-episodio` (1.500-3.000 + hooks)
+- [ ] El skill usa character bible de `content/ficciones/` para mantener continuidad entre episodios
+- [ ] Output: `content/ficciones/<serie>/YYYY-MM-DD-<slug>.md` + PASOS.md
+
+**3. Editar (Rafael)**
+
+- [ ] Revisar voz narrativa (distinta del tono baseline — aquí SÍ permitidos superlativos en diálogo irónico)
+- [ ] Verificar dato real ancla sigue presente y visible
+- [ ] Confirmar villano humano (no el robot)
+
+**4. Publicar**
+
+- [ ] Beehiiv `Publish to: Email and web` con **tag dedicado "Ficciones Domésticas"**
+- [ ] Hero estilo still cinematográfico (NO product-hero)
+- [ ] Referencia visual: Black Mirror doméstico, After Yang, Her
+
+**5. Post-publish**
+
+- [ ] `/post-publish <URL>` funciona igual que para artículos (detecta el tipo automáticamente)
+
+> **Piloto recomendado antes de comprometer mini-serie:** 3 flash de 800 palabras en 3 semanas consecutivas. Si engagement sube >10% → comprometer mini-serie. Si neutral → mantener rotativa. Si negativo → archivar la serie.
+
+---
+
+### Artículos pendientes del backlog (prioritarios)
+
+> Fuente de verdad: `content/calendario-editorial.md`. Esta tabla es snapshot — actualizarla manualmente desactualiza el calendario. **Consultar el calendario, no esta tabla.**
+
+Snapshot 2026-04-17 de artículos **🔥🔥🔥 Alta**:
+- 1X NEO va a fábricas: contradicción del "robot doméstico" (editorial)
+- UniX AI Panther: primer humanoide en hogares reales (editorial)
+- Neura 4NE-1 Porsche Design €98k: la respuesta europea (editorial)
+- Robots aspirador que suben escaleras (3 enfoques) (editorial)
+- Humanoides domésticos 2026: los 7 que puedes comprar/reservar (comparativa)
+- Sunday Memo: el anti-humanoide de $1.150M (editorial)
+- Apple entra en robótica doméstica (editorial)
+
+### Semillas de Ficciones Domésticas (pendientes)
+
+Snapshot 2026-04-17 — 4 semillas en backlog:
+- 🥇 "El operador nocturno" — teleop NEO + deal EQT (corto o mini-serie 3 eps)
+- 🥇 "El guante" — Sunday Skill Capture + cuidadora con alzhéimer (corto)
+- "Los del 4ºA" — F2 piloto China + brecha robótica en edificio (flash)
+- "El manual del inspector" — AI Act inspectora EU (corto o mini-serie procedural)
+
+---
+
+### Newsletter (diferida)
+
+La newsletter semanal se activa cuando haya **30-50 suscriptores** (ver FASE 9). Mientras tanto:
+- Cada artículo publicado `Email and web` YA va a los suscriptores actuales como email (no hace falta newsletter aparte)
+- El Welcome Email cubre la primera impresión
+- El espacio "newsletter semanal curada" se añadirá cuando la masa crítica justifique otra cadencia
+
+---
+
+## FASE 5: Automatización (estado actual)
+
+### Principio
+
+Automatizar TODO excepto juicio editorial y voz. Rafael decide QUÉ contar y CÓMO contarlo. Claude Code + skills hacen el resto.
+
+### Estado del pipeline
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│  AUTOMÁTICO (sin intervención)                                  │
-│                                                                 │
-│  RSS feeds ──→ research_aggregator.py ──→ Claude API            │
-│  (8+ fuentes)    (fetch + scrape)          (categoriza por tag, │
-│                                             puntúa relevancia,  │
-│                                             resume en español)  │
-│                          ↓                                      │
-│              content/drafts/YYYY-MM-DD-raw-digest.md            │
-└─────────────────────────────────────────────────────────────────┘
+┌─ SEMIAUTOMÁTICO via skills (operativo HOY) ────────────────────┐
+│                                                                │
+│  /research-digest   → digest + backlog + semillas narrativas  │
+│  /content-draft     → borrador HTML + hero + inlines + PASOS  │
+│  /ficcion-draft     → relato + character bible + hooks        │
+│  /nano-banana       → imágenes branded (mascota/monograma)    │
+│  /social-content    → posts LinkedIn/X/IG/WhatsApp            │
+│  /post-publish      → 14 tareas de limpieza post-artículo     │
+│  /obsidian-robohogar → sync vault + wiki + calendar + audit   │
+│  /commit            → commits con formato estándar            │
+│                                                                │
+│  Input: Claude Code (CLI local) · Output: repo + vault        │
+└────────────────────────────────────────────────────────────────┘
                            ↓
-┌─────────────────────────────────────────────────────────────────┐
-│  MANUAL (Rafael, ~15 min)                                       │
-│                                                                 │
-│  Lee el digest → elige 5-6 noticias → decide ángulo/tema       │
-└─────────────────────────────────────────────────────────────────┘
+┌─ MANUAL (Rafael) ──────────────────────────────────────────────┐
+│  - Elegir tema del backlog (~15 min)                          │
+│  - Editar voz del borrador (~45-90 min)                       │
+│  - Copy-paste a Beehiiv + configurar SEO (~20-30 min)         │
+└────────────────────────────────────────────────────────────────┘
                            ↓
-┌─────────────────────────────────────────────────────────────────┐
-│  SEMIAUTOMÁTICO (Claude API + templates)                        │
-│                                                                 │
-│  Rafael indica: tema + ángulo + tipo (review/noticias/opinión)  │
-│       ↓                                                         │
-│  Claude API + template del tipo de artículo                     │
-│       ↓                                                         │
-│  content/drafts/YYYY-MM-DD-borrador-slug.md                    │
-└─────────────────────────────────────────────────────────────────┘
-                           ↓
-┌─────────────────────────────────────────────────────────────────┐
-│  MANUAL (Rafael, ~30-45 min)                                    │
-│                                                                 │
-│  Edita borrador: añade voz propia, opinión, humor               │
-│  → Publica en Beehiiv                                           │
-│  → Mueve a content/published/                                   │
-└─────────────────────────────────────────────────────────────────┘
-                           ↓
-┌─────────────────────────────────────────────────────────────────┐
-│  AUTOMÁTICO (post-publicación)                                  │
-│                                                                 │
-│  Claude API genera posts sociales desde artículo publicado      │
-│       ↓                                                         │
-│  Make.com / Buffer programa publicación:                        │
-│    → LinkedIn (martes 9:00 AM)                                  │
-│    → X/Twitter (martes 12:00 PM)                                │
-│    → Instagram Reel (miércoles 12:00 PM)                        │
-│    → WhatsApp Channel (martes 10:00 AM)                         │
-└─────────────────────────────────────────────────────────────────┘
+┌─ PENDIENTE de integrar (FASE 10) ──────────────────────────────┐
+│  - Research aggregator script (RSS + cron)                    │
+│  - Make.com (orquestación)                                    │
+│  - Buffer (programación social)                               │
+│  - Beehiiv MCP (crear drafts desde Claude)                    │
+└────────────────────────────────────────────────────────────────┘
 ```
-
-**Principio clave:** automatizar TODO excepto juicio editorial y voz propia.
-Rafael decide QUÉ contar y CÓMO contarlo. El resto lo hacen scripts + API.
 
 ---
 
-### Paso 1 — Research aggregator
+### Qué NO requiere nada más — ya funciona
 
-- [ ] Script: `utilities/research_aggregator.py`
-- [ ] Fuentes RSS:
-
-```python
-RSS_FEEDS = [
-    # Robótica general (EN)
-    "https://www.therobotreport.com/feed/",
-    "https://spectrum.ieee.org/feeds/topic/robotics.rss",
-    "https://weeklyrobotics.com/feed.xml",
-    "https://techcrunch.com/tag/robotics/feed/",
-    # Robótica doméstica / smart home (ES)
-    "https://www.xataka.com/tag/robots/feed",
-    "https://www.xatakahome.com/feed",
-    # Marcas (solo novedades de producto, no marketing)
-    "https://global.roborock.com/blogs/news.atom",
-    "https://www.dreametech.com/blogs/news.atom",
-]
-```
-
-- [ ] Fuentes web (scraping con Firecrawl, sin RSS):
-  - robotsaroundthehouse.com — foro companion robots
-  - robotinhouse.com — blog español competidor
-  - mia-cat.com — reviews de companion robots
-
-- [ ] Ejecución: programada cada lunes (cron o Make.com trigger)
-- [ ] Output: `content/drafts/YYYY-MM-DD-raw-digest.md`
-
-### Paso 2 — Categorización con Claude API
-
-Qué hace la API con el digest crudo:
-
-1. **Clasifica cada noticia** por content tag de Beehiiv (Aspiradores, Cortacéspedes, Humanoides, Asistentes IA, Robot Mascotas, Smart Home, Noticias, Opinión, Guías)
-2. **Puntúa relevancia** (1-5) según: novedad, impacto en consumidor, potencial editorial
-3. **Resume en español** cada noticia en 2-3 frases (aunque la fuente sea en inglés)
-4. **Detecta duplicados** entre fuentes (la misma noticia en 3 sitios = 1 entrada)
-5. **Output**: digest estructurado por tag, ordenado por relevancia
-
-Prompt base para la API (se guardará en `utilities/prompts/categorize-digest.md`):
-```
-Eres el asistente editorial de ROBOHOGAR, una newsletter sobre robótica
-doméstica en español. Clasifica estas noticias por categoría, puntúa
-su relevancia (1-5), resume en español y elimina duplicados.
-Categorías: [lista de tags de Beehiiv]
-Criterios de relevancia: producto disponible para compra > anuncio con
-fecha > rumor. España/Europa > EEUU > Asia. Consumidor > industria.
-```
-
-### Paso 3 — Generación de borrador con Claude API
-
-Cuando Rafael elige tema y ángulo, la API genera un borrador usando:
-
-1. **Template del tipo de artículo** (de `content/templates/`)
-   - `review-comparativa.md` — para reviews y comparativas de productos
-   - `noticias-roundup.md` — para newsletter semanal (futuro)
-   - `editorial-opinion.md` — para piezas de opinión (futuro)
-2. **Fuentes seleccionadas** del digest + fuentes de `references/fuentes-por-categoria.md`
-3. **Reglas editoriales** de `.claude/rules/editorial.md` (tono, estructura, voz)
-4. **Reglas SEO** de `.claude/rules/seo.md` (title tag, meta, estructura H2/H3)
-
-Output: `content/drafts/YYYY-MM-DD-borrador-slug.md`
-
-### Paso 4 — Edición manual (Rafael)
-
-- Lee el borrador, añade opinión personal, humor, experiencias
-- Ajusta tono (el borrador será correcto pero necesita VOZ)
-- Publica en Beehiiv
-- Mueve archivo a `content/published/`
-
-### Paso 5 — Social media automático (post-publicación)
-
-Claude API genera desde el artículo publicado:
-
-- [ ] **LinkedIn**: resumen profesional (150 palabras) + opinión + "link en primer comentario"
-- [ ] **X/Twitter**: hilo de 3-5 tweets con los puntos clave
-- [ ] **Instagram**: texto para Reel (30s) + caption con hashtags
-- [ ] **WhatsApp Channel**: resumen ultra-corto (3 líneas) + link
-
-Prompt base (se guardará en `utilities/prompts/social-posts.md`):
-```
-Genera posts para redes sociales a partir de este artículo de ROBOHOGAR.
-Tono: cercano, informado, con humor sutil. Nunca clickbait.
-LinkedIn: profesional pero no corporativo. X: directo y punchy.
-Instagram: visual, con emojis moderados. WhatsApp: ultra-breve.
-```
-
-Programación con Make.com → Buffer:
-- [ ] Make.com scenario: webhook recibe los posts → envía a Buffer API
-- [ ] Buffer programa publicación según horarios configurados
-
-### Welcome Series completa (6 emails)
-
-> Referencia detallada: `references/newsletter/email-marketing-playbook.md` sección 3.
-> Beehiiv free plan: solo welcome + reminder. Serie completa requiere plan de pago.
-
-- [ ] **Email 1** (día 0): Bienvenida + mejor artículo + pedir reply (ya existe como Welcome Email)
-- [ ] **Email 2** (día 1): Pregunta engagement "¿Qué robot tienes?" (ya existe como Reminder)
-- [ ] **Email 3** (día 3): Artículo editorial (humanoides) — construye marca, muestra el 30%
-- [ ] **Email 4** (día 5): Guía de compra — muestra valor práctico, el 70%
-- [ ] **Email 5** (día 10): Experiencia personal con robots — genera confianza
-- [ ] **Email 6** (día 14): Resumen de lo que viene + CTA referral + link preferencias
-- [ ] Configurar en Beehiiv Automations cuando se upgrade a plan de pago
-
-### HTML Email Template (cuando sea necesario)
-
-> Para campañas especiales o templates personalizados. Workflow: generar HTML → copy-paste en Beehiiv.
-
-- [ ] Consultar playbook sección "Email Design Patterns" para specs (600px, inline CSS, dark mode)
-- [ ] Generar HTML con inline styles, ancho max 600px
-- [ ] Testear dark mode y mobile (enviar test email)
-- [ ] Pegar en Beehiiv editor (bloque HTML)
-
-### Herramientas y costes
-
-| Herramienta | Función en el pipeline | Coste |
+| Workflow | Skill | Notas |
 |---|---|---|
-| Claude API (Haiku) | Categorización del digest (paso 2) | ~$0.02/run |
-| Claude API (Sonnet) | Generación de borradores + social (pasos 3, 5) | ~$0.10/run |
-| Make.com | Orquestación: cron → aggregator → API → Buffer | 9€/mes |
-| Buffer | Programación de posts sociales | 6€/mes |
-| Firecrawl | Scraping de fuentes sin RSS | Free tier (500 créditos/mes) |
+| Research semanal + backlog dual | `/research-digest` | Web search + WebFetch · escribe en repo + vault · extrae semillas narrativas · actualiza wiki robots/empresas |
+| Borrador HTML artículo | `/content-draft` | Genera HTML + 3 variantes hero + imágenes inline descargadas + PASOS.md |
+| Borrador ficción | `/ficcion-draft` | Lee backlog semillas · usa character bible · aplica Pixar/MRU/Paint-The-Villain |
+| Imágenes branded | `/nano-banana` | Gemini API (Nano Banana) · cataloga en `asset-catalog.md` · nunca sobrescribe (versiona v2/v3) |
+| Social posts | `/social-content` | Genera por plataforma desde artículo publicado |
+| Post-publish (14 pasos) | `/post-publish` | Limpieza + registros + llms.txt + vault sync + commit |
+| Vault management | `/obsidian-robohogar` | Subcomandos: `wiki-update`, `sync-published`, `calendar-update`, `audit`, `archive` |
+| Git | `/commit` | Formato estándar + co-author + stage por nombre |
 
-**Coste total pipeline**: ~15€/mes + ~$0.25 por issue de newsletter
+### Qué sigue siendo manual (y probablemente deba seguir siéndolo)
 
-### Calendario editorial
+- **Juicio editorial:** elegir tema, ángulo, ordenar el backlog
+- **Voz:** editar el borrador con humor, opinión, experiencias propias — es el activo de marca
+- **Copy-paste a Beehiiv:** Beehiiv no tiene API de drafts en plan free. Todo bloque por bloque
+- **Preview mobile/desktop:** validación visual antes de publicar
+- **Decisión de hero final:** elegir entre las 3 variantes generadas
 
-- [ ] Cadencia: newsletter semanal, en martes
-- [ ] Calendario:
-  - Semana A (lunes): Aggregator corre automático → digest listo
-  - Semana A (lunes-martes): Rafael revisa digest, elige tema, lanza borrador
-  - Semana A (miércoles): Edición personal → publicar en Beehiiv
-  - Semana A (miércoles): Social posts se generan y programan automáticamente
-  - Semana B: Artículo evergreen SEO + 2-3 Reels para Instagram
+### Herramientas y costes actuales
+
+| Herramienta | Función | Coste |
+|---|---|---|
+| Claude Code (CLI) | Ejecución de skills | — (incluido en plan Claude) |
+| Gemini API (Nano Banana) | Generación de imágenes | $GEMINI_API_KEY en `.env` |
+| Beehiiv free | Publicación + welcome email | 0€ (plan gratuito hasta 2.500 subs) |
+| Namecheap | Dominio robohogar.com | ~10€/año |
+
+**Coste actual:** ~10€/año + Nano Banana pay-per-use (~$0.04/imagen).
+**Coste futuro con FASE 10:** +15€/mes (Make.com + Buffer) cuando volumen lo justifique.
+
+---
+
+### Cadencia operativa
+
+**Ritmo actual (fase de construcción de catálogo):**
+- 1 artículo/semana (objetivo)
+- 1 Ficción Doméstica cada 3-4 semanas
+- Digest: bajo demanda (antes de escribir si pasaron >5 días)
+- Newsletter semanal: diferida (activar con 30-50 subs)
+
+**Día típico de publicación (martes):**
+- Lunes noche: `/research-digest` si no hay uno reciente
+- Martes mañana: elegir tema + `/content-draft`
+- Martes mediodía: editar voz
+- Martes tarde: publicar en Beehiiv
+- Martes noche: `/post-publish <URL>` → commit + push
+- Miércoles: `/social-content` + programar Buffer (cuando esté conectado)
+
+### Welcome Series (cuando plan de Beehiiv lo permita)
+
+> Plan free de Beehiiv: solo Welcome + Reminder. Serie completa de 6 emails requiere plan Scale ($34/mes). Evaluar en FASE 9.
+
+- [ ] **Email 1** (día 0): Bienvenida + mejor artículo + pedir reply → **✅ YA configurado**
+- [ ] **Email 2** (día 1): Pregunta engagement "¿Qué robot tienes?" → **✅ YA configurado**
+- [ ] **Email 3** (día 3): Editorial humanoides — construye marca
+- [ ] **Email 4** (día 5): Guía de compra — valor práctico
+- [ ] **Email 5** (día 10): Experiencia personal con robots — confianza
+- [ ] **Email 6** (día 14): Resumen + CTA referral + preferencias
+- [ ] Upgrade a Beehiiv Scale cuando revenue justifique el coste
 
 ---
 
@@ -1282,23 +1153,21 @@ Cada 3 meses, revisar contra los objetivos de `docs/plan-v2.md`:
 
 ## FASE 7: Post-lanzamiento y mantenimiento con Claude Code
 
-### Workflow semanal (~30 min con Claude Code)
+### Workflow semanal (~30-60 min con Claude Code)
 
 **Agentes automáticos (Claude Code ejecuta):**
-- [ ] `/research-digest` — Agente Research: scrape RSS → digest + wiki update
-- [ ] `/content-draft` — Agente Escritura: genera borrador SEO desde el digest
-- [ ] `/nano-banana` — Agente Imágenes: genera hero branded (1200x630) + actualiza catálogo
+- [ ] `/research-digest` — digest + backlog dual + semillas narrativas (solo si >5 días del último)
+- [ ] `/content-draft` — borrador HTML + hero + imágenes inline + PASOS.md
+- [ ] `/ficcion-draft` — relato completo desde semillas del backlog (cada 3-4 semanas)
 
 **Manual (Rafael):**
-- [ ] Editar borrador (añadir voz, opinión, humor) — 45-75 min
-- [ ] Publicar en Beehiiv (copiar contenido + subir hero image + programar envío)
+- [ ] Editar borrador (añadir voz, opinión, humor) — 45-90 min
+- [ ] Publicar en Beehiiv (copy-paste + settings + hero + preview mobile)
 
 **Post-publicación (Claude Code ejecuta):**
-- [ ] `/social-content` — Agente Social: genera posts para LinkedIn, X, Instagram, WhatsApp
-- [ ] Revisar y programar posts en Buffer
-- [ ] `/obsidian-robohogar sync-published` — copia el artículo publicado al vault
-- [ ] `/obsidian-robohogar wiki-update` — actualiza wiki con robots/empresas mencionados
-- [ ] Mover borrador a `content/published/` y hacer commit
+- [ ] `/post-publish <URL>` — 14 pasos: verifica OG, mueve a `published/`, actualiza registros + llms.txt + fuentes + catálogo + vault + commit
+- [ ] `/social-content` — posts para LinkedIn, X, Instagram, WhatsApp (opcional, cuando redes estén listas)
+- [ ] Programar posts en Buffer (manual hasta FASE 10)
 
 ### Mantenimiento mensual (~15 min)
 
@@ -1344,12 +1213,16 @@ Cada 3 meses, revisar contra los objetivos de `docs/plan-v2.md`:
 
 | Skill | Trigger | Qué hace |
 |---|---|---|
-| `/research-digest` | "agrega noticias", "digest" | Scrape RSS → digest + wiki update |
-| `/content-draft` | "borrador", "nuevo artículo" | Genera borrador con SEO desde digest |
-| `/social-content` | "genera social", "posts" | Posts para LinkedIn, X, Instagram, WhatsApp |
-| `/obsidian-robohogar` | "sync vault", "wiki update" | Mantiene wiki, calendario, archivado |
-| `/nano-banana` | "genera imagen" | Assets visuales (mascota, headers, OG) |
-| `/commit` | "commitea" | Git commit con formato estándar |
+| `/research-digest` | "agrega noticias", "digest", "research" | Web search/fetch → digest dual (repo + vault) + backlog artículos + backlog Ficciones + wiki update + semillas narrativas |
+| `/content-draft` | "borrador", "nuevo artículo" | Genera HTML completo + 3 variantes hero + imágenes inline descargadas + PASOS.md + mapa visual |
+| `/ficcion-draft` | "ficción", "relato", "escribe una historia" | Lee backlog Ficciones, usa character bible, aplica frameworks Pixar/MRU/Paint-The-Villain |
+| `/nano-banana` | "genera imagen", "hero" | Gemini API (Nano Banana) · cataloga en `asset-catalog.md` · versiona v2/v3 (nunca sobrescribe) |
+| `/social-content` | "genera social", "posts" | Posts adaptados a LinkedIn, X, Instagram, WhatsApp desde artículo publicado |
+| `/post-publish` | "ya está publicado", URL de artículo | 14 pasos: verifica OG → published/ → registros → llms.txt → fuentes → catálogo → vault → commit |
+| `/obsidian-robohogar` | "sync vault", "wiki update", "calendar update" | Subcomandos: `wiki-update` · `sync-published` · `calendar-update` · `audit` · `archive` |
+| `/commit` | "commitea", "haz commit" | Git commit con formato estándar + co-author + stage por nombre |
+| `/workflow-excalidraw` | "diagrama", "workflow visual" | Diagramas de flujo/proceso en estilo ROBOHOGAR vía Excalidraw MCP |
+| `/ui-ux-pro-max` | "review UI", "diseño landing" | Análisis UI/UX de landing, emails, social cards |
 
 ## FASE 8: Crecimiento de suscriptores (cuando haya >50 subs)
 
@@ -1428,30 +1301,36 @@ Tácticas para aumentar la base de suscriptores de forma orgánica y no invasiva
 
 ## FASE 10: Pipeline Avanzado (cuando el workflow manual sea el bottleneck)
 
-### Research Aggregator Script
+> Criterio de activación: cuando publicar el artículo semanal empiece a robar >4h/semana o cuando el research manual se escape de ritmo. Hoy (abr 2026) los skills cubren lo esencial — este pipeline avanzado es optimización, no urgencia.
 
-- [ ] Implementar `utilities/research_aggregator.py` (diseñado en FASE 7)
-- [ ] Conectar RSS feeds (8+ fuentes) + Firecrawl para scraping
-- [ ] Integrar Claude API (Haiku) para categorización automática
-- [ ] Output: `content/drafts/YYYY-MM-DD-raw-digest.md`
-- [ ] Cron job semanal (lunes) via Make.com o cron local
+### 1. Research aggregator automatizado
 
-### Make.com Integration
+`/research-digest` actual usa web search bajo demanda. El siguiente paso es un script que corra solo en cron.
 
-- [ ] Crear scenario: cron semanal → trigger research_aggregator
-- [ ] Crear scenario: artículo publicado → genera posts sociales → Buffer API
-- [ ] Coste: 9€/mes
+- [ ] Implementar `utilities/research_aggregator.py` (pendiente)
+  - RSS feeds: The Robot Report, IEEE Spectrum, Weekly Robotics, TechCrunch Robotics, Xataka, XatakaHome, blogs Roborock/Dreame/Ecovacs
+  - Firecrawl API para scraping de fuentes sin RSS
+  - Claude API (Haiku) para categorización + relevancia + resumen ES
+  - Output mismo formato que el skill manual (compatible con `/content-draft`)
+- [ ] Cron semanal (lunes 8:00 CET) vía Make.com o cron local
+- [ ] Reemplazo del workflow manual de `/research-digest` cuando esté estable
 
-### Buffer Integration
+### 2. Make.com (orquestación) — 9€/mes
+
+- [ ] Scenario 1: cron lunes → aggregator → commit + push del digest
+- [ ] Scenario 2: artículo publicado (webhook Beehiiv) → trigger `/social-content` → Buffer API
+- [ ] Activar cuando haya >30 subs (volumen que justifique el coste)
+
+### 3. Buffer (programación social) — 6€/mes
 
 - [ ] Conectar Instagram, LinkedIn, WhatsApp Channel
-- [ ] Configurar horarios: IG Lun/Mié/Vie 12:00, LinkedIn Mar/Jue 9:00
-- [ ] Coste: 6€/mes
+- [ ] Horarios: IG L/M/V 12:00 · LinkedIn Ma/J 9:00 · WhatsApp Ma 10:00
+- [ ] Free tier (3 canales, 10 posts/canal) puede bastar al inicio
 
-### Beehiiv MCP (cuando esté disponible en tu plan)
+### 4. Beehiiv MCP (cuando esté en plan de pago)
 
-- [ ] Solicitar acceso si upgradeas a plan de pago
-- [ ] Configurar en `.mcp.json`:
+- [ ] Upgrade a Beehiiv Scale ($34/mes) para API access
+- [ ] Añadir a `.mcp.json`:
   ```json
   {
     "beehiiv": {
@@ -1460,40 +1339,50 @@ Tácticas para aumentar la base de suscriptores de forma orgánica y no invasiva
     }
   }
   ```
-- [ ] V1: consultar métricas directamente desde Claude Code
-- [ ] V2 (futuro): crear borradores directamente en Beehiiv desde Claude Code
+- [ ] V1: consultar métricas desde Claude Code
+- [ ] V2: crear drafts directamente (elimina el copy-paste manual — el mayor bottleneck actual)
 
-### Pipeline end-to-end automatizado
-
-Workflow objetivo — tiempo de Rafael: ~1h por issue (vs 3h+ manual):
+### 5. Pipeline end-to-end (objetivo: ~1h/artículo vs ~3h actuales)
 
 ```
-┌── AUTOMÁTICO ────────────────────────────────────────────────┐
-│ /research-digest → digest automático (lunes)                  │
-│ Fuentes RSS + Firecrawl → Claude API categoriza → digest.md  │
+┌── LUNES 8:00 — AUTOMÁTICO ───────────────────────────────────┐
+│ Cron → research_aggregator.py                                 │
+│ RSS + Firecrawl → Claude API Haiku → digest.md               │
+│ Commit + push automático                                      │
 └──────────────────────────────────────────────────────────────┘
                            ↓
-┌── MANUAL (~15 min) ──────────────────────────────────────────┐
-│ Rafael lee digest → elige 3-5 temas → define ángulo          │
+┌── LUNES/MARTES — MANUAL (~15 min) ──────────────────────────┐
+│ Rafael lee digest → elige tema del backlog → define ángulo  │
 └──────────────────────────────────────────────────────────────┘
                            ↓
-┌── SEMIAUTOMÁTICO ────────────────────────────────────────────┐
-│ /content-draft → borrador con SEO + playbook de newsletter   │
-│ /nano-banana → hero image automático                          │
+┌── SEMIAUTOMÁTICO (skills) ──────────────────────────────────┐
+│ /content-draft → HTML + hero + inlines + PASOS               │
+│ /nano-banana  → (ya ejecutado por /content-draft)            │
 └──────────────────────────────────────────────────────────────┘
                            ↓
-┌── MANUAL (~45 min) ──────────────────────────────────────────┐
-│ Rafael edita voz/opinión/humor → publica en Beehiiv          │
+┌── MANUAL (~45-60 min) ──────────────────────────────────────┐
+│ Rafael edita voz → crea draft en Beehiiv (via MCP V2)       │
+│ → preview mobile → programa envío                            │
 └──────────────────────────────────────────────────────────────┘
                            ↓
-┌── AUTOMÁTICO ────────────────────────────────────────────────┐
-│ /social-content → posts generados                             │
-│ Buffer programa publicación automática                        │
-│ /obsidian-robohogar sync → vault actualizado                  │
+┌── POST-PUBLICACIÓN — AUTOMÁTICO ─────────────────────────────┐
+│ Webhook Beehiiv → Make.com → /post-publish                   │
+│ → /social-content → Buffer programa publicación              │
+│ → vault sync + commit + push                                 │
 └──────────────────────────────────────────────────────────────┘
 ```
+
+### 6. Qué NO automatizar (nunca)
+
+- Decidir qué publicar (juicio editorial)
+- Escribir con voz propia (personalidad de marca)
+- Revisar antes de enviar (calidad y consistencia)
+- Responder a replies de suscriptores (relación humana)
+
+Automatizar estos bloques destruiría el diferencial de ROBOHOGAR frente a feeds automatizados de tech-news sin alma.
 
 ---
 
 *Guía viva — actualizar cuando se complete cada FASE.*
 *Fuentes: `docs/plan-v2.md`, `docs/website-brief.md`, `references/newsletter/email-marketing-playbook.md`, research de mercado (abr 2026)*
+*Última actualización sección final (FASE 3-10): 2026-04-17*
