@@ -5,6 +5,36 @@
 
 ---
 
+## Roadmap actual (abr 2026)
+
+Estado: **3 artículos publicados · 0 suscriptores · newsletter aún no activado.** Foco 100% en construir catálogo + ganar los primeros 50 subs.
+
+### Prioridad 1 — VOLUMEN DE ARTÍCULOS (en ejecución)
+
+- **Target:** 4 → 8 artículos publicados. El newsletter no puede estar vacío cuando lleguen los primeros suscriptores
+- **Skills:** `/content-draft` + `/post-publish`
+- **Último publicado:** #4 **"NEO va a fábricas: ¿humanoide doméstico o industrial?"** (2026-04-17) → https://robohogar.com/p/neo-humanoide-fabricas-eqt
+- **Próximo:** artículo #5 — elegir tema del próximo digest research
+- **Detalle operativo:** FASE 4
+
+### Prioridad 2 — DISTRIBUCIÓN ACTIVA (siguiente, FASE 4B)
+
+- **Target:** 0 → 50 subs en 8-12 semanas via Reddit + foros ES + Menéame + Beehiiv Boosts (los canales que Rafael sí puede mover; IG/LinkedIn personal y WhatsApp están bloqueados)
+- **Activar cuando:** haya ≥6 artículos publicados (masa crítica para enlazar con valor en hilos)
+- **Modelo:** manual + Claude prepara respuestas/submissions/hilos candidatos cada semana
+- **Detalle operativo:** FASE 4B
+
+### Prioridad 3 — SISTEMA DE TANGIBLES (cuando haya tracción, FASE 4C)
+
+- **Target:** 50 → 200 subs via lead magnets (PDFs) + hooks en landing
+- **Activar cuando:** Prioridad 2 esté dando ≥3 subs/semana de forma consistente
+- **Frase trigger:** *"Retomamos lazy-castle — construimos el skill `/pdf-brand`"*
+- **Detalle operativo:** FASE 4C
+
+> Las fases posteriores (5 automatización · 6 métricas · 7 post-lanzamiento · 8 crecimiento >50 subs · 9 optimización newsletter · 10 pipeline avanzado) siguen ahí pero no son el foco hasta haber movido las 3 prioridades anteriores.
+
+---
+
 ## Preparación: Clonar el repo (si estás en otro PC)
 
 Si es la primera vez en este PC o no tienes el repo clonado:
@@ -977,7 +1007,103 @@ La newsletter semanal se activa cuando haya **30-50 suscriptores** (ver FASE 9).
 
 ---
 
-## FASE 4B: Lead Magnet #1 + Sistema de tangibles
+## FASE 4B: Distribución activa (0-50 subs)
+
+> **Principio:** con 0 suscriptores y sin presencia social disponible (IG/LinkedIn personal sin usar, LinkedIn corporativo bloqueado, WhatsApp sin contactos), el motor de crecimiento inicial son canales donde Rafael puede aportar sin exponerse. Objetivo: 0 → 50 subs en 8-12 semanas invirtiendo ~2h/semana + ~€20-40 de prueba en Beehiiv Boosts.
+
+### 📌 Frases trigger para retomar en futuras sesiones
+
+| Qué quiero retomar | Frase exacta |
+|---|---|
+| Buscar hilos Reddit activos esta semana | **"Retomamos distribución 4B — tócame los hilos Reddit activos"** |
+| Preparar submit de Menéame | **"Prepárame el submit de Menéame para el artículo X"** |
+| Configurar Beehiiv Boosts | **"Arrancamos Beehiiv Boosts con piloto de €20"** |
+| Evaluar estado de la fase | **"¿Cómo va la distribución 4B?"** |
+
+### Activación
+
+Activar esta fase cuando haya **≥6 artículos publicados** (masa crítica para poder enlazar sin repetirse). Hasta entonces, seguir en FASE 4 produciendo volumen.
+
+### Canales
+
+#### 4B.1 Reddit — tráfico orgánico cualificado
+
+- **Subreddits candidatos** (a validar en primera sesión de activación):
+  - r/espanol, r/spain (filtro "tecnología")
+  - r/domotica (si existe y está activo en español)
+  - r/homeautomation (en inglés pero con tráfico español)
+  - r/Mexico, r/argentina, r/chile — secciones tech/gadgets (LATAM)
+- **Playbook:**
+  - Buscar hilos de pregunta: *"¿qué robot aspirador compro?"*, *"vale la pena un humanoide doméstico?"*, *"Dreame vs Roborock"*
+  - Responder con valor (respuesta propia de 80-150 palabras) y enlazar al artículo de ROBOHOGAR como *contexto de apoyo*, no como CTA
+  - Nada de posts autopromocionales — 1 post de autopromo = shadowban en la mayoría de subs
+- **Cadencia objetivo:** 5-10 respuestas de calidad por semana (≈1-1,5 h). Mejor 5 bien hechas que 30 breves
+- **Soporte Claude:** cada lunes, al pedirlo, busca hilos activos relevantes (últimos 7 días, >10 comentarios) y pre-prepara drafts de respuesta citando los artículos publicados
+
+#### 4B.2 Foros en español
+
+- **Candidatos a explorar** (evaluar ROI caso a caso en primeras 2 semanas — muchos foros están muertos):
+  - foro.xataka.com — sección hogar conectado
+  - forocoches → subforo tecnología (volumen alto, tono tosco)
+  - forobeta — blogueros y pequeños editores
+  - blogs de domótica ES con comentarios activos
+- **Misma lógica que Reddit:** aportar valor, enlazar tangencialmente
+- **Regla de corte:** si en 2 semanas un foro no ha dado ni 1 click al link de ROBOHOGAR, se abandona. No se invierten horas en foros muertos
+
+#### 4B.3 Menéame — agregador ES estilo Hacker News
+
+- **Qué es:** meneame.net, ~50K visitas/día. Si un artículo llega a portada: 500-2.000 visitas en 24h
+- **Qué submitear:** 1 de cada 3-4 artículos publicados. **Solo editoriales con ángulo controversia o servicio público** (NEO→fábricas, AI Act, Neura Porsche €98k). NO reviews genéricas ni comparativas SEO
+- **Cómo submitear:**
+  - Categoría: *tecnología*
+  - Titular: factual + hook, **NO clickbait** (Menéame banea clickbait)
+  - Resumen ≤250 caracteres con el dato más fuerte del artículo
+  - Timing óptimo: **martes-jueves 9-11h CET** (mayor actividad de usuarios)
+- **Soporte Claude:** al pedírselo, prepara titular y resumen adaptados a Menéame desde el HTML del artículo
+
+#### 4B.4 Beehiiv Boosts — adquisición pagada nativa
+
+- **Qué es:** ad network integrado en Beehiiv. Otros newsletters recomiendan ROBOHOGAR a cambio de CPA
+- **Coste esperado:** €0,50-1,50 por suscriptor verificado (con email opt-in doble)
+- **Budget piloto:** €20 = 15-40 subs reales para arrancar (validar calidad antes de escalar)
+- **Configuración:**
+  - Beehiiv Dashboard → **Grow** → **Boosts**
+  - Definir CPA (empezar en €0,80)
+  - Audiencia: tech / gadgets / Spanish-speaking
+  - **Verification ON** (solo cuentan subs que confirman email)
+- **Revisión a las 2 semanas:**
+  - Si open rate de los subs adquiridos <20% → pausar y bajar CPA
+  - Si churn primera semana >40% → pausar y revisar copy del Welcome Email
+  - Si todo ok → escalar a €50/mes
+
+#### 4B.5 Cross-promo newsletters hermanos
+
+- **Placeholder — activar cuando haya ≥30 subs** (hay algo que ofrecer a cambio)
+- Candidatos a investigar: newsletters ES de tech/IA/gadgets/domótica con audiencia de 500-5.000 subs (ni micro ni gigante)
+- Modelo: swap de menciones (1 sección de cada parte recomendando el otro)
+
+### Métricas esperadas
+
+| Horizonte | Acción dominante | Subs objetivo acumulados |
+|---|---|---|
+| Semana 1-2 | Reddit + Menéame orgánico | 0 → 5 |
+| Semana 3-4 | +Beehiiv Boosts €20 | 5 → 15 |
+| Mes 2 | +primer swap cross-promo | 15 → 30 |
+| Mes 3 | Escalar Boosts + segundo swap | 30 → 50 ✅ |
+
+**Al tocar 50 subs:** desbloquear FASE 4C (sistema de tangibles) + evaluar si arrancar newsletter semanal curada (FASE 9 baseline).
+
+### Límites — qué NO hacer en esta fase
+
+- ❌ Comprar listas de emails (deliverability destruida en semanas)
+- ❌ Pedir a amigos que se suscriban por compromiso (open rate → 5%, Gmail manda todo a Promotions)
+- ❌ Autopromoción directa en Reddit/foros ("suscríbete aquí") — shadowban garantizado
+- ❌ Spammear el mismo link en 10 hilos — calidad > volumen
+- ❌ Activar IG/LinkedIn orgánico con cadencia forzada — revisar en FASE 8 cuando haya masa crítica
+
+---
+
+## FASE 4C: Lead Magnet #1 + Sistema de tangibles
 
 > **Principio editorial "Always ship a tangible":** cada pieza de contenido publicada incluye al menos 1 tangible descargable (checklist, tabla, cheatsheet, mini-poster, PDF). Modelo Write With AI aplicado a robótica doméstica — el lector siempre se lleva algo concreto. Plan detallado completo: [`C:/Users/cri-c/.claude/plans/crea-el-plan-sugerido-lazy-castle.md`](../../.claude/plans/crea-el-plan-sugerido-lazy-castle.md)
 
@@ -993,7 +1119,7 @@ Cuando Rafael vuelva a Claude Code después de días/semanas y quiera retomar es
 | Ver estado actual del plan | **"¿En qué fase del plan lazy-castle estamos?"** |
 
 Con esas frases, Claude debe:
-1. Leer este bloque (FASE 4B) + el plan file [`crea-el-plan-sugerido-lazy-castle.md`](../../.claude/plans/crea-el-plan-sugerido-lazy-castle.md)
+1. Leer este bloque (FASE 4C) + el plan file [`crea-el-plan-sugerido-lazy-castle.md`](../../.claude/plans/crea-el-plan-sugerido-lazy-castle.md)
 2. Revisar qué checkboxes están marcados y cuáles no
 3. Retomar en el primer paso pendiente de la fase solicitada
 
@@ -1180,7 +1306,7 @@ Automatizar TODO excepto juicio editorial y voz. Rafael decide QUÉ contar y CÓ
 
 | Skill | Para qué | Prioridad | Detalle |
 |---|---|---|---|
-| `/pdf-brand` | Generar PDFs branded (guías, comparativas, glosarios, relatos, cheatsheets, ediciones especiales) con identidad ROBOHOGAR blindada | 🔥🔥🔥 Alta | Habilita el sistema de tangibles de FASE 4B. Modos: `from-scratch` · `derived` (desde artículo publicado) · `bundle` (compila varios PDFs). Tiempo construcción: ~5-6h Claude + ~30 min Rafael validación visual. Detalle completo en [plan crea-el-plan-sugerido-lazy-castle.md](../../.claude/plans/crea-el-plan-sugerido-lazy-castle.md) |
+| `/pdf-brand` | Generar PDFs branded (guías, comparativas, glosarios, relatos, cheatsheets, ediciones especiales) con identidad ROBOHOGAR blindada | 🔥🔥🔥 Alta | Habilita el sistema de tangibles de FASE 4C. Modos: `from-scratch` · `derived` (desde artículo publicado) · `bundle` (compila varios PDFs). Tiempo construcción: ~5-6h Claude + ~30 min Rafael validación visual. Detalle completo en [plan crea-el-plan-sugerido-lazy-castle.md](../../.claude/plans/crea-el-plan-sugerido-lazy-castle.md) |
 
 ### Qué sigue siendo manual (y probablemente deba seguir siéndolo)
 
@@ -1379,7 +1505,9 @@ Cada 3 meses, revisar contra los objetivos de `docs/plan-v2.md`:
 
 ## FASE 8: Crecimiento de suscriptores (cuando haya >50 subs)
 
-Tácticas para aumentar la base de suscriptores de forma orgánica y no invasiva.
+Tácticas para aumentar la base una vez superados los primeros 50 suscriptores.
+
+> **Distribución activa 0-50 subs (Reddit, foros ES, Menéame, Beehiiv Boosts) vive en FASE 4B — no aquí.** Esta fase cubre solo palancas que requieren masa crítica previa (engagement flows, referral, exit intent, cross-promo recíproca).
 
 ### Content gate ("Subscribe to keep reading")
 
@@ -1403,11 +1531,11 @@ Tácticas para aumentar la base de suscriptores de forma orgánica y no invasiva
 
 ### Otras tácticas pendientes de evaluar
 
-- [x] ~~Lead magnet (PDF "Guía de compra de robots 2026") a cambio de email~~ → documentado como **FASE 4B** con roadmap completo del sistema de tangibles "Always ship a tangible" (skill `/pdf-brand` + biblioteca pública + bundles)
-- [ ] Cross-promotion con newsletters similares en español
+- [x] ~~Lead magnet (PDF "Guía de compra de robots 2026") a cambio de email~~ → documentado como **FASE 4C** con roadmap completo del sistema de tangibles "Always ship a tangible" (skill `/pdf-brand` + biblioteca pública + bundles)
+- [x] ~~Compartir en comunidades (Reddit, foros domótica ES, Menéame)~~ → documentado como **FASE 4B** con playbook concreto por canal
+- [ ] Cross-promotion recíproca con newsletters similares en español (≥200 subs, swap formal con pieza editorial)
 - [ ] Pop-up de salida en artículos web (exit intent)
 - [ ] Firma de email personal con link a ROBOHOGAR
-- [ ] Compartir en comunidades (Reddit r/homeautomation, foros de domótica España)
 
 ---
 

@@ -95,6 +95,13 @@ Robots humanoides para tareas domésticas.
 | Teslarati | teslarati.com | Medio Tesla-focused | Buena fuente para novedades Optimus (sesgo pro-Tesla) |
 | Robotics 24/7 | robotics247.com | Medio especializado | Cobertura CES 2026 Atlas, buena para industria |
 | Stanford Report | news.stanford.edu | Académico | Estudio robots domésticos para ancianos (abr 2026) |
+| Fast Company | fastcompany.com (buscar: 1X NEO home robot) | Magazine | Cobertura consumer-friendly NEO home robot. Imágenes oficiales 1X |
+| Humanoids Daily | humanoidsdaily.com | Newsletter/agregador | Deal 1X+EQT, tracking diario industria humanoide |
+| BitcoinWorld | bitcoinworld.co.in | Agregador tech | Cobertura NEO→EQT pivot (imagen prensa warehouse) |
+| Palo Alto Today | paloaltotoday.com | Medio local | Fuente original anuncio 1X+EQT (12-abr-2026) |
+| TechCrunch (1X) | techcrunch.com (buscar: 1X EQT humanoid) | Medio tech | Análisis deal 1X+EQT, pivot home→factory |
+| AI Act Explorer | artificialintelligenceact.eu | Regulatorio UE | AI Act art. 50 + alto riesgo agosto 2026. Relevante para humanoides domésticos en EU |
+| Economist & Jurist | economistjurist.es | Legal ES | Análisis AI Act para sector tecnología |
 
 ### Fuentes independientes (ES)
 

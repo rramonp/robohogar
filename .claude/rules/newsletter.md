@@ -4,12 +4,25 @@ Mecánicas de email (entrega, diseño, optimización). Voz/tono → `editorial.m
 
 ## Tipos de publicación en Beehiiv
 
-| Tipo | Publish to | Aparece en landing | Se envía por email | Cuándo |
-|------|-----------|-------------------|-------------------|--------|
-| **Artículo** (review, editorial, guía) | `Email and web` | Sí | Sí | Cuando se publica un artículo nuevo |
-| **Newsletter semanal** | `Email only` | No | Sí | Cada semana (martes 9:00 CET) |
+Depende de la fase de audiencia. En Beehiiv cada post solo se envía por email UNA vez — enviar con 0 subs "quema" el artículo y no podrá reenviarse cuando haya audiencia.
 
-**Artículos** = evergreen, SEO, web+email. **Newsletter** = curación semanal, solo email.
+### Fase pre-audiencia (<20-30 subs) — situación actual
+
+| Tipo | Publish to | Aparece en landing | Se envía por email |
+|------|-----------|-------------------|-------------------|
+| **Artículo** | `Web only` | Sí | No (reserva el envío) |
+| **Newsletter semanal** | `Email only` | No | Sí (aunque sean 0-5 subs) |
+
+Cuando los primeros 20-30 subs lleguen: enviar "digest de bienvenida" manual recopilando los artículos top ya publicados.
+
+### Fase con audiencia (≥20-30 subs)
+
+| Tipo | Publish to | Aparece en landing | Se envía por email |
+|------|-----------|-------------------|-------------------|
+| **Artículo** (review, editorial, guía) | `Email and web` | Sí | Sí |
+| **Newsletter semanal** | `Email only` | No | Sí |
+
+**Artículos** = evergreen, SEO. **Newsletter** = curación semanal, solo email.
 
 ## Subject Lines
 Max 25 chars. Fitea uno de 5 arquetipos. Sin clickbait/ALL CAPS/spam triggers.

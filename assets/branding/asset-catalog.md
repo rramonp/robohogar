@@ -123,6 +123,7 @@ Usar el **monograma R sobre fondo ámbar claro** (`assets/branding/social/thumbn
 | 4 | `mejor-robot-asistente-ia-2026` (v1-v6) | 2026-04-13 / 2026-04-17 | Gadget | flash | v1-v4: iteraciones con neones problemáticos. v5: skyline atardecer sin neones. v6: ciudad diurna sin neones — misma composición (robot huevo + mano + cocina cálida) |
 | 5 | `humanoides-en-casa-cuanto-falta` (v10) | 2026-04-15 | Editorial | flash | "Creación de Adán" — mano robot + mano humana en cocina, jardín, luz dorada |
 | 6 | `roborock-saros-z70-review` (v1-v3) | 2026-04-16 | Review | flash | v1: close-up brazo+calcetín+mano, suelo madera. v2: overhead cocina mármol+objetos. v3: salón dorado, brazo con calcetín colorido |
+| 7 | `neo-humanoide-fabricas-eqt` (v8) | 2026-04-17 | Editorial | flash | Humanoide NEO con chaleco industrial naranja entregando taza de café en cocina doméstica — comunica la contradicción del pivote home→factory. Final elegido tras 9 iteraciones (v1-v7 descartadas por neones/pantallas en el fondo) |
 
 Ruta de cada hero: `content/articulos/<slug>/assets/hero-<slug>[-vN].png`
 

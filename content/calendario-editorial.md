@@ -39,7 +39,7 @@ Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurre
 | Prioridad | Tema | Tipo | Keyword SEO | 🔥 | Notas |
 |-----------|------|------|-------------|---|-------|
 | ~~Alta~~ | ~~Roborock Saros Z70: review del brazo robot~~ | ~~Review~~ | ~~roborock saros z70 review~~ | ~~🔥🔥🔥~~ | ✅ Publicado 2026-04-16 |
-| Alta | 1X NEO va a fábricas: contradicción del "robot doméstico" | Editorial | 1x neo eqt hogar | 🔥🔥🔥 | Deal 12-abr-2026 con EQT, 10.000 unidades industriales. Digest 2026-04-17 |
+| ~~Alta~~ | ~~1X NEO va a fábricas: contradicción del "robot doméstico"~~ | ~~Editorial~~ | ~~1x neo eqt hogar~~ | ~~🔥🔥🔥~~ | ✅ Publicado 2026-04-17: https://robohogar.com/p/neo-humanoide-fabricas-eqt |
 | Alta | UniX AI Panther: el primer humanoide ya en hogares reales (China) | Editorial | unix ai panther humanoide | 🔥🔥🔥 | Entregas desde 10-abr-2026. Contraste NEO/Europa. Digest 2026-04-17 |
 | Alta | Neura 4NE-1: el humanoide europeo Porsche Design de 98.000€ | Editorial | neura 4ne-1 precio | 🔥🔥🔥 | Respuesta europea a Tesla/NEO. Mini 19.999€. Digest 2026-04-17 |
 | Alta | AI Act y humanoides domésticos: qué cambia en agosto 2026 | Guía/Editorial | ai act robot hogar españa | 🔥🔥 | Aclaración Comisión EU 13-abr-2026. Servicio público. Digest 2026-04-17 |
