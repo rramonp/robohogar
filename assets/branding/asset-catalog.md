@@ -156,11 +156,16 @@ La hero se usa tanto dentro del artículo como post thumbnail — Beehiiv recort
 ```
 content/articulos/
   <slug>/
-    borrador.html        ← Draft del artículo (HTML de Beehiiv)
+    borrador.html            ← Draft del artículo (HTML de Beehiiv)
     assets/
-      hero-<slug>.png    ← Imagen destacada branded (1200x630)
-      *.png/jpg          ← Imágenes inline, capturas, fotos producto
+      hero-<slug>.png        ← Imagen destacada branded (1200x630)
+      *.png/jpg              ← Imágenes inline, capturas, fotos producto
+      _archive/              ← Variantes no usadas tras /post-publish (nunca borrar)
+        hero-<slug>-v*.png
+        hero-<slug>-v*.webp
 ```
+
+Post-publish archiva (no borra) las variantes no elegidas en `assets/_archive/`. Sirven como referencia visual para futuras iteraciones y recuperación rápida sin git.
 
 El agente de imágenes genera el hero automáticamente como parte del pipeline semanal, lo guarda en la carpeta del artículo y lo registra en este catálogo.
 

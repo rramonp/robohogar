@@ -30,14 +30,15 @@ Antes de hacer nada, comprobar que el artículo se ve correctamente:
 cp content/articulos/<slug>/borrador.html content/published/YYYY-MM-DD-<slug>.html
 ```
 
-### 3. Limpiar variantes de hero no usadas
+### 3. Archivar variantes de hero no usadas
 
-Borrar todas las variantes de hero excepto la elegida (PNG + WebP):
+Mover todas las variantes de hero excepto la elegida (PNG + WebP) a `assets/_archive/`:
 ```bash
-# Mantener solo hero-<slug>-v<elegida>.png y .webp
-# Borrar el resto de hero-<slug>-v*.png y .webp
+mkdir -p content/articulos/<slug>/assets/_archive
+# Mantener solo hero-<slug>-v<elegida>.png y .webp en assets/
+# Mover el resto de hero-<slug>-v*.png y .webp a assets/_archive/
 ```
-Las variantes quedan en el historial de git si se necesitan.
+Las variantes quedan accesibles en disco para re-usar como referencia visual o recuperación rápida sin necesidad de git. Nunca borrar — la regla del repo es archivar, no eliminar.
 
 ### 4. Actualizar guia-implementacion.md
 
