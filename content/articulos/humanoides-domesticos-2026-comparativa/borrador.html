@@ -20,12 +20,9 @@ template: "problem-solution"
 
 PINPOINT: Después de leer este artículo, un lector ROBOHOGAR sabrá cuáles de los 7 humanoides domésticos anunciados para 2026 son productos reales con envío cercano, cuáles son pre-orders con fecha incierta y cuáles son demos disfrazadas de producto, para poder decidir con criterio si merece la pena esperar — y si sí, a cuál.
 
-HOOK CANDIDATES:
-  1. "Siete humanoides domésticos diferentes quieren entrar en tu casa en 2026. Hemos mirado la letra pequeña de los siete. Tres son productos reales. Dos son pre-orders. Dos son demos con música épica detrás." [Stat + reframe]
-  2. "Entre $4.500 y $98.000. Un factor 20 de diferencia. Y todos te prometen lo mismo: que te doblarán la ropa. Ya os contamos cuál tiene sentido." [Numerical shock]
-  3. "El humanoide doméstico ya se compra. O se pre-compra. O se reserva. Depende del país, del marketing y de cuánto te creas un vídeo promocional. Os lo clasificamos en tres columnas: compra real, pre-order y demo." [Classification reframe]
-
-Hook elegido: #1
+HOOK CANDIDATES: renderizados como 3 callouts visibles al inicio del <body>.
+Rafael elige uno en el preview y borra los otros 2 bloques marcados "hook-option".
+Arquetipos: v1 = Stat + reframe · v2 = Numerical shock · v3 = Classification reframe
 -->
 <style>
   body { max-width: 720px; margin: 32px auto; padding: 0 16px; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #0C0C0C; line-height: 1.55; background: #FFFFFF; }
@@ -69,9 +66,32 @@ Hook elegido: #1
 <p class="subtitle">Siete robots diferentes quieren entrar en tu casa este año. Hemos repasado precios, disponibilidad real y letra pequeña de los siete, y los hemos ordenado en tres columnas: compra real, pre-order y demo de feria.</p>
 <p class="byline">Rafael de ROBOHOGAR · 2026-04-17 · 9 min de lectura</p>
 
-<div class="callout-amber">
-  <p>Entre <strong>4.500 €</strong> y <strong>98.000 €</strong>. Un factor <em>20</em> entre el humanoide doméstico más barato que se vende hoy y el más caro. Y todos te prometen lo mismo: que te doblarán la ropa. Hemos ordenado los siete que son reales (o casi), os decimos cuáles están realmente a la venta, cuáles aceptan pre-orders y cuáles son todavía una <em>demo con música épica detrás</em>. Si solo vais a leer tres párrafos: el titular está al final del artículo, en Nuestro veredicto.</p>
+<!-- ═══════════════════════════════════════════════════════════════════
+     HOOKS — ELIGE UNO Y BORRA LOS OTROS 2 BLOQUES hook-option
+     v1 = Stat + reframe · v2 = Numerical shock · v3 = Classification reframe
+     ═══════════════════════════════════════════════════════════════════ -->
+
+<p class="variant-reco" style="font-size:13px; color:#6B7280; font-style:italic; margin:12px 0; padding:8px 12px; border-left:3px solid #F5A623; background:#FFF9EF;">
+  💡 <strong>Recomendación IA:</strong> v1 (Stat + reframe).
+  <strong>Motivo:</strong> abre con el conteo 3 reales / 2 pre-orders / 2 demos — que es la columna vertebral del artículo entero — y entrega payoff concreto antes de pedir al lector que siga. v2 (precio) y v3 (clasificación) retrasan la concreción a favor del tono.
+</p>
+
+<div class="callout-amber hook-option" data-hook="v1">
+  <p><strong style="color:#F5A623;">[HOOK v1 · Stat + reframe]</strong><br>
+  Siete humanoides domésticos diferentes quieren entrar en tu casa en 2026. Hemos mirado la letra pequeña de los siete. <strong>Tres son productos reales. Dos son pre-orders. Dos son demos con música épica detrás.</strong> Si solo vais a leer tres párrafos, el titular está al final del artículo, en <em>Nuestro veredicto</em>.</p>
 </div>
+
+<div class="callout-amber hook-option" data-hook="v2">
+  <p><strong style="color:#F5A623;">[HOOK v2 · Numerical shock]</strong><br>
+  Entre <strong>4.500 €</strong> y <strong>98.000 €</strong>. Un factor <em>20</em> entre el humanoide doméstico más barato que se vende hoy y el más caro. Y todos te prometen lo mismo: que te doblarán la ropa. Hemos ordenado los siete que son reales (o casi), os decimos cuáles están realmente a la venta, cuáles aceptan pre-orders y cuáles son todavía una <em>demo con música épica detrás</em>.</p>
+</div>
+
+<div class="callout-amber hook-option" data-hook="v3">
+  <p><strong style="color:#F5A623;">[HOOK v3 · Classification reframe]</strong><br>
+  El humanoide doméstico ya se compra. O se pre-compra. O se reserva. Depende del país, del marketing y de cuánto te creas un vídeo promocional. Os lo clasificamos en tres columnas: <strong>compra real, pre-order y demo</strong>. De los siete que hemos filtrado, solo tres caen en la primera.</p>
+</div>
+
+<!-- ═══════════════════ FIN HOOKS ═══════════════════ -->
 
 <hr class="separator">
 
@@ -301,9 +321,27 @@ Hook elegido: #1
 
 <h2>🏆 Nuestro veredicto</h2>
 
-<div class="callout-amber">
-  <p><strong>De siete humanoides domésticos anunciados, solo tres son productos reales que alguien está comprando hoy</strong> (UniX Panther, China F2, Unitree R1). Dos son pre-orders legítimas con precio publicado (NEO, 4NE-1). Dos son pre-anuncios vestidos de producto (Figure 03, SwitchBot Onero H1). Ninguno está disponible con fecha firme en España.</p>
+<!-- ═══════════════════════════════════════════════════════════════════
+     VEREDICTO — ELIGE UNO Y BORRA LOS OTROS 2 BLOQUES veredicto-option
+     v1 = Conteo real/pre-order/demo · v2 = Perspectiva temporal · v3 = Europeo explícito
+     ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="callout-amber veredicto-option" data-variant="v1">
+  <p><strong style="color:#F5A623;">[VEREDICTO v1 · Conteo real/pre-order/demo]</strong><br>
+  <strong>De siete humanoides domésticos anunciados, solo tres son productos reales que alguien está comprando hoy</strong> (UniX Panther, China F2, Unitree R1). Dos son pre-orders legítimas con precio publicado (NEO, 4NE-1). Dos son pre-anuncios vestidos de producto (Figure 03, SwitchBot Onero H1). Ninguno está disponible con fecha firme en España.</p>
 </div>
+
+<div class="callout-amber veredicto-option" data-variant="v2">
+  <p><strong style="color:#F5A623;">[VEREDICTO v2 · Perspectiva temporal]</strong><br>
+  <strong>Tres humanoides se compran hoy, dos aceptan tu depósito, dos te venden un vídeo.</strong> Y ninguno llega a España con fecha firme en 2026. Si buscáis un humanoide doméstico funcionando en casa este año, la respuesta corta es <em>no</em> — y da igual cuánto dinero tengáis encima de la mesa.</p>
+</div>
+
+<div class="callout-amber veredicto-option" data-variant="v3">
+  <p><strong style="color:#F5A623;">[VEREDICTO v3 · Europeo explícito]</strong><br>
+  <strong>Desde Europa, la comparativa se reduce a uno: Neura 4NE-1.</strong> Los otros seis humanoides — tres que ya se venden en Asia, dos con pre-order en EE.UU., uno con vídeo promocional — o no salen de su continente, o no salen del PowerPoint. El humanoide doméstico europeo de 2026 es un solo producto, y cuesta 19.999 €.</p>
+</div>
+
+<!-- ═══════════════════ FIN VEREDICTO ═══════════════════ -->
 
 <p><strong>Si vivís en Europa y tenéis prisa</strong> por meter un humanoide en casa: el único serio es el <strong>Neura 4NE-1 Mini</strong> a 19.999€. Es caro, su capacidad funcional está por verse y un diseño Porsche no hace que friegue mejor — pero tiene certificación y servicio dentro del bloque. El resto, o no llegan, o llegan con un año de retraso y sobrecoste de importación.</p>
 
@@ -315,9 +353,29 @@ Hook elegido: #1
 
 <h2>💡 ¿Sabías que…?</h2>
 
-<p>Bloomberg proyecta <strong>90.000 humanoides</strong> enviados globalmente en 2026 y <strong>1,2 millones</strong> en 2030. De esos, <em>menos del 15% irán a hogares</em>. El resto — fábricas, almacenes, logística, hospitales — es el mercado que realmente factura. Esto es lo que explica por qué todos los humanoides "domésticos" de esta lista acaban teniendo también un contrato industrial detrás: ahí está el pipeline que paga la nómina.</p>
+<!-- ═══════════════════════════════════════════════════════════════════
+     ¿SABÍAS QUE? — ELIGE UNO Y BORRA LOS OTROS 2 BLOQUES sabias-option
+     v1 = 15% a hogares · v2 = Margen industrial vs doméstico · v3 = Mapa geográfico
+     ═══════════════════════════════════════════════════════════════════ -->
 
-<p><a href="https://www.bloomberg.com/news/articles/2026-humanoid-robots-outlook">Fuente: Bloomberg, 2026</a></p>
+<div class="sabias-option" data-variant="v1">
+  <p><strong style="color:#F5A623;">[¿SABÍAS QUE v1 · 15% a hogares]</strong><br>
+  Bloomberg proyecta <strong>90.000 humanoides</strong> enviados globalmente en 2026 y <strong>1,2 millones</strong> en 2030. De esos, <em>menos del 15% irán a hogares</em>. El resto — fábricas, almacenes, logística, hospitales — es el mercado que realmente factura. Esto explica por qué todos los humanoides "domésticos" de esta lista acaban teniendo también un contrato industrial detrás: ahí está el pipeline que paga la nómina.</p>
+  <p><a href="https://www.bloomberg.com/news/articles/2026-humanoid-robots-outlook">Fuente: Bloomberg, 2026</a></p>
+</div>
+
+<div class="sabias-option" data-variant="v2">
+  <p><strong style="color:#F5A623;">[¿SABÍAS QUE v2 · Margen industrial vs doméstico]</strong><br>
+  Un humanoide industrial factura entre <strong>80.000 y 120.000 $ al año</strong> cuando trabaja 24/7 en una línea de producción. Uno doméstico se compra <em>una vez</em> a 20.000 $ y ahí acaba el ingreso. Adivinad cuál de los dos mercados construyen primero los fabricantes — y por qué vuestro humanoide "doméstico" viene en realidad del laboratorio industrial rebautizado.</p>
+  <p><a href="https://www.bloomberg.com/news/articles/2026-humanoid-robots-outlook">Fuente: Bloomberg, 2026</a></p>
+</div>
+
+<div class="sabias-option" data-variant="v3">
+  <p><strong style="color:#F5A623;">[¿SABÍAS QUE v3 · Mapa geográfico]</strong><br>
+  De los siete humanoides domésticos de esta lista, <strong>cinco nacen en Asia</strong> (China y Japón), <strong>uno en Europa</strong> (Alemania) y <strong>uno en EE.UU.</strong> Boston Dynamics — la marca que inventó el humanoide moderno — no aparece aquí porque Atlas es industrial puro. El humanoide doméstico de 2026 se está construyendo en Shenzhen, Osaka y Múnich. No en Boston ni en Silicon Valley.</p>
+</div>
+
+<!-- ═══════════════════ FIN ¿SABÍAS QUE? ═══════════════════ -->
 
 <div class="cta-final">
   <h2>¿Te ha servido?</h2>

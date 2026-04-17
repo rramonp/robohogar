@@ -26,6 +26,17 @@ Antes de hacer nada, comprobar que el artículo se ve correctamente:
 
 ### 2. Mover borrador a published
 
+**Pre-check obligatorio — variantes elegidas:** contar bloques de cada patrón v1/v2/v3 en el borrador (hook, veredicto, ¿sabías que?). Si queda ≥2 de cualquiera, **PARAR y avisar a Rafael** — no eligió, el artículo publicado tendría 2-3 bloques redundantes visibles.
+
+```bash
+# Cada grep debe devolver exactamente 1 (Rafael dejó solo la variante elegida)
+# 0 = el borrador nunca tuvo esa sección triplicada → continuar
+# ≥2 = PARAR, avisar a Rafael que borre las variantes que no quiere
+grep -c 'class="callout-amber hook-option"'     content/articulos/<slug>/borrador.html
+grep -c 'class="callout-amber veredicto-option"' content/articulos/<slug>/borrador.html
+grep -c 'class="sabias-option"'                  content/articulos/<slug>/borrador.html
+```
+
 ```bash
 cp content/articulos/<slug>/borrador.html content/published/YYYY-MM-DD-<slug>.html
 ```

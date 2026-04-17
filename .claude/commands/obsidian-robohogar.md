@@ -27,13 +27,22 @@ Subcarpetas principales de `05-01_Robotica Newsletter/`: `_archive/`, `Issues/`,
 
 ## Modos de operación
 
-### 1. `sync-published` — Sincronizar artículos publicados
+### 1. `sync-published <slug>` — Umbrella post-publicación (invocado por `/post-publish` paso 12)
 
-Copia artículos de `content/published/` al vault `03-Published/`.
-- Añade frontmatter si no tiene (type: published, tags, fecha)
-- Actualiza wikilinks internos a formato Obsidian `[[Page Name]]`
-- NO sobreescribe archivos existentes en el vault
-- **SIEMPRE sincronizar `content/registro-articulos.md`** al vault como `Registro Articulos.md`
+**Invocación:** `/obsidian-robohogar sync-published <slug-del-articulo>`
+
+Ejecuta en orden las 3 acciones que el post-publish necesita tras publicar un artículo:
+
+1. **Copiar artículo publicado** de `content/published/YYYY-MM-DD-<slug>.html` al vault `03-Published/` con el mismo nombre
+   - Añade frontmatter si no tiene (type: published, tags, fecha)
+   - Actualiza wikilinks internos a formato Obsidian `[[Page Name]]`
+   - NO sobreescribe archivos existentes en el vault
+
+2. **Auto-sync de los 4 archivos editoriales** (ver § "Archivos que SIEMPRE se sincronizan") — `guia-implementacion`, `registro-articulos`, `calendario-editorial`, `registro-newsletters`
+
+3. **Invocar `wiki-update`** (mode 2) para crear/actualizar fichas de robots y empresas mencionados en el artículo publicado
+
+**Output esperado:** resumen ✅/❌ de las 3 acciones. Si alguna falla, continuar con el resto y reportar el fallo.
 
 ### 2. `wiki-update` — Actualizar base de datos wiki
 

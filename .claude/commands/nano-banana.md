@@ -70,20 +70,21 @@ uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
 
 **Estilo obligatorio: Product-hero cinematográfico (tipo YouTube thumbnail)**
 
-- Leer `assets/branding/asset-catalog.md` sección "Estilo ROBOHOGAR para heros de artículos"
-- Ahí están los prompts exactos por tipo de artículo, las reglas visuales y los parámetros
+- **LEER SIEMPRE PRIMERO:** `assets/branding/nano-banana-prompt-base.md` — decision tree + suffix compilado anti-neones + palabras prohibidas
+- Secundariamente: `assets/branding/asset-catalog.md` sección "Estilo ROBOHOGAR para heros de artículos" para prompts exactos por tipo de artículo
 - **NO usar `--reference`** — contamina el estilo fotográfico con ilustración/texto asiático
 - Modelo: `flash`. Aspect: `landscape`. Size: `1K`
-- Output: `content/articulos/<slug>/assets/hero-<slug>.png`
+- Output: `content/articulos/<slug>/assets/hero-<slug>-v<N>.png` (versionar desde v1)
 
-Prompt template rápido:
+**Composición del prompt (obligatorio):**
 ```
-Eye-catching editorial hero image for an article about [TEMA].
-[PRODUCTO/ROBOT protagonista, dramáticamente iluminado].
-[Contexto hogar moderno, desenfocado].
-Warm amber lighting, editorial photography style, high contrast, shallow depth of field.
-Absolutely NO text, NO letters, NO words, NO signs, NO writing of any kind.
+<prompt específico del artículo, siguiendo decision tree de prompt-base.md>
++ suffix compilado (copiar literal desde prompt-base.md § "Suffix compilado")
 ```
+
+El suffix compilado evita los 3 fallos recurrentes de Gemini: paneles luminosos en cuerpos de robots, neones en paredes, y caracteres asiáticos en fondos. Tras integrarlo, iteraciones esperadas: 2-3 por hero (antes: 7-9).
+
+**Validar tras generación:** checklist en `prompt-base.md` § "Validación rápida post-generación". Si falla → mover a `assets/_archive/` y regenerar.
 
 **Invocado automáticamente por `/content-draft`** como paso del pipeline de creación de artículos.
 

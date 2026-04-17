@@ -81,7 +81,9 @@ Para otros tipos, usar la estructura documentada en `content/templates/estructur
 
 Generar 3 variantes con composiciones distintas → `content/articulos/<slug>/assets/hero-<slug>-v{1,2,3}.png`. Modelo: `flash`, aspect: `landscape`, size: `1K`. Script: `$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py`.
 
-Composición y prompts → `assets/branding/asset-catalog.md`. El script genera `.webp` automáticamente — subir WebP a Beehiiv.
+**Antes de lanzar cualquier prompt:** leer `assets/branding/nano-banana-prompt-base.md`. Contiene el **decision tree** (qué composición usar según escena — 1 robot vs varios, home vs warehouse, etc.) y el **suffix compilado anti-neones** que DEBE concatenarse al prompt específico. Con eso se reduce de 7-9 iteraciones a 2-3 por hero.
+
+Secundariamente, `assets/branding/asset-catalog.md` para prompts exactos por tipo de artículo. El script genera `.webp` automáticamente — subir WebP a Beehiiv.
 
 ### 7. Descargar imágenes inline de fuentes (OBLIGATORIO)
 
@@ -104,11 +106,28 @@ Cada artículo necesita imágenes inline de las fuentes originales (fabricantes,
 
 ### 8. Generar PASOS.md + mapa visual (OBLIGATORIO)
 
-Cada artículo genera un archivo `PASOS.md` en su carpeta con:
-1. SEO metadata (title, description, slug, tags) para copiar a Beehiiv
-2. Hero image elegida (o las 3 para elegir)
-3. Checklist paso a paso para publicar
-4. **Mapa visual del artículo** — diagrama ASCII con la posición exacta de cada imagen (H1 → secciones → imágenes → CTAs). Este mapa es la guía principal de Rafael para montar en Beehiiv.
+**Usar el generador automático** para evitar rehacer el 60% repetido cada vez:
+
+```bash
+uv run python utilities/generate_pasos.py <slug> <numero-articulo>
+```
+
+El script lee el frontmatter YAML del borrador (dentro del `<!-- -->` inicial del HTML) y genera `PASOS.md` pre-rellenado con:
+- SEO metadata + char counts (validación automática de límites Beehiiv)
+- Tags formateados con backticks
+- Publish to (Web only por defecto en fase pre-audiencia)
+- Content Gate off (default evergreen)
+- Checklist estándar de publicación
+
+Luego rellenar a mano los bloques marcados `[rellenar: ...]`:
+- **Conceptos de hero v1/v2/v3** + recomendación del agente
+- **Tabla de imágenes inline** (archivo → sección → fuente)
+- **Mapa visual ASCII** — diagrama con H1 → secciones → imágenes → CTAs. Este mapa es la guía principal de Rafael para montar en Beehiiv
+- **Datos a validar** (precios, fechas que puedan haber cambiado desde research)
+- **Fuentes del artículo** (tabla dato/fuente/verificación)
+- **Notas editoriales** (tono, ángulo, decisiones)
+
+Template origen: `content/templates/PASOS-template.md`. Script: `utilities/generate_pasos.py`.
 
 ### 9. Prohibiciones
 
@@ -192,7 +211,7 @@ Si no se puede rellenar, el borrador no está listo (regla Pinpoint Writing de C
 
 ## Hook checklist — los 5 tipos a considerar antes de escribir
 
-La primera frase abre un "loop" — si no provoca leer la segunda, está rota. Antes de escribir el borrador, generar 3 hooks candidatos y elegir el mejor. 5 arquetipos prioritarios para ROBOHOGAR (lista completa de 10 tipos con ejemplos → [`../../references/writewithai/01-voz-y-estructura.md#1-aperturas-hooks-10-tipos-con-ejemplo-robohogar`](../../references/writewithai/01-voz-y-estructura.md)):
+La primera frase abre un "loop" — si no provoca leer la segunda, está rota. 5 arquetipos prioritarios para ROBOHOGAR (lista completa de 10 tipos con ejemplos → [`../../references/writewithai/01-voz-y-estructura.md#1-aperturas-hooks-10-tipos-con-ejemplo-robohogar`](../../references/writewithai/01-voz-y-estructura.md)):
 
 - [ ] **First-person plural + acción específica** — *"Esta semana hemos desmontado cinco robots aspiradores."*
 - [ ] **Belief destruction** — *"'Los robots solo funcionan en casas grandes' — eso creíamos hasta que probamos uno en 55 m²."*
@@ -200,6 +219,134 @@ La primera frase abre un "loop" — si no provoca leer la segunda, está rota. A
 - [ ] **Stat impactante** — *"Solo el 14% de los hogares españoles tiene robot aspirador. En Alemania, el doble."*
 - [ ] **Reframe violento / anti-cliché** — *"Los listados 'top 10 robots 2026' aburren. Lo que os vamos a contar es qué NO comprar."*
 
-**Regla de validación:** si la primera frase del borrador no provoca "vale, una más", reescribirla antes de continuar. El 1/3/1 solo funciona si la frase-1 del primer párrafo es un hook verdadero.
+### Renderizado OBLIGATORIO de los 3 hooks en el HTML
+
+**NO elegir el hook por Rafael.** Generar 3 hooks de arquetipos distintos y renderizarlos como 3 callouts visibles al inicio del `<body>` (justo después de la byline, donde iría el hook final). Rafael los lee en el preview del navegador, elige uno y borra los otros dos bloques.
+
+**Por qué:** los comentarios `<!-- -->` del `<head>` no se ven en el preview. Rafael trabaja en sesiones espaciadas y necesita comparar los 3 hooks renderizados con el formato real (tipografía, callout ámbar, negritas) antes de elegir.
+
+Formato exacto a emitir:
+
+```html
+<!-- ═══════════════════════════════════════════════════════════════════
+     HOOKS — ELIGE UNO Y BORRA LOS OTROS 2 BLOQUES hook-option
+     v1 = <arquetipo> · v2 = <arquetipo> · v3 = <arquetipo>
+     ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="callout-amber hook-option" data-hook="v1">
+  <p><strong style="color:#F5A623;">[HOOK v1 · <arquetipo>]</strong><br>
+  <texto del hook v1>.</p>
+</div>
+
+<div class="callout-amber hook-option" data-hook="v2">
+  <p><strong style="color:#F5A623;">[HOOK v2 · <arquetipo>]</strong><br>
+  <texto del hook v2>.</p>
+</div>
+
+<div class="callout-amber hook-option" data-hook="v3">
+  <p><strong style="color:#F5A623;">[HOOK v3 · <arquetipo>]</strong><br>
+  <texto del hook v3>.</p>
+</div>
+
+<!-- ═══════════════════ FIN HOOKS ═══════════════════ -->
+```
+
+**Reglas:**
+- Los 3 hooks deben ser de arquetipos distintos (no 3 variaciones del mismo tipo) para dar contraste real.
+- Cada hook debe ser callout completo y autosuficiente — no depender del contexto de los otros dos.
+- El label `[HOOK vN · arquetipo]` y la clase `hook-option` son obligatorios: permiten a Rafael identificarlos y borrarlos sin ambigüedad.
+- El comentario frontmatter del `<head>` describe los 3 arquetipos, NO declara "Hook elegido: #N" (la elección la hace Rafael en el HTML).
+- `/post-publish` debe validar que solo queda 1 bloque `.hook-option` y fallar si quedan ≥2 (señal de que Rafael no eligió).
+
+**Regla de validación:** si ningún hook provoca "vale, una más" al leerlo en el preview, reescribir los 3 antes de continuar.
+
+---
+
+## Variantes OBLIGATORIAS para "Nuestro veredicto" y "¿Sabías que…?"
+
+Mismo patrón que los hooks. Generar **3 versiones** del banner inicial de cada una de estas dos secciones y renderizarlas como bloques visibles en el HTML. Rafael elige uno en el preview y borra los otros dos.
+
+**Por qué:** el veredicto y el "¿sabías que?" son los dos bloques que más se remixan en newsletter, social posts y llms.txt. Tener 3 ángulos distintos permite a Rafael elegir el que mejor case con el hook escogido y con la campaña social posterior.
+
+### Nuestro veredicto
+
+Solo el **banner inicial** (el callout-amber de apertura de la sección) se triplica. Los párrafos que siguen (desarrollos por perfil de lector, dato que hace pensar, cierre) son únicos.
+
+```html
+<h2>🏆 Nuestro veredicto</h2>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     VEREDICTO — ELIGE UNO Y BORRA LOS OTROS 2 BLOQUES veredicto-option
+     v1 = <ángulo> · v2 = <ángulo> · v3 = <ángulo>
+     ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="callout-amber veredicto-option" data-variant="v1">
+  <p><strong style="color:#F5A623;">[VEREDICTO v1 · <ángulo>]</strong><br>
+  <texto veredicto v1>.</p>
+</div>
+
+<div class="callout-amber veredicto-option" data-variant="v2">
+  <p><strong style="color:#F5A623;">[VEREDICTO v2 · <ángulo>]</strong><br>
+  <texto veredicto v2>.</p>
+</div>
+
+<div class="callout-amber veredicto-option" data-variant="v3">
+  <p><strong style="color:#F5A623;">[VEREDICTO v3 · <ángulo>]</strong><br>
+  <texto veredicto v3>.</p>
+</div>
+
+<!-- ═══════════════════ FIN VEREDICTO ═══════════════════ -->
+
+<p>[Desarrollo común por perfil de lector, dato que hace pensar, etc. — un solo bloque, no triplicado]</p>
+```
+
+Ángulos a cubrir (elegir 3 distintos):
+- **Conteo/clasificación** — cuántos reales vs pre-order vs demo
+- **Perspectiva temporal** — qué puedes tener hoy / qué esperar 18 meses
+- **Perspectiva geográfica** — Europa vs Asia vs EE.UU.
+- **Perspectiva de presupuesto** — qué compras por X euros
+- **Contrarian / anti-recomendación** — por qué NO comprar
+
+### ¿Sabías que…?
+
+Solo el **párrafo-dato inicial** se triplica (con su fuente). Si hay desarrollo posterior o segunda cita, ese bloque queda único.
+
+```html
+<h2>💡 ¿Sabías que…?</h2>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     ¿SABÍAS QUE? — ELIGE UNO Y BORRA LOS OTROS 2 BLOQUES sabias-option
+     v1 = <ángulo-dato> · v2 = <ángulo-dato> · v3 = <ángulo-dato>
+     ═══════════════════════════════════════════════════════════════════ -->
+
+<div class="sabias-option" data-variant="v1">
+  <p><strong style="color:#F5A623;">[¿SABÍAS QUE v1 · <ángulo>]</strong><br>
+  <dato + contexto v1>.</p>
+  <p><a href="<url-fuente>">Fuente: <fuente>, <año></a></p>
+</div>
+
+<div class="sabias-option" data-variant="v2">
+  <p><strong style="color:#F5A623;">[¿SABÍAS QUE v2 · <ángulo>]</strong><br>
+  <dato + contexto v2>.</p>
+  <p><a href="<url-fuente>">Fuente: <fuente>, <año></a></p>
+</div>
+
+<div class="sabias-option" data-variant="v3">
+  <p><strong style="color:#F5A623;">[¿SABÍAS QUE v3 · <ángulo>]</strong><br>
+  <dato + contexto v3>.</p>
+  <p><a href="<url-fuente>">Fuente: <fuente>, <año></a></p>
+</div>
+
+<!-- ═══════════════════ FIN ¿SABÍAS QUE? ═══════════════════ -->
+```
+
+Cada variante puede usar una fuente distinta (no obligatorio citar todas desde la misma). Si una variante reutiliza la misma fuente que otra, repetirla dentro de su bloque (no factorizar fuera).
+
+### Reglas comunes (veredicto + ¿sabías que?)
+
+- Las 3 variantes deben aportar **ángulos genuinamente distintos**, no reformulaciones léxicas del mismo contenido.
+- El label `[SECCIÓN vN · ángulo]` y las clases `veredicto-option` / `sabias-option` son obligatorias — `/post-publish` las usa como checkpoint.
+- Cada variante debe ser **autosuficiente y legible** sin el contexto de las otras dos (por si Rafael lee el preview fuera de orden).
+- Los datos numéricos/estadísticos deben ser **reales y verificables**, no inventados entre variantes. Si no tienes dato sólido para una variante, usa un ángulo cualitativo en lugar de inventar cifra.
 
 <!-- added by wwai-integration 2026-04-17 -->
