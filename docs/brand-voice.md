@@ -15,16 +15,34 @@ Proyecto personal de Rafael. Nace de un interés de toda la vida en tecnología 
 
 ## 2. La promesa al lector
 
-Cada semana, en tu bandeja:
+Cada semana, en tu bandeja, los **3 pilares** del newsletter:
 
-- 🤖 Lo que ha pasado en robótica doméstica, sin tecnicismos
-- 🔍 Reviews sin filtro de robots que ya están a la venta
-- 🚀 Humanoides y el futuro de tu casa robotizada
-- 💡 Un dato curioso que no conocías cada semana
+- 🤖 **Análisis** · Lo que pasa esta semana
+- 🔍 **Reviews** · Robots reales, sin filtro
+- 📖 **Ficciones** · El hogar de 2035
+
+> *Versión corta para landing/social/cards.* Versión expandida para welcome email y about page más abajo en este doc o en `docs/guia-implementacion.md`. Cadencia ficciones: cada 3-4 semanas (no cada semana — gestionar expectativa en welcome email).
 
 **Dos pilares públicos:** Gratis · En español
 
 > *Nota interna:* la honestidad es un criterio editorial real (reviews sin filtro, sin notas de prensa reescritas, sin agenda oculta), pero NO se proclama en el tagline ni en marketing copy. Decir "somos honestos" es contraproducente — la honestidad se demuestra escribiendo, no anunciándola.
+
+---
+
+## 2.1 Taglines según contexto
+
+Diferentes superficies necesitan diferentes formas. Mantener consistencia: si cambias una (p.ej. cadencia "semanal" → "quincenal"), actualizar TODAS.
+
+| Contexto | Versión | Por qué esta forma |
+|---|---|---|
+| **Hero subtitle** (landing top) | `Te lo contamos cada semana · Gratis y en español` | Versión completa: cadencia + valor + idioma. Refuerza la propuesta antes del CTA principal |
+| **Footer** (brand line compacta) | `Tu dosis semanal de robótica doméstica` | Versión corta: marca + categoría + frecuencia. El lector ya bajó hasta aquí, menos atención disponible |
+| **Welcome email opening** | `Soy Rafael, y esto es ROBOHOGAR — tu dosis semanal de robótica doméstica` | Personal + categoría. El lector ya está dentro, conviene tono cercano |
+| **Meta description** (SEO) | `Te lo contamos cada semana: gratis y en español. Reviews sin filtro de robots, noticias sin tecnicismos y el futuro de tu casa robotizada.` | Versión SEO larga, con keywords primarias para Google |
+| **Title tag** (browser tab) | `ROBOHOGAR — Tu dosis de robótica doméstica` | Marca + tagline corta. Lo que el lector ve en pestañas y resultados Google |
+| **Bio social** (LinkedIn, X, IG) | `Tu dosis semanal de robótica doméstica · robohogar.com` | Misma forma corta del footer + URL |
+
+> **Regla de oro:** la palabra "semanal" / "cada semana" debe aparecer en TODAS las versiones — es la promesa de cadencia. Si un día se cambia la frecuencia, revisar esta tabla entera.
 
 ---
 

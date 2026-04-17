@@ -199,13 +199,14 @@ SECTION 2 — FEATURED ARTICLES (immediately after hero):
   stories with category badges. Copy the pattern of showing REAL content immediately 
   after the signup form — this is what retains visitors.
 
-SECTION 3 — WHAT YOU'LL GET:
-- Title: "¿Qué recibirás cada semana?"
-- 4 items with icons:
-  • "Lo que ha pasado en robótica doméstica, sin tecnicismos"
-  • "Reviews sin filtro de robots que ya están a la venta"
-  • "Humanoides y el futuro de tu casa robotizada"
-  • "Un dato curioso que no conocías cada semana"
+SECTION 3 — WHAT WE WRITE ABOUT (3 pillars, horizontal layout — NOT 4 stacked cards):
+- Title: "Sobre qué escribimos"
+- 3 columns (big icon + bold headline + short sub-line ≤30 chars):
+  • "🤖 **Análisis** · Lo que pasa esta semana"
+  • "🔍 **Reviews** · Robots reales, sin filtro"
+  • "📖 **Ficciones** · El hogar de 2035"
+- Mobile: collapses to 3 stacked items, smaller icons (48px instead of 64px)
+- Layout rationale: 3-column horizontal beats 4 stacked cards on mobile UX (less scroll, clearer hierarchy)
 - Reference: Morning Brew uses "Become smarter in 5 minutes" — clear value prop. 
   TLDR uses a numbered list of what each issue contains.
 

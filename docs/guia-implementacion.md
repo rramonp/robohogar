@@ -131,13 +131,14 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 > [!warning]
 > Esta sección estará vacía hasta que publiques los primeros artículos (FASE 2). Publica al menos 2 posts ANTES de compartir la landing públicamente.
 
-**Qué recibirás:**
-- [x] Título → `¿Qué recibirás cada semana?`
-- [x] 4 bullets:
-  - `🤖 Lo que ha pasado en robótica doméstica, sin tecnicismos`
-  - `🔍 Reviews sin filtro de robots que ya están a la venta`
-  - `🚀 Humanoides y el futuro de tu casa robotizada`
-  - `💡 Un dato curioso que no conocías cada semana`
+**Sobre qué escribimos** (3 pilares — formato 3-column horizontal, NO 4 cards apiladas):
+- [x] Título → `Sobre qué escribimos`
+- [x] 3 columnas (icono grande + headline en bold + sub-línea ≤30 chars):
+  - `🤖 **Análisis** · Lo que pasa esta semana`
+  - `🔍 **Reviews** · Robots reales, sin filtro`
+  - `📖 **Ficciones** · El hogar de 2035`
+
+> Beehiiv: usar el componente "Three Column" / "Features" del template Aurora News. Si no existe, usar bloque de HTML personalizado. NO usar el componente "Card list" actual (4 cards apiladas → mal UX en móvil).
 
 **Sobre el autor:**
 - [x] Imagen: subir `assets/branding/master/robohogar-mascot-leyendo.png` *(sección omitida — decisión editorial)*
@@ -545,10 +546,9 @@ de robótica doméstica.
 
 Esto es lo que vas a recibir cada semana:
 
-• Lo que ha pasado en robótica doméstica, sin tecnicismos
-• Reviews sin filtro de robots que ya están a la venta
-• Humanoides y el futuro de tu casa robotizada
-• Un dato curioso que no conocías
+• Análisis sin tecnicismos de lo que pasa en robótica doméstica
+• Reviews sin filtro de los robots que ya puedes comprar
+• Y, cada 3-4 semanas, una ficción corta sobre el hogar de 2035
 
 Para que no me pierda en tu spam, haz esto:
 → Arrastra este email a tu bandeja principal
