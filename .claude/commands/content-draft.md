@@ -57,6 +57,18 @@ Para **Review/Comparativa**, seguir la estructura completa del template:
 3. Los que NO recomiendo → Tabla resumen comparativa → Veredicto final
 4. CTA suave + Disclaimer afiliados
 
+**Tabla resumen — badges clickables OBLIGATORIOS:** la columna de estado (Pre-order / A la venta / Pre-anuncio) debe envolver cada `<span class="badge ...">` en `<a href="URL-oficial" target="_blank" rel="noopener nofollow" style="text-decoration:none;">` apuntando a la página oficial del fabricante (o a la fuente documentada en PASOS.md si no hay página oficial de pre-order). Añadir ` ↗` al final del texto del badge para indicar visualmente que es enlace externo.
+
+```html
+<td>
+  <a href="https://www.fabricante.com/producto" target="_blank" rel="noopener nofollow" style="text-decoration:none;">
+    <span class="badge badge-amber">Pre-order ↗</span>
+  </a>
+</td>
+```
+
+Reusar las URLs de la tabla "Fuentes del artículo" del PASOS.md (la columna `Cómo verificar` ya documenta el dominio oficial). Si una URL no es firme, marcar con comentario `<!-- TODO: confirmar URL oficial -->` junto al `<a>`.
+
 Para otros tipos, usar la estructura documentada en `content/templates/estructura-templates.md` (Template 2 para editorial/opinión). Incluir siempre frontmatter YAML con: title, seo_title, meta_description, slug, tags, type, status, created, affiliate.
 
 ### 4. Checklist SEO (de `rules/seo.md`)
@@ -233,6 +245,11 @@ Formato exacto a emitir:
      v1 = <arquetipo> · v2 = <arquetipo> · v3 = <arquetipo>
      ═══════════════════════════════════════════════════════════════════ -->
 
+<p class="variant-reco" style="font-size:13px; color:#6B7280; font-style:italic; margin:12px 0; padding:8px 12px; border-left:3px solid #F5A623; background:#FFF9EF;">
+  💡 <strong>Recomendación IA:</strong> v<N> (<arquetipo>).
+  <strong>Motivo:</strong> <explicación breve — 1-2 frases — de por qué esta variante es la más fuerte Y por qué las otras dos quedan por debajo>.
+</p>
+
 <div class="callout-amber hook-option" data-hook="v1">
   <p><strong style="color:#F5A623;">[HOOK v1 · <arquetipo>]</strong><br>
   <texto del hook v1>.</p>
@@ -280,6 +297,11 @@ Solo el **banner inicial** (el callout-amber de apertura de la sección) se trip
      v1 = <ángulo> · v2 = <ángulo> · v3 = <ángulo>
      ═══════════════════════════════════════════════════════════════════ -->
 
+<p class="variant-reco" style="font-size:13px; color:#6B7280; font-style:italic; margin:12px 0; padding:8px 12px; border-left:3px solid #F5A623; background:#FFF9EF;">
+  💡 <strong>Recomendación IA:</strong> v<N> (<ángulo>).
+  <strong>Motivo:</strong> <1-2 frases — por qué este ángulo cierra mejor el artículo y qué flojea en las otras dos variantes>.
+</p>
+
 <div class="callout-amber veredicto-option" data-variant="v1">
   <p><strong style="color:#F5A623;">[VEREDICTO v1 · <ángulo>]</strong><br>
   <texto veredicto v1>.</p>
@@ -319,6 +341,11 @@ Solo el **párrafo-dato inicial** se triplica (con su fuente). Si hay desarrollo
      v1 = <ángulo-dato> · v2 = <ángulo-dato> · v3 = <ángulo-dato>
      ═══════════════════════════════════════════════════════════════════ -->
 
+<p class="variant-reco" style="font-size:13px; color:#6B7280; font-style:italic; margin:12px 0; padding:8px 12px; border-left:3px solid #F5A623; background:#FFF9EF;">
+  💡 <strong>Recomendación IA:</strong> v<N> (<ángulo>).
+  <strong>Motivo:</strong> <1-2 frases — por qué este dato sorprende más o conecta mejor con la tesis del artículo; qué les falta a las otras dos>.
+</p>
+
 <div class="sabias-option" data-variant="v1">
   <p><strong style="color:#F5A623;">[¿SABÍAS QUE v1 · <ángulo>]</strong><br>
   <dato + contexto v1>.</p>
@@ -342,11 +369,12 @@ Solo el **párrafo-dato inicial** se triplica (con su fuente). Si hay desarrollo
 
 Cada variante puede usar una fuente distinta (no obligatorio citar todas desde la misma). Si una variante reutiliza la misma fuente que otra, repetirla dentro de su bloque (no factorizar fuera).
 
-### Reglas comunes (veredicto + ¿sabías que?)
+### Reglas comunes (hook + veredicto + ¿sabías que?)
 
 - Las 3 variantes deben aportar **ángulos genuinamente distintos**, no reformulaciones léxicas del mismo contenido.
-- El label `[SECCIÓN vN · ángulo]` y las clases `veredicto-option` / `sabias-option` son obligatorias — `/post-publish` las usa como checkpoint.
+- El label `[SECCIÓN vN · ángulo]` y las clases `hook-option` / `veredicto-option` / `sabias-option` son obligatorias — `/post-publish` las usa como checkpoint.
 - Cada variante debe ser **autosuficiente y legible** sin el contexto de las otras dos (por si Rafael lee el preview fuera de orden).
 - Los datos numéricos/estadísticos deben ser **reales y verificables**, no inventados entre variantes. Si no tienes dato sólido para una variante, usa un ángulo cualitativo en lugar de inventar cifra.
+- **OBLIGATORIO: bloque `<p class="variant-reco">` visible justo antes de las 3 variantes** con la recomendación de la IA (v1/v2/v3) **entre paréntesis** y el motivo **entre paréntesis** (1-2 frases explicando por qué esa es la más fuerte y qué flojea en las otras). Rafael usa este bloque para decidir sin tener que comparar las tres a ciegas; es texto desechable — se borra junto con las 2 variantes no elegidas. No poner la recomendación solo en comentarios HTML: Rafael lee el preview renderizado, no el código fuente.
 
 <!-- added by wwai-integration 2026-04-17 -->

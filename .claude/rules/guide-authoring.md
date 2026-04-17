@@ -39,4 +39,4 @@ Con esas frases, Claude debe:
 ## Precedentes del repo
 
 - Digest research 2026-04-17: bloque "📌 Recomendación ROBOHOGAR — Para retomar" con frase exacta al principio
-- FASE 4B `guia-implementacion.md`: 4 frases trigger (una por fase + una de estado)
+- FASE 4B y 4C `guia-implementacion.md`: 4 frases trigger cada una (una por sub-fase + una de estado)
