@@ -116,6 +116,26 @@ Cada artículo necesita imágenes inline de las fuentes originales (fabricantes,
 
 **Control de peso:** Artículos web → <300 KB/imagen razonable. Newsletter email → <200 KB/imagen, <800 KB total. Reportar siempre peso en PASOS.md.
 
+**Imágenes candidatas no-inline — bloque visible OBLIGATORIO (OPTIONAL-IMAGE pattern):**
+
+Si descargas un asset pero decides NO meterlo inline por defecto (exceso de imágenes, sección de opinión pura, duda editorial), **NO dejarlo solo listado en PASOS.md** — eso fuerza a Rafael a redactar el pie de foto desde cero si luego decide usarlo. En su lugar, insertar en la sección correspondiente del HTML un bloque `<div class="image-optional">` con:
+
+1. Nota ámbar visible explicando que es opcional y cómo activarla/borrarla
+2. `<img>` con `src` + `alt` apuntando al asset real
+3. `<p class="fig-caption">` con pie de foto ya redactado siguiendo la voz editorial del artículo
+
+```html
+<div class="image-optional" style="border:2px dashed #F5A623; padding:12px; margin:16px 0; background:#FFF9EF; border-radius:6px;">
+  <p style="font-size:12px; color:#6B7280; font-style:italic; margin:0 0 8px;">⚠️ IMAGEN OPCIONAL — asset ya descargado y pie listo. Borra este bloque entero si NO la quieres, o borra solo este <code>&lt;div class="image-optional"&gt;</code> wrapper si SÍ la quieres (dejando img + caption).</p>
+  <img class="inline" src="assets/figure-<slug>.<ext>" alt="<descripción concreta>">
+  <p class="fig-caption">Imagen: <1-2 frases voz editorial + dato ancla>. Fuente: <fuente>.</p>
+</div>
+```
+
+**Regla:** por cada asset descargado a `content/articulos/<slug>/assets/` debe existir una de dos cosas en el borrador HTML: (a) bloque `<img>+<p class="fig-caption">` inline activo, o (b) bloque `<div class="image-optional">` con pie de foto listo. Nunca un asset huérfano sin pie redactado.
+
+**Validación:** antes de cerrar el borrador, listar los assets de la carpeta y verificar que cada uno aparece referenciado en el HTML (inline o como image-optional). `/post-publish` comprueba que no queden bloques `image-optional` antes de publicar.
+
 ### 8. Generar PASOS.md + mapa visual (OBLIGATORIO)
 
 **Usar el generador automático** para evitar rehacer el 60% repetido cada vez:

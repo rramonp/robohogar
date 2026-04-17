@@ -35,6 +35,10 @@ Antes de hacer nada, comprobar que el artículo se ve correctamente:
 grep -c 'class="callout-amber hook-option"'     content/articulos/<slug>/borrador.html
 grep -c 'class="callout-amber veredicto-option"' content/articulos/<slug>/borrador.html
 grep -c 'class="sabias-option"'                  content/articulos/<slug>/borrador.html
+
+# Bloques image-optional: deben ser 0 antes de publicar (Rafael decidió sí/no)
+grep -c 'class="image-optional"' content/articulos/<slug>/borrador.html
+# Si devuelve ≥1: PARAR, avisar a Rafael que decida cada imagen opcional (borrar bloque completo o borrar solo el wrapper)
 ```
 
 ```bash
