@@ -10,10 +10,12 @@
 
 ---
 
-| # | Fecha | Título | Slug | URL | Tipo | Tags |
-|---|-------|--------|------|-----|------|------|
-| 0 | 2026-04-14 | Robots de escritorio con IA: cuál merece tu dinero (y cuál es humo) | mejor-robot-asistente-ia-2026 | https://robohogar.com/p/mejor-robot-asistente-ia-2026 | Review/Comparativa | Asistentes IA, Robot Mascotas |
-| 1 | 2026-04-15 | Humanoides en casa: ¿cuánto falta de verdad? | humanoides-en-casa-cuanto-falta | https://robohogar.com/p/humanoides-en-casa-cuanto-falta | Editorial/Opinión | Humanoides, Opinión |
-| 2 | 2026-04-16 | Roborock Saros Z70: ¿merece la pena pagar por un brazo mecánico? | roborock-saros-z70-review | https://robohogar.com/p/roborock-saros-z70-review | Editorial/Opinión | Aspiradores, Opinión |
-| 3 | 2026-04-17 | NEO va a fábricas: ¿humanoide doméstico o industrial? | neo-humanoide-fabricas-eqt | https://robohogar.com/p/neo-humanoide-fabricas-eqt | Editorial/Opinión | Humanoides, Opinión |
-| 4 | 2026-04-17 | Humanoides domésticos 2026: los 7 que puedes comprar o reservar | humanoides-domesticos-2026-comparativa | https://robohogar.com/p/humanoides-domesticos-2026-comparativa | Comparativa | Humanoides, Comparativa |
+**Campo `Evergreen`:** `true` = contenido atemporal, reutilizable en redes con meses de retraso (revisar precios antes de reutilizar). `false` = editorial reactivo sobre noticia concreta, caduca en 3-6 meses. Usado por `/social-content` para construir backlog de repurposing cuando haya audiencia (FASE 4B+).
+
+| # | Fecha | Título | Slug | URL | Tipo | Tags | Evergreen |
+|---|-------|--------|------|-----|------|------|-----------|
+| 0 | 2026-04-14 | Robots de escritorio con IA: cuál merece tu dinero (y cuál es humo) | mejor-robot-asistente-ia-2026 | https://robohogar.com/p/mejor-robot-asistente-ia-2026 | Review/Comparativa | Asistentes IA, Robot Mascotas | ✅ true |
+| 1 | 2026-04-15 | Humanoides en casa: ¿cuánto falta de verdad? | humanoides-en-casa-cuanto-falta | https://robohogar.com/p/humanoides-en-casa-cuanto-falta | Editorial/Opinión | Humanoides, Opinión | ✅ true |
+| 2 | 2026-04-16 | Roborock Saros Z70: ¿merece la pena pagar por un brazo mecánico? | roborock-saros-z70-review | https://robohogar.com/p/roborock-saros-z70-review | Editorial/Opinión | Aspiradores, Opinión | ✅ true |
+| 3 | 2026-04-17 | NEO va a fábricas: ¿humanoide doméstico o industrial? | neo-humanoide-fabricas-eqt | https://robohogar.com/p/neo-humanoide-fabricas-eqt | Editorial/Opinión | Humanoides, Opinión | ❌ false (deal 12-abr-2026, caducable) |
+| 4 | 2026-04-17 | Humanoides domésticos 2026: los 7 que puedes comprar o reservar | humanoides-domesticos-2026-comparativa | https://robohogar.com/p/humanoides-domesticos-2026-comparativa | Comparativa | Humanoides, Comparativa | ✅ true (revisar precios cada 3-6m) |

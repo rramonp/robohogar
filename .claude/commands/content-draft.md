@@ -69,7 +69,13 @@ Para **Review/Comparativa**, seguir la estructura completa del template:
 
 Reusar las URLs de la tabla "Fuentes del artículo" del PASOS.md (la columna `Cómo verificar` ya documenta el dominio oficial). Si una URL no es firme, marcar con comentario `<!-- TODO: confirmar URL oficial -->` junto al `<a>`.
 
-Para otros tipos, usar la estructura documentada en `content/templates/estructura-templates.md` (Template 2 para editorial/opinión). Incluir siempre frontmatter YAML con: title, seo_title, meta_description, slug, tags, type, status, created, affiliate.
+Para otros tipos, usar la estructura documentada en `content/templates/estructura-templates.md` (Template 2 para editorial/opinión). Incluir siempre frontmatter YAML con: `title`, `seo_title`, `meta_description`, `slug`, `tags`, `type`, `status`, `created`, `affiliate`, **`evergreen`** (true/false), **`evergreen_note`** (motivo).
+
+**Campo `evergreen`** — clasificar al generar el borrador:
+- `true` = comparativa, review, guía, editorial de tesis atemporal → reutilizable en redes meses después (FASE 4B+ repurposing)
+- `false` = editorial reactivo sobre noticia/deal/lanzamiento concreto con fecha → caducable en 3-6 meses
+
+El flag se replica en `content/registro-articulos.md` (columna Evergreen) como fuente de verdad del backlog social.
 
 ### 4. Checklist SEO (de `rules/seo.md`)
 

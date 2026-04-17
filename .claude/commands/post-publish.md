@@ -66,10 +66,15 @@ Marcar todos los checkboxes del artículo como completados y añadir la URL publ
 
 Añadir el artículo a `content/registro-articulos.md` — la fuente de verdad de todo lo publicado:
 ```
-| <N> | <fecha> | <título> | <slug> | <URL> | <tipo> | <tags> |
+| <N> | <fecha> | <título> | <slug> | <URL> | <tipo> | <tags> | <evergreen> |
 ```
 
-Este archivo se sincroniza a Obsidian automáticamente en el paso 11.
+Para el campo `Evergreen`:
+- Si el frontmatter del borrador tiene `evergreen: true|false`, usar ese valor
+- Si no existe (artículos antiguos), inferir por tipo: Comparativa/Review/Guía/Editorial de tesis → `✅ true`; Editorial reactivo sobre deal/lanzamiento/noticia con fecha → `❌ false` + nota de motivo
+- Este flag lo consume `/social-content` para saber si el artículo va al backlog de repurposing social (FASE 4B+)
+
+Este archivo se sincroniza a Obsidian automáticamente en el paso 12.
 
 ### 6. Regenerar llms.txt
 

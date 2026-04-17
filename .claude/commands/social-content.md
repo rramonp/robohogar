@@ -17,6 +17,14 @@ Output listo para copiar/pegar en cada plataforma.
 - Leer el artículo/newsletter más reciente de `content/published/` o `content/drafts/`
 - Si Rafael especifica uno concreto, usar ese
 - Extraer: título, hook, datos clave, opinión principal, link a Beehiiv
+- **Leer flag `Evergreen`** del artículo en `content/registro-articulos.md` (o del frontmatter si es artículo nuevo):
+  - `true` → generar posts normalmente + añadir cabecera `evergreen: true` al YAML del `.md` social
+  - `false` → generar posts igual pero marcar cabecera `evergreen: false` + añadir nota **"⚠️ Post reactivo sobre noticia con fecha — NO reutilizar en redes después de 2026-MM-DD (fecha_publicación + 3 meses). Publicar solo en su ventana de relevancia."**
+
+## Uso del flag en planificación
+
+- **Pre-audiencia (<30 subs, hoy):** los posts se generan y se archivan en `content/social/` como banco. NO programar en Buffer mientras no haya presencia activa en el canal (ver regla en `rules/newsletter.md` fase pre-audiencia)
+- **FASE 4B+ (con audiencia):** construir calendario social mezclando (a) 1 post del artículo nuevo de la semana + (b) 1 post evergreen del backlog de semanas previas. Los posts `evergreen: false` NO entran en el backlog de reutilización — solo se publican en su ventana de relevancia o se descartan
 
 ### 2. Generar contenido por plataforma
 

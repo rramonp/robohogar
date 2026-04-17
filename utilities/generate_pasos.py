@@ -109,8 +109,29 @@ def build_replacements(frontmatter: dict, slug: str, articulo_num: int = None) -
     # Content Gate por defecto NO para reviews/editoriales evergreen
     content_gate = "❌ NO activar (foco SEO, artículo evergreen)"
 
+    # Evergreen: leer del frontmatter si existe, si no inferir del `type`
+    # (editorial reactivo → false por defecto; resto → true)
+    evergreen_raw = frontmatter.get("evergreen")
+    if evergreen_raw in ("true", "false"):
+        evergreen = evergreen_raw == "true"
+    elif isinstance(evergreen_raw, bool):
+        evergreen = evergreen_raw
+    else:
+        # Inferencia por defecto: editoriales → false (por seguridad), resto → true
+        article_type = (frontmatter.get("type") or "").lower()
+        evergreen = article_type not in ("editorial", "opinion", "editorial/opinion", "noticia")
+    evergreen_flag = "✅ true" if evergreen else "❌ false"
+    evergreen_note_default = (
+        "comparativa/review/guía — reutilizable en redes con meses de retraso (revisar precios antes)"
+        if evergreen else
+        "editorial reactivo — caduca en 3-6 meses, NO reutilizar en redes más tarde"
+    )
+    evergreen_note = frontmatter.get("evergreen_note", evergreen_note_default)
+
     return {
         "ARTICULO_NUM": str(articulo_num) if articulo_num is not None else "?",
+        "EVERGREEN": evergreen_flag,
+        "EVERGREEN_NOTE": evergreen_note,
         "TITULO": title,
         "SUBTITULO_O_PROMESA": f"Artículo tipo {frontmatter.get('type', '?')}. Rellenar una frase con la promesa concreta al lector.",
         "META_TITLE": seo_title,

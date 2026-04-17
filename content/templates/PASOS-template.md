@@ -12,6 +12,9 @@
 | **Tags** | {TAGS} |
 | **Publish to** | `{PUBLISH_TO}` {PUBLISH_NOTE} |
 | **Content Gate** | {CONTENT_GATE} |
+| **Evergreen** | {EVERGREEN} — {EVERGREEN_NOTE} |
+
+> **Evergreen** = ¿este artículo sirve para reutilizar en redes dentro de 3-6 meses cuando haya audiencia? `true` para comparativas, reviews, guías y editoriales de tesis. `false` para editoriales reactivos sobre noticia concreta (deals, lanzamientos) con fecha de caducidad.
 
 ## Hero image — elegir 1 de 3 variantes
 
