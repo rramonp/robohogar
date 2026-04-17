@@ -2,6 +2,29 @@
 
 > Rango cubierto: 2026-04-10 a 2026-04-17. Este digest refresca el semanal del 2026-04-16 con las novedades de últimos días y añade el bloque de **Semillas narrativas — Ficciones Domésticas** (skill actualizado).
 
+---
+
+## 📌 Recomendación ROBOHOGAR — Para retomar más tarde
+
+> **Frase trigger para el futuro:** _"Retomamos el digest del 2026-04-17 — quiero hacer artículo + historia corta"_
+> Cuando digas eso, el agente debe leer este bloque y proponer abrir `/content-draft` y `/ficcion-draft` con las opciones de abajo.
+
+**Para el artículo:**
+- 🥇 **Recomendado:** "1X NEO va a fábricas: la contradicción del humanoide doméstico" — editorial crítico, 🔥🔥🔥, ángulo fresco que nadie ha escrito en español todavía. Datos ancla: deal 1X+EQT del 12-abr-2026 (10.000 unidades industriales) vs pitch "humanoide para tu hogar" ($20K). Continuación directa del editorial "Humanoides en casa" ya publicado
+- 🥈 Alternativa: "Neura 4NE-1 Porsche Design 98.000€" (ángulo europeo, status symbol vs hogar real)
+- 🥉 Alternativa: "AI Act y humanoides domésticos: qué cambia en agosto 2026" (servicio público, audiencia EU)
+
+**Para la historia corta (Ficciones Domésticas):**
+- 🥇 **Recomendado:** Semilla **#1 "El operador nocturno"** — densidad narrativa + dato ancla sólido (teleoperación NEO real). Formato propuesto: relato corto 1.500-3.000 o mini-serie 3 episodios
+- 🥈 Alternativa: Semilla **#4 "El guante"** — máxima carga emocional (cuidadora + alzhéimer + extracción invisible). Relato corto con final ambiguo
+- Las 4 semillas completas están en [§ Semillas narrativas](#semillas-narrativas--ficciones-domésticas) de este mismo digest
+
+**Cómo ejecutar cuando retomes:**
+- `/content-draft` → te propondrá borrador del artículo recomendado
+- `/ficcion-draft` (sin argumentos) → leerá el backlog de Ficciones y propondrá 3 opciones. Di "quiero la #1 el operador nocturno" y arranca
+
+---
+
 ## Top Stories (relevance 4-5)
 
 ### 1. 1X + EQT: 10.000 "robots domésticos" NEO se van a fábricas y almacenes
