@@ -9,10 +9,24 @@
 | Qué | Frecuencia | Publish to | Prioridad |
 |-----|-----------|-----------|-----------|
 | **Artículo web** | ~1/semana (objetivo) | `Email and web` | Alta — genera SEO y trae suscriptores |
+| **Ficciones Domésticas** | 1 cada 3-4 semanas | `Email and web` (tag: Ficciones Domésticas) | Media — pilar experimental ~10% del mix |
 | **Newsletter** | Activar cuando haya 30-50 suscriptores | `Email only` | Baja hasta tener audiencia |
 | **Research digest** | Bajo demanda (antes de escribir) | No se publica | Ejecutar si no hay digest reciente |
 
 **Flujo:** digest (si falta) → artículo → publicar → post-publish. Sin día fijo — cuando Rafael tenga tiempo.
+
+### Slot Ficciones Domésticas
+
+Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurrentes. Pilar experimental, cadencia separada del artículo semanal.
+
+- **Cadencia objetivo:** 1 relato cada 3-4 semanas (no cada semana — la ficción satura más rápido)
+- **Formato:** flash 500-1.000 · relato corto 1.500-3.000 · mini-serie por episodios
+- **Skill:** `/ficcion-draft {semilla, personajes, longitud}`
+- **Output:** `content/ficciones/<serie>/YYYY-MM-DD-<slug>.md` + PASOS.md
+- **Publicación en Beehiiv:** `Email and web` con tag dedicado "Ficciones Domésticas"
+- **Piloto recomendado antes de mini-serie:** 3 flash fictions de 800 palabras en 3 semanas consecutivas. Si engagement sube >10% → comprometer mini-serie. Si neutral → mantener rotativa. Si negativo → archivar.
+- Fechas concretas: Rafael las decide. El slot está reservado en el calendario, no programado.
+- Detalle: `@content/ficciones/README.md` · Voz: `@.claude/rules/editorial.md` § Narrativa especulativa
 
 ---
 
@@ -41,6 +55,16 @@
 | Baja | Historia de la robótica doméstica | Editorial | robótica doméstica | 🔥 | Pilar SEO |
 
 ---
+
+## Backlog Ficciones Domésticas
+
+> Semillas narrativas candidatas para relatos futuros. Rafael elige cuándo y en qué serie encajan.
+> `/research-digest` añade semillas aquí automáticamente (paso 8b del skill) extrayendo tensión narrativa de las noticias reales. `/ficcion-draft` las consume (paso 0 del skill).
+> Placeholders — ninguna es canon hasta que se publica el episodio.
+
+| Prioridad | Semilla de trabajo | Formato | Serie sugerida | Tema humano | Dato real ancla | Notas |
+|-----------|--------------------|---------|----------------|-------------|-----------------|-------|
+| — | _(pendiente — `/research-digest` rellenará tras primera ejecución post-integración)_ | | | | | |
 
 ## Temas usados (no repetir)
 

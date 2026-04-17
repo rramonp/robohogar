@@ -48,7 +48,11 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
    - Buscar threads en Reddit/foros (WebSearch "tema + reddit") y notar upvotes/comentarios
    - Comprobar si medios mainstream (no solo tech) cubren la noticia
    - Asignar escala: 🔥 = pocos medios, sin debate / 🔥🔥 = varios medios + algo de debate / 🔥🔥🔥 = cobertura masiva + foros activos + mainstream
-5. Output DUAL:
+5. **Extraer semillas narrativas para Ficciones Domésticas** (pilar ficción — `/ficcion-draft`):
+   - De las Top + Notable stories, identificar 2-4 que tengan "alma" narrativa: implican cambios en la vida cotidiana, tensión humana latente, dilema moral, o escenas físicas evocativas en un hogar
+   - Para cada semilla extraer: (a) gancho 1-frase especulativo 2030-2040, (b) **dato real anclado** (ley, estadística, spec), (c) **villano humano implícito** (soledad, burnout, brecha digital, miedo a obsolescencia — NUNCA el robot), (d) personajes tipo que podrían encajar (abuela sola, familia con hijos pequeños, técnico de servicio, etc.)
+   - Estas semillas alimentan el backlog Ficciones Domésticas (paso 6b). Rafael decidirá luego en qué serie encajan
+6. Output DUAL:
    - Repo: `content/drafts/research-digest-YYYY-MM-DD.md`
    - Vault Obsidian: `$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Research/Research Digest YYYY-MM-DD.md`
    (usar template del vault: `Templates/Template Research Digest.md`)
@@ -74,16 +78,27 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
 | Imagen | URL fuente | Uso sugerido |
 |--------|-----------|--------------|
 | [descripción] | [URL directa] | [qué sección del artículo] |
+
+## Semillas narrativas — Ficciones Domésticas
+> Para `/ficcion-draft`. Estas no se publican como artículos — alimentan el backlog de ficción.
+
+- **[Gancho 1-frase, ej: "Un humanoide doméstico cuenta los pasos de una abuela sola en Vigo"]**
+  - Dato real anclado: [AI Act art. X / INE 2025 / spec concreta]
+  - Villano humano: [p.ej. "El silencio de las 18:00" — soledad mayores solos]
+  - Personajes tipo: [abuela 78a + humanoide cuidados + hija ausente por trabajo]
+  - Formato sugerido: [flash | corto | episodio]
 ```
 
 **Recopilar imágenes durante el research:** Para cada Top Story (relevance 4-5), buscar al menos 1 imagen editorial/prensa de la fuente oficial (blog del fabricante, nota de prensa, medio tech). Priorizar fotos reales de producto/evento sobre renders genéricos. Estas imágenes se descargarán en el paso de `/content-draft` para colocarlas en el HTML.
 
-5. **Wiki update**: para cada robot/empresa mencionado en el digest:
+7. **Wiki update**: para cada robot/empresa mencionado en el digest:
    - Si NO existe nota en `Wiki/Robots/` o `Wiki/Empresas/` → crear desde template
    - Si existe → añadir bullet con la noticia + fecha + fuente
    - Ruta vault Wiki: `$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Wiki/`
-6. **Actualizar backlog** en `content/calendario-editorial.md` — añadir temas candidatos del digest al backlog con prioridad y keyword SEO
-7. Rafael picks 3-5 stories, adds his angle, and drafts the newsletter
+8. **Actualizar backlogs DUALES** en `content/calendario-editorial.md`:
+   - **8a. Backlog de temas (artículos)**: añadir Top/Notable stories con prioridad (Alta si 🔥🔥🔥, Media si 🔥🔥, Baja si 🔥), keyword SEO, tipo (Review/Editorial/Comparativa/Guía)
+   - **8b. Backlog Ficciones Domésticas**: añadir las 2-4 semillas narrativas extraídas en paso 5. Columnas: Prioridad · Semilla de trabajo · Formato · Serie sugerida · Tema humano · Notas (incluir el dato real ancla)
+9. Rafael picks 3-5 stories for articles, or invokes `/ficcion-draft` pulling semillas del backlog Ficciones Domésticas
 
 ---
 
@@ -148,3 +163,11 @@ Every website brief must answer:
 - NEVER start design/build without answering the 5 Questions first
 - Cite sources with URLs when using specific data
 - Firecrawl credits are limited (500/month free) — be efficient, don't scrape entire sites when a homepage suffices
+
+## Handoff a otros skills
+
+- **`/content-draft`** toma los Top Stories + imágenes del digest para borradores de artículos
+- **`/ficcion-draft`** toma semillas del "Backlog Ficciones Domésticas" (paso 8b). Rafael puede invocarlo sin `{semilla-narrativa}` si hay digest reciente — el skill leerá el backlog y propondrá 3 opciones
+- **`/social-content`** recicla ángulos del digest para LinkedIn/IG tras publicar
+
+<!-- wwai-integration 2026-04-17: semillas narrativas + handoff skills -->

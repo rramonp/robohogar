@@ -189,3 +189,66 @@ Robot pequeño, cabeza esférica, ojos LED ámbar, delantal azul a cuadros con c
 - Papers académicos sobre IA
 
 **Nivel técnico:** Saben usar tecnología, compran online, leen reviews antes de comprar. No son ingenieros ni early adopters extremos.
+
+---
+
+## 11. Aprendizajes de referencias externas
+
+> Destilación del newsletter **Write With AI** (Cole/Bush, 142 artículos). Detalle completo y tablas en [`../references/writewithai/01-voz-y-estructura.md`](../references/writewithai/01-voz-y-estructura.md). Aquí lo esencial para uso diario.
+
+### 11.1 Tres hooks probados (adaptados al español plural)
+
+Usar la primera frase como "puerta" — si no provoca leer la segunda, está rota. Los tres tipos que mejor encajan con la voz ROBOHOGAR:
+
+| Hook | Plantilla ROBOHOGAR | Ejemplo |
+|---|---|---|
+| **First-person plural + acción específica** | "Esta semana/ayer hemos [verbo concreto]..." | *"Ayer pasamos 3 horas comparando el Roborock Saros con el Dreame X50."* |
+| **Belief destruction** | "'[Creencia común]' — eso creíamos hasta que..." | *"'Los robots solo funcionan en casas grandes' — eso creíamos hasta que probamos uno en 55 m²."* |
+| **Escena sensorial** | "[Día, hora]. [Detalle concreto]. [Giro]." | *"Martes, 7:40. El robot sale de su base sin ruido. El bebé sigue durmiendo."* |
+
+Siete tipos más (pregunta metafórica, stat impactante, historia diminuta, reframe violento, promesa cuantitativa, objeto cotidiano, anti-cliché) en [`../references/writewithai/01-voz-y-estructura.md#1-aperturas-hooks-10-tipos-con-ejemplo-robohogar`](../references/writewithai/01-voz-y-estructura.md).
+
+### 11.2 Ritmo 1/3/1 como patrón de párrafo
+
+Estándar para todo borrador — cada bloque narrativo sigue esta arquitectura:
+
+```
+(1) Frase de apertura punzante.
+(3) Frase que desarrolla.
+    Frase que da el ejemplo concreto.
+    Frase que conecta con el dolor del lector.
+(1) Frase de cierre con giro o verdad simple.
+```
+
+Alternar frases largas con frases cortas de 3-4 palabras ("*spartan sentences*") crea el golpe. Regla: si los tres primeros párrafos del borrador no siguen 1/3/1, reescribirlos antes de seguir.
+
+### 11.3 Transiciones con pregunta retórica
+
+Puente obligado entre bloques. Variantes ROBOHOGAR equivalentes a *"Pretty cool, right?"* / *"Now what?"*:
+
+- "¿Merece la pena?"
+- "¿Y ahora qué hacemos con esto?"
+- "Lo importante aquí:"
+- "¿Qué implica esto?"
+- "Os lo contamos:"
+
+Una frase sola como párrafo ("Todavía.") funciona como interrupción rítmica igual que el *"Yet."* de Cole. Usar con moderación — 1 por artículo max.
+
+### 11.4 Cierre ritual "Os leemos / Os dejamos" + P.D.
+
+Todo newsletter cierra con el mismo patrón de 4 elementos (ver original en referencia):
+
+```
+[Una frase punzante final — el "Yet." de Cole].
+
+Os leemos el martes que viene.
+
+Un saludo,
+El equipo de ROBOHOGAR
+
+P.D. [Pregunta única al lector, o micro-CTA editorial no comercial].
+```
+
+El P.D. **no vende** — abre conversación. Preguntas que generan reply ("responde con UNA palabra") funcionan mejor que enlaces.
+
+<!-- added by wwai-integration 2026-04-17 -->

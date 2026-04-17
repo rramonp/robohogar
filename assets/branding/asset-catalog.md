@@ -44,6 +44,70 @@ Catálogo vivo de todos los assets visuales generados. **Actualizar después de 
 | `newsletter-header.png` | `images/` | 2026-04-13 | Cabecera newsletter — mascota saludando + espacio limpio. Flash, 21:9 |
 | `social-card-template-v2.png` | `images/` | 2026-04-13 | Template social card — borde elegante + mascota esquina inferior derecha. Flash, square |
 
+## Heros ficción — still cinematográfico
+
+Para el pilar **Ficciones Domésticas** (relatos de ciencia ficción doméstica próxima). Estilo diferente al product-hero de artículos: es un **still de película**, no una miniatura editorial.
+
+### Cuándo usar este estilo
+
+- Cualquier relato generado por `/ficcion-draft` (flash, corto, mini-serie)
+- NO usar product-hero (esa paleta ámbar-cocina hogar editorial), es un lenguaje visual distinto
+- NO usar la mascota
+
+### Referencias visuales
+
+- *Black Mirror* en registro doméstico (no distópico-industrial)
+- *Her* (Spike Jonze) — luz cálida suavemente desaturada, composición íntima
+- *After Yang* (Kogonada) — quietud, objetos cotidianos, dolor contenido
+- *Ex Machina* en registro ligero — tensión sin amenaza
+
+### Parámetros
+
+| Elemento | Especificación |
+|---|---|
+| **Composición** | Escena narrativa, no producto. Punto focal = momento emocional (una mano, un rostro, una silueta contra ventana) |
+| **Iluminación** | Motivada (ventana, lámpara de mesa, pantalla). No golden hour genérico — luz realista de hora concreta del día |
+| **Paleta** | Ámbar cálido ligeramente desaturado + azul frío de pantallas/ventanas nocturnas. Más melancólica que los heros de artículos |
+| **Grano** | Ligero grano fílmico, sensación anamórfica. Evitar render 3D perfectamente limpio |
+| **Texto** | NUNCA |
+| **Mascota** | NUNCA |
+| **Neones** | NUNCA (regla común con heros editoriales) |
+
+### Prompt base (adaptar por escena)
+
+```
+Cinematic film still, 2030s Spanish home interior, [ESCENA CLAVE DEL RELATO —
+1-2 elementos focales, momento emocional concreto].
+Natural motivated light (from window / lamp / screen), slight desaturation,
+soft film grain, anamorphic lens feel, shallow depth of field.
+Editorial speculative fiction mood — warm but melancholic, intimate,
+quiet tension. Reference: Black Mirror domestic, After Yang, Her.
+Absolutely NO text, NO letters, NO words, NO writing of any kind.
+```
+
+### Parámetros técnicos nano-banana
+
+```bash
+uv run "<path>/image.py" \
+  --prompt "<prompt>" \
+  --output "content/ficciones/<serie>/assets/hero-<slug>.png" \
+  --model flash \
+  --aspect landscape \
+  --size 1K
+```
+
+### Registro de heros ficción
+
+| # | Serie | Slug relato | Fecha | Descripción |
+|---|---|---|---|---|
+| — | _(pendiente primer relato publicado)_ | | | |
+
+### Fallback si Rafael no quiere generar hero
+
+Usar el **monograma R sobre fondo ámbar claro** (`assets/branding/social/thumbnail-default-1200x630.png`) como placeholder neutro. No bloquear el output del skill por falta de hero.
+
+---
+
 ## Heros de artículos
 
 | # | Slug | Fecha | Tipo | Modelo | Descripción |
@@ -301,6 +365,20 @@ Absolutely NO text, NO letters, NO words, NO writing of any kind.
 | `social-template-linkedin.png` | LinkedIn | 16:9 | `assets/images/` |
 | `social-template-x.png` | X/Twitter | 16:9 | `assets/images/` |
 | `social-template-whatsapp.png` | WhatsApp share | 16:9 | `assets/images/` |
+
+## Banners Monograma R — Redes Sociales (generados 2026-04-17)
+
+Monograma R v11 sobre fondo blanco limpio, sin glow/halo. Composición PIL con el PNG original. Todos en PNG + JPG.
+
+| Archivo | Plataforma | Tamaño | Uso | Ubicación |
+|---------|-----------|--------|-----|-----------|
+| `thumbnail-default-1200x630` | Beehiiv | 1200x630 | Default thumbnail para posts/OG | `assets/branding/social/` |
+| `profile-monogram-v2` | Universal | 1000x1000 | Avatar redes sociales | `assets/branding/social/` |
+| `cover-linkedin-v2` | LinkedIn | 1584x396 | Banner perfil LinkedIn | `assets/branding/social/` |
+| `cover-x-v2` | X/Twitter | 1500x500 | Banner perfil X/Twitter | `assets/branding/social/` |
+| `post-generic-landscape-v2` | LinkedIn/X | 1200x675 | Template compartir artículos (R watermark abajo-dcha) | `assets/branding/social/` |
+| `post-ig-square-v2` | Instagram | 1080x1080 | Posts de marca | `assets/branding/social/` |
+| `story-ig-v2` | Instagram | 1080x1920 | Stories (R arriba, espacio contenido abajo) | `assets/branding/social/` |
 
 ## YouTube Brand Pack (generado 2026-04-16)
 

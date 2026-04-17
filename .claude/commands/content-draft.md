@@ -120,3 +120,86 @@ Aplicar todas las de `rules/editorial.md` (voz, tono, primera persona plural, pr
 - Los links de afiliado NUNCA van en emails, solo en artículos web
 - Artículos de review/comparativa incluyen disclosure Amazon al final
 - Output siempre con frontmatter YAML completo
+
+---
+
+## Templates estructurales (destilados de Write With AI)
+
+> Las tres plantillas maestras de Cole/Bush mapean 1:1 a los tipos ROBOHOGAR. Parámetro opcional `--template=<tipo>` para forzar esqueleto. Prompts literales ejecutables → [`../../references/writewithai/05-prompts-utiles.md`](../../references/writewithai/05-prompts-utiles.md). Estructura visual y diagramas ASCII → [`../../references/writewithai/02-estructura-articulo-visual.md`](../../references/writewithai/02-estructura-articulo-visual.md).
+
+### Sintaxis sugerida
+
+```
+/content-draft [tema] --template=problem-solution|mistakes|how-to
+```
+
+Si no se pasa `--template`, inferirlo del tipo del §1:
+- `Review/Comparativa` → **problem-solution** (default)
+- `Guía de compra` → **mistakes** (errores al comprar)
+- `Editorial/Personal` → libre (1/3/1 + hook, sin esqueleto forzado)
+- Tutorial técnico → **how-to**
+
+### Template 1 · `problem-solution` (reviews y comparativas)
+
+```
+H1: Título con promesa
+H3: Subtítulo específico
+[HOOK] Escena del problema (1/3/1)
+H2: "El problema con [categoría]"   → qué falló, qué intentaste, por qué
+H2: "La solución: [producto]"        → qué es, cómo funciona, por qué es diferente
+H2: "Cómo aplicarlo paso a paso"     → Paso 1/2/3 con ejemplo concreto
+H2: "Veredicto"                      → Para quién sí/no + precio + afiliado + alternativa
+[CIERRE] Frase punzante + firma + P.D.
+```
+
+### Template 2 · `mistakes` (guías defensivas, editoriales)
+
+```
+H1: "X errores al [acción]"
+[HOOK] Historia de alguien que cometió los errores (1/3/1)
+H2: "Por qué estos errores son tan comunes"
+H2: "Error 1: [nombre]"              → descripción · consecuencia · cómo corregirlo
+H2: "Error 2..." (repetir 3-5)
+H2: "Checklist antes de comprar"     → tabla con 5 puntos accionables
+[CIERRE]
+```
+
+### Template 3 · `how-to` (tutoriales y setups)
+
+```
+H1: "Cómo [resultado] [sin obstáculo]"
+H3: Tiempo estimado + prerrequisitos
+[HOOK] Estado final deseado en 1 frase
+H2: "Lo que necesitas"               → lista de materiales/apps/cuentas
+H2: "Paso 1: [acción]"               → instrucción + error común a evitar
+H2: "Paso 2..." (3-7 pasos)
+H2: "Si algo sale mal"               → troubleshooting rápido
+H2: "Siguiente nivel"                → 1-2 pistas para profundizar
+[CIERRE]
+```
+
+### Pinpoint header obligatorio
+
+Antes de escribir el cuerpo, poner como blockquote al inicio del borrador (se elimina antes de publicar — es disciplina de redactor):
+
+```
+> Después de leer este artículo, [lector ROBOHOGAR] sabrá [promesa concreta] para poder [acción].
+```
+
+Si no se puede rellenar, el borrador no está listo (regla Pinpoint Writing de Cole).
+
+---
+
+## Hook checklist — los 5 tipos a considerar antes de escribir
+
+La primera frase abre un "loop" — si no provoca leer la segunda, está rota. Antes de escribir el borrador, generar 3 hooks candidatos y elegir el mejor. 5 arquetipos prioritarios para ROBOHOGAR (lista completa de 10 tipos con ejemplos → [`../../references/writewithai/01-voz-y-estructura.md#1-aperturas-hooks-10-tipos-con-ejemplo-robohogar`](../../references/writewithai/01-voz-y-estructura.md)):
+
+- [ ] **First-person plural + acción específica** — *"Esta semana hemos desmontado cinco robots aspiradores."*
+- [ ] **Belief destruction** — *"'Los robots solo funcionan en casas grandes' — eso creíamos hasta que probamos uno en 55 m²."*
+- [ ] **Escena sensorial** — *"Martes, 7:40. El robot sale de su base sin ruido. El bebé sigue durmiendo."*
+- [ ] **Stat impactante** — *"Solo el 14% de los hogares españoles tiene robot aspirador. En Alemania, el doble."*
+- [ ] **Reframe violento / anti-cliché** — *"Los listados 'top 10 robots 2026' aburren. Lo que os vamos a contar es qué NO comprar."*
+
+**Regla de validación:** si la primera frase del borrador no provoca "vale, una más", reescribirla antes de continuar. El 1/3/1 solo funciona si la frase-1 del primer párrafo es un hook verdadero.
+
+<!-- added by wwai-integration 2026-04-17 -->

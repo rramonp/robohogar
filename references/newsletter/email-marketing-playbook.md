@@ -359,3 +359,95 @@ Adaptada al contexto ROBOHOGAR:
 - **Newsletter semanal:** Martes 9:00 CET (peak 1, mejor día)
 - **Artículos web:** Publicar sin restricción de timing (SEO, no email)
 - **Social posts:** Post-publicación según calendario de Buffer
+
+---
+
+## 12. Welcome sequence 4-5 emails (Cole/Bush → Beehiiv)
+
+> Adaptación del framework *Automated Sales Machine* (Matt Giaro / Cole) a contexto editorial gratuito. Cruzar con §3 (Welcome Series de 6) — este bloque es el **template redaccional** (asuntos + openers + CTAs) complementario al §3 que define timing/objetivos.
+>
+> **Realidad Beehiiv free plan:** soporta solo welcome email + reminder. La secuencia completa de 4-5 emails requiere plan Scale (Automations). Mientras tanto: concentrar el contenido del Email 1 + Email 3 en el welcome email inicial; Email 5 (survey) enviable manualmente como broadcast segmentado a subs de <2 semanas.
+
+### Email 1 · Bienvenida + expectativas (día 0, inmediato)
+- **Subject:** `Bienvenido a ROBOHOGAR`
+- **Opener:** escena sensorial (tipo 4 de §13.2): *"Martes, 7:40. El robot sale de su base sin ruido."*
+- **Cuerpo 1-3-1:** quiénes somos (plural editorial) · qué recibirás martes 9:00 · qué NO recibirás · una promesa concreta.
+- **CTA único:** *"Responde con UNA palabra: qué robot buscas. Te ayudamos."*
+
+### Email 2 · La historia ROBOHOGAR (día 2)
+- **Subject:** `Por qué existe ROBOHOGAR`
+- **Opener:** creator backstory corta (Justin Welsh style).
+- **Cuerpo:** struggle → breakthrough → mission (3 párrafos 1/3/1).
+- **CTA:** link al artículo flagship que resume la visión.
+
+### Email 3 · Tu primera review recomendada (día 4)
+- **Subject:** `Empieza por aquí`
+- **Opener:** *"Si solo tienes 7 minutos esta semana, lee esto."*
+- **Cuerpo:** hand-pick del mejor artículo de review + 3 bullets resumen.
+- **CTA:** *"Leer la review completa →"*
+
+### Email 4 · Los 3 frameworks de compra (día 7)
+- **Subject:** `Cómo NO perder dinero`
+- **Opener:** Mistake pattern (error común).
+- **Cuerpo:** 3 frameworks propios (presupuesto · superficie · mascotas).
+- **CTA:** descargar checklist PDF cuando exista lead magnet; mientras tanto, link al artículo-guía.
+
+### Email 5 · Encuesta (día 10)
+- **Subject:** `Una pregunta rápida`
+- **Opener:** *"Nos lees desde hace 10 días. ¿Qué echas de menos?"*
+- **Cuerpo:** 3 opciones con poll Beehiiv (más reviews / más tutoriales / más editorial futuro).
+- **CTA:** poll embebido + *"Si quieres detallarlo, responde este email."*
+
+Detalle completo de arquetipos, 10 openers y checklist pre-envío → [`../writewithai/04-email-newsletter-patterns.md`](../writewithai/04-email-newsletter-patterns.md).
+
+---
+
+## 13. CTA above-fold + final
+
+Del patrón Cole/Bush + artículo *Newsletter Promo*:
+
+- **Un solo CTA por email.** Si hay dos, elige cuál. El segundo es ruido.
+- **Botón > enlace en texto plano** para CTAs primarios. Beehiiv genera botones con acento `#F5A623`.
+- **Repetir el mismo CTA arriba y abajo** en emails largos (regla above-fold + final).
+- **PS natural como CTA secundario:** *"P.D. Si te sirvió, reenvíaselo a alguien que esté mirando robots."*
+- **No uses "Suscríbete"** dentro del newsletter — ya están suscritos. Usa "Leer", "Descargar", "Responder", "Votar".
+- **CTA social → newsletter:** *"Si esto te sirvió, la versión semanal llega cada martes: robohogar.com"* (formato P.S. sutil, nunca *"Sígueme en X"*).
+
+> **Nota:** las cifras "+27% CTR" y "+35% conversion" que circulan en resúmenes WWAI **no están verificadas en las fichas extraídas** — omitir hasta tener fuente.
+
+---
+
+## 14. Subject lines — 7 estilos con ejemplos ROBOHOGAR
+
+5 arquetipos eternos de Cole (*10,000 years*) + 2 estilos adicionales recurrentes en WWAI. Todos ≤25 chars:
+
+| # | Estilo | Mecánica | Ejemplo ROBOHOGAR |
+|---|---|---|---|
+| 1 | **Curiosity gap** | Revela A, oculta B | `El robot que pide comida` |
+| 2 | **Fear / warning** | Señala riesgo concreto | `Error de 600€ al comprar` |
+| 3 | **Benefit / reward** | Promesa tangible | `2h libres cada semana` |
+| 4 | **Authority** | Dato o nombre con peso | `iRobot pierde a Dreame` |
+| 5 | **Story opening** | Mini-escena | `Mi robot me robó algo` |
+| 6 | **Número concreto** | Stat o precio específico | `5 robots por <300€` |
+| 7 | **Provocador corto** | ≤15 chars + tensión | `Adiós, Roomba` |
+
+**Regla operativa:** cada subject debe fitear uno de los 7. Si no fitea ninguno, está sin afilar. Rotar estilo semanalmente durante 4 semanas y medir open rate para documentar el ganador del nicho ROBOHOGAR.
+
+---
+
+## 15. Typeform survey + free gift + upsell → alternativas Beehiiv
+
+Framework Cole §5.4 (Welcome + Survey + Gift + Upsell). Estado en Beehiiv free plan:
+
+| Pieza Cole/Bush | Beehiiv free | Beehiiv Scale | Alternativa ROBOHOGAR |
+|---|---|---|---|
+| Typeform embebido | ❌ No embed de Typeform en email | ⚠️ Vía HTML custom | **Poll nativo Beehiiv** (multi-choice, 3 opciones). Menos datos pero 0 fricción |
+| Free gift (PDF lead magnet) | ✅ Content gating básico | ✅ Magic links + automations | **PDF en bloque gated** del artículo-guía; reutilizar como welcome email #4 |
+| Upsell (producto pago) | ❌ No checkout | ✅ Paid tier nativo | **Aún no aplica.** En F1 (<5.000 subs) el upsell es engagement: "responde y te leemos" |
+| Automation condicional | ❌ Solo welcome+reminder | ✅ Flows multi-paso | Enviar Email 2-5 como **broadcast manual** a segmento `created_at < 14d` |
+
+**Decisión operativa F1:** replicar el flow Cole como **3 broadcasts manuales programados** (día 0 automático + día 4 + día 10 manual) en lugar de esperar al plan Scale. El Email 2 (backstory) y Email 4 (frameworks) se consolidan en un broadcast único "Lo esencial de ROBOHOGAR en 5 minutos" — un pseudo-lead-magnet sin PDF.
+
+Cuando se upgrade a Scale: migrar a automation nativa de 5 emails + PDF gated + poll Beehiiv como survey.
+
+<!-- added by wwai-integration 2026-04-17 -->

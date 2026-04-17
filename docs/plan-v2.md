@@ -295,3 +295,92 @@ Los productos de una sola categoría están muriendo. La IA commoditiza el conte
 *Documento vivo. Actualizar después de cada milestone.*  
 *Versión anterior: `docs/plan-completo.md` (Substack, abril 2026)*  
 *Fuentes: Newsletter Operator (últimos 6 meses), análisis Ghost vs Beehiiv (abr 2026), website-brief.md*
+
+---
+
+## 10. Growth tactics Fase 2-3 (aprendidos de Write With AI)
+
+> Adaptación de las 5 palancas $400K ARR de Cole/Bush al contexto ROBOHOGAR/Beehiiv/hobby. Detalle y tabla priorizada → [`../references/writewithai/03-growth-playbook.md`](../references/writewithai/03-growth-playbook.md).
+>
+> **Decisión operativa:** todas son F2-F3. En F1 (≤500 subs) la prioridad sigue siendo consistencia + SEO + afiliados. Estas cinco se activan cuando la cadencia está sólida y hay >500 subs engaged.
+
+### 10.1 Digital product drops trimestrales (F2-F3)
+
+**Cole:** un producto digital cada trimestre (~$100K/drop). **ROBOHOGAR:** pieza "de peso" trimestral, no necesariamente de pago hasta F3.
+
+Productos que encajan con audiencia robótica doméstica ES:
+- **Q1/Q3 — Guía de compra estacional** (primavera: cortacésped + aspirador; otoño: regalo navideño). PDF 30-40 pág.
+- **Q2 — Calculadora de ROI** (interactiva: superficie + horas + precio → break-even en meses).
+- **Q4 — Almanaque ROBOHOGAR** (resumen anual + previsiones). Diferencial editorial, vocación evergreen.
+
+| Fase | Modelo | Esfuerzo | ROI esperado | Dependencias |
+|---|---|---|---|---|
+| F2 (500-5K subs) | Gratis, lead magnet con content gating | 15-20h/drop | Crecimiento lista +20-30%/drop | Plantilla Canva/Figma fija |
+| F3 (5K+) | Pago 14,90-24,90 € (PDF premium) | 25-30h/drop | Primer revenue de producto propio | Beehiiv Scale + Stripe |
+
+### 10.2 Founding Member tier — Beehiiv paid tier (F3)
+
+**Cole:** 10% de lista paga acceso premium. **ROBOHOGAR [F3]:** suscripción **ROBOHOGAR+** con:
+- Acceso anticipado a reviews (72h antes).
+- Comparativas en profundidad con tablas extendidas y datos de prueba propia.
+- Recopilatorio mensual de ofertas afiliados con descuentos exclusivos negociados con marcas.
+- Canal Discord/WhatsApp privado (<100 miembros → "Founding" con precio bajo de por vida).
+
+| Target | Esfuerzo | ROI esperado | Dependencias |
+|---|---|---|---|
+| 3-5% conversión (150-250 pagos con 5K subs) | Medio (4h/mes mantenimiento + 6h setup) | 1.500-5.000 €/año | Beehiiv Scale (49$/mes), 5K+ subs engaged, 6 meses mínimo de track record |
+
+**Descarta F2:** empujar paid antes de 5.000 subs quema lista (confirmado por Newsletter Operator §6).
+
+### 10.3 Master Content Library (F2)
+
+**Cole:** índice centralizado de todos los posts por categoría como producto en sí. **ROBOHOGAR [F2]:** rehacer `robohogar.com/archivo` como **biblioteca navegable multi-eje**:
+
+Ejes de filtrado:
+- **Categoría:** aspiradores · cortacésped · humanoides · robot cocina · robot piscina · smart home.
+- **Nivel de precio:** <300 € · 300-600 € · 600-1.000 € · >1.000 €.
+- **Tipo de hogar:** piso <70 m² · piso >70 m² · casa con jardín · con mascotas · con niños.
+- **Tipo de contenido:** review · comparativa · guía · editorial · tutorial.
+
+Cada post tagueado en Beehiiv. SEO orgánico masivo + utilidad de navegación.
+
+| Fase | Esfuerzo | ROI esperado | Dependencias |
+|---|---|---|---|
+| F2 (30-50 artículos publicados) | Alto setup (10-12h) + bajo mantenimiento | Tráfico SEO +40-60% (long-tail), conversión visitante→sub +2-3x | 30+ artículos publicados, tags Beehiiv definidos, página custom HTML (Beehiiv lo permite en free) |
+
+### 10.4 Welcome email + survey + gift + upsell (F1→F2)
+
+**Cole:** secuencia automática 5-7 emails → encuesta → regalo → upsell. **ROBOHOGAR:** descrito en detalle en [`../references/newsletter/email-marketing-playbook.md#12-welcome-sequence-4-5-emails-colebush-beehiiv`](../references/newsletter/email-marketing-playbook.md) §12 y §15.
+
+**Ruta por fase:**
+- **F1 (ahora):** welcome email + reminder (lo que Beehiiv free permite) + Emails 2-5 como broadcasts manuales segmentados a subs de <2 semanas.
+- **F2 (Beehiiv Scale):** automation nativa de 5 emails + poll Beehiiv como survey + PDF gated como gift.
+- **F3:** añadir upsell real al paid tier (§10.2).
+
+| Fase | Esfuerzo | ROI esperado | Dependencias |
+|---|---|---|---|
+| F1 (broadcasts manuales) | 4-5h setup inicial + 30 min/mes | Open rate welcome >50%, +15% retención 30d | Nada — disponible ya |
+| F2 (automation) | 2h migración | +10% retención adicional, +30% replies | Upgrade Beehiiv Scale (49$/mes) |
+
+### 10.5 Distribución en redes — LinkedIn + Instagram Reels (F2)
+
+**Cole:** Substack Notes para atraer lectores cross-newsletter. **ROBOHOGAR:** Substack Notes no aplica (estamos en Beehiiv). Mapping:
+
+| Canal Cole | Equivalente ROBOHOGAR | Por qué |
+|---|---|---|
+| Substack Notes (orgánico) | **Instagram Reels** (15-30s) | S-Tier 2026 según Newsletter Operator. Audiencia 30-55 ES vive en IG, no en X |
+| Substack cross-recomm. | **Beehiiv Boosts / Cross-Recommendations** | Activar solo cuando >5.000 subs (somos atractivos para otros newsletters tech ES) |
+| LinkedIn thought-leader | **LinkedIn personal Rafael** | 1 post/semana, angle "padre techie que investiga robots", no corporate |
+| — | **YouTube quincenal (F3)** | B-roll sin cámara + voz; lead magnet custom por vídeo |
+
+**Descartes explícitos:**
+- **TikTok:** difícil conversión a email, sin DM a followers. Reels gana.
+- **X/Twitter:** pasó de S-Tier a C-Tier, algoritmo penaliza links. Mantener solo si ya hay presencia.
+- **Paid recommendations / Boosts comprados:** Matt McGarry confirma "not a single subscriber from boosts bought anything". Inflan números sin revenue.
+
+| Fase | Esfuerzo | ROI esperado | Dependencias |
+|---|---|---|---|
+| F2 (500-5K subs) | Medio (3-4h/semana para Reels + LinkedIn + IG feed) | +30-50% growth sub, awareness de marca | Canva templates con mascota, Buffer free plan |
+| F3 (5K+) | Alto (6-8h/semana añadiendo YouTube) | Consolidación multi-canal, primer tráfico directo significativo | YouTube setup + 1 vídeo quincenal sostenible |
+
+<!-- added by wwai-integration 2026-04-17 -->
