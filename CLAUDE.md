@@ -66,6 +66,23 @@ Before generating any final output (publishing an article, generating a definiti
 | `references/` | Investigación de mercado |
 | `utilities/` | Scripts (research aggregator, etc.) |
 
+## Skills del pipeline
+
+Skills invocables (definidos en `.claude/commands/`). Pipeline principal en orden:
+
+| Skill | Propósito | Cuándo invocar |
+|---|---|---|
+| `/research-digest` | Agrega RSS + Firecrawl, categoriza con Claude, genera digest semanal | Lunes o cuando Rafael pida "genera digest" |
+| `/content-draft <tema>` | Borrador HTML + PASOS.md + 3 hero variants + inline images | Tras elegir tema del digest o backlog de calendario |
+| `/nano-banana` | Generación de imágenes (hero, mascota, social) | Invocado por content-draft; manual para branding |
+| `/post-publish <URL>` | Limpieza post-publicación (14 pasos) — published, registro, llms.txt, vault sync, commit | Tras pegar URL definitiva en Beehiiv |
+| `/social-content <URL>` | Posts LinkedIn/X/IG/WhatsApp listos para Buffer | Invocado automáticamente por post-publish paso 11 |
+| `/obsidian-robohogar` | Sync vault (guía, registro, wiki, calendario) | Invocado automáticamente por post-publish paso 12 |
+
+Skills secundarios:
+- `/ficcion-draft` — relatos cortos Ficciones Domésticas (pilar ~10%)
+- `/workflow-excalidraw` — diagramas de flujo (uso ocasional)
+
 ## Commits
 
 ```

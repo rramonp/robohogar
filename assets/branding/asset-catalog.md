@@ -124,6 +124,7 @@ Usar el **monograma R sobre fondo ámbar claro** (`assets/branding/social/thumbn
 | 5 | `humanoides-en-casa-cuanto-falta` (v10) | 2026-04-15 | Editorial | flash | "Creación de Adán" — mano robot + mano humana en cocina, jardín, luz dorada |
 | 6 | `roborock-saros-z70-review` (v1-v3) | 2026-04-16 | Review | flash | v1: close-up brazo+calcetín+mano, suelo madera. v2: overhead cocina mármol+objetos. v3: salón dorado, brazo con calcetín colorido |
 | 7 | `neo-humanoide-fabricas-eqt` (v8) | 2026-04-17 | Editorial | flash | Humanoide NEO con chaleco industrial naranja entregando taza de café en cocina doméstica — comunica la contradicción del pivote home→factory. Final elegido tras 9 iteraciones (v1-v7 descartadas por neones/pantallas en el fondo) |
+| 8 | `humanoides-domesticos-2026-comparativa` (v7) | 2026-04-17 | Comparativa | flash | Lineup clásico estilo catálogo: 7 humanoides matte de distintos colores alineados sobre backdrop limbo cream infinito — aesthetic "product comparison" universal. Final elegido tras 7 iteraciones (v1/v4/v5 descartadas por neones en pared; v2/v3/v6 descartadas por composición menos legible) |
 
 Ruta de cada hero: `content/articulos/<slug>/assets/hero-<slug>[-vN].png`
 
@@ -205,6 +206,10 @@ La imagen hero se ve como miniatura en cards de Beehiiv (~300px), previews de Wh
 | **Mascota** | NO incluir la mascota ROBOHOGAR. Reservada para landing, emails, social cards |
 | **Texto** | NUNCA. Ni letras, ni palabras, ni carteles, ni pantallas con texto |
 | **Neones/skyline** | NUNCA en heros de artículos. Evitar ventanas con edificios o carteles |
+| **Escenas "showroom/gallery/lineup"** | Gemini las interpreta como tienda y mete carteles LED + neones casi siempre. Anclar SIEMPRE a "home living room / kitchen interior" con "plain cream-painted wall" para composiciones tipo "varios productos en fila" |
+| **Instrucciones negativas ("no text", "no signs")** | El sign-guard del script las combina con su propia directiva y a veces crea conflicto que bloquea la generación. Preferir descripción positiva ("plain cream wall completely unmarked") sobre negativa |
+| **"LED accents / LED eyes" en prompts de múltiples robots** | Gemini los interpreta como paneles luminosos rosa/azul/naranja en pecho y tripa. Para composiciones de varios robots, describir superficies como "matte, solid-colored, without any illumination" y ojos como "small dark visors, not glowing". Los LEDs ámbar solo funcionan bien cuando hay UN robot en foco |
+| **Pared trasera + múltiples robots** | Gemini la rellena con TVs, carteles neon, logos con caracteres asiáticos. Para composiciones de varios robots: eliminar la pared completamente — usar overhead top-down, silueta a contraluz, o plano frontal cerrado sin fondo visible. Regla: "si hay más de 1 robot y una pared trasera, habrá neones" |
 
 #### Parámetros técnicos nano-banana
 

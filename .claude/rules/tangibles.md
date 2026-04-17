@@ -1,41 +1,31 @@
-# Tangibles — principio editorial
+# Tangibles — principio editorial (FASE 4C, pendiente de activar)
 
-Cada pieza de contenido publicada DEBE incluir al menos 1 tangible descargable generado con `/pdf-brand`. Sin excepciones (salvo redifusiones).
+> **Estado actual (abr 2026):** el skill `/pdf-brand` NO existe todavía. Esta regla describe la intención estratégica de FASE 4C (sistema de tangibles). NO aplicar como obligación hasta que el skill esté implementado y la audiencia justifique la inversión (~50 subs).
 
-**Objetivo:** el lector siempre se lleva algo concreto. Modelo Write With AI (que siempre ofrece prompts) aplicado a robótica doméstica.
+**Objetivo cuando se active:** el lector siempre se lleva algo concreto. Modelo Write With AI (que siempre ofrece prompts) aplicado a robótica doméstica.
 
-## Mapeo tipo de contenido → tangible
+## Mapeo (cuando `/pdf-brand` exista)
 
-| Contenido | Tangible | +Esfuerzo | Variante skill |
-|---|---|---|---|
-| Review | Checklist compra + specs 1-pager | +15 min | `cheatsheet` |
-| Comparativa | Tabla comparativa PDF standalone | +15 min | `comparativa` |
-| Editorial/Opinión | "3 datos clave" mini-dossier | +20 min | `cheatsheet` |
-| Guía/How-to | Flowchart decisión o checklist paso a paso | +25 min | `guia` |
-| Ficción Doméstica | Mini-poster (ilustración + quote + dato real) | +30 min | `relato` |
-| Newsletter (futuro) | Cheatsheet "Lo esencial en 3 minutos" | +20 min | `cheatsheet` |
+| Contenido | Tangible | Variante skill |
+|---|---|---|
+| Review | Checklist compra + specs 1-pager | `cheatsheet` |
+| Comparativa | Tabla comparativa PDF standalone | `comparativa` |
+| Editorial/Opinión | "3 datos clave" mini-dossier | `cheatsheet` |
+| Guía/How-to | Flowchart decisión o checklist paso a paso | `guia` |
+| Ficción Doméstica | Mini-poster (ilustración + quote + dato real) | `relato` |
+| Newsletter | Cheatsheet "Lo esencial en 3 minutos" | `cheatsheet` |
 
-## Reglas operativas
+## Reglas operativas cuando se active
 
-- **Límite 30 min por tangible:** si tarda más, simplificar u omitir. 4 tangibles "ok" > 2 "perfectos"
-- **Skill obligatorio:** todos los PDFs pasan por `/pdf-brand` — nunca Canva a mano. Garantiza brand consistency
-- **Versionar, nunca sobrescribir:** cada regeneración produce v2/v3 (memoria `feedback_never_overwrite_images.md`)
-- **Mobile-first:** PDF legible en pantalla 375px sin zoom. Fuente mínima 11pt
-- **Anti-patterns prohibidos en tangibles** (heredados de `editorial.md`): "honesta", "sin filtro", superlativos vacíos ("revolucionario", "increíble", "game-changer", "el mejor")
+- **Límite 30 min/tangible:** 4 "ok" > 2 "perfectos"
+- **Versionar, nunca sobrescribir** (memoria `feedback_never_overwrite_images.md`)
+- **Mobile-first:** legible en 375px, fuente mínima 11pt
+- Anti-patterns heredados de `editorial.md`
 
-## Catalogación obligatoria
+## Roadmap (orientativo)
 
-Cada tangible generado se cataloga en:
-- `assets/branding/asset-catalog.md` — entrada con PDF + preview webp
-- `content/calendario-editorial.md` — tracking de publicación
-- Vault Obsidian: sync automático
+- **~50 subs:** activar FASE 4C — construir `/pdf-brand`, 4-5 tangibles iniciales
+- **~100 subs:** ~15 tangibles + sección "Descargas" en landing
+- **~500 subs:** bundle temático + ebook recopilatorio
 
-## Roadmap
-
-- **Mes 1-2 (0-30 subs):** 4-5 tangibles. Bootstrap
-- **Mes 3 (~100 subs):** ~15 tangibles. Activar sección "Descargas" en landing
-- **Mes 6:** ~30 + 1 bundle temático
-- **Mes 12:** ~55 + ebook recopilatorio. Masa crítica para paid tier
-
-Plan completo: `../../.claude/plans/crea-el-plan-sugerido-lazy-castle.md`.
-Documentación operativa: `docs/guia-implementacion.md` § FASE 4B.
+Plan completo: `../../.claude/plans/crea-el-plan-sugerido-lazy-castle.md`. Operativa: `docs/guia-implementacion.md` § FASE 4C.

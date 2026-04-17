@@ -124,28 +124,24 @@ Recordar a Rafael: **programar los posts en Buffer** después de revisarlos. Gen
 
 ### 12. Sincronizar con Obsidian
 
-Tres acciones:
+Invocar `/obsidian-robohogar sync-published <slug>`. Ese modo cubre:
+1. Copiar el artículo publicado a `03-Published/YYYY-MM-DD-<slug>.html`
+2. Auto-sync de los 4 archivos editoriales: `guia-implementacion.md`, `registro-articulos.md`, `calendario-editorial.md`, `registro-newsletters.md`
+3. Wiki update — crear/actualizar fichas de robots y empresas mencionados en el artículo (`Wiki/Robots/`, `Wiki/Empresas/`). Si la ficha ya existe, añadir bullet con la noticia y bumpear `updated:` del frontmatter
 
-1. **Sync guía** al vault:
-```bash
-cp docs/guia-implementacion.md "$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Guia Implementacion.md"
-```
+Si `sync-published` falla o no está disponible, hacer las 3 tareas manualmente (leer `.claude/commands/obsidian-robohogar.md` secciones 1-2 y "Archivos que SIEMPRE se sincronizan").
 
-2. **Sync artículo publicado** — si `/obsidian-robohogar sync-published` está disponible, invocar para copiar el artículo al vault en `03-Published/`
-
-3. **Wiki update (OBLIGATORIO)** — ejecutar `/obsidian-robohogar wiki-update`: crear fichas de robots en `Wiki/Robots/` y empresas en `Wiki/Empresas/` para TODOS los mencionados en el artículo. Usar templates del vault. Si la ficha ya existe, añadir bullet con la noticia
-
-### 13. Commit y push
+### 13. Commit (NO push automático)
 
 Commit con todos los cambios de esta sesión post-publicación:
 ```
-Post-publish: <título artículo>
+post-publish: <título artículo>
 
 Published: <URL>
 Cleaned <N> unused hero variants, updated sources/catalog, synced Obsidian.
 ```
 
-Push automático.
+**NO pushear automáticamente.** Preguntar a Rafael: "¿Hago `git push`?". Regla del proyecto (CLAUDE.md): no auto-push a menos que Rafael lo pida.
 
 ### 14. Reportar resumen
 

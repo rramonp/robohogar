@@ -11,10 +11,10 @@ Estado: **3 artículos publicados · 0 suscriptores · newsletter aún no activa
 
 ### Prioridad 1 — VOLUMEN DE ARTÍCULOS (en ejecución)
 
-- **Target:** 4 → 8 artículos publicados. El newsletter no puede estar vacío cuando lleguen los primeros suscriptores
+- **Target:** 4 → **6 artículos publicados** (masa crítica mínima para activar FASE 4B). Se quedan 2 artículos por publicar antes de pasar a distribución activa
 - **Skills:** `/content-draft` + `/post-publish`
 - **Último publicado:** #4 **"NEO va a fábricas: ¿humanoide doméstico o industrial?"** (2026-04-17) → https://robohogar.com/p/neo-humanoide-fabricas-eqt
-- **Próximo:** artículo #5 — elegir tema del próximo digest research
+- **Próximo:** artículo #5 — elegir tema del backlog en `content/calendario-editorial.md`
 - **Detalle operativo:** FASE 4
 
 ### Prioridad 2 — DISTRIBUCIÓN ACTIVA (siguiente, FASE 4B)

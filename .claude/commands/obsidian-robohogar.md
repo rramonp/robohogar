@@ -94,9 +94,14 @@ Al ejecutar CUALQUIER modo de este skill, sincronizar estos archivos del repo al
 | `content/registro-newsletters.md` | `Registro Newsletters.md` | Catálogo de newsletters enviados |
 
 ```bash
-cp "$HOME/robohogar/content/registro-articulos.md" "$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Registro Articulos.md"
-cp "$HOME/robohogar/docs/guia-implementacion.md" "$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Guia Implementacion.md"
+VAULT="$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter"
+cp docs/guia-implementacion.md         "$VAULT/Guia Implementacion.md"
+cp content/registro-articulos.md       "$VAULT/Registro Articulos.md"
+cp content/calendario-editorial.md     "$VAULT/Calendario Editorial.md"
+cp content/registro-newsletters.md     "$VAULT/Registro Newsletters.md"
 ```
+
+**Importante:** los 4 archivos son fuente de verdad en el repo; el vault es mirror. CUALQUIER modo del skill debe sincronizar los 4, no solo los del ejemplo antiguo. Evita desfases como el detectado 2026-04-17 (calendario-editorial 5h atrás del repo).
 
 **Nota:** estos archivos se copian al área editorial (05_Personal) para que Rafael los trabaje en Obsidian. El `repo-mirror` (Mode 7) los copia TAMBIÉN al área de mirror (03_Resources) como parte del backup completo. Ambas copias son válidas — editorial para uso diario, mirror para disaster recovery.
 
