@@ -27,7 +27,7 @@ Generar con nano-banana. Referencia mascota: `assets/branding/master/`.
 
 | Archivo | Dimensiones | Descripción | Pose base |
 |---|---|---|---|
-| `social-card-template.png` | 1080x1080 | Template cuadrado para posts sociales. Mascota esquina inferior, espacio para titular. Acento #F5A623. | `mascot-megafono` |
+| `social-card-template-v2.png` | 1080x1080 | Template cuadrado para posts sociales. Mascota esquina inferior, espacio para titular. Acento #F5A623. | `mascot-megafono` |
 | `newsletter-footer.png` | 600x100 | Footer para emails: mascota pequeña + "¿Te ha gustado? Comparte con un amigo." | `mascot-thumbsup` |
 | `instagram-profile.png` | 400x400 | Avatar circular: cabeza mascota centrada, fondo #F5A623. | `mascot-principal` |
 | `instagram-reel-thumbnail.png` | 1080x1920 | Template vertical para thumbnails de Reels. Mascota + espacio titular + badge "ROBOHOGAR". | `mascot-megafono` |

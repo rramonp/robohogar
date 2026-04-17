@@ -6,19 +6,23 @@ Catálogo vivo de todos los assets visuales generados. **Actualizar después de 
 
 ## Mascota — Poses (11/11 completadas)
 
-| Pose | Archivo | master/ (2K) | flash-1K/ (1K) | Uso principal |
-|---|---|---|---|---|
-| Principal (café) | `robohogar-mascot-principal.png` | ✅ | ✅ | Social cards, emails, CTAs cercanos |
-| A — Saludando | `robohogar-mascot-saludando.png` | ✅ | ✅ | Welcome email, onboarding, página "Sobre" |
-| B — Con casita | `robohogar-mascot-casita.png` | ✅ | ✅ | Landing page hero, sección "Robots para el hogar" |
-| C — Leyendo | `robohogar-mascot-leyendo.png` | ✅ | ✅ | Cabecera artículos, blog, roundups |
-| E — Thumbs up | `robohogar-mascot-thumbsup.png` | ✅ | ✅ | Confirmación suscripción, CTAs, gracias |
-| F — Detective | `robohogar-mascot-detective.png` | ✅ | ✅ | Análisis profundo, deep dives, investigación |
-| G — Herramientas | `robohogar-mascot-herramientas.png` | ✅ | ✅ | Domótica, integración, setup, tutoriales |
-| H — Megáfono | `robohogar-mascot-megafono.png` | ✅ | ✅ | Noticias, lanzamientos, alertas |
-| I — Pensativo | `robohogar-mascot-pensativo.png` | ✅ | ✅ | Opinión, editorial, debates |
-| J — Compras | `robohogar-mascot-compras.png` | ✅ | ✅ | Guías de compra, ofertas, afiliados Amazon |
-| K — Trofeo | `robohogar-mascot-trofeo.png` | ✅ | ✅ | "Robot del mes", rankings, premios |
+Todas las mascotas viven en `assets/branding/master/` (2K). Las copias 1K en `flash-1K/` se eliminaron en commit `03923fd` (2026-04-17).
+
+| Pose | Archivo (en `master/`) | Uso principal |
+|---|---|---|
+| Principal (café) | `robohogar-mascot-principal.png` | Social cards, emails, CTAs cercanos |
+| A — Saludando | `robohogar-mascot-saludando.png` | Welcome email, onboarding, página "Sobre" |
+| B — Con casita | `robohogar-mascot-casita.png` | Landing page hero, sección "Robots para el hogar" |
+| C — Leyendo | `robohogar-mascot-leyendo.png` | Cabecera artículos, blog, roundups |
+| E — Thumbs up | `robohogar-mascot-thumbsup.png` | Confirmación suscripción, CTAs, gracias |
+| F — Detective | `robohogar-mascot-detective.png` | Análisis profundo, deep dives, investigación |
+| G — Herramientas | `robohogar-mascot-herramientas.png` | Domótica, integración, setup, tutoriales |
+| H — Megáfono | `robohogar-mascot-megafono.png` | Noticias, lanzamientos, alertas |
+| I — Pensativo | `robohogar-mascot-pensativo.png` | Opinión, editorial, debates |
+| J — Compras | `robohogar-mascot-compras.png` | Guías de compra, ofertas, afiliados Amazon |
+| K — Trofeo | `robohogar-mascot-trofeo.png` | "Robot del mes", rankings, premios |
+
+**Poses adicionales** (L, M, N, O, P, Q): ver tabla "Nuevas poses de mascota" más abajo.
 
 ## Mascota — En contexto
 
@@ -33,8 +37,9 @@ Catálogo vivo de todos los assets visuales generados. **Actualizar después de 
 | **`robohogar-logo-monogram-v11.png/jpg`** | `master/` | 2026-04-16 | **IMAGEN PRINCIPAL DE MARCA** — Landing hero, avatar, OG image, favicon. R bold con ojos ámbar + antena, sin pie |
 | `robohogar-logo-icon-v6.png` | `master/` | 2026-04-16 | Icono sutil — cabeza robot minimalista (cuadrado redondeado, visor, antenas, ojos ámbar). Navbar, favicon, avatar pequeño |
 | `robohogar-logo-header-v3-bahnschrift.png` | `master/` | 2026-04-16 | Header horizontal — icono sutil + "ROBOHOGAR" en Bahnschrift. Para navbar, headers de email, firmas |
-| `robohogar-logo-lockup-horizontal-white.jpg` | `master/` | 2026-04-16 | Lockup horizontal (mascota + ROBOHOGAR), fondo blanco, recortado. Para emails/CTAs |
-| `robohogar-logo-badge-white.jpg` | `master/` | 2026-04-16 | Badge circular (mascota en círculo ámbar), fondo blanco. Para redes sociales |
+| `robohogar-logo-lockup-horizontal-white.jpg` / `.png` | `master/` | 2026-04-16 | Lockup horizontal (mascota + ROBOHOGAR), fondo blanco, recortado. Para emails/CTAs |
+| `robohogar-logo-badge-white.png` | `master/` | 2026-04-16 | Badge circular (mascota en círculo ámbar), fondo blanco. Para redes sociales |
+| `robohogar-logo-badge-v2.png` | `master/` | 2026-04-16 | Badge circular versión v2 (fondo blanco Beehiiv-compatible). Avatar redes, stickers |
 
 ## Templates generales
 
@@ -333,17 +338,18 @@ Absolutely NO text, NO letters, NO words, NO writing of any kind.
 
 ---
 
-## Logo Variants (generados 2026-04-16)
+## Logo Variants (vigentes tras cleanup 2026-04-17)
 
-| Archivo | Descripción | Ubicación | Uso | Modelo |
-|---------|------------|-----------|-----|--------|
-| `robohogar-logo-lockup-horizontal.png` | Logo + nombre horizontal (transparente) | `master/` | Header web, firma email | flash |
-| `robohogar-logo-lockup-horizontal-v2.png` | Logo + nombre horizontal (fondo blanco) | `master/` | Beehiiv, contextos sin transparencia | flash |
-| `robohogar-logo-badge.png` | Badge circular para avatares (transparente) | `master/` | Avatar redes, favicon | model 2 |
-| `robohogar-logo-badge-v2.png` | Badge circular (fondo blanco) | `master/` | Beehiiv, stickers | model 2 |
-| `robohogar-logo-monogram.png` | Monograma "R" (transparente) | `master/` | Watermark video | model 2 |
-| `robohogar-logo-monogram-v2.png` | Monograma "R" (fondo blanco) | `master/` | Marca de agua email | model 2 |
-| `robohogar-logo-header-dark.png` | Logo horizontal para fondos oscuros | `master/` | YouTube, slides, dark sections | flash |
+Purga en commit `03923fd`: eliminados monogramas v2-v10 (ahora canon = v11), lockup sin sufijo y -v2, badge transparente sin sufijo, header-dark. La tabla refleja los **supervivientes únicamente**.
+
+| Archivo | Descripción | Ubicación | Uso |
+|---------|------------|-----------|-----|
+| `robohogar-logo-monogram-v11.png` / `.jpg` | Monograma "R" versión canónica | `master/` | **IMAGEN PRINCIPAL DE MARCA** — landing, avatar, OG, favicon |
+| `robohogar-logo-icon-v6.png` | Icono sutil — cabeza robot minimalista | `master/` | Navbar, favicon, avatar pequeño |
+| `robohogar-logo-header-v3-bahnschrift.png` | Header horizontal — icono + "ROBOHOGAR" en Bahnschrift | `master/` | Navbar, headers de email, firmas |
+| `robohogar-logo-lockup-horizontal-white.png` / `.jpg` | Lockup horizontal con fondo blanco | `master/` | Beehiiv, contextos sin transparencia |
+| `robohogar-logo-badge-white.png` | Badge circular fondo blanco | `master/` | Redes sociales, avatars |
+| `robohogar-logo-badge-v2.png` | Badge circular v2 (Beehiiv-compatible) | `master/` | Beehiiv, stickers |
 
 ## Nuevas poses de mascota (generadas 2026-04-16)
 
@@ -380,71 +386,58 @@ Monograma R v11 sobre fondo blanco limpio, sin glow/halo. Composición PIL con e
 | `post-ig-square-v2` | Instagram | 1080x1080 | Posts de marca | `assets/branding/social/` |
 | `story-ig-v2` | Instagram | 1080x1920 | Stories (R arriba, espacio contenido abajo) | `assets/branding/social/` |
 
-## YouTube Brand Pack (generado 2026-04-16)
+## YouTube Brand Pack
+
+> **Estado:** todos los assets del pack YouTube original (banner, thumbnails review/vs/editorial, endcard, lower-third, watermark) se eliminaron en commit `03923fd` (2026-04-17). **Superviviente único:** `assets/images/youtube-thumb-review.png`. Pendiente de regenerar el pack completo cuando se active el canal YouTube (ver `docs/plan-v2.md` §Canal YouTube).
 
 | Archivo | Elemento | Aspect | Ubicación |
 |---------|---------|--------|-----------|
-| `youtube-banner.png` | Banner canal | 16:9 | `assets/branding/master/` |
-| `youtube-thumb-review.png` | Thumbnail review | 16:9 | `assets/images/` |
-| `youtube-thumb-vs.png` | Thumbnail comparativa | 16:9 | `assets/images/` |
-| `youtube-thumb-editorial.png` | Thumbnail editorial | 16:9 | `assets/images/` |
-| `youtube-endcard.png` | End card | 16:9 | `assets/branding/master/` |
-| `youtube-lower-third.png` | Lower-third | 21:9 | `assets/branding/master/` |
-| `youtube-watermark.png` | Watermark | 1:1 | `assets/branding/master/` |
+| `youtube-thumb-review.png` | Thumbnail genérico review | 16:9 | `assets/images/` |
 
-## Patterns y texturas (generados 2026-04-16)
+## Patterns y texturas
+
+> **Cleanup 2026-04-17:** eliminados `pattern-wave-amber`, `pattern-circuit-dark`, `pattern-dots-amber-soft`. Superviviente único: `pattern-hexagon-tech`.
 
 | Archivo | Tipo | Uso | Ubicación |
 |---------|------|-----|-----------|
-| `pattern-wave-amber.png` | Pattern (tileable) | Fondos newsletter, secciones | `assets/images/` |
 | `pattern-hexagon-tech.png` | Pattern (tileable) | Fondos tech/futurista | `assets/images/` |
-| `pattern-circuit-dark.png` | Pattern (tileable) | Fondos oscuros premium | `assets/images/` |
-| `pattern-dots-amber-soft.png` | Pattern (tileable) | Fondos universales | `assets/images/` |
 
-## Icon Library (generados 2026-04-16)
+## Icon Library
 
-Versiones `-v2` tienen fondo blanco (Beehiiv compatible). Versiones originales tienen fondo transparente.
+> **Cleanup 2026-04-17:** eliminadas versiones v1 (transparentes) de 6 iconos (`comparativa`, `cortacesped`, `guia`, `ia`, `novedad`, `opinion`). Canon actual = versiones `-v2.png` (fondo blanco, Beehiiv-compatible). `icon-aspirador` e `icon-humanoide` mantienen ambas variantes.
 
 | Archivo | Categoría | Ubicación |
 |---------|----------|-----------|
 | `icon-aspirador.png` / `-v2.png` | Aspiradores | `assets/images/` |
-| `icon-cortacesped.png` / `-v2.png` | Cortacéspedes | `assets/images/` |
 | `icon-humanoide.png` / `-v2.png` | Humanoides | `assets/images/` |
-| `icon-ia.png` / `-v2.png` | Inteligencia artificial | `assets/images/` |
-| `icon-comparativa.png` / `-v2.png` | Comparativas | `assets/images/` |
-| `icon-guia.png` / `-v2.png` | Guías/tutoriales | `assets/images/` |
-| `icon-opinion.png` / `-v2.png` | Opinión/editorial | `assets/images/` |
-| `icon-novedad.png` / `-v2.png` | Novedades/breaking | `assets/images/` |
+| `icon-cortacesped-v2.png` | Cortacéspedes | `assets/images/` |
+| `icon-ia-v2.png` | Inteligencia artificial | `assets/images/` |
+| `icon-comparativa-v2.png` | Comparativas | `assets/images/` |
+| `icon-guia-v2.png` | Guías/tutoriales | `assets/images/` |
+| `icon-opinion-v2.png` | Opinión/editorial | `assets/images/` |
+| `icon-novedad-v2.png` | Novedades/breaking | `assets/images/` |
 
-## Email Template Elements (generados 2026-04-16)
+## Email Template Elements
 
-Versiones `-v2` tienen fondo blanco (Beehiiv compatible).
+> **Cleanup 2026-04-17:** `email-cta-button.png` (v1) y `email-footer-v2.png` eliminados. Canon actual reflejado abajo.
 
 | Archivo | Elemento | Ubicación |
 |---------|---------|-----------|
 | `email-divider.png` / `-v2.png` | Separador con robot | `assets/images/` |
-| `email-cta-button.png` / `-v2.png` | Botón CTA ámbar | `assets/images/` |
-| `email-footer.png` / `-v2.png` | Footer branding | `assets/images/` |
-| `email-welcome-hero.png` | Hero bienvenida (ya fondo blanco) | `assets/images/` |
+| `email-cta-button-v2.png` | Botón CTA ámbar (Beehiiv-compatible) | `assets/images/` |
+| `email-footer.png` | Footer branding | `assets/images/` |
+| `email-welcome-hero.png` | Hero bienvenida (fondo blanco) | `assets/images/` |
 | `email-section-header.png` / `-v2.png` | Cabecera sección | `assets/images/` |
 
-## Banners CTA suscripción (generados 2026-04-16)
+## Banners CTA suscripción
+
+> **Cleanup 2026-04-17:** `cta-banner-wide.png` eliminado (sin reemplazo). Disponibles: inline y square.
 
 | Archivo | Variante | Ubicación |
 |---------|---------|-----------|
 | `cta-banner-inline.png` | Inline en artículo (fondo ámbar claro) | `assets/images/` |
-| `cta-banner-wide.png` | Wide para landing (fondo oscuro) | `assets/images/` |
 | `cta-banner-square.png` | Card cuadrada para redes | `assets/images/` |
 
-## Slide Deck — Sponsors (generado 2026-04-16)
+## Slide Deck — Sponsors
 
-| Archivo | Slide | Ubicación |
-|---------|-------|-----------|
-| `slide-01-portada.png` | Portada | `assets/branding/slides/` |
-| `slide-02-mision.png` | Misión | `assets/branding/slides/` |
-| `slide-03-audiencia.png` | Audiencia | `assets/branding/slides/` |
-| `slide-04-canales.png` | Canales | `assets/branding/slides/` |
-| `slide-05-metricas.png` | Métricas | `assets/branding/slides/` |
-| `slide-06-contenido.png` | Contenido | `assets/branding/slides/` |
-| `slide-07-tarifas.png` | Tarifas | `assets/branding/slides/` |
-| `slide-08-contacto.png` | Contacto | `assets/branding/slides/` |
+> **Estado:** los 8 slides del brand deck original (portada → contacto) se eliminaron en commit `03923fd` (2026-04-17) junto con la carpeta `assets/branding/slides/`. El script de generación histórica queda en `BRAND-DECK.md` + `BRAND-DECK-generate.sh`. Pendiente regenerar cuando se active el go-to-market de sponsors (ver `docs/plan-v2.md` §Monetización).

@@ -1,7 +1,9 @@
 # ROBOHOGAR — Mascota Oficial (Prompt de Referencia)
 
+> **Paths canónicos:** todos los archivos `robohogar-mascot-*.png` listados en este documento viven en `assets/branding/master/` (2K). Las copias de 1K en `flash-1K/` se eliminaron en el commit `03923fd` (2026-04-17); `master/` es ahora el path único para todas las mascotas.
+
 ## Imagen base
-`robohogar-mascot-principal.png` — versión definitiva aislada sin fondo. Taza de café en mano.
+`master/robohogar-mascot-principal.png` — versión definitiva aislada sin fondo. Taza de café en mano.
 
 ## Prompt exacto para reproducir la mascota principal
 

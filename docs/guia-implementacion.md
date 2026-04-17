@@ -245,7 +245,7 @@ Más contenido...
 | Asset | Archivo | Uso | Prioridad |
 |---|---|---|---|
 | **Header newsletter** | `newsletter-header.png` (600x150) | Cabecera de cada email enviado | P1 |
-| **Social card template** | `social-card-template.png` (1080x1080) | Compartir artículos en redes | P2 |
+| **Social card template** | `social-card-template-v2.png` (1080x1080) | Compartir artículos en redes | P2 |
 
 **Imágenes por artículo (genera el agente de imágenes automáticamente):**
 
