@@ -977,6 +977,137 @@ La newsletter semanal se activa cuando haya **30-50 suscriptores** (ver FASE 9).
 
 ---
 
+## FASE 4B: Lead Magnet #1 + Sistema de tangibles
+
+> **Principio editorial "Always ship a tangible":** cada pieza de contenido publicada incluye al menos 1 tangible descargable (checklist, tabla, cheatsheet, mini-poster, PDF). Modelo Write With AI aplicado a robótica doméstica — el lector siempre se lleva algo concreto. Plan detallado completo: [`C:/Users/cri-c/.claude/plans/crea-el-plan-sugerido-lazy-castle.md`](../../.claude/plans/crea-el-plan-sugerido-lazy-castle.md)
+
+### Estado
+
+Estado actual: **0 suscriptores · 0 lead magnets creados · sistema de tangibles por construir.** Objetivo: primer lead magnet activo + skill reutilizable + principio editorial documentado. Tiempo total: ~9h 30min Claude + ~2h 45min Rafael distribuibles en 2-3 sesiones.
+
+### Catálogo de tangibles por tipo de contenido
+
+Cada artículo/editorial/ficción que publique ROBOHOGAR genera su tangible asociado usando el skill `/pdf-brand` (pendiente de construir — ver FASE 5):
+
+| Contenido | Tangible | +Esfuerzo | Variante skill |
+|---|---|---|---|
+| Review de producto | Checklist compra + specs 1-pager | +15 min | `cheatsheet` |
+| Comparativa | Tabla comparativa PDF standalone | +15 min | `comparativa` |
+| Editorial/Opinión | "3 datos clave" mini-dossier | +20 min | `cheatsheet` |
+| Guía/How-to | Flowchart o checklist paso a paso | +25 min | `guia` |
+| Ficción Doméstica | Mini-poster (ilustración + quote + dato real) | +30 min | `relato` |
+| Newsletter (futuro) | Cheatsheet semanal "Lo esencial en 3 min" | +20 min | `cheatsheet` |
+
+Regla de oro: si un tangible tarda >30 min, se simplifica o se omite.
+
+### Cadencia de acumulación prevista
+
+| Horizonte | Tangibles | Milestone |
+|---|---|---|
+| Mes 1 | 4-5 | Bootstrap (1/artículo + lead magnet inicial) |
+| Mes 3 | ~15 | Activar sección pública "Descargas" en landing |
+| Mes 6 | ~30 + 1 guía trimestral | Primer bundle temático |
+| Mes 12 | ~55 + ebook | Masa crítica para all-access pass |
+
+### Orden de ejecución (3 fases)
+
+#### FASE A — Construir skill `/pdf-brand` (primero) — ~5-6h Claude + ~30 min Rafael
+
+- [ ] Redactar `.claude/commands/pdf-brand.md` (workflow 6 pasos + modos `from-scratch` / `derived` / `bundle`)
+- [ ] Diseñar `content/templates/pdf-brand-master.html` (layout maestro, 9 elementos de identidad visual blindada)
+- [ ] Crear 4 variantes de template: `pdf-brand-guia.html`, `-comparativa.html`, `-glosario.html`, `-relato.html`
+- [ ] Script `utilities/render-pdf.py` (Chrome headless HTML→PDF, literate code)
+- [ ] Testing: generar 1 PDF de prueba por tipo (4 PDFs) y validar brand consistency
+- [ ] Rafael valida diseño visualmente antes de pasar a FASE B
+
+**Identidad visual blindada — 9 elementos combinados que hacen que el PDF sea inequívocamente de ROBOHOGAR:**
+1. Header con monograma R (`assets/branding/master/robohogar-logo-monogram-v11.png`)
+2. Mascota firma en esquina inferior derecha
+3. Paleta 3-color estricta (#F5A623 · #0C0C0C · #FFFFFF)
+4. Tipografía Jost (títulos) + DM Sans (cuerpo)
+5. Numeración con "chip" ámbar redondeado — elemento signature
+6. Separadores anchos de 2px (estilo editorial)
+7. Watermark sutil del monograma al 5% opacity
+8. Footer con tagline fija "robohogar.com · Tu dosis semanal de robótica doméstica"
+9. Emoji-pilar consistente por tipo (Guía 🤖 · Comparativa 🔍 · Glosario 📖 · Relato 📖✨)
+
+#### FASE B — Lead Magnet #1: "5 preguntas antes de comprar un robot aspirador" — ~1h 30min Claude + ~1h 15min Rafael
+
+Alineado con [plan-v2.md:108](plan-v2.md#L108) (modelo "lazy lead magnets"). Standalone evergreen, 1 página A4.
+
+- [ ] `/pdf-brand guia "5 preguntas antes de comprar un aspirador" 1-pagina guias-compra`
+- [ ] Output esperado:
+  - `content/lead-magnets/guias-compra/guia-5-preguntas-aspirador/guia.md` (markdown fuente)
+  - `content/lead-magnets/guias-compra/guia-5-preguntas-aspirador/guia.html` (render)
+  - `content/lead-magnets/guias-compra/guia-5-preguntas-aspirador/PASOS.md` (checklist publicación)
+  - `assets/lead-magnets/guia-5-preguntas-aspirador-v1.pdf` (PDF final)
+  - `assets/lead-magnets/guia-5-preguntas-aspirador-preview.webp` (social card 1200x630)
+- [ ] Rafael edita voz del markdown
+- [ ] Re-render PDF
+- [ ] Añadir bloque CTA lead magnet en `content/templates/review-comparativa-beehiiv.html` (footer de artículos)
+- [ ] Aplicar CTA actualizado a los 2 artículos ya publicados en Beehiiv
+
+**Voz (respetando anti-patterns):**
+- ❌ NO "honesta", "sin filtro", "guía definitiva"
+- ❌ NO superlativos vacíos ("revolucionario", "increíble", "el mejor")
+- ✅ Plural editorial ("hemos visto", "te proponemos")
+- ✅ Bullets ≤40 chars, sin em-dashes en headlines
+- ✅ Mobile-first (legible en 375px sin zoom)
+
+**Título con beneficio concreto:** "5 preguntas que te ahorran 200 € al comprar un robot aspirador"
+
+#### FASE C — Content Gate + integraciones Beehiiv — ~1h Rafael
+
+- [ ] **Content Gate en Saros Z70** (15 min): Beehiiv → Posts → abrir review → insertar bloque Content Gate tras párrafo 3-4 → copy: título `Sigue leyendo gratis`, sub `Reviews y comparativas cada semana en tu bandeja`, botón `Suscribirse`
+- [ ] **NO** gate-ar humanoides (editorial, gate-arlo reduce impacto del pilar 30% construye marca)
+- [ ] **Welcome Email update** (15 min): añadir bloque con link al PDF arriba de los 2 artículos existentes
+- [ ] **Landing page** (30 min): sección nueva entre hero y "Sobre qué escribimos" con background ámbar — copy: `Descarga gratis · 5 preguntas que te ahorran 200 € al comprar un robot aspirador` + form email + botón
+- [ ] Configurar segmento `source:lead_magnet_01` en Beehiiv → Subscribers para tracking
+
+### Métricas de éxito
+
+Benchmark playbook ([email-marketing-playbook.md:68](../references/newsletter/email-marketing-playbook.md#L68)):
+- Lead magnets: +384% signups
+- Content Gate: 3-10% conversión del tráfico SEO
+- CTA "Get my guide" > "Subscribe" (+33%)
+
+Target ROBOHOGAR:
+- Semana 1-2: 0 → 10 subs
+- Mes 1: 10 → 30 subs
+- Mes 3: 30 → 100 subs (milestone para activar newsletter semanal)
+
+Si a las 4 semanas el magnet <1% conversión → iterar titular o probar otro magnet (testear 1/mes según [plan-v2.md:110](plan-v2.md#L110)).
+
+### Biblioteca pública (activar mes 2-3)
+
+Cuando haya ~10 tangibles acumulados, crear sección "Descargas" en landing Beehiiv:
+
+```
+Descargas ROBOHOGAR
+Todo lo tangible que hemos publicado.
+Suscripción gratuita = acceso a todo.
+
+[Grid de cards · 1 por tangible]
+ 📄 Checklist · Saros Z70
+ 📊 Tabla · Dreame vs Roborock 2026
+ 📖 Glosario · 15 términos de robótica
+ ...
+```
+
+Cada card: PDF con gate (suscripción requerida). Convierte la landing en asset cumulativo — cada semana aporta más valor sin esfuerzo marketing adicional.
+
+### Bundles temáticos (mes 6+)
+
+Cuando biblioteca >20 items, empaquetar:
+- "Aspiradores 2026" (checklists + comparativas)
+- "Humanoides doméstico" (editoriales + glosarios + mini-posters ficción)
+- "Cortacésped temporada primavera/verano"
+- "Anuario ROBOHOGAR" (resumen + top tangibles del año)
+
+Bundles = puente natural a **paid tier** cuando >2.500 subs (ver FASE 9). Free tier: tangibles individuales. Paid tier: bundles.
+
+---
+
 ## FASE 5: Automatización (estado actual)
 
 ### Principio
@@ -1028,6 +1159,12 @@ Automatizar TODO excepto juicio editorial y voz. Rafael decide QUÉ contar y CÓ
 | Post-publish (14 pasos) | `/post-publish` | Limpieza + registros + llms.txt + vault sync + commit |
 | Vault management | `/obsidian-robohogar` | Subcomandos: `wiki-update`, `sync-published`, `calendar-update`, `audit`, `archive` |
 | Git | `/commit` | Formato estándar + co-author + stage por nombre |
+
+### Skills pendientes de construir
+
+| Skill | Para qué | Prioridad | Detalle |
+|---|---|---|---|
+| `/pdf-brand` | Generar PDFs branded (guías, comparativas, glosarios, relatos, cheatsheets, ediciones especiales) con identidad ROBOHOGAR blindada | 🔥🔥🔥 Alta | Habilita el sistema de tangibles de FASE 4B. Modos: `from-scratch` · `derived` (desde artículo publicado) · `bundle` (compila varios PDFs). Tiempo construcción: ~5-6h Claude + ~30 min Rafael validación visual. Detalle completo en [plan crea-el-plan-sugerido-lazy-castle.md](../../.claude/plans/crea-el-plan-sugerido-lazy-castle.md) |
 
 ### Qué sigue siendo manual (y probablemente deba seguir siéndolo)
 
@@ -1250,7 +1387,7 @@ Tácticas para aumentar la base de suscriptores de forma orgánica y no invasiva
 
 ### Otras tácticas pendientes de evaluar
 
-- [ ] Lead magnet (PDF "Guía de compra de robots 2026") a cambio de email
+- [x] ~~Lead magnet (PDF "Guía de compra de robots 2026") a cambio de email~~ → documentado como **FASE 4B** con roadmap completo del sistema de tangibles "Always ship a tangible" (skill `/pdf-brand` + biblioteca pública + bundles)
 - [ ] Cross-promotion con newsletters similares en español
 - [ ] Pop-up de salida en artículos web (exit intent)
 - [ ] Firma de email personal con link a ROBOHOGAR
