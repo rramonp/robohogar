@@ -132,7 +132,7 @@ Es un **consumidor curioso** que quiere opiniones honestas.
 [Mascota robot]  ROBOHOGAR
                  Tu dosis de robótica doméstica
                  
-                 Te lo contamos cada semana · Gratis, honesto y en español
+                 Te lo contamos cada semana · Gratis y en español
                  
                  [tu@email.com] [Suscríbete gratis]
                  
@@ -181,7 +181,7 @@ PAGE STRUCTURE (this exact order, based on top-performing newsletter landings):
 SECTION 1 — HERO (above the fold, most important):
 - Left side: headline + subtitle + email signup form + trust text
 - Headline: "Tu dosis de robótica doméstica"
-- Subtitle: "Te lo contamos cada semana · Gratis, honesto y en español"
+- Subtitle: "Te lo contamos cada semana · Gratis y en español"
 - Email input field with placeholder "tu@email.com"
 - Submit button: "Suscríbete gratis" in amber #F5A623
 - Below button: "100% gratis · Sin spam · Cancela cuando quieras" in small gray text

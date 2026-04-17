@@ -22,7 +22,9 @@ Cada semana, en tu bandeja:
 - 🚀 Humanoides y el futuro de tu casa robotizada
 - 💡 Un dato curioso que no conocías cada semana
 
-**Tres pilares:** Gratis · Honesto · En español
+**Dos pilares públicos:** Gratis · En español
+
+> *Nota interna:* la honestidad es un criterio editorial real (reviews sin filtro, sin notas de prensa reescritas, sin agenda oculta), pero NO se proclama en el tagline ni en marketing copy. Decir "somos honestos" es contraproducente — la honestidad se demuestra escribiendo, no anunciándola.
 
 ---
 
