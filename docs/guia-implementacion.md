@@ -528,52 +528,90 @@ Este template es la referencia visual para TODOS los demás. Tiene el formato de
 
 **Paso 2** — Buscar **Welcome Email** (Beehiiv lo tiene como automatización predeterminada). Click en **Edit**
 
-**Paso 3** — Configurar:
+**Paso 3** — Configurar cabeceras:
 
 | Campo | Valor |
 |-------|-------|
-| Subject | `Bienvenido/a a ROBOHOGAR 🤖` |
-| Preview text | `Tu dosis de robótica doméstica empieza aquí` |
+| Subject | `🤖 Bienvenido/a a ROBOHOGAR` |
+| Preview text | `Tu dosis semanal empieza aquí` |
 | Sender name | `Rafael de ROBOHOGAR` |
+| Reply-to | `hola@robohogar.com` |
 
-**Paso 4** — Pegar este contenido en el editor (copy-paste):
+> **Por qué este subject:** claridad > curiosity en welcome (open rate ya es ~50% por contexto). El emoji al inicio da reconocimiento de marca en inbox.
+
+**Paso 4** — Pegar este contenido en el editor (copy-paste). Usa negritas/cursivas donde marca `**texto**` / `*texto*`:
 
 ```
 ¡Hola!
 
-Soy Rafael, y esto es ROBOHOGAR — tu dosis semanal
-de robótica doméstica.
+Soy Rafael, y esto es **ROBOHOGAR** — tu dosis semanal de robótica doméstica.
 
-Esto es lo que vas a recibir cada semana:
+Cada martes, en tu bandeja, 3 bloques fijos:
 
-• Análisis sin tecnicismos de lo que pasa en robótica doméstica
-• Reviews sin filtro de los robots que ya puedes comprar
-• Y, cada 3-4 semanas, una ficción corta sobre el hogar de 2035
+🤖 **Análisis** · Lo que pasa esta semana
+🔍 **Reviews** · Robots reales, sin filtro
+📖 **Ficciones** · El hogar de 2035
 
-Para que no me pierda en tu spam, haz esto:
-→ Arrastra este email a tu bandeja principal
-→ Añade hola@robohogar.com a tus contactos
+*El bloque de Ficciones aparece cada 3-4 semanas; el resto va cada martes.*
 
-Mientras tanto, empieza por aquí:
-👉 Robots de escritorio con IA: cuál merece tu dinero
-    https://robohogar.com/p/mejor-robot-asistente-ia-2026
+Todo gratis, en español y sin tecnicismos.
 
-Si tienes un robot en casa y quieres contarme tu experiencia,
-responde a este email — los leo todos.
+---
+
+**Antes de nada:** arrastra este email a tu bandeja "Principal" — así los próximos martes llegan bien y no a Promociones.
+
+---
+
+**Mientras esperas al martes, empieza por aquí:**
+
+→ [Robots de escritorio con IA: cuál merece tu dinero (y cuál es humo)](https://robohogar.com/p/mejor-robot-asistente-ia-2026)
+
+→ [Humanoides en casa: ¿cuánto falta de verdad?](https://robohogar.com/p/humanoides-en-casa-cuanto-falta)
+
+---
 
 Un saludo robótico,
-Rafael
+**Rafael**
 ROBOHOGAR
+
+*P.D. Si tienes un robot en casa y te apetece contármelo, respóndeme con el modelo. Leo todos los emails — aunque no siempre contesto el mismo día.*
 ```
 
 **Paso 5** — Verificar:
-- [ ] ¿El link al artículo funciona?
-- [ ] ¿El sender name dice "Rafael de ROBOHOGAR"?
-- [ ] ¿El subject tiene el emoji 🤖?
+- [ ] Subject empieza con 🤖 y dice "Bienvenido/a a ROBOHOGAR"
+- [ ] Preview text incluye la palabra "semanal"
+- [ ] Sender name = "Rafael de ROBOHOGAR"
+- [ ] Reply-to apunta a `hola@robohogar.com` (no a bakalap2@gmail.com)
+- [ ] Los 2 links a artículos funcionan
+- [ ] Los iconos 🤖 🔍 📖 se ven bien en la preview móvil (375px)
 
 **Paso 6** — Pulsar **Save & Activate**
 
-**Paso 7** — Probar: suscríbete tú mismo con un email alternativo y verifica que llega
+**Paso 7** — Probar: suscríbete con un email alternativo y verifica que llega. Responde con "Roborock" para chequear que el reply entra.
+
+> **⚠️ Nota sobre los 2 enlaces a artículos:** NO uses el bloque **Button** para los artículos — un botón transmite "acción" (comprar, suscribirse), no "lee esto". Usa **una de estas dos opciones**:
+>
+> **Opción A — Bloque "Embed Link"**
+> `+` → **Embed Link** → pega la URL del artículo (`https://robohogar.com/p/slug`). Beehiiv hace auto-unfurl y genera card con hero image + título + meta description (como LinkedIn/Twitter unfurl). Depende de que los meta tags del artículo estén bien configurados.
+>
+> **Opción B — Estructura magazine-style con bloques nativos** (funciona siempre)
+> Construye cada "card" manualmente con los bloques que Beehiiv free tiene:
+> ```
+> [Heading 5]     📖 ARTÍCULO · 8 min       ← pequeño, gris, uppercase
+>
+> [Heading 3]     Robots de escritorio con IA:
+>                 cuál merece tu dinero (y cuál es humo)
+>
+> [Párrafo]       Guía honesta de los 5 modelos que ya puedes
+>                 comprar y cuál encaja con cada presupuesto.
+>
+> [Párrafo]       Leer en ROBOHOGAR →       ← texto ámbar + bold, hyperlink
+>
+> [Content Break]                            ← separador antes del siguiente
+> ```
+> Más sobrio, estilo editorial. Sin botón, sin card fake.
+>
+> **Tiempos de lectura:** deben ser realistas y distintos por artículo. Calcula: palabras totales ÷ 200 (≈ lectura media español).
 
 ---
 
