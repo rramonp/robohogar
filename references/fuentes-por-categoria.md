@@ -102,6 +102,18 @@ Robots humanoides para tareas domésticas.
 | TechCrunch (1X) | techcrunch.com (buscar: 1X EQT humanoid) | Medio tech | Análisis deal 1X+EQT, pivot home→factory |
 | AI Act Explorer | artificialintelligenceact.eu | Regulatorio UE | AI Act art. 50 + alto riesgo agosto 2026. Relevante para humanoides domésticos en EU |
 | Economist & Jurist | economistjurist.es | Legal ES | Análisis AI Act para sector tecnología |
+| The AI Insider | theaiinsider.tech | Medio tech | Anuncio UniX AI Panther entrega doméstica real 10-abr-2026 (imagen oficial) |
+| Engineering.com | engineering.com | Medio especializado | Cobertura técnica UniX AI Panther real-home deployment |
+| Globe Newswire (UniX) | globenewswire.com | Nota de prensa | Anuncio oficial UniX AI Panther 10-abr-2026 |
+| Time Magazine | time.com | Magazine | Best Inventions 2025: Figure 03 "Robot in Your Kitchen" (imagen oficial) |
+| The Verge | theverge.com | Medio tech | SwitchBot Onero H1 CES 2026 — humanoide con ruedas <$10K |
+| Mashable | mashable.com | Medio tech | SwitchBot Onero H1 "most accessible humanoid" CES 2026 |
+| Engadget | engadget.com | Medio tech | SwitchBot laundry robot CES 2026 |
+| Robotshop | robotshop.com | E-commerce/especialista | Unitree R1 ficha + imagen oficial producto |
+| CNET | cnet.com | Medio consumer | Unitree R1 "most affordable humanoid" $5.900 |
+| Futuring Robot (gasgoo) | autonews.gasgoo.com | Prensa china EN | Futuring Robot F2 piloto 300 hogares Pekín/Shanghái 36.000 yuanes |
+| Neura Robotics | neura-robotics.com | Sitio oficial | 4NE-1 Gen 3.5 Porsche Design pre-order (imagen oficial) |
+| Omicrono (El Español) | omicrono.elespanol.com | Medio tech ES | Panther + F2 en cobertura en español |
 
 ### Fuentes independientes (ES)
 

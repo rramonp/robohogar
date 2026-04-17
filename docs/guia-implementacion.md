@@ -11,10 +11,10 @@ Estado: **3 artículos publicados · 0 suscriptores · newsletter aún no activa
 
 ### Prioridad 1 — VOLUMEN DE ARTÍCULOS (en ejecución)
 
-- **Target:** 4 → **6 artículos publicados** (masa crítica mínima para activar FASE 4B). Se quedan 2 artículos por publicar antes de pasar a distribución activa
+- **Target:** 5 → **6 artículos publicados** (masa crítica mínima para activar FASE 4B). Queda 1 artículo por publicar antes de pasar a distribución activa
 - **Skills:** `/content-draft` + `/post-publish`
-- **Último publicado:** #4 **"NEO va a fábricas: ¿humanoide doméstico o industrial?"** (2026-04-17) → https://robohogar.com/p/neo-humanoide-fabricas-eqt
-- **Próximo:** artículo #5 — elegir tema del backlog en `content/calendario-editorial.md`
+- **Último publicado:** #5 **"Humanoides domésticos 2026: los 7 que puedes comprar o reservar"** (2026-04-17) → https://robohogar.com/p/humanoides-domesticos-2026-comparativa
+- **Próximo:** artículo #6 — elegir tema práctico del backlog en `content/calendario-editorial.md` (se sugiere review o guía para romper racha de 3 humanoides seguidos)
 - **Detalle operativo:** FASE 4
 
 ### Prioridad 2 — DISTRIBUCIÓN ACTIVA (siguiente, FASE 4B)

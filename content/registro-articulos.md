@@ -16,3 +16,4 @@
 | 1 | 2026-04-15 | Humanoides en casa: ¿cuánto falta de verdad? | humanoides-en-casa-cuanto-falta | https://robohogar.com/p/humanoides-en-casa-cuanto-falta | Editorial/Opinión | Humanoides, Opinión |
 | 2 | 2026-04-16 | Roborock Saros Z70: ¿merece la pena pagar por un brazo mecánico? | roborock-saros-z70-review | https://robohogar.com/p/roborock-saros-z70-review | Editorial/Opinión | Aspiradores, Opinión |
 | 3 | 2026-04-17 | NEO va a fábricas: ¿humanoide doméstico o industrial? | neo-humanoide-fabricas-eqt | https://robohogar.com/p/neo-humanoide-fabricas-eqt | Editorial/Opinión | Humanoides, Opinión |
+| 4 | 2026-04-17 | Humanoides domésticos 2026: los 7 que puedes comprar o reservar | humanoides-domesticos-2026-comparativa | https://robohogar.com/p/humanoides-domesticos-2026-comparativa | Comparativa | Humanoides, Comparativa |

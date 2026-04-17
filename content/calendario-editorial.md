@@ -44,7 +44,7 @@ Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurre
 | Alta | Neura 4NE-1: el humanoide europeo Porsche Design de 98.000€ | Editorial | neura 4ne-1 precio | 🔥🔥🔥 | Respuesta europea a Tesla/NEO. Mini 19.999€. Digest 2026-04-17 |
 | Alta | AI Act y humanoides domésticos: qué cambia en agosto 2026 | Guía/Editorial | ai act robot hogar españa | 🔥🔥 | Aclaración Comisión EU 13-abr-2026. Servicio público. Digest 2026-04-17 |
 | Alta | Robots aspirador que suben escaleras (3 enfoques) | Editorial | robot aspirador escaleras | 🔥🔥🔥 | Saros Rover + Dreame Cyber X + eufy MarsWalker |
-| Alta | Humanoides domésticos 2026: los 7 que puedes comprar/reservar | Comparativa | robot humanoide comprar 2026 | 🔥🔥🔥 | NEO, Panther, R1, Memo, Onero H1, 4NE-1, F2. Actualizar con digest 2026-04-17 |
+| ~~Alta~~ | ~~Humanoides domésticos 2026: los 7 que puedes comprar/reservar~~ | ~~Comparativa~~ | ~~robot humanoide comprar 2026~~ | ~~🔥🔥🔥~~ | ✅ Publicado 2026-04-17: https://robohogar.com/p/humanoides-domesticos-2026-comparativa |
 | Alta | Sunday Memo: el anti-humanoide de $1.150M | Editorial | sunday robotics memo | 🔥🔥🔥 | Bloomberg+TechCrunch. Ruedas>piernas |
 | Alta | Apple entra en robótica doméstica | Editorial | apple home robot 2026 | 🔥🔥🔥 | Hub 2026, robot 2027. Mainstream masivo |
 | Alta | Mejor robot aspirador 2026 | Review/Comparativa | robot aspirador | 🔥🔥 | Evergreen, alto volumen SEO |
