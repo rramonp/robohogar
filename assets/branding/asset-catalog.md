@@ -120,7 +120,7 @@ Usar el **monograma R sobre fondo ámbar claro** (`assets/branding/social/thumbn
 | 1 | `mejor-robot-aspirador-2026` | 2026-04-13 | Review | flash | Aspirador premium iluminado cenital ámbar en salón moderno |
 | 2 | `robots-humanoides-casa-2030` | 2026-04-13 | Futuro | flash | Humanoide entrando por puerta, backlit cinematográfico |
 | 3 | `experiencia-robots-casa` | 2026-04-13 | Lifestyle | flash | Salón acogedor con aspirador + robot servicio + gato |
-| 4 | `mejor-robot-asistente-ia-2026` | 2026-04-13 | Gadget | flash | Robot asistente ojos ámbar en encimera, mano interactuando |
+| 4 | `mejor-robot-asistente-ia-2026` (v1-v6) | 2026-04-13 / 2026-04-17 | Gadget | flash | v1-v4: iteraciones con neones problemáticos. v5: skyline atardecer sin neones. v6: ciudad diurna sin neones — misma composición (robot huevo + mano + cocina cálida) |
 | 5 | `humanoides-en-casa-cuanto-falta` (v10) | 2026-04-15 | Editorial | flash | "Creación de Adán" — mano robot + mano humana en cocina, jardín, luz dorada |
 | 6 | `roborock-saros-z70-review` (v1-v3) | 2026-04-16 | Review | flash | v1: close-up brazo+calcetín+mano, suelo madera. v2: overhead cocina mármol+objetos. v3: salón dorado, brazo con calcetín colorido |
 
