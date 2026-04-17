@@ -1,0 +1,43 @@
+<!--
+  Fuente de verdad del llms.txt de robohogar.com.
+  Beehiiv NO se sincroniza automáticamente — tras cada actualización hay que pegar
+  el contenido de este archivo en:
+  https://app.beehiiv.com/website_builder_v2/settings/seo
+  (campo "llms.txt" → "Paste your own llms.txt content here").
+  Los comentarios HTML se ignoran al parsear el llms.txt, se pueden dejar o quitar.
+-->
+
+# ROBOHOGAR
+
+> Newsletter y blog en español sobre robótica doméstica y humanoides. Reviews honestas, comparativas y editorial sobre los robots que ya llegan al hogar —y los que están por venir. Sin notas de prensa reescritas, sin clickbait, sin agenda oculta.
+
+ROBOHOGAR cubre robótica doméstica para el mercado hispanohablante (España, Europa y LATAM). Audiencia objetivo: adultos de 30 a 55 años interesados en tecnología para el hogar, no necesariamente técnicos. Posicionamiento editorial: 70% práctico (reviews y guías de compra de robots que ya puedes comprar: aspiradores, cortacéspedes, asistentes con IA) + 30% editorial (humanoides, opinión sobre la industria, futuro del hogar robotizado) + ~10% ficción especulativa bajo el tag "Ficciones Domésticas" (relatos cortos de ciencia ficción doméstica 2030-2040, con personajes recurrentes y anclados siempre en datos reales). Voz de marca: primera persona plural ("hemos investigado", "os contamos", "nos parece"), cercana, opinada, con humor sutil y sin superlativos vacíos. Cubrimos marcas como Roborock, Dreame, Ecovacs, iRobot, Xiaomi, SwitchBot, Figure, 1X, Unitree, NEO y similares. El robot nunca es el villano en nuestras historias —el villano es el problema humano (soledad, burnout, brecha digital) que el robot revela o amplifica. Identidad visual: monograma R con ojos ámbar y antena espiral como marca principal; mascota secundaria de un robot con delantal azul y taza de café para tonos cercanos. Plataforma: Beehiiv. Suscripción gratuita. Cadencia: aproximadamente un artículo por semana, más newsletter semanal cuando la audiencia lo justifique.
+
+## Artículos publicados
+
+- [Robots de escritorio con IA: cuál merece tu dinero (y cuál es humo)](https://robohogar.com/p/mejor-robot-asistente-ia-2026): review comparativa de asistentes de escritorio y robots-mascota con IA integrada (Eilik, LOOI, Loona, EMO, Vector). Con veredicto claro sobre cuáles son realmente útiles y cuáles son una tablet disfrazada de robot.
+- [Humanoides en casa: ¿cuánto falta de verdad?](https://robohogar.com/p/humanoides-en-casa-cuanto-falta): editorial sobre el estado real de los robots humanoides domésticos en 2026. Qué se puede comprar hoy, qué sigue siendo demo de feria y cuántos años faltan para que tenga sentido en un piso normal.
+- [Roborock Saros Z70: ¿merece la pena pagar por un brazo mecánico?](https://robohogar.com/p/roborock-saros-z70-review): review del primer robot aspirador con brazo robótico integrado. Veredicto honesto sobre si el brazo justifica el sobreprecio frente a alternativas como Dreame X50.
+
+## Categorías de contenido
+
+- Robot aspirador: reviews, comparativas y guías de compra (Roborock, Dreame, Ecovacs, iRobot, Xiaomi, MOVA)
+- Robot cortacésped: guías estacionales y comparativas con y sin cable perimetral
+- Humanoides domésticos: seguimiento de NEO, Figure, 1X, SwitchBot Onero, Unitree y qué llega realmente al hogar
+- Robots asistentes con IA: robots de escritorio, mascotas robóticas, integración con GPT y Claude
+- Editorial y opinión: análisis de la industria, estrategia de fabricantes, Apple Home Robot, contrapuntos al hype
+- Ficciones Domésticas: relatos cortos de ciencia ficción doméstica próxima con base en datos reales
+
+## Navegación principal
+
+- [Inicio](https://robohogar.com): portada con últimos artículos y formulario de suscripción gratuita
+- [Archivo completo](https://robohogar.com/archive): historial de todas las publicaciones
+- [Aspiradores](https://robohogar.com/t/aspiradores): artículos etiquetados como robots aspirador
+- [Humanoides](https://robohogar.com/t/humanoides): artículos sobre robótica humanoide doméstica
+- [Opinión](https://robohogar.com/t/opinion): editoriales, debate y valoración personal
+
+## Redes y contacto
+
+- [Instagram @robohogar](https://www.instagram.com/robohogar)
+- [LinkedIn ROBOHOGAR](https://www.linkedin.com/company/robohogar)
+- Suscripción: gratuita desde el formulario en robohogar.com

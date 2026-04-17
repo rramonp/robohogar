@@ -53,23 +53,37 @@ Añadir el artículo a `content/registro-articulos.md` — la fuente de verdad d
 | <N> | <fecha> | <título> | <slug> | <URL> | <tipo> | <tags> |
 ```
 
-Este archivo se sincroniza a Obsidian automáticamente en el paso 10.
+Este archivo se sincroniza a Obsidian automáticamente en el paso 11.
 
-### 6. Verificar fuentes en fuentes-por-categoria.md
+### 6. Regenerar llms.txt
+
+Actualizar `content/llms.txt` con el artículo recién publicado. El archivo sigue la spec de [llmstxt.org](https://llmstxt.org) y ayuda a los LLMs a entender el sitio cuando lo citan.
+
+- Leer `content/llms.txt` actual
+- Insertar el nuevo artículo en la sección `## Artículos publicados` (orden cronológico inverso: el más reciente primero) con el formato:
+  ```
+  - [<título>](<URL>): <descripción de 1-2 frases que ayude al LLM a saber cuándo citarlo>
+  ```
+- La descripción debe ser útil para un LLM —evitar superlativos, incluir marcas/modelos concretos y el ángulo del artículo
+- Revisar si el nuevo artículo introduce una categoría nueva que merezca aparecer en `## Categorías de contenido`. Si sí, añadirla
+- Verificar que el tamaño total sigue por debajo de los 6.144 caracteres (límite de Beehiiv)
+- **Recordar a Rafael:** copiar el contenido de `content/llms.txt` y pegarlo en la sección SEO de Beehiiv (link directo: https://app.beehiiv.com/website_builder_v2/settings/seo → campo "llms.txt" → "Paste your own llms.txt content here"). Beehiiv NO se sincroniza solo; requiere paste manual cada vez
+
+### 7. Verificar fuentes en fuentes-por-categoria.md
 
 Leer el artículo publicado y verificar que TODAS las fuentes usadas están catalogadas en `references/fuentes-por-categoria.md`. Si falta alguna, añadirla con URL, tipo y notas. Incluir fuentes de:
 - Datos y cifras citadas en el artículo
 - Imágenes inline descargadas de fuentes oficiales
 - Estudios o reportajes enlazados
 
-### 7. Actualizar asset-catalog.md
+### 8. Actualizar asset-catalog.md
 
 Registrar el hero image elegido en la sección de assets generados del catálogo:
 ```
 | hero-<slug>-v<N> | <fecha> | <prompt resumido> | <modelo> |
 ```
 
-### 8. Actualizar templates HTML (si aplica)
+### 9. Actualizar templates HTML (si aplica)
 
 Evaluar si el artículo publicado implica cambios en los templates:
 
@@ -88,7 +102,7 @@ Evaluar si el artículo publicado implica cambios en los templates:
 
 **Si no hay cambios de formato:** no hacer nada en este paso.
 
-### 9. Sugerir actualización de Welcome Email
+### 10. Sugerir actualización de Welcome Email
 
 Evaluar si el artículo nuevo debería reemplazar o complementar el link del Welcome Email actual. Mostrar a Rafael:
 - El link actual del Welcome Email
@@ -97,7 +111,7 @@ Evaluar si el artículo nuevo debería reemplazar o complementar el link del Wel
 
 Rafael decide. NO cambiar automáticamente.
 
-### 10. Generar contenido social
+### 11. Generar contenido social
 
 Invocar `/social-content` con el artículo publicado para generar posts para:
 - LinkedIn (1 post)
@@ -107,7 +121,7 @@ Invocar `/social-content` con el artículo publicado para generar posts para:
 
 Recordar a Rafael: **programar los posts en Buffer** después de revisarlos. Generar no es publicar.
 
-### 11. Sincronizar con Obsidian
+### 12. Sincronizar con Obsidian
 
 Tres acciones:
 
@@ -120,7 +134,7 @@ cp docs/guia-implementacion.md "$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-0
 
 3. **Wiki update (OBLIGATORIO)** — ejecutar `/obsidian-robohogar wiki-update`: crear fichas de robots en `Wiki/Robots/` y empresas en `Wiki/Empresas/` para TODOS los mencionados en el artículo. Usar templates del vault. Si la ficha ya existe, añadir bullet con la noticia
 
-### 12. Commit y push
+### 13. Commit y push
 
 Commit con todos los cambios de esta sesión post-publicación:
 ```
@@ -132,9 +146,9 @@ Cleaned <N> unused hero variants, updated sources/catalog, synced Obsidian.
 
 Push automático.
 
-### 13. Reportar resumen
+### 14. Reportar resumen
 
-Mostrar a Rafael un resumen con 4 secciones: **Verificación** (artículo, OG, links, imágenes), **Repo** (published, limpieza, fuentes, catalog, commit), **Distribución** (social + welcome email), **Obsidian** (guía, artículo, wiki). Cada línea con ✅/❌.
+Mostrar a Rafael un resumen con 4 secciones: **Verificación** (artículo, OG, links, imágenes), **Repo** (published, limpieza, fuentes, catalog, llms.txt, commit), **Distribución** (social + welcome email), **Obsidian** (guía, artículo, wiki). Cada línea con ✅/❌. Incluir recordatorio de pegar `content/llms.txt` en Beehiiv.
 
 ## Rules
 
