@@ -38,3 +38,13 @@ Robot pequeño, cabeza esférica, ojos LED ámbar, delantal azul a cuadros con c
 - Espaciado generoso — no saturar
 - Imágenes grandes y de calidad
 - Monograma R = marca editorial. Mascota = tono cercano/personal
+
+## Mobile-first (no negociable)
+
+>50% lectores leen en móvil. Validar SIEMPRE a 375px ANTES de proponer copy para landing/email/social/cards.
+
+- Bullets/headlines: máximo 40 chars (más → wrap raro)
+- Sin em-dashes (`—`) en headlines/bullets cortos: usar `:` o `·`
+- Sub-textos opcionales, nunca críticos para entender el bullet
+- Cards: 3-up grid horizontal > 4 stacked cards
+- Imágenes: WebP <200KB email, <500KB web
