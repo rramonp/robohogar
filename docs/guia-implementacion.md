@@ -981,6 +981,22 @@ La newsletter semanal se activa cuando haya **30-50 suscriptores** (ver FASE 9).
 
 > **Principio editorial "Always ship a tangible":** cada pieza de contenido publicada incluye al menos 1 tangible descargable (checklist, tabla, cheatsheet, mini-poster, PDF). Modelo Write With AI aplicado a robótica doméstica — el lector siempre se lleva algo concreto. Plan detallado completo: [`C:/Users/cri-c/.claude/plans/crea-el-plan-sugerido-lazy-castle.md`](../../.claude/plans/crea-el-plan-sugerido-lazy-castle.md)
 
+### 📌 Frases trigger para retomar en futuras sesiones
+
+Cuando Rafael vuelva a Claude Code después de días/semanas y quiera retomar esta fase, basta con decir:
+
+| Qué quiero retomar | Frase exacta |
+|---|---|
+| Construir el skill `/pdf-brand` (FASE A) | **"Retomamos el plan lazy-castle — construimos el skill `/pdf-brand`"** |
+| Generar el Lead Magnet #1 (FASE B, requiere skill construido antes) | **"Retomamos lazy-castle — generamos el lead magnet de 5 preguntas"** |
+| Activar Content Gate + integraciones Beehiiv (FASE C) | **"Retomamos lazy-castle — activamos Content Gate y las integraciones Beehiiv"** |
+| Ver estado actual del plan | **"¿En qué fase del plan lazy-castle estamos?"** |
+
+Con esas frases, Claude debe:
+1. Leer este bloque (FASE 4B) + el plan file [`crea-el-plan-sugerido-lazy-castle.md`](../../.claude/plans/crea-el-plan-sugerido-lazy-castle.md)
+2. Revisar qué checkboxes están marcados y cuáles no
+3. Retomar en el primer paso pendiente de la fase solicitada
+
 ### Estado
 
 Estado actual: **0 suscriptores · 0 lead magnets creados · sistema de tangibles por construir.** Objetivo: primer lead magnet activo + skill reutilizable + principio editorial documentado. Tiempo total: ~9h 30min Claude + ~2h 45min Rafael distribuibles en 2-3 sesiones.
