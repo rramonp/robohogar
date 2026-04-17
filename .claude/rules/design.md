@@ -1,50 +1,38 @@
 # Design System — ROBOHOGAR
 
-## Color Palette
+Paleta, tipografía completa y assets de branding → `docs/brand-voice.md` + `assets/branding/asset-catalog.md`.
 
-| Role | Hex | Use |
-|---|---|---|
-| Background | `#FFFFFF` | Fondo principal |
-| Acento ámbar | `#F5A623` | CTAs, highlights, badges, links |
-| Negro | `#0C0C0C` | Texto principal |
-| Gris lightest | `#F2F2F2` | Fondos secundarios |
-| Gris medio | `#6B7280` | Texto secundario |
-| Border | `rgba(12,12,12,0.15)` | Borders, separadores |
+## Paleta esencial
 
-## Typography
+| Role | Hex |
+|---|---|
+| Background | `#FFFFFF` |
+| Acento ámbar (CTAs, links, highlights) | `#F5A623` |
+| Texto principal | `#0C0C0C` |
+| Gris secundario (texto) | `#6B7280` |
+| Borders/separadores | `rgba(12,12,12,0.15)` |
 
-Fuentes de referencia para assets propios. Beehiiv controla las fuentes de la web/newsletter.
-- **Títulos/Headers:** Jost (Regular, weight 400)
-- **Cuerpo/Labels:** DM Sans (Regular, Medium, SemiBold, Bold)
+## Tipografía
 
-## Marca principal: Monograma R
+Jost (titulares, weight 400) · DM Sans (cuerpo y labels). Solo para assets propios — Beehiiv controla las fuentes en web/email.
 
-**Archivo:** `assets/branding/master/robohogar-logo-monogram-v11.png/jpg`
-R bold negra con ojos ámbar grandes + antena espiral. Sin pie decorativo.
-- **Uso:** landing hero, avatar, OG image, favicon, cualquier contexto "marca editorial"
-- Es la imagen de marca principal de ROBOHOGAR
+## Marca principal — Monograma R
+
+**`assets/branding/master/robohogar-logo-monogram-v11.png/jpg`** · R bold negra, ojos ámbar grandes, antena espiral. Uso: landing hero, avatar, OG, favicon, cualquier contexto "marca editorial". **Es la imagen principal de la marca.**
 
 ## Mascota
 
-Robot pequeño, cabeza esférica, ojos LED ámbar, delantal azul a cuadros con corazón, taza de café.
-- Reference: `assets/branding/master/`
-- Prompt base: `assets/branding/mascota-prompt.md`
-- **Uso:** emails, social cards, CTAs cercanos, 404 — contextos personales/cálidos
-- NO usar mascota donde va el monograma (landing hero, navbar, OG)
+Robot pequeño, cabeza esférica, ojos LED ámbar, delantal azul a cuadros con corazón, taza de café. Prompt base: `assets/branding/mascota-prompt.md`. Uso: emails, social cards, CTAs cercanos, 404 — contextos personales/cálidos. **NO usar donde va el monograma.**
 
 ## Principios visuales
 
-- Clean, editorial, magazine-style (inspiración: MIT Technology Review)
-- Espaciado generoso — no saturar
-- Imágenes grandes y de calidad
-- Monograma R = marca editorial. Mascota = tono cercano/personal
+Clean, editorial, magazine-style (inspiración MIT Technology Review). Espaciado generoso. Imágenes grandes. Monograma R = marca editorial, mascota = tono cercano.
 
-## Mobile-first (no negociable)
+## Mobile-first (NO negociable)
 
->50% lectores leen en móvil. Validar SIEMPRE a 375px ANTES de proponer copy para landing/email/social/cards.
+>50% lectores leen en móvil. Validar SIEMPRE a 375px antes de copy para landing/email/social/cards:
 
-- Bullets/headlines: máximo 40 chars (más → wrap raro)
-- Sin em-dashes (`—`) en headlines/bullets cortos: usar `:` o `·`
-- Sub-textos opcionales, nunca críticos para entender el bullet
-- Cards: 3-up grid horizontal > 4 stacked cards
-- Imágenes: WebP <200KB email, <500KB web
+- Bullets/headlines ≤40 chars (más → wrap raro)
+- Sin em-dashes (`—`) en headlines cortos: usar `:` o `·`
+- Cards 3-up horizontal > 4 stacked
+- WebP <200KB email · <500KB web
