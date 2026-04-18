@@ -1,156 +1,75 @@
 # ROBOHOGAR — Asset Catalog
 
-Catálogo vivo de todos los assets visuales generados. **Actualizar después de cada generación con Nano Banana.**
+Catálogo vivo de los assets visuales vigentes. **Actualizar después de cada generación con Nano Banana.**
+
+> **Cleanup 2026-04-18 (`_archive/2026-04-18-cleanup-marca-oficial/`):** archivados los 19 poses de mascota, los logos antiguos (`monogram-v11`, `icon-v6`, `lockup`, `badge`, `header-v3-bahnschrift`), las variantes v3 con fondos de color (`accent`/`cream`/`glow` + `og-1200-v3`), templates de email/CTA/YouTube/patterns/iconos de categoría sin uso activo, y `mascota-prompt.md`. La marca actual vive **únicamente** en `social/final/` + derivados en `social/`.
 
 ---
 
-## Mascota — Poses (11/11 completadas)
+## 1. Logos oficiales (ÚNICA fuente de verdad)
 
-Todas las mascotas viven en `assets/branding/master/` (2K). Las copias 1K en `flash-1K/` se eliminaron en commit `03923fd` (2026-04-17).
+Los 2 logos en `assets/branding/social/final/` son la marca ROBOHOGAR. Todo lo demás deriva de aquí.
 
-| Pose | Archivo (en `master/`) | Uso principal |
-|---|---|---|
-| Principal (café) | `robohogar-mascot-principal.png` | Social cards, emails, CTAs cercanos |
-| A — Saludando | `robohogar-mascot-saludando.png` | Welcome email, onboarding, página "Sobre" |
-| B — Con casita | `robohogar-mascot-casita.png` | Landing page hero, sección "Robots para el hogar" |
-| C — Leyendo | `robohogar-mascot-leyendo.png` | Cabecera artículos, blog, roundups |
-| E — Thumbs up | `robohogar-mascot-thumbsup.png` | Confirmación suscripción, CTAs, gracias |
-| F — Detective | `robohogar-mascot-detective.png` | Análisis profundo, deep dives, investigación |
-| G — Herramientas | `robohogar-mascot-herramientas.png` | Domótica, integración, setup, tutoriales |
-| H — Megáfono | `robohogar-mascot-megafono.png` | Noticias, lanzamientos, alertas |
-| I — Pensativo | `robohogar-mascot-pensativo.png` | Opinión, editorial, debates |
-| J — Compras | `robohogar-mascot-compras.png` | Guías de compra, ofertas, afiliados Amazon |
-| K — Trofeo | `robohogar-mascot-trofeo.png` | "Robot del mes", rankings, premios |
-
-**Poses adicionales** (L, M, N, O, P, Q): ver tabla "Nuevas poses de mascota" más abajo.
-
-## Mascota — En contexto
-
-| Archivo | Carpeta | Descripción |
-|---|---|---|
-| `robohogar-mascot-referencia.png` | `con-fondo/` | Mascota en contexto hogar — usada como `--reference` para anclar estilo |
-
-## Marca principal
-
-| Archivo | Carpeta | Fecha | Uso |
+| Logo | Archivo principal (1200×630 OG) | Avatar cuadrado (1080×1080) | Descripción |
 |---|---|---|---|
-| **`robohogar-logo-monogram-v11.png/jpg`** | `master/` | 2026-04-16 | **IMAGEN PRINCIPAL DE MARCA** — Landing hero, avatar, OG image, favicon. R bold con ojos ámbar + antena, sin pie |
-| `robohogar-logo-icon-v6.png` | `master/` | 2026-04-16 | Icono sutil — cabeza robot minimalista (cuadrado redondeado, visor, antenas, ojos ámbar). Navbar, favicon, avatar pequeño |
-| `robohogar-logo-header-v3-bahnschrift.png` | `master/` | 2026-04-16 | Header horizontal — icono sutil + "ROBOHOGAR" en Bahnschrift. Para navbar, headers de email, firmas |
-| `robohogar-logo-lockup-horizontal-white.jpg` / `.png` | `master/` | 2026-04-16 | Lockup horizontal (mascota + ROBOHOGAR), fondo blanco, recortado. Para emails/CTAs |
-| `robohogar-logo-badge-white.png` | `master/` | 2026-04-16 | Badge circular (mascota en círculo ámbar), fondo blanco. Para redes sociales |
-| `robohogar-logo-badge-v2.png` | `master/` | 2026-04-16 | Badge circular versión v2 (fondo blanco Beehiiv-compatible). Avatar redes, stickers |
+| **Monograma R** | `og-seo-monogram-1200x630.{png,webp}` | `profile-monogram-1080x1080.{png,webp}` | R bold negra con ojos ámbar + antena. Imagen **principal** de marca. Más visual, ocupa espacio. |
+| **Icon robot** | `og-seo-icon-1200x630.{png,webp}` | `profile-icon-1080x1080.{png,webp}` | Cabeza robot minimalista (visor + antenas + dos ojos). Marca **compacta**, ligera visualmente. |
 
-## Templates generales
+Todos sobre fondo blanco #FFFFFF. WebP para web/OG, PNG como master.
 
-| Archivo | Carpeta | Fecha | Descripción |
+## 2. Cuándo usar cada logo
+
+| Contexto | Logo | Motivo |
+|---|---|---|
+| Landing hero, OG de artículos, portada newsletter, contextos editoriales con aire | **Monograma R** | Se lee como marca a tamaño grande, más carácter visual |
+| Favicon, navbar, avatar redes sociales, footer de email, miniaturas | **Icon robot** | Legible en tamaños pequeños, menor densidad visual |
+| Artículos (body content) | Ninguno — va la hero específica del artículo | El logo no compite con la hero |
+
+## 3. Social media pack — tamaños derivados
+
+En `assets/branding/social/` (mismo logo monograma/icon que en `final/`, solo cambia formato).
+
+### 3a. Variantes "tight" del logo sobre blanco o transparente
+
+Útiles para composiciones propias (watermarks, overlays, PDFs):
+
+| Archivo | Fondo | Uso |
+|---|---|---|
+| `monogram-tight-white-v3.{png,webp}` | Blanco | Monograma recortado ajustado sobre blanco |
+| `monogram-tight-transparent-v3.{png,webp}` | Transparente | Overlay sobre cualquier fondo |
+| `icon-tight-white-v3.{png,webp}` | Blanco | Icon recortado ajustado sobre blanco |
+| `icon-tight-transparent-v3.{png,webp}` | Transparente | Overlay sobre cualquier fondo |
+
+### 3b. Plantillas listas para plataforma
+
+Logos aplicados a las proporciones exactas que pide cada red (todas PNG + JPG):
+
+| Archivo | Plataforma | Tamaño | Uso |
 |---|---|---|---|
-| `hero-landing-mascota-hogar.png` | `images/` | 2026-04-12 | Hero section landing — mascota en salón con robot aspirador. Flash, landscape |
-| `newsletter-header.png` | `images/` | 2026-04-13 | Cabecera newsletter — mascota saludando + espacio limpio. Flash, 21:9 |
-| `social-card-template-v2.png` | `images/` | 2026-04-13 | Template social card — borde elegante + mascota esquina inferior derecha. Flash, square |
+| `thumbnail-default-1200x630` | Beehiiv / OG genérico | 1200×630 | Thumbnail por defecto para posts cuando no hay hero |
+| `profile-monogram-v2` | Universal | 1000×1000 | Avatar redes sociales |
+| `cover-linkedin-v2` | LinkedIn | 1584×396 | Banner perfil |
+| `cover-x-v2` | X/Twitter | 1500×500 | Banner perfil |
+| `post-generic-landscape-v2` | LinkedIn/X | 1200×675 | Template compartir artículos (R watermark abajo-derecha) |
+| `post-ig-square-v2` | Instagram | 1080×1080 | Posts feed de marca |
+| `story-ig-v2` | Instagram | 1080×1920 | Stories (R arriba, espacio contenido abajo) |
 
-## Heros ficción — still cinematográfico
+### 3c. Templates sociales genéricos sin branding
 
-Para el pilar **Ficciones Domésticas** (relatos de ciencia ficción doméstica próxima). Estilo diferente al product-hero de artículos: es un **still de película**, no una miniatura editorial.
+En `assets/images/`. Contenedores vacíos (la hero del artículo va encima):
 
-### Cuándo usar este estilo
-
-- Cualquier relato generado por `/ficcion-draft` (flash, corto, mini-serie)
-- NO usar product-hero (esa paleta ámbar-cocina hogar editorial), es un lenguaje visual distinto
-- NO usar la mascota
-
-### Referencias visuales
-
-- *Black Mirror* en registro doméstico (no distópico-industrial)
-- *Her* (Spike Jonze) — luz cálida suavemente desaturada, composición íntima
-- *After Yang* (Kogonada) — quietud, objetos cotidianos, dolor contenido
-- *Ex Machina* en registro ligero — tensión sin amenaza
-
-### Parámetros
-
-| Elemento | Especificación |
-|---|---|
-| **Composición** | Escena narrativa, no producto. Punto focal = momento emocional (una mano, un rostro, una silueta contra ventana) |
-| **Iluminación** | Motivada (ventana, lámpara de mesa, pantalla). No golden hour genérico — luz realista de hora concreta del día |
-| **Paleta** | Ámbar cálido ligeramente desaturado + azul frío de pantallas/ventanas nocturnas. Más melancólica que los heros de artículos |
-| **Grano** | Ligero grano fílmico, sensación anamórfica. Evitar render 3D perfectamente limpio |
-| **Texto** | NUNCA |
-| **Mascota** | NUNCA |
-| **Neones** | NUNCA (regla común con heros editoriales) |
-
-### Prompt base (adaptar por escena)
-
-```
-Cinematic film still, 2030s Spanish home interior, [ESCENA CLAVE DEL RELATO —
-1-2 elementos focales, momento emocional concreto].
-Natural motivated light (from window / lamp / screen), slight desaturation,
-soft film grain, anamorphic lens feel, shallow depth of field.
-Editorial speculative fiction mood — warm but melancholic, intimate,
-quiet tension. Reference: Black Mirror domestic, After Yang, Her.
-Absolutely NO text, NO letters, NO words, NO writing of any kind.
-```
-
-### Parámetros técnicos nano-banana
-
-```bash
-uv run "<path>/image.py" \
-  --prompt "<prompt>" \
-  --output "content/ficciones/<serie>/assets/hero-<slug>.png" \
-  --model flash \
-  --aspect landscape \
-  --size 1K
-```
-
-### Registro de heros ficción
-
-| # | Serie | Slug relato | Fecha | Descripción |
-|---|---|---|---|---|
-| — | _(pendiente primer relato publicado)_ | | | |
-
-### Fallback si Rafael no quiere generar hero
-
-Usar el **monograma R sobre fondo ámbar claro** (`assets/branding/social/thumbnail-default-1200x630.png`) como placeholder neutro. No bloquear el output del skill por falta de hero.
+| Archivo | Plataforma | Aspect |
+|---|---|---|
+| `social-template-ig-square.png` | Instagram feed | 1:1 |
+| `social-template-ig-story.png` | Instagram story | 9:16 |
+| `social-template-linkedin.png` | LinkedIn | 16:9 |
+| `social-template-x.png` | X/Twitter | 16:9 |
 
 ---
 
-## Heros de artículos
+## 4. Heros de artículos — product-hero cinematográfico
 
-| # | Slug | Fecha | Tipo | Modelo | Descripción |
-|---|---|---|---|---|---|
-| 1 | `mejor-robot-aspirador-2026` | 2026-04-13 | Review | flash | Aspirador premium iluminado cenital ámbar en salón moderno |
-| 2 | `robots-humanoides-casa-2030` | 2026-04-13 | Futuro | flash | Humanoide entrando por puerta, backlit cinematográfico |
-| 3 | `experiencia-robots-casa` | 2026-04-13 | Lifestyle | flash | Salón acogedor con aspirador + robot servicio + gato |
-| 4 | `mejor-robot-asistente-ia-2026` (v1-v6) | 2026-04-13 / 2026-04-17 | Gadget | flash | v1-v4: iteraciones con neones problemáticos. v5: skyline atardecer sin neones. v6: ciudad diurna sin neones — misma composición (robot huevo + mano + cocina cálida) |
-| 5 | `humanoides-en-casa-cuanto-falta` (v10) | 2026-04-15 | Editorial | flash | "Creación de Adán" — mano robot + mano humana en cocina, jardín, luz dorada |
-| 6 | `roborock-saros-z70-review` (v1-v3) | 2026-04-16 | Review | flash | v1: close-up brazo+calcetín+mano, suelo madera. v2: overhead cocina mármol+objetos. v3: salón dorado, brazo con calcetín colorido |
-| 7 | `neo-humanoide-fabricas-eqt` (v8) | 2026-04-17 | Editorial | flash | Humanoide NEO con chaleco industrial naranja entregando taza de café en cocina doméstica — comunica la contradicción del pivote home→factory. Final elegido tras 9 iteraciones (v1-v7 descartadas por neones/pantallas en el fondo) |
-| 8 | `humanoides-domesticos-2026-comparativa` (v7) | 2026-04-17 | Comparativa | flash | Lineup clásico estilo catálogo: 7 humanoides matte de distintos colores alineados sobre backdrop limbo cream infinito — aesthetic "product comparison" universal. Final elegido tras 7 iteraciones (v1/v4/v5 descartadas por neones en pared; v2/v3/v6 descartadas por composición menos legible) |
-
-Ruta de cada hero: `content/articulos/<slug>/assets/hero-<slug>[-vN].png`
-
----
-
-## Estructura de carpetas
-
-| Carpeta | Resolución | Propósito |
-|---|---|---|
-| `assets/branding/master/` | 2K | Assets definitivos — web, landing, print, social cards |
-| `assets/branding/flash-1K/` | 1K | Borradores, previews rápidos, tests |
-| `assets/branding/con-fondo/` | Variable | Mascota en escenas/contextos — referencias de estilo |
-| `assets/images/` | Variable | Templates generales (newsletter header, social card, OG) |
-| `content/articulos/<slug>/assets/` | Variable | Hero + imágenes por artículo |
-
-## Estrategia de imágenes por artículo
-
-**Cada artículo necesita 1 imagen hero + imágenes inline de fabricante:**
-
-| Tipo de imagen | Aspect | Uso | Nombre archivo |
-|---|---|---|---|
-| **Hero** (artículo + thumbnail) | `square` o `landscape` | Imagen del artículo + post thumbnail + OG/SEO + redes | `hero-<slug>.png` |
-| **Inline** (producto) | Variable | Fotos dentro del artículo | Originales de fabricante, no generadas |
-| **Templates** (newsletter, social) | Variable | Newsletter header, social card | En `assets/images/`, no por artículo |
-
-La hero se usa tanto dentro del artículo como post thumbnail — Beehiiv recorta automáticamente para cards/OG y el resultado es bueno. **Verificar en [opengraph.xyz](https://opengraph.xyz) tras publicar.** Solo si el recorte sale mal, generar una versión 16:9 adicional (`thumbnail-<slug>.png`).
+Cada artículo necesita **1 hero + imágenes inline de fabricante**. Hero en `content/articulos/<slug>/assets/hero-<slug>.png`. Nano-banana genera también `.webp` (<500 KB) — subir WebP a Beehiiv, PNG como master.
 
 ### Estructura de carpetas por artículo
 
@@ -166,34 +85,21 @@ content/articulos/
         hero-<slug>-v*.webp
 ```
 
-Post-publish archiva (no borra) las variantes no elegidas en `assets/_archive/`. Sirven como referencia visual para futuras iteraciones y recuperación rápida sin git.
+### Principio #1 — la miniatura se ve a 300px
 
-El agente de imágenes genera el hero automáticamente como parte del pipeline semanal, lo guarda en la carpeta del artículo y lo registra en este catálogo.
+Hero = card de Beehiiv, preview de WhatsApp, OG card. A 300px tiene que funcionar: **cuantos menos elementos, más impacto.** Un punto focal claro + contraste entre dos elementos (humano/robot, antes/después) genera más CTR que escenas complejas.
 
-**Post-generación:** Nano-banana genera automáticamente una copia `.webp` comprimida (<500 KB) junto al PNG original. Usar el WebP para OG/thumbnail en Beehiiv y redes. El PNG se mantiene como master de calidad.
-
-### Estilo ROBOHOGAR para heros de artículos
-
-**Nombre del estilo:** Product-hero cinematográfico
-**Referencia visual:** Thumbnails de YouTube tech + portadas de revistas editoriales
-
-#### Principio #1: MINIATURA QUE FUNCIONA A 300px
-
-La imagen hero se ve como miniatura en cards de Beehiiv (~300px), previews de WhatsApp, OG cards de redes. A ese tamaño tiene que funcionar.
-
-**Regla de oro:** cuanto menos elementos, más impacto a tamaño pequeño. Un solo punto focal claro + contraste entre dos elementos (humano/robot, antes/después) genera más CTR que escenas complejas.
-
-#### Principio #2: COMPOSICIÓN PARA NEWSLETTER (no YouTube)
+### Principio #2 — composición para newsletter (no YouTube)
 
 | Hacer | NO hacer |
 |---|---|
 | **1-2 elementos máximo** — un punto focal claro que se lee en milisegundos | Escenas con 5+ elementos compitiendo por atención |
-| **Close-ups e interacción** — manos, dedos, ojos. Gancho emocional inmediato | Figuras de cuerpo entero lejos de cámara — a 300px parecen siluetas genéricas |
+| **Close-ups e interacción** — manos, dedos, ojos. Gancho emocional | Figuras de cuerpo entero lejos de cámara — a 300px parecen siluetas genéricas |
 | **Referencia cultural** si encaja — "Creación de Adán", iconografía reconocible | Composiciones literales sin concepto (robot de pie en un salón) |
 | **Fondo limpio y luminoso** — cocina, jardín, luz natural dorada | Skylines urbanos con neones (Gemini mete texto asiático siempre) |
 | **Contraste conceptual** — humano vs robot, cotidiano vs futurista | Escenas puramente decorativas sin tensión narrativa |
 
-#### Características visuales (TODAS obligatorias)
+### Características visuales (todas obligatorias)
 
 | Elemento | Especificación |
 |---|---|
@@ -203,15 +109,15 @@ La imagen hero se ve como miniatura en cards de Beehiiv (~300px), previews de Wh
 | **Fondo** | Hogar moderno luminoso (cocina, salón). Ventanas con jardín/cielo, NO ciudad |
 | **Interacción humana** | Siempre. Una mano, un dedo, una persona cercana. Robot solo = no engancha |
 | **Estilo** | Render 3D estilizado. Ni foto real ni cartoon — moderno y thumbnail-friendly |
-| **Mascota** | NO incluir la mascota ROBOHOGAR. Reservada para landing, emails, social cards |
 | **Texto** | NUNCA. Ni letras, ni palabras, ni carteles, ni pantallas con texto |
+| **Logo de marca** | NUNCA integrar el logo en la hero. El logo vive en avatares/headers, no en la imagen del artículo |
 | **Neones/skyline** | NUNCA en heros de artículos. Evitar ventanas con edificios o carteles |
 | **Escenas "showroom/gallery/lineup"** | Gemini las interpreta como tienda y mete carteles LED + neones casi siempre. Anclar SIEMPRE a "home living room / kitchen interior" con "plain cream-painted wall" para composiciones tipo "varios productos en fila" |
 | **Instrucciones negativas ("no text", "no signs")** | El sign-guard del script las combina con su propia directiva y a veces crea conflicto que bloquea la generación. Preferir descripción positiva ("plain cream wall completely unmarked") sobre negativa |
 | **"LED accents / LED eyes" en prompts de múltiples robots** | Gemini los interpreta como paneles luminosos rosa/azul/naranja en pecho y tripa. Para composiciones de varios robots, describir superficies como "matte, solid-colored, without any illumination" y ojos como "small dark visors, not glowing". Los LEDs ámbar solo funcionan bien cuando hay UN robot en foco |
 | **Pared trasera + múltiples robots** | Gemini la rellena con TVs, carteles neon, logos con caracteres asiáticos. Para composiciones de varios robots: eliminar la pared completamente — usar overhead top-down, silueta a contraluz, o plano frontal cerrado sin fondo visible. Regla: "si hay más de 1 robot y una pared trasera, habrá neones" |
 
-#### Parámetros técnicos nano-banana
+### Parámetros técnicos nano-banana
 
 ```bash
 uv run "<path>/image.py" \
@@ -222,9 +128,9 @@ uv run "<path>/image.py" \
   --size 1K
 ```
 
-**IMPORTANTE:** NO usar `--reference` para heros de artículos. La referencia a la mascota contamina el estilo y genera artefactos (texto asiático, estilo cartoon). Los heros son fotográficos, no ilustración.
+**NO usar `--reference`** para heros de artículos — contamina el estilo con artefactos (texto asiático, cartoon). Los heros son fotográficos, no ilustración.
 
-#### Prompt template
+### Prompt template
 
 ```
 Eye-catching editorial hero image for an article about [TEMA DEL ARTÍCULO].
@@ -236,13 +142,11 @@ warm amber and cream palette, shallow depth of field.
 Absolutely NO text, NO letters, NO words, NO writing of any kind.
 ```
 
-**Generar siempre 3 variantes** con composiciones DISTINTAS entre sí (no 3 versiones del mismo encuadre). Cada variante debe probar un concepto/composición diferente para que Rafael elija.
+**Generar siempre 3 variantes** con composiciones DISTINTAS entre sí (no 3 versiones del mismo encuadre).
 
-#### Estilo ganador: "Creación de Adán" v10 (REFERENCIA PRINCIPAL)
+### Estilo ganador: "Creación de Adán" v10 (REFERENCIA PRINCIPAL)
 
 Basado en el hero de `humanoides-en-casa-cuanto-falta` (v10) — la imagen que mejor funciona como miniatura de newsletter y define el nuevo estilo ROBOHOGAR.
-
-**Por qué funciona v10:**
 
 | Elemento | Qué hace | Por qué funciona a 300px |
 |----------|----------|--------------------------|
@@ -254,19 +158,17 @@ Basado en el hero de `humanoides-en-casa-cuanto-falta` (v10) — la imagen que m
 | **Objetos cotidianos** | Taza de café, frutero en primer plano | Contexto hogar real sin saturar |
 | **Render 3D estilizado** | Ni foto real ni cartoon | Moderno, atractivo como thumbnail |
 
-**Principios para TODOS los heros futuros:**
+**Principios para todos los heros futuros:**
 
-1. **1-2 elementos máximo como punto focal** — la miniatura se ve a 300px. Si necesitas "mirar más" para entenderla, no funciona
-2. **Interacción humano-robot siempre** — mano tocando, dedo acercándose, persona cerca. Gancho emocional
+1. **1-2 elementos máximo como punto focal** — si necesitas "mirar más" para entenderla, no funciona a 300px
+2. **Interacción humano-robot siempre** — mano tocando, dedo acercándose. Gancho emocional
 3. **Close-ups > planos generales** — una mano con un robot > un salón entero con figuras lejanas
 4. **Concepto visual > escena literal** — una metáfora (Creación de Adán) impacta más que una foto de producto
 5. **Fondo luminoso y limpio** — jardín, cielo, cocina con luz natural. NUNCA skylines ni neones
-6. **Contraste entre dos elementos** — humano/robot, cotidiano/futurista, real/posible. Genera tensión narrativa
+6. **Contraste entre dos elementos** — humano/robot, cotidiano/futurista, real/posible
 7. **Paleta cálida sin excepciones** — ámbar, crema, madera, dorado. Sin azules fríos, sin neones
 
-> **Nota sobre neones:** Los neones (cian, rosa, morado) son un artefacto de Gemini y del sign guard. Aunque el primer artículo los usó, la línea editorial definitiva es **sin neones**. Fondos limpios con jardín/cielo funcionan mejor para newsletters.
-
-#### Prompts que funcionaron (referencia para futuros artículos)
+### Prompts que funcionaron
 
 **Editorial/Futuro — "Creación de Adán" (ESTILO V10 — PREFERIDO):**
 ```
@@ -319,7 +221,7 @@ editorial magazine quality.
 Absolutely NO text, NO letters, NO words, NO writing of any kind.
 ```
 
-#### Patrones por tipo de contenido
+### Patrones por tipo de contenido
 
 | Tipo de artículo | Composición | Ejemplo de foco |
 |---|---|---|
@@ -329,126 +231,105 @@ Absolutely NO text, NO letters, NO words, NO writing of any kind.
 | **Gadget/Producto nuevo** | Close-up producto + ojos ámbar como punto focal + mano humana | Robot con ojos brillantes en encimera |
 | **Opinión/Editorial** | Escena evocadora y conceptual, close-up, referencia cultural si encaja | Dos manos, robot sirviendo, metáfora visual |
 
-### Cuándo SÍ usar la mascota en heros
+### Fallback si no se genera hero
 
-- Landing page hero
-- Welcome email / reminder email
-- Artículos de opinión/editorial personal (mascota pensativa, detective)
-- Social cards genéricas de la newsletter
-- Páginas "Sobre" / 404
-- Newsletter header
+Usar `assets/branding/social/thumbnail-default-1200x630.png` (monograma R sobre blanco) como placeholder neutro.
 
-## Reglas
+### Registro de heros publicados
 
-- **NUNCA sobrescribir** un archivo existente — usar sufijo versionado (-v2, -v3)
-- **SIEMPRE actualizar este catálogo** después de generar una imagen nueva
-- Antes de generar, revisar este catálogo para evitar duplicados
-- Nuevas poses de mascota → `master/` (modelo 2/pro) + `flash-1K/` (modelo flash)
-- Heros de artículos → `content/articulos/<slug>/assets/` con estilo product-hero
-- **Beehiiv no soporta fondos transparentes** — usar fondo blanco para email/newsletter assets
+| # | Slug | Fecha | Tipo | Modelo | Descripción |
+|---|---|---|---|---|---|
+| 1 | `mejor-robot-aspirador-2026` | 2026-04-13 | Review | flash | Aspirador premium iluminado cenital ámbar en salón moderno |
+| 2 | `robots-humanoides-casa-2030` | 2026-04-13 | Futuro | flash | Humanoide entrando por puerta, backlit cinematográfico |
+| 3 | `experiencia-robots-casa` | 2026-04-13 | Lifestyle | flash | Salón acogedor con aspirador + robot servicio + gato |
+| 4 | `mejor-robot-asistente-ia-2026` (v1-v6) | 2026-04-13 / 2026-04-17 | Gadget | flash | v1-v4: iteraciones con neones problemáticos. v5: skyline atardecer sin neones. v6: ciudad diurna sin neones — misma composición (robot huevo + mano + cocina cálida) |
+| 5 | `humanoides-en-casa-cuanto-falta` (v10) | 2026-04-15 | Editorial | flash | "Creación de Adán" — mano robot + mano humana en cocina, jardín, luz dorada |
+| 6 | `roborock-saros-z70-review` (v1-v3) | 2026-04-16 | Review | flash | v1: close-up brazo+calcetín+mano, suelo madera. v2: overhead cocina mármol+objetos. v3: salón dorado, brazo con calcetín colorido |
+| 7 | `neo-humanoide-fabricas-eqt` (v8) | 2026-04-17 | Editorial | flash | Humanoide NEO con chaleco industrial naranja entregando taza de café en cocina doméstica. Final elegido tras 9 iteraciones |
+| 8 | `humanoides-domesticos-2026-comparativa` (v7) | 2026-04-17 | Comparativa | flash | Lineup clásico estilo catálogo: 7 humanoides matte alineados sobre backdrop limbo cream infinito |
 
 ---
 
-## Logo Variants (vigentes tras cleanup 2026-04-17)
+## 5. Heros de ficción — still cinematográfico
 
-Purga en commit `03923fd`: eliminados monogramas v2-v10 (ahora canon = v11), lockup sin sufijo y -v2, badge transparente sin sufijo, header-dark. La tabla refleja los **supervivientes únicamente**.
+Para el pilar **Ficciones Domésticas** (relatos de ciencia ficción doméstica próxima). Estilo diferente al product-hero de artículos: es un **still de película**, no una miniatura editorial.
 
-| Archivo | Descripción | Ubicación | Uso |
-|---------|------------|-----------|-----|
-| `robohogar-logo-monogram-v11.png` / `.jpg` | Monograma "R" versión canónica | `master/` | **IMAGEN PRINCIPAL DE MARCA** — landing, avatar, OG, favicon |
-| `robohogar-logo-icon-v6.png` | Icono sutil — cabeza robot minimalista | `master/` | Navbar, favicon, avatar pequeño |
-| `robohogar-logo-header-v3-bahnschrift.png` | Header horizontal — icono + "ROBOHOGAR" en Bahnschrift | `master/` | Navbar, headers de email, firmas |
-| `robohogar-logo-lockup-horizontal-white.png` / `.jpg` | Lockup horizontal con fondo blanco | `master/` | Beehiiv, contextos sin transparencia |
-| `robohogar-logo-badge-white.png` | Badge circular fondo blanco | `master/` | Redes sociales, avatars |
-| `robohogar-logo-badge-v2.png` | Badge circular v2 (Beehiiv-compatible) | `master/` | Beehiiv, stickers |
+### Cuándo usar este estilo
 
-## Nuevas poses de mascota (generadas 2026-04-16)
+- Cualquier relato generado por `/ficcion-draft` (flash, corto, mini-serie)
+- NO usar product-hero (esa paleta ámbar-cocina hogar editorial), es un lenguaje visual distinto
 
-| Letra | Pose | Descripción | Uso | Archivo |
-|-------|------|-------------|-----|---------|
-| L | Sorprendido | Ojos abiertos, manos en mejillas | Noticias inesperadas, datos curiosos | `robohogar-mascot-sorprendido.png` |
-| M | Enfadado | Ojos entrecerrados, brazos cruzados | Reviews negativos, decepciones | `robohogar-mascot-enfadado.png` |
-| N | Celebrando | Brazos arriba, confeti | Lanzamientos, hitos, premios | `robohogar-mascot-celebrando.png` |
-| O | Durmiendo | Ojos cerrados, sentado, "Zzz" | Mantenimiento, error 503, pausa | `robohogar-mascot-durmiendo.png` |
-| P | Corriendo | Pose dinámica, periódico en mano | Breaking news, ofertas flash | `robohogar-mascot-corriendo.png` |
-| Q | Cocinando | Cuchara + olla, gorro chef | Smart kitchen, home automation | `robohogar-mascot-cocinando.png` |
+### Referencias visuales
 
-## Social Card Templates (generados 2026-04-16)
+- *Black Mirror* en registro doméstico (no distópico-industrial)
+- *Her* (Spike Jonze) — luz cálida suavemente desaturada, composición íntima
+- *After Yang* (Kogonada) — quietud, objetos cotidianos, dolor contenido
+- *Ex Machina* en registro ligero — tensión sin amenaza
 
-| Archivo | Plataforma | Aspect | Ubicación |
-|---------|-----------|--------|-----------|
-| `social-template-ig-square.png` | Instagram feed | 1:1 | `assets/images/` |
-| `social-template-ig-story.png` | Instagram story | 9:16 | `assets/images/` |
-| `social-template-linkedin.png` | LinkedIn | 16:9 | `assets/images/` |
-| `social-template-x.png` | X/Twitter | 16:9 | `assets/images/` |
-| `social-template-whatsapp.png` | WhatsApp share | 16:9 | `assets/images/` |
+### Parámetros
 
-## Banners Monograma R — Redes Sociales (generados 2026-04-17)
+| Elemento | Especificación |
+|---|---|
+| **Composición** | Escena narrativa, no producto. Punto focal = momento emocional (una mano, un rostro, una silueta contra ventana) |
+| **Iluminación** | Motivada (ventana, lámpara de mesa, pantalla). No golden hour genérico — luz realista de hora concreta del día |
+| **Paleta** | Ámbar cálido ligeramente desaturado + azul frío de pantallas/ventanas nocturnas. Más melancólica que los heros de artículos |
+| **Grano** | Ligero grano fílmico, sensación anamórfica. Evitar render 3D perfectamente limpio |
+| **Texto** | NUNCA |
+| **Neones** | NUNCA (regla común con heros editoriales) |
 
-Monograma R v11 sobre fondo blanco limpio, sin glow/halo. Composición PIL con el PNG original. Todos en PNG + JPG.
+### Prompt base (adaptar por escena)
 
-| Archivo | Plataforma | Tamaño | Uso | Ubicación |
-|---------|-----------|--------|-----|-----------|
-| `thumbnail-default-1200x630` | Beehiiv | 1200x630 | Default thumbnail para posts/OG | `assets/branding/social/` |
-| `profile-monogram-v2` | Universal | 1000x1000 | Avatar redes sociales | `assets/branding/social/` |
-| `cover-linkedin-v2` | LinkedIn | 1584x396 | Banner perfil LinkedIn | `assets/branding/social/` |
-| `cover-x-v2` | X/Twitter | 1500x500 | Banner perfil X/Twitter | `assets/branding/social/` |
-| `post-generic-landscape-v2` | LinkedIn/X | 1200x675 | Template compartir artículos (R watermark abajo-dcha) | `assets/branding/social/` |
-| `post-ig-square-v2` | Instagram | 1080x1080 | Posts de marca | `assets/branding/social/` |
-| `story-ig-v2` | Instagram | 1080x1920 | Stories (R arriba, espacio contenido abajo) | `assets/branding/social/` |
+```
+Cinematic film still, 2030s Spanish home interior, [ESCENA CLAVE DEL RELATO —
+1-2 elementos focales, momento emocional concreto].
+Natural motivated light (from window / lamp / screen), slight desaturation,
+soft film grain, anamorphic lens feel, shallow depth of field.
+Editorial speculative fiction mood — warm but melancholic, intimate,
+quiet tension. Reference: Black Mirror domestic, After Yang, Her.
+Absolutely NO text, NO letters, NO words, NO writing of any kind.
+```
 
-## YouTube Brand Pack
+### Parámetros técnicos nano-banana
 
-> **Estado:** todos los assets del pack YouTube original (banner, thumbnails review/vs/editorial, endcard, lower-third, watermark) se eliminaron en commit `03923fd` (2026-04-17). **Superviviente único:** `assets/images/youtube-thumb-review.png`. Pendiente de regenerar el pack completo cuando se active el canal YouTube (ver `docs/plan-v2.md` §Canal YouTube).
+```bash
+uv run "<path>/image.py" \
+  --prompt "<prompt>" \
+  --output "content/ficciones/<serie>/assets/hero-<slug>.png" \
+  --model flash \
+  --aspect landscape \
+  --size 1K
+```
 
-| Archivo | Elemento | Aspect | Ubicación |
-|---------|---------|--------|-----------|
-| `youtube-thumb-review.png` | Thumbnail genérico review | 16:9 | `assets/images/` |
+### Fallback
 
-## Patterns y texturas
+Usar `assets/branding/social/thumbnail-default-1200x630.png` como placeholder neutro. No bloquear el output del skill por falta de hero.
 
-> **Cleanup 2026-04-17:** eliminados `pattern-wave-amber`, `pattern-circuit-dark`, `pattern-dots-amber-soft`. Superviviente único: `pattern-hexagon-tech`.
+### Registro de heros ficción
 
-| Archivo | Tipo | Uso | Ubicación |
-|---------|------|-----|-----------|
-| `pattern-hexagon-tech.png` | Pattern (tileable) | Fondos tech/futurista | `assets/images/` |
+| # | Serie | Slug relato | Fecha | Descripción |
+|---|---|---|---|---|
+| — | _(pendiente primer relato publicado)_ | | | |
 
-## Icon Library
+---
 
-> **Cleanup 2026-04-17:** eliminadas versiones v1 (transparentes) de 6 iconos (`comparativa`, `cortacesped`, `guia`, `ia`, `novedad`, `opinion`). Canon actual = versiones `-v2.png` (fondo blanco, Beehiiv-compatible). `icon-aspirador` e `icon-humanoide` mantienen ambas variantes.
+## 6. Estructura de carpetas (estado actual)
 
-| Archivo | Categoría | Ubicación |
-|---------|----------|-----------|
-| `icon-aspirador.png` / `-v2.png` | Aspiradores | `assets/images/` |
-| `icon-humanoide.png` / `-v2.png` | Humanoides | `assets/images/` |
-| `icon-cortacesped-v2.png` | Cortacéspedes | `assets/images/` |
-| `icon-ia-v2.png` | Inteligencia artificial | `assets/images/` |
-| `icon-comparativa-v2.png` | Comparativas | `assets/images/` |
-| `icon-guia-v2.png` | Guías/tutoriales | `assets/images/` |
-| `icon-opinion-v2.png` | Opinión/editorial | `assets/images/` |
-| `icon-novedad-v2.png` | Novedades/breaking | `assets/images/` |
+| Carpeta | Contenido |
+|---|---|
+| `assets/branding/social/final/` | **Logos oficiales** — 2 logos × 2 formatos (OG 1200×630 + profile 1080×1080) × 2 extensiones (.png + .webp) |
+| `assets/branding/social/` | Derivados del social media pack + variantes `tight` transparent/white de los logos |
+| `assets/branding/_archive/` | Histórico versionado (cleanups por fecha) |
+| `assets/images/` | Templates sociales genéricos sin branding (contenedores para redes) |
+| `content/articulos/<slug>/assets/` | Hero + imágenes inline por artículo |
+| `content/ficciones/<serie>/assets/` | Hero + imágenes inline por relato |
 
-## Email Template Elements
+## 7. Reglas operativas
 
-> **Cleanup 2026-04-17:** `email-cta-button.png` (v1) y `email-footer-v2.png` eliminados. Canon actual reflejado abajo.
-
-| Archivo | Elemento | Ubicación |
-|---------|---------|-----------|
-| `email-divider.png` / `-v2.png` | Separador con robot | `assets/images/` |
-| `email-cta-button-v2.png` | Botón CTA ámbar (Beehiiv-compatible) | `assets/images/` |
-| `email-footer.png` | Footer branding | `assets/images/` |
-| `email-welcome-hero.png` | Hero bienvenida (fondo blanco) | `assets/images/` |
-| `email-section-header.png` / `-v2.png` | Cabecera sección | `assets/images/` |
-
-## Banners CTA suscripción
-
-> **Cleanup 2026-04-17:** `cta-banner-wide.png` eliminado (sin reemplazo). Disponibles: inline y square.
-
-| Archivo | Variante | Ubicación |
-|---------|---------|-----------|
-| `cta-banner-inline.png` | Inline en artículo (fondo ámbar claro) | `assets/images/` |
-| `cta-banner-square.png` | Card cuadrada para redes | `assets/images/` |
-
-## Slide Deck — Sponsors
-
-> **Estado:** los 8 slides del brand deck original (portada → contacto) se eliminaron en commit `03923fd` (2026-04-17) junto con la carpeta `assets/branding/slides/`. El script de generación histórica queda en `BRAND-DECK.md` + `BRAND-DECK-generate.sh`. Pendiente regenerar cuando se active el go-to-market de sponsors (ver `docs/plan-v2.md` §Monetización).
+- **NUNCA sobrescribir** un archivo existente — usar sufijo versionado (-v2, -v3)
+- **Archivar, nunca borrar** — `git mv` a `assets/branding/_archive/<fecha>-<motivo>/` o `content/articulos/<slug>/assets/_archive/` (preserva historia git)
+- **SIEMPRE actualizar este catálogo** después de generar una imagen nueva (paso 8 de `/post-publish`)
+- Antes de generar, revisar este catálogo para evitar duplicados
+- Heros de artículos → `content/articulos/<slug>/assets/` con estilo product-hero
+- Heros de ficción → `content/ficciones/<serie>/assets/` con estilo cinematográfico
+- **Beehiiv no soporta fondos transparentes** — usar fondo blanco #FFFFFF para email/newsletter assets
+- **Post-generación:** Nano-banana genera automáticamente una copia `.webp` comprimida (<500 KB) junto al PNG. Usar WebP en Beehiiv/OG, PNG como master
