@@ -29,9 +29,9 @@
 - **Tipografía global (config Beehiiv):** headings H1/H2/H3 en **DM Sans Bold**, body en **Inter Regular**. Beehiiv aplica este estilo al renderizar; los borradores generan Markdown/HTML semántico plano (sin forzar fuentes inline).
 - **Política de negritas.** SÍ en párrafos de texto corrido (cualquier variante: intro, desarrollo, callout simple, nota). NO en:
   - Headings H1/H2/H3 — el bold inline duplica el global setting
-  - Tablas — ni header ni body
+  - Tablas: `<thead>` nunca en bold (Beehiiv ya lo estiliza); en `<tbody>` solo la **columna 1** (etiqueta de fila: modelo, categoría, etc.) puede ir en `<strong>` para anclar la mirada en escaneo móvil. Las columnas 2+ siempre regular.
   - Recuadros checklist (div `.checklist` con fondo crema `#FFF9EF` + borde `#F5A623`) — los items van en peso regular
-  - Nunca `## **Título**`, `| **celda** |`, ni `<li><strong>...</strong>` dentro de `.checklist`. Al copiar de fuentes externas, limpiar bold embebido antes de publicar.
+  - Nunca `## **Título**`, ni `<li><strong>...</strong>` dentro de `.checklist`. Al copiar de fuentes externas, limpiar bold embebido antes de publicar.
 - **Tablas — mobile-first (≥50% lectores en móvil).**
   - **Máximo 4 columnas.** Si una comparativa pide más, o (a) se recortan a las 4 más críticas y el resto va en prosa del cuerpo, o (b) se parte en 2 tablas temáticas.
   - **Texto corto por celda: ≤25 caracteres orientativo** (2-3 palabras). Nada de paréntesis largos dentro de la celda — ese matiz va al caption o al cuerpo.
