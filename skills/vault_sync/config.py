@@ -134,13 +134,7 @@ MIRROR_SECTIONS = {
         "vault_dir": "Assets",
         "repo_paths": [
             "assets/branding/asset-catalog.md",
-            "assets/branding/mascota-prompt.md",
-        ],
-    },
-    "Landing Page": {
-        "vault_dir": "Assets",
-        "repo_paths": [
-            "assets/landing.html",
+            "assets/branding/nano-banana-prompt-base.md",
         ],
     },
     "Root Documents": {
@@ -239,6 +233,5 @@ SECTION_ORDER = [
     "Utilities",
     "Vault Sync",
     "Branding Docs",
-    "Landing Page",
     "Root Documents",
 ]

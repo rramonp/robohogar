@@ -368,7 +368,6 @@ def _describe_file(rel_path, section):
         "Utilities": "Utility script",
         "Vault Sync": "Vault sync engine script",
         "Branding Docs": "Branding asset documentation",
-        "Landing Page": "Landing page source",
         "Root Documents": "Repository root document",
     }
     return descriptions.get(section, "Repository file")

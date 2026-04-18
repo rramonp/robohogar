@@ -66,7 +66,7 @@ Diferentes superficies necesitan diferentes formas. Mantener consistencia: si ca
 - **Cercano:** "tú", nunca "usted". Como hablar con un amigo en una cena
 - **Informado:** Datos concretos, fuentes citadas, sin inventar
 - **Con humor sutil:** No payaso, no seco. Un comentario ingenioso cuando viene natural
-- **Desenfadado:** La mascota (robot con delantal y café) marca el tono — serio sobre el contenido, no sobre sí mismo
+- **Desenfadado:** serio sobre el contenido, no sobre sí mismo — la marca es editorial, no solemne
 - **Opinado:** Cada artículo tiene posición. "Yo no me lo compraría" es una frase válida
 
 ### El ritmo
@@ -183,13 +183,16 @@ Al generar cada artículo, incluir la sección 📚 Más en ROBOHOGAR con links 
 
 ---
 
-## 9. La mascota como extensión de marca
+## 9. Los dos logos como sistema visual
 
-Robot pequeño, cabeza esférica, ojos LED ámbar, delantal azul a cuadros con corazón, taza de café. Encarna el tono desenfadado de ROBOHOGAR: es un robot, pero es cercano, hogareño, con personalidad.
+La marca ROBOHOGAR se expresa en **2 logos** (no mascota). Viven en `assets/branding/social/final/`:
 
-- Aparece en: headers, newsletter, social cards, landing page, 404
-- NO aparece en: hero images de artículos (ahí el protagonista es el producto real)
-- Transmite: "esto va de robots, pero no te lo vamos a contar como un manual técnico"
+- **Monograma R** — R bold negra con ojos ámbar + antena. Uso principal: landing hero, OG de artículos, avatar grande, portada newsletter. Es la cara editorial de la marca.
+- **Icon robot** — cabeza robot minimalista (visor + antenas + ojos). Uso secundario: favicon, navbar, avatar redes pequeños, footer de email. Es la cara compacta.
+
+Regla: **Monograma donde hay espacio; Icon donde pesa el tamaño.** NO integrar el logo dentro de la hero del artículo — el protagonista de la hero es el contenido (producto real, metáfora visual, close-up), no la marca.
+
+Detalle completo y prompts: [`../assets/branding/asset-catalog.md`](../assets/branding/asset-catalog.md).
 
 ---
 

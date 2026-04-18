@@ -57,10 +57,10 @@ Before generating any final output (publishing an article, generating a definiti
 | `content/calendario-editorial.md` | Cadencia semanal, backlog de temas, planificación |
 | `content/registro-articulos.md` | Catálogo de artículos publicados |
 | `content/registro-newsletters.md` | Catálogo de newsletters enviados |
-| `assets/branding/master/` | Mascota 2K — assets definitivos |
-| `assets/branding/flash-1K/` | Mascota 1K — borradores |
-| `assets/branding/con-fondo/` | Mascota en contexto hogar |
-| `assets/images/` | Templates genéricos (newsletter header, social card) |
+| `assets/branding/social/final/` | **Logos oficiales** — Monograma R + Icon robot (única fuente de verdad) |
+| `assets/branding/social/` | Social media pack — tamaños derivados para redes + variantes tight |
+| `assets/branding/_archive/` | Histórico versionado por cleanup |
+| `assets/images/` | Templates sociales genéricos sin branding |
 | `docs/brand-voice.md` | **Voz de marca — consultar SIEMPRE para contenido** |
 | `docs/` | Planes y estrategia |
 | `references/` | Investigación de mercado |
@@ -74,7 +74,7 @@ Skills invocables (definidos en `.claude/commands/`). Pipeline principal en orde
 |---|---|---|
 | `/research-digest` | Agrega RSS + Firecrawl, categoriza con Claude, genera digest semanal | Lunes o cuando Rafael pida "genera digest" |
 | `/content-draft <tema>` | Borrador HTML + PASOS.md + 3 hero variants + inline images | Tras elegir tema del digest o backlog de calendario |
-| `/nano-banana` | Generación de imágenes (hero, mascota, social) | Invocado por content-draft; manual para branding |
+| `/nano-banana` | Generación de imágenes (hero artículo, hero ficción, social) | Invocado por content-draft; manual para branding |
 | `/post-publish <URL>` | Limpieza post-publicación (14 pasos) — published, registro, llms.txt, vault sync, commit | Tras pegar URL definitiva en Beehiiv |
 | `/social-content <URL>` | Posts LinkedIn/X/IG/WhatsApp listos para Buffer | Invocado automáticamente por post-publish paso 11 |
 | `/obsidian-robohogar` | Sync vault (guía, registro, wiki, calendario) | Invocado automáticamente por post-publish paso 12 |

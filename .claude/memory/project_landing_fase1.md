@@ -54,7 +54,7 @@ type: project
 ## Archivos de referencia
 
 - Guía de implementación: Obsidian `05_Personal/05-01_Robotica Newsletter/Guia Implementacion.md` — actualizada con todos los cambios reales
-- Asset hero: `assets/branding/master/robohogar-mascot-principal-tight.png`
+- Asset hero: la landing original `assets/landing.html` se archivó el 2026-04-18 (desactualizada). Si se crea una nueva, partir desde cero usando los 2 logos oficiales en `social/final/`
 - Estilo botones: estándar Beehiiv documentado en la guía
 
 **Why:** La landing es el primer punto de contacto — sin ella no hay captación de suscriptores.

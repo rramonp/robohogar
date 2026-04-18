@@ -5,7 +5,7 @@ Generate images using Google's Gemini image models.
 ## When to activate
 
 - "genera una imagen", "create an image", "nano banana"
-- Any request to generate visual assets, mascot variations, social cards, banners
+- Any request to generate hero de artículo, hero de ficción, social card, banner, o variante de logo
 
 ## Script
 
@@ -14,17 +14,14 @@ Invoked via `uv run`.
 
 ## Style Reference (MANDATORY)
 
-**Before generating ANY image**, read `assets/branding/mascota-prompt.md`. This is the single source of truth for:
-- Character description (shape, eyes, apron, antennas, proportions)
-- Base prompt template for all variations
-- Consistency rules (orange LED eyes, blue checkered apron, kawaii proportions)
-- Full pose catalog (11 poses with exact prompts)
-- Usage map per newsletter section
+**Before generating ANY image**, read `assets/branding/asset-catalog.md`. Es la fuente única de verdad para:
+- Los 2 logos oficiales (monograma R + icon robot en `social/final/`)
+- Cuándo usar cada logo (monograma = espacio; icon = densidad)
+- Estilo product-hero cinematográfico para artículos
+- Estilo still cinematográfico para ficción
+- Registro de heros ya generados (evitar duplicados)
 
-When the user asks for mascot images, variations, or "de mi estilo" / "estilo ROBOHOGAR":
-1. Read `assets/branding/mascota-prompt.md`
-2. Use the **base prompt template** from that file (not free-form)
-3. ALWAYS use `--reference` pointing to a master image for style anchoring
+Para **heros de artículos** además leer **SIEMPRE** `assets/branding/nano-banana-prompt-base.md` — decision tree + suffix compilado anti-neones + palabras prohibidas.
 
 ## Invocation
 
@@ -34,45 +31,36 @@ uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
   --output "<output_path>.png" \
   [--model flash|2|pro] \
   [--aspect square|landscape|portrait|16:9|4:3|9:16|21:9|...] \
-  [--size 512|1K|2K|4K] \
-  [--reference assets/branding/master/<file>.png]
+  [--size 512|1K|2K|4K]
 ```
+
+**NO usar `--reference`** para heros (artículos ni ficción) — contamina el estilo fotográfico con ilustración/artefactos.
 
 ## Defaults for ROBOHOGAR
 
 | Param | Default | Notes |
 |---|---|---|
-| `--model` | `2` | Balanced speed + 4K |
-| `--aspect` | `square` | Social cards, mascot poses |
+| `--model` | `flash` | Rápido, calidad suficiente para heros |
+| `--aspect` | `landscape` | Heros 1200×630 |
 | `--size` | `1K` | Web-optimized |
-| `--output` | `assets/images/<slug>.png` | Article/general images |
-| `--reference` | `assets/branding/master/robohogar-mascot-principal.png` | Mascot consistency anchor |
+| `--output` | `content/articulos/<slug>/assets/hero-<slug>-v<N>.png` | Heros de artículo |
 
 ## Output paths
 
 | Type | Output to |
 |---|---|
-| Mascot new poses (master quality) | `assets/branding/master/` |
-| Mascot drafts/tests | `assets/branding/flash-1K/` |
-| Mascot in context/scene | `assets/branding/con-fondo/` |
-| **Hero de artículo** | **`content/articulos/<slug>/assets/hero-<slug>.png`** |
-| Templates genéricos (newsletter, social card) | `assets/images/` |
+| **Hero de artículo** | **`content/articulos/<slug>/assets/hero-<slug>-v<N>.png`** |
+| **Hero de ficción** | **`content/ficciones/<serie>/assets/hero-<slug>-v<N>.png`** |
+| Variantes de logo / social pack | `assets/branding/social/` |
+| Templates sociales genéricos | `assets/images/` |
 
 ## Dos modos de generación
 
-### Modo 1: Mascota (poses, variaciones, social cards)
-
-- Leer `assets/branding/mascota-prompt.md` — prompt base + reglas de consistencia
-- Usar `--reference` apuntando a una imagen master para anclar el estilo
-- Modelo: `2` o `pro`. Aspect: `square`
-
-### Modo 2: Hero de artículo (thumbnails para blog/newsletter)
-
-**Estilo obligatorio: Product-hero cinematográfico (tipo YouTube thumbnail)**
+### Modo 1: Hero de artículo (product-hero cinematográfico)
 
 - **LEER SIEMPRE PRIMERO:** `assets/branding/nano-banana-prompt-base.md` — decision tree + suffix compilado anti-neones + palabras prohibidas
-- Secundariamente: `assets/branding/asset-catalog.md` sección "Estilo ROBOHOGAR para heros de artículos" para prompts exactos por tipo de artículo
-- **NO usar `--reference`** — contamina el estilo fotográfico con ilustración/texto asiático
+- Secundariamente: `assets/branding/asset-catalog.md` § "Heros de artículos" para prompts exactos por tipo de artículo
+- **NO usar `--reference`**
 - Modelo: `flash`. Aspect: `landscape`. Size: `1K`
 - Output: `content/articulos/<slug>/assets/hero-<slug>-v<N>.png` (versionar desde v1)
 
@@ -82,27 +70,34 @@ uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
 + suffix compilado (copiar literal desde prompt-base.md § "Suffix compilado")
 ```
 
-El suffix compilado evita los 3 fallos recurrentes de Gemini: paneles luminosos en cuerpos de robots, neones en paredes, y caracteres asiáticos en fondos. Tras integrarlo, iteraciones esperadas: 2-3 por hero (antes: 7-9).
+El suffix evita los 3 fallos recurrentes de Gemini: paneles luminosos en cuerpos de robots, neones en paredes, y caracteres asiáticos en fondos. Iteraciones esperadas: 2-3 por hero.
 
 **Validar tras generación:** checklist en `prompt-base.md` § "Validación rápida post-generación". Si falla → mover a `assets/_archive/` y regenerar.
 
 **Invocado automáticamente por `/content-draft`** como paso del pipeline de creación de artículos.
 
+### Modo 2: Hero de ficción (still cinematográfico)
+
+- Leer `assets/branding/asset-catalog.md` § "Heros de ficción"
+- Estilo distinto al product-hero: film still, paleta desaturada, grano ligero
+- NO usar `--reference`
+- Modelo: `flash`. Aspect: `landscape`. Size: `1K`
+- Output: `content/ficciones/<serie>/assets/hero-<slug>-v<N>.png`
+
 ## Workflow
 
 1. **Read `assets/branding/asset-catalog.md`** — check what already exists, avoid duplicates
-2. Determinar modo: ¿mascota o hero de artículo?
-3. Si mascota → read `mascota-prompt.md`, usar prompt base + `--reference`
-4. Si hero de artículo → read `asset-catalog.md` sección estilo, usar prompt template SIN `--reference`
-5. Crear carpeta del artículo si no existe: `content/articulos/<slug>/assets/`
-6. Run the script via `uv run`
-7. Confirm output path to user
-8. NEVER overwrite existing images — use versioned filenames (-v2, -v3)
-9. **Update `assets/branding/asset-catalog.md`** — añadir nueva fila en tabla "Heros de artículos"
+2. Determinar modo: ¿hero de artículo o hero de ficción?
+3. Leer la sección correspondiente del catálogo (y `prompt-base.md` si es artículo)
+4. Crear carpeta del artículo/relato si no existe
+5. Run the script via `uv run`
+6. Confirm output path to user
+7. **NEVER overwrite** existing images — use versioned filenames (-v2, -v3)
+8. **Update `assets/branding/asset-catalog.md`** — añadir nueva fila en tabla de registro correspondiente
 
-## Post-generación: fondo blanco y recorte (OBLIGATORIO para branding)
+## Post-generación: fondo blanco y recorte (OBLIGATORIO para assets de logo/social pack)
 
-Toda imagen de branding (logos, monogramas, badges, lockups) debe entregarse con:
+Toda variante de logo o social pack que genere Nano Banana debe entregarse con:
 
 1. **Fondo blanco puro (255,255,255)** — nunca transparente, nunca checkerboard horneado
 2. **Recortada al contenido** — sin espacio blanco sobrante, solo ~15px padding
@@ -123,6 +118,8 @@ for y in range(h):
 # Crop to content bbox + pad
 # Save as JPG quality=95 + PNG
 ```
+
+Los heros de artículo/ficción NO pasan por este paso — son imágenes fotográficas, no branding.
 
 ## Requirements
 
