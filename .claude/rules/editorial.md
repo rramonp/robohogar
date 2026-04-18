@@ -24,6 +24,22 @@
 - Primera persona SIEMPRE en plural: "hemos investigado", "os contamos", "nos parece". NUNCA singular ("he investigado", "te cuento"). La voz de marca es plural (equipo/medio), no personal (blog de un tío). Excepción: la bio de Rafael en "Sobre el autor" puede usar singular
 - Robots se refiere siempre a robótica DOMÉSTICA (aspiradores, cortacésped, humanoides para hogar)
 
+## Formato técnico (Beehiiv)
+
+- **Tipografía global (config Beehiiv):** headings H1/H2/H3 en **DM Sans Bold**, body en **Inter Regular**. Beehiiv aplica este estilo al renderizar; los borradores generan Markdown/HTML semántico plano (sin forzar fuentes inline).
+- **Política de negritas.** SÍ en párrafos de texto corrido (cualquier variante: intro, desarrollo, callout simple, nota). NO en:
+  - Headings H1/H2/H3 — el bold inline duplica el global setting
+  - Tablas — ni header ni body
+  - Recuadros checklist (div `.checklist` con fondo crema `#FFF9EF` + borde `#F5A623`) — los items van en peso regular
+  - Nunca `## **Título**`, `| **celda** |`, ni `<li><strong>...</strong>` dentro de `.checklist`. Al copiar de fuentes externas, limpiar bold embebido antes de publicar.
+- **Tablas — mobile-first (≥50% lectores en móvil).**
+  - **Máximo 4 columnas.** Si una comparativa pide más, o (a) se recortan a las 4 más críticas y el resto va en prosa del cuerpo, o (b) se parte en 2 tablas temáticas.
+  - **Texto corto por celda: ≤25 caracteres orientativo** (2-3 palabras). Nada de paréntesis largos dentro de la celda — ese matiz va al caption o al cuerpo.
+  - **Nombres de producto cortos:** marca + modelo en 2-3 palabras ("Ecovacs X8 Pro Omni", no "Ecovacs Deebot X8 Pro Omni"). Año entre paréntesis en `<em>` si es imprescindible, con `<br>` para salto.
+  - **Valores con unidad pegada sin espacio** cuando sea posible ("100°C" no "100 °C", "1.399€" no "1.399 €") — ahorra wrap feo.
+  - **Sin specs secundarias:** potencias, dimensiones, sensores concretos y parentéticos de disclaimer van en prosa, no en celdas.
+  - **Validación obligatoria:** contar `<th>` del `<thead>` antes de entregar — si son >4, recortar. Referencia en vivo: tabla de [`content/articulos/mejor-robot-asistente-ia-2026/borrador.html`](../../content/articulos/mejor-robot-asistente-ia-2026/borrador.html) (4 cols, cells cortas, render OK en 375px).
+
 ## Newsletter (semanal)
 
 - 3-5 noticias curadas con comentario editorial

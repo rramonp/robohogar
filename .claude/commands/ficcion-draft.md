@@ -243,6 +243,17 @@ Cargar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.m
 - 1-2 flags → reescribir esas líneas concretas y re-correr.
 - 0 flags → proceder al paso 9.
 
+### 8.5. Formato técnico Beehiiv — OBLIGATORIO antes de output
+
+Verificar contra `@rules/editorial.md § Formato técnico (Beehiiv)`. Política de negritas aplicable también a ficción:
+
+- [ ] Ningún `<strong>`/`<b>`/`**...**` dentro de `<h1>`, `<h2>`, `<h3>` (títulos de episodio, cortes narrativos, epígrafes)
+- [ ] Ningún `<strong>`/`<b>` dentro de `<th>`/`<td>` si el relato incluye alguna tabla/ficha
+- [ ] Ningún `<strong>`/`<b>` dentro de `<div class="checklist">` u otro callout con fondo crema `#FFF9EF`
+- [ ] SÍ permitido: negrita puntual dentro de párrafos de prosa para énfasis
+
+Si hay violaciones → limpiar antes de entregar (no se pregunta al usuario).
+
 ### 9. Validaciones finales antes de output
 
 - [ ] **Longitud**: flash 500-800 | episodio-serie 1.200-1.800 | standalone 2.500-3.500. Contar palabras. Si supera por más del 15% → recortar.

@@ -198,6 +198,24 @@ Cargar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.m
 
 Esta checklist NO reemplaza las reglas de `editorial.md` (voz, autoridad propia, prohibiciones). Se suma a ellas.
 
+### 8.6. Formato técnico Beehiiv — OBLIGATORIO antes de entregar borrador
+
+Verificar contra `@rules/editorial.md § Formato técnico (Beehiiv)`. Aplica a TODO tipo de contenido (review, comparativa, editorial, guía, cheatsheet, newsletter).
+
+**Negritas:**
+- [ ] Ningún `<strong>`, `<b>` ni `**...**` dentro de `<h1>`, `<h2>`, `<h3>` (ni en Markdown `## **...**`)
+- [ ] Ningún `<strong>`/`<b>` dentro de `<th>` ni `<td>` (ni `| **celda** |` en Markdown)
+- [ ] Ningún `<strong>`/`<b>` dentro de `<div class="checklist">` u otro callout con fondo crema `#FFF9EF` / borde `#F5A623`
+- [ ] SÍ permitido: negrita dentro de párrafos de texto corrido (`<p>...<strong>...</strong>...</p>`)
+
+**Tablas (mobile-first):**
+- [ ] `<thead><tr>` tiene **≤4 `<th>`**. Si son >4, recortar a las 4 más críticas para la tesis del artículo (el resto va en prosa del cuerpo) o partir en 2 tablas temáticas
+- [ ] Cada `<td>` contiene texto corto, **≤25 caracteres orientativo**. Paréntesis largos y disclaimers fuera (al caption o al cuerpo)
+- [ ] Nombres de producto reducidos a marca + modelo corto (ej. "Ecovacs X8 Pro Omni", no "Ecovacs Deebot X8 Pro Omni")
+- [ ] Unidades pegadas sin espacio cuando se pueda ("100°C", "1.399€") para evitar wrap feo en 375px
+
+Si hay violaciones → limpiar antes de entregar. No es opcional ni se pregunta al usuario: es parte del output estándar.
+
 ### 9. Prohibiciones
 
 Aplicar todas las de `rules/editorial.md` (voz, tono, primera persona plural, prohibiciones de contenido).
