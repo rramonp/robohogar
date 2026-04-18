@@ -4,7 +4,7 @@ url: https://robohogar.com/p/samsung-jet-bot-steam-ultra-review
 fecha: 2026-04-18
 tipo: Review
 evergreen: true
-evergreen_note: "Revisar precios cada 6 meses. El insight 'vapor solo a mopas' es estructural — no cambia con actualizaciones del modelo. Apto para reutilizar en backlog social FASE 4B+."
+evergreen_note: "Próxima revisión de precios: 2026-10-18 (cuando leas esta fecha o posterior, verifica precios antes de reutilizar en redes). El insight 'vapor solo a mopas' es estructural — no cambia con actualizaciones del modelo. Apto para reutilizar en backlog social FASE 4B+."
 angulo: "promesa desmontada: el vapor a 100°C no toca el suelo, va a las mopas en la base"
 ---
 

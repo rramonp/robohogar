@@ -145,7 +145,7 @@ De cada newsletter publicado, extraer:
 Cada artículo publicado en Beehiiv se indexa automáticamente. Adicionalmente:
 - Configurar Google Search Console para robohogar.com
 - Monitorizar keywords con Google Search Console (gratis) — no necesitas herramientas de pago al principio
-- Los artículos evergreen (reviews, comparativas) se actualizan cada 6 meses con nuevos modelos/precios
+- Los artículos evergreen (reviews, comparativas) se actualizan cada 6 meses con nuevos modelos/precios. **Primer ciclo completo de refresh: a partir de 2026-10-18** (6 meses desde arranque real del proyecto) — cuando leas esa fecha o posterior, revisar backlog de artículos evergreen marcados con `evergreen_note` en `content/registro-articulos.md` y priorizar los que tengan fecha de revisión vencida.
 
 ---
 

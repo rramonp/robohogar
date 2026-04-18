@@ -40,7 +40,7 @@
 ### Prioridad 2 — DISTRIBUCIÓN ACTIVA (siguiente) ⏳
 
 - **Activar cuando:** ≥6 artículos publicados.
-- **Target:** 0 → 50 subs en 8-12 semanas vía Reddit + foros ES + Menéame + Beehiiv Boosts.
+- **Target:** 0 → 50 subs vía Reddit + foros ES + Menéame + Beehiiv Boosts. Ventana objetivo: **alcanzar 50 subs entre 2026-06-13 y 2026-07-11** (8-12 semanas desde activación 2026-04-18 — si lees una fecha dentro o posterior a esa ventana y aún no estamos en 50 subs, revisar estrategia en FASE 4B).
 - **Frase trigger:** *"Retomamos distribución 4B — tócame los hilos Reddit activos"*.
 - **Detalle operativo:** [[#FASE 4B: Distribución activa (0-50 subs)|FASE 4B]].
 
@@ -73,7 +73,7 @@ El objetivo es llegar a **≥7 artículos publicados** antes de activar FASE 4B.
 - **Ángulo editorial final:** el vapor a 100°C no toca el suelo — toca las mopas en la base. Desmontaje honesto del claim con cita a Xataka Home como autoridad.
 - **Variantes elegidas por Rafael:** hook v1 (Belief destruction) · veredicto v3 (Contrarian) · ¿sabías que? v3 (Dato histórico). Las 3 recomendaciones IA.
 - **Tangibles inline:** tabla comparativa 5 modelos + checklist "5 preguntas antes de comprar con vapor".
-- **Evergreen:** true (revisar precios cada 6 meses).
+- **Evergreen:** true (próxima revisión de precios: **2026-10-18**).
 
 #### Artículo #7 — Mejor robot aspirador 2026 · Guía de compra CON Content Gate ⭐
 
@@ -1069,7 +1069,7 @@ La newsletter semanal se activa cuando haya **30-50 suscriptores** (ver FASE 9).
 
 ## FASE 4B: Distribución activa (0-50 subs)
 
-> **Principio:** con 0 suscriptores y sin presencia social disponible (IG/LinkedIn personal sin usar, LinkedIn corporativo bloqueado, WhatsApp sin contactos), el motor de crecimiento inicial son canales donde Rafael puede aportar sin exponerse. Objetivo: 0 → 50 subs en 8-12 semanas invirtiendo ~2h/semana + ~€20-40 de prueba en Beehiiv Boosts.
+> **Principio:** con 0 suscriptores y sin presencia social disponible (IG/LinkedIn personal sin usar, LinkedIn corporativo bloqueado, WhatsApp sin contactos), el motor de crecimiento inicial son canales donde Rafael puede aportar sin exponerse. Objetivo: 0 → 50 subs invirtiendo ~2h/semana + ~€20-40 de prueba en Beehiiv Boosts. Ventana temporal realista: **alcanzar 50 subs entre 2026-06-13 y 2026-07-11** (8-12 semanas desde activación 2026-04-18). Si lees una fecha posterior a 2026-07-11 y aún estamos <50 subs, revisar estrategia completa (cambiar canales, aumentar inversión o pivotar).
 
 ### 📌 Frases trigger para retomar en futuras sesiones
 
@@ -1467,15 +1467,16 @@ Cada primer lunes del mes, dedicar 30 min a esto:
 ### Qué no funcionó
 - 
 
-### Acciones para el próximo mes
-- [ ] 
-- [ ] 
-- [ ] 
+### Acciones para los próximos 30 días
+> Al rellenar, escribir la fecha objetivo absoluta (YYYY-MM-DD) en cada check — evitar "esta semana" o "pronto".
+- [ ] YYYY-MM-DD —
+- [ ] YYYY-MM-DD —
+- [ ] YYYY-MM-DD —
 ```
 
 ### Evaluación trimestral
 
-Cada 3 meses, revisar contra los objetivos de `docs/plan-v2.md`:
+**Próxima evaluación trimestral: 2026-07-18** (cuando leas esta fecha o posterior, ejecuta la revisión y reprograma la siguiente a 3 meses vista). Revisar contra los objetivos de `docs/plan-v2.md`:
 
 - [ ] ¿Estoy en cadencia? (¿He enviado todos los newsletters programados?)
 - [ ] ¿Crecimiento de subs está en línea con objetivos?

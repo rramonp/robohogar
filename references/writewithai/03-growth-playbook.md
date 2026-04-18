@@ -6,7 +6,7 @@
 
 - **Diferenciación > optimización.** Cole: *"Pepsi mentions Coke. Coke never mentions Pepsi."* ROBOHOGAR debe jugar "diferente", no "mejor Wirecutter en español".
 - **Lead Generating Content Library** (HBR 30 Elements of Value) > SEO genérico. Responder las 30 preguntas que un comprador real se hace antes de gastar 500 €.
-- **Welcome sequence automática** es la palanca de mayor ROI sin coste — Beehiiv la soporta en free plan. Urgencia: implementar en 2 semanas.
+- **Welcome sequence automática** es la palanca de mayor ROI sin coste — Beehiiv la soporta en free plan. Urgencia: **implementar antes de 2026-05-02** (si lees esta fecha o posterior sin que esté implementada, priorizarla sobre cualquier otra tarea de growth).
 - **JTBD framing** (Jobs-To-Be-Done) cambia radicalmente el copy: el lector no se suscribe "por robots", contrata a ROBOHOGAR para un trabajo concreto.
 - **FOR WHO / SO THAT** como filtro antes de escribir cualquier pieza — si no se puede rellenar, la pieza no está lista.
 

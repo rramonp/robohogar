@@ -121,8 +121,8 @@ la que mejor describa qué robot buscas. Así afinamos las próximas.
 
 ## Aplicabilidad ROBOHOGAR concreta
 
-**Acciones priorizadas:**
-1. **Inmediato (esta semana):** añadir checklist de 10 hooks + ritmo 1/3/1 al skill `content-draft` como Paso 0 de todo borrador.
-2. **Próximas 2 semanas:** reescribir apertura de los 3 artículos publicados para aplicar 1/3/1 en los primeros 3 párrafos. Medir diferencia visual.
-3. **Próximo mes:** documentar en `docs/brand-voice.md` la tabla de "transitions en español" (versiones de *Pretty cool, right?*) para consistencia.
-4. **PS estándar** para newsletter semanal con pregunta → recolectar respuestas → input para [growth playbook](03-growth-playbook.md) JTBD.
+**Acciones priorizadas** (fecha objetivo absoluta — al leer una fecha vencida sin check ✓, ejecutar ahora):
+1. **Antes de 2026-04-25:** añadir checklist de 10 hooks + ritmo 1/3/1 al skill `content-draft` como Paso 0 de todo borrador.
+2. **Antes de 2026-05-02:** reescribir apertura de los 3 artículos publicados para aplicar 1/3/1 en los primeros 3 párrafos. Medir diferencia visual.
+3. **Antes de 2026-05-18:** documentar en `docs/brand-voice.md` la tabla de "transitions en español" (versiones de *Pretty cool, right?*) para consistencia.
+4. **PS estándar** para newsletter semanal con pregunta → recolectar respuestas → input para [growth playbook](03-growth-playbook.md) JTBD. (Se activa cuando arranque la newsletter — milestone: ≥30-50 subs.)

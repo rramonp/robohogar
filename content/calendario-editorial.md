@@ -106,10 +106,11 @@ Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurre
 
 ## Banco de preguntas · Elements of Value
 
-> Banco editorial permanente. 90 preguntas (30 elementos HBR × 3) que un comprador real de robótica doméstica en España se hace antes de pagar. Alimenta backlog SEO, ángulos sociales y temas de newsletter durante 6-12 meses.
+> Banco editorial permanente. 90 preguntas (30 elementos HBR × 3) que un comprador real de robótica doméstica en España se hace antes de pagar. Alimenta backlog SEO, ángulos sociales y temas de newsletter.
 > Framework + prompts para re-generar o expandir → [`references/writewithai/09-content-library-elements-of-value.md`](../references/writewithai/09-content-library-elements-of-value.md).
 > Ejecutado: 2026-04-18. Audiencia: adulto 30-55 años, España, 50-120 m², 300-800 € presupuesto, con pareja/hijos/mascota.
-> Uso: marcar ✅ cuando se cubra en un artículo + enlazar slug. Reciclar preguntas frescas cada 6 meses.
+> Uso: marcar ✅ cuando se cubra en un artículo + enlazar slug.
+> **Próximo reciclado de preguntas: 2026-10-18.** Cuando leas esta fecha o posterior, regenera el banco con preguntas actuales (nuevas categorías, modelos/marcas nuevos del mercado, issues emergentes) y mueve el banco actual a `_archive/` con fecha de congelación.
 
 ### Nivel 1 — Functional (14 elementos, 42 preguntas)
 

@@ -9,7 +9,7 @@ status: borrador
 created: 2026-04-18
 affiliate: true (Amazon Afiliados pendiente)
 evergreen: true
-evergreen_note: "Revisar precios cada 6 meses. El claim 'vapor 100°C solo para mopas, no para el suelo' es estructural — no cambia con actualizaciones del modelo."
+evergreen_note: "Próxima revisión de precios: 2026-10-18 (cuando leas esta fecha o posterior, verifica precios reales antes de reutilizar). El claim 'vapor 100°C solo para mopas, no para el suelo' es estructural — no cambia con actualizaciones del modelo."
 ---
 
 # Pasos para publicar — Samsung Jet Bot Steam Ultra review (Artículo #6)
@@ -217,7 +217,7 @@ Este artículo aplica el principio *"tangible = producto, no bonus"* ([tangibles
 
 **Filtro mercado aplicado:** Samsung es excepción mainstream según [editorial.md § Filtro mercado](../../../.claude/rules/editorial.md) — pasa directo sin bloqueo.
 
-**Evergreen:** true. Revisar precios cada 6 meses (líneas específicas marcadas en §6 de este PASOS.md). El insight central (vapor no toca suelo) es estructural, no cambia con actualizaciones.
+**Evergreen:** true. **Próxima revisión de precios: 2026-10-18** (líneas específicas marcadas en §6 de este PASOS.md; cuando leas esta fecha o posterior, verifica precios antes de reutilizar). El insight central (vapor no toca suelo) es estructural, no cambia con actualizaciones.
 
 ## 11. Datos clave del artículo
 

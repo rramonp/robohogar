@@ -1,6 +1,6 @@
 # Ebook Roadmap — Compilación de Ficciones Domésticas
 
-> Plan para agrupar los relatos del pilar "Ficciones Domésticas" en un ebook recopilatorio y (posiblemente) autopublicarlo. Milestone: ~15-20 relatos de calidad con ≥2 arcos cerrados. Cadencia actual (3 series × 1 relato/3-4 semanas) → masa crítica en 9-12 meses.
+> Plan para agrupar los relatos del pilar "Ficciones Domésticas" en un ebook recopilatorio y (posiblemente) autopublicarlo. Milestone: ~15-20 relatos de calidad con ≥2 arcos cerrados. Cadencia actual (3 series × 1 relato/3-4 semanas) → **masa crítica estimada alcanzable entre 2027-01-18 y 2027-04-18** (9-12 meses desde 2026-04-18). Cuando leas una fecha dentro o posterior a ese rango, auditar el stock real de relatos publicados y arrancar formalmente la fase F4-F5 si se cumple el milestone.
 > Estado: **F0 — plan aprobado**. Se ejecuta en F4-F5 del roadmap, no ahora.
 
 ---

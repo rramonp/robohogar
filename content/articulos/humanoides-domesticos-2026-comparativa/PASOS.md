@@ -196,5 +196,5 @@ Antes de publicar, confirmar que ningún precio ni fecha ha cambiado desde el di
 
 - **Cierra arco de humanoides**: tras 2 editoriales (humanoides-en-casa + NEO-EQT), esta comparativa es la pieza de referencia que el lector puede marcar/compartir. Útil como entrada al pilar humanoide para nuevos lectores
 - **Tono balanceado**: es comparativa, no editorial crítico — mantener opinión pero sin la dureza del NEO-EQT. El lector debe salir sabiendo a qué apostar, no enfadado
-- **Evergreen**: los precios/estados se pueden actualizar dentro de 6 meses con edición puntual. Mantener estructura de 7 constante
+- **Evergreen**: los precios/estados se pueden actualizar con edición puntual. **Próxima revisión: 2026-09-18** (cuando leas esta fecha o posterior, auditar precios/estado de los 7 humanoides). Mantener estructura de 7 constante
 - **Posibles tangibles futuros** (FASE 4C, no ahora): "Tabla comparativa humanoides 2026 PDF" sería un lead magnet natural desde este artículo
