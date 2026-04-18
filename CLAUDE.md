@@ -2,7 +2,7 @@
 
 ## Proyecto
 
-Newsletter + blog en español sobre robótica doméstica y humanoides. Hobby personal de Rafael (3-5 hrs/semana). Dominio: robohogar.com. Plataforma: Beehiiv (free plan, 2.500 subs). Mercado objetivo: España/Europa hispanohablante + LATAM. Posicionamiento: robots que YA llegan al hogar (70% práctico) + visión del hogar robotizado del futuro (30% editorial).
+Newsletter + blog en español sobre robótica doméstica y humanoides. Hobby personal de Rafael (3-5 hrs/semana). Dominio: robohogar.com. Plataforma: Beehiiv (**plan Scale** — automations, segmentación por tag, digital products, welcome flows y secuencias disponibles). Mercado objetivo: España/Europa hispanohablante + LATAM. Posicionamiento: robots que YA llegan al hogar (70% práctico) + visión del hogar robotizado del futuro (30% editorial).
 
 ## Scope
 
@@ -83,6 +83,7 @@ Skills invocables (definidos en `.claude/commands/`). Pipeline principal en orde
 
 Skills secundarios:
 - `/ficcion-draft` — relatos cortos Ficciones Domésticas (pilar ~10%)
+- `/pdf-brand cheatsheet <slug>` — genera tangibles PDF con marca (lead magnets) desde `content/lead-magnets/<slug>/data.py`. Variantes restantes (comparativa/guia/relato) pendientes activación por demanda. Ver `.claude/commands/pdf-brand.md`.
 - `/workflow-excalidraw` — diagramas de flujo (uso ocasional)
 
 ## Commits

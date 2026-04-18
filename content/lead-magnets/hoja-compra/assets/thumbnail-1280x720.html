@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!--
+  ROBOHOGAR — Thumbnail 1280x720 (16:9) para Beehiiv Digital Product
+  Uso: Primary image del product card "Hoja de Compra ROBOHOGAR".
+  Derivado del v2 HTML pero reorganizado en horizontal 16:9.
+  Generar PNG con: utilities/pdf_export.py patrón pero screenshot en vez de PDF
+-->
+<meta charset="UTF-8">
+<title>Thumbnail Hoja de Compra 1280x720</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --amber: #F5A623;
+    --amber-soft: #FFF9EF;
+    --ink: #0C0C0C;
+    --ink-soft: #535252;
+    --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    color: var(--ink);
+    margin: 0;
+    padding: 0;
+    background: #CCCCCC;
+  }
+
+  .thumbnail {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .amber-block {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 42%;
+    height: 100%;
+    background: var(--amber);
+  }
+
+  .big-number {
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    font-size: 560px;
+    line-height: 0.85;
+    color: rgba(255,255,255,0.22);
+    letter-spacing: -24px;
+  }
+
+  .brand-top {
+    position: absolute;
+    top: 40px;
+    left: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-top img {
+    width: 44px;
+    height: 44px;
+    display: block;
+  }
+  .brand-top .brand-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 48px;
+    right: 48%;
+    transform: translateY(-50%);
+  }
+
+  .content h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 82px;
+    font-weight: 800;
+    line-height: 0.95;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+
+  .content .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+    color: var(--ink-soft);
+    line-height: 1.25;
+    margin-bottom: 24px;
+  }
+
+  .content .descriptor {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.4;
+    font-style: italic;
+    border-left: 4px solid var(--amber);
+    padding-left: 14px;
+  }
+
+  .meta {
+    position: absolute;
+    bottom: 36px;
+    left: 48px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink-soft);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  .meta strong { color: var(--ink); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="thumbnail">
+  <div class="amber-block"></div>
+  <div class="big-number">10</div>
+
+  <div class="brand-top">
+    <img src="icon-robot.png" alt="ROBOHOGAR">
+    <span class="brand-name">ROBOHOGAR</span>
+  </div>
+
+  <div class="content">
+    <h1>Hoja de Compra</h1>
+    <div class="subtitle">10 preguntas antes de comprar tu robot doméstico</div>
+    <div class="descriptor">El documento que el vendedor no quiere que tengas.</div>
+  </div>
+
+  <div class="meta">
+    PDF 2 páginas &nbsp;·&nbsp; <strong>Gratis</strong> &nbsp;·&nbsp; robohogar.com
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!--
+  ROBOHOGAR — Lead magnet v1: Hoja de Compra (10 preguntas antes de comprar)
+  Formato: PDF A4 portrait · 4 páginas (portada + 2 pp preguntas + back cover)
+  Fuente contenido: content/lead-magnets/hoja-compra/contenido.md
+  Generación PDF: utilities/pdf_export.py (Playwright)
+  Plantilla destino futuro: skills/pdf_brand/templates/cheatsheet.html
+  Versión: v1 · 2026-04-18
+-->
+<meta charset="UTF-8">
+<title>Hoja de Compra ROBOHOGAR · 10 preguntas antes de comprar tu robot doméstico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════════════════════════════
+     RESET + VARIABLES BRAND
+     ═══════════════════════════════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --amber: #F5A623;
+    --amber-soft: #FFF9EF;
+    --ink: #0C0C0C;
+    --ink-soft: #535252;
+    --gray: #6B7280;
+    --line: rgba(12,12,12,0.15);
+    --white: #FFFFFF;
+    --dark: #283642;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     PRINT / A4 PAGE SETUP
+     ═══════════════════════════════════════════════════════════════════ */
+  @page {
+    size: A4 portrait;
+    margin: 16mm 14mm 18mm 14mm;
+  }
+
+  /* Portada: márgenes a cero para poder hacer full-bleed */
+  @page :first {
+    margin: 0;
+  }
+
+  html, body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    font-size: 10.5pt;
+    background: var(--white);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+
+  a { color: var(--amber); text-decoration: none; font-weight: 600; }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     PÁGINAS
+     ═══════════════════════════════════════════════════════════════════ */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 16mm 14mm 18mm 14mm;
+    position: relative;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ─── Running header/footer en internas ─── */
+  .running-header, .running-footer {
+    position: absolute;
+    left: 14mm;
+    right: 14mm;
+    font-size: 8pt;
+    color: var(--gray);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .running-header { top: 6mm; }
+  .running-footer { bottom: 6mm; }
+
+  .monogram-r {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    font-size: 14pt;
+    color: var(--amber);
+    line-height: 1;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     PORTADA (página 1)
+     ═══════════════════════════════════════════════════════════════════ */
+  .cover {
+    width: 210mm;
+    height: 297mm;
+    padding: 0;
+    position: relative;
+    page-break-after: always;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .cover-amber-block {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--amber);
+  }
+
+  /* Gran "10" decorativo */
+  .cover-big-number {
+    position: absolute;
+    top: 48mm;
+    right: -8mm;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    font-size: 280pt;
+    line-height: 0.85;
+    color: rgba(255,255,255,0.18);
+    letter-spacing: -10pt;
+  }
+
+  .cover-brand-top {
+    position: absolute;
+    top: 18mm;
+    left: 18mm;
+    display: flex;
+    align-items: center;
+    gap: 8pt;
+  }
+  .cover-brand-top .monogram-r { font-size: 22pt; }
+  .cover-brand-top .brand-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+    letter-spacing: 0.5pt;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+
+  .cover-content {
+    position: absolute;
+    top: 95mm;
+    left: 18mm;
+    right: 110mm;
+  }
+  .cover-content .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 1.5pt;
+    margin-bottom: 8pt;
+  }
+  .cover-content h1 {
+    font-size: 42pt;
+    font-weight: 800;
+    line-height: 1.0;
+    margin-bottom: 14pt;
+  }
+  .cover-content .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 15pt;
+    color: var(--ink-soft);
+    line-height: 1.25;
+    margin-bottom: 18pt;
+  }
+  .cover-content .descriptor {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    color: var(--ink);
+    line-height: 1.4;
+    font-style: italic;
+    border-left: 3pt solid var(--amber);
+    padding-left: 10pt;
+  }
+
+  .cover-intro {
+    position: absolute;
+    bottom: 40mm;
+    left: 18mm;
+    right: 110mm;
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .cover-intro p + p { margin-top: 6pt; }
+  .cover-intro strong { font-weight: 700; }
+
+  .cover-meta {
+    position: absolute;
+    bottom: 18mm;
+    left: 18mm;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9pt;
+    color: var(--ink-soft);
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+  }
+  .cover-meta strong { color: var(--ink); font-weight: 700; }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     PÁGINAS INTERNAS - PREGUNTAS
+     ═══════════════════════════════════════════════════════════════════ */
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    font-size: 18pt;
+    color: var(--ink);
+    margin-bottom: 4pt;
+    padding-bottom: 6pt;
+    border-bottom: 2pt solid var(--ink);
+  }
+  .section-lead {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5pt;
+    color: var(--gray);
+    margin-bottom: 12pt;
+  }
+
+  /* 2-col layout para internas */
+  .questions-grid {
+    column-count: 2;
+    column-gap: 8mm;
+    column-rule: 0.5pt solid var(--line);
+  }
+
+  .question {
+    break-inside: avoid;
+    margin-bottom: 8pt;
+    padding-bottom: 8pt;
+  }
+  .question + .question { border-top: 0.5pt dashed var(--line); padding-top: 8pt; }
+
+  .q-header {
+    display: flex;
+    align-items: baseline;
+    gap: 6pt;
+    margin-bottom: 4pt;
+  }
+  .q-num {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    font-size: 22pt;
+    color: var(--amber);
+    line-height: 1;
+    min-width: 22pt;
+  }
+  .q-title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 10.5pt;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .q-body {
+    font-size: 9pt;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .q-body p + p { margin-top: 4pt; }
+  .q-body ul {
+    margin: 4pt 0 4pt 12pt;
+    padding: 0;
+  }
+  .q-body li {
+    margin-bottom: 2pt;
+    font-size: 8.5pt;
+    line-height: 1.4;
+  }
+  .q-body strong { font-weight: 700; }
+
+  .callout {
+    margin-top: 5pt;
+    background: var(--amber-soft);
+    border-left: 2.5pt solid var(--amber);
+    padding: 5pt 7pt;
+    font-size: 8pt;
+    line-height: 1.4;
+    color: var(--ink);
+    border-radius: 2pt;
+  }
+  .callout strong { color: var(--amber); font-weight: 700; text-transform: uppercase; font-size: 7.5pt; letter-spacing: 0.5pt; }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     BACK COVER / CIERRE
+     ═══════════════════════════════════════════════════════════════════ */
+  .anexo-block {
+    margin-top: 6pt;
+    padding: 10pt 14pt;
+    background: var(--amber-soft);
+    border-left: 3pt solid var(--amber);
+    border-radius: 3pt;
+  }
+  .anexo-block h3 {
+    font-size: 12pt;
+    font-weight: 700;
+    margin-bottom: 6pt;
+  }
+  .anexo-block ol {
+    margin: 0 0 0 14pt;
+    font-size: 9pt;
+    line-height: 1.5;
+  }
+  .anexo-block li { margin-bottom: 3pt; }
+
+  .close-hook {
+    margin-top: 14pt;
+    padding: 14pt;
+    background: var(--dark);
+    color: var(--white);
+    border-radius: 4pt;
+  }
+  .close-hook .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8pt;
+    color: var(--amber);
+    letter-spacing: 1.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+  .close-hook h3 {
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 5pt;
+    line-height: 1.2;
+  }
+  .close-hook p {
+    font-size: 9pt;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.5;
+  }
+
+  .resources-block {
+    margin-top: 10pt;
+    font-size: 9pt;
+    line-height: 1.55;
+  }
+  .resources-block h4 {
+    font-size: 11pt;
+    font-weight: 700;
+    margin-bottom: 6pt;
+  }
+  .resources-block ul {
+    margin-left: 14pt;
+  }
+  .resources-block li { margin-bottom: 3pt; }
+
+  .signature {
+    margin-top: 12pt;
+    font-size: 9pt;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .signature strong { color: var(--ink); font-weight: 700; }
+
+  .disclaimer {
+    margin-top: 14pt;
+    padding-top: 8pt;
+    border-top: 0.5pt solid var(--line);
+    font-size: 7.5pt;
+    color: var(--gray);
+    line-height: 1.45;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PÁGINA 1 — PORTADA (full-bleed edge-to-edge)
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-amber-block"></div>
+  <div class="cover-big-number">10</div>
+
+  <div class="cover-brand-top">
+    <span class="monogram-r">R</span>
+    <span class="brand-name">ROBOHOGAR</span>
+  </div>
+
+  <div class="cover-content">
+    <div class="eyebrow">Lead magnet · ROBOHOGAR</div>
+    <h1>Hoja de Compra</h1>
+    <div class="subtitle">10 preguntas para no pagar de más al comprar tu robot doméstico</div>
+    <div class="descriptor">El documento que el vendedor no quiere que tengas. Aspiradores, cortacéspedes, mascotas-robot y afines.</div>
+  </div>
+
+  <div class="cover-intro">
+    <p>En los últimos 6 meses en España se han vendido más robots domésticos que en los 3 años anteriores juntos. Entre 300 € y 2.000 €, con nombres que rotan cada 9 meses y claims de marketing que casi siempre mienten en el titular.</p>
+    <p>Estas 10 preguntas son las que nos hacemos nosotros antes de comprar — y las que más nos han ahorrado dinero. Respóndelas en orden antes de darle al botón. <strong>Si fallas en 3 o más, no es el modelo para ti por mucho que la oferta diga -40 %.</strong></p>
+  </div>
+
+  <div class="cover-meta">
+    robohogar.com &nbsp;·&nbsp; <strong>v1</strong> &nbsp;·&nbsp; abril 2026
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PÁGINA 2 — PREGUNTAS 1 A 5
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="running-header">
+    <span><strong style="color: var(--ink);">Hoja de Compra ROBOHOGAR</strong></span>
+    <span class="monogram-r">R</span>
+  </div>
+  <div class="running-footer">
+    <span>robohogar.com</span>
+    <span>2 · 4</span>
+  </div>
+
+  <h2 class="section-title">Las 10 preguntas</h2>
+  <p class="section-lead">Respóndelas en orden. La primera con <em>no</em> clara te dice que ese modelo no es para ti.</p>
+
+  <div class="questions-grid">
+
+    <div class="question">
+      <div class="q-header">
+        <span class="q-num">1</span>
+        <span class="q-title">¿Cuántos m² reales va a limpiar / cortar?</span>
+      </div>
+      <div class="q-body">
+        <p>Mide con Google Maps el área del piso menos las habitaciones donde nunca entrará (trastero, habitación del bebé).</p>
+        <ul>
+          <li><strong>&lt;50 m²:</strong> cualquier modelo sirve, no pagues premium.</li>
+          <li><strong>50-120 m²:</strong> gama media alta.</li>
+          <li><strong>&gt;120 m²:</strong> autonomía + estación autolimpiable obligatorias.</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Trampa:</strong> la mayoría de robots no guarda mapas multi-planta bien. Si tienes 3 plantas, verifica antes — es el dolor número 1 reportado.
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-header">
+        <span class="q-num">2</span>
+        <span class="q-title">¿Qué tipo de suelo — y en qué proporción?</span>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li><strong>Uniforme</strong> (baldosa <em>o</em> parquet <em>o</em> vinilo): cualquiera limpia bien.</li>
+          <li><strong>Mixto + alfombras gruesas:</strong> mínimo 10.000 Pa.</li>
+          <li><strong>Parquet flotante + vinilo:</strong> mopa giratoria con dosificación de agua. Nada de "arrastra trapo mojado".</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Atajo:</strong> con alfombras gruesas + perro, busca modelos con levantamiento automático de mopa al detectar alfombra.
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-header">
+        <span class="q-num">3</span>
+        <span class="q-title">¿Mascotas y de qué tipo?</span>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li><strong>Pelo corto:</strong> rodillo antienredos razonable cumple.</li>
+          <li><strong>Perro pelo largo / gato persa:</strong> rodillo antienredos obligatorio. Ecovacs OZMO Roller y Dreame nuevos lo hacen bien.</li>
+          <li><strong>Perro que "arrastra":</strong> pretratamiento de manchas con chorro de agua (Ecovacs X8 Pro Omni).</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Truco ES:</strong> en Amazon.es, filtra las reviews del modelo por "pelo largo". 10 min y ves si la gente se queja del rodillo trenzado.
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-header">
+        <span class="q-num">4</span>
+        <span class="q-title">¿Qué autolimpia la estación?</span>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li><strong>Básica:</strong> vacía polvo. Bolsa cada 6-8 semanas.</li>
+          <li><strong>Avanzada:</strong> + autolava mopa. Rellenar agua cada 7-10 días.</li>
+          <li><strong>Premium:</strong> + auto-dosifica detergente + auto-rellena. Rellenar cada 2-3 semanas.</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Realidad:</strong> si vas a usarlo 2 veces/semana, la básica compensa. Si es diario, paga la avanzada o la premium — amortizas la diferencia en tiempo humano.
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-header">
+        <span class="q-num">5</span>
+        <span class="q-title">¿Qué umbrales tengo en casa?</span>
+      </div>
+      <div class="q-body">
+        <p>Medir con regla. Sin esto, pifia garantizada.</p>
+        <ul>
+          <li><strong>0-2 cm:</strong> cualquier robot.</li>
+          <li><strong>2-4 cm:</strong> Roborock y Dreame modernos.</li>
+          <li><strong>4-6 cm:</strong> solo Dreame X50 Ultra (patas extensibles) y pocos más.</li>
+          <li><strong>&gt;6 cm:</strong> ningún robot de hoy.</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Dato ES:</strong> umbral típico de baño en España es 2,5-3 cm. Medir antes de pagar.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PÁGINA 3 — PREGUNTAS 6 A 10
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="running-header">
+    <span><strong style="color: var(--ink);">Hoja de Compra ROBOHOGAR</strong></span>
+    <span class="monogram-r">R</span>
+  </div>
+  <div class="running-footer">
+    <span>robohogar.com</span>
+    <span>3 · 4</span>
+  </div>
+
+  <h2 class="section-title">Las 10 preguntas <span style="color: var(--gray); font-weight: 500; font-size: 12pt;">(continuación)</span></h2>
+  <p class="section-lead">Las 5 que la gente olvida hasta que ya ha comprado.</p>
+
+  <div class="questions-grid">
+
+    <div class="question">
+      <div class="q-header">
+        <span class="q-num">6</span>
+        <span class="q-title">¿App en español y soporte técnico ES?</span>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li><strong>✅ Soporte ES fuerte:</strong> Cecotec, Samsung, Xiaomi (con matices).</li>
+          <li><strong>⚠️ Decente:</strong> Roborock, Dreame, Ecovacs (via distribuidores; RMA 1-2 semanas).</li>
+          <li><strong>❌ Débil/inexistente:</strong> imports AliExpress, marcas sin entidad EU.</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Regla:</strong> si la app no está en español, asume que tampoco el manual ni el chat de soporte. En una avería la diferencia cuesta horas.
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-header">
+        <span class="q-num">7</span>
+        <span class="q-title">¿Cuánto cuestan los consumibles al año?</span>
+      </div>
+      <div class="q-body">
+        <p>TCO a 3 años, no precio inicial:</p>
+        <ul>
+          <li>Filtros HEPA: 15-30 €/año.</li>
+          <li>Mopas de recambio: 20-50 €/año.</li>
+          <li>Bolsas de polvo: 10-25 €/año.</li>
+          <li>Cepillo + rodillo: 15-40 €/año.</li>
+        </ul>
+        <p><strong>Total típico: 60-150 €/año.</strong></p>
+      </div>
+      <div class="callout">
+        <strong>Truco:</strong> busca antes en Amazon.es <em>"[modelo] recambio mopa"</em>. Si no aparecen o son carísimos, descartar.
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-header">
+        <span class="q-num">8</span>
+        <span class="q-title">¿Qué ecosistema smart home tengo?</span>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li><strong>Alexa / Google:</strong> casi todos compatibles.</li>
+          <li><strong>Apple HomeKit:</strong> Roborock y Ecovacs premium.</li>
+          <li><strong>SmartThings:</strong> Samsung nativo; resto via Matter (aún irregular).</li>
+          <li><strong>Matter puro:</strong> poco maduro en 2026. Espera 12 meses.</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Regla:</strong> no compres un robot con el único ecosistema que NO tienes. La integración siempre decepciona.
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-header">
+        <span class="q-num">9</span>
+        <span class="q-title">¿Cuánto ruido y cuándo va a trabajar?</span>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li><strong>&lt;60 dB:</strong> pasable en segundo plano.</li>
+          <li><strong>60-70 dB:</strong> molesto pero usable.</li>
+          <li><strong>&gt;70 dB:</strong> solo cuando no estás.</li>
+        </ul>
+        <p><strong>Modo silencioso:</strong> reduce succión 50 % para bajar 5-10 dB.</p>
+      </div>
+      <div class="callout">
+        <strong>Cortacésped:</strong> muchos ayuntamientos ES prohíben motor eléctrico antes de 9:00 o después de 21:00. Verificar.
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-header">
+        <span class="q-num">10</span>
+        <span class="q-title">¿Qué pasa si se rompe o me arrepiento?</span>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li><strong>Garantía EU:</strong> 2 años mínimo (3 en algunas CCAA). Exigirla.</li>
+          <li><strong>Amazon:</strong> 30 días sin preguntas. Aprovecha para probar en casa real.</li>
+          <li><strong>Refurbished</strong> (refurbed.es, BackMarket): hasta -40 %, prueba 30 días.</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <strong>Señal:</strong> si la marca solo ofrece "canje completo" en vez de piezas sueltas, asume que a los 3 años es chatarra.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PÁGINA 4 — BACK COVER (anexo + hook + cierre)
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="running-header">
+    <span><strong style="color: var(--ink);">Hoja de Compra ROBOHOGAR</strong></span>
+    <span class="monogram-r">R</span>
+  </div>
+  <div class="running-footer">
+    <span>robohogar.com</span>
+    <span>4 · 4</span>
+  </div>
+
+  <h2 class="section-title">Y si ya compraste · y te equivocaste</h2>
+  <p class="section-lead">Plan de acción según lo lejos que estés del momento 0.</p>
+
+  <div class="anexo-block">
+    <h3>4 escenarios y qué hacer en cada uno</h3>
+    <ol>
+      <li><strong>Aún dentro de 30 días:</strong> Amazon o tienda con devolución gratis. No esperes a "ver si me acostumbro".</li>
+      <li><strong>Entre 30 días y 2 años:</strong> activar garantía ante cualquier fallo real. Documentar con vídeo. No "no me convence".</li>
+      <li><strong>Fuera de garantía:</strong> vender en Wallapop / Vinted Home antes de que baje más. Un robot de 2 años pierde 50-60 % de precio.</li>
+      <li><strong>Antes de repetir compra:</strong> relee las 10 preguntas con lo aprendido. Probablemente fallaste en 2-3 — ahí está el dolor real.</li>
+    </ol>
+  </div>
+
+  <div class="close-hook">
+    <div class="eyebrow">Actualización viva</div>
+    <h3>Esta Hoja la actualizamos cada 6 meses con los modelos nuevos del mercado español.</h3>
+    <p>Los suscriptores la reciben automáticamente. Próxima revisión prevista: octubre 2026.</p>
+  </div>
+
+  <div class="resources-block">
+    <h4>Más recursos ROBOHOGAR</h4>
+    <ul>
+      <li>Reviews y comparativas semanales → <a href="https://robohogar.com">robohogar.com</a></li>
+      <li>Próximos tangibles para suscriptores: <strong>Guía de los primeros 30 días · Glosario de 40 términos · Calendario de rebajas ES · Guía del early adopter de humanoides</strong></li>
+      <li>Responde al email de bienvenida con tu caso. Lo leemos todos.</li>
+    </ul>
+  </div>
+
+  <div class="signature">
+    <strong>Rafael de ROBOHOGAR</strong><br>
+    robohogar.com · abril 2026 · v1
+  </div>
+
+  <div class="disclaimer">
+    Documento editorial independiente. Las marcas citadas (Roborock, Dreame, Ecovacs, Samsung, Cecotec, Xiaomi y otras) pertenecen a sus respectivos propietarios. No patrocinado. Algunos links del contenido ROBOHOGAR pueden ser afiliados; ninguno en este PDF. Datos y precios verificados en abril 2026 — pueden cambiar en revisiones futuras.
+  </div>
+</div>
+
+</body>
+</html>

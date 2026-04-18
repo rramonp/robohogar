@@ -3,7 +3,7 @@
 > Basado en: investigación de mercado (abr 2026), análisis de Newsletter Operator (6 meses de artículos), comparativa Ghost vs Beehiiv vs Substack, y assets existentes en el repo.
 
 **Dominio:** robohogar.com (comprado 2026-04-12)  
-**Plataforma:** Beehiiv (free plan → Scale cuando monetice)  
+**Plataforma:** Beehiiv (**plan Scale activo desde 2026-04-18** — automations, segmentación, welcome flows, digital products)  
 **Dedicación:** 3-5 horas/semana  
 **Objetivo año 1:** 1.000 suscriptores orgánicos  
 

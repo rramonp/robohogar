@@ -44,11 +44,14 @@
 - **Frase trigger:** *"Retomamos distribución 4B — tócame los hilos Reddit activos"*.
 - **Detalle operativo:** [[#FASE 4B: Distribución activa (0-50 subs)|FASE 4B]].
 
-### Prioridad 3 — SISTEMA DE TANGIBLES (diferido, FASE 4C)
+### Prioridad 3 — SISTEMA DE TANGIBLES (FASE 4C iniciada 2026-04-18 ⭐)
 
-- **Pivote editorial 18-abr-2026 ⭐:** *"tangible = producto, no bonus"* (Cole/Bush 2026). Cada artículo se diseña con el tangible como cliffhanger antes del CTA. Regla en [`tangibles.md`](../.claude/rules/tangibles.md) · blueprint completo [`08-paid-newsletter-blueprint-2026.md`](../references/writewithai/08-paid-newsletter-blueprint-2026.md). **Aplicable desde YA** aunque el skill `/pdf-brand` siga pendiente — basta con tabla inline, checklist al final o bloque "Descarga" vacío por ahora.
-- **Construir `/pdf-brand` + 4 tangibles iniciales:** al llegar a ~50 subs.
-- **Frase trigger:** *"Retomamos lazy-castle — construimos el skill `/pdf-brand`"*.
+- **Pivote editorial 18-abr-2026 ⭐:** *"tangible = producto, no bonus"* (Cole/Bush 2026). Cada artículo se diseña con el tangible como cliffhanger antes del CTA. Regla en [`tangibles.md`](../.claude/rules/tangibles.md) · blueprint completo [`08-paid-newsletter-blueprint-2026.md`](../references/writewithai/08-paid-newsletter-blueprint-2026.md).
+- **Skill `/pdf-brand cheatsheet` operativo desde 2026-04-18** (adelantado al tener plan Scale): `.claude/commands/pdf-brand.md` + `skills/pdf_brand/`. Variantes restantes (`comparativa` · `guia` · `relato`) pendientes activación por demanda.
+- **Primer tangible activo:** Hoja de Compra ROBOHOGAR (PDF 4pp, v2 validada 2026-04-18) en [`content/lead-magnets/hoja-compra/`](../content/lead-magnets/hoja-compra/). Subido a Beehiiv como Digital Product: `https://robohogar.com/products/hoja-de-compra`.
+- **Banner lead magnet Dark** activo en home + 3 artículos consumer (mejor-robot-asistente-ia-2026, roborock-saros-z70-review, samsung-jet-bot-steam-ultra-review). Snippets: [`content/templates/banner-lead-magnet-snippets.md`](../content/templates/banner-lead-magnet-snippets.md).
+- **Welcome flow MVP 2 emails** activo: guía setup en [`docs/welcome-flow-setup.md`](welcome-flow-setup.md) + checklist paso a paso en [`docs/activar-tangible-hoja-compra.md`](activar-tangible-hoja-compra.md).
+- **Frase trigger:** *"Retomamos tangibles — siguiente PDF"*.
 - **Detalle operativo:** [[#FASE 4C: Lead Magnet #1 + Sistema de tangibles|FASE 4C]].
 
 > Las fases posteriores (5 automatización · 6 métricas · 7 post-lanzamiento · 8 crecimiento >50 subs · 9 optimización newsletter · 10 pipeline avanzado) siguen ahí pero no son el foco hasta haber movido las 3 prioridades anteriores.
@@ -627,7 +630,17 @@ Este template es la referencia visual para TODOS los demás. Tiene el formato de
 
 ---
 
-### Welcome Email (configurar AHORA — después de publicar Artículo 0)
+### Welcome Flow (MVP 2 emails — configurar cuando el primer lead magnet esté listo)
+
+> ⚠️ **Actualizado 2026-04-18:** este bloque está **obsoleto** y se reemplaza por el MVP de 2 emails documentado en **[`welcome-flow-setup.md`](welcome-flow-setup.md)**. Razón: la versión original asumía plan Beehiiv free (1 solo welcome email sin automations); ROBOHOGAR ahora corre en plan Scale (desde 2026-04-18), que permite workflows con delay y segmentación.
+>
+> **Frase trigger para retomar el setup nuevo:** *"Retomamos welcome-flow — empezamos configuración Beehiiv"*.
+>
+> El bloque de abajo queda como **referencia histórica** del welcome single-email que se configuró inicialmente. No re-usar.
+
+---
+
+#### 📜 (Histórico) Welcome Email versión Free plan
 
 > El Welcome Email es lo primero que recibe alguien al suscribirse.
 > **50-55% de open rate** — el doble que un email normal. Es tu mejor oportunidad de causar buena impresión.

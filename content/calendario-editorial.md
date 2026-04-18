@@ -15,6 +15,10 @@
 
 **Flujo:** digest (si falta) → artículo → publicar → post-publish. Sin día fijo — cuando Rafael tenga tiempo.
 
+### Tangibles (FASE 4C iniciada 2026-04-18)
+
+Primer PDF activo: **Hoja de Compra ROBOHOGAR v2** (`content/lead-magnets/hoja-compra/`). Banner Dark en home + 3 artículos consumer. Welcome flow MVP 2 emails. Skill `/pdf-brand cheatsheet` disponible para próximos tangibles. Frase trigger próximo: *"Retomamos tangibles — siguiente PDF"*. Detalle: [`docs/guia-implementacion.md § FASE 4C`](../docs/guia-implementacion.md).
+
 ### Slot Ficciones Domésticas
 
 Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurrentes. Pilar experimental, cadencia separada del artículo semanal.
@@ -47,7 +51,7 @@ Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurre
 | ~~Alta~~ | ~~Humanoides domésticos 2026: los 7 que puedes comprar/reservar~~ | ~~Comparativa~~ | ~~robot humanoide comprar 2026~~ | ~~🔥🔥🔥~~ | ✅ Publicado 2026-04-17: https://robohogar.com/p/humanoides-domesticos-2026-comparativa |
 | Alta | Sunday Memo: el anti-humanoide de $1.150M | Editorial | sunday robotics memo | 🔥🔥🔥 | Bloomberg+TechCrunch. Ruedas>piernas |
 | Alta | Apple entra en robótica doméstica | Editorial | apple home robot 2026 | 🔥🔥🔥 | Hub 2026, robot 2027. Mainstream masivo |
-| Alta | Mejor robot aspirador 2026 | Review/Comparativa | robot aspirador | 🔥🔥 | Evergreen, alto volumen SEO |
+| ~~Alta~~ | ~~Mejor robot aspirador 2026~~ | ~~Guía de compra~~ | ~~mejor robot aspirador 2026~~ | ~~🔥🔥~~ | 📝 Borrador 2026-04-18 · slug: `mejor-robot-aspirador-2026` · 6 modelos (Roborock Qrevo Curv 2, Dreame X50 Ultra, MOVA V70 Ultra, Ecovacs X8 Pro Omni, Samsung Combo AI Steam, Cecotec Conga 11090) · Sin gate (F1 tangible inline) |
 | Alta | Robot cortacésped: guía de compra | Guía | robot cortacésped | 🔥🔥 | Temporada primavera/verano. Incluir Husqvarna NERA + RockMow + Gardena Sileno Sense |
 | Media | Samsung Jet Bot Steam Ultra: Samsung entra en aspiradores premium | Review | samsung jet bot steam ultra | 🔥🔥 | Marca masiva ES. Fregado a 100°C. Digest 2026-04-17 |
 | Media | MOVA V70 Ultra: submarca de Dreame llega a España | Review | mova v70 ultra | 🔥🔥 | 1.399€ mayo 2026, 40.000 Pa |
@@ -101,6 +105,7 @@ Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurre
 | 2026-04-14 | Review/Comparativa | Robots de escritorio con IA | mejor-robot-asistente-ia-2026 |
 | 2026-04-15 | Editorial/Opinión | Humanoides en casa | humanoides-en-casa-cuanto-falta |
 | 2026-04-16 | Editorial/Opinión | Roborock Saros Z70 brazo mecánico | roborock-saros-z70-review |
+| 2026-04-18 | Guía de compra | Mejor robot aspirador 2026 | mejor-robot-aspirador-2026 |
 
 ---
 

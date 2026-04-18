@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!--
+  ROBOHOGAR — Tangible cheatsheet renderizado con skill /pdf-brand
+  Slug: {{ slug }} · versión: {{ version }} · generado: {{ generated_date }}
+  Template: skills/pdf_brand/templates/cheatsheet.html.jinja2
+-->
+<meta charset="UTF-8">
+<title>{{ title_big }} {{ title_small }} · ROBOHOGAR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════════════════════════════
+     BRAND VARIABLES + RESET
+     Destilado del v2 validado de Hoja de Compra (2026-04-18).
+     ═══════════════════════════════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --amber: #F5A623;
+    --amber-soft: #FFF9EF;
+    --ink: #0C0C0C;
+    --ink-soft: #535252;
+    --gray: #6B7280;
+    --line: rgba(12,12,12,0.15);
+    --white: #FFFFFF;
+    --dark: #283642;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     PRINT / A4 PAGE SETUP
+     ═══════════════════════════════════════════════════════════════════ */
+  @page { size: A4 portrait; margin: 16mm 14mm 18mm 14mm; }
+  @page :first { margin: 0; }
+
+  html, body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    color: var(--ink);
+    line-height: 1.5;
+    font-size: 10.5pt;
+    background: var(--white);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+
+  a { color: var(--amber); text-decoration: none; font-weight: 600; }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     PÁGINAS INTERIORES
+     ═══════════════════════════════════════════════════════════════════ */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 16mm 14mm 18mm 14mm;
+    position: relative;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  .running-header, .running-footer {
+    position: absolute;
+    left: 14mm;
+    right: 14mm;
+    font-size: 8pt;
+    color: var(--gray);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .running-header { top: 6mm; }
+  .running-footer { bottom: 6mm; }
+
+  .monogram-r {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    font-size: 14pt;
+    color: var(--amber);
+    line-height: 1;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     PORTADA (full-bleed)
+     ═══════════════════════════════════════════════════════════════════ */
+  .cover {
+    width: 210mm;
+    height: 297mm;
+    padding: 0;
+    position: relative;
+    page-break-after: always;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .cover-amber-block {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--amber);
+  }
+
+  .cover-big-number {
+    position: absolute;
+    top: 48mm;
+    right: -8mm;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    font-size: 280pt;
+    line-height: 0.85;
+    color: rgba(255,255,255,0.18);
+    letter-spacing: -10pt;
+  }
+
+  .cover-brand-top {
+    position: absolute;
+    top: 18mm;
+    left: 18mm;
+    display: flex;
+    align-items: center;
+    gap: 10pt;
+  }
+  .cover-brand-top .icon-robot {
+    width: 14mm;
+    height: 14mm;
+    display: block;
+  }
+  .cover-brand-top .brand-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+    letter-spacing: 0.5pt;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+
+  .cover-content {
+    position: absolute;
+    top: 95mm;
+    left: 18mm;
+    right: 110mm;
+  }
+  .cover-content h1 {
+    font-size: 42pt;
+    font-weight: 800;
+    line-height: 1.0;
+    margin-bottom: 14pt;
+  }
+  .cover-content .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 15pt;
+    color: var(--ink-soft);
+    line-height: 1.25;
+    margin-bottom: 18pt;
+  }
+  .cover-content .descriptor {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    color: var(--ink);
+    line-height: 1.4;
+    font-style: italic;
+    border-left: 3pt solid var(--amber);
+    padding-left: 10pt;
+  }
+
+  .cover-intro {
+    position: absolute;
+    bottom: 40mm;
+    left: 18mm;
+    right: 110mm;
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .cover-intro p + p { margin-top: 6pt; }
+  .cover-intro strong { font-weight: 700; }
+
+  .cover-meta {
+    position: absolute;
+    bottom: 18mm;
+    left: 18mm;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9pt;
+    color: var(--ink-soft);
+    letter-spacing: 0.8pt;
+    text-transform: uppercase;
+  }
+  .cover-meta strong { color: var(--ink); font-weight: 700; }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     SECCIONES INTERIORES — ITEMS
+     ═══════════════════════════════════════════════════════════════════ */
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    font-size: 18pt;
+    color: var(--ink);
+    margin-bottom: 4pt;
+    padding-bottom: 6pt;
+    border-bottom: 2pt solid var(--ink);
+  }
+  .section-title .continuation {
+    color: var(--gray);
+    font-weight: 500;
+    font-size: 12pt;
+  }
+  .section-lead {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5pt;
+    color: var(--gray);
+    margin-bottom: 12pt;
+  }
+
+  .items-grid {
+    column-count: 2;
+    column-gap: 8mm;
+    column-rule: 0.5pt solid var(--line);
+  }
+
+  .item {
+    break-inside: avoid;
+    margin-bottom: 8pt;
+    padding-bottom: 8pt;
+  }
+  .item + .item { border-top: 0.5pt dashed var(--line); padding-top: 8pt; }
+
+  .item-header {
+    display: flex;
+    align-items: baseline;
+    gap: 6pt;
+    margin-bottom: 4pt;
+  }
+  .item-num {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    font-size: 22pt;
+    color: var(--amber);
+    line-height: 1;
+    min-width: 22pt;
+  }
+  .item-title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 10.5pt;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .item-body {
+    font-size: 9pt;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+  .item-body p + p { margin-top: 4pt; }
+  .item-body ul {
+    margin: 4pt 0 4pt 12pt;
+    padding: 0;
+  }
+  .item-body li {
+    margin-bottom: 2pt;
+    font-size: 8.5pt;
+    line-height: 1.4;
+  }
+  .item-body strong { font-weight: 700; }
+
+  .callout {
+    margin-top: 5pt;
+    background: var(--amber-soft);
+    border-left: 2.5pt solid var(--amber);
+    padding: 5pt 7pt;
+    font-size: 8pt;
+    line-height: 1.4;
+    color: var(--ink);
+    border-radius: 2pt;
+  }
+  .callout strong {
+    color: var(--amber);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 7.5pt;
+    letter-spacing: 0.5pt;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════
+     BACK COVER
+     ═══════════════════════════════════════════════════════════════════ */
+  .anexo-block {
+    margin-top: 6pt;
+    padding: 10pt 14pt;
+    background: var(--amber-soft);
+    border-left: 3pt solid var(--amber);
+    border-radius: 3pt;
+  }
+  .anexo-block h3 {
+    font-size: 12pt;
+    font-weight: 700;
+    margin-bottom: 6pt;
+  }
+  .anexo-block ol {
+    margin: 0 0 0 14pt;
+    font-size: 9pt;
+    line-height: 1.5;
+  }
+  .anexo-block li { margin-bottom: 3pt; }
+
+  .close-hook {
+    margin-top: 14pt;
+    padding: 14pt;
+    background: var(--dark);
+    color: var(--white);
+    border-radius: 4pt;
+  }
+  .close-hook .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8pt;
+    color: var(--amber);
+    letter-spacing: 1.5pt;
+    text-transform: uppercase;
+    margin-bottom: 4pt;
+  }
+  .close-hook h3 {
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 5pt;
+    line-height: 1.2;
+  }
+  .close-hook p {
+    font-size: 9pt;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.5;
+  }
+
+  .resources-block {
+    margin-top: 10pt;
+    font-size: 9pt;
+    line-height: 1.55;
+  }
+  .resources-block h4 {
+    font-size: 11pt;
+    font-weight: 700;
+    margin-bottom: 6pt;
+  }
+  .resources-block ul { margin-left: 14pt; }
+  .resources-block li { margin-bottom: 3pt; }
+
+  .signature {
+    margin-top: 12pt;
+    font-size: 9pt;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    display: flex;
+    align-items: center;
+    gap: 10pt;
+  }
+  .signature .icon-robot-sig {
+    width: 14mm;
+    height: 14mm;
+    flex-shrink: 0;
+  }
+  .signature-text { flex: 1; }
+  .signature strong { color: var(--ink); font-weight: 700; }
+
+  .disclaimer {
+    margin-top: 14pt;
+    padding-top: 8pt;
+    border-top: 0.5pt solid var(--line);
+    font-size: 7.5pt;
+    color: var(--gray);
+    line-height: 1.45;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+{# ═══════════════════════════════════════════════════════════════════
+   PÁGINA 1 — PORTADA FULL-BLEED
+   ═══════════════════════════════════════════════════════════════════ #}
+<div class="cover">
+  <div class="cover-amber-block"></div>
+  {% if decorative_number %}<div class="cover-big-number">{{ decorative_number }}</div>{% endif %}
+
+  <div class="cover-brand-top">
+    <img class="icon-robot" src="{{ icon_robot_path }}" alt="ROBOHOGAR icon robot">
+    <span class="brand-name">ROBOHOGAR</span>
+  </div>
+
+  <div class="cover-content">
+    <h1>{{ title_big }}{% if title_small %}<br>{{ title_small }}{% endif %}</h1>
+    <div class="subtitle">{{ subtitle }}</div>
+    {% if descriptor %}<div class="descriptor">{{ descriptor }}</div>{% endif %}
+  </div>
+
+  {% if intro_paragraphs %}
+  <div class="cover-intro">
+    {% for p in intro_paragraphs %}<p>{{ p|safe }}</p>{% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="cover-meta">
+    robohogar.com &nbsp;·&nbsp; <strong>{{ version }}</strong> &nbsp;·&nbsp; {{ date_label }}
+  </div>
+</div>
+
+{# ═══════════════════════════════════════════════════════════════════
+   PÁGINAS INTERIORES — ITEMS DISTRIBUIDOS EN CHUNKS
+   Jinja divide la lista `items` en `items_per_page` chunks → páginas
+   ═══════════════════════════════════════════════════════════════════ #}
+{% for chunk in items|batch(items_per_page) %}
+<div class="page">
+  <div class="running-header">
+    <span><strong style="color: var(--ink);">{{ running_header_title }}</strong></span>
+    <span class="monogram-r">R</span>
+  </div>
+  <div class="running-footer">
+    <span>robohogar.com</span>
+    <span>{{ loop.index + 1 }} · {{ total_pages }}</span>
+  </div>
+
+  <h2 class="section-title">
+    {{ items_section_title }}
+    {% if not loop.first %}<span class="continuation">(continuación)</span>{% endif %}
+  </h2>
+  {% if loop.first and items_section_lead %}
+  <p class="section-lead">{{ items_section_lead }}</p>
+  {% elif not loop.first and items_section_lead_cont %}
+  <p class="section-lead">{{ items_section_lead_cont }}</p>
+  {% endif %}
+
+  <div class="items-grid">
+    {% for item in chunk %}
+    <div class="item">
+      <div class="item-header">
+        <span class="item-num">{{ item.num }}</span>
+        <span class="item-title">{{ item.title }}</span>
+      </div>
+      <div class="item-body">
+        {% for p in item.body_paragraphs %}<p>{{ p|safe }}</p>{% endfor %}
+        {% if item.bullets %}
+        <ul>
+          {% for b in item.bullets %}
+            <li>{% if b.label %}<strong>{{ b.label }}</strong> {% endif %}{{ b.text|safe }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      {% if item.callout %}
+      <div class="callout">
+        {% if item.callout.label %}<strong>{{ item.callout.label }}:</strong> {% endif %}{{ item.callout.text|safe }}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+
+{# ═══════════════════════════════════════════════════════════════════
+   PÁGINA FINAL — BACK COVER
+   ═══════════════════════════════════════════════════════════════════ #}
+<div class="page">
+  <div class="running-header">
+    <span><strong style="color: var(--ink);">{{ running_header_title }}</strong></span>
+    <span class="monogram-r">R</span>
+  </div>
+  <div class="running-footer">
+    <span>robohogar.com</span>
+    <span>{{ total_pages }} · {{ total_pages }}</span>
+  </div>
+
+  {% if backcover_title %}
+  <h2 class="section-title">{{ backcover_title }}</h2>
+  {% if backcover_lead %}<p class="section-lead">{{ backcover_lead }}</p>{% endif %}
+  {% endif %}
+
+  {% if anexo %}
+  <div class="anexo-block">
+    <h3>{{ anexo.title }}</h3>
+    <ol>
+      {% for step in anexo.steps %}
+      <li>{% if step.label %}<strong>{{ step.label }}</strong> {% endif %}{{ step.text|safe }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+  {% endif %}
+
+  {% if close_hook %}
+  <div class="close-hook">
+    <div class="eyebrow">{{ close_hook.eyebrow }}</div>
+    <h3>{{ close_hook.title }}</h3>
+    {% if close_hook.subtitle %}<p>{{ close_hook.subtitle }}</p>{% endif %}
+  </div>
+  {% endif %}
+
+  {% if resources %}
+  <div class="resources-block">
+    <h4>Más recursos ROBOHOGAR</h4>
+    <ul>
+      {% for r in resources %}<li>{{ r|safe }}</li>{% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  <div class="signature">
+    <img class="icon-robot-sig" src="{{ icon_robot_path }}" alt="ROBOHOGAR icon">
+    <div class="signature-text">
+      <strong>ROBOHOGAR</strong><br>
+      {{ date_label }} · {{ version }}
+    </div>
+  </div>
+
+  {% if disclaimer %}
+  <div class="disclaimer">{{ disclaimer|safe }}</div>
+  {% endif %}
+</div>
+
+</body>
+</html>

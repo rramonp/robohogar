@@ -108,15 +108,23 @@ Generar 3 variantes con composiciones distintas → `content/articulos/<slug>/as
 
 Secundariamente, `assets/branding/asset-catalog.md` para prompts exactos por tipo de artículo. El script genera `.webp` automáticamente — subir WebP a Beehiiv.
 
-### 7. Descargar imágenes inline de fuentes (OBLIGATORIO)
+### 7. Descargar imágenes inline de fuentes (OBLIGATORIO — EJECUTAR EN EL MISMO TURNO)
 
 Cada artículo necesita imágenes inline de las fuentes originales (fabricantes, prensa, eventos). NO generar estas imágenes — usar fotos reales.
 
-**Proceso:**
-1. Durante el research, identificar 2-4 imágenes clave de fuentes oficiales/prensa
-2. Descargar con `curl` a `content/articulos/<slug>/assets/`
-3. Nombrar descriptivamente: `figure-02-bmw-factory.jpg`, `tesla-optimus-gen3.jpg`
-4. Colocarlas en el HTML del borrador en la posición óptima (ver reglas abajo)
+> **🚫 Prohibido diferir a manual.** No se admite marcar imágenes como "⚠️ descarga manual pendiente" ni dejar `[rellenar]` en la tabla de PASOS.md. El tooling cubre el flujo end-to-end y descargarlas es parte del entregable del skill. Si el paso falla (HTTP 404 tras 2 intentos, paywall, geobloqueo), documentar en PASOS.md con URL intentada + motivo del fallo — solo entonces queda como TODO. Regla con incidente de origen: `feedback_content_draft_inline_images.md` (memoria auto-memory), Rafael 2026-04-18 en `mejor-robot-aspirador-2026`.
+
+**Proceso ejecutable (secuencia obligatoria, mismo turno que el borrador):**
+
+1. **Identificar** 2-4 productos/eventos/marcas que aparecen en `<img>` del borrador y necesitan foto real.
+2. **Buscar la fuente oficial** con `WebSearch` en paralelo (una query por imagen): `"<marca> <modelo> official product image"` u `"<evento> press photo"`.
+3. **Extraer la URL del asset** con `WebFetch` sobre la página oficial del primer resultado, prompt literal: *"Return the full URL of the main product hero image. Return only the URL, no other text."*
+4. **Descargar** con `curl -fsSL -o content/articulos/<slug>/assets/<figure-NN-slug>.<ext> "<url>"` (escapar `$` en URLs con `\$` en bash).
+5. **Comprimir** con Pillow: abrir imagen, resize si width >1400 px (ratio preservado, Image.LANCZOS), `.save(dst, 'JPEG', quality=82, optimize=True)`. Borrar el original si el formato cambia (PNG/WebP → JPG) para no dejar duplicados.
+6. **Validar peso**: objetivo <300 KB/imagen web, <200 KB/imagen email. Total del artículo <800 KB. Si tras comprimir sigue alto, reducir quality a 75 o width a 1200.
+7. **Registrar en PASOS.md** tabla de inline images con: archivo · sección · URL de origen · peso final · status ✅ descargada. Nunca dejar `[rellenar]` ni `⚠️ descargar`.
+
+**Nombrado:** descriptivo y numerado por orden de aparición: `figure-01-roborock-qrevo-curv-2.jpg`, `figure-02-dreame-x50-ultra.jpg`, etc.
 
 **Criterio de cantidad:** ~1 imagen cada 300-400 palabras. Para un artículo de 1.200 palabras → 3-5 imágenes inline. Productos/robots que el lector no conoce NECESITAN foto — sin foto, un precio no dice nada.
 
@@ -208,6 +216,46 @@ Verificar contra `@rules/editorial.md § Formato técnico (Beehiiv)`. Aplica a T
 - [ ] Unidades pegadas sin espacio cuando se pueda ("100°C", "1.399€") para evitar wrap feo en 375px
 
 Si hay violaciones → limpiar antes de entregar. No es opcional ni se pregunta al usuario: es parte del output estándar.
+
+### 8.7. Tangible mínimo obligatorio + promoción en subtítulo — OBLIGATORIO
+
+Aplicar [`@rules/tangibles.md § Reglas operativas`](../../.claude/rules/tangibles.md). Todo borrador DEBE contener:
+
+- [ ] **Checklist accionable** (3-7 ítems concretos) antes del veredicto/cierre, etiquetada visualmente como callout crema `#FFF9EF` + borde `#F5A623` (`<div class="checklist">`). H2 del bloque empieza por `Checklist —` para que el lector lo reconozca como producto (ej: `<h2>Checklist — 5 preguntas antes de comprar</h2>`). Si el tema no admite checklist natural, sustituir por decision tree mini, dossier "3 datos clave" o cuadro "qué hacer / qué no hacer" — pero NUNCA omitir el bloque accionable.
+- [ ] **Subtítulo del artículo** (el `<p class="subtitle">` bajo el H1) menciona el tangible con cifra o promesa concreta. Fórmula: `<qué entrega el artículo> + <tangible con número>`. Ejemplos válidos: *"6 modelos, 3 perfiles y una checklist de 5 preguntas que te ahorra 600 € antes de comprar"*, *"Review + checklist de 5 cosas que verificar en cualquier aspirador con vapor"*. Prohibido subtítulo genérico sin cifra ni tangible (*"la guía honesta, sin hype"* ❌).
+- [ ] **`meta_description`** del frontmatter (≤155 chars) también menciona el tangible concreto — es lo que Google muestra en SERP y Beehiiv replica en OG card. Reutilizar la misma promesa que el subtítulo pero reformulada para SEO.
+- [ ] **`title`/`seo_title`** puede (opcional) incorporar `+ checklist` si la keyword principal deja margen de caracteres: *"Mejor robot aspirador 2026: 6 finalistas + checklist"* (52 chars). Sin forzar si rompe el límite de 55-60 chars.
+
+**Rechazo automático:** si el borrador sale sin checklist/tangible accionable O con subtítulo/meta_description genéricos sin cifra → bloquear y reescribir. No entregar "pendiente de añadir checklist" en PASOS.md.
+
+### 8.8. Banner lead magnet "Hoja de Compra" — obligatorio en artículos consumer
+
+Aplicar desde 2026-04-18 el patrón de promoción del tangible Hoja de Compra en artículos nuevos según categoría:
+
+| Categoría del artículo | Banner automático | Posiciones |
+|---|---|---|
+| Aspirador · cortacésped · mascota-robot · fregasuelos · limpia-cristales · consumer mainstream | ✅ Sí, obligatorio | 1 (tras intro) + 1 (tras veredicto) en artículos >1.500 palabras · 1 al final en artículos cortos |
+| Review / comparativa / guía de compra de las categorías anteriores | ✅ Sí, obligatorio | Idem |
+| Humanoides domésticos | ❌ No (tangible específico pendiente — "Guía early adopter humanoides") | — |
+| Ficciones Domésticas | ❌ No (dossier propio pendiente — no mezclar canales narrativos con CTA comercial) | — |
+| Editorial/opinión genérico sin ángulo de compra | ❌ No | — |
+
+**Fuente del snippet:** [`content/templates/banner-lead-magnet.html`](../../content/templates/banner-lead-magnet.html) (variante DARK oficial). Sustituir `<SRC_SLUG>` por el slug del artículo para tracking UTM.
+
+**Integración en el borrador HTML que entrega `/content-draft`:**
+
+Cuando el artículo sea de categoría consumer (aspirador/cortacésped/mascota-robot/fregasuelos), insertar el bloque exacto del template en las 2 posiciones recomendadas:
+
+- **Tras el callout de intro amber** y antes del primer `<h2>` de contenido → `<!-- BANNER LEAD MAGNET · posición intro -->`.
+- **Tras el bloque "Nuestro veredicto"** y antes del CTA gris final de suscripción → `<!-- BANNER LEAD MAGNET · posición cierre -->`.
+
+El placeholder `<SRC_SLUG>` se sustituye por el slug del artículo que se está generando (extrae del frontmatter `slug: ...`).
+
+**Ejemplos de slugs ya activos:** `samsung-jet-bot-steam-ultra-review`, `roborock-saros-z70-review`, `mejor-robot-asistente-ia-2026`.
+
+**PASOS.md:** documentar que el banner va en ambas posiciones + recordar a Rafael que debe pegar el snippet al post en Beehiiv (hasta que se automatice vía API en fase futura).
+
+**Versionado futuro:** si aparece un nuevo tangible (ej. Guía primer mes aspirador, Glosario ROBOHOGAR), actualizar esta sección 8.8 con la tabla extendida (categoría → tangible recomendado). En fase 2 tangibles, articulo puede tener 2 banners distintos (1 por momento de funnel).
 
 ### 9. Prohibiciones
 

@@ -1,0 +1,36 @@
+<!--
+  ROBOHOGAR — Banner Lead Magnet · Hoja de Compra
+  Variante oficial: DARK (validada por Rafael 2026-04-18).
+
+  Decisiones técnicas:
+    - Inline styles (Beehiiv strippea <style> al hacer paste).
+    - color: #FFFFFF !important en el botón porque Beehiiv fuerza ámbar en <a> por defecto.
+    - Placeholder <SRC_SLUG> se sustituye por el slug del artículo (tracking UTM).
+    - Paleta idéntica al bloque dark "Si te ha servido" del PDF backcover (consistencia PDF ↔ artículo).
+
+  Scope — aplicar en artículos de estas categorías:
+    ✅ Aspiradores, cortacéspedes, mascotas-robot, consumer mainstream (guías de compra, reviews, comparativas)
+    ❌ Humanoides domésticos (tangible específico pendiente, no encaja el CTA "antes de comprar tu robot doméstico")
+    ❌ Ficciones Domésticas (otro tangible propio pendiente, no mezclar canales narrativos con CTA comercial)
+    ⚠️ Editoriales/opinión: solo si tienen ángulo de decisión de compra; si es puro editorial, omitir
+
+  Posiciones recomendadas:
+    1. Tras intro/callout inicial (CTA temprano para lector que skimmea).
+    2. Tras veredicto o cierre (CTA al lector que llegó hasta el final).
+    — En artículos cortos (<800 palabras): solo 1 banner (al final).
+    — En artículos largos (>1.500 palabras): los 2.
+
+  Cómo personalizar por artículo:
+    - Sustituir <SRC_SLUG> por el slug real (ej: "samsung-steam-ultra", "mejor-robot-asistente-ia-2026").
+    - El copy estándar sirve para aspiradores / consumer; en otras categorías ajustar "tu robot doméstico" si hace falta.
+
+  Snippets ya personalizados para los artículos publicados:
+    → content/templates/banner-lead-magnet-snippets.md (copy-paste directo a Beehiiv)
+-->
+
+<div style="margin:32px 0;padding:28px 24px;background:#283642;border-radius:10px;color:#FFFFFF;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;">
+  <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Antes de comprar</div>
+  <div style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#FFFFFF;line-height:1.2;margin-bottom:10px;">Descarga gratis la Hoja de Compra ROBOHOGAR</div>
+  <p style="margin:0 0 18px;font-size:15px;color:rgba(255,255,255,0.88);line-height:1.5;">10 preguntas para no pagar de más al comprar tu robot doméstico. PDF de 2 páginas · gratis · te llega al email en 15 segundos.</p>
+  <a href="https://robohogar.com/products/hoja-de-compra?src=<SRC_SLUG>" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Descargar gratis →</a>
+</div>

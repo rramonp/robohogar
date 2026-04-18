@@ -26,6 +26,10 @@ Max 25 chars. Fitea uno de 5 arquetipos: curiosity gap · fear/warning · benefi
 
 Open >41%, CTR >3.2%, mobile-first 600px, dark mode safe, SPF/DKIM/DMARC activos. Detalle → `references/newsletter/email-marketing-playbook.md`.
 
+## Preset emails (welcome, double opt-in, reminder) — plain-text + minimalismo
+
+Regla dura: los preset emails transaccionales de Beehiiv (Double Opt-In, Welcome nativo, Smart Nudge) van en **plain text, sin logos ni imágenes inline en el cuerpo**. El header/footer global de Beehiiv ya inyecta el branding (logo + nombre publicación + dirección postal + unsubscribe) → duplicar es redundante y perjudica deliverability. Superhuman, Figma y referentes onboarding lo aplican así. Razón técnica: Gmail/Outlook clasifican HTML con imágenes como Promotions; plain text conversacional cae en Primary. Aplicable también al Email 1 del welcome flow MVP (ver `docs/welcome-flow-setup.md`) — salvo el botón CTA al PDF/link, no meter elementos visuales.
+
 ## Timing & GDPR
 
 Martes/miércoles 9:00 CET (consistencia > volumen). Audiencia EU: doble opt-in recomendado, one-click unsubscribe obligatorio.
