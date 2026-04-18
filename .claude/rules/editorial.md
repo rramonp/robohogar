@@ -37,15 +37,31 @@ Pilar experimental (~10% del content mix). Relatos cortos de ciencia ficción do
 
 - **Voz (excepción a la regla de primera persona plural):** en ficción se usa narrador omnisciente en 3ª persona O primera persona del personaje POV. El "hemos/os/nos" plural editorial NO aplica dentro del relato
 - **Tiempo verbal:** presente (inmediatez) o pasado (reflexión). No mezclar en la misma escena sin justificación narrativa
-- **Longitud:** flash 500-1.000 palabras · relato corto 1.500-3.000 · mini-serie 6-12 episodios de 1.500-3.000
+- **Longitud:** flash 500-800 palabras · episodio-serie 1.200-1.800 · standalone web 2.500-3.500 · mini-serie 6-12 episodios. Actualizado 2026-04-18 al consenso Substack 2025 — ver `@references/ficciones/serialized-newsletter-patterns.md` § 3.1
 - **Cadencia:** máximo 1 cada 3-4 semanas — la ficción se cansa antes que el análisis
 - **Tag visual:** "Ficciones Domésticas" + hero estilo still cinematográfico (NO product-hero). Referencia: Black Mirror doméstico, After Yang, Her
 - **Obligatorio:** anclar cada relato en ≥1 dato real (AI Act, INE, spec técnica de un robot que existe). Sin dato real → fantasía genérica, se rechaza
 - **Villano:** el robot NUNCA es el villano. El villano es el problema humano (soledad, burnout, brecha digital) que el robot revela o amplifica
 - **Exención:** palabras "prohibidas" de la línea baseline (superlativos) permitidas solo en diálogo irónico de un personaje
 
+- **Cliffhanger:** emocional o moral, NUNCA físico primario (incoherente con "robot = instrumento neutro"). Detalle: `@references/ficciones/serialized-newsletter-patterns.md` § 3.4.
+
 Skill: `/ficcion-draft`. Pipeline completo: `@.claude/commands/ficcion-draft.md`.
+Bible maestra + canon transversal de series: `@references/ficciones/series-bible-maestra.md`.
 Knowledge base: `@references/writewithai/07-ficcion-y-narrativa-serializada.md`.
+Patrones serialized newsletter 2025: `@references/ficciones/serialized-newsletter-patterns.md`.
+Roadmap ebook: `@references/ficciones/ebook-roadmap.md`.
+
+## Anti-IA checklist — OBLIGATORIO para TODO contenido
+
+Todo contenido publicado (artículo, review, comparativa, editorial, guía, newsletter Y ficción) DEBE pasar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) antes del output final.
+
+- **§1 Universal** aplica a todos: artículos, reviews, comparativas, editoriales, guías, newsletters.
+- **§2 Ficción** aplica ADEMÁS a relatos (Palahniuk cero thought verbs, subtexto > texto, especificidad Chiang).
+
+Skills que generan prosa publicable integran esta regla como paso pre-output obligatorio (ver `ficcion-draft.md` paso 8, `content-draft.md` paso 8.5). Cualquier nuevo skill que genere prosa publicable debe heredar esta regla.
+
+Razón: la IA tiene tics (palabras como *tapiz/entramado/intrincado/matizado*, tricolon mecánico, em-dashes en cascada, clichés sensoriales) que el lector humano identifica sin saber nombrarlos — y en un newsletter con voz personal destruyen confianza. La checklist es la lista negra + reglas positivas que evita esto.
 
 ## Filtro mercado ES/LATAM
 

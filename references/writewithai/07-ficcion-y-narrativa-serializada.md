@@ -3,6 +3,16 @@
 > KB para el pilar experimental **"Ficciones Domésticas"**: relatos cortos de ciencia ficción
 > próxima (2030-2040) en hogares españoles con personajes recurrentes. Destilado de
 > writewithai.substack.com (fiction + storytelling + email-copy + hooks). Fecha: 2026-04-17.
+> Actualización 2026-04-18: refs a archivos de knowledge ficción dedicados.
+
+## Archivos hermanos (knowledge ficción dedicado — crear/mantener)
+
+La expansión del pilar Ficciones Domésticas (2026-04-18) movió contenido específico a archivos dedicados. Este archivo mantiene frameworks universales (Pixar, MRU, 5-Sentence). Para contenido específico del pilar:
+
+- [`@references/ficciones/series-bible-maestra.md`](../ficciones/series-bible-maestra.md) — catálogo de series + canon transversal + reglas universo compartido.
+- [`@references/ficciones/serialized-newsletter-patterns.md`](../ficciones/serialized-newsletter-patterns.md) — longitudes modales 2025, cadencia, Episode 0, recap index, cliffhanger patterns, monetización Elle Griffin.
+- [`@references/anti-ia-checklist.md`](../anti-ia-checklist.md) — **OBLIGATORIA**. §1 Universal (todo contenido) + §2 Ficción (relatos).
+- [`@references/ficciones/ebook-roadmap.md`](../ficciones/ebook-roadmap.md) — plan compilación ebook cuando haya masa crítica.
 
 ## TL;DR
 
@@ -262,11 +272,14 @@ De los 10+ hooks periodísticos de `hooks-and-headlines.md`, los que funcionan t
 
 | Formato | Palabras | Lectura | Uso |
 |---|---|---|---|
-| Flash fiction | 500-1.000 | 2-4 min | Sección rotativa en newsletter (no cada semana) |
-| Short story | 1.500-3.000 | 6-12 min | Publicación standalone (cada 3-4 semanas) |
+| Flash fiction | 500-800 | 2-3 min | Sección rotativa en newsletter (no cada semana) |
+| Episodio-serie | 1.200-1.800 | 5-7 min | Mini-serie en email (consenso Substack 2025) |
+| Standalone | 2.500-3.500 | 10-14 min | Publicación web para SEO (cada 3-4 semanas) |
 | Mini-serie | 6-12 episodios | — | Arco cerrado con inicio/final claros |
 
-**Piloto recomendado:** 3 flash fictions de 800 palabras en 3 newsletters consecutivas antes de comprometerse a mini-serie.
+**Actualización 2026-04-18**: longitudes ajustadas al consenso serialized fiction Substack/Beehiiv 2025 (ver `@references/ficciones/serialized-newsletter-patterns.md` § 3.1). Antes: flash 500-1.000 / short 1.500-3.000. Ahora: flash 500-800 / episodio-serie 1.200-1.800 / standalone 2.500-3.500.
+
+**Piloto recomendado:** 3 flash fictions de 600-800 palabras, cada uno de una **serie distinta**, en 3-4 semanas consecutivas antes de comprometerse a mini-serie. Ver `@references/ficciones/ebook-roadmap.md` § F1.
 
 ---
 

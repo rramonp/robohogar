@@ -66,16 +66,33 @@ Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurre
 
 ## Backlog Ficciones Domésticas
 
-> Semillas narrativas candidatas para relatos futuros. Rafael elige cuándo y en qué serie encajan.
-> `/research-digest` añade semillas aquí automáticamente (paso 8b del skill) extrayendo tensión narrativa de las noticias reales. `/ficcion-draft` las consume (paso 0 del skill).
-> Placeholders — ninguna es canon hasta que se publica el episodio.
+> Series activas, series propuestas y semillas narrativas sueltas. Rafael elige cuándo y en qué serie encajan.
+> Catálogo completo + canon transversal: [`references/ficciones/series-bible-maestra.md`](../references/ficciones/series-bible-maestra.md).
+> `/research-digest` añade semillas aquí automáticamente (paso 8b). `/ficcion-draft` las consume (paso 0).
+> Longitudes actualizadas 2026-04-18: flash 500-800 · episodio-serie 1.200-1.800 · standalone 2.500-3.500. Ver `references/ficciones/serialized-newsletter-patterns.md` § 3.1.
+
+### Series activas 🟢
+
+| Serie | Slug | Tono | Formato | Bible + arco |
+|---|---|---|---|---|
+| **La Casa de Amparo** | `la-casa-de-amparo` | Cálido-melancólico | Mini-serie 8 eps (Lavapiés) | [bible](ficciones/la-casa-de-amparo/character-bible.md) · [arco](ficciones/la-casa-de-amparo/arco-serie.md) |
+| **Crónicas de Ronda 3** | `cronicas-ronda-3` | Documental tierno | Antología 10 eps (VPO Alcalá) | [bible](ficciones/cronicas-ronda-3/character-bible.md) · [arco](ficciones/cronicas-ronda-3/arco-serie.md) |
+| **Cartas a MAIA** | `cartas-a-maia` | Literario-lento | Epistolar 10 eps (Berlín/Cáceres) | [bible](ficciones/cartas-a-maia/character-bible.md) · [arco](ficciones/cartas-a-maia/arco-serie.md) |
+
+### Series propuestas 🟡 (en `series-bible-maestra.md`, sin bible propia aún)
+
+- **Brigada Doméstica** (noir procedural Barcelona) — activar cuando Rafael decida.
+- **Lúa, 6 años** (coming-of-age La Moraleja, inquietante sereno) — activar cuando Rafael decida.
+- **Yolanda y Max** (satírico Málaga/Cebú, crítica post-colonial) — activar cuando Rafael decida.
+
+### Semillas narrativas sueltas (pre-existentes, pueden asignarse a una serie o quedarse one-shots)
 
 | Prioridad | Semilla de trabajo | Formato | Serie sugerida | Tema humano | Dato real ancla | Notas |
 |-----------|--------------------|---------|----------------|-------------|-----------------|-------|
-| Alta | "El operador nocturno" — un operador en Manila se asoma a la cocina de los García a las 03:14 para ayudar al NEO | Relato corto 1.500-3.000 o mini-serie 3 eps (familia/operador/corporativo) | Nueva: "Operadores invisibles" | Normalización de la vigilancia doméstica + gig economy global invisible | 1X NEO teleoperación remota + deal EQT 10.000 unidades industriales (12-abr-2026) | Alta densidad narrativa. Digest 2026-04-17 |
-| Alta | "El guante" — Ana, cuidadora, cobra 200€ por un guante que graba sus tareas para entrenar un robot en California | Relato corto 1.500-3.000 | Nueva o standalone | Extracción invisible del saber tácito del cuidado + precariedad afectiva | Sunday Skill Capture Glove $200, 10M tareas de 500+ hogares (Sunday Robotics, $1,15B valoración) | Potente final ambiguo ni distópico ni utópico. Digest 2026-04-17 |
-| Media | "Los del 4ºA" — Vigo 2034, abuela Carmen ve a la vecina del 4ºB estrenar humanoide mientras ella sigue subiendo la compra | Flash 500-1.000 | Nueva: "Vecindarios robotizados" | Brecha digital reencarnada como brecha robótica + soledad del mayor | F2 piloto 300 hogares Pekín/Shanghái 4.500€ (abr 2026) + Neura Mini 19.999€ | Cabe en una escena de descansillo. Digest 2026-04-17 |
-| Media | "El manual del inspector" — Barcelona 2031, inspectora EU AI detecta 217h de teleop no declaradas en un piso del Eixample | Relato corto 1.500-3.000 o episodio mini-serie procedural | Nueva: "Inspectores del AI Act" (formato procedural, 1 caso/episodio) | Fricción entre "he comprado un producto" y "convivo con un agente regulado" | AI Act art. 50 + obligaciones alto-riesgo desde 2-ago-2026 + aclaración Comisión EU (13-abr-2026) | Potencial para serie recurrente. Digest 2026-04-17 |
+| Alta | "El operador nocturno" — un operador en Manila se asoma a la cocina de los García a las 03:14 para ayudar al NEO | Episodio-serie 1.200-1.800 o mini-serie 3 eps | Candidata para nueva serie "Operadores invisibles" (🟡) O one-shot tie-in | Normalización de la vigilancia doméstica + gig economy global invisible | 1X NEO teleoperación remota + deal EQT 10.000 unidades industriales (12-abr-2026) | Alta densidad narrativa. Digest 2026-04-17 |
+| Alta | "El guante" — Ana, cuidadora, cobra 200€ por un guante que graba sus tareas para entrenar un robot en California | Episodio-serie 1.200-1.800 | **Encaja en Yolanda y Max** (o one-shot) | Extracción invisible del saber tácito del cuidado + precariedad afectiva | Sunday Skill Capture Glove $200, 10M tareas de 500+ hogares (Sunday Robotics, $1,15B valoración) | Potente final ambiguo. Digest 2026-04-17 |
+| Media | "Los del 4ºA" — Vigo 2034, abuela Carmen ve a la vecina estrenar humanoide mientras sigue subiendo la compra | Flash 500-800 | **Encaja en Ronda 3 (episodio 4ºA)** | Brecha digital reencarnada como brecha robótica + soledad del mayor | F2 piloto 300 hogares Pekín/Shanghái 4.500€ (abr 2026) + Neura Mini 19.999€ | Cabe en una escena de descansillo. Digest 2026-04-17 |
+| Media | "El manual del inspector" — Barcelona 2031, inspectora EU AI detecta 217h de teleop no declaradas en un piso del Eixample | Episodio-serie 1.200-1.800 procedural | **Encaja en Brigada Doméstica** (si se activa) | Fricción entre "he comprado un producto" y "convivo con un agente regulado" | AI Act art. 50 + obligaciones alto-riesgo desde 2-ago-2026 + aclaración Comisión EU (13-abr-2026) | Potencial serie recurrente. Digest 2026-04-17 |
 
 ## Temas usados (no repetir)
 

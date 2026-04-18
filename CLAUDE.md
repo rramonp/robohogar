@@ -47,6 +47,8 @@ Scripts in `utilities/` are active tools. After a one-shot script is used and no
 
 Before generating any final output (publishing an article, generating a definitive image, sending a newsletter): validate content first. Never skip validation. For images: check the asset catalog. For articles: proofread + SEO check. For scripts: syntax + test run.
 
+**Anti-IA checklist OBLIGATORIA para todo contenido publicable** (artículo, review, comparativa, editorial, guía, newsletter, ficción): correr [`@references/anti-ia-checklist.md`](references/anti-ia-checklist.md) antes del output final. §1 Universal aplica a todos; §2 Ficción solo a relatos. Todo skill que genere prosa hereda esta regla (ver integración en `ficcion-draft.md` paso 8 y `content-draft.md` paso 8.5). Razón y detalle: `@rules/editorial.md` § Anti-IA checklist.
+
 ## Key Directories
 
 | Path | Purpose |

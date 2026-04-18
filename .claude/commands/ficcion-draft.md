@@ -1,5 +1,5 @@
 ---
-description: Generate short speculative fiction drafts ("Ficciones Domésticas") for ROBOHOGAR with recurring characters, character-bible continuity, and Pixar/MRU/Paint-The-Villain frameworks. Use for serialized near-future domestic sci-fi stories (flash 500-1.000 words, short 1.500-3.000 words, or mini-series episodes) starring home robotics.
+description: Generate short speculative fiction drafts ("Ficciones Domésticas") for ROBOHOGAR with recurring characters, character-bible continuity, and Pixar/MRU/Paint-The-Villain frameworks. Supports 5 invocation modes (one-shot, episodio-serie, episode-0, piloto, tie-in). Use for serialized near-future domestic sci-fi stories (flash 500-800, episodio-serie 1.200-1.800, standalone 2.500-3.500) starring home robotics. Enforces anti-IA checklist and emotional (not physical) cliffhangers.
 ---
 
 # Ficcion Draft — Borrador de relatos "Ficciones Domésticas"
@@ -7,7 +7,24 @@ description: Generate short speculative fiction drafts ("Ficciones Domésticas")
 Genera relatos cortos de ciencia ficción doméstica próxima (2030-2040) con personajes recurrentes, continuidad inter-episodio y voz narrativa propia. Pilar experimental de ROBOHOGAR — ~10% del content mix.
 
 **Knowledge base completa:** `@references/writewithai/07-ficcion-y-narrativa-serializada.md`
+**Bible maestra y catálogo de series:** `@references/ficciones/series-bible-maestra.md`
+**Patrones serialized newsletter:** `@references/ficciones/serialized-newsletter-patterns.md`
+**Anti-IA checklist (OBLIGATORIA):** `@references/anti-ia-checklist.md` — §1 Universal + §2 Ficción
+**Roadmap ebook:** `@references/ficciones/ebook-roadmap.md`
 **Voz de marca y excepciones:** `@.claude/rules/editorial.md` → sección "Narrativa especulativa"
+
+## Frases trigger — invocación desde Rafael
+
+Rafael usa una de estas frases para invocar el skill en el modo correspondiente. El skill detecta modo en paso 0.5.
+
+| Intención | Frase trigger exacta | Modo interno |
+|---|---|---|
+| One-shot (sin serie, experimento) | **`/ficcion-draft one-shot <semilla>`** | `one-shot` |
+| Nuevo episodio de serie activa | **`/ficcion-draft serie <slug> episodio <N>`** | `episodio-serie` |
+| Episode 0 de nueva serie (entrada suave) | **`/ficcion-draft serie <slug> episode-0`** | `episode-0` |
+| Flash piloto (testar serie antes de comprometer) | **`/ficcion-draft piloto <serie-candidata>`** | `piloto` |
+| Tie-in con artículo publicado | **`/ficcion-draft tie-in <url-articulo>`** | `tie-in` |
+| Ver estado del pilar | **`¿Qué series tengo activas y qué episodios llevo?`** | `estado` (lee `series-bible-maestra.md` y reporta) |
 
 ## When to activate
 
@@ -23,17 +40,34 @@ Rafael pasa 3 parámetros (pregunta si falta alguno, pero **`{semilla-narrativa}
 | Parámetro | Valores | Ejemplo |
 |---|---|---|
 | `{semilla-narrativa}` | Tema/gancho en 1-2 frases. **Opcional** si hay backlog Ficciones en calendario | `"robot aspirador descubre consciencia contando pasos"` |
-| `{personajes-involucrados}` | Nombres (deben existir en character bible) o `"nuevos"` | `"Tico, abuela Cortés"` |
-| `{longitud}` | `flash` (500-1.000) · `corto` (1.500-3.000) · `mini-serie-episodio` (1.500-3.000 + hooks) | `flash` |
+| `{personajes-involucrados}` | Nombres (deben existir en character bible) o `"nuevos"` | `"Amparo, Hugo, Vicky"` |
+| `{longitud}` | `flash` (500-800) · `episodio-serie` (1.200-1.800) · `standalone` (2.500-3.500) | `episodio-serie` |
+
+**Longitudes actualizadas 2026-04-18** según research serialized fiction 2025 (ver `@references/ficciones/serialized-newsletter-patterns.md` § 3.1). La ventana "corto 1.500-3.000" y "mini-serie-episodio 1.500-3.000" queda sustituida por **episodio-serie 1.200-1.800** (email mobile-first) y **standalone 2.500-3.500** (SEO web).
 
 Parámetros opcionales:
 - `{serie}`: slug de serie existente (ej. `familia-cortes`). Si no existe, se crea.
 - `{pov}`: `omnisciente` (default) · `primera-persona-{personaje}`
 - `{dato-real}`: estadística/ley concreta sobre la que anclar (INE, AI Act, spec técnica). Si falta, se intenta extraer del research digest más reciente antes de proponer uno.
 
-## Workflow — 8 pasos obligatorios
+## Workflow — 9 pasos obligatorios
 
-### 0. Check inputs desde research digest (si falta semilla o dato real)
+### 0. Detectar modo de invocación
+
+Primer paso ANTES de leer inputs: detectar qué modo pide Rafael según la frase trigger. Cada modo altera los pasos siguientes.
+
+| Modo | Qué hace distinto |
+|---|---|
+| `one-shot` | Relato standalone sin serie. Va a `content/ficciones/_one-shots/`. No lee bible. No exige continuidad. Longitud por defecto: `flash` o `standalone` (no `episodio-serie`). |
+| `episodio-serie` | Episodio numerado de serie activa. Lee `character-bible.md` + `arco-serie.md` + último episodio publicado. Exige continuidad canon. Longitud por defecto: `episodio-serie` (1.200-1.800). |
+| `episode-0` | Entrada suave a nueva serie. Lee `character-bible.md` + `arco-serie.md` (recién rellenados). Presenta universo + personajes + regla del universo. Debe funcionar standalone (lector nuevo puede empezar aquí). Longitud ~1.500. |
+| `piloto` | Flash testador — serie candidata aún no activada. Lee propuesta en `series-bible-maestra.md` si existe. NO canoniza nada — es desechable. Longitud `flash` (500-800). |
+| `tie-in` | Relato flash que dialoga con un artículo publicado. Lee el artículo (URL o path), extrae dato real + tensión humana, genera relato flash. Slot destacado en email siguiente al artículo. Longitud `flash`. |
+| `estado` | NO genera relato. Lee `references/ficciones/series-bible-maestra.md` + `content/ficciones/<slug>/character-bible.md` de series activas + calendario editorial. Devuelve tabla: series activas · último episodio · próximo previsto · hilos pendientes. |
+
+**Si Rafael no especifica modo**: preguntar por la frase trigger adecuada. NO asumir.
+
+### 1. Check inputs desde research digest (si falta semilla o dato real)
 
 Si Rafael NO ha pasado `{semilla-narrativa}` o `{dato-real}`:
 
@@ -183,9 +217,35 @@ For each issue: quote offending line + suggest specific rewrite. If clean: "Cons
 
 Si hay issues → reescribir líneas ofensivas antes de output final. Si bible aún está en placeholder, marcar `[PENDING BIBLE]` y avisar a Rafael.
 
-### 8. Validaciones finales antes de output
+### 8. Anti-IA checklist — OBLIGATORIO antes de output
 
-- [ ] **Longitud**: flash 500-1.000 | corto 1.500-3.000 | episodio 1.500-3.000. Contar palabras.
+Cargar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) y correr sobre el borrador completo:
+
+**§1 Universal** (aplica a todo contenido ROBOHOGAR):
+1. [ ] Búsqueda literal de cada palabra/frase de §1.1 (*tapiz, entramado, intrincado, matizado, tejer, susurrar, danzar, navegar metafórico, en última instancia, al final del día, cabe destacar, en el ámbito de, un testamento a/de*, etc.). Si cualquiera aparece >1 vez → flag.
+2. [ ] Conteo de tricolon ("A, B y C"). Si >2 en el texto → flag.
+3. [ ] Conteo de em-dashes (—) en narrativa expositiva. Si >1 por párrafo o >3 total → flag.
+4. [ ] Contrast framing ("no es solo X, es Y"). Si >1 vez → flag.
+5. [ ] Clichés sensoriales §1.3 (*olor a café, luz dorada de la tarde, sonrisa tímida, mirada perdida*). Si alguno aparece → flag salvo justificación.
+6. [ ] Muestreo de 3 frases aleatorias: ¿son específicas o genéricas? Si las 3 son genéricas → reescribir con especificidad Chiang.
+
+**§2 Ficción-específica**:
+7. [ ] Cero **thought verbs** en narración: *pensó, sintió, supo, creyó, entendió, notó, se dio cuenta de que, recordó, decidió, quiso, deseó, temió, esperaba*. Permitido en diálogo interno con máx 1 por escena. Dramatizar en gestos/acciones.
+8. [ ] **Cliffhanger emocional/moral**, NO físico. Si el cierre es peligro inminente / persecución / amenaza corporal → rechazar y replantear desde Paint The Villain.
+9. [ ] **Voz narrativa**: omnisciente 3ª persona O 1ª persona del personaje POV. Plural ROBOHOGAR ("hemos/os/nos") PROHIBIDO dentro del relato.
+10. [ ] **Tiempo verbal consistente** dentro de cada escena.
+11. [ ] **1 detalle raro específico** por escena principal (test Chiang: un detalle que solo estaría ahí).
+12. [ ] **Diálogo con imperfecciones** (contracciones, titubeos, frases incompletas). Si suena pulido uniforme → flag.
+13. [ ] **Dato real anclado** citado en comentario HTML invisible o en PASOS.md.
+
+**Regla de decisión**:
+- ≥3 flags encendidos → **rechazar output**, reescribir líneas ofensivas, volver a correr el checklist.
+- 1-2 flags → reescribir esas líneas concretas y re-correr.
+- 0 flags → proceder al paso 9.
+
+### 9. Validaciones finales antes de output
+
+- [ ] **Longitud**: flash 500-800 | episodio-serie 1.200-1.800 | standalone 2.500-3.500. Contar palabras. Si supera por más del 15% → recortar.
 - [ ] **Nivel ≈4**: gramática simple (frases cortas, subordinación mínima) + concepto complejo (tensión sci-fi/social real). Evitar léxico rebuscado si el concepto ya exige esfuerzo.
 - [ ] **Dato real anclado**: ≥1 fact verificable (AI Act, INE, spec de robot). Citar en comentario HTML invisible al final: `<!-- dato-real: ... -->`
 - [ ] **Villano humano, no robot**: el conflicto emocional debe ser identificable en 1 frase.
@@ -277,6 +337,10 @@ Debe contener:
   - `@.claude/commands/social-content.md` → posts de redes anunciando el episodio
 - **Knowledge/soporte:**
   - Knowledge base completa: `@references/writewithai/07-ficcion-y-narrativa-serializada.md`
+  - **Bible maestra (catálogo de series + canon transversal):** `@references/ficciones/series-bible-maestra.md`
+  - **Patrones serialized newsletter 2025-2026:** `@references/ficciones/serialized-newsletter-patterns.md`
+  - **Anti-IA checklist (OBLIGATORIA):** `@references/anti-ia-checklist.md`
+  - **Roadmap ebook:** `@references/ficciones/ebook-roadmap.md`
   - Voz editorial (sección Narrativa especulativa): `@.claude/rules/editorial.md`
   - Plantillas: `@content/ficciones/_template-character-bible.md` · `@content/ficciones/_template-arco-serie.md`
   - Guía del pilar: `@content/ficciones/README.md`

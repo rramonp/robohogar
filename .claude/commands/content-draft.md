@@ -179,6 +179,25 @@ Luego rellenar a mano los bloques marcados `[rellenar: ...]`:
 
 Template origen: `content/templates/PASOS-template.md`. Script: `utilities/generate_pasos.py`.
 
+### 8.5. Anti-IA checklist §1 Universal — OBLIGATORIO antes de entregar borrador
+
+Cargar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) **§1 Universal** (la §2 Ficción no aplica aquí — solo relatos). Correr sobre el `borrador.html` generado:
+
+1. [ ] Búsqueda literal de cada palabra/frase de §1.1 (*tapiz, entramado, intrincado, matizado, tejer, susurrar, danzar, navegar metafórico, en última instancia, al final del día, cabe destacar, en el ámbito de, un testamento a/de, se entrelaza, simplemente, básicamente, verdaderamente, realmente*, etc.). Si cualquier término aparece >1 vez → **flag**.
+2. [ ] Conteo de tricolon ("A, B y C"). Si >2 en el texto → flag.
+3. [ ] Conteo de em-dashes (—). Si >1 por párrafo o >3 total → flag.
+4. [ ] Contrast framing ("no es solo X, es Y"). Si >1 vez → flag.
+5. [ ] Clichés sensoriales §1.3 (*olor a café, luz dorada de la tarde, sonrisa tímida, mirada perdida*). Si alguno aparece → flag salvo justificación.
+6. [ ] Muestreo de 3 frases aleatorias: ¿son específicas (dato concreto, nombre, cifra) o genéricas? Si las 3 son genéricas → reescribir con especificidad Chiang.
+7. [ ] Voz plural ROBOHOGAR en texto expositivo (salvo bio autor). Si hay 1ª persona singular no autorizada → flag.
+
+**Regla de decisión**:
+- ≥3 flags → **rechazar output**, reescribir líneas ofensivas, volver a correr checklist.
+- 1-2 flags → reescribir esas líneas concretas y re-correr.
+- 0 flags → proceder a paso 9.
+
+Esta checklist NO reemplaza las reglas de `editorial.md` (voz, autoridad propia, prohibiciones). Se suma a ellas.
+
 ### 9. Prohibiciones
 
 Aplicar todas las de `rules/editorial.md` (voz, tono, primera persona plural, prohibiciones de contenido).
