@@ -480,12 +480,14 @@ Configurar estas categorías para organizar el contenido:
 
 **Templates a crear/iterar:**
 
+> **Consolidación 2026-04-18:** los templates por tipo de la tabla inferior se han unificado en un único master: `content/templates/articulo-beehiiv-master.html` (exportado desde el review Samsung Jet Bot Steam Ultra, formato y CTAs más actualizados). Sirve para review, comparativa, editorial, guía y futura newsletter — la estructura interna se adapta variando bloques, no el esqueleto. Los templates antiguos (`review-comparativa-beehiiv-export.html`, `editorial-opinion-beehiiv-export.html`, `review-comparativa.md`) se archivaron en `content/templates/_archive/`. La tabla abajo se conserva como histórico de la iteración original.
+
 | Template | Archivo | Tipo | Status |
 |---|---|---|---|
-| Review/Comparativa | `content/templates/review-comparativa.md` | 70% — productos | 🔄 En iteración |
-| Newsletter Issue | `content/templates/newsletter-issue.md` | Email semanal | ⏳ Pendiente |
-| Noticias/Roundup | `content/templates/noticias-roundup.md` | Noticias curadas | ⏳ Pendiente |
-| Editorial/Opinión | `content/templates/editorial-opinion.md` | 30% — futuro | ⏳ Pendiente |
+| Review/Comparativa | `content/templates/review-comparativa.md` | 70% — productos | ✅ Consolidado en master |
+| Newsletter Issue | `content/templates/newsletter-issue.md` | Email semanal | ✅ Cubierto por master |
+| Noticias/Roundup | `content/templates/noticias-roundup.md` | Noticias curadas | ✅ Cubierto por master |
+| Editorial/Opinión | `content/templates/editorial-opinion.md` | 30% — futuro | ✅ Consolidado en master |
 
 **Proceso por template (7 pasos):**
 1. Investigar 3+ ejemplos reales del mismo tipo

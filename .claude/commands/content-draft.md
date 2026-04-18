@@ -50,16 +50,9 @@ Excepción: si la marca es Apple, Tesla, Google, Samsung o Xiaomi → pasar dire
 
 ### 3. Generar borrador
 
-**Usar el template HTML del tipo de artículo** como base — copiar el HTML y reemplazar el contenido:
+**Template único — todos los tipos:** `content/templates/articulo-beehiiv-master.html`. Copiar el HTML master y reemplazar el contenido. No hay templates por tipo — el esqueleto es el mismo y la estructura interna se adapta según review, comparativa, editorial, guía o newsletter.
 
-| Tipo | HTML base (copiar y modificar) | Estructura documentada |
-|---|---|---|
-| Review/Comparativa | `content/templates/review-comparativa-beehiiv-export.html` | `content/templates/estructura-templates.md` → Template 1 |
-| Editorial/Opinión | `content/templates/editorial-opinion-beehiiv-export.html` | `content/templates/estructura-templates.md` → Template 2 |
-| Newsletter | *(pendiente — se creará con el primer newsletter)* | |
-| Noticias/Roundup | *(pendiente — se creará con el primer roundup)* | |
-
-**Proceso:** leer el HTML base, reemplazar título/subtítulo/contenido manteniendo la estructura de bloques. Consultar `estructura-templates.md` para saber qué bloques van en cada tipo.
+**Proceso:** leer `articulo-beehiiv-master.html`, reemplazar `<title>`, H1, subtítulo, autor/fecha/tiempo y body (H2 + párrafos + tablas + imágenes). **Mantener intactos:** hero image slot, intro callout ámbar, separadores, CTA mid-article ámbar, CTA final de suscripción, footer con trust text. Doc de referencia: `content/templates/estructura-templates.md`.
 
 **Tags de Beehiiv disponibles:** Aspiradores, Cortacéspedes, Humanoides, Asistentes IA, Robot Mascotas, Smart Home, Noticias, Opinión, Guías
 
@@ -81,7 +74,7 @@ Para **Review/Comparativa**, seguir la estructura completa del template:
 
 Reusar las URLs de la tabla "Fuentes del artículo" del PASOS.md (la columna `Cómo verificar` ya documenta el dominio oficial). Si una URL no es firme, marcar con comentario `<!-- TODO: confirmar URL oficial -->` junto al `<a>`.
 
-Para otros tipos, usar la estructura documentada en `content/templates/estructura-templates.md` (Template 2 para editorial/opinión). Incluir siempre frontmatter YAML con: `title`, `seo_title`, `meta_description`, `slug`, `tags`, `type`, `status`, `created`, `affiliate`, **`evergreen`** (true/false), **`evergreen_note`** (motivo).
+Para otros tipos (editorial, guía, newsletter), usar el mismo master `articulo-beehiiv-master.html` variando los bloques internos — no hay template distinto. Incluir siempre frontmatter YAML con: `title`, `seo_title`, `meta_description`, `slug`, `tags`, `type`, `status`, `created`, `affiliate`, **`evergreen`** (true/false), **`evergreen_note`** (motivo).
 
 **Campo `evergreen`** — clasificar al generar el borrador:
 - `true` = comparativa, review, guía, editorial de tesis atemporal → reutilizable en redes meses después (FASE 4B+ repurposing)

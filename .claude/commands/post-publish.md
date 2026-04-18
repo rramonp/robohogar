@@ -104,24 +104,19 @@ Registrar el hero image elegido en la sección de assets generados del catálogo
 | hero-<slug>-v<N> | <fecha> | <prompt resumido> | <modelo> |
 ```
 
-### 9. Actualizar templates HTML (si aplica)
+### 9. Actualizar template master (si aplica)
 
-Evaluar si el artículo publicado implica cambios en los templates:
+Template único del proyecto: `content/templates/articulo-beehiiv-master.html`. Sirve para todos los tipos (review, comparativa, editorial, guía, newsletter).
 
-**Si el artículo usa un template existente** (Review/Comparativa o Editorial/Opinión):
-- Descargar el HTML final publicado desde Beehiiv (pedir a Rafael el export HTML)
-- Si Rafael ha hecho cambios de formato significativos respecto al template anterior (nuevos bloques, cambio de estructura, nuevos estilos), reemplazar el HTML base en `content/templates/`:
-  - `review-comparativa-beehiiv-export.html` para reviews
-  - `editorial-opinion-beehiiv-export.html` para editoriales
-- Actualizar `content/templates/estructura-templates.md` si la estructura de bloques ha cambiado
+**Actualizar solo si Rafael ha hecho cambios de formato significativos** respecto al master actual — nuevo bloque, rediseño de CTA, cambio de footer, reestructura del trust text, nueva política de tabla, etc. Cambios de contenido normales del artículo NO cuentan.
 
-**Si el artículo es de un tipo NUEVO** (ej: primer Newsletter, primer Roundup):
-- Pedir a Rafael el export HTML de Beehiiv
-- Guardarlo como nuevo template: `content/templates/<tipo>-beehiiv-export.html`
-- Documentar la estructura de bloques en `estructura-templates.md` (nueva sección)
-- Actualizar la tabla de templates en `content-draft.md`
+Si aplica:
+1. Pedir a Rafael el export HTML desde Beehiiv del artículo recién publicado.
+2. Archivar el master actual: `mv content/templates/articulo-beehiiv-master.html content/templates/_archive/articulo-beehiiv-master-<YYYY-MM-DD>.html` (versionado histórico, nunca borrar).
+3. Guardar el nuevo export como `content/templates/articulo-beehiiv-master.html`.
+4. Actualizar `content/templates/estructura-templates.md` → tabla "Historial de masters" con fecha, origen (artículo que generó el export) y resumen de cambios vs master anterior.
 
-**Si no hay cambios de formato:** no hacer nada en este paso.
+**Si no hay cambios de formato:** saltar este paso.
 
 ### 10. Sugerir actualización de Welcome Email
 

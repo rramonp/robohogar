@@ -1,185 +1,39 @@
-# Estructura de Templates Beehiiv — ROBOHOGAR
+# Template master — ROBOHOGAR
 
-Referencia para `/content-draft` al generar HTML de artículos nuevos.
-Basado en los artículos publicados reales, no en templates genéricos.
+**Único template canónico:** `content/templates/articulo-beehiiv-master.html`.
 
-**Fuente de verdad:** los artículos publicados en Beehiiv. Si Rafael modifica
-un template en Beehiiv, actualizar este documento.
+Exportado desde Beehiiv tras la publicación del review Samsung Jet Bot Steam Ultra (2026-04-18). Incluye la última iteración de **formato, CTAs, footer, tagline landing y estilos inline** — aplicar a TODO tipo de artículo nuevo (review, comparativa, editorial, guía, newsletter). No hay templates por tipo de contenido — la estructura se adapta al tipo variando los bloques internos, no el esqueleto.
 
----
+## Cómo se usa
 
-## Template 1: Review/Comparativa
+1. Copiar `articulo-beehiiv-master.html` como base del nuevo borrador.
+2. Reemplazar:
+   - `<title>` + H1 con título del nuevo artículo
+   - Subtítulo, autor/fecha/tiempo de lectura
+   - Cuerpo (H2 + párrafos + tablas + imágenes)
+   - Bloques internos según tipo (review = producto por producto; comparativa = tabla + ranking; editorial = tesis + desarrollo + cierre; guía = pasos numerados)
+3. **Mantener intactos:** hero image slot, intro callout ámbar, separadores `<hr>`, CTA mid-article ámbar, CTA final de suscripción, footer con trust text `100% gratis · Sin spam · Cancela cuando quieras`, links sociales.
+4. Validar render en móvil 375px antes de publicar (regla `design.md`).
 
-**Ejemplo real:** https://robohogar.com/p/mejor-robot-asistente-ia-2026
-**Uso:** 70% del contenido — reviews de producto, comparativas, guías de compra
+## Cuándo actualizar este master
 
-### Estructura de bloques (en orden)
+Cuando Rafael publique un artículo con **cambios de formato significativos respecto al master actual** (nuevo tipo de bloque, rediseño de CTA, cambio de footer, reestructura de trust text):
 
-```
-HERO IMAGE (thumbnail del artículo, WebP)
-H1: Título con keyword SEO
-  Subtítulo: 1 frase descriptiva de lo que cubre el artículo
-  Autor + fecha + tiempo de lectura
+1. Exportar el HTML final desde Beehiiv.
+2. Archivar el master actual como `_archive/articulo-beehiiv-master-YYYY-MM-DD.html` (no borrar — versionado histórico).
+3. Guardar el nuevo export como `articulo-beehiiv-master.html`.
+4. Actualizar este documento con la fecha del nuevo master y los cambios principales.
 
-INTRO CALLOUT (borde ámbar izquierdo)
-  Párrafo: contexto y qué vas a encontrar en el artículo
+## Historial de masters
 
---- separador ---
-
-POR CADA PRODUCTO RECOMENDADO:
-  H2: "N. Nombre — Subtítulo descriptivo"
-    📷 Imagen del producto (foto real del fabricante)
-    CARD INFO: 3 columnas (Precio | Suscripción | Lo clave)
-    H3: "👍 Lo bueno"
-      Lista con bullets (3-4 puntos)
-    H3: "👎 Lo malo"
-      Lista con bullets (3-4 puntos)
-    H3: "🎯 Para quién es"
-      Párrafo corto
-    CALLOUT GRIS: "Nuestra opinión:" + texto en cursiva
-    BOTÓN CTA: "Consultar [Producto] en Amazon" (link afiliado)
-
---- separador ---
-
-CTA MID-ARTICLE (solo texto, centrado, SIN imagen, SIN borde)
-  "¿Te está sirviendo? Publicamos cada semana"
-  Botón ámbar: "Suscríbete gratis"
-
---- separador ---
-
-H2: "❌ ¿Y los que NO recomiendo?"
-  POR CADA PRODUCTO NO RECOMENDADO:
-    H3: "Nombre — Precio"
-      Párrafo con motivos (corto, directo)
-
-H2: "📊 Comparativa"
-  TABLA: Producto | Precio | Lo clave | Nota (⭐)
-
-H2: "🏆 Entonces, ¿cuál me compro?"
-  📷 Imagen mascota (opcional)
-  Texto con recomendaciones por escenario
-  BOTÓN CTA: link al ganador en Amazon
-
-H2: "💡 ¿Sabías que…?"
-  Párrafo con dato curioso + link a fuente
-
-H2: "¿Te ha servido?"
-H2: "Cada semana más como esto en tu bandeja"
-  Botón: "Suscríbete gratis"
-  Texto legal afiliados
-  (SIN imagen — solo texto + botón, compacto)
-
-FOOTER (automático Beehiiv)
-  "Keep Reading" (automático)
-  Copyright + social links + unsubscribe
-```
-
----
-
-## Template 2: Editorial/Opinión
-
-**Ejemplo real:** https://robohogar.com/p/humanoides-en-casa-cuanto-falta
-**Uso:** 30% del contenido — futuro, tendencias, opinión, análisis
-
-### Estructura de bloques (en orden)
-
-```
-HERO IMAGE (thumbnail del artículo, WebP)
-H1: Título con gancho editorial
-  Subtítulo: 1 frase que resume la tesis del artículo
-  Autor + fecha + tiempo de lectura
-
-INTRO CALLOUT (borde ámbar izquierdo)
-  Párrafo: "Hemos investigado..." — qué se ha hecho y qué veredicto adelanta
-
---- separador ---
-
-H2: Sección contexto (ej: "La carrera que nadie esperaba")
-  Párrafo 1: gancho + dato impactante
-  📷 Imagen de contexto (foto prensa/evento, NO generada)
-  Párrafo 2: datos de financiación, empresas, tendencia
-  Párrafo 3: transición al análisis
-
---- separador ---
-
-H2: Sección análisis principal (ej: "Los que más ruido hacen")
-  POR CADA EMPRESA/ROBOT RELEVANTE:
-    H3: "Nombre — Subtítulo con opinión"
-      Párrafo 1: qué prometen / qué han hecho
-      📷 Imagen del robot/empresa (foto real, después del párrafo que la justifica)
-      Párrafo 2: realidad vs promesa, datos concretos
-      (NO hay pros/contras, NO hay cards de precio — es narrativo)
-
---- separador ---
-
-CTA MID-ARTICLE (solo texto, centrado, SIN imagen, SIN borde)
-  "¿Te está sirviendo? Publicamos cada semana"
-  Botón ámbar: "Suscríbete gratis"
-
---- separador ---
-
-H2: Sección exposé/análisis profundo (ej: "El que ya puedes comprar (con truco)")
-  POR CADA PUNTO:
-    H3: "Nombre — Dato impactante"
-      Párrafo: análisis crítico
-      📷 Imagen del producto (foto real)
-      CALLOUT ÁMBAR (si hay dato bomba): texto con fuente
-      Párrafo: veredicto parcial
-
-H2: Sección "lo que no te cuentan" (solo texto — ritmo rápido)
-  Párrafo intro: "Aquí va lo que nadie te dice:"
-  H3: Punto 1
-    Párrafo corto + dato
-  H3: Punto 2
-    Párrafo corto
-  H3: Punto 3
-    Párrafo corto
-  (SIN imágenes — opinión pura, el texto es el protagonista)
-
---- separador ---
-
-H2: "🏆 Mi veredicto"
-  CALLOUT ÁMBAR: frase síntesis (ej: "Como los coches eléctricos en 2012")
-  Párrafo: predicción concreta con datos
-  Párrafo: ¿y España/Europa?
-  Párrafo: cierre con gancho memorable
-
---- separador ---
-
-H2: "💡 ¿Sabías que…?"
-  Párrafo con dato curioso + link a fuente
-
-H2: "¿Te ha servido?"
-H2: "Cada semana más como esto en tu bandeja"
-  Botón: "Suscríbete gratis"
-  Texto legal afiliados
-  (SIN imagen — solo texto + botón, compacto)
-
-FOOTER (automático Beehiiv)
-  "Keep Reading" (automático)
-  Copyright + social links + unsubscribe
-```
-
----
-
-## Diferencias clave entre templates
-
-| Aspecto | Review/Comparativa | Editorial/Opinión |
+| Fecha | Origen (artículo publicado) | Cambios vs master anterior |
 |---|---|---|
-| **Estructura por producto** | Card info + pros/contras + CTA Amazon | Narrativo, sin cards ni listas |
-| **Imágenes** | Fotos de producto + mascota | Fotos prensa/evento + contexto |
-| **Tabla comparativa** | Sí (obligatoria) | No |
-| **Botones afiliado** | Sí (por cada producto recomendado) | No |
-| **Sección "No recomiendo"** | Sí | No aplica |
-| **Callouts** | "Nuestra opinión" por producto (gris) | Callouts ámbar para datos bomba |
-| **Tono** | Práctico, concreto, "esto sí, esto no" | Analítico, opinado, con predicciones |
-| **Sección solo texto** | No | Sí ("lo que no te cuentan" — ritmo H3+párrafo rápido) |
+| 2026-04-18 | Samsung Jet Bot Steam Ultra review | Master inicial unificado. Sustituye los 2 templates anteriores (`review-comparativa-beehiiv-export.html` + `editorial-opinion-beehiiv-export.html`). Incluye tagline landing nuevo (`Cada semana, comparativas, reviews, editoriales y relatos`), trust text solo en footer, tablas mobile-first (máx 4 cols), política de negritas actualizada (col 1 tbody sí, resto tablas y headings no). |
 
-## Reglas comunes a ambos templates
+## Archivo
 
-- Primera persona SIEMPRE plural ("hemos investigado", "nos parece")
-- Imágenes inline: después del párrafo que las justifica, NUNCA bajo el H2
-- CTA mid-article obligatorio entre la mitad del artículo
-- Sección "Sabías que" + CTA final siempre al cierre
-- Hero image: WebP comprimido, composición close-up, sin neones (ver asset-catalog.md)
-- "Keep Reading" lo genera Beehiiv automáticamente — no incluir sección manual de "Más en ROBOHOGAR"
+Los 2 templates anteriores (review-comparativa, editorial-opinion) + el `.md` descriptivo viven en `_archive/` con fecha. Son referencia histórica; no usar para borradores nuevos.
+
+## Checklist PASOS.md
+
+Seguir usando `PASOS-template.md` (no se ha consolidado con este master — son piezas distintas: PASOS.md es el checklist de publicación, el HTML master es el esqueleto del borrador).
