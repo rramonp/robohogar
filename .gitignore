@@ -142,6 +142,7 @@ celerybeat.pid
 *.png
 !assets/**/*.png
 !content/articulos/**/*.png
+!content/ficciones/**/*.png
 
 # Environments
 .env

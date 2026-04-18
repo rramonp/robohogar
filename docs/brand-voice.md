@@ -29,20 +29,23 @@ Cada semana, en tu bandeja, los **3 pilares** del newsletter:
 
 ---
 
-## 2.1 Taglines según contexto
+## 2.1 Tagline unificada
 
-Diferentes superficies necesitan diferentes formas. Mantener consistencia: si cambias una (p.ej. cadencia "semanal" → "quincenal"), actualizar TODAS.
+**Tagline oficial (una sola frase para todas las superficies):**
 
-| Contexto | Versión | Por qué esta forma |
+> **Tu dosis de robótica doméstica · Cada semana, comparativas, reviews, editoriales y relatos**
+
+Úsala íntegra siempre que haya espacio (landing subtitle, Beehiiv description, firma de email, bios sociales amplias, OG/meta, welcome email). Evitamos "gratis" y "en español" — redundantes (la web está en español; la gratuidad ya está en el CTA y el trust text del formulario).
+
+### Variantes cortas (SOLO cuando el espacio es limitado)
+
+| Contexto | Versión corta | Cuándo |
 |---|---|---|
-| **Hero subtitle** (landing top) | `Te lo contamos cada semana · Gratis y en español` | Versión completa: cadencia + valor + idioma. Refuerza la propuesta antes del CTA principal |
-| **Footer** (brand line compacta) | `Tu dosis semanal de robótica doméstica` | Versión corta: marca + categoría + frecuencia. El lector ya bajó hasta aquí, menos atención disponible |
-| **Welcome email opening** | `Soy Rafael, y esto es ROBOHOGAR — tu dosis semanal de robótica doméstica` | Personal + categoría. El lector ya está dentro, conviene tono cercano |
-| **Meta description** (SEO) | `Te lo contamos cada semana: gratis y en español. Reviews sin filtro de robots, noticias sin tecnicismos y el futuro de tu casa robotizada.` | Versión SEO larga, con keywords primarias para Google |
-| **Title tag** (browser tab) | `ROBOHOGAR — Tu dosis de robótica doméstica` | Marca + tagline corta. Lo que el lector ve en pestañas y resultados Google |
-| **Bio social** (LinkedIn, X, IG) | `Tu dosis semanal de robótica doméstica · robohogar.com` | Misma forma corta del footer + URL |
+| **Title tag** (browser tab) | `ROBOHOGAR — Tu dosis de robótica doméstica` | Google trunca a ~60 chars |
+| **Bio social compacta** (X, IG one-liner) | `Tu dosis de robótica doméstica · robohogar.com` | Cuando el contador de caracteres no deja la frase larga |
+| **Welcome email opening** | `Soy Rafael, y esto es ROBOHOGAR — tu dosis de robótica doméstica` | Tono personal, 1ª línea del welcome |
 
-> **Regla de oro:** la palabra "semanal" / "cada semana" debe aparecer en TODAS las versiones — es la promesa de cadencia. Si un día se cambia la frecuencia, revisar esta tabla entera.
+> **Regla de oro:** si el espacio lo permite, tagline completa. No inventar variantes nuevas — si falta una superficie, añadirla a esta tabla antes de usarla.
 
 ---
 

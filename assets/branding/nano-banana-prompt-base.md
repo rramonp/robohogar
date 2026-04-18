@@ -78,5 +78,6 @@ Si falla alguno: archivar la variante con `mv <archivo> assets/_archive/` (regla
 | `humanoides-domesticos-2026-comparativa` v1 | Gallery lineup + neones | Letras decorativas + pantallas | "Limbo cream, sin arquitectura" |
 | `humanoides-domesticos-2026-comparativa` v4 | LED accents → paneles rosa/naranja en robots | Chest panels luminosos | "Matte solid, no illumination" |
 | `humanoides-domesticos-2026-comparativa` v5 | TV con caracteres asiáticos + círculo morado | Decoración de pared | "Eliminar pared — overhead/limbo/backlit" |
+| `la-casa-de-amparo` ep0 v1 | Hero ficción con ventana exterior de barrio Lavapiés | Neones de caracteres asiáticos (morado/cyan/naranja) en escaparates visibles por la ventana del piso | Para heros de ficción en "Lavapiés/Madrid/barrio multicultural": **no usar ventana exterior visible** — mantener escena 100% interior, o usar ventana con persianas cerradas sin exterior a la vista |
 
 Cuando ocurra un error nuevo, añadir fila aquí y regla a § "Palabras a evitar".

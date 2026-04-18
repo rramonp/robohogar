@@ -303,20 +303,47 @@ hero-image: assets/hero-<slug>.png
 ---
 ```
 
-### Hero image — still cinematográfico (no product-hero)
+### Hero image — 1 código visual por serie (regla editorial)
 
-Si Rafael pide hero:
-- **Estilo**: still cinematográfico (NO product-hero del asset-catalog). Referencias: *Black Mirror* doméstico, *Her*, *Ex Machina* ligero, *After Yang*
-- **Composición**: escena narrativa (no producto). Luz motivada (ventana, lámpara). Desaturar ligeramente vs los heros de artículos.
-- **Prompt base** (adaptar):
-  ```
-  Cinematic film still, 2030s Spanish home interior, [ESCENA CLAVE DEL RELATO].
-  Natural motivated light, slight desaturation, soft grain, anamorphic lens feel.
-  Editorial speculative fiction mood — warm but melancholic, intimate, quiet tension.
-  Reference: Black Mirror domestic, After Yang, Her. NO text.
-  ```
-- **Fallback si Rafael no quiere hero**: usar monograma R sobre fondo ámbar claro como placeholder neutro. No bloquear el output por falta de hero.
-- Añadir la nueva imagen a `assets/branding/asset-catalog.md` bajo sección "Heros ficción".
+Cada serie (y cada one-shot) de Ficciones Domésticas tiene **un código visual propio y consistente** para que el lector la reconozca de un vistazo. Sistema completo + precedentes en la memoria [`feedback_ficcion_hero_style.md`](../../../RRP-DEV/.claude/memory/feedback_ficcion_hero_style.md) (léela ANTES de generar cualquier hero de ficción).
+
+**Regla universal (los 5 estilos la cumplen):**
+- Siempre humano + robot/tech en el mismo frame. Si solo sale humano → no es hero ROBOHOGAR.
+- No ventana exterior visible (Gemini mete neones con caracteres asiáticos — ver `assets/branding/nano-banana-prompt-base.md`).
+- No LEDs/neones/glow en robots (excepciones puntuales: glow dorado ojos Asimov, pinpoint azul Black Mirror).
+- No texto, letras ni caracteres asiáticos.
+
+**Códigos visuales activos (consultar arco-serie.md § 9 de cada serie + memoria para precedente canónico):**
+
+| Serie | Código | Rasgos clave |
+|---|---|---|
+| La Casa de Amparo | domestic warm | Hugo humanoide + Amparo + Lavapiés constante · lámpara tulipán ámbar · butaca floral · After Yang + Amor sin escalas |
+| Crónicas de Ronda 3 | documental social | RONDA-3 utility 55cm constante + humano distinto cada ep · piso VPO distinto · ocre sucio verdoso desaturado · grano denso · Perfect Days + Real Humans |
+| Cartas a MAIA | epistolar literario dual | NO humanoide (laptop + lámpara brass como "tech") · Clara + ocasionales vía mensaje · Cáceres burgundy cálido VS Berlín azul frío desaturado según POV · After Yang + 84 Charing Cross Road |
+
+**Estilos reservados (NO usar en episodios):**
+- **Asimov oil painting** — solo para tapa de ebook recopilatorio (~500 subs, roadmap ficciones)
+- **Black Mirror frío** — solo para sub-línea *"Relatos inversos de Black Mirror"* (relatos inquietantes, sistema humano como amenaza, robot neutro)
+
+**Al crear una nueva serie o one-shot:**
+1. Definir el código visual en `arco-serie.md` § 9 "Notas de producción" → "Hero image recurrente" ANTES del primer episodio — framing + paleta + luz + referencias cinematográficas + elementos constantes del universo.
+2. Registrarlo también en esta tabla del skill si va a reutilizarse.
+3. Mantener el código estable episodio a episodio — variar escena y humano, no el sistema visual.
+
+**Prompt base por serie (adaptar a la escena del episodio):**
+
+```
+[FRAMING del código de serie], 2033 [ESPACIO del universo de la serie], [ESCENA CLAVE del episodio].
+[DESCRIPCIÓN del humano con cara visible + postura emocional del episodio].
+[DESCRIPCIÓN del robot/tech del universo — matte, sin LEDs, cuerpo entero].
+[LUZ del código — motivada, una única fuente].
+[PALETA del código]. [DETALLES DOMÉSTICOS ESPAÑOLES del código].
+[REFERENCIAS CINEMATOGRÁFICAS del código].
+No text, no letters, no Asian characters, no windows to exterior, no LEDs.
+```
+
+- **Fallback si Rafael no quiere hero:** usar monograma R sobre fondo ámbar claro como placeholder neutro.
+- Añadir la nueva imagen a `assets/branding/asset-catalog.md` bajo sección "Heros ficción" indicando código visual aplicado.
 
 ### PASOS.md del relato
 

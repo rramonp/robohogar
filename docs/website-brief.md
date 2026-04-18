@@ -122,9 +122,9 @@ Es un **consumidor curioso** que quiere opiniones honestas.
 |---|---|
 | Botón hero | "Suscríbete gratis" |
 | Input placeholder | "tu@email.com" |
-| Bajo el botón | "Semanal. 5 min. Sin spam." |
 | Con social proof (futuro) | "Únete a 500+ lectores" |
 | Footer CTA | "¿Te lo vas a perder?" + mismo formulario |
+| Trust text (SOLO en footer, bajo el form) | "100% gratis · Sin spam · Cancela cuando quieras" |
 
 ### Hero section — diseño específico
 
@@ -132,12 +132,12 @@ Es un **consumidor curioso** que quiere opiniones honestas.
 [Mascota robot]  ROBOHOGAR
                  Tu dosis de robótica doméstica
                  
-                 Te lo contamos cada semana · Gratis y en español
+                 Cada semana, comparativas, reviews, editoriales y relatos
                  
                  [tu@email.com] [Suscríbete gratis]
-                 
-                 100% gratis · Sin spam · Cancela cuando quieras
 ```
+
+> El trust text (`100% gratis · Sin spam · Cancela cuando quieras`) NO va en el hero — aparece SOLO bajo el formulario del footer.
 
 ### Qué NO hacer (anti-patrones)
 
@@ -179,12 +179,11 @@ BRAND:
 PAGE STRUCTURE (this exact order, based on top-performing newsletter landings):
 
 SECTION 1 — HERO (above the fold, most important):
-- Left side: headline + subtitle + email signup form + trust text
+- Left side: headline + subtitle + email signup form (NO trust text under the button — the trust text lives only in the footer)
 - Headline: "Tu dosis de robótica doméstica"
-- Subtitle: "Te lo contamos cada semana · Gratis y en español"
+- Subtitle: "Cada semana, comparativas, reviews, editoriales y relatos"
 - Email input field with placeholder "tu@email.com"
 - Submit button: "Suscríbete gratis" in amber #F5A623
-- Below button: "100% gratis · Sin spam · Cancela cuando quieras" in small gray text
 - Right side: space for mascot image (I'll upload after)
 - Reference: Newsletter Operator uses hero with social proof tagline + single email 
   field. Copy that simplicity.
@@ -232,6 +231,7 @@ SECTION 6 — FINAL CTA (before footer):
 
 SECTION 7 — FOOTER:
 - Logo text "ROBOHOGAR"
+- Trust text under the footer email form (the ONLY place it appears on the landing): "100% gratis · Sin spam · Cancela cuando quieras" in small gray text
 - Social links (Instagram, LinkedIn, X, YouTube, RSS)
 - Copyright 2026
 - Legal links (Privacidad, Términos)
