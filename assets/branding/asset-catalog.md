@@ -247,6 +247,7 @@ Usar `assets/branding/social/thumbnail-default-1200x630.png` (monograma R sobre 
 | 6 | `roborock-saros-z70-review` (v1-v3) | 2026-04-16 | Review | flash | v1: close-up brazo+calcetín+mano, suelo madera. v2: overhead cocina mármol+objetos. v3: salón dorado, brazo con calcetín colorido |
 | 7 | `neo-humanoide-fabricas-eqt` (v8) | 2026-04-17 | Editorial | flash | Humanoide NEO con chaleco industrial naranja entregando taza de café en cocina doméstica. Final elegido tras 9 iteraciones |
 | 8 | `humanoides-domesticos-2026-comparativa` (v7) | 2026-04-17 | Comparativa | flash | Lineup clásico estilo catálogo: 7 humanoides matte alineados sobre backdrop limbo cream infinito |
+| 9 | `samsung-jet-bot-steam-ultra-review` (v3) | 2026-04-18 | Review | flash | Robot aspirador circular matte beige docked en estación con vapor sutil saliendo, cocina cálida golden hour, pared cream, planta. Elegida por mostrar el "vapor" literal que desmonta el artículo — refuerza el ángulo editorial |
 
 ---
 

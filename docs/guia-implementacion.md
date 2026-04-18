@@ -24,7 +24,7 @@
 ## 🎯 Roadmap actual (abr 2026)
 
 **Estado (18-abr-2026):**
-- ✅ **5 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [Humanoides domésticos 2026 comparativa](https://robohogar.com/p/humanoides-domesticos-2026-comparativa) (2026-04-17).
+- ✅ **6 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [Samsung Jet Bot Steam Ultra review](https://robohogar.com/p/samsung-jet-bot-steam-ultra-review) (2026-04-18).
 - ❌ **0 suscriptores** · newsletter semanal diferida hasta 30-50 subs.
 - ❌ **0 Ficciones Domésticas** publicadas (pilar experimental pendiente de arrancar).
 - ✅ **Pipeline de skills funcionando** (`/research-digest` · `/content-draft` · `/nano-banana` · `/post-publish` · `/social-content` · `/obsidian-robohogar`).
@@ -32,8 +32,8 @@
 
 ### Prioridad 1 — VOLUMEN DE ARTÍCULOS (en ejecución) ⚡
 
-- **Target:** 5 → **6 artículos publicados** (masa crítica mínima para activar FASE 4B).
-- **Siguiente:** artículo #6 — romper racha de humanoides con un review práctico o guía estacional. Detalle en [[#📍 Dónde estoy hoy — siguiente paso|📍 Dónde estoy hoy]].
+- **Target:** 6 → **7 artículos publicados** (artículo #6 completado 18-abr-2026 con el review Samsung Jet Bot Steam Ultra; FASE 4B se activa tras el #7 gated).
+- **Siguiente:** artículo #7 — *"Mejor robot aspirador 2026 · Guía de compra"* CON **Content Gate**. Detalle en [[#📍 Dónde estoy hoy — siguiente paso|📍 Dónde estoy hoy]].
 - **Skills:** `/content-draft` + `/post-publish`.
 - **Detalle operativo:** [[#FASE 4: Ciclo de creación de contenido (modo actual)|FASE 4]].
 
@@ -67,13 +67,13 @@ ROBOHOGAR se enfoca en **España primario + LATAM secundario**. Antes de aceptar
 
 El objetivo es llegar a **≥7 artículos publicados** antes de activar FASE 4B.
 
-#### Artículo #6 — Samsung Jet Bot Steam Ultra (review abierto) ✅ confirmado 18-abr-2026
+#### Artículo #6 — Samsung Jet Bot Steam Ultra ✅ PUBLICADO 18-abr-2026
 
-- **Tipo:** Review/Comparativa (vertical: aspiradores con vapor).
-- **Por qué:** marca masiva ES (Samsung top-3 electrónica hogar ES, precio 1.699 € documentado). Spec diferencial: fregado a 100 °C. Evergreen + afiliables Amazon.es. Rompe racha humanoides.
-- **Tangible (inline, sin gate):** tabla specs + checklist "5 cosas a comprobar antes de comprar un aspirador con vapor".
-- **Comando:** `/content-draft Samsung Jet Bot Steam Ultra · ángulo review honesto con fregado 100°C como claim principal`
-- **Verificación mercado ES antes de ejecutar:** ✅ distribución en Amazon.es + MediaMarkt · ✅ keyword "Samsung Jet Bot Steam Ultra" con volumen medible · ✅ cobertura esperable Xataka Home / Omicrono / Genbeta.
+- **URL:** https://robohogar.com/p/samsung-jet-bot-steam-ultra-review
+- **Ángulo editorial final:** el vapor a 100°C no toca el suelo — toca las mopas en la base. Desmontaje honesto del claim con cita a Xataka Home como autoridad.
+- **Variantes elegidas por Rafael:** hook v1 (Belief destruction) · veredicto v3 (Contrarian) · ¿sabías que? v3 (Dato histórico). Las 3 recomendaciones IA.
+- **Tangibles inline:** tabla comparativa 5 modelos + checklist "5 preguntas antes de comprar con vapor".
+- **Evergreen:** true (revisar precios cada 6 meses).
 
 #### Artículo #7 — Mejor robot aspirador 2026 · Guía de compra CON Content Gate ⭐
 

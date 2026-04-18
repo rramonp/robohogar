@@ -155,18 +155,32 @@ Reviews, comparativas, guías de compra de robots aspiradores.
 |--------|-----|------|-------|
 | The Robot Report | therobotreport.com | Medio especializado | Cubre también aspiradores inteligentes |
 | Tom's Guide | tomsguide.com | Reviews tech | Reviews detalladas con tests reales |
-| Vacuum Wars | vacuumwars.com | YouTube + blog | Referencia #1 en tests de aspiradores. Tests estandarizados con datos comparables. Usado en art.2 Z70 |
+| Vacuum Wars | vacuumwars.com | YouTube + blog | Referencia #1 en tests de aspiradores. Tests estandarizados. Usado en art.2 (Z70) y art.5 (Samsung Jet Bot Steam Ultra CES 2026) |
 | WIRED | wired.com | Medio tech premium | Reviews de larga duración (1 mes+). Review Z70: 5/10. Usado en art.2 Z70 |
 | Good Housekeeping UK | goodhousekeeping.com/uk | Medio consumo | Tests en laboratorio propio. Review Z70: 85/100 |
+| SamMobile | sammobile.com | Medio independiente Samsung | Cobertura exhaustiva de productos Samsung. Fuente sobre precios Corea y detalles CES 2026. Usado en art.5 Jet Bot Steam Ultra |
+| Android Authority | androidauthority.com | Medio tech | Cobertura ecosistema Samsung, teasers pre-CES |
+| TechRadar | techradar.com | Reviews tech | Review long-term Samsung Jet Bot Combo AI (antes del Ultra) |
 
 ### Fuentes independientes (ES)
 
 | Fuente | URL | Tipo | Notas |
 |--------|-----|------|-------|
 | El Androide Libre | elespanol.com/elandroidelibre/ | Medio tech (El Español) | Reviews con pruebas reales de aspiradores. Publicación diaria. También canal YouTube. Review Saros Z70 con precio España (1.699€) |
-| Xataka Smart Home | xatakahome.com | Medio tech | Comparativas de aspiradores frecuentes |
+| Xataka Smart Home | xatakahome.com | Medio tech | Comparativas de aspiradores frecuentes. Cita literal sobre vapor a mopas (no al suelo) usada en art.5 Jet Bot Steam Ultra |
 | Robot in House | robotinhouse.com | Blog español | Competidor. Reviews de aspiradores en español |
 | PC Componentes Blog | pccomponentes.com/ces-* | eCommerce/blog | Resúmenes CES con novedades hogar |
+
+### Fuentes oficiales fabricante + comparadores precio (ES)
+
+| Fuente | URL | Tipo | Notas |
+|--------|-----|------|-------|
+| Samsung España | samsung.com/es/vacuum-cleaners/robot/ | Fabricante oficial | Ficha oficial productos Samsung disponibles en España. Precio referencia |
+| Samsung Global Newsroom | news.samsung.com/global | Press oficial | Notas de prensa, tags de producto (ej. `bespoke-ai-jet-bot-steam-ultra`). Fuente estudios bacterias 99.99% |
+| idealo.es | idealo.es | Comparador precios | Histórico de precios mínimos España por SKU. Muy útil para verificar si un producto baja tras lanzamiento. Usado art.5 |
+| refurbed.es | refurbed.es | Reacondicionados | Productos con prueba 30 días. Precios 30-50% menores que nuevo. Útil para alternativas baratas en guías de compra. Usado art.5 |
+| MediaMarkt | mediamarkt.es | Retailer | Stock y precio real ES. Secundaria — verificar contra Samsung.es |
+| Amazon España | amazon.es | Retailer + afiliados | Disponibilidad + reviews de usuarios ES. Futuro: afiliados tras alta |
 
 ### Robots en esta categoría
 
