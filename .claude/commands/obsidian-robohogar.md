@@ -38,7 +38,7 @@ Ejecuta en orden las 3 acciones que el post-publish necesita tras publicar un ar
    - Actualiza wikilinks internos a formato Obsidian `[[Page Name]]`
    - NO sobreescribe archivos existentes en el vault
 
-2. **Auto-sync de los 4 archivos editoriales** (ver § "Archivos que SIEMPRE se sincronizan") — `guia-implementacion`, `registro-articulos`, `calendario-editorial`, `registro-newsletters`
+2. **Auto-sync de los 5 archivos editoriales** (ver § "Archivos que SIEMPRE se sincronizan") — `guia-implementacion`, `plan-v2`, `registro-articulos`, `calendario-editorial`, `registro-newsletters`
 
 3. **Invocar `wiki-update`** (mode 2) para crear/actualizar fichas de robots y empresas mencionados en el artículo publicado
 
@@ -98,6 +98,7 @@ Al ejecutar CUALQUIER modo de este skill, sincronizar estos archivos del repo al
 | Repo | Vault (editorial area) | Notas |
 |------|-------|-------|
 | `docs/guia-implementacion.md` | `Guia Implementacion.md` | Guía maestra del proyecto |
+| `docs/plan-v2.md` | `Plan v2.md` | Estrategia macro 12 meses — consulta estratégica |
 | `content/registro-articulos.md` | `Registro Articulos.md` | Catálogo de artículos publicados — fuente de verdad |
 | `content/calendario-editorial.md` | `Calendario Editorial.md` | Cadencia semanal, backlog de temas, planificación |
 | `content/registro-newsletters.md` | `Registro Newsletters.md` | Catálogo de newsletters enviados |
@@ -105,12 +106,13 @@ Al ejecutar CUALQUIER modo de este skill, sincronizar estos archivos del repo al
 ```bash
 VAULT="$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter"
 cp docs/guia-implementacion.md         "$VAULT/Guia Implementacion.md"
+cp docs/plan-v2.md                     "$VAULT/Plan v2.md"
 cp content/registro-articulos.md       "$VAULT/Registro Articulos.md"
 cp content/calendario-editorial.md     "$VAULT/Calendario Editorial.md"
 cp content/registro-newsletters.md     "$VAULT/Registro Newsletters.md"
 ```
 
-**Importante:** los 4 archivos son fuente de verdad en el repo; el vault es mirror. CUALQUIER modo del skill debe sincronizar los 4, no solo los del ejemplo antiguo. Evita desfases como el detectado 2026-04-17 (calendario-editorial 5h atrás del repo).
+**Importante:** los 5 archivos son fuente de verdad en el repo; el vault es mirror. CUALQUIER modo del skill debe sincronizar los 5, no solo los del ejemplo antiguo. Evita desfases como el detectado 2026-04-17 (calendario-editorial 5h atrás del repo). `Plan v2.md` añadido 2026-04-18 para consulta estratégica desde Obsidian (móvil/tablet incluidos).
 
 **Nota:** estos archivos se copian al área editorial (05_Personal) para que Rafael los trabaje en Obsidian. El `repo-mirror` (Mode 7) los copia TAMBIÉN al área de mirror (03_Resources) como parte del backup completo. Ambas copias son válidas — editorial para uso diario, mirror para disaster recovery.
 

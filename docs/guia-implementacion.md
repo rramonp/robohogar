@@ -5,33 +5,118 @@
 
 ---
 
-## Roadmap actual (abr 2026)
+## 📑 Índice
 
-Estado: **3 artículos publicados · 0 suscriptores · newsletter aún no activado.** Foco 100% en construir catálogo + ganar los primeros 50 subs.
+**Estado actual:** [[#🎯 Roadmap actual (abr 2026)|🎯 Roadmap]] · [[#📍 Dónde estoy hoy — siguiente paso|📍 Siguiente paso HOY]]
 
-### Prioridad 1 — VOLUMEN DE ARTÍCULOS (en ejecución)
+**Completado:** [[#FASE 0: Beehiiv Setup (30 min)|FASE 0 Beehiiv ✅]] · [[#FASE 1: Landing Page (1 hora)|FASE 1 Landing ✅]] · [[#FASE 1B: Estética del Blog (formato de artículos en Beehiiv)|FASE 1B Blog ✅]] · [[#FASE 1C: Base de Conocimiento Newsletter & Email|FASE 1C Knowledge ✅]] · [[#FASE 2: Contenido Base (semana 1-2)|FASE 2 Contenido base ✅]] · [[#FASE 3: Obsidian Knowledge Base (✅ COMPLETADA)|FASE 3 Obsidian ✅]]
 
-- **Target:** 5 → **6 artículos publicados** (masa crítica mínima para activar FASE 4B). Queda 1 artículo por publicar antes de pasar a distribución activa
-- **Skills:** `/content-draft` + `/post-publish`
-- **Último publicado:** #5 **"Humanoides domésticos 2026: los 7 que puedes comprar o reservar"** (2026-04-17) → https://robohogar.com/p/humanoides-domesticos-2026-comparativa
-- **Próximo:** artículo #6 — elegir tema práctico del backlog en `content/calendario-editorial.md` (se sugiere review o guía para romper racha de 3 humanoides seguidos)
-- **Detalle operativo:** FASE 4
+**En ejecución:** [[#FASE 4: Ciclo de creación de contenido (modo actual)|FASE 4 — Ciclo semanal ⚡]]
 
-### Prioridad 2 — DISTRIBUCIÓN ACTIVA (siguiente, FASE 4B)
+**Siguiente:** [[#FASE 4B: Distribución activa (0-50 subs)|FASE 4B Distribución activa ⏳]] · [[#FASE 4C: Lead Magnet #1 + Sistema de tangibles|FASE 4C Tangibles ⏳]]
 
-- **Target:** 0 → 50 subs en 8-12 semanas via Reddit + foros ES + Menéame + Beehiiv Boosts (los canales que Rafael sí puede mover; IG/LinkedIn personal y WhatsApp están bloqueados)
-- **Activar cuando:** haya ≥6 artículos publicados (masa crítica para enlazar con valor en hilos)
-- **Modelo:** manual + Claude prepara respuestas/submissions/hilos candidatos cada semana
-- **Detalle operativo:** FASE 4B
+**Referencia (no tocar todavía):** [[#FASE 5: Automatización (estado actual)|FASE 5 Automatización]] · [[#FASE 6: Métricas y Revisión|FASE 6 Métricas]] · [[#FASE 7: Post-lanzamiento y mantenimiento con Claude Code|FASE 7 Post-lanzamiento]]
 
-### Prioridad 3 — SISTEMA DE TANGIBLES (cuando haya tracción, FASE 4C)
+**Futuro:** [[#FASE 8: Crecimiento de suscriptores (cuando haya >50 subs)|FASE 8 >50 subs]] · [[#FASE 9: Optimización Newsletter (cuando haya >200 subs)|FASE 9 >200 subs]] · [[#FASE 10: Pipeline Avanzado (cuando el workflow manual sea el bottleneck)|FASE 10 Pipeline avanzado]]
 
-- **Target:** 50 → 200 subs via lead magnets (PDFs) + hooks en landing
-- **Activar cuando:** Prioridad 2 esté dando ≥3 subs/semana de forma consistente
-- **Frase trigger:** *"Retomamos lazy-castle — construimos el skill `/pdf-brand`"*
-- **Detalle operativo:** FASE 4C
+---
+
+## 🎯 Roadmap actual (abr 2026)
+
+**Estado (18-abr-2026):**
+- ✅ **5 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [Humanoides domésticos 2026 comparativa](https://robohogar.com/p/humanoides-domesticos-2026-comparativa) (2026-04-17).
+- ❌ **0 suscriptores** · newsletter semanal diferida hasta 30-50 subs.
+- ❌ **0 Ficciones Domésticas** publicadas (pilar experimental pendiente de arrancar).
+- ✅ **Pipeline de skills funcionando** (`/research-digest` · `/content-draft` · `/nano-banana` · `/post-publish` · `/social-content` · `/obsidian-robohogar`).
+- ✅ **Knowledge base Write With AI completa** — 9 archivos en [`references/writewithai/`](../references/writewithai/) + banco de 90 preguntas en [calendario-editorial.md § Elements of Value](../content/calendario-editorial.md#banco-de-preguntas--elements-of-value).
+
+### Prioridad 1 — VOLUMEN DE ARTÍCULOS (en ejecución) ⚡
+
+- **Target:** 5 → **6 artículos publicados** (masa crítica mínima para activar FASE 4B).
+- **Siguiente:** artículo #6 — romper racha de humanoides con un review práctico o guía estacional. Detalle en [[#📍 Dónde estoy hoy — siguiente paso|📍 Dónde estoy hoy]].
+- **Skills:** `/content-draft` + `/post-publish`.
+- **Detalle operativo:** [[#FASE 4: Ciclo de creación de contenido (modo actual)|FASE 4]].
+
+### Prioridad 2 — DISTRIBUCIÓN ACTIVA (siguiente) ⏳
+
+- **Activar cuando:** ≥6 artículos publicados.
+- **Target:** 0 → 50 subs en 8-12 semanas vía Reddit + foros ES + Menéame + Beehiiv Boosts.
+- **Frase trigger:** *"Retomamos distribución 4B — tócame los hilos Reddit activos"*.
+- **Detalle operativo:** [[#FASE 4B: Distribución activa (0-50 subs)|FASE 4B]].
+
+### Prioridad 3 — SISTEMA DE TANGIBLES (diferido, FASE 4C)
+
+- **Pivote editorial 18-abr-2026 ⭐:** *"tangible = producto, no bonus"* (Cole/Bush 2026). Cada artículo se diseña con el tangible como cliffhanger antes del CTA. Regla en [`tangibles.md`](../.claude/rules/tangibles.md) · blueprint completo [`08-paid-newsletter-blueprint-2026.md`](../references/writewithai/08-paid-newsletter-blueprint-2026.md). **Aplicable desde YA** aunque el skill `/pdf-brand` siga pendiente — basta con tabla inline, checklist al final o bloque "Descarga" vacío por ahora.
+- **Construir `/pdf-brand` + 4 tangibles iniciales:** al llegar a ~50 subs.
+- **Frase trigger:** *"Retomamos lazy-castle — construimos el skill `/pdf-brand`"*.
+- **Detalle operativo:** [[#FASE 4C: Lead Magnet #1 + Sistema de tangibles|FASE 4C]].
 
 > Las fases posteriores (5 automatización · 6 métricas · 7 post-lanzamiento · 8 crecimiento >50 subs · 9 optimización newsletter · 10 pipeline avanzado) siguen ahí pero no son el foco hasta haber movido las 3 prioridades anteriores.
+
+---
+
+## 📍 Dónde estoy hoy — siguiente paso
+
+> Última actualización: 18-abr-2026, tras publicar #5 *[Humanoides domésticos 2026 comparativa](https://robohogar.com/p/humanoides-domesticos-2026-comparativa)*.
+
+### 🌍 Filtro mercado ES — regla base
+
+ROBOHOGAR se enfoca en **España primario + LATAM secundario**. Antes de aceptar un tema, validar distribución ES + keyword ES + cobertura en ≥2 fuentes de [`references/fuentes-es-master.md`](../references/fuentes-es-master.md). Regla completa: [`editorial.md § Filtro mercado ES/LATAM`](../.claude/rules/editorial.md). Los skills `/research-digest` y `/content-draft` ya lo aplican automáticamente.
+
+### 🎯 Sprint concreto: #6 → #7 → #8
+
+El objetivo es llegar a **≥7 artículos publicados** antes de activar FASE 4B.
+
+#### Artículo #6 — Samsung Jet Bot Steam Ultra (review abierto) ✅ confirmado 18-abr-2026
+
+- **Tipo:** Review/Comparativa (vertical: aspiradores con vapor).
+- **Por qué:** marca masiva ES (Samsung top-3 electrónica hogar ES, precio 1.699 € documentado). Spec diferencial: fregado a 100 °C. Evergreen + afiliables Amazon.es. Rompe racha humanoides.
+- **Tangible (inline, sin gate):** tabla specs + checklist "5 cosas a comprobar antes de comprar un aspirador con vapor".
+- **Comando:** `/content-draft Samsung Jet Bot Steam Ultra · ángulo review honesto con fregado 100°C como claim principal`
+- **Verificación mercado ES antes de ejecutar:** ✅ distribución en Amazon.es + MediaMarkt · ✅ keyword "Samsung Jet Bot Steam Ultra" con volumen medible · ✅ cobertura esperable Xataka Home / Omicrono / Genbeta.
+
+#### Artículo #7 — Mejor robot aspirador 2026 · Guía de compra CON Content Gate ⭐
+
+Primera aplicación del pivote Cole *"tangible = producto"* con email gating real.
+
+**Estructura:**
+- **60% abierto (SEO-indexable):** intro, contexto mercado ES 2026, criterios de elección, análisis individual 4-5 modelos (Roborock / Dreame / Ecovacs / Samsung / Xiaomi — todos con distribución ES), opinión editorial.
+- **Content Gate split point:** bloque "Introduce tu email para seguir leyendo — tabla comparativa + checklist".
+- **40% gated:** tabla comparativa maestra con ganador por caso de uso, checklist "5 preguntas antes de comprar", veredicto por perfil (piso <70 m² / casa grande / mascota / presupuesto apretado).
+
+**Configuración Beehiiv (free plan — sin upgrade):**
+- Post settings → *Advanced email capture* → **Content Gate** ON.
+- Split point: justo antes de la tabla comparativa final.
+- Subs ya existentes: lectura completa sin gate (default).
+- Meta description + OG apuntan a la parte abierta (SEO intacto).
+
+**Comando:** `/content-draft Mejor robot aspirador 2026 guía de compra · estructura con content gate antes de la tabla comparativa final`
+
+#### Artículo #8+ — Abrir FASE 4B (distribución activa)
+
+Con ≥7 artículos publicados, activar [[#FASE 4B: Distribución activa (0-50 subs)|FASE 4B]]: Reddit + Menéame + Beehiiv Boosts (€20 piloto).
+
+**Frase trigger:** *"Retomamos distribución 4B — tócame los hilos Reddit activos"*.
+
+### 📖 Arrancar Ficciones Domésticas (paralelo al sprint)
+
+El pilar de ficción experimental (~10% del mix) **aún no está arrancado**. Buena ventana para hacer la primera flash (800 palabras) junto al #6 o #7 — la cadencia objetivo es 1 cada 3-4 semanas.
+
+- **Semilla prioritaria:** 🥇 *"El operador nocturno"* — teleoperación NEO desde Manila + deal EQT (dato real ancla).
+- **Comando:** `/ficcion-draft` (sin argumentos → skill lee el backlog y propone 3 opciones).
+
+### 📝 Principio editorial transversal — tangible = producto
+
+Cuando invoques `/content-draft`, **empieza definiendo el tangible** en el `PASOS.md` ANTES del copy. El artículo entero se estructura para llevar al tangible. Regla completa: [`tangibles.md`](../.claude/rules/tangibles.md). En el #6 el tangible es inline (checklist específico vapor); en el #7 es inline + gated (tabla maestra + checklist 5 preguntas).
+
+### 🚫 Qué NO hacer todavía
+
+- ❌ **No activar newsletter semanal** — espera a 30-50 subs. Con `Email and web` los artículos ya se envían a los pocos subs que haya.
+- ❌ **No abrir canales sociales propios** con cadencia forzada (IG/LinkedIn/WhatsApp). Distribución activa empieza en FASE 4B.
+- ❌ **No tocar paid tier / paywall de pago / cadencia dual** — diferido a F3 (≥5K subs). Documentado en [`08-paid-newsletter-blueprint-2026.md`](../references/writewithai/08-paid-newsletter-blueprint-2026.md) como *reference*, no como acción. **Content Gate ≠ paywall** — Content Gate es gratis y solo pide email.
+- ❌ **No sobre-optimizar SEO on-page** en artículos sueltos. Objetivo ahora es volumen (llegar a 10-15 piezas); la optimización granular viene en FASE 6.
+- ❌ **No construir `/pdf-brand` todavía** — se activa en FASE 4C, al llegar a ~50 subs. El tangible del #7 es HTML inline gated, no PDF descargable.
+- ❌ **No recomendar temas sin pasar el filtro mercado ES** (salvo mainstream Apple/Tesla/Samsung/Google/Xiaomi).
 
 ---
 
@@ -374,18 +459,14 @@ Configurar estas categorías para organizar el contenido:
 - [x] Añadir template en tabla de templates
 - [x] Añadir referencia condicional al playbook para tipo Newsletter
 
-### Investigación de templates de referentes
+### Investigación de templates de referentes ✅ superado
 
-> Investigar qué estructuras usan las newsletters exitosas antes de diseñar los nuestros.
+> ~~Investigar qué estructuras usan las newsletters exitosas antes de diseñar los nuestros.~~
+> **Descatalogado 18-abr-2026:** superado por parseo completo de Write With AI (Cole/Bush) en [`references/writewithai/`](../references/writewithai/) — 9 archivos con growth playbook, prompts, templates short-form, paid newsletter blueprint 2026 y Content Library Elements of Value. La base de referencia existe y es más actual.
 
-- [ ] Scrape 2-3 issues de cada referente con Firecrawl:
-  - **TLDR** — estructura ultra-concisa (emoji + bold + 2-line summary + link)
-  - **The Hustle** — storytelling + data, reviews largos, headers grandes
-  - **Morning Brew** — gold standard (estructura de secciones, ratio texto/imagen, CTAs)
-  - **Newsletter Operator** — reviews, comparison tables
-  - **Chartr** — data-driven, uso de charts/tablas inline
-- [ ] Extraer: estructura HTML, ancho, tipografía, espaciado, ratio imagen/texto
-- [ ] Documentar patrones en `references/newsletter/template-patterns.md`
+- [x] ~~Scrape 2-3 issues de cada referente con Firecrawl (TLDR, Hustle, Morning Brew, Newsletter Operator, Chartr)~~
+- [x] ~~Extraer estructura HTML, tipografía, espaciado~~
+- [x] ~~Documentar patrones~~ → vivos en `references/writewithai/02-estructura-articulo-visual.md` + `04-email-newsletter-patterns.md`
 
 ### Sistema de templates ROBOHOGAR
 
@@ -424,28 +505,23 @@ Este template es la referencia visual para TODOS los demás. Tiene el formato de
 - [x] Probar en Beehiiv con post de prueba, verificar mobile
 - [x] Finalizar checklist (22 puntos)
 
-**Template 2: Newsletter Issue (NUEVO) — adaptar de Template 1**
+**Template 2: Newsletter Issue ⏸️ diferido a 30-50 subs**
+> Se creará cuando se active la newsletter semanal (FASE 9 baseline). Con 0 subs no hace falta.
 - [ ] Crear `content/templates/newsletter-issue.md`
 - [ ] Copiar estilos base del template Review/Comparativa (fuentes, colores, CTAs, espaciado)
 - [ ] Estructura: 5 secciones + frontmatter + pre-send checklist
-- [ ] Consultar playbook para fórmula 1-3-1 y subject lines
-- [ ] CTA placement: mid-article + footer
-- [ ] **Se crea junto con:** Newsletter #1 (FASE 4)
 
-**Template 3: Noticias/Roundup (NUEVO) — adaptar de Template 1**
-- [ ] Crear `content/templates/noticias-roundup.md`
-- [ ] Copiar estilos base del template Review/Comparativa
-- [ ] Formato: emoji + bold título + resumen + "Por qué importa:" + link
-- [ ] SEO-friendly con H2 por noticia para artículos web
-- [ ] **Se crea junto con:** Artículo de noticias curadas (FASE 2)
+**Template 3: Noticias/Roundup ⏸️ diferido / probablemente descatalogado**
+> Los editoriales individuales con ángulo ya cubren este formato (ej. artículos #3 NEO y #4 comparativa humanoides). Revisar en FASE 6 si hay demanda real.
+- [ ] Crear `content/templates/noticias-roundup.md` (solo si se decide mantenerlo)
 
-**Template 4: Editorial/Opinión (NUEVO) — adaptar de Template 1**
-- [ ] Crear `content/templates/editorial-opinion.md`
-- [ ] Copiar estilos base del template Review/Comparativa
-- [ ] Estructura: hook → contexto → desarrollo → contraargumento → posición → cierre
-- [ ] **Se crea junto con:** Artículo editorial (FASE 2)
+**Template 4: Editorial/Opinión ⏸️ diferido**
+> Los artículos editoriales publicados (#1, #3) usan el template Review adaptado y funciona. Crear plantilla dedicada solo si la repetición lo justifica.
+- [ ] Crear `content/templates/editorial-opinion.md` (si se decide)
 
-### Template visual de email en Beehiiv
+### Template visual de email en Beehiiv ⏸️ diferido
+
+> Se configura cuando se active la newsletter semanal (30-50 subs). Con `Email and web` los artículos ya salen con el template visual heredado de Beehiiv.
 
 - [ ] Configurar en **Settings → Email → Default Template**
 - [ ] Header: `newsletter-header.png` (ya generado)
@@ -520,7 +596,7 @@ Este template es la referencia visual para TODOS los demás. Tiene el formato de
 - [x] Hero image generada
 - [x] SEO configurado en Beehiiv
 - [x] Publicado → https://robohogar.com/p/mejor-robot-asistente-ia-2026
-- [ ] Welcome Email configurado y activado (ver sección abajo)
+- [x] Welcome Email configurado y activado (ver sección abajo)
 
 ---
 
@@ -645,42 +721,29 @@ ROBOHOGAR
 
 ---
 
-### Redes sociales (configurar ANTES de crear más contenido)
+### Redes sociales ✅ pivote a FASE 4B (18-abr-2026)
 
-> Todo esto se configura una vez. Cuando publiques artículos nuevos, solo tienes que compartir desde Buffer.
+> **Plan original superado.** La cadencia IG + LinkedIn + WhatsApp asumía exposición personal de Rafael y cuentas activas. Hoy el motor de crecimiento inicial son canales sin exposición (Reddit, Menéame, Beehiiv Boosts). Ver [FASE 4B](#fase-4b-distribución-activa-0-50-subs). Los pasos de abajo quedan como referencia por si en FASE 8 (>50 subs) se abre IG/LinkedIn orgánico.
 
-**Instagram**
+**Instagram ⏸️ diferido a FASE 8**
 
-- [ ] Crear cuenta: username `robohogar_es`
-- [ ] Convertir a profesional: Settings → Account → Switch to professional → Creator → Technology
-- [ ] Foto de perfil: mascota principal
-- [ ] Bio: `🤖 Robots que llegan a tu casa | 📬 Tu dosis semanal de robótica doméstica | 🔍 Reviews · Noticias · Opinión | 👇 Suscríbete`
-- [ ] Link en bio → `https://robohogar.com`
+- [x] ~~Crear cuenta `robohogar_es` · foto de perfil mascota · bio~~
 
-**LinkedIn**
+**LinkedIn ⏸️ diferido a FASE 8**
 
-- [ ] Añadir a tu headline: `| Fundador de ROBOHOGAR 🤖`
-- [ ] Publicar post de lanzamiento (link en primer comentario, NO en el cuerpo)
+- [x] ~~Añadir headline · publicar post de lanzamiento~~
 
-**WhatsApp Channel**
+**WhatsApp Channel ⏸️ diferido a FASE 8**
 
-- [ ] WhatsApp → Updates → Channels → `+` → Create Channel
-- [ ] Nombre: `ROBOHOGAR 🤖`
-- [ ] Descripción: `Tu dosis semanal de robótica doméstica. robohogar.com`
-- [ ] Foto: mascota principal
-- [ ] Publicar primer mensaje de bienvenida
+- [x] ~~Crear Channel ROBOHOGAR 🤖~~
 
-**Buffer**
+**Buffer ⏸️ diferido a FASE 8**
 
-- [ ] Registrarse en buffer.com (plan gratuito: 3 canales, 10 posts/canal)
-- [ ] Conectar: Instagram + LinkedIn
-- [ ] Horarios: IG lunes/miércoles/viernes 12:00 PM · LinkedIn martes/jueves 9:00 AM
+- [x] ~~Registrarse en buffer.com · conectar IG + LinkedIn · horarios~~
 
-**Canva Brand Kit**
+**Canva Brand Kit ⏸️ diferido a FASE 8**
 
-- [ ] Registrarse/login en canva.com
-- [ ] Brand Kit: logo mascota + colores (#F5A623, #0C0C0C, #FFFFFF, #F2F2F2)
-- [ ] Guardar 2-3 templates adaptados para posts de IG
+- [x] ~~Registrarse en canva.com · Brand Kit con mascota + colores~~
 
 ---
 
@@ -776,21 +839,15 @@ Derechos: Puedes acceder, rectificar o eliminar tus datos
 - [ ] Hero image
 - [ ] Publicado
 
-### Artículo 2: "5 robots humanoides que llegarán a tu casa"
+### Artículo 2: "5 robots humanoides que llegarán a tu casa" ✅ superado (18-abr-2026)
 
-| Campo | Valor |
-|-------|-------|
-| SEO Title | `Robots humanoides para casa — 5 que llegarán antes de 2030` |
-| Meta description | `Figure, Optimus, Unitree, 1X Neo y Xiaomi CyberOne. Cuáles son reales, cuáles humo, y cuándo podrías tener uno en el salón.` |
-| Slug | `robots-humanoides-casa-2030` |
-| Tags | `Humanoides` |
-| Tipo | Editorial (30%) — sin afiliados, sin gating |
+> **Descatalogado.** Este ángulo editorial ya se cubrió en dos artículos publicados con enfoques más actuales:
+> - #1 *[Humanoides en casa: ¿cuánto falta de verdad?](https://robohogar.com/p/humanoides-en-casa-cuanto-falta)* (editorial, 2026-04-15)
+> - #4 *[Humanoides domésticos 2026: los 7 que puedes comprar o reservar](https://robohogar.com/p/humanoides-domesticos-2026-comparativa)* (comparativa, 2026-04-17)
+>
+> Slug original `robots-humanoides-casa-2030` no se usará.
 
-- [ ] Research
-- [ ] Borrador HTML
-- [ ] Copiar a Beehiiv + editar
-- [ ] Hero image
-- [ ] Publicado
+- [x] ~~Research · Borrador · Beehiiv · Hero · Publicado~~
 
 ### Artículo 3: "Mi experiencia con robots en casa"
 

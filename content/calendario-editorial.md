@@ -84,3 +84,70 @@ Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurre
 | 2026-04-14 | Review/Comparativa | Robots de escritorio con IA | mejor-robot-asistente-ia-2026 |
 | 2026-04-15 | Editorial/Opinión | Humanoides en casa | humanoides-en-casa-cuanto-falta |
 | 2026-04-16 | Editorial/Opinión | Roborock Saros Z70 brazo mecánico | roborock-saros-z70-review |
+
+---
+
+## Banco de preguntas · Elements of Value
+
+> Banco editorial permanente. 90 preguntas (30 elementos HBR × 3) que un comprador real de robótica doméstica en España se hace antes de pagar. Alimenta backlog SEO, ángulos sociales y temas de newsletter durante 6-12 meses.
+> Framework + prompts para re-generar o expandir → [`references/writewithai/09-content-library-elements-of-value.md`](../references/writewithai/09-content-library-elements-of-value.md).
+> Ejecutado: 2026-04-18. Audiencia: adulto 30-55 años, España, 50-120 m², 300-800 € presupuesto, con pareja/hijos/mascota.
+> Uso: marcar ✅ cuando se cubra en un artículo + enlazar slug. Reciclar preguntas frescas cada 6 meses.
+
+### Nivel 1 — Functional (14 elementos, 42 preguntas)
+
+| Elemento | Preguntas del comprador |
+|---|---|
+| **Saves Time** | 1. ¿Cuánto tiempo real me ahorra al día un robot aspirador? · 2. ¿Merece la pena si solo aspiro 15 minutos por semana? · 3. ¿Puedo programar el cortacésped para recuperar los sábados completos? |
+| **Simplifies** | 4. ¿Es complicado configurarlo si no soy muy de apps? · 5. ¿Hay que dibujar el mapa de casa o aprende solo? · 6. ¿Lo puedo manejar sin tocar nada tras sacarlo de la caja? |
+| **Makes Money** | 7. ¿Puedo rentabilizar mejor mi piso en Airbnb si limpia entre huéspedes? · 8. ¿Hay ayudas o deducción fiscal en España por comprar robots de asistencia? · 9. ¿Subirá el valor de tasación si viene con domótica integrada? |
+| **Reduces Risk** | 10. ¿Es seguro dejarlo funcionando cuando no hay nadie en casa? · 11. ¿Qué pasa si se enreda con un cable? ¿Puede provocar incendio? · 12. ¿Y si el cortacésped se sale del jardín hacia la calle? |
+| **Organizes** | 13. ¿Puedo gestionar varios robots sin un caos de apps? · 14. ¿Hay una app única para aspirador + friegasuelos + cortacésped? · 15. ¿Cómo cuadro los horarios para que no choquen con mis videollamadas? |
+| **Integrates** | 16. ¿Funciona con Alexa, HomeKit o Google Home sin mil trucos? · 17. ¿Lo integro en rutinas Matter con persianas y luces? · 18. ¿Se conecta con mi cámara para limpiar solo cuando no hay nadie? |
+| **Connects** | 19. ¿Puedo controlarlo desde el móvil cuando estoy de viaje? · 20. ¿Me avisa si se atasca o si el depósito está lleno? · 21. ¿Mis padres mayores podrán manejar el suyo sin llamarme cada día? |
+| **Reduces Effort** | 22. ¿De verdad vacía solo el depósito o hay que estar encima? · 23. ¿Cada cuánto toca cambiar cepillos, filtros y bolsas? · 24. ¿Puedo olvidarme una semana entera de que existe? |
+| **Avoid Hassles** | 25. ¿Cómo evito que se atasque con el flequillo de la alfombra? · 26. ¿Los pelos del perro destrozan el rodillo a los dos meses? · 27. ¿Llega a los rincones o deja siempre la misma zona sucia? |
+| **Cost Reduction** | 28. ¿Cuánto gasta de luz al año un robot aspirador? · 29. ¿Compensa pagar 800 € si el de 249 € limpia parecido? · 30. ¿Cuánto me cuesta al año en consumibles? |
+| **Quality** | 31. ¿Aspira igual en parquet, baldosa y alfombra densa? · 32. ¿Cuántos Pa necesito de verdad con un perro de pelo largo? · 33. ¿Qué diferencia hay en el fregado entre 300 € y 900 €? |
+| **Variety** | 34. ¿Hay modelos pequeños pensados para pisos <60 m²? · 35. ¿Existen cortacésped para jardines con mucha pendiente? · 36. ¿Qué opciones tengo si mi casa es toda moqueta? |
+| **Sensory Appeal** | 37. ¿Cuánto ruido hace? ¿Puedo ponerlo mientras teletrabajo? · 38. ¿El diseño queda bien a la vista o hay que esconderlo? · 39. ¿Huele mal al vaciar el depósito tras limpiar pelo de mascota? |
+| **Informs** | 40. ¿Me da informes claros de qué zonas limpió? · 41. ¿Puedo ver los mapas para confirmar que llegó al cuarto de la colada? · 42. ¿Me avisa si detecta algo raro (gotera, enchufe roto)? |
+
+### Nivel 2 — Emotional (10 elementos, 30 preguntas)
+
+| Elemento | Preguntas del comprador |
+|---|---|
+| **Reduces Anxiety** | 43. ¿Puedo dejar al perro solo con el robot funcionando sin miedo? · 44. ¿Y si entra un desconocido, detecta algo? · 45. ¿Qué pasa con mi privacidad si el robot lleva cámara? |
+| **Rewards Me** | 46. ¿Hay descuentos si ya tengo otro robot de la misma marca? · 47. ¿Ofrecen recambios gratis o renovación en el premium? · 48. ¿Puedo probarlo 30 días y devolverlo si no me encaja? |
+| **Nostalgia** | 49. ¿Hay modelos que recuerden a los aspiradores clásicos pero con IA? · 50. ¿Qué de los Jetsons ya es real en una casa normal? · 51. ¿Mi abuela, que odia la tecnología, podría manejarlo como un mando? |
+| **Design / Aesthetics** | 52. ¿Hay robots que combinen con deco moderna o todos son feos blancos brillantes? · 53. ¿Existen en acabado mate o imitación madera? · 54. ¿Puedo esconder la base sin perder Wi-Fi ni rendimiento? |
+| **Badge Value** | 55. ¿Tener humanoide en casa dice algo de mí frente a amigos y familia? · 56. ¿Da más status un Roborock de 1.500 € o un Dyson robot? · 57. ¿Qué robots se ven en casas de influencers tech en España? |
+| **Wellness** | 58. ¿Aspirar más a menudo reduce polvo y alergias de verdad? · 59. ¿Delegar el jardín me libera para hacer deporte los sábados? · 60. ¿Externalizar la limpieza quita tensión en la pareja? |
+| **Therapeutic Value** | 61. ¿Es relajante mirar al robot trabajar mientras leo? · 62. ¿Qué aporta realmente a personas con movilidad reducida? · 63. ¿Ayuda a que mis padres mayores mantengan independencia? |
+| **Fun / Entertainment** | 64. ¿Los niños se enganchan al robot como a una mascota? · 65. ¿Hay modos "fiesta" o robots que bailen con música? · 66. ¿Puedo usarlo para entretener al perro cuando no estoy? |
+| **Attractiveness** | 67. ¿Un hogar con robots parece más moderno cuando vienen visitas? · 68. ¿Da imagen de casa cuidada si siempre está impecable? · 69. ¿Ayuda a vender mejor el piso en fotos de inmobiliaria? |
+| **Provides Access** | 70. ¿Hay acceso anticipado a modelos nuevos si soy socio del club de marca? · 71. ¿Existen comunidades privadas de usuarios avanzados en español? · 72. ¿Puedo entrar en funciones beta si mando datos de uso? |
+
+### Nivel 3 — Life-Changing (5 elementos, 15 preguntas)
+
+| Elemento | Preguntas del comprador |
+|---|---|
+| **Self-Actualization** | 73. ¿Delegar la limpieza me permite dedicarme a lo que de verdad me importa? · 74. ¿Puedo convertirme en alguien que cocina más y limpia menos? · 75. ¿Tener robots en casa me hace más organizado o más vago? |
+| **Provides Hope** | 76. ¿Llegará el día en que no tenga que doblar la ropa yo? · 77. ¿Los humanoides domésticos estarán en casas como la mía antes de 2030? · 78. ¿El AI Act hará que los robots sean más seguros y transparentes? |
+| **Motivation** | 79. ¿Si veo los datos del robot, me motivo a mantener la casa en orden? · 80. ¿Puedo picarme con amigos a quién tiene la casa más eficiente? · 81. ¿Me ayudará a crear rutinas nuevas y mejores? |
+| **Heirloom** | 82. ¿Merece la pena pagar más por uno que dure 10 años? · 83. ¿Puedo dejárselo a mis hijos cuando se independicen? · 84. ¿Las actualizaciones de software alargan la vida más allá del hardware? |
+| **Affiliation / Belonging** | 85. ¿Hay un grupo de Telegram/Discord de frikis del robot aspirador en España? · 86. ¿Existe una comunidad que comparte mapas y rutas? · 87. ¿Puedo encontrar gente con mi mismo tipo de piso para copiar configuraciones? |
+
+### Nivel 4 — Social Impact (1 elemento, 3 preguntas)
+
+| Elemento | Preguntas del comprador |
+|---|---|
+| **Self-Transcendence** | 88. ¿Estoy contribuyendo al avance de la robótica si comparto datos de uso? · 89. ¿Mi compra apoya a una marca que investiga robots de asistencia para mayores? · 90. ¿Hay robots fabricados en Europa más respetuosos con el medio ambiente? |
+
+### Cómo priorizar estas 90 preguntas
+
+- **Prioridad alta (SEO + afiliados):** preguntas del nivel Functional con keyword de compra clara (ej. 1, 10, 16, 22, 28, 31, 34, 37). Cada una → 1 artículo evergreen + tabla comparativa + link de afiliado.
+- **Prioridad media (editorial diferenciador):** Emotional + Life-Changing (43-87). Son las que construyen voz y hacen que la gente SE SUSCRIBA, no solo busque.
+- **Prioridad baja (angulares especiales):** Social Impact (88-90). Un artículo trimestral de "ROBOHOGAR ético" puede cubrirlas todas.
+- **Regla Cole:** cada pregunta puede responderse con los [7 templates de short-form](../references/writewithai/09-content-library-elements-of-value.md#paso-3--multiplicación--7-templates-210-short-form-posts) — es decir, 90 preguntas × 7 = **630 posts sociales potenciales**. Rafael elige cuáles activa según capacidad.
+- **Checkbox:** conforme se cubra una pregunta en un artículo, editar aquí y añadir `✅ [slug-artículo]`.

@@ -48,6 +48,15 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
    - Buscar threads en Reddit/foros (WebSearch "tema + reddit") y notar upvotes/comentarios
    - Comprobar si medios mainstream (no solo tech) cubren la noticia
    - Asignar escala: 🔥 = pocos medios, sin debate / 🔥🔥 = varios medios + algo de debate / 🔥🔥🔥 = cobertura masiva + foros activos + mainstream
+
+4b. **Evaluar viralidad ES (obligatorio) — nota ⭐ ES** según `@.claude/rules/editorial.md § Filtro mercado ES/LATAM`:
+   - Consultar el universo completo de fuentes en `@references/fuentes-es-master.md` (5 categorías: A Medios tech ES · B Agregadores virales ES · C Periódicos digitales mainstream · D Newsletters ES · E YouTube ES/LATAM)
+   - Para cada Top Story, buscar cobertura ES últimas 4 semanas en fuentes Tier 1-2 de A/B/C
+   - Validar distribución ES del producto/marca: ¿aparece en Amazon.es, MediaMarkt, Leroy Merlin, El Corte Inglés o Carrefour?
+   - Validar Google Trends España para la keyword principal
+   - Asignar nota ⭐ ES: ⭐ = 1 de 3 criterios (solo contexto internacional, NO priorizar) / ⭐⭐ = 2 de 3 (refuerza, mencionar) / ⭐⭐⭐ = 3 de 3 (priorizar artículo)
+   - **Temas con ⭐ solo (viralidad anglosajona sin salida ES) se marcan como "contexto internacional"** en Notable/Monitoring — no como Top para artículo prioritario
+   - Excepción automática ⭐⭐⭐: editoriales mainstream (Apple, Tesla, Google, Samsung, Xiaomi) pasan por reconocimiento de marca
 5. **Extraer semillas narrativas para Ficciones Domésticas** (pilar ficción — `/ficcion-draft`):
    - De las Top + Notable stories, identificar 2-4 que tengan "alma" narrativa: implican cambios en la vida cotidiana, tensión humana latente, dilema moral, o escenas físicas evocativas en un hogar
    - Para cada semilla extraer: (a) gancho 1-frase especulativo 2030-2040, (b) **dato real anclado** (ley, estadística, spec), (c) **villano humano implícito** (soledad, burnout, brecha digital, miedo a obsolescencia — NUNCA el robot), (d) personajes tipo que podrían encajar (abuela sola, familia con hijos pequeños, técnico de servicio, etc.)
@@ -65,7 +74,8 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
 ## Top Stories (relevance 4-5)
 - **[Title]** — Source — 1-line summary
   - Ángulo ROBOHOGAR: [por qué importa a nuestra audiencia]
-  - 🔥 Viralidad: [🔥/🔥🔥/🔥🔥🔥] — [evidencia: nº medios, Reddit threads, mainstream]
+  - 🔥 Viralidad global: [🔥/🔥🔥/🔥🔥🔥] — [evidencia: nº medios, Reddit threads, mainstream]
+  - ⭐ Viralidad ES: [⭐/⭐⭐/⭐⭐⭐] — [fuentes ES que cubren (de `fuentes-es-master.md`) · distribución ES · Google Trends]
   - 📷 Imagen: [URL de imagen editorial/prensa si existe]
 
 ## Notable (relevance 3)
@@ -96,7 +106,7 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
    - Si existe → añadir bullet con la noticia + fecha + fuente
    - Ruta vault Wiki: `$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Wiki/`
 8. **Actualizar backlogs DUALES** en `content/calendario-editorial.md`:
-   - **8a. Backlog de temas (artículos)**: añadir Top/Notable stories con prioridad (Alta si 🔥🔥🔥, Media si 🔥🔥, Baja si 🔥), keyword SEO, tipo (Review/Editorial/Comparativa/Guía)
+   - **8a. Backlog de temas (artículos)**: añadir Top/Notable stories con prioridad combinada 🔥 × ⭐ ES. Regla: Alta si 🔥🔥🔥 ⭐⭐-⭐⭐⭐ · Media si 🔥🔥 ⭐⭐+ o 🔥🔥🔥 ⭐ solo · Baja si 🔥 ⭐⭐+ · **NO añadir si ⭐ solo** (viralidad US sin salida ES). Incluir keyword SEO, tipo (Review/Editorial/Comparativa/Guía)
    - **8b. Backlog Ficciones Domésticas**: añadir las 2-4 semillas narrativas extraídas en paso 5. Columnas: Prioridad · Semilla de trabajo · Formato · Serie sugerida · Tema humano · Notas (incluir el dato real ancla)
 9. Rafael picks 3-5 stories for articles, or invokes `/ficcion-draft` pulling semillas del backlog Ficciones Domésticas
 

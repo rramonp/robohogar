@@ -33,8 +33,12 @@ Fases orientativas: **F1** = consolidación actual (0-3.000 subs) · **F2** = cr
 | 13 | **Founding tier (suscripción pago)** | F3 | 🔥🔥 | Medio | producto + testimonios |
 | 14 | **Master library** (índice navegable 50+ posts) | F3 | 🔥🔥 | Medio | 50+ artículos publicados |
 | 15 | **Survey + gift + upsell** sequence | F3 | 🔥 | Alto | producto premium |
+| 16 | **1 free + 1 paid weekly cadence** (Cole 2026) | F3 | 🔥🔥🔥 | Alto (dobla tiempo semanal) | Beehiiv Scale + 5K+ subs + tangibles listos |
+| 17 | **Paywall at cliffhanger** (Cole 2026) | F3 | 🔥🔥 | Bajo (es pattern editorial) | Paid tier activo |
 
 🔥 = ROI moderado · 🔥🔥 = ROI alto · 🔥🔥🔥 = palanca principal de la fase.
+
+**Tácticas 16-17 añadidas desde [08-paid-newsletter-blueprint-2026.md](08-paid-newsletter-blueprint-2026.md)** (Cole/Bush, post 4-mar-2026). Ejecutables solo en F3. El ejercicio operativo de la **táctica #2** (Content Library HBR 30 Elements) vive ahora en [09-content-library-elements-of-value.md](09-content-library-elements-of-value.md) — ejercicio ejecutado 18-abr-2026, banco de 90 preguntas volcado a [calendario-editorial.md](../../content/calendario-editorial.md).
 
 ---
 

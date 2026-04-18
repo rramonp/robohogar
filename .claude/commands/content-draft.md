@@ -36,6 +36,18 @@ Preguntar si no está claro:
 - Identificar keyword SEO principal y 2-3 secundarias (consultar `rules/seo.md`)
 - **Si tipo = Newsletter:** consultar también `references/newsletter/email-marketing-playbook.md` para subject lines (<25 chars), estructura 1-3-1, y best practices de email
 
+### 2.5. Validación mercado ES (OBLIGATORIO antes de escribir)
+
+Regla: `@.claude/rules/editorial.md § Filtro mercado ES/LATAM`. Antes de generar el borrador, confirmar al usuario:
+
+1. **Distribución ES del producto/marca:** ¿aparece en Amazon.es, MediaMarkt, Leroy Merlin, El Corte Inglés o Carrefour? Validar con WebSearch si es dudoso.
+2. **Keyword SEO en ES:** ¿la palabra clave principal tiene volumen medible en castellano? Comprobar Google Trends España si hay duda.
+3. **Cobertura ES en 4 semanas:** ¿alguna fuente Tier 1-2 de `@references/fuentes-es-master.md` (categorías A/B/C) ha cubierto el tema o su categoría?
+
+Si 2 de 3 son "no" → avisar a Rafael con el texto exacto: *"Este tema parece viralidad anglosajona sin salida ES — distribución ES: [sí/no] · keyword ES: [sí/no] · cobertura ES: [sí/no]. ¿Seguro que lo quieres? Alternativa sugerida: [proponer ángulo con salida ES]."*
+
+Excepción: si la marca es Apple, Tesla, Google, Samsung o Xiaomi → pasar directamente (editorial mainstream). No bloquear.
+
 ### 3. Generar borrador
 
 **Usar el template HTML del tipo de artículo** como base — copiar el HTML y reemplazar el contenido:

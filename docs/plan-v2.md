@@ -37,6 +37,10 @@
 
 **Por qué funciona:** El 70% genera tráfico SEO orgánico y revenue desde el día 1. El 30% es lo que hace que la gente se SUSCRIBA — nadie se suscribe a "otro review de aspiradores", pero sí a "la perspectiva de alguien que piensa en el hogar del futuro con robots".
 
+### Pilar experimental — Ficciones Domésticas (~10% del mix)
+
+Dentro del 30% editorial reservamos ~10% del mix total (1 cada 3-4 semanas) a **relatos cortos de ciencia ficción doméstica** (2030-2040) con personajes recurrentes. No es decoración: el relato funciona como **producto editorial diferencial** que NO pueden copiar ni Xataka ni Wirecutter. Skill dedicado `/ficcion-draft`. Reglas en [editorial.md § Narrativa especulativa](../.claude/rules/editorial.md). Cuando se active paid tier (F3), la ficción serializada completa queda disponible como producto coleccionable para paid subscribers (ver §11).
+
 ---
 
 ## 2. Plataforma: Beehiiv
@@ -45,7 +49,7 @@
 
 1. Crear cuenta en beehiiv.com (plan gratuito)
 2. Conectar dominio robohogar.com (DNS: CNAME según instrucciones de Beehiiv)
-3. Subir branding: mascota principal (`assets/branding/master/robohogar-mascot-principal.png`) como logo
+3. Subir branding: **monograma R** (`assets/branding/master/robohogar-logo-monogram-v11.png`) como logo editorial principal (landing, avatar, OG, favicon). La mascota (`assets/branding/master/robohogar-mascot-*.png`) queda para emails, social cards, CTAs cercanos y 404 — ver [design.md](../.claude/rules/design.md)
 4. Configurar colores del design system: ámbar `#F5A623`, negro `#0C0C0C`, blanco `#FFFFFF`
 5. Montar landing page con AI website builder usando `docs/website-brief.md` como guía de contenido
 
@@ -113,16 +117,19 @@ Testear un lead magnet nuevo cada mes. Los que no funcionan se abren como conten
 
 ## 4. Automatización de contenido
 
-### Curación semiautomática (Claude Code)
+### Pipeline de skills Claude Code
 
-Pipeline semanal en el repo:
+Pipeline actual de ROBOHOGAR (ver tabla completa en [CLAUDE.md § Skills del pipeline](../CLAUDE.md)):
 
-1. **Aggregator script** (`utilities/research-aggregator.py`): scraping de fuentes RSS (The Robot Report, IEEE Spectrum, Weekly Robotics, Xataka, blogs de Roborock/Dreame/iRobot) → genera un digest en `content/drafts/YYYY-MM-DD-raw-digest.md`
-2. **Revisión manual** (15 min): Rafael selecciona las 5-6 noticias más relevantes del digest
-3. **Draft asistido** (Claude Code): a partir de la selección, genera un borrador con el template del newsletter en `content/drafts/YYYY-MM-DD-issue-XX.md`
-4. **Edición y voz propia** (30-45 min): Rafael añade opinión, humor, experiencia personal
-5. **Publicación en Beehiiv**: copiar el contenido final, programar envío
-6. **Backup en repo**: mover a `content/published/`
+1. **`/research-digest`** — agrega RSS + Firecrawl, categoriza con Claude, genera digest en `content/drafts/research-digest-YYYY-MM-DD.md`. Rafael lo invoca semanalmente o cuando quiera refrescar el backlog.
+2. **Revisión manual** (15 min): Rafael selecciona temas del digest o del backlog.
+3. **`/content-draft <tema>`** — genera borrador HTML + PASOS.md + 3 hero variants en `content/articulos/<slug>/` + imágenes inline si proceden.
+4. **`/nano-banana`** — invocado por content-draft para heros y social cards (manual para branding puntual).
+5. **Edición y voz propia** (30-45 min): Rafael edita el borrador, añade opinión personal, humor, experiencia.
+6. **Publicación en Beehiiv**: copiar el HTML final, programar envío.
+7. **`/post-publish <URL>`** — limpieza post-publicación (14 pasos): backup a `content/published/`, registro, llms.txt, commit.
+8. **`/social-content <URL>`** — invocado por post-publish paso 11. Posts LinkedIn/X/IG/WhatsApp listos para Buffer.
+9. **`/obsidian-robohogar`** — invocado por post-publish paso 12. Sync del vault (guía, registro, wiki, calendario, plan).
 
 ### Automatización de redes sociales
 
@@ -228,13 +235,15 @@ Los productos de una sola categoría están muriendo. La IA commoditiza el conte
 
 | Asset | Path | Estado |
 |---|---|---|
-| Mascota principal (11 poses, 2K) | `assets/branding/master/` | ✅ Listo |
-| Mascota flash (11 poses, 1K) | `assets/branding/flash-1K/` | ✅ Listo |
-| Mascota con fondo | `assets/branding/con-fondo/` | ✅ Listo |
-| Landing HTML (referencia visual) | `assets/landing.html` | ⚠️ Solo referencia — Beehiiv genera la real |
-| Website brief | `docs/website-brief.md` | ✅ Usar para montar landing en Beehiiv |
+| **Monograma R** (logo editorial, marca principal) | `assets/branding/master/robohogar-logo-monogram-v11.png/jpg` | ✅ Asset principal — landing hero, avatar, OG, favicon |
+| Lockup horizontal + badges | `assets/branding/master/robohogar-logo-*.png` | ✅ Variantes para contextos de header/firma |
+| Mascota (14+ poses, 2K) | `assets/branding/master/robohogar-mascot-*.png` | ✅ Para emails, social cards, CTAs cercanos, 404 — NO para marca editorial |
+| Mascota con fondo | `assets/branding/con-fondo/` | ⚠️ Limitado — 1 archivo de referencia |
+| Social cards | `assets/branding/social/` | ✅ Plantillas para redes |
+| Landing HTML | `assets/landing.html` | ✅ Baseline aprobado — iteraciones sobre este archivo |
+| Website brief | `docs/website-brief.md` | ✅ Vigente |
 | Competitive analysis | `docs/competitive-analysis.md` | ✅ Vigente |
-| Design system (colores, fonts) | `docs/website-brief.md` + CLAUDE.md | ✅ Vigente |
+| Design system (paleta, tipografía, reglas) | `.claude/rules/design.md` + `assets/branding/asset-catalog.md` | ✅ Vigente — fuente de verdad |
 
 ---
 
@@ -292,9 +301,9 @@ Los productos de una sola categoría están muriendo. La IA commoditiza el conte
 
 ---
 
-*Documento vivo. Actualizar después de cada milestone.*  
-*Versión anterior: `docs/plan-completo.md` (Substack, abril 2026)*  
-*Fuentes: Newsletter Operator (últimos 6 meses), análisis Ghost vs Beehiiv (abr 2026), website-brief.md*
+*Documento vivo. Actualizar después de cada milestone.*
+*Fuentes: Newsletter Operator (últimos 6 meses), análisis Ghost vs Beehiiv (abr 2026), website-brief.md, Write With AI (Cole/Bush, 6-step checklist 2026 y Lead Generating Library 2024).*
+*Changelog: auditoría 18-abr-2026 — monograma como marca principal, pipeline de skills actualizado, pilar Ficciones Domésticas añadido (§1 y §3), sección §11 sobre paid newsletter blueprint 2026.*
 
 ---
 
@@ -384,3 +393,44 @@ Cada post tagueado en Beehiiv. SEO orgánico masivo + utilidad de navegación.
 | F3 (5K+) | Alto (6-8h/semana añadiendo YouTube) | Consolidación multi-canal, primer tráfico directo significativo | YouTube setup + 1 vídeo quincenal sostenible |
 
 <!-- added by wwai-integration 2026-04-17 -->
+
+---
+
+## 11. Paid newsletter blueprint 2026 (Cole/Bush) — diferido a F3
+
+> Destilado del post *My 6-step checklist to build a $100,000+ paid newsletter in 2026* (Cole + Bush, 4-mar-2026). Referencia completa con prompts y adaptación Beehiiv: [`references/writewithai/08-paid-newsletter-blueprint-2026.md`](../references/writewithai/08-paid-newsletter-blueprint-2026.md).
+>
+> **Cuándo activar:** cuando ROBOHOGAR supere 5.000 subs engaged + 6 meses de track record sostenido + upgrade a Beehiiv Scale ($49/mes). Con 0 subs hoy, este bloque es *knowledge documentado*, no roadmap a 12 meses.
+
+### 11.1 Cadencia dual 1-free + 1-paid
+
+Cuando se active ROBOHOGAR+, reorganizar la cadencia semanal:
+
+| Día | Tipo | Contenido | Audiencia |
+|---|---|---|---|
+| Martes 9:00 | Gratis (Email and web) | Análisis de la semana + review abierto + hook al paid | Toda la lista |
+| Viernes 9:00 | Paid (paywall) | Deep-dive + tangible coleccionable + comparativa premium o episodio de ficción serializada | ROBOHOGAR+ |
+
+Cálculo de tiempo: dobla de 3-5h a 6-10h/semana. Activar solo si Rafael puede sostenerlo o si el revenue ya cubre outsourcing parcial del post-publish.
+
+### 11.2 Tangible = producto, no bonus
+
+Cada artículo (gratis y paid) se diseña con el tangible como **el cliffhanger**: la promesa concreta que justifica la lectura (checklist compra, tabla comparativa, decision tree, dossier 3-datos, heat map de precios de la semana). El copy lleva hasta el tangible — no al revés. Detalle en [`.claude/rules/tangibles.md`](../.claude/rules/tangibles.md). Aplicable desde **F1**, aunque el skill `/pdf-brand` siga pendiente: basta con una tabla inline o un bloque "Descarga" al final.
+
+### 11.3 Paywall patterns (cuando exista paid tier)
+
+- **Paywall preview 20-50%:** toda la free list ve el inicio del post paid. Recordatorio constante sin excluir. Beehiiv Scale soporta esta función nativamente.
+- **Paywall at cliffhanger:** el corte ocurre JUSTO antes de entregar el tangible (*"Aquí tienes la tabla comparativa con los 7 modelos y el que compramos nosotros: [PAYWALL]"*). Cole atribuye a este patrón el 90% del crecimiento de Write With AI.
+
+### 11.4 Qué entra en el paid tier ROBOHOGAR+
+
+- **Ficción serializada completa** (Ficciones Domésticas) — las mini-series se entregan por episodios solo a paid. Acaba convirtiéndose en producto coleccionable (e-book, bundle).
+- **Evergreen reviews actualizables** — reviews con "lifetime updates" cada 6 meses. El paid asegura seguir recibiendo la versión al día cuando cambien precios o modelos.
+- **Comparativas premium** — tabla extendida con datos de testing propio de Rafael, no solo specs de fabricante.
+- **Canal Discord/WhatsApp privado** — comunidad founding member cuando haya 100+ pagos (F3 avanzado).
+- **Acceso anticipado 72h** — reviews y comparativas salen primero a paid, luego abren a gratis.
+
+### 11.5 Qué descartamos del post original
+
+- **Substack Notes (Paso 6 original):** no aplica — estamos en Beehiiv. El equivalente ya está cubierto por `/social-content` (LinkedIn + X + IG + WhatsApp).
+- **Benchmarks $400K ARR de Cole:** son de una audiencia Ship 30 alumni preexistente. Para ROBOHOGAR el target F3 realista son 3-5% de 5K subs = 150-250 pagos (ver §10.2 Founding tier).
