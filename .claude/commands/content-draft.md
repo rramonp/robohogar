@@ -183,6 +183,23 @@ Template origen: `content/templates/PASOS-template.md`. Script: `utilities/gener
 
 Aplicar todas las de `rules/editorial.md` (voz, tono, primera persona plural, prohibiciones de contenido).
 
+**Prohibición específica — voz de autoridad propia (crítico en hooks):**
+
+NUNCA generar hooks, aperturas, subtítulos o párrafos que narren el proceso de investigación con frases tipo:
+- ❌ *"Hemos leído Xataka Home, SamMobile y Vacuum Wars, y…"*
+- ❌ *"Contrastado con X, Y, Z newsletters / medios"*
+- ❌ *"Nos hemos metido en 10 reviews internacionales…"*
+- ❌ *"Hemos recopilado toda la información de…"*
+- ❌ *"Esta semana hemos leído tres veces [fuentes externas]…"*
+
+Las fuentes externas se citan de forma PERMITIDA:
+- ✅ Como autoridad puntual de un dato concreto: *"Xataka Home lo explica sin rodeos: el vapor va a las mopas, no al suelo"*.
+- ✅ Como hipertexto contextual: *"según [Vacuum Wars](url), el brazo acierta la mitad de las veces"*.
+
+La tabla completa de fuentes va en el PASOS.md § Fuentes del artículo, NO en el texto publicado. Si un borrador necesita citar >3 fuentes externas en el cuerpo, revisar si el ángulo editorial es lo bastante fuerte antes de seguir — el problema no es la voz, es que falta tesis propia.
+
+Regla con incidente de origen documentado: `feedback_article_voice_authority.md` (memoria auto-memory) + `@rules/editorial.md § Reglas de contenido`.
+
 ## Rules
 
 - Cada artículo es un borrador — Rafael SIEMPRE edita antes de publicar

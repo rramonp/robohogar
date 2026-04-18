@@ -17,6 +17,7 @@
 
 - NUNCA copiar/pegar texto de fuentes — siempre reescribir con voz propia
 - Citar fuentes cuando se usen datos específicos
+- **Voz de autoridad propia — NUNCA narrar el proceso de investigación en el texto publicado.** Formas prohibidas en hooks, aperturas, cuerpo o cierre: *"hemos leído X, Y, Z newsletters"*, *"contrastado con A, B, C medios"*, *"nos hemos metido en 10 reviews internacionales"*, *"hemos recopilado toda la información de…"*. Queda cutre — da la impresión de agregador sin tesis propia. Las fuentes externas se citan SOLO como autoridad puntual de un dato concreto (*"Xataka Home lo confirma: el vapor va a las mopas"*) o como hipertexto contextual en un párrafo (*"según [Vacuum Wars](url), el brazo acierta la mitad de las veces"*). La tabla completa de fuentes vive en `PASOS.md`, no en el artículo publicado. Regla ampliada con incidente de origen: memoria `feedback_article_voice_authority.md`.
 - Incluir siempre al menos 1 opinión/valoración personal por artículo
 - Evitar superlativos vacíos ("revolucionario", "increíble", "game-changer")
 - Usar "tú" (no "usted") — registro informal pero profesional
