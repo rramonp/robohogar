@@ -133,6 +133,20 @@ Cada artículo necesita imágenes inline de las fuentes originales (fabricantes,
 - La imagen debe reforzar un dato concreto que el lector acaba de leer
 - Secciones de opinión pura (veredicto, "lo que no te cuentan") van SIN imagen — el texto es el protagonista
 
+**Integridad imagen ↔ caption — OBLIGATORIO (regla `@rules/design.md § Integridad imagen ↔ caption`).** Toda pareja `<img>` + `<p class="fig-caption">` va precedida por un comentario HTML identificador en línea única, inmediatamente antes del `<img>`:
+
+```html
+<!-- FIG N: <marca + modelo + detalle clave> -->
+<img class="inline" src="assets/figure-NN-slug.jpg" alt="...">
+<p class="fig-caption">Imagen: ... Fuente: ...</p>
+```
+
+- `N` es el índice secuencial empezando por 0 (hero = FIG 0).
+- El "detalle clave" describe la característica que justifica esa imagen concreta ("fregado por rodillo", "patas extensibles 6 cm", "rodillo antienredos"). Al reordenar secciones del borrador, el marcador evita que un caption quede emparejado con una imagen distinta a la que describe. Regla surge de incidente 2026-04-19 (Rafael pegó un caption que se refería a otra figura).
+- El comentario es HTML comment — no aparece al copiar a Beehiiv.
+
+Verificación pre-output: contar `<img class="inline">` y `<!-- FIG ` en el borrador. Deben coincidir 1:1. Si falta alguno, completar antes de entregar.
+
 **Control de peso:** Artículos web → <300 KB/imagen razonable. Newsletter email → <200 KB/imagen, <800 KB total. Reportar siempre peso en PASOS.md.
 
 **Imágenes candidatas no-inline — bloque visible OBLIGATORIO (OPTIONAL-IMAGE pattern):**
@@ -234,18 +248,30 @@ Aplicar [`@rules/tangibles.md § Reglas operativas`](../../.claude/rules/tangibl
    | `ficcion` | ❌ No | — (canal narrativo, no mezclar con CTA comercial) |
    | `editorial` sin ángulo de compra | ❌ No | — |
 
-4. **Insertar snippet de [`content/templates/banner-lead-magnet.html`](../../content/templates/banner-lead-magnet.html)** en las posiciones marcadas:
+4. **Insertar el banner como BLOQUE DE CÓDIGO VISIBLE** (`<div class="snippet-block">`), NO como `<div>` inline renderizado. Regla completa: `@rules/design.md § Bloques de código para snippets HTML inline en borradores`. Razón: Rafael publica haciendo copy-paste desde el borrador al editor Beehiiv vía `/html` → "Custom HTML block", que requiere el HTML como **texto copiable**, no como elemento ya renderizado.
    - **Posición intro:** tras el callout de intro amber, antes del primer `<h2>` de contenido.
-   - **Posición cierre:** tras el bloque "Nuestro veredicto", antes del CTA gris de suscripción.
-5. **Sustituir `<SRC_SLUG>`** por el slug del artículo (`frontmatter.slug`) para tracking UTM → `?lm=hoja-compra&src=<slug>`.
-6. **Comentarios HTML pre/post** para localización rápida: `<!-- BANNER LEAD MAGNET · posición intro -->` y `<!-- BANNER LEAD MAGNET · posición cierre -->`.
+   - **Posición cierre:** tras el bloque "Nuestro veredicto", antes del disclaimer.
+5. **Estructura del bloque** (plantilla exacta, sustituir `<SLUG>` por `frontmatter.slug`):
 
-**Verificación pre-output:** antes de cerrar el skill, contar ocurrencias de `class="banner-lead-magnet"` en el HTML generado. Debe ser:
+   ```html
+   <!-- ═══ BANNER HOJA DE COMPRA · POSICIÓN <INTRO|CIERRE> (bloque de código para Beehiiv) ═══ -->
+   <div class="snippet-block">
+     <p class="snippet-header">📋 Snippet N · Banner Hoja de Compra · posición <intro|cierre></p>
+     <p class="snippet-hint">En Beehiiv: escribe <code>/html</code> → selecciona "Custom HTML block" → pega el código de abajo.</p>
+     <pre><code>&lt;div style="..."&gt;...&lt;/div&gt;</code></pre>
+   </div>
+   ```
+
+   El HTML dentro de `<pre><code>` va **escapado**: `<` → `&lt;`, `>` → `&gt;`, `&` → `&amp;` (crítico en los UTM del `href` que llevan `&`).
+6. **CSS `.snippet-block`** debe incluirse en el `<style>` del borrador. Plantilla canónica en `@rules/design.md § Bloques de código para snippets HTML`.
+7. **UTMs estándar Beehiiv** en el `href` del banner: `?utm_source=<slug>&amp;utm_medium=banner&amp;utm_campaign=hoja-compra`.
+
+**Verificación pre-output:** antes de cerrar el skill, contar bloques `<div class="snippet-block">` que contengan "Banner Hoja de Compra" en el HTML generado. Debe ser:
 - 0 si `category ∈ {humanoide, ficcion, editorial}`
 - 1 si categoría consumer y words ≤1.500
 - 2 si categoría consumer y words >1.500
 
-Si el conteo no coincide con la matriz → auto-corregir antes de entregar.
+Si el conteo no coincide → auto-corregir antes de entregar. Además, verificar que el CSS `.snippet-block` esté en el `<style>` del borrador.
 
 **Versionado futuro:** si aparece un nuevo tangible (ej. Guía primer mes aspirador, Glosario ROBOHOGAR), ampliar la tabla de arriba (categoría → tangible → posición) y los snippets en [`banner-lead-magnet-snippets.md`](../../content/templates/banner-lead-magnet-snippets.md). Un artículo puede llevar 2 banners distintos (1 por momento de funnel — ver `@rules/tangibles.md § Mapeo momento del funnel`).
 
