@@ -25,6 +25,29 @@
 - **Registro de trato prohibido:** *usted* y *vosotros* (2ª persona plural) NUNCA. Validado contra 20 newsletters ES de éxito (Kloshletter, Suma Positiva, Xataka, EOM, elDiario, etc.) — 0 apariciones de ambos. Default ROBOHOGAR: *tú* imperativo al lector + plural editorial ("hemos") al hablar del medio.
 - Robots se refiere siempre a robótica DOMÉSTICA (aspiradores, cortacésped, humanoides para hogar)
 
+## Curse of knowledge — check pre-output
+
+Concepto de Steven Pinker (*The Sense of Style*, Harvard): *"the difficulty that we all have in knowing what it's like not to know something that we know"*. El autor que conoce su tema asume contexto que el lector no tiene. Resultado: frases que para el autor son obvias pero el lector no puede seguir.
+
+**Regla ROBOHOGAR.** Antes de cerrar el borrador, releer preguntando: *"¿qué estoy asumiendo que el lector ES 30-55 sabe sin estar en el texto?"*. Prohibido dar por sabido en primera mención:
+
+- **Acrónimos sin expandir:** `LiDAR`, `ToF`, `PVP`, `AI Act`, `CE`, `ICAM`, `LDS`, `IA`, `SmartThings`, `Matter` → expandir o contextualizar la primera vez. Ejemplos:
+  - ❌ *"Usa LiDAR para mapear"* → ✅ *"Usa LiDAR (sensor láser de 360°) para mapear"*.
+  - ❌ *"Conforme al AI Act"* → ✅ *"Conforme al AI Act (reglamento europeo de IA, en vigor desde 2024)"*.
+- **Nombres de modelo sueltos sin categoría:** al presentar un robot por primera vez, dar marca + modelo + categoría + año. Ejemplos:
+  - ❌ *"El X50 Ultra es el ganador"* → ✅ *"El Dreame X50 Ultra, aspirador de gama alta 2026, es el ganador"*.
+  - ❌ *"Qrevo Curv 2 tiene rodillo nuevo"* → ✅ *"El Roborock Qrevo Curv 2 (top 2026 de la marca) tiene rodillo nuevo"*.
+- **Jerga de reviews en inglés sin traducir:** `mopping`, `auto-empty`, `auto-wash`, `multifloor mapping`, `edge cleaning` → usar equivalente ES o traducir entre paréntesis la primera vez.
+  - ❌ *"El auto-wash funciona bien"* → ✅ *"El autolavado de mopas funciona bien"*.
+  - ❌ *"Hace mopping con vapor"* → ✅ *"Friega con vapor"*.
+- **Conceptos regulatorios o técnicos sin contexto:** homologación CE, protocolo Zigbee, banda 2.4 GHz, tarifa PVPC → 1 línea de contexto si el lector no tiene por qué saberlo.
+
+**Verificación.** Si un vecino de 55 años, interesado en tecnología pero no técnico, no entendería una frase al primer pase, reescribir. No es infantilización: es claridad.
+
+**No aplica a segundas menciones.** Una vez expandido en primera mención, el siguiente uso puede ir abreviado. *"El Dreame X50 Ultra (gama alta 2026) es el ganador. El X50 sube umbrales mejor que el Roborock."* — OK. El lector ya lo tiene contextualizado.
+
+Aplicable a artículos (reviews, comparativas, guías, editoriales) y a la prosa narrativa de ficciones (no al diálogo — un personaje puede hablar con la jerga que le toque). Heredado por `/content-draft § 9 Prohibiciones` y `/ficcion-draft § 8.2`.
+
 ## Apertura y cierre del cuerpo del email — anti-anglicismos
 
 Auditoría 2026-04-19 de 20 newsletters ES de éxito detectó 0 uso de estos patterns anglo traducidos. Prohibidos en cualquier email, intro de artículo, post social o copy visible al lector:

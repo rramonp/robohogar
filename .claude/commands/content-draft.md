@@ -288,6 +288,13 @@ Aplicar todas las de `rules/editorial.md` (voz, tono, primera persona plural, pr
 - [ ] Subject line del artículo (tag Beehiiv) en 20-45 chars, preferencia ≤35 (regla actualizada en `@rules/newsletter.md`).
 - [ ] 0 uso de `tangible` como sustantivo visible al lector (banner, subtítulo, OG). Sustituir por "PDF gratis", "guía gratis", "descargable".
 
+**Curse of knowledge — OBLIGATORIO pre-output** (regla activa 2026-04-19, ver `@rules/editorial.md § Curse of knowledge`):
+- [ ] Acrónimos expandidos en primera mención: `LiDAR`, `ToF`, `PVP`, `AI Act`, `CE`, `SmartThings`, `Matter`, etc.
+- [ ] Nombres de modelo con marca + categoría + año en primera mención: `"el Dreame X50 Ultra, aspirador gama alta 2026"` (no solo `"el X50"`).
+- [ ] Jerga en inglés traducida en primera mención: `mopping` → fregado, `auto-wash` → autolavado, `auto-empty` → autovaciado, `edge cleaning` → limpieza de bordes.
+- [ ] Conceptos regulatorios/técnicos con 1 línea de contexto: homologación CE, tarifa PVPC, banda 2.4 GHz, etc.
+- [ ] Test: un lector 30-55 ES, interesado en tecnología pero no técnico, entiende cada frase al primer pase.
+
 **Prohibición específica — voz de autoridad propia (crítico en hooks):**
 
 NUNCA generar hooks, aperturas, subtítulos o párrafos que narren el proceso de investigación con frases tipo:

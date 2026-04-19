@@ -276,6 +276,7 @@ Checklist rápida sobre el texto del relato (excluyendo contenido entre comillas
 - [ ] 0 saludos anglo fuera de diálogo: `Hola X,` + nombre · `Querido/a lector/a` · `Hey` · `Espero que estés bien`
 - [ ] 0 cierres anglo: `Cheers` · `Best` · `Atentamente`
 - [ ] Em-dash (`—`) permitido en narración (es puntuación editorial ES legítima); prohibido en trust-lines <15 palabras si el relato incluye CTA/landing.
+- [ ] **Curse of knowledge en NARRADOR** (no en diálogo): acrónimos/jerga técnica/nombres de modelo del universo ficcional deben tener contexto mínimo la primera vez que aparecen en la voz del narrador. Ej: `"el Qrevo Curv 2"` → `"el Qrevo Curv 2, el aspirador nuevo de la cocina"`. En diálogo se relaja — un personaje puede hablar técnico sin explicar, es verosímil. Ver `@rules/editorial.md § Curse of knowledge`.
 
 Si hay violación en narrador → reescribir. Si es en diálogo → validar que sea verosímil, no tic del narrador infiltrado en la voz del personaje.
 
