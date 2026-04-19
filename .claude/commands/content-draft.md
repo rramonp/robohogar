@@ -253,7 +253,14 @@ Si el conteo no coincide con la matriz → auto-corregir antes de entregar.
 
 ### 9. Prohibiciones
 
-Aplicar todas las de `rules/editorial.md` (voz, tono, primera persona plural, prohibiciones de contenido).
+Aplicar todas las de `rules/editorial.md` (voz, tono, primera persona plural, prohibiciones de contenido, anti-anglicismos de apertura/cierre).
+
+**Anti-anglicismos ES — OBLIGATORIO pre-output** (regla activa 2026-04-19, ver `@rules/editorial.md § Apertura y cierre del cuerpo del email`):
+- [ ] 0 apariciones de `Hola X,` + nombre · `Querido/a lector/a` · `Hey` · `Espero que estés bien` · `¿Qué tal la semana?`
+- [ ] 0 cierres `Cheers` · `Best` · `Saludos cordiales` al final del artículo/newsletter.
+- [ ] 0 em-dash (`—`) en trust-lines ≤15 palabras (bajo CTA, bajo subtítulo, OG description). En titulares y prosa larga sí permitido.
+- [ ] Subject line del artículo (tag Beehiiv) en 20-45 chars, preferencia ≤35 (regla actualizada en `@rules/newsletter.md`).
+- [ ] 0 uso de `tangible` como sustantivo visible al lector (banner, subtítulo, OG). Sustituir por "PDF gratis", "guía gratis", "descargable".
 
 **Prohibición específica — voz de autoridad propia (crítico en hooks):**
 

@@ -225,6 +225,17 @@ Cargar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.m
 
 Complementa las excepciones de voz ficción en `@rules/editorial.md § Narrativa especulativa`.
 
+### 8.2. Anti-anglicismos ES — OBLIGATORIO antes de output
+
+Verificar contra `@rules/editorial.md § Apertura y cierre del cuerpo del email — anti-anglicismos` (regla activa desde 2026-04-19, basada en auditoría de 20 newsletters ES). En ficción NARRADOR y PROSA siguen la regla; en **diálogo de personaje** se relaja (un personaje puede decir "Hola, Amparo" de forma natural — es diálogo realista, no tic anglo del narrador).
+
+Checklist rápida sobre el texto del relato (excluyendo contenido entre comillas/guiones de diálogo):
+- [ ] 0 saludos anglo fuera de diálogo: `Hola X,` + nombre · `Querido/a lector/a` · `Hey` · `Espero que estés bien`
+- [ ] 0 cierres anglo: `Cheers` · `Best` · `Atentamente`
+- [ ] Em-dash (`—`) permitido en narración (es puntuación editorial ES legítima); prohibido en trust-lines <15 palabras si el relato incluye CTA/landing.
+
+Si hay violación en narrador → reescribir. Si es en diálogo → validar que sea verosímil, no tic del narrador infiltrado en la voz del personaje.
+
 ### 8.5. Formato técnico Beehiiv — OBLIGATORIO antes de output
 
 Verificar contra `@rules/editorial.md § Formato técnico (Beehiiv)`. Política de negritas aplicable también a ficción:

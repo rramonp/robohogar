@@ -122,6 +122,7 @@ La ficha debe pasar los mismos **validators** que el PDF:
 - Voz plural editorial.
 - Anti-IA §1 Universal (0 palabras tóxicas).
 - **Microcopy de conversión (`@rules/tangibles.md § Microcopy de conversión`).** El campo "Product details → Qué pasa al descargarlo" y cualquier trust-line debajo de un CTA (botón Beehiiv, email post-purchase) cumple el default canónico `PDF gratis con tu suscripción semanal. Cancela cuando quieras.` o variante que respete las 3 reglas (≥2 elementos obligatorios · 0 promesas prohibidas · ≤80 chars). Prohibidas: `15 segundos`, `llega al email en`, `instantáneo`, `sin publicidad`, `sin promociones`, `sin letra pequeña`, hype anglosajón (`Join N+ readers`, `Don't miss out`).
+- **Anti-anglicismos ES (`@rules/editorial.md § Apertura y cierre del cuerpo del email`).** Validator bloquea saludos anglo (`Hola X`, `Querido lector`, `Hey`, `espero que estés bien`) y uso de `tangible` como jerga determinada al lector (`el/este/nuestro tangible`). Los nombres de marca reales (`TangibleFuture`) y comentarios HTML no disparan — regex acotado.
 
 Si el Product details violara alguna regla → Claude debe reescribir antes de entregar, nunca entregar una ficha con violaciones.
 

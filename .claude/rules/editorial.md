@@ -22,7 +22,20 @@
 - Evitar superlativos vacíos ("revolucionario", "increíble", "game-changer")
 - Usar "tú" (no "usted") — registro informal pero profesional
 - Primera persona SIEMPRE en plural: "hemos investigado", "os contamos", "nos parece". NUNCA singular ("he investigado", "te cuento"). La voz de marca es plural (equipo/medio), no personal (blog de un tío). Excepción: la bio de Rafael en "Sobre el autor" puede usar singular
+- **Registro de trato prohibido:** *usted* y *vosotros* (2ª persona plural) NUNCA. Validado contra 20 newsletters ES de éxito (Kloshletter, Suma Positiva, Xataka, EOM, elDiario, etc.) — 0 apariciones de ambos. Default ROBOHOGAR: *tú* imperativo al lector + plural editorial ("hemos") al hablar del medio.
 - Robots se refiere siempre a robótica DOMÉSTICA (aspiradores, cortacésped, humanoides para hogar)
+
+## Apertura y cierre del cuerpo del email — anti-anglicismos
+
+Auditoría 2026-04-19 de 20 newsletters ES de éxito detectó 0 uso de estos patterns anglo traducidos. Prohibidos en cualquier email, intro de artículo, post social o copy visible al lector:
+
+- **Aperturas prohibidas:** `"Hola X"` + nombre · `"Hola amigo/a"` · `"Querido/a lector/a"` · `"Hey"` · `"Espero que estés bien"` · `"¿Qué tal la semana?"` · `"Hope you're well"` traducido en cualquier forma.
+- **Cierres prohibidos:** `"Cheers"` · `"Best"` · `"Saludos cordiales"` (registro corporativo anglo) · `"Atentamente"` al cierre de newsletter.
+- **Default ROBOHOGAR apertura:** entrada directa al tema sin saludo, o `"Buenos días."` + primera frase (patrón Kloshletter/medios ES). En ficción se aplican excepciones de diálogo (ver `/ficcion-draft`).
+- **Default ROBOHOGAR cierre:** firma institucional ("ROBOHOGAR") + tagline opcional. `"Un abrazo"` aceptable solo en editoriales/ficciones personales, nunca en newsletter semanal estándar.
+- **Em-dash (`—`) en trust-lines ≤15 palabras** (bajo botón, bajo subtítulo, OG description): prohibido. Es tic anglo (`" — "` con espacios). Usar coma, punto o dos puntos. En titulares de artículo y prosa del cuerpo sí está permitido.
+
+Referencia completa: `@references/research-newsletters-es-2026-04-19.md`. Skills que generan copy al lector (`/content-draft`, `/ficcion-draft`, `/social-content`, `/pdf-brand`) aplican esta regla como verificación pre-output. El validator de `/pdf-brand` (`skills/pdf_brand/validators.py`) bloquea los patrones listados con regex.
 
 ## Formato técnico (Beehiiv)
 

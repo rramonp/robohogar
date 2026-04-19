@@ -98,6 +98,43 @@ _FORBIDDEN_PATTERNS: list[tuple[str, re.Pattern[str], str]] = [
         re.compile(r"(join\s+\d[\d,\.k]*\+?\s*(readers|subscribers)|don.?t\s+miss\s+out|ap[uú]ntate\s+ya)", re.IGNORECASE),
         'Hype anglosajón / imperativo agresivo. Incumple CTA no-spammy de Write With AI. Reemplazar por trust-line editorial.',
     ),
+    # ── Anti-anglicismos de apertura/cierre — 2026-04-19 ──
+    # Validado contra 20 newsletters ES (Kloshletter, Suma Positiva, Xataka, EOM,
+    # elDiario, etc.) — 0 apariciones de estos patterns.
+    # Regla en `@rules/editorial.md § Apertura y cierre del cuerpo del email`.
+    (
+        "saludo_anglo_hola_nombre",
+        # "Hola X," al inicio de línea — tic de traducción "Hi X,".
+        # Excluye "Hola," suelto sin nombre (puede ser legítimo en ficción diálogo).
+        re.compile(r"^\s*Hola\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+\s*[,!]", re.MULTILINE),
+        'Saludo "Hola X," es tic anglo ("Hi X,"). Ningún newsletter ES auditado lo usa. Reemplazar por entrada directa al tema o "Buenos días." + primera frase.',
+    ),
+    (
+        "saludo_anglo_espero_bien",
+        # "Espero que estés bien" / "espero que te encuentres bien".
+        re.compile(r"espero que (est[eé]s|te encuentres) bien", re.IGNORECASE),
+        'Calco directo de "hope you\'re well". Ausente del 100% de newsletters ES auditados. Eliminar sin sustituir — el lector prefiere entrada directa.',
+    ),
+    (
+        "saludo_anglo_querido_lector",
+        # "Querido/a lector/a", "Queridos amigos".
+        re.compile(r"Querid[oa]s?\s+(lector|lectora|amig[oa]s?)", re.IGNORECASE),
+        'Registro de carta formal / "Dear reader". Newsletters ES usan apertura directa o "Buenos días." Prohibido en copy publicable.',
+    ),
+    (
+        "saludo_anglo_hey",
+        # "Hey," al inicio de párrafo/línea.
+        re.compile(r"^\s*Hey\s*[,!]", re.MULTILINE | re.IGNORECASE),
+        'Anglicismo puro sin traducir. No aparece en newsletters ES editoriales. Eliminar.',
+    ),
+    (
+        "jerga_tangible_al_lector",
+        # "el tangible", "este tangible", "nuestro tangible", etc. — determinante + "tangible".
+        # NO bloquea nombres de marca ("TangibleFuture"), ni comentarios HTML, ni "tangibles" en plural
+        # genérico del tipo "los tangibles PDF" (docs internos).
+        re.compile(r"\b(este|esta|ese|esa|nuestro|nuestra|el|la|un|una)\s+tangible\b(?!\w)", re.IGNORECASE),
+        '"Tangible" es jerga interna del pipeline ROBOHOGAR. El lector ES no la reconoce como categoría (0/20 newsletters auditados la usan en copy público). Sustituir por "PDF gratis", "guía gratis", "descargable" o el formato concreto ("checklist", "tabla").',
+    ),
 ]
 
 

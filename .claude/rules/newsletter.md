@@ -13,9 +13,15 @@ Beehiiv envía cada post por email UNA sola vez. Publicar con 0 subs "quema" el 
 
 Al llegar a 20-30 subs: enviar "digest de bienvenida" manual con los artículos top ya publicados.
 
-## Subject Lines
+## Subject Lines (asuntos)
 
-Max 25 chars. Fitea uno de 5 arquetipos: curiosity gap · fear/warning · benefit · authority · story. Sin clickbait, sin ALL CAPS, sin spam triggers. Tabla de ejemplos ROBOHOGAR y openers → `references/writewithai/04-email-newsletter-patterns.md`.
+**20-45 chars · preferencia ≤35.** Límite ajustado 2026-04-19 tras research de newsletters ES (Kloshletter 41 chars, Cincominutos 37, EOM 22-30). La regla original ≤25 chars venía de Nicolas Cole (US, inglés monosilábico); el castellano es morfológicamente más largo y apretar a 25 fuerza copy forzado. Regla dura: **≤45 chars**, target ≤35.
+
+Fitea uno de 5 arquetipos: curiosity gap · fear/warning · benefit · authority · story. Sin clickbait, sin ALL CAPS, sin spam triggers. **Máximo 1 emoji** como icono de marca (patrón Cincominutos `⭕️`), nunca decorativo ni en cascada (`🔥🚀✨`). Tabla de ejemplos ROBOHOGAR y openers → `references/writewithai/04-email-newsletter-patterns.md`. Aperturas y cierres del body: `@rules/editorial.md § Apertura y cierre del cuerpo del email`.
+
+## Palabra nuclear del producto
+
+"Newsletter" es la palabra dominante en el 83% del ecosistema ES Substack/Beehiiv auditado (research 2026-04-19, 20 newsletters). ROBOHOGAR la adopta. "**Boletín**" se permite como sinónimo puntual en prosa editorial (tradición periodística ES), nunca como nombre del producto ni en botón CTA. "**Correo**" solo como vector de entrega ("recibe en tu correo"), nunca como nombre del producto. "**Suscripción**" como sustantivo standalone (0% de uso en ES) — evitar; usar `suscríbete` como verbo o `newsletter` como nombre.
 
 ## Estructura & CTAs
 

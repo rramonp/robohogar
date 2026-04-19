@@ -116,3 +116,15 @@ El output debe ser visualmente escaneable en Obsidian/VS Code para copiar rápid
 - Instagram: NO reutilizar contenido con watermarks de otras plataformas
 - WhatsApp: mensajes cortos, no más de 5 líneas
 - Referencia `rules/editorial.md` para tono en todo el contenido
+
+## Anti-anglicismos ES — OBLIGATORIO pre-output
+
+Verificar contra `@rules/editorial.md § Apertura y cierre del cuerpo del email — anti-anglicismos` (basada en auditoría 2026-04-19 de 20 newsletters ES). Copy social ES cae especialmente en anglicismos traducidos — las plantillas LinkedIn/X americanas arrastran tics que no encajan.
+
+Checklist pre-output:
+- [ ] 0 aperturas `Hey LinkedIn family` · `Hola a todos` + frase cortés · `Querida comunidad`
+- [ ] 0 cierres anglo tipo `Cheers` · `Best` · `#tech #AI #robotics` en cascada (max 3 hashtags relevantes por post).
+- [ ] 0 frases hype anglo tipo `Join the conversation` · `Don't miss out` · `What do you think?` traducido literal.
+- [ ] 0 emojis decorativos en cascada (`🔥🚀✨`). Max 1-2 emojis icónicos por post.
+- [ ] Persona gramatical: `tú` imperativo o plural editorial (`hemos probado`). Nunca `vosotros` ni `usted`.
+- [ ] LinkedIn openings ES legítimos: afirmación directa · pregunta punzante · dato crudo. Nunca `Hola LinkedIn`.
