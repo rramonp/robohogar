@@ -132,7 +132,43 @@ De `email-copy.md` #4 (paywall parcial). Tensión entre **lo que se cree** y **l
 
 Regla ROBOHOGAR: cada relato se apoya en **al menos 1 dato real** (AI Act, especificación de Saros Z70 o Unitree G1, estadística INE). Ej: 20,1% de españoles tendrá +65 años en 2033 (INE) → frase 2 del Spine: *"Every day, la abuela era una de los 9,5 millones de mayores solos en España."*
 
-### 3.4 5 semillas narrativas [sugerencias — Rafael decide]
+### 3.4 Triángulo de información autor / personaje / lector
+
+Destilado de Adrian Tchaikovsky en *How I Write* de David Perell (2025-12-31, ~1h5m, episodio sobre *Children of Time*, *Dogs of War* y 60+ libros sci-fi/fantasy).
+
+**Framework:** en toda escena de ficción circulan **3 niveles de información distintos y declarables**:
+
+1. **Lo que el AUTOR sabe** — universo completo, reglas, pasado, futuro, intenciones de cada personaje.
+2. **Lo que el PERSONAJE sabe** — fragmento parcial del universo limitado por su POV, edad, fisiología, condición (robot con sensores limitados, humano con demencia incipiente, niño, adolescente).
+3. **Lo que el LECTOR sabe** — lo que el autor decide revelar episodio a episodio.
+
+**Regla operativa:** para que haya tensión dramática, el **LECTOR debe saber en todo momento algo que el PERSONAJE no sabe** (o viceversa según la escena). Si los 3 saben lo mismo → la escena se aplana y se vuelve pura descripción.
+
+**Ejemplo maestro Tchaikovsky** (*Dogs of War*, narrador Rex — perro modificado para combate): Rex cumple órdenes sin cuestionarlas. El lector ve claramente que Rex está cometiendo crímenes de guerra. Rex no tiene el marco moral para saberlo. Esa asimetría es el motor del libro.
+
+**Aplicabilidad ROBOHOGAR — encaja como un guante con la tesis "villano humano, robot neutro":**
+
+| POV | Lo que sabe el personaje | Lo que sabe el lector | Tensión resultante |
+|---|---|---|---|
+| Tico (aspirador IA) | Rutinas métricas: distancia, horarios, patrones de uso | Lo que esas rutinas anómalas significan emocionalmente (abandono, soledad, declive) | Ternura por asimetría — el lector carga el significado emocional, Tico solo cuenta pasos |
+| RONDA-3 (utility humanoide) | Lo que ve vía sus sensores en el piso VPO del episodio | El arco humano de ese residente concreto (pareja en crisis, paro, enfermedad) | Documental social — el robot es testigo, el lector es juez |
+| Amparo (humana con principio de demencia) | Fragmentos sin coherencia temporal; Hugo es "el que vive conmigo" sin recordar desde cuándo | Que Hugo lleva 3 años allí y Amparo lo olvida más cada mes | Tragedia silenciosa — el lector sufre lo que Amparo no registra |
+| Clara (*Cartas a MAIA* POV epistolar) | Lo que Clara escribe en sus emails a MAIA | Lo que MAIA le oculta en las respuestas + patrones que Clara no detecta | Thriller intelectual — el lector lee las cartas de MAIA entre líneas |
+
+**Aplicación operativa:** en el **paso 2 del skill `/ficcion-draft`** (carga de contexto de serie), añadir a cada POV declarado en `character-bible.md` un bloque explícito:
+
+```yaml
+# Para cada personaje con POV activo en el episodio:
+pov_sabe: "Lo que este personaje ve/percibe/registra en la escena"
+pov_no_sabe: "Lo que el lector sabrá pero este personaje no"
+asimetria_dramatica: "La tensión que crea esa diferencia (1 frase)"
+```
+
+Durante la redacción (paso 6 MRUs), cada escena con POV de robot o humano-limitado se verifica contra esta declaración: el narrador nunca revela más de lo que el personaje registra (salvo que sea narrador omnisciente explícito).
+
+**Cuándo aplicar:** obligatorio en relatos con narrador robot o humano con info limitada (RONDA-3, Tico, Amparo-demencia, Clara). Opcional en omnisciente 3ª persona pero sigue siendo útil para calibrar qué revelar cuándo.
+
+### 3.5 5 semillas narrativas [sugerencias — Rafael decide]
 
 1. **"Los siete pasos"** — Tico cuenta los pasos entre la cocina y el sillón de la abuela. Un miércoles son ocho. Ella no está. ¿Qué hace un robot sin manos cuando llama al 112 y nadie contesta?
 2. **"El cumpleaños de Eva"** — Humanoide cumple 6 meses en casa de los Cortés. Los nietos le han hecho tarta. El padre se siente incómodo. ¿Celebramos a las máquinas?

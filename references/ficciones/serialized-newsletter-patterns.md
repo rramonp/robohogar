@@ -80,6 +80,26 @@ Del análisis de Clarkesworld 2024-2025 y editoriales de autores publicados:
 - **Una línea en blanco entre párrafos siempre**. En email mobile-first, más aún.
 - **Escena breve** (300-600 palabras) + cambio escena con salto gráfico o sección. No escenas de 1.500 palabras sin corte.
 
+### §2.4 Left wall + One big lie — arquitectura de plausibilidad
+
+Destilado de Adrian Tchaikovsky en *How I Write* de David Perell (2025-12-31, podcast sobre *Children of Time* y 60+ libros de sci-fi/fantasy).
+
+**"Left wall"** (muro izquierdo): restricción real inviolable del relato. Lo que la ciencia, la regulación o la física **sí dicen** que es posible. Desde ahí puedes expandir hacia afuera, pero no puedes cruzar ese muro sin perder al lector.
+
+**"One big lie"**: la única licencia creativa mayor que el relato pide al lector aceptar. Tchaikovsky cita *Children of Time*: el big lie es el tiempo evolutivo acelerado del nano-virus; el spider, la biología araña real, la selección natural — todo lo demás verificable. **Regla:** *"You can get away with one big lie… but in order to support your one big lie, everything else needs to be true."*
+
+**Por qué importa para ROBOHOGAR**: ficción doméstica 2030-2040 cae fácil en la deriva de acumular 3-4 mentiras pequeñas (un humanoide que *además* tiene memoria persistente *además* habla 40 idiomas *además* es barato) que individualmente parecen aceptables pero juntas destruyen la plausibilidad. Con un solo big lie declarado, el resto debe ser 100% anclado en realidad verificable.
+
+**Aplicación operativa**: cada relato ROBOHOGAR declara ambos campos en el frontmatter YAML antes de redactar (campos `left-wall:` y `big-lie:`). `/ficcion-draft` paso 3.5 los pide explícitamente. Ejemplos:
+
+| Relato | `left-wall` | `big-lie` |
+|---|---|---|
+| Los siete pasos (Tico) | Fisiología aspirador 2033: sin brazos, sin micrófono telefónico, LiDAR limitado a 360° superficies sólidas | Aspirador ha desarrollado modelo mental de rutinas humanas lo bastante preciso para detectar ausencia |
+| El cumpleaños de Eva | Humanoides domésticos 2033 requieren homologación CE + AI Act art. 6 (alto riesgo) | Una familia ES media puede permitirse un humanoide refurbished |
+| La llamada silenciosa | Protocolo SAMUR Madrid 2033 real · ictus reconocible por IA | Humanoide de cuidados puede diagnosticar ictus 30s antes con sensores embedded |
+
+Durante la redacción: todo lo que contradiga el `left-wall` se elimina. Todo lo que no sea el `big-lie` se verifica. Si un relato necesita 2 big lies → o se recorta a uno, o el concepto no aguanta y se reescribe.
+
 ---
 
 ## §3 Serialized fiction específicamente — reglas Substack/Beehiiv 2025

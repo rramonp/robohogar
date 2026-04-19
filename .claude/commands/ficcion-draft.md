@@ -107,7 +107,20 @@ Tres frameworks disponibles, elegir según longitud/intención:
 | **5-Sentence Story** | `flash` — escena única | Setup · Incidente · Complicación · Giro · Payoff |
 | **MRUs** (Motivation-Reaction Units) | Todos — durante la escritura de prosa | Cada frase abre pregunta, la siguiente la responde |
 
-Además, SIEMPRE correr **Paint The Villain invertido** (paso 3) para validar que el villano es un problema humano, no el robot.
+Además, SIEMPRE correr **Paint The Villain invertido** (paso 4) para validar que el villano es un problema humano, no el robot.
+
+### 3.5. Declarar `left-wall` + `big-lie` (antes del villano)
+
+Antes de pasar al conflicto humano, el skill pide al borrador dos declaraciones explícitas que se añaden al frontmatter YAML del relato:
+
+- **`left-wall:`** — la restricción real/científica/regulatoria inviolable del relato. Lo que la realidad ES de 2030-2040 **sí dice** que es posible. Ejemplos: `"AI Act art. 6: humanoides domésticos son alto riesgo, requieren homologación CE"`, `"Aspirador 2033 sin brazos, LiDAR 360° solo superficies sólidas"`, `"Protocolo SAMUR Madrid real para ictus"`.
+- **`big-lie:`** — la única licencia creativa mayor que el relato pide aceptar al lector (1 por relato, **no negociable**). Ejemplos: `"Humanoide refurbished accesible a familia media ES"`, `"Aspirador ha desarrollado modelo mental de rutinas humanas"`, `"Humanoide de cuidados diagnostica ictus 30s antes con sensores embedded"`.
+
+**Regla de plausibilidad** (Adrian Tchaikovsky, *How I Write* 2025-12-31): *"You can get away with one big lie… but in order to support your one big lie, everything else needs to be true."* Todo lo que no sea el `big-lie` se verifica. Todo lo que contradiga el `left-wall` se elimina.
+
+**Si el skill detecta 2 big lies** (p. ej. humanoide barato + memoria persistente ilimitada + habla 40 idiomas): o se recorta a uno, o se reescribe el concepto. No avanzar al paso 4 con 2 big lies.
+
+Detalle + ejemplos en `@references/ficciones/serialized-newsletter-patterns.md § 2.4`.
 
 ### 4. Paint The Villain — validar conflicto humano
 
@@ -289,6 +302,8 @@ tag: Ficciones Domésticas
 tags-beehiiv: [Opinión]
 dato-real: "INE: 20,1% españoles +65 años en 2033"
 villano-humano: "El silencio de las 18:00 (soledad de los mayores solos)"
+left-wall: "Fisiología aspirador 2033: sin brazos, LiDAR 360° solo superficies sólidas, sin acceso telefónico directo"
+big-lie: "Aspirador ha desarrollado modelo mental de rutinas humanas lo bastante preciso para detectar ausencia"
 framework: pixar-spine | 5-sentence | mrus
 status: borrador
 created: YYYY-MM-DD
