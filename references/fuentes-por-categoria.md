@@ -182,6 +182,12 @@ Reviews, comparativas, guías de compra de robots aspiradores.
 | MediaMarkt | mediamarkt.es | Retailer | Stock y precio real ES. Secundaria — verificar contra Samsung.es |
 | Amazon España | amazon.es | Retailer + afiliados | Disponibilidad + reviews de usuarios ES. Futuro: afiliados tras alta |
 
+### Fuentes estadísticas / datos de mercado
+
+| Fuente | URL | Tipo | Notas |
+|--------|-----|------|-------|
+| Statista Market Outlook Spain | statista.com/outlook/cmo/household-appliances/small-appliances/robotic-vacuum-cleaners/spain | Datos de mercado | Penetración de categoría en hogares ES + compatibilidad cross-country (Alemania, Corea). Usado art.6 (Mejor robot aspirador 2026) para sección "¿sabías que?" · dato "17% hogares ES, 34% Alemania, 41% Corea en 2026" |
+
 ### Robots en esta categoría
 
 *Pendiente: investigación dedicada cuando toque artículo de aspiradores*

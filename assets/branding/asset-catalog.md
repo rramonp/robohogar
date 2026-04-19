@@ -239,7 +239,7 @@ Usar `assets/branding/social/thumbnail-default-1200x630.png` (monograma R sobre 
 
 | # | Slug | Fecha | Tipo | Modelo | Descripción |
 |---|---|---|---|---|---|
-| 1 | `mejor-robot-aspirador-2026` | 2026-04-13 | Review | flash | Aspirador premium iluminado cenital ámbar en salón moderno |
+| 1 | `mejor-robot-aspirador-2026` (v1) | 2026-04-19 | Guía de compra | flash | Vista cenital de 6 robots aspirador finalistas alineados sobre suelo de madera de un salón español con luz natural. Composición ROBOHOGAR sobre fotos oficiales de los fabricantes. Publicado 19-abr-2026 |
 | 2 | `robots-humanoides-casa-2030` | 2026-04-13 | Futuro | flash | Humanoide entrando por puerta, backlit cinematográfico |
 | 3 | `experiencia-robots-casa` | 2026-04-13 | Lifestyle | flash | Salón acogedor con aspirador + robot servicio + gato |
 | 4 | `mejor-robot-asistente-ia-2026` (v1-v6) | 2026-04-13 / 2026-04-17 | Gadget | flash | v1-v4: iteraciones con neones problemáticos. v5: skyline atardecer sin neones. v6: ciudad diurna sin neones — misma composición (robot huevo + mano + cocina cálida) |

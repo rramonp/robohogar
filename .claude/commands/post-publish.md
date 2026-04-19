@@ -31,7 +31,7 @@ Antes de hacer nada, comprobar que el artículo se ve correctamente:
 ```bash
 # Cada grep debe devolver exactamente 1 (Rafael dejó solo la variante elegida)
 # 0 = el borrador nunca tuvo esa sección triplicada → continuar
-# ≥2 = PARAR, avisar a Rafael que borre las variantes que no quiere
+# ≥2 = auto-detectar variante publicada desde la URL (ver algoritmo abajo), NUNCA preguntar a Rafael
 grep -c 'class="callout-amber hook-option"'     content/articulos/<slug>/borrador.html
 grep -c 'class="callout-amber veredicto-option"' content/articulos/<slug>/borrador.html
 grep -c 'class="sabias-option"'                  content/articulos/<slug>/borrador.html
@@ -40,6 +40,15 @@ grep -c 'class="sabias-option"'                  content/articulos/<slug>/borrad
 grep -c 'class="image-optional"' content/articulos/<slug>/borrador.html
 # Si devuelve ≥1: PARAR, avisar a Rafael que decida cada imagen opcional (borrar bloque completo o borrar solo el wrapper)
 ```
+
+**Auto-detección de variantes publicadas (regla 2026-04-19 · obligatoria).** Si cualquier `*-option` devuelve ≥2, el skill **NUNCA pregunta a Rafael** cuál eligió. En su lugar, fetchea el post publicado y lo infiere por matching textual:
+
+1. `WebFetch <URL>` con prompt que extraiga literalmente el texto del hook (primer callout), el veredicto (bajo H2 `"Nuestro veredicto"`) y la sección `"¿Sabías que…?"`.
+2. Para cada bloque con ≥2 variantes en el borrador, comparar la primera frase distintiva del texto publicado contra cada variante v1/v2/v3 del borrador local. La coincidencia textual (aunque Rafael haya editado ligeramente al pegar) identifica la variante.
+3. **Limpiar el borrador:** eliminar las 2 variantes no elegidas + el bloque `<p class="variant-reco">` + el comentario HTML `<!-- ... ELIGE UNO Y BORRA LOS OTROS 2 BLOQUES ... -->` + el comentario `<!-- ═ FIN ... ═ -->`. Dejar la variante ganadora sin el prefijo `[HOOK vN · xxx]` ni el atributo `data-variant` (limpieza final para que `published/YYYY-MM-DD-<slug>.html` refleje lo que realmente se publicó).
+4. Continuar con `cp` a `content/published/`.
+
+Ejemplo de matching: si el post publicado empieza el hook con *"Los 'top 10 robots aspiradores 2026' llevan empachando Google..."* y el borrador v1 empieza con *"Los listicles 'top 10 robots aspiradores 2026' llevan empachando Google..."*, es v1 (coincidencia ≥60% de tokens distintivos). Este pattern es el único que Rafael quiere — **nunca preguntarle qué variante eligió, ni cuando pega edits menores al texto**.
 
 ```bash
 cp content/articulos/<slug>/borrador.html content/published/YYYY-MM-DD-<slug>.html
