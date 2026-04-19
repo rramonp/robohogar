@@ -1,8 +1,10 @@
 # Banner Lead Magnet "Hoja de Compra" — snippets por artículo
 
-> Snippets listos para copiar y pegar en Beehiiv en cada uno de los artículos publicados. Cada uno ya lleva el UTM `?lm=hoja-compra&src=<slug>` personalizado → cuando configures la segmentación por tag en Beehiiv Automations, podrás ver el CVR por fuente.
+> Snippets listos para copiar y pegar en Beehiiv en cada uno de los artículos publicados. Cada uno lleva UTMs estándar (`utm_source=<slug>&utm_medium=banner&utm_campaign=hoja-compra`) → visibles en Beehiiv Audience/Analytics por suscriptor.
 >
 > Variante oficial: **DARK** (validada 2026-04-18).
+>
+> **UTMs actualizados 2026-04-18:** sustituido el `?src=` custom por UTMs estándar Beehiiv (`utm_source`, `utm_medium`, `utm_campaign`). Razón: Beehiiv solo captura UTMs con estos nombres canónicos en el perfil del subscriber; un parámetro `?src=` arbitrario no persiste en el reporting. Para monitorear por canal, filtrar por `utm_source` en Audience → Subscribers.
 
 ## Scope del backfill
 
@@ -40,7 +42,7 @@ Slug: `mejor-robot-asistente-ia-2026` · URL: https://robohogar.com/p/mejor-robo
   <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Antes de comprar</div>
   <div style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#FFFFFF;line-height:1.2;margin-bottom:10px;">Descarga gratis la Hoja de Compra ROBOHOGAR</div>
   <p style="margin:0 0 18px;font-size:15px;color:rgba(255,255,255,0.88);line-height:1.5;">10 preguntas para no pagar de más al comprar tu robot doméstico. PDF de 2 páginas · gratis · te llega al email en 15 segundos.</p>
-  <a href="https://robohogar.com/products/hoja-de-compra?src=mejor-robot-asistente-ia-2026" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Descargar gratis →</a>
+  <a href="https://robohogar.com/products/hoja-de-compra?utm_source=mejor-robot-asistente-ia-2026&utm_medium=banner&utm_campaign=hoja-compra" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Descargar gratis →</a>
 </div>
 ```
 
@@ -57,7 +59,7 @@ Slug: `roborock-saros-z70-review` · URL: https://robohogar.com/p/roborock-saros
   <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Antes de comprar</div>
   <div style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#FFFFFF;line-height:1.2;margin-bottom:10px;">Descarga gratis la Hoja de Compra ROBOHOGAR</div>
   <p style="margin:0 0 18px;font-size:15px;color:rgba(255,255,255,0.88);line-height:1.5;">10 preguntas para no pagar de más al comprar tu robot doméstico. PDF de 2 páginas · gratis · te llega al email en 15 segundos.</p>
-  <a href="https://robohogar.com/products/hoja-de-compra?src=roborock-saros-z70-review" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Descargar gratis →</a>
+  <a href="https://robohogar.com/products/hoja-de-compra?utm_source=roborock-saros-z70-review&utm_medium=banner&utm_campaign=hoja-compra" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Descargar gratis →</a>
 </div>
 ```
 
@@ -74,7 +76,7 @@ Slug: `samsung-jet-bot-steam-ultra-review` · URL: https://robohogar.com/p/samsu
   <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Antes de comprar</div>
   <div style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#FFFFFF;line-height:1.2;margin-bottom:10px;">Descarga gratis la Hoja de Compra ROBOHOGAR</div>
   <p style="margin:0 0 18px;font-size:15px;color:rgba(255,255,255,0.88);line-height:1.5;">10 preguntas para no pagar de más al comprar tu robot doméstico. PDF de 2 páginas · gratis · te llega al email en 15 segundos.</p>
-  <a href="https://robohogar.com/products/hoja-de-compra?src=samsung-jet-bot-steam-ultra-review" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Descargar gratis →</a>
+  <a href="https://robohogar.com/products/hoja-de-compra?utm_source=samsung-jet-bot-steam-ultra-review&utm_medium=banner&utm_campaign=hoja-compra" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Descargar gratis →</a>
 </div>
 ```
 
@@ -91,7 +93,7 @@ Cuando publiques `mejor-robot-aspirador-2026` (borrador ya hecho, pendiente publ
   <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Antes de comprar</div>
   <div style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#FFFFFF;line-height:1.2;margin-bottom:10px;">Descarga gratis la Hoja de Compra ROBOHOGAR</div>
   <p style="margin:0 0 18px;font-size:15px;color:rgba(255,255,255,0.88);line-height:1.5;">10 preguntas para no pagar de más al comprar tu robot doméstico. PDF de 2 páginas · gratis · te llega al email en 15 segundos.</p>
-  <a href="https://robohogar.com/products/hoja-de-compra?src=<SRC_SLUG>" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Descargar gratis →</a>
+  <a href="https://robohogar.com/products/hoja-de-compra?utm_source=<SRC_SLUG>&utm_medium=banner&utm_campaign=hoja-compra" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Descargar gratis →</a>
 </div>
 ```
 
