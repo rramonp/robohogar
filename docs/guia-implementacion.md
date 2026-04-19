@@ -21,6 +21,28 @@
 
 ---
 
+## 🗓 Schedule semanal fijo
+
+> Cadencia inmutable. Si pierdes un día, no se recupera el siguiente: cada ritual tiene su ventana y el siguiente también. Objetivo: que la operativa sobreviva a semanas de poca disponibilidad. Frase trigger = lo que dice Rafael para arrancar el ritual con Claude.
+
+| Día | Hora | Ritual | Skill/Acción | Frase trigger |
+|---|---|---|---|---|
+| **Lun** | 09:00 | Research digest + rellenar métricas semana previa | `/research-digest` + actualizar [[#FASE 6: Métricas y Revisión\|FASE 6 § tabla semanal]] | *"Ritual lunes — digest + métricas"* |
+| **Mar** | 09:00 | Newsletter (si ≥30 subs) · si no → draft artículo | Beehiiv send · `/content-draft <tema>` | *"Ritual martes — newsletter"* · *"Ritual martes — draft"* |
+| **Mié** | 09:00 | Continuar artículo + heros | `/content-draft` · `/nano-banana` | *"Ritual miércoles — seguir"* |
+| **Jue** | 09:00 | Publicar + post-publish + social | `/post-publish <URL>` · `/social-content <URL>` | *"Ritual jueves — publicar"* |
+| **Vie** | 09:00 | Tangible (quincenal) · optim CTR/subs (viernes alterno) | `/pdf-brand <variante> <slug>` · *"Trigger optimización ROBOHOGAR"* | *"Ritual viernes — tangible"* · *"Ritual viernes — optimizar"* |
+| **Sáb** | libre | Promo foros/Reddit/Menéame (FASE 4B activa) | Manual + plantillas `@references/newsletter/email-marketing-playbook.md` | *"Ritual sábado — distribución"* |
+| **Dom** | off | — | — | — |
+
+**Mantenimiento mensual (último viernes del mes):** `/pipeline-debug full` — audit completo del repo (skills, rules, refs, tangibles, memoria, docs, schedule). Genera report en `content/pipeline-debug-reports/<YYYY-MM-DD>-debug.md`. Ver [[#FASE 7: Post-lanzamiento y mantenimiento con Claude Code|FASE 7 § Mantenimiento]].
+
+**Revisión mensual (primer lunes del mes):** *"Review mensual ROBOHOGAR — mes <YYYY-MM>"* → Claude compara KPIs vs SLOs y archiva en `docs/reviews-mensuales/`.
+
+**Regla de oro:** si una pieza nueva (skill, tangible, formato) no tiene su fila en este schedule o en [[#📊 SLOs por fase|FASE 6 § SLOs]], entonces o se integra o se posterga. Piezas sin ritual = drift.
+
+---
+
 ## 🎯 Roadmap actual (abr 2026)
 
 **Estado (18-abr-2026):**
@@ -61,6 +83,18 @@
 ## 📍 Dónde estoy hoy — siguiente paso
 
 > Última actualización: 18-abr-2026, tras publicar #5 *[Humanoides domésticos 2026 comparativa](https://robohogar.com/p/humanoides-domesticos-2026-comparativa)*.
+
+### 📌 Próximos 3 next steps
+
+> Plantilla viva. `/post-publish` y `/pdf-brand` **deben** actualizar estos 3 bullets al completar tareas (marcar el completado · añadir el siguiente desde backlog de `calendario-editorial.md` · actualizar "Último artículo" / "Último tangible" en [[#🎯 Roadmap actual (abr 2026)\|🎯 Roadmap actual]]). Si los 3 están marcados al abrir una sesión, tirar del backlog de calendario.
+
+- [ ] **Next 1 —** Publicar artículo #7 *"Mejor robot aspirador 2026 · Guía de compra"* con Content Gate · frase trigger: *"Retomamos sprint — artículo #7"* · ruta: `content/articulos/mejor-robot-aspirador-2026/borrador.html`
+- [ ] **Next 2 —** Primera flash Ficciones Domésticas *"El operador nocturno"* (teleoperación NEO + deal EQT) · frase trigger: *"Retomamos ficciones — arrancar piloto"* · `/ficcion-draft`
+- [ ] **Next 3 —** Activar FASE 4B distribución (≥7 artículos publicados) · frase trigger: *"Retomamos distribución 4B — tócame los hilos Reddit activos"* · ver [[#FASE 4B: Distribución activa (0-50 subs)|FASE 4B]]
+
+**Último artículo publicado:** #6 *Samsung Jet Bot Steam Ultra review* (2026-04-18).
+**Último tangible publicado:** Hoja de Compra v2 PDF (2026-04-18) → `content/lead-magnets/hoja-compra/`.
+
 
 ### 🌍 Filtro mercado ES — regla base
 
@@ -1435,7 +1469,43 @@ Automatizar TODO excepto juicio editorial y voz. Rafael decide QUÉ contar y CÓ
 
 ## FASE 6: Métricas y Revisión
 
-### Qué rastrear
+### 📊 SLOs por fase + trigger de optimización
+
+Servicio mínimo por fase. Si se incumple 2 semanas seguidas → disparar trigger de optimización.
+
+| Fase | Rango subs | SLO semanal | SLO mensual | Señal de escalado |
+|---|---|---|---|---|
+| **F1** (actual) | 0-50 | 1 artículo publicado · 1 post social si toca | 1 tangible PDF · 1 ficción quincenal | ≥30 subs → activar newsletter semanal |
+| **F2** | 50-500 | 1 artículo · 1 newsletter · 3 posts social | 2 tangibles · 1 ficción | ≥200 subs → expandir welcome flow a 4 emails |
+| **F3** | 500-5K | 2 artículos · 1 newsletter · 5 posts social | 3 tangibles · 2 ficciones · 1 ebook recopilatorio | ≥5K → activar paywall ROBOHOGAR+ |
+
+#### ⚠️ Trigger de optimización
+
+Si 2 semanas seguidas se incumple el SLO semanal **o** el open rate cae >20% vs baseline de las 4 semanas previas:
+
+Frase trigger: ***"Trigger optimización ROBOHOGAR"***.
+
+Claude corre esta checklist y propone 3 cambios concretos antes de seguir produciendo:
+
+- [ ] Revisar titulares de los últimos 4 artículos (¿hay patrón común que pierda click?) contra `@references/writewithai/01-voz-y-estructura.md`
+- [ ] Revisar subject lines de los 4 últimos envíos (¿cortos? ¿curiosos? ¿clickbait?) contra `@rules/newsletter.md § Subject Lines`
+- [ ] Revisar CTA del lead-magnet en home + OG cards — ¿cifra en subtítulo? ¿banner visible? Contra `@rules/tangibles.md § Reglas operativas`
+- [ ] Revisar distribución — ¿se están tocando los canales de FASE 4B (Reddit + Menéame + Beehiiv Boosts) con la cadencia mínima?
+- [ ] Revisar si el último tangible generó sign-ups (Beehiiv Digital Product stats)
+
+**Output:** 3 cambios concretos con frase trigger propia. Rafael decide cuáles aplicar la siguiente semana.
+
+### 📅 Tabla semanal viva (mirror local de Beehiiv)
+
+Rellenar cada lunes (ritual *"Ritual lunes — digest + métricas"*). 2 minutos copiando de Beehiiv Dashboard + Amazon Afiliados.
+
+| Semana | Subs netos | Open rate | CTR | Artículos pub | Tangibles pub | Revenue afiliado | Nota |
+|---|---|---|---|---|---|---|---|
+| 2026-04-13 a 19 | — | — | — | 2 (#5 humanoides, #6 Samsung vapor) | 1 (Hoja de Compra v1/v2) | — | Sprint tangibles + pivote Cole. Primer PDF vivo. |
+| 2026-04-20 a 26 | | | | | | | |
+| 2026-04-27 a 03-may | | | | | | | |
+
+### Qué rastrear (referencia)
 
 | Métrica | Dónde | Objetivo mes 3 | Objetivo mes 12 |
 |---|---|---|---|
@@ -1505,6 +1575,26 @@ Cada primer lunes del mes, dedicar 30 min a esto:
 ---
 
 ## FASE 7: Post-lanzamiento y mantenimiento con Claude Code
+
+### 🛠 Mantenimiento preventivo del repo — `/pipeline-debug`
+
+Skill repetible para auditar el pipeline end-to-end. Invocar último viernes de cada mes (ya programado en [[#🗓 Schedule semanal fijo|§ 🗓 Schedule semanal fijo]]) o cuando se introduzca novedad mayor (nuevo skill, pivote editorial, formato nuevo).
+
+**Frases trigger:**
+
+| Qué quiero | Frase exacta |
+|---|---|
+| Audit completo del repo | **"/pipeline-debug"** o **"pipeline debug"** |
+| Audit limitado a un área | **"/pipeline-debug tangibles"** (o `skills`, `rules`, `refs`, `memory`, `docs`, `schedule`) |
+| Audit con foco en cambios recientes | **"/pipeline-debug full since:YYYY-MM-DD"** |
+
+**Output:** report markdown en `content/pipeline-debug-reports/<YYYY-MM-DD>-<scope>-debug.md` con hallazgos priorizados 🔴/🟡/🟢 + propuesta de 3 next steps para pegar en [[#📌 Próximos 3 next steps|§ 📌 Próximos 3 next steps]]. El skill NO edita el repo — sólo reporta.
+
+**Baseline de cobertura:** ejercicio manual fundacional 2026-04-19 en `content/pipeline-debug-reports/2026-04-19-full-debug.md`. Cada ejecución automática posterior se compara contra éste para calibrar la cobertura de los prompts de agentes.
+
+Definición completa: [`.claude/commands/pipeline-debug.md`](../.claude/commands/pipeline-debug.md).
+
+
 
 ### Workflow semanal (~30-60 min con Claude Code)
 

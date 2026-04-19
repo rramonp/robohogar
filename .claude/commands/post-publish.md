@@ -45,6 +45,37 @@ grep -c 'class="image-optional"' content/articulos/<slug>/borrador.html
 cp content/articulos/<slug>/borrador.html content/published/YYYY-MM-DD-<slug>.html
 ```
 
+### 2.5. Validación tangibles — OBLIGATORIO (bloqueante)
+
+Verificar que el borrador cumple las reglas de `@rules/tangibles.md` y [`content-draft.md §8.7 + §8.8`](content-draft.md) antes de archivar. Si alguna falla, **PARAR y pedir a Rafael que reescriba o ajuste** antes de continuar con los pasos 3-14.
+
+```bash
+# (a) Banner lead-magnet insertado si el artículo es consumer
+# Leer frontmatter.category del borrador
+CATEGORY=$(grep -E "^category:" content/articulos/<slug>/borrador.html | head -1 | sed 's/.*: //')
+if [[ "$CATEGORY" =~ ^(aspirador|cortacésped|mascota-robot|fregasuelos|limpia-cristales)$ ]]; then
+  BANNER_COUNT=$(grep -c 'class="banner-lead-magnet"' content/articulos/<slug>/borrador.html)
+  if [[ "$BANNER_COUNT" -lt 1 ]]; then
+    echo "❌ Artículo consumer ($CATEGORY) sin banner lead-magnet — reinsertar con el snippet de content/templates/banner-lead-magnet.html"
+    exit 1
+  fi
+fi
+
+# (b) Subtítulo menciona el tangible con cifra (regex: checklist/tabla/guía seguido de <40 chars + dígito)
+SUBTITLE=$(grep -E '<p class="subtitle">' content/articulos/<slug>/borrador.html | head -1)
+echo "$SUBTITLE" | grep -qE '(checklist|tabla|guía)[^<]{0,40}[0-9]+' || echo "⚠️  Subtítulo sin cifra/tangible concreto — revisar antes de publicar (regla tangibles.md § Promoción en subtítulo)"
+
+# (c) Si el artículo referencia un tangible nuevo (slug en content/lead-magnets/<slug_tangible>/), verificar que beehiiv-ficha.md existe
+for LM in $(grep -oE 'lm=[a-z0-9-]+' content/articulos/<slug>/borrador.html | sort -u | sed 's/lm=//'); do
+  if [[ -d "content/lead-magnets/$LM" && ! -f "content/lead-magnets/$LM/beehiiv-ficha.md" ]]; then
+    echo "❌ Tangible $LM referenciado sin beehiiv-ficha.md — regenerar con /pdf-brand <variante> $LM"
+    exit 1
+  fi
+done
+```
+
+Reportar resultado a Rafael antes de continuar al paso 3.
+
 ### 3. Archivar variantes de hero no usadas
 
 Mover todas las variantes de hero excepto la elegida (PNG + WebP) a `assets/_archive/`:
@@ -55,12 +86,28 @@ mkdir -p content/articulos/<slug>/assets/_archive
 ```
 Las variantes quedan accesibles en disco para re-usar como referencia visual o recuperación rápida sin necesidad de git. Nunca borrar — la regla del repo es archivar, no eliminar.
 
-### 4. Actualizar guia-implementacion.md
+### 4. Actualizar guia-implementacion.md (tablero vivo)
 
-Marcar todos los checkboxes del artículo como completados y añadir la URL publicada:
+Actualizar [`docs/guia-implementacion.md`](../../docs/guia-implementacion.md) en 3 lugares para mantener el tablero sincronizado con el pipeline. Reglas del tablero vivo: `docs/guia-implementacion.md § 🗓 Schedule semanal fijo § Regla de oro`.
+
+**(a) Marcar checkboxes del sprint** en `§ 📍 Dónde estoy hoy — siguiente paso` correspondientes al artículo recién publicado:
 ```
 - [x] Publicado → <URL>
 ```
+
+**(b) Actualizar `§ 📍 Dónde estoy hoy § 📌 Próximos 3 next steps`:**
+1. Marcar el bullet que correspondía al artículo publicado como `- [x]`.
+2. Añadir un bullet nuevo al final tirando del backlog en [`content/calendario-editorial.md § Backlog`](../../content/calendario-editorial.md). Mantener siempre 3 bullets activos desmarcados (o 2 sin marcar + 1 recién marcado esperando commit).
+3. Respetar el formato exacto: `- [ ] **Next N —** <acción> · frase trigger: *"<frase>"* · ruta: \`<archivo>\``.
+4. Actualizar al final de la sección **"Último artículo publicado:"** con el número, título y fecha del artículo recién publicado.
+
+**(c) Actualizar `§ 🎯 Roadmap actual § Prioridad 1`:**
+- Bumpear el contador "X → Y artículos publicados" si aplica.
+- Actualizar la línea "Último: [título](URL) (YYYY-MM-DD)" en la sección de estado al principio del Roadmap.
+
+**(d) Si el artículo promociona un tangible nuevo o una versión nueva de tangible existente**, actualizar también `§ 🎯 Roadmap actual § Prioridad 3 Tangibles — Primer tangible activo` con la referencia (slug + versión).
+
+**Regla anti-desfase:** si después de estos cambios los 3 next steps están todos marcados `[x]`, **parar y avisar a Rafael** — el backlog de calendario-editorial necesita refresh antes de continuar.
 
 ### 5. Actualizar registro de artículos (OBLIGATORIO)
 
@@ -75,6 +122,29 @@ Para el campo `Evergreen`:
 - Este flag lo consume `/social-content` para saber si el artículo va al backlog de repurposing social (FASE 4B+)
 
 Este archivo se sincroniza a Obsidian automáticamente en el paso 12.
+
+### 5.5. Asignar tags Beehiiv (manual copy-paste)
+
+Beehiiv no expone API pública para tags desde el repo, así que este paso genera el copy-paste exacto para Rafael.
+
+Consultar la tabla maestra en [`@rules/automation.md § Tags Beehiiv ROBOHOGAR`](../rules/automation.md) y emitir:
+
+```
+📋 TAGS A ASIGNAR EN BEEHIIV POST SETTINGS:
+
+Post: <título>
+URL: <URL>
+
+Tags a marcar:
+1. <tag-categoría> ← según frontmatter.category
+2. <tag-tangible> ← si el artículo promociona un tangible vía banner (ej. "tangible-hoja-compra")
+[+ cualquier tag extra si el artículo cruza categorías]
+
+Automation que se disparará:
+- <descripción de la automation activa o "(ninguna todavía)">
+```
+
+Mostrar a Rafael este bloque al final del paso 5. Pedir confirmación: "¿tags asignados en Beehiiv?" antes de continuar al paso 6. Si Rafael dice "no todavía", anotarlo en el resumen final (paso 14) y continuar.
 
 ### 6. Regenerar llms.txt
 

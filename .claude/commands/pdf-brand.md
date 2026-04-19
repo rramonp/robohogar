@@ -194,12 +194,23 @@ configurar el Digital Product en Beehiiv (5 min copy-paste).
 
 Cada variante nueva reusa `brand.css` + validators + export PDF y solo cambia el template Jinja2.
 
+## Paso final — Actualizar tablero vivo en guia-implementacion.md
+
+Tras generar el PDF + ficha Beehiiv + previews PNG y reportar paths, actualizar [`docs/guia-implementacion.md`](../../docs/guia-implementacion.md) en 2 lugares (reglas: `§ 🗓 Schedule semanal fijo § Regla de oro`):
+
+**(a) `§ 📍 Dónde estoy hoy`** — actualizar la línea **"Último tangible publicado:"** al final de la sección con el slug + versión recién generados: *"<slug> v<N> (YYYY-MM-DD) → `content/lead-magnets/<slug>/`"*.
+
+**(b) `§ 🎯 Roadmap actual § Prioridad 3 — SISTEMA DE TANGIBLES § Primer tangible activo`** — bumpear el contador si es un tangible nuevo (no una regeneración del mismo). Si es regeneración (ej. Hoja de Compra v3 tras v2), añadir el bump de versión: *"Hoja de Compra ROBOHOGAR (PDF 4pp, v3 validada YYYY-MM-DD)"*.
+
+**(c) `§ 📍 Dónde estoy hoy § 📌 Próximos 3 next steps`** — si el tangible recién generado corresponde a uno de los bullets activos, marcarlo `- [x]` y tirar del siguiente del backlog (`@rules/tangibles.md § Mapeo momento del funnel` + `content/calendario-editorial.md`).
+
 ## Rules
 
 - **NO sobreescribir versiones existentes sin `force=True`** (regla no-sobrescritura).
 - **Validator duro de tangibles** (sin bypass): si el HTML matchea una prohibición → error, Rafael corrige.
 - **Siempre genera preview PNGs** tras el PDF para que Rafael pueda revisar visualmente sin abrir el PDF.
 - **El `contenido.md` es fuente de verdad**: si el PDF necesita cambios, editar el markdown primero, regenerar después.
+- **Tablero vivo obligatorio:** el paso "Actualizar tablero vivo en guia-implementacion.md" es parte del skill, no opcional.
 
 ## Fuentes y referencias
 

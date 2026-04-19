@@ -83,7 +83,8 @@ Skills invocables (definidos en `.claude/commands/`). Pipeline principal en orde
 
 Skills secundarios:
 - `/ficcion-draft` — relatos cortos Ficciones Domésticas (pilar ~10%)
-- `/pdf-brand cheatsheet <slug>` — genera tangibles PDF con marca (lead magnets) desde `content/lead-magnets/<slug>/data.py`. Variantes restantes (comparativa/guia/relato) pendientes activación por demanda. Ver `.claude/commands/pdf-brand.md`.
+- `/pdf-brand cheatsheet <slug>` — genera **PDF tangible + ficha Beehiiv Digital Product** con marca (lead magnets) desde `content/lead-magnets/<slug>/data.py`. Validators bloquean roadmap futuro / fechas de revisión / byline personal automáticamente. Variantes restantes (comparativa/guia/relato) pendientes activación por demanda. Ver `.claude/commands/pdf-brand.md`.
+- `/pipeline-debug [scope]` — auditoría repetible del repo (skills, rules, refs, tangibles, memoria, docs, schedule). Invocar al introducir novedad mayor o cada 4-6 semanas como mantenimiento preventivo. Genera report en `content/pipeline-debug-reports/`.
 - `/workflow-excalidraw` — diagramas de flujo (uso ocasional)
 
 ## Commits

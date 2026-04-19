@@ -182,22 +182,11 @@ Template origen: `content/templates/PASOS-template.md`. Script: `utilities/gener
 
 ### 8.5. Anti-IA checklist §1 Universal — OBLIGATORIO antes de entregar borrador
 
-Cargar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) **§1 Universal** (la §2 Ficción no aplica aquí — solo relatos). Correr sobre el `borrador.html` generado:
+Cargar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) **§1 Universal completo** (§1.1 lista negra de palabras, §1.2 tricolon/em-dashes/contrast, §1.3 clichés sensoriales, §1.4 voz plural) y correrlo sobre el `borrador.html`. La §2 Ficción NO aplica aquí — solo relatos.
 
-1. [ ] Búsqueda literal de cada palabra/frase de §1.1 (*tapiz, entramado, intrincado, matizado, tejer, susurrar, danzar, navegar metafórico, en última instancia, al final del día, cabe destacar, en el ámbito de, un testamento a/de, se entrelaza, simplemente, básicamente, verdaderamente, realmente*, etc.). Si cualquier término aparece >1 vez → **flag**.
-2. [ ] Conteo de tricolon ("A, B y C"). Si >2 en el texto → flag.
-3. [ ] Conteo de em-dashes (—). Si >1 por párrafo o >3 total → flag.
-4. [ ] Contrast framing ("no es solo X, es Y"). Si >1 vez → flag.
-5. [ ] Clichés sensoriales §1.3 (*olor a café, luz dorada de la tarde, sonrisa tímida, mirada perdida*). Si alguno aparece → flag salvo justificación.
-6. [ ] Muestreo de 3 frases aleatorias: ¿son específicas (dato concreto, nombre, cifra) o genéricas? Si las 3 son genéricas → reescribir con especificidad Chiang.
-7. [ ] Voz plural ROBOHOGAR en texto expositivo (salvo bio autor). Si hay 1ª persona singular no autorizada → flag.
+**Regla de decisión:** ≥3 flags → rechazar output y reescribir · 1-2 flags → reescribir líneas ofensivas y re-correr · 0 flags → proceder al paso 9.
 
-**Regla de decisión**:
-- ≥3 flags → **rechazar output**, reescribir líneas ofensivas, volver a correr checklist.
-- 1-2 flags → reescribir esas líneas concretas y re-correr.
-- 0 flags → proceder a paso 9.
-
-Esta checklist NO reemplaza las reglas de `editorial.md` (voz, autoridad propia, prohibiciones). Se suma a ellas.
+Complementa (no sustituye) las prohibiciones de `@rules/editorial.md` (autoridad propia, primera persona plural, filtro ES).
 
 ### 8.6. Formato técnico Beehiiv — OBLIGATORIO antes de entregar borrador
 
@@ -228,34 +217,37 @@ Aplicar [`@rules/tangibles.md § Reglas operativas`](../../.claude/rules/tangibl
 
 **Rechazo automático:** si el borrador sale sin checklist/tangible accionable O con subtítulo/meta_description genéricos sin cifra → bloquear y reescribir. No entregar "pendiente de añadir checklist" en PASOS.md.
 
-### 8.8. Banner lead magnet "Hoja de Compra" — obligatorio en artículos consumer
+### 8.8. Banner lead magnet — INSERCIÓN AUTOMÁTICA (paso ejecutable)
 
-Aplicar desde 2026-04-18 el patrón de promoción del tangible Hoja de Compra en artículos nuevos según categoría:
+**Activado como paso ejecutable desde 2026-04-19.** `/content-draft` debe emitir el `borrador.html` con el banner YA insertado en las posiciones correctas. No diferir a Rafael. No "recordar pegar". El HTML que sale del skill es el HTML final listo para Beehiiv.
 
-| Categoría del artículo | Banner automático | Posiciones |
-|---|---|---|
-| Aspirador · cortacésped · mascota-robot · fregasuelos · limpia-cristales · consumer mainstream | ✅ Sí, obligatorio | 1 (tras intro) + 1 (tras veredicto) en artículos >1.500 palabras · 1 al final en artículos cortos |
-| Review / comparativa / guía de compra de las categorías anteriores | ✅ Sí, obligatorio | Idem |
-| Humanoides domésticos | ❌ No (tangible específico pendiente — "Guía early adopter humanoides") | — |
-| Ficciones Domésticas | ❌ No (dossier propio pendiente — no mezclar canales narrativos con CTA comercial) | — |
-| Editorial/opinión genérico sin ángulo de compra | ❌ No | — |
+**Algoritmo (aplicar al generar el borrador):**
 
-**Fuente del snippet:** [`content/templates/banner-lead-magnet.html`](../../content/templates/banner-lead-magnet.html) (variante DARK oficial). Sustituir `<SRC_SLUG>` por el slug del artículo para tracking UTM.
+1. **Leer `frontmatter.category`** del borrador en generación (ej: `aspirador`, `cortacésped`, `humanoide`, `ficcion`, `editorial`).
+2. **Leer word count** estimado del borrador.
+3. **Decidir según tabla:**
 
-**Integración en el borrador HTML que entrega `/content-draft`:**
+   | `category` | Banner | Posiciones a insertar |
+   |---|---|---|
+   | `aspirador`, `cortacésped`, `mascota-robot`, `fregasuelos`, `limpia-cristales` | ✅ Sí | Si words >1.500: **intro + cierre**. Si words ≤1.500: **solo cierre**. |
+   | `humanoide` | ❌ No | — (tangible "Guía early adopter humanoides" pendiente) |
+   | `ficcion` | ❌ No | — (canal narrativo, no mezclar con CTA comercial) |
+   | `editorial` sin ángulo de compra | ❌ No | — |
 
-Cuando el artículo sea de categoría consumer (aspirador/cortacésped/mascota-robot/fregasuelos), insertar el bloque exacto del template en las 2 posiciones recomendadas:
+4. **Insertar snippet de [`content/templates/banner-lead-magnet.html`](../../content/templates/banner-lead-magnet.html)** en las posiciones marcadas:
+   - **Posición intro:** tras el callout de intro amber, antes del primer `<h2>` de contenido.
+   - **Posición cierre:** tras el bloque "Nuestro veredicto", antes del CTA gris de suscripción.
+5. **Sustituir `<SRC_SLUG>`** por el slug del artículo (`frontmatter.slug`) para tracking UTM → `?lm=hoja-compra&src=<slug>`.
+6. **Comentarios HTML pre/post** para localización rápida: `<!-- BANNER LEAD MAGNET · posición intro -->` y `<!-- BANNER LEAD MAGNET · posición cierre -->`.
 
-- **Tras el callout de intro amber** y antes del primer `<h2>` de contenido → `<!-- BANNER LEAD MAGNET · posición intro -->`.
-- **Tras el bloque "Nuestro veredicto"** y antes del CTA gris final de suscripción → `<!-- BANNER LEAD MAGNET · posición cierre -->`.
+**Verificación pre-output:** antes de cerrar el skill, contar ocurrencias de `class="banner-lead-magnet"` en el HTML generado. Debe ser:
+- 0 si `category ∈ {humanoide, ficcion, editorial}`
+- 1 si categoría consumer y words ≤1.500
+- 2 si categoría consumer y words >1.500
 
-El placeholder `<SRC_SLUG>` se sustituye por el slug del artículo que se está generando (extrae del frontmatter `slug: ...`).
+Si el conteo no coincide con la matriz → auto-corregir antes de entregar.
 
-**Ejemplos de slugs ya activos:** `samsung-jet-bot-steam-ultra-review`, `roborock-saros-z70-review`, `mejor-robot-asistente-ia-2026`.
-
-**PASOS.md:** documentar que el banner va en ambas posiciones + recordar a Rafael que debe pegar el snippet al post en Beehiiv (hasta que se automatice vía API en fase futura).
-
-**Versionado futuro:** si aparece un nuevo tangible (ej. Guía primer mes aspirador, Glosario ROBOHOGAR), actualizar esta sección 8.8 con la tabla extendida (categoría → tangible recomendado). En fase 2 tangibles, articulo puede tener 2 banners distintos (1 por momento de funnel).
+**Versionado futuro:** si aparece un nuevo tangible (ej. Guía primer mes aspirador, Glosario ROBOHOGAR), ampliar la tabla de arriba (categoría → tangible → posición) y los snippets en [`banner-lead-magnet-snippets.md`](../../content/templates/banner-lead-magnet-snippets.md). Un artículo puede llevar 2 banners distintos (1 por momento de funnel — ver `@rules/tangibles.md § Mapeo momento del funnel`).
 
 ### 9. Prohibiciones
 

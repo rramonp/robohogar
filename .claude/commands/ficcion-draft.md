@@ -219,29 +219,11 @@ Si hay issues → reescribir líneas ofensivas antes de output final. Si bible a
 
 ### 8. Anti-IA checklist — OBLIGATORIO antes de output
 
-Cargar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) y correr sobre el borrador completo:
+Cargar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) completo y correr **§1 Universal + §2 Ficción** sobre el borrador. Ambas secciones son obligatorias en ficción (§2 añade: cero thought verbs Palahniuk, cliffhanger emocional/moral no físico, POV coherente, 1 detalle raro Chiang por escena, diálogo con imperfecciones, dato real anclado).
 
-**§1 Universal** (aplica a todo contenido ROBOHOGAR):
-1. [ ] Búsqueda literal de cada palabra/frase de §1.1 (*tapiz, entramado, intrincado, matizado, tejer, susurrar, danzar, navegar metafórico, en última instancia, al final del día, cabe destacar, en el ámbito de, un testamento a/de*, etc.). Si cualquiera aparece >1 vez → flag.
-2. [ ] Conteo de tricolon ("A, B y C"). Si >2 en el texto → flag.
-3. [ ] Conteo de em-dashes (—) en narrativa expositiva. Si >1 por párrafo o >3 total → flag.
-4. [ ] Contrast framing ("no es solo X, es Y"). Si >1 vez → flag.
-5. [ ] Clichés sensoriales §1.3 (*olor a café, luz dorada de la tarde, sonrisa tímida, mirada perdida*). Si alguno aparece → flag salvo justificación.
-6. [ ] Muestreo de 3 frases aleatorias: ¿son específicas o genéricas? Si las 3 son genéricas → reescribir con especificidad Chiang.
+**Regla de decisión:** ≥3 flags → rechazar output y reescribir · 1-2 flags → reescribir líneas ofensivas y re-correr · 0 flags → proceder al paso 9.
 
-**§2 Ficción-específica**:
-7. [ ] Cero **thought verbs** en narración: *pensó, sintió, supo, creyó, entendió, notó, se dio cuenta de que, recordó, decidió, quiso, deseó, temió, esperaba*. Permitido en diálogo interno con máx 1 por escena. Dramatizar en gestos/acciones.
-8. [ ] **Cliffhanger emocional/moral**, NO físico. Si el cierre es peligro inminente / persecución / amenaza corporal → rechazar y replantear desde Paint The Villain.
-9. [ ] **Voz narrativa**: omnisciente 3ª persona O 1ª persona del personaje POV. Plural ROBOHOGAR ("hemos/os/nos") PROHIBIDO dentro del relato.
-10. [ ] **Tiempo verbal consistente** dentro de cada escena.
-11. [ ] **1 detalle raro específico** por escena principal (test Chiang: un detalle que solo estaría ahí).
-12. [ ] **Diálogo con imperfecciones** (contracciones, titubeos, frases incompletas). Si suena pulido uniforme → flag.
-13. [ ] **Dato real anclado** citado en comentario HTML invisible o en PASOS.md.
-
-**Regla de decisión**:
-- ≥3 flags encendidos → **rechazar output**, reescribir líneas ofensivas, volver a correr el checklist.
-- 1-2 flags → reescribir esas líneas concretas y re-correr.
-- 0 flags → proceder al paso 9.
+Complementa las excepciones de voz ficción en `@rules/editorial.md § Narrativa especulativa`.
 
 ### 8.5. Formato técnico Beehiiv — OBLIGATORIO antes de output
 
@@ -373,6 +355,7 @@ Debe contener:
 - **Downstream (consume output de este skill):**
   - `@.claude/commands/post-publish.md` → limpieza tras publicar episodio
   - `@.claude/commands/social-content.md` → posts de redes anunciando el episodio
+  - `@.claude/commands/pdf-brand.md` → **pendiente F2:** cuando la variante `/pdf-brand relato` esté activa, generar mini-poster PDF del relato (ilustración hero + quote memorable + dato real ancla + firma ROBOHOGAR). Roadmap en `@rules/tangibles.md § Mapeo contenido→tangible`. Mientras no exista, el tangible de ficción es inline (quote destacado + dato real en caja crema) y el ebook recopilatorio queda diferido a ~500 subs.
 - **Knowledge/soporte:**
   - Knowledge base completa: `@references/writewithai/07-ficcion-y-narrativa-serializada.md`
   - **Bible maestra (catálogo de series + canon transversal):** `@references/ficciones/series-bible-maestra.md`
