@@ -90,11 +90,12 @@ Todo botón/CTA de lead magnet (banner en artículo, ficha Beehiiv Digital Produ
 **Formato:** inline separado por `·` (punto medio con espacios), minúsculas, sin punto final. Máximo ~80 caracteres — debe caber en una línea a 375px; si hace wrap que corte en `·`.
 
 **Default canónico ROBOHOGAR (Hoja de Compra y derivados):**
-> `PDF gratis · te suscribes a la newsletter · baja cuando quieras`
+> `PDF gratis · newsletter semanal · baja cuando quieras`
 
-Elegido 2026-04-19 por consistencia con el modelo Beehiiv Digital Product (la descarga suscribe sí o sí — ocultarlo con eufemismos eleva spam reports en F1), alineación con brand voice ("amigo techie sin hype") y cumplimiento del espíritu GDPR/LOPDGDD + Write With AI CTA no-spammy.
+Elegido 2026-04-19 por consistencia con el modelo Beehiiv Digital Product (la descarga suscribe sí o sí — ocultarlo con eufemismos eleva spam reports en F1), alineación con brand voice ("amigo techie sin hype"), cadencia explícita (el lector sabe qué recibe) y cumplimiento del espíritu GDPR/LOPDGDD + Write With AI CTA no-spammy. Ritmo homogéneo (3 sintagmas nominales cortos) — la variante con cláusula verbal "te suscribes a la newsletter" fue rechazada por Rafael por romper el ritmo del punto medio.
 
 **Variantes descartadas (documentadas como anti-patterns):**
+- `PDF gratis · te suscribes a la newsletter · baja cuando quieras` — Rechazada: cláusula verbal central rompe el ritmo con los dos sintagmas laterales; suena a formulario, no editorial.
 - `PDF · 2 páginas · gratis · te das de baja en un clic` — Rechazada: oculta la suscripción; riesgo de disonancia en el primer welcome email.
 - `Gratis · directo al email · sin letra pequeña` — Rechazada: "sin letra pequeña" es vago; "directo al email" no es elemento obligatorio.
 
