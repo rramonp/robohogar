@@ -45,7 +45,7 @@ El crossover **nunca exige haber leído la otra serie**; debe funcionar standalo
 - **"ReboteTech"** — empresa refurbished madrileña. Villana recurrente (aparece en Amparo, potencialmente Brigada).
 - **"Toyminds Barcelona"** — fabricante de robots de compañía infantil (modelos KIKI). Aparece en Lúa.
 - **"Ronda Municipal"** — programa municipal de robots domésticos compartidos, ofrecido en ayuntamientos concretos bajo Ley de Dependencia. Aparece en Ronda 3.
-- **Modelos reales** (aspiradoras, cortacésped) se mencionan cuando sea relevante (Roborock, Dreame, Ecovacs, etc.), pero los humanoides son siempre marcas ficticias (para libertad narrativa + evitar problemas legales).
+- **Modelos comerciales reales de robótica doméstica** (Dreame, Roborock, Ecovacs, Cecotec, Xiaomi, iRobot, Samsung Bespoke, Unitree, 1X, Figure, Neura, Optimus, etc.) **NUNCA aparecen en la prosa del narrador**. Regla actualizada 2026-04-19 tras rechazo explícito de Rafael: mezclar nombres de modelo reales con historias es promo glorificada, no ficción — rompe "Black Mirror invertido" y suena creepy. Ver [`.claude/rules/editorial.md § Narrativa especulativa — SIN MARCAS COMERCIALES`](../../.claude/rules/editorial.md). En narrador: solo genéricos ("el aspirador") o ficticios del canon (Tico, Hugo, RONDA-3, Eva, MAIA, modelos HOGAR-X de Doméstica Ibérica, KIKI de Toyminds). En diálogo se permite mención puntual de una marca real en boca de personaje si es verosímil (*"yo el Roomba de toda la vida"*). Marcas no-robótica (móvil viejo de un personaje, lavadora de siempre) quedan exentas como caracterización.
 
 ---
 

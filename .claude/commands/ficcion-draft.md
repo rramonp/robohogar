@@ -276,7 +276,8 @@ Checklist rápida sobre el texto del relato (excluyendo contenido entre comillas
 - [ ] 0 saludos anglo fuera de diálogo: `Hola X,` + nombre · `Querido/a lector/a` · `Hey` · `Espero que estés bien`
 - [ ] 0 cierres anglo: `Cheers` · `Best` · `Atentamente`
 - [ ] Em-dash (`—`) permitido en narración (es puntuación editorial ES legítima); prohibido en trust-lines <15 palabras si el relato incluye CTA/landing.
-- [ ] **Curse of knowledge en NARRADOR** (no en diálogo): acrónimos/jerga técnica/nombres de modelo del universo ficcional deben tener contexto mínimo la primera vez que aparecen en la voz del narrador. Ej: `"el Qrevo Curv 2"` → `"el Qrevo Curv 2, el aspirador nuevo de la cocina"`. En diálogo se relaja — un personaje puede hablar técnico sin explicar, es verosímil. Ver `@rules/editorial.md § Curse of knowledge`.
+- [ ] **Curse of knowledge en NARRADOR** (no en diálogo): acrónimos/jerga técnica del universo ficcional deben tener contexto mínimo la primera vez que aparecen en la voz del narrador. Ej: `"el LiDAR"` → `"el LiDAR, el láser que gira buscando muros"`. En diálogo se relaja — un personaje puede hablar técnico sin explicar, es verosímil. Ver `@rules/editorial.md § Curse of knowledge`.
+- [ ] **SIN marcas comerciales reales en narrador.** 0 apariciones de `Dreame | Roborock | Ecovacs | Samsung | Cecotec | Xiaomi | iRobot | Roomba | Mova | Unitree | 1X | Figure | Agility | Apptronik | Neura | Sanctuary` en prosa/descripción/narrador. Permitido excepcionalmente en diálogo con parsimonia. Usar robots ficticios del canon ROBOHOGAR (Tico, Hugo, Eva, RONDA-3, MAIA) o categorías genéricas ("el aspirador", "el humanoide de cuidados"). Ver `@rules/editorial.md § Narrativa especulativa — SIN MARCAS COMERCIALES`.
 
 Si hay violación en narrador → reescribir. Si es en diálogo → validar que sea verosímil, no tic del narrador infiltrado en la voz del personaje.
 

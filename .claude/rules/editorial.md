@@ -46,7 +46,12 @@ Concepto de Steven Pinker (*The Sense of Style*, Harvard): *"the difficulty that
 
 **No aplica a segundas menciones.** Una vez expandido en primera mención, el siguiente uso puede ir abreviado. *"El Dreame X50 Ultra (gama alta 2026) es el ganador. El X50 sube umbrales mejor que el Roborock."* — OK. El lector ya lo tiene contextualizado.
 
-Aplicable a artículos (reviews, comparativas, guías, editoriales) y a la prosa narrativa de ficciones (no al diálogo — un personaje puede hablar con la jerga que le toque). Heredado por `/content-draft § 9 Prohibiciones` y `/ficcion-draft § 8.2`.
+**Alcance por tipo de contenido:**
+- **Artículos (reviews, comparativas, guías, editoriales):** aplica todo — acrónimos, nombres de modelo con marca + categoría + año, jerga anglo, regulación.
+- **Ficción (prosa narrativa del narrador):** aplica solo a acrónimos/jerga/regulación. **NO usar nombres de modelo comerciales reales** — eso es otra regla distinta (`§ Narrativa especulativa — SIN MARCAS COMERCIALES`). Los ejemplos de contextualización para ficción usan categorías genéricas ("el aspirador", "el humanoide") o personajes del canon ROBOHOGAR (Tico, Hugo, Eva, RONDA-3, MAIA).
+- **Diálogo de ficción:** se relaja — un personaje puede hablar con la jerga que le toque sin explicar. Es verosimilitud.
+
+Heredado por `/content-draft § 9 Prohibiciones` y `/ficcion-draft § 8.2`.
 
 ## Apertura y cierre del cuerpo del email — anti-anglicismos
 
@@ -95,6 +100,21 @@ Pilar experimental (~10% del content mix). Relatos cortos de ciencia ficción do
 - **Obligatorio:** anclar cada relato en ≥1 dato real (AI Act, INE, spec técnica de un robot que existe). Sin dato real → fantasía genérica, se rechaza
 - **Villano:** el robot NUNCA es el villano. El villano es el problema humano (soledad, burnout, brecha digital) que el robot revela o amplifica
 - **Exención:** palabras "prohibidas" de la línea baseline (superlativos) permitidas solo en diálogo irónico de un personaje
+- **SIN MARCAS COMERCIALES REALES de ROBÓTICA DOMÉSTICA en la prosa del narrador.** Rechazado por Rafael 2026-04-19 con palabras literales: *"mezclar Dreame X50 con historias reales = creepy. Quiero buenas novelas cortas con temática inversión de Black Mirror, no una promo glorificada que no me da ningún rédito"*.
+  - **Alcance exacto**: categorías de producto que ROBOHOGAR analiza comercialmente en artículos — **aspiradores-robot, humanoides domésticos, cortacéspedes-robot, fregasuelos, limpia-cristales, mascotas robot, drones domésticos, brazos robóticos de cocina**. Marcas concretas vetadas en narrador: `Dreame | Roborock | Ecovacs | Cecotec | Xiaomi | iRobot | Roomba | Mova | Eufy | Dyson | Neato | Samsung (Bespoke Jet Bot) | LG (CordZero) | Philips (Homerun) | Unitree | 1X | Figure | Agility | Apptronik | Neura | Sanctuary | Kawasaki | Tesla Optimus | Loona | LOOI | Aibo`.
+  - **NO aplica** a marcas de electrodomésticos no-robóticos ni móviles/TVs que aparecen como **caracterización del personaje** (el móvil viejo de una yaya, la lavadora de siempre, el Roomba que el tío tenía en 2015 antes de la acción). Eso es prosa cotidiana ES, no promo. Validado 2026-04-19 sobre el Samsung A13 de Amparo en `content/ficciones/la-casa-de-amparo/character-bible.md`.
+  - ✅ **Permitido en narrador**: robots **genéricos** ("el aspirador doméstico", "el humanoide de cuidados", "el cortacésped del patio"), **ficticios del canon ROBOHOGAR** (Tico aspirador IA, Hugo humanoide, RONDA-3 utility, Eva humanoide, MAIA IA epistolar), **marcas inventadas** canonizadas en la bible de la serie (ej: "el modelo SVA-12" si se ha establecido).
+  - ✅ **Excepción en diálogo**: un personaje puede mencionar una marca real de robótica **una sola vez por escena** si es verosímil en su boca (un yayo diciendo "el Roomba de toda la vida"). Nunca en cadena, nunca en el narrador.
+  - ✅ **Referencia económica implícita permitida**: *"la Casa de Amparo tiene un humanoide que una familia media no podría pagar"* — contexto socioeconómico sin hacer promo.
+  - ❌ **Prohibido** que la prosa del narrador use un modelo comercial real de las categorías de arriba como "personaje", decorado o ficha técnica. Si un relato necesita "cómo de potente es el aspirador", se inventa fisiología ficticia o se usa categoría genérica — nunca número de modelo real.
+  - **Verificación pre-output**: grep sobre `content/ficciones/**/*.md` (fuera de bloques entre comillas o guiones largos de diálogo) contra la lista de marcas de arriba → 0 matches. Si matchea, reescribir como genérico o ficticio canon. El Samsung/Apple/LG de móviles/TVs como caracterización del personaje queda exento si aparece como objeto de contexto, no como producto en acción.
+
+- **Nombres propios de robots y asistentes IA: siempre ficticios.** Refuerzo Rafael 2026-04-19: *"si los robots tienen nombres deben ser ficticios, no de productos reales"*. Los protagonistas, secundarios o robots de fondo con nombre propio llevan nombre **inventado para ROBOHOGAR**, nunca marca real.
+  - ✅ **Canon activo**: Tico (aspirador IA), Hugo (humanoide La Casa de Amparo), RONDA-3 (utility humanoide), Eva (humanoide familia Cortés), MAIA (IA epistolar Cartas a MAIA). Todos inventados.
+  - ✅ **Nombres permitidos en relatos nuevos**: cualquier nombre ficticio que no coincida con asistente IA real ni marca comercial.
+  - ❌ **Prohibido como nombre de robot/IA del relato**: `Alexa | Siri | Cortana | Bixby | Google Assistant | ChatGPT | Claude | Gemini | Copilot | Grok | Llama | Mistral | Perplexity | Aibo | Loona | LOOI | Atlas | NAO | Pepper | Ameca | Digit`.
+  - **Excepción en diálogo**: un personaje puede decir *"le pregunto a Alexa"* una sola vez por escena para verosimilitud cotidiana. Jamás el robot protagonista SE LLAMA Alexa.
+  - **Modelos ficticios canon ROBOHOGAR** (series-bible-maestra): HOGAR-X de Doméstica Ibérica, KIKI de Toyminds Barcelona, SVA-12, etc. Si una serie nueva necesita un nombre/modelo, se canoniza en la bible antes de usarlo.
 
 - **Cliffhanger:** emocional o moral, NUNCA físico primario (incoherente con "robot = instrumento neutro"). Detalle: `@references/ficciones/serialized-newsletter-patterns.md` § 3.4.
 
