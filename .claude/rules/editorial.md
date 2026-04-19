@@ -67,12 +67,45 @@ Referencia completa: `@references/research-newsletters-es-2026-04-19.md`. Skills
 
 ## Formato técnico (Beehiiv)
 
-- **Tipografía global (config Beehiiv):** headings H1/H2/H3 en **DM Sans Bold**, body en **Inter Regular**. Beehiiv aplica este estilo al renderizar; los borradores generan Markdown/HTML semántico plano (sin forzar fuentes inline).
-- **Política de negritas.** SÍ en párrafos de texto corrido (cualquier variante: intro, desarrollo, callout simple, nota). NO en:
-  - Headings H1/H2/H3 — el bold inline duplica el global setting
-  - Tablas: `<thead>` nunca en bold (Beehiiv ya lo estiliza); en `<tbody>` solo la **columna 1** (etiqueta de fila: modelo, categoría, etc.) puede ir en `<strong>` para anclar la mirada en escaneo móvil. Las columnas 2+ siempre regular.
-  - Recuadros checklist (div `.checklist` con fondo crema `#FFF9EF` + borde `#F5A623`) — los items van en peso regular
-  - Nunca `## **Título**`, ni `<li><strong>...</strong>` dentro de `.checklist`. Al copiar de fuentes externas, limpiar bold embebido antes de publicar.
+- **Tipografía global (config Beehiiv):** headings H1/H2/H3/H4 en **DM Sans Bold**, body en **Inter Regular**. Beehiiv aplica este estilo al renderizar; los borradores generan Markdown/HTML semántico plano (sin forzar fuentes inline).
+
+- **Política de negritas (DURA — OBLIGATORIA).**
+
+  **✅ Permitido — negrita en párrafos de texto corrido** (intro, desarrollo, callouts `.callout-amber` / `.callout-gray`, notas, bullets fuera de `.checklist`): usar **siempre `<strong>`**, nunca `<span class="bold">` ni `style="font-weight"` inline ni `<b>`. Razón completa en el bullet siguiente.
+
+  **❌ PROHIBIDO — BOLD NUNCA dentro de headings ni tablas ni callouts crema:**
+  - **Headings H1/H2/H3/H4** (incluye emojis prefijo tipo `<h2>🏆 Nuestro veredicto</h2>` — el heading entero YA es bold por config global Beehiiv; cualquier `<strong>`/`<b>`/`**...**` dentro duplica el peso).
+  - **Tablas `<thead>`**: nunca en bold (Beehiiv estiliza el thead con su font-weight). En `<tbody>`: solo la **columna 1** (etiqueta de fila) puede ir en `<strong>` para anclar escaneo móvil; columnas 2+ siempre regular.
+  - **Recuadros checklist** (div `.checklist` con fondo crema `#FFF9EF` + borde `#F5A623`): items en peso regular. Nunca `<li><strong>...</strong>` ni `<li>**...**</li>` dentro de `.checklist`.
+  - Nunca `## **Título**` en Markdown, nunca `<h2><strong>...</strong></h2>` en HTML. Al copiar de fuentes externas, limpiar bold embebido antes de publicar.
+
+  **Verificación pre-output (OBLIGATORIA antes de cerrar borrador):**
+
+  ```bash
+  # (a) Bold dentro de headings → debe ser 0
+  grep -nE '<h[1-4][^>]*>[^<]*<(strong|b)\b' <borrador.html>
+
+  # (b) Bold markdown dentro de headings → debe ser 0
+  grep -nE '^#{1,4} .*\*\*' <borrador.html>
+
+  # (c) Bold dentro de thead → debe ser 0
+  grep -nE '<thead>.*<(strong|b)\b' <borrador.html>
+
+  # (d) Bold dentro de .checklist → debe ser 0
+  grep -nE 'class="checklist"[^>]*>.*<(strong|b)\b' <borrador.html>
+  ```
+
+  Si alguno devuelve matches → reescribir antes de entregar. Regla heredada por `/content-draft` (paso 8.5) y `/ficcion-draft` (paso 8.5).
+
+- **Negritas en párrafos — usar SIEMPRE `<strong>`, NUNCA `<span class="bold">`.** Regla dura 2026-04-19 tras incidente de Rafael: al hacer copy-paste de `<span class="bold">X</span>` del borrador a Beehiiv, Chrome traduce el CSS computado de la clase `.bold` a un inline `style="font-weight: bold"`. Beehiiv aplica su propio bold encima → **doble peso visible**. Cuando Rafael selecciona el texto en Beehiiv y pulsa B, el editor sustituye por `<strong>` semántico y el peso se normaliza — pero es engorroso tener que hacerlo en cada párrafo.
+
+  **Solución:** los borradores usan `<strong>` directamente. Los editores WYSIWYG mapean `<strong>` 1:1 al Bold nativo sin arrastrar inline styles. Al copy-paste funciona a la primera.
+
+  **Consecuencia en el CSS de los borradores:** NO incluir la regla `.bold { font-weight: bold; }` en el `<style>` del borrador. El `<strong>` nativo del navegador ya se ve bold en preview sin clase adicional.
+
+  **Migración de borradores existentes** (aplicada 2026-04-19 a: master · mejor-robot-aspirador-2026 · humanoides-en-casa-cuanto-falta · roborock-saros-z70-review · samsung-jet-bot-steam-ultra-review): `sed -i -E 's|<span class="bold">([^<]*)</span>|<strong>\1</strong>|g'` + eliminar la línea `.bold { font-weight: bold; }` del `<style>`.
+
+  **Verificación pre-output:** `grep -c 'class="bold"' <borrador.html>` → debe ser 0. Si >0, sustituir por `<strong>` antes de entregar.
 - **Tablas — mobile-first (≥50% lectores en móvil).**
   - **Máximo 4 columnas.** Si una comparativa pide más, o (a) se recortan a las 4 más críticas y el resto va en prosa del cuerpo, o (b) se parte en 2 tablas temáticas.
   - **Texto corto por celda: ≤25 caracteres orientativo** (2-3 palabras). Nada de paréntesis largos dentro de la celda — ese matiz va al caption o al cuerpo.

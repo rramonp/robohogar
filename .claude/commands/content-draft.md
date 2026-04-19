@@ -206,11 +206,13 @@ Complementa (no sustituye) las prohibiciones de `@rules/editorial.md` (autoridad
 
 Verificar contra `@rules/editorial.md § Formato técnico (Beehiiv)`. Aplica a TODO tipo de contenido (review, comparativa, editorial, guía, cheatsheet, newsletter).
 
-**Negritas:**
-- [ ] Ningún `<strong>`, `<b>` ni `**...**` dentro de `<h1>`, `<h2>`, `<h3>` (ni en Markdown `## **...**`)
-- [ ] Ningún `<strong>`/`<b>` dentro de `<th>` ni `<td>` (ni `| **celda** |` en Markdown)
-- [ ] Ningún `<strong>`/`<b>` dentro de `<div class="checklist">` u otro callout con fondo crema `#FFF9EF` / borde `#F5A623`
-- [ ] SÍ permitido: negrita dentro de párrafos de texto corrido (`<p>...<strong>...</strong>...</p>`)
+**Negritas — checklist dura (regla editorial.md § Política de negritas):**
+- [ ] Ningún `<strong>`, `<b>` ni `**...**` dentro de `<h1>`, `<h2>`, `<h3>`, `<h4>` (ni en Markdown `## **...**`). Verificación: `grep -nE '<h[1-4][^>]*>[^<]{0,80}<(strong|b)\b' borrador.html` → 0 matches.
+- [ ] Ningún `<strong>`/`<b>` dentro de `<thead>`. En `<tbody>` solo la columna 1 (`<td>` de etiqueta de fila) puede ir en `<strong>`; columnas 2+ siempre regular.
+- [ ] Ningún `<strong>`/`<b>` dentro de `<div class="checklist">` u otro callout con fondo crema `#FFF9EF` / borde `#F5A623`.
+- [ ] **Usar SIEMPRE `<strong>` — NUNCA `<span class="bold">` ni `style="font-weight"` inline.** Razón: `<span class="bold">` arrastra el CSS computado al clipboard y Beehiiv aplica su bold encima (doble peso visible). `<strong>` es HTML semántico que los editores WYSIWYG mapean 1:1 sin problema. Verificación: `grep -c 'class="bold"' borrador.html` → 0. Si el borrador tiene residuales: `sed -i -E 's|<span class="bold">([^<]*)</span>|<strong>\1</strong>|g' borrador.html`.
+- [ ] El `<style>` del borrador NO contiene la regla `.bold { font-weight: bold; }`. Si aparece, eliminar. Incidente origen 2026-04-19 (Rafael).
+- [ ] SÍ permitido: negrita dentro de párrafos de texto corrido (`<p>...<strong>...</strong>...</p>`), callouts simples y bullets fuera de `.checklist`.
 
 **Tablas (mobile-first):**
 - [ ] `<thead><tr>` tiene **≤4 `<th>`**. Si son >4, recortar a las 4 más críticas para la tesis del artículo (el resto va en prosa del cuerpo) o partir en 2 tablas temáticas
