@@ -241,11 +241,13 @@ Aplicar [`@rules/tangibles.md § Reglas operativas`](../../.claude/rules/tangibl
 2. **Leer word count** estimado del borrador.
 3. **Decidir según tabla:**
 
-   | `category` | Banner | Posiciones a insertar |
+   | `category` | Banner Hoja de Compra | Posiciones a insertar |
    |---|---|---|
-   | `aspirador`, `cortacésped`, `mascota-robot`, `fregasuelos`, `limpia-cristales` | ✅ Sí | Si words >1.500: **intro + cierre**. Si words ≤1.500: **solo cierre**. |
-   | `humanoide` | ❌ No | — (tangible "Guía early adopter humanoides" pendiente) |
-   | `ficcion` | ❌ No | — (canal narrativo, no mezclar con CTA comercial) |
+   | `aspirador`, `cortacésped`, `fregasuelos`, `limpia-cristales` | ✅ Sí | Si words >1.500: **intro + cierre**. Si words ≤1.500: **solo cierre**. |
+   | `mascota-robot` (Aibo/Loona/LOOI) | ❌ No — ajuste 2026-04-19 | Tangible específico "Mascota-robot: qué esperar" pendiente F2. Intención lector ≠ aspirador. |
+   | `asistente-ia-escritorio` (Eilik, asistentes IA de escritorio) | ❌ No — ajuste 2026-04-19 | Tangible específico pendiente F2. |
+   | `humanoide` | ❌ No | Tangible "Guía early adopter humanoides" pendiente mes 3-4. |
+   | `ficcion` | ❌ No | Canal narrativo, no mezclar con CTA comercial. |
    | `editorial` sin ángulo de compra | ❌ No | — |
 
 4. **Insertar el banner como BLOQUE DE CÓDIGO VISIBLE** (`<div class="snippet-block">`), NO como `<div>` inline renderizado. Regla completa: `@rules/design.md § Bloques de código para snippets HTML inline en borradores`. Razón: Rafael publica haciendo copy-paste desde el borrador al editor Beehiiv vía `/html` → "Custom HTML block", que requiere el HTML como **texto copiable**, no como elemento ya renderizado.
