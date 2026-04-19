@@ -109,9 +109,9 @@ Tres frameworks disponibles, elegir según longitud/intención:
 
 Además, SIEMPRE correr **Paint The Villain invertido** (paso 4) para validar que el villano es un problema humano, no el robot.
 
-### 3.5. Declarar `left-wall` + `big-lie` (antes del villano)
+### 3.5. Declarar `left-wall` + `big-lie` (antes del villano) — ORGÁNICO, NO OPCIONAL
 
-Antes de pasar al conflicto humano, el skill pide al borrador dos declaraciones explícitas que se añaden al frontmatter YAML del relato:
+**Este paso se ejecuta SIEMPRE, por defecto, sin que Rafael lo pida.** Antes de pasar al conflicto humano, el skill declara dos campos que se registran en 3 sitios a la vez:
 
 - **`left-wall:`** — la restricción real/científica/regulatoria inviolable del relato. Lo que la realidad ES de 2030-2040 **sí dice** que es posible. Ejemplos: `"AI Act art. 6: humanoides domésticos son alto riesgo, requieren homologación CE"`, `"Aspirador 2033 sin brazos, LiDAR 360° solo superficies sólidas"`, `"Protocolo SAMUR Madrid real para ictus"`.
 - **`big-lie:`** — la única licencia creativa mayor que el relato pide aceptar al lector (1 por relato, **no negociable**). Ejemplos: `"Humanoide refurbished accesible a familia media ES"`, `"Aspirador ha desarrollado modelo mental de rutinas humanas"`, `"Humanoide de cuidados diagnostica ictus 30s antes con sensores embedded"`.
@@ -119,6 +119,36 @@ Antes de pasar al conflicto humano, el skill pide al borrador dos declaraciones 
 **Regla de plausibilidad** (Adrian Tchaikovsky, *How I Write* 2025-12-31): *"You can get away with one big lie… but in order to support your one big lie, everything else needs to be true."* Todo lo que no sea el `big-lie` se verifica. Todo lo que contradiga el `left-wall` se elimina.
 
 **Si el skill detecta 2 big lies** (p. ej. humanoide barato + memoria persistente ilimitada + habla 40 idiomas): o se recorta a uno, o se reescribe el concepto. No avanzar al paso 4 con 2 big lies.
+
+**Registro en 3 sitios (obligatorio, sin pedir confirmación):**
+
+1. **Frontmatter YAML** del relato (`YYYY-MM-DD-<slug>.md`): campos `left-wall:` y `big-lie:` rellenos.
+2. **Bloque visible inmediatamente debajo del H1** del relato (antes del primer párrafo de prosa), con formato callout editorial para que Rafael lo vea al abrir el archivo y pueda cambiarlo antes de publicar:
+
+   ```markdown
+   # <Título del relato>
+
+   > **Mentira grande:** <big-lie en una frase>.
+   > **Muro izquierdo:** <left-wall en una frase>.
+   > *Registradas por `/ficcion-draft` · cambiar antes de publicar si no encajan.*
+
+   <primera línea del relato…>
+   ```
+
+3. **Reporte al chat tras generar el borrador** (paso 9): incluir explícitamente ambas declaraciones al mismo nivel que el resumen del relato. Formato canónico:
+
+   ```
+   ✓ Generado: content/ficciones/<serie>/YYYY-MM-DD-<slug>.md (<N> palabras)
+
+   📌 Mentira grande elegida: "<big-lie>"
+   🧱 Muro izquierdo: "<left-wall>"
+
+   Resumen del episodio: …
+   Villano humano: …
+   Cliffhanger: …
+
+   Si la mentira grande no encaja con lo que tenías en mente, dímelo antes de que generes siguiente episodio.
+   ```
 
 Detalle + ejemplos en `@references/ficciones/serialized-newsletter-patterns.md § 2.4`.
 
@@ -371,6 +401,7 @@ Debe contener:
 5. **Borrador siempre**, Rafael edita y publica manualmente. Nunca auto-publicar.
 6. **Dato real obligatorio** — sin fact anclado, el relato es fantasía genérica. Rechazar borrador.
 7. Si el skill detecta que los personajes pedidos no existen en ninguna bible → crear estructura de serie nueva pero NO inventar personajes "canon" sin Rafael.
+8. **`left-wall` + `big-lie` son obligatorios y orgánicos.** El skill los declara siempre, sin esperar a que Rafael los pida. Se registran en frontmatter YAML + bloque visible bajo H1 + reporte al chat. 1 big-lie por relato, no más. Si el paso 3.5 no se ha completado, no avanzar al paso 4.
 
 ## Cross-references
 
