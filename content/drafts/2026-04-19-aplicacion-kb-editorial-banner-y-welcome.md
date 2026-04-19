@@ -33,33 +33,39 @@ Huecos identificables:
 - **Falta inversión del imperativo en CTA** (§6.2, Holaluz/Yoigo). *"Descargar gratis →"* imperativiza al usuario. Versión ES cálida: *"Enviádmelo al correo"* — el usuario pide la acción.
 - **Falta eyebrow con síntesis brutal** (§6.2, Verkami). *"ANTES DE COMPRAR"* es contextual pero no descriptivo del tangible. Verkami reduce proyecto a *"webcómic de fantasía cozy"*. Aplicar: *"CHECKLIST · 5 PREGUNTAS · 2 PÁGINAS"* — el lector sabe al instante qué va a recibir.
 
-### 1.3 Reescrito aplicando KB
+### 1.3 Reescrito aplicando KB (versión v3 — purgada de mentiras 2026-04-19 tras feedback Rafael)
 
 ```
-[eyebrow]   CHECKLIST · 5 PREGUNTAS · 2 PÁGINAS
-[título]    Las 5 preguntas que nos hacemos antes de comprar un aspirador (y que te ahorran 600 €)
-[subtítulo] 42 robots analizados en 2025. 6 finalistas. 1 checklist con lo que pesó en la decisión.
+[eyebrow]   CHECKLIST · 10 PREGUNTAS · 2 PÁGINAS
+[título]    Las 10 preguntas clave antes de comprar un aspirador (y por qué te ahorran varios cientos de euros)
 [CTA]       Enviádmelo al correo
-[trust]     PDF gratis con tu suscripción semanal. Cancela cuando quieras.
+[trust 1]   PDF gratis con tu suscripción semanal. Cancela cuando quieras.
+[trust 2]   Probamos lo que podemos. El resto lo investigamos a fondo por ti. Opinión propia, siempre.
 ```
+
+**Subtítulo eliminado.** Las dos iteraciones previas (*"Las destilamos probando robots en casas reales"* / *"Las destilamos tras meses cubriendo este nicho"* / *"42 robots analizados en 2025. 6 finalistas"*) todas rompían la regla dura de honestidad. Al no existir una formulación factual que sustituya sin mentir, se elimina por completo: el banner queda más corto (5 elementos en vez de 6) y el lector no tiene que atravesar una línea promocional antes del CTA.
 
 ### 1.4 Cambios justificados
 
-| Elemento | Antes | Después | § KB que lo motiva |
+| Elemento | Antes (v1) | Después (v3) | § KB que lo motiva |
 |---|---|---|---|
-| Eyebrow | *"ANTES DE COMPRAR"* (contextual vago) | *"CHECKLIST · 5 PREGUNTAS · 2 PÁGINAS"* (síntesis brutal) | [`03 § 6.2`](../../references/editorial-es/03-microcopy-ctas-meta.md) Verkami |
-| Título | *"Descarga gratis la Hoja de Compra ROBOHOGAR"* (marca + CTA) | *"Las 5 preguntas que nos hacemos antes de comprar un aspirador (y que te ahorran 600 €)"* (paréntesis editorial confidencial + cifra + voz plural) | [`03 § 1`](../../references/editorial-es/03-microcopy-ctas-meta.md) Filmin (paréntesis) + [`02 § 2.1`](../../references/editorial-es/02-newsletter-y-emails.md) anécdota concreta |
-| Subtítulo | *"10 preguntas para no pagar de más al comprar tu robot doméstico"* (cifra redondeada genérica) | *"42 robots analizados en 2025. 6 finalistas. 1 checklist con lo que pesó en la decisión."* (datos no redondeados + trazabilidad) | [`03 § 1`](../../references/editorial-es/03-microcopy-ctas-meta.md) Doctoralia (cifra precisa) |
+| Eyebrow | *"ANTES DE COMPRAR"* (contextual vago) | *"CHECKLIST · 10 PREGUNTAS · 2 PÁGINAS"* (síntesis brutal alineada con el PDF real) | [`03 § 6.2`](../../references/editorial-es/03-microcopy-ctas-meta.md) Verkami |
+| Título | *"Descarga gratis la Hoja de Compra ROBOHOGAR"* (marca + CTA) | *"Las 10 preguntas clave antes de comprar un aspirador (y por qué te ahorran varios cientos de euros)"* (paréntesis editorial confidencial + descripción del valor, sin afirmación sobre quién se las hace) | [`03 § 1`](../../references/editorial-es/03-microcopy-ctas-meta.md) Filmin (paréntesis) + regla honestidad 2026-04-19 (evita *"nos hacemos"* dudoso) |
+| Subtítulo | *"10 preguntas para no pagar de más al comprar tu robot doméstico"* (seguía la norma `rules/tangibles.md` pero sin valor diferencial) | **eliminado** — no existe formulación factual que mejore sin mentir | Regla honestidad 2026-04-19 |
 | CTA | *"Descargar gratis →"* (imperativo al usuario) | *"Enviádmelo al correo"* (inversión del imperativo) | [`03 § 1`](../../references/editorial-es/03-microcopy-ctas-meta.md) Holaluz/Yoigo |
-| Trust-line | *"PDF gratis con tu suscripción semanal. Cancela cuando quieras."* | **sin cambios** — ya es default canónico (`rules/tangibles.md`) | Regla dura existente |
+| Trust-line 1 | dentro del subtítulo | separada en línea propia | Default canónico [`rules/tangibles.md § Microcopy`](../../.claude/rules/tangibles.md) |
+| Trust-line 2 (NUEVA v3) | ausente | *"Probamos lo que podemos. El resto lo investigamos a fondo por ti. Opinión propia, siempre."* | [`02 § 2.7`](../../references/editorial-es/02-newsletter-y-emails.md) + regla honestidad 2026-04-19 |
 
-### 1.5 Verificación post-reescritura (§6)
+### 1.5 Verificación post-reescritura (§6 + honestidad)
 
 - **§6.1 Flags automáticos (grep):** 0 matches en calcos, imperativos agresivos, hype, vaguedades, em-dash en trust-line.
-- **§6.2 Recursos positivos presentes:** 5 de 6 (falta autodefinición plural cálido *"Somos X"* — no encaja en banner de artículo, sí en about/landing).
-- **§6.3 Voz baseline:** plural *"nos hacemos"*, tú *"te ahorran"*, sin exclamaciones, trust-line canónica ✅.
+- **Regla honestidad (ampliada 2026-04-19):** 0 afirmaciones hands-on sobreprometidas, 0 marcadores temporales inverificables, 0 cifras inventadas. Cada afirmación del banner contrastada manualmente.
+- **§6.2 Recursos positivos presentes:** 4 de 6 (síntesis brutal en eyebrow + paréntesis editorial en título + inversión imperativo en CTA + reclamo humano honesto en trust-line 2). Se descartan *dato no redondeado* (requería inventar cifra) y *autodefinición plural cálido* (no encaja en banner de artículo compacto).
+- **§6.3 Voz baseline:** plural *"investigamos"*, *"opinión propia"*, tú *"te ahorran"*, sin exclamaciones, trust-line canónica ✅.
 
-**Umbral de reescritura cumplido:** 0 flags + 5 recursos + voz ok → publicable.
+**Umbral cumplido:** 0 flags automáticos + 0 mentiras + 4 recursos genuinos > 5 recursos con mentira → publicable.
+
+**Iteraciones:** v1 (original) → v2 (primer reescrito, *"probando robots en casas reales"* mentira) → v2.1 (*"tras meses cubriendo este nicho"* mentira) → **v3 actual** (subtítulo eliminado, 0 mentiras).
 
 ---
 
@@ -123,15 +129,15 @@ Preheader: Dentro: Hoja de Compra y cómo funciona ROBOHOGAR.
 
 Buenos días.
 
-El otro día empezamos ROBOHOGAR porque nos cansamos de gastar en robots que no encajaban con nuestras casas. Esto es ROBOHOGAR: robots para casa, humanoides que llegan y el hogar robotizado que ya está aquí.
+Empezamos ROBOHOGAR porque nos cansamos de gastar en robots que no encajaban con nuestras casas. Esto es ROBOHOGAR: robots para casa, humanoides que llegan y el hogar robotizado que ya está aquí.
 
-Lo primero que te mandamos es la Hoja de Compra. Son las 5 preguntas que nos hacemos nosotros antes de comprar cualquier aspirador — las destilamos de 42 robots analizados en 2025.
+Lo primero que te mandamos es la Hoja de Compra. Son 10 preguntas clave que separan un aspirador que encaja en tu casa del que no.
 
 [Enviádmelo al correo] <URL>
 
 Si viniste por la checklist, aquí la tienes. Si te suscribiste por otra razón, la consideramos regalo de bienvenida.
 
-Una pregunta que llevamos meses dándole vueltas: **¿cuál es la zona de tu casa que más te cuesta mantener limpia?** Cocina, baño, alfombras de los niños, el estudio con pelos del perro, lo que sea.
+Una pregunta que nos ronda: **¿cuál es la zona de tu casa que más te cuesta mantener limpia?** Cocina, baño, alfombras de los niños, el estudio con pelos del perro, lo que sea.
 
 Responde a este email con una frase. Lo leemos todos y nos ayuda a decidir qué probar los próximos meses. Cuando somos pocos suscriptores, cada respuesta pesa el triple.
 
@@ -152,25 +158,28 @@ P.D. Si piensas que la Hoja de Compra le viene bien a alguien, reenvíale este c
 | Subject | *"Tu PDF (y una pregunta)"* (22 chars — bien) | *"Tu PDF — y el martes volvemos"* (30 chars — dentro de 20-45) | [`02 § 2.3`](../../references/editorial-es/02-newsletter-y-emails.md) cadencia explícita en subject |
 | Preheader | *"La Hoja de Compra ROBOHOGAR está dentro. 15 seg de lectura."* | *"Dentro: Hoja de Compra y cómo funciona ROBOHOGAR."* | Elimina *"15 seg de lectura"* (roza promesa velocidad `rules/tangibles.md`) + añade expectativa de contenido |
 | Saludo | *"Hola,"* ❌ calco anglo | *"Buenos días."* | `editorial.md § Anti-anglicismos` (patrón Kloshletter) |
-| Apertura | Meta-explicación del email | Anécdota de origen + tagline-identidad | [`02 § 2.1`](../../references/editorial-es/02-newsletter-y-emails.md) + [`02 § 2.6`](../../references/editorial-es/02-newsletter-y-emails.md) Suma Positiva |
-| Descripción tangible | *"10 preguntas para no pagar de más"* | *"5 preguntas que nos hacemos nosotros antes de comprar cualquier aspirador — las destilamos de 42 robots analizados en 2025"* | Dato no redondeado (Doctoralia) + humildad de proceso (*"nos hacemos nosotros"*) |
+| Apertura | Meta-explicación del email | Anécdota de origen + tagline-identidad (sin *"el otro día"* para evitar marcador temporal sin respaldo) | [`02 § 2.1`](../../references/editorial-es/02-newsletter-y-emails.md) + [`02 § 2.6`](../../references/editorial-es/02-newsletter-y-emails.md) Suma Positiva |
+| Descripción tangible | *"10 preguntas para no pagar de más al comprar tu robot doméstico"* | *"10 preguntas clave que separan un aspirador que encaja en tu casa del que no"* | Descripción funcional del contenido del tangible, cero afirmaciones sobre tiempo/testing no verificables |
 | CTA | *"Descargar la Hoja de Compra ROBOHOGAR (PDF · 2 páginas)"* | *"Enviádmelo al correo"* | [`03 § 1`](../../references/editorial-es/03-microcopy-ctas-meta.md) Holaluz (inversión imperativo) |
-| Pregunta al lector | *"Ahora una pregunta rápida, y va en serio"* | *"Una pregunta que llevamos meses dándole vueltas"* | [`02 § 2.5`](../../references/editorial-es/02-newsletter-y-emails.md) Kaizen |
-| Reclamo humano | ausente | *"Probamos lo que podemos. El resto lo investigamos a fondo por ti. Opinión propia, siempre."* | [`02 § 2.7`](../../references/editorial-es/02-newsletter-y-emails.md) Al día elDiario |
+| Pregunta al lector | *"Ahora una pregunta rápida, y va en serio"* | *"Una pregunta que nos ronda"* | [`02 § 2.5`](../../references/editorial-es/02-newsletter-y-emails.md) Kaizen adaptado sin marcador temporal inverificable (*"meses dándole vueltas"* eliminado: newsletter reciente) |
+| Reclamo humano | ausente | *"Probamos lo que podemos. El resto lo investigamos a fondo por ti. Opinión propia, siempre."* | [`02 § 2.7`](../../references/editorial-es/02-newsletter-y-emails.md) Al día elDiario + regla dura de honestidad 2026-04-19 |
 | Cierre | *"Un saludo, Rafael"* | *"Te escribimos el martes que viene. — ROBOHOGAR"* | [`02 § 2.3`](../../references/editorial-es/02-newsletter-y-emails.md) Kloshletter (*"Te escribo mañana. Carlos"* adaptado al plural) |
 
-### 2.5 Verificación post-reescritura (§6)
+### 2.5 Verificación post-reescritura (§6 + regla honestidad ampliada)
 
-- **§6.1 Flags automáticos:** 0 matches en saludos anglo, cierres anglo, filler, hype/velocidad, em-dash en trust. (1 em-dash en *"…cualquier aspirador — las destilamos…"*, bajo el umbral de 3 en emails <400 palabras.)
-- **§6.2 Recursos presentes: 6 de 7**:
-  - ✅ §2.1 Apertura por anécdota (*"El otro día empezamos ROBOHOGAR porque nos cansamos…"*)
-  - ✅ §2.2 Humildad epistémica (*"nos hacemos nosotros"*, *"las destilamos"*)
+- **§6.1 Flags automáticos:** 0 matches en saludos anglo, cierres anglo, filler, hype/velocidad, promesas temporales sin respaldo, em-dash en trust.
+- **Regla dura de honestidad (§2.7 ampliada 2026-04-19):** 0 afirmaciones hands-on sobreprometidas, 0 afirmaciones temporales sin respaldo, 0 afirmaciones volumétricas inventadas. Descripción del tangible funcional (*"10 preguntas clave que separan X de Y"*), no autodescripción del proceso (*"tras meses"* / *"destilamos de 42 robots"* eliminados).
+- **§6.2 Recursos presentes: 5 de 7** (tras purga honestidad):
+  - ✅ §2.1 Apertura por anécdota (*"Empezamos ROBOHOGAR porque nos cansamos…"*)
+  - ❌ §2.2 Humildad epistémica — eliminada *"las destilamos de 42 robots"* por mentira; la humildad epistémica queda en el reclamo humano (*"Probamos lo que podemos"*) del final, no en la descripción del tangible
   - ✅ §2.3 Cierre con cadencia (*"Te escribimos el martes que viene. — ROBOHOGAR"*)
   - N/A §2.4 Numeración del issue (welcome)
-  - ✅ §2.5 Pregunta propia obsesiva (*"Una pregunta que llevamos meses dándole vueltas"*)
+  - ✅ §2.5 Pregunta propia (*"Una pregunta que nos ronda"* — sin marcador temporal falso)
   - ✅ §2.6 Tagline-identidad (*"Esto es ROBOHOGAR: robots para casa, humanoides…"*)
-  - ✅ §2.7 Reclamo humano (*"Lo escribimos nosotros. Probamos los robots, los desmontamos, los comparamos en casa."*)
-- **§6.3 Voz baseline:** plural (*"empezamos"*, *"nos cansamos"*, *"nos hacemos"*, *"escribimos"*), tú al lector, sin exclamaciones, sin emojis decorativos, párrafos de 1-3 frases ✅.
+  - ✅ §2.7 Reclamo humano honesto (*"Probamos lo que podemos. El resto lo investigamos a fondo por ti. Opinión propia, siempre."*)
+- **§6.3 Voz baseline:** plural (*"empezamos"*, *"nos cansamos"*, *"nos ronda"*, *"escribimos"*), tú al lector, sin exclamaciones, sin emojis decorativos, párrafos de 1-3 frases ✅.
+
+**Nota metodológica.** 5 de 7 recursos está por encima del umbral mínimo (4) para welcome. Mejor 5 verdaderos que 7 con mentiras. La §2.2 humildad epistémica se puede recuperar en futuros issues cuando haya dato real (*"tras analizar X modelos que sí hemos podido probar, decidimos Y"*) — nunca inventar cifra para forzar el recurso.
 
 **Umbral de reescritura cumplido:** 0 flags + 6 de 7 recursos + voz ok → publicable.
 

@@ -175,13 +175,38 @@ Usarlo: (a) welcome email 1 obligatorio. (b) Newsletter semanal en ediciones esp
 
 > *"Probamos lo que podemos. El resto lo investigamos a fondo por ti. Opinión propia, siempre."*
 
-**Regla dura de honestidad (crítica).** El reclamo humano debe ceñirse a lo verificable. Si el catálogo ROBOHOGAR incluye tanto aspiradores de 300 € (que sí pueden probarse) como humanoides de 35K € o robots de preventa sin distribución ES (que no), NUNCA afirmar hands-on universal. Frases prohibidas por mentirosas:
+**Regla dura de honestidad (crítica — ALCANCE EXTENDIDO).** Aplica a **toda afirmación factualmente verificable** en copy público (trust-line, subtítulo de banner, meta description, bio, about, welcome email, newsletter). No solo al reclamo humano §2.7 — también a cualquier línea que prometa hands-on, tiempo acumulado, experiencia, número de pruebas, histórico de publicación, número de suscriptores o volumen de dataset.
 
+**Dos vectores de mentira frecuentes en copy de conversión ROBOHOGAR** (incidentes Rafael 2026-04-19):
+
+**Vector 1 — hands-on sobreprometido.** Si el catálogo incluye tanto aspiradores de 300 € (probables) como humanoides de 35K €, robots de preventa sin distribución ES o asistentes-IA que Rafael no posee, NUNCA afirmar hands-on universal.
 - ❌ *"Probamos los robots, los desmontamos, los comparamos en casa"* — falso para humanoides y categorías caras.
 - ❌ *"Lo hemos probado todo"* — falso si el dataset incluye un producto no accesible.
 - ❌ *"Testeamos cada modelo"* — solo verdad si se cumple al 100%.
+- ❌ *"En casas reales"* — falso si el dato no procede de prueba física.
 
-El patrón Al día elDiario (*"escrito por Juanlu Sánchez, subdirector de eldiario.es (no por un algoritmo)"*) funciona porque es verdad literal — ROBOHOGAR debe construir su reclamo con la misma disciplina. La fórmula canónica resuelve el problema: (a) verdad para aspiradores económicos (*"probamos lo que podemos"*), (b) verdad para humanoides no accesibles (*"el resto lo investigamos a fondo"*), (c) convierte el trabajo en servicio al lector (*"por ti"*) sin prometer hands-on universal, (d) refuerza tesis editorial propia (*"opinión propia, siempre"*).
+**Vector 2 — tiempo o histórico sobreprometido.** Si la newsletter es reciente, si el nicho empezó a cubrirse hace pocas semanas, si la suscripción está arrancando, NUNCA afirmar longevidad.
+- ❌ *"Tras meses cubriendo este nicho"* — falso si la publicación tiene semanas.
+- ❌ *"Llevamos años probando robots"* — falso si arrancaste este año.
+- ❌ *"Desde 2023 analizamos…"* — solo verdad si publicaste en 2023.
+- ❌ *"Con X años de experiencia en el sector"* — requiere experiencia verificable, no solo interés.
+- ❌ *"Miles de suscriptores"* / *"+10.000 lectores"* — solo con dato real.
+
+**Verificación obligatoria pre-output.** Antes de aprobar cualquier línea de copy, contrastar:
+
+1. **Afirmaciones hands-on** (*"probamos"*, *"analizamos en casa"*, *"desmontamos"*) → ¿aplica al 100% del dataset que implícita o explícitamente cubre el copy? Si no → reescribir con humildad del alcance (*"probamos lo que podemos"*) o eliminar.
+2. **Afirmaciones temporales** (*"tras X meses/años"*, *"desde 20XX"*, *"llevamos"*, *"con X años"*) → ¿contrastadas con la fecha real de arranque de la newsletter/proyecto/actividad? Si no → eliminar afirmación temporal o sustituir por factual sin fecha (*"la checklist que usamos para formar opinión"*).
+3. **Afirmaciones volumétricas** (*"X suscriptores"*, *"X modelos analizados"*, *"X horas probando"*) → ¿cifra real y reciente, verificable en backend? Si no → eliminar cifra o reemplazar por descripción cualitativa sin número.
+
+**Fórmula canónica del reclamo humano** (validada 2026-04-19 tras 2 iteraciones con ejemplos mentirosos rechazados):
+
+> *"Probamos lo que podemos. El resto lo investigamos a fondo por ti. Opinión propia, siempre."*
+
+Resuelve: (a) verdad para aspiradores económicos (*"probamos lo que podemos"*), (b) verdad para humanoides no accesibles (*"el resto lo investigamos a fondo"*), (c) convierte trabajo en servicio al lector (*"por ti"*) sin prometer hands-on universal, (d) refuerza tesis editorial propia (*"opinión propia, siempre"*), (e) no hace afirmación temporal (*"llevamos X"* / *"desde 20XX"*) que pueda quedar invalidada por la realidad del proyecto.
+
+Principio referente — Al día elDiario (*"escrito por Juanlu Sánchez, subdirector de eldiario.es (no por un algoritmo)"*): verdad literal verificable, cero inflación. Reclamo ROBOHOGAR debe construirse con la misma disciplina.
+
+**Por qué importa.** Rafael 2026-04-19: *"estoy cansado de que siempre te inventes cosas que son mentiras para quedar bien. Podemos conseguir el mismo efecto diciéndolo de otra manera, sin quedar como mentirosos"*. El copy persuasivo ES de calidad (Filmin, Holaluz, Doctoralia — §1 de [`03-microcopy-ctas-meta.md`](03-microcopy-ctas-meta.md)) nunca sobrepromete hands-on ni tiempo acumulado; las conversiones vienen de **resolver objeciones concretas con datos verificables** (número real no redondeado, fricción real eliminada, servicio real prestado), no de inflar el relato.
 
 Diferencial defensivo en 2026. Directamente conectado a [`../anti-ia-checklist.md`](../anti-ia-checklist.md) como promesa visible de marca.
 
