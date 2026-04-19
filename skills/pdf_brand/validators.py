@@ -1,19 +1,31 @@
 """
 validators.py — Checks pre-export sobre el HTML generado para tangibles ROBOHOGAR.
 
-Implementa las reglas duras de `@rules/tangibles.md` § Reglas operativas y
-de la memoria `feedback_tangible_no_promises_no_byline.md`:
+Implementa las reglas duras de `@rules/tangibles.md` § Reglas operativas +
+§ Microcopy de conversión y de las memorias:
+  - feedback_tangible_no_promises_no_byline.md
+  - feedback_microcopy_trust_lines.md
 
-Prohibiciones en PDFs tangibles:
+Prohibiciones en PDFs tangibles + fichas Beehiiv Digital Product:
   1. Listas de próximos tangibles ("Próximos tangibles para suscriptores...").
   2. Promesas de fechas de revisión ("Próxima revisión octubre 2026",
      "actualizamos cada 6 meses", "Los suscriptores reciben la v2, v3...").
   3. Byline personal "Rafael de ROBOHOGAR" (permitido en artículos, no en PDF).
+  4. Microcopy de conversión — trust-lines bajo CTA (nuevo 2026-04-19):
+     - Promesas de velocidad de entrega ("15 segundos", "llega al email en",
+       "instantáneo", "al momento") — no controlamos la entrega Beehiiv.
+     - Promesas de ausencia futura de publicidad ("sin publicidad",
+       "sin promociones") — inconsistente con modelo (afiliados eventuales).
+     - Copy vago ("sin letra pequeña", "sin trucos") — huele a marketer.
+     - Hype anglosajón traducido ("Join N+ readers", "Don't miss out",
+       "Apúntate ya") — incumple CTA no-spammy de Write With AI.
 
 Si cualquier patrón matchea → `ValidationError` y bloquea la generación del PDF.
 Rafael lo corrige y re-ejecuta; sin bypass.
 
-Fuente de la regla: Rafael 2026-04-18 durante afinación de Hoja de Compra v2.
+Fuente de las reglas:
+  - Rafael 2026-04-18 durante afinación de Hoja de Compra v2 (§ 1-3).
+  - Rafael 2026-04-19 tras pedir best practices certificadas de microcopy (§ 4).
 """
 
 from __future__ import annotations
@@ -58,6 +70,33 @@ _FORBIDDEN_PATTERNS: list[tuple[str, re.Pattern[str], str]] = [
         "byline_personal",
         re.compile(r"Rafael\s+de\s+ROBOHOGAR", re.IGNORECASE),
         'Eliminar byline "Rafael de ROBOHOGAR" del PDF. Firma correcta: solo "ROBOHOGAR". (La byline sí permitida en artículos Beehiiv.)',
+    ),
+    # ── Microcopy de conversión (trust-lines bajo CTA) — 2026-04-19 ──
+    # Prohibiciones heredadas de `@rules/tangibles.md § Microcopy de conversión`.
+    # Aplican al HTML del PDF (si hay CTA embebido) Y a la ficha Beehiiv Digital Product.
+    (
+        "microcopy_velocidad_entrega",
+        # Matches "15 segundos", "llega al email en X segundos", "instantáneo", "al momento".
+        re.compile(r"\b(\d+\s*segundos|llega\s+al\s+email\s+en|instant[aá]neo|al\s+momento)\b", re.IGNORECASE),
+        'Eliminar promesa de velocidad de entrega. No controlamos el tiempo de delivery de Beehiiv (30-90s reales + riesgo filtro Promotions). Reemplazar por trust-line canónica: "PDF gratis · te suscribes a la newsletter · baja cuando quieras".',
+    ),
+    (
+        "microcopy_sin_publicidad",
+        # Matches "sin publicidad", "sin promociones", "sin spam comercial".
+        re.compile(r"sin\s+(publicidad|promociones|spam\s+comercial)\b", re.IGNORECASE),
+        'Eliminar promesa de ausencia futura de publicidad/promociones. Inconsistente con modelo ROBOHOGAR (afiliados eventuales en F2+).',
+    ),
+    (
+        "microcopy_vago",
+        # "sin letra pequeña", "sin trucos", "sin compromiso" genéricos.
+        re.compile(r"sin\s+(letra\s+peque[ñn]a|trucos|compromiso)\b", re.IGNORECASE),
+        'Copy vago. Sustituir por claim concreto (formato del tangible, baja fricción de salida, transparencia del vínculo).',
+    ),
+    (
+        "microcopy_hype_anglo",
+        # "Join N+ readers", "Don't miss out", "Apúntate ya!".
+        re.compile(r"(join\s+\d[\d,\.k]*\+?\s*(readers|subscribers)|don.?t\s+miss\s+out|ap[uú]ntate\s+ya)", re.IGNORECASE),
+        'Hype anglosajón / imperativo agresivo. Incumple CTA no-spammy de Write With AI. Reemplazar por trust-line editorial.',
     ),
 ]
 

@@ -177,7 +177,7 @@ Claude rellena automáticamente desde `data.py` los siguientes campos de la fich
 
 Los valores **default fijos** (CTA copy, redirect, survey, review toggle) los rellena Claude con los valores canónicos de este template sin preguntar.
 
-El único campo que Claude NO rellena es el **Product page URL** — ese lo decide Rafael al momento de subir a Beehiiv (short slug diferente del slug interno).
+El único campo que Claude NO rellena es el **Product page URL** — ese lo decide Rafael cuando sube el tangible a Beehiiv (short slug diferente del slug interno).
 
 ---
 

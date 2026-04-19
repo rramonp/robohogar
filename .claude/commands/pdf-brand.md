@@ -121,6 +121,7 @@ La ficha debe pasar los mismos **validators** que el PDF:
 - Sin byline personal "Rafael de ROBOHOGAR".
 - Voz plural editorial.
 - Anti-IA §1 Universal (0 palabras tóxicas).
+- **Microcopy de conversión (`@rules/tangibles.md § Microcopy de conversión`).** El campo "Product details → Qué pasa al descargarlo" y cualquier trust-line debajo de un CTA (botón Beehiiv, email post-purchase) cumple el default canónico `PDF gratis · te suscribes a la newsletter · baja cuando quieras` o variante que respete las 3 reglas (≥2 elementos obligatorios · 0 promesas prohibidas · ≤80 chars). Prohibidas: `15 segundos`, `llega al email en`, `instantáneo`, `sin publicidad`, `sin promociones`, `sin letra pequeña`, hype anglosajón (`Join N+ readers`, `Don't miss out`).
 
 Si el Product details violara alguna regla → Claude debe reescribir antes de entregar, nunca entregar una ficha con violaciones.
 

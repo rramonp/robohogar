@@ -178,7 +178,7 @@ Beehiiv ofrece dos mecanismos distintos; para este artículo usamos el **block-l
 **Copy recomendada para el formulario/bloque de suscripción** (si Beehiiv muestra su gate nativo al hacer click en el CTA cliffhanger):
 
 - Headline: `Desbloquea la tabla comparativa completa`
-- Subheadline: `Suscríbete gratis (15 segundos) y accede a la tabla con precios, perfiles y badges oficiales. Una guía como esta cada semana, sin spam.`
+- Subheadline: `Suscríbete gratis para ver la tabla con precios, perfiles y badges oficiales. Newsletter semanal · baja cuando quieras.`
 - Botón: `Ver la tabla →`
 
 **Caveat UI 2026:** Beehiiv itera la interfaz cada trimestre. Si los nombres de menú han cambiado ("Visibility" → "Audience" u otro), la lógica subyacente sigue siendo la misma: **toggle por tipo de suscriptor a nivel de bloque**. Referencia actualizada: [beehiiv.com/support/article/15569753728535](https://www.beehiiv.com/support/article/15569753728535-how-do-i-gate-individual-content-sections-within-my-post).

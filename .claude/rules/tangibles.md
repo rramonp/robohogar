@@ -72,6 +72,42 @@ El lector se autoclasifica según su momento real. Ventaja: captura 3 segmentos 
 - **Mobile-first:** legible en 375px, fuente mínima 11pt.
 - Voz y anti-patterns heredados de [`editorial.md`](editorial.md).
 
+## Microcopy de conversión — trust-lines bajo CTA
+
+Todo botón/CTA de lead magnet (banner en artículo, ficha Beehiiv Digital Product, email de welcome flow, P.D. en newsletter) lleva debajo una **trust-line breve** que resuelve las 3 objeciones del lector ES al suscribirse: (a) qué recibo, (b) me van a spamear, (c) cuánto me comprometo.
+
+**Prohibido:**
+- Promesas de velocidad de entrega (`llega en 15 segundos`, `instantáneo`, `al momento`). Razón: Beehiiv entrega en 30–90 s reales y el filtro Promotions puede retrasarlo a minutos. Incumplir la promesa rompe la confianza ANTES de que el PDF se abra. Incidente 2026-04-19: el snippet banner original (`content/templates/banner-lead-magnet.html` línea 36) decía "te llega al email en 15 segundos" — rechazado por Rafael.
+- Promesas sobre ausencia futura de publicidad/afiliados (`sin publicidad`, `sin promociones`, `sin spam comercial`). Razón: inconsistente con modelo de negocio (afiliados eventuales en F2+). No se promete lo que el modelo puede romper en 6 meses.
+- Exclamaciones, imperativos agresivos, CAPS, emojis promocionales, hype anglosajón traducido (`Join 10,000+ readers`, `Don't miss out`, `¡Apúntate ya!`). Razón: patrón CTA no-spammy de `references/writewithai/extractions/ctas.md`.
+- Copy opaco o vago (`sin letra pequeña`, `sin trucos`, `de verdad`). Razón: no resuelve objeción concreta, huele a marketer.
+
+**Obligatorio — el trust-line debe incluir AL MENOS 2 de estos 3 elementos:**
+1. **Formato concreto del tangible:** "PDF · 2 páginas", "Checklist 7 preguntas", "Comparativa 6 modelos".
+2. **Baja fricción de salida:** "Te das de baja en un clic", "Baja cuando quieras", "Un clic para salir".
+3. **Transparencia del vínculo:** "Gratis" o "PDF + newsletter semanal" (si la suscripción es obligatoria para descargar, decirlo explícitamente).
+
+**Formato:** inline separado por `·` (punto medio con espacios), minúsculas, sin punto final. Máximo ~80 caracteres — debe caber en una línea a 375px; si hace wrap que corte en `·`.
+
+**Default canónico ROBOHOGAR (Hoja de Compra y derivados):**
+> `PDF gratis · te suscribes a la newsletter · baja cuando quieras`
+
+Elegido 2026-04-19 por consistencia con el modelo Beehiiv Digital Product (la descarga suscribe sí o sí — ocultarlo con eufemismos eleva spam reports en F1), alineación con brand voice ("amigo techie sin hype") y cumplimiento del espíritu GDPR/LOPDGDD + Write With AI CTA no-spammy.
+
+**Variantes descartadas (documentadas como anti-patterns):**
+- `PDF · 2 páginas · gratis · te das de baja en un clic` — Rechazada: oculta la suscripción; riesgo de disonancia en el primer welcome email.
+- `Gratis · directo al email · sin letra pequeña` — Rechazada: "sin letra pequeña" es vago; "directo al email" no es elemento obligatorio.
+
+**Validación pre-commit (`grep` sobre el HTML/markdown del banner, ficha o email):**
+```
+grep -iE "15 segundos|llega al email en|instantáneo|al momento|sin publicidad|sin promociones|sin letra pequeña|join [0-9]|don.t miss|apúntate ya" <archivo>
+```
+Si matchea, reescribir antes de pegar en artículo o publicar ficha. El validator del skill `/pdf-brand` (`skills/pdf_brand/validators.py`) aplica la misma regex como bloqueo duro pre-export.
+
+**Herencia:** toda skill que genere copy de conversión (`/content-draft` § 8.8 · `/pdf-brand` § 6 · futuro `/social-content`) aplica esta regla sin excepción. Referencia, no duplicación.
+
+Regla validada por Rafael 2026-04-19 tras pedir best practices certificadas — investigación en `references/writewithai/extractions/ctas.md`, `references/writewithai/extractions/lead-magnets.md`, `references/writewithai/04-email-newsletter-patterns.md` §§ 58-70, `references/newsletter/email-marketing-playbook.md` §13. Memoria: `feedback_microcopy_trust_lines.md`.
+
 ## Roadmap
 
 - **F1 (hoy, 0-50 subs):** tangible definido en PASOS.md + entregado inline en el HTML del artículo. PDFs descargables activos vía `/pdf-brand cheatsheet` (adelantado desde 2026-04-18 al tener plan Scale y primer PDF Hoja de Compra v2 validado).
