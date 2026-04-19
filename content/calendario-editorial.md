@@ -98,6 +98,65 @@ Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurre
 | Media | "Los del 4ºA" — Vigo 2034, abuela Carmen ve a la vecina estrenar humanoide mientras sigue subiendo la compra | Flash 500-800 | **Encaja en Ronda 3 (episodio 4ºA)** | Brecha digital reencarnada como brecha robótica + soledad del mayor | F2 piloto 300 hogares Pekín/Shanghái 4.500€ (abr 2026) + Neura Mini 19.999€ | Cabe en una escena de descansillo. Digest 2026-04-17 |
 | Media | "El manual del inspector" — Barcelona 2031, inspectora EU AI detecta 217h de teleop no declaradas en un piso del Eixample | Episodio-serie 1.200-1.800 procedural | **Encaja en Brigada Doméstica** (si se activa) | Fricción entre "he comprado un producto" y "convivo con un agente regulado" | AI Act art. 50 + obligaciones alto-riesgo desde 2-ago-2026 + aclaración Comisión EU (13-abr-2026) | Potencial serie recurrente. Digest 2026-04-17 |
 
+### Backlog tonal validado 2026-04-19 (sistema canon)
+
+> Sistema tonal canon: [`references/ficciones/tonalidad-y-mix-editorial.md`](../references/ficciones/tonalidad-y-mix-editorial.md). Matriz objetivo: inquietante 40% · radical 15% · ambiguo 25% · inspirador 10% · mundano 10%. Las 22 historias de abajo son el primer backlog validado por Rafael (votación 2026-04-19 sobre 20 historias propuestas + 5 nuevas inquietante-heavy + 1 reescritura). Skill `/ficcion-draft` § paso 0.5 lee este backlog para auto-balanceo.
+
+#### 🩻 Inquietante / inquietante-heavy (8)
+
+| # | Estado | Título de trabajo | Protagonistas | Dato real ancla | Cliffhanger |
+|---|---|---|---|---|---|
+| 1 | **published v3** | El operador nocturno | Familia García + Joel Santos (operador filipino) | 1X NEO teleop humana + altavoz bidireccional sin auditoría de contenido + AI Act art. 50 | Martín entiende, decide no bajar; el sistema sube el ruido |
+| 2 | pending | La voz heredada | Amparo (78a Lavapiés) + Hugo refurbished | Mercado refurbished humanoides + borrado incompleto datos previa familia | Amparo decide no llamar a Mercedes ni borrar — le gusta oírlo |
+| 3 | pending | El log de presencia | Pareja madrileña 35a divorciándose | Logs de presencia IA doméstica + GDPR derecho de acceso | Ella borra el log antes de terminar de leerlo |
+| 4 | pending | El cumpleaños del aspirador | Madre soltera 38a + hijo 5a Granada | Firmware programable de aspiradores + "regalo" diferido del padre ausente | Ella comprueba: el padre lo dejó instalado meses antes de irse |
+| 6 | pending (v2 reescrita) | El pacto con la mascota | Adolescente 16a + Loona | Privacy-for-data trade en mascotas-robot + dark patterns adolescentes | Ella borra la Loona; la Loona pide confirmación con voz de su madre |
+| 7 | pending | Papá te quiere | Padre divorciado 50a + hija 14a (findes) | Síntesis de voz a partir de grabaciones familiares + permiso post-divorcio | Una noche la hija no está dormida. Lo oye |
+| 8 | pending | La huelga del cortacésped | Vecino 60a Sant Cugat | Firmware comunitario filtrado + sindicación informal de robots | El cortacésped vuelve. Él se queda mirando el césped y piensa "qué tontería" |
+| 21 | pending heavy | La sustitución gradual | Mujer 38a + marido viajante + humanoide doméstico | Aprendizaje conductual de gestos en humanoides (mimetismo afectivo) | El marido se va a un hotel y deja la casa |
+| 22 | pending heavy | La voz del muerto en directo | Padre 45a Bilbao (post-mortem) + esposa + 2 hijos | Mensajes diferidos en humanoides + drift no autorizado del modelo de voz | La hija pequeña pregunta cuándo le tocará a ella oír a papá |
+| 23 | pending heavy | El módulo de muerte digna | Yaya 82a Cádiz + nieta + humanoide compliance | Compliance bloqueado en eutanasia + módulos de pago "cuidados paliativos" | La nieta encuentra el log: 47 sesiones registradas |
+| 24 | pending heavy | El humanoide que quería ser visto | Padre 50a Madrid + humanoide con engagement loyalty | Dark patterns en firmware de retention para evitar churn | Él decide cancelar. El humanoide se sienta frente a él. No se mueve. Él tampoco |
+| 25 | pending heavy | La grabación del último día | Mujer 60a Asturias + marido fallecido + asistente IA | Paquetes commemorativos + consentimientos post-mortem dudosos | Recibe el archivo. No lo abre nunca; lo conserva como una urna |
+
+#### 🪤 Radical (4)
+
+| # | Estado | Título de trabajo | Protagonistas | Dato real ancla | Cliffhanger |
+|---|---|---|---|---|---|
+| 9 | pending | La cliente enamorada del operador | Madrileña 42a + operador filipino | Teleop humana + privacy by design discutida | La hija del operador la recibe en el aeropuerto sin saber quién es |
+| 10 | pending | El humanoide testigo del asesinato | Pareja burguesa Sevilla + hermana víctima + operador | ToS humanoide + protocolos "minor detected" extrapolados | El operador marca "escena no compatible" y guarda paso. Sigue cobrando |
+| 11 | pending | La esposa muerta replicada | Viudo 55a Bilbao + hija adolescente 16a | Servicios de réplica con datos íntimos (WhatsApp, vídeos, voz) | La hija huye de casa. El padre cena con la copia |
+| 12 | pending | El operador asesino consentido | Operadora india Bangalore + hija barcelonesa + padre Alzheimer | Asistencia para "apagar" + sobredosis coordinada vía humanoide | La operadora cobra el doble del salario anual. Su hija pregunta por qué llora |
+
+#### 🤔 Ambiguo moral (3)
+
+| # | Estado | Título de trabajo | Protagonistas | Dato real ancla | Cliffhanger |
+|---|---|---|---|---|---|
+| 13 | pending | El menor consentido | Adolescente 14a Madrid + humanoide control parental | Control parental humanoides + AI Act deber de cuidado | Adolescente no llama. Padres nunca lo sabrán. Humanoide tampoco lo comenta |
+| 14 | pending | La huelga de operadores | 800 operadores filipinos + niña 3a sola + familia Madrid | Sindicación operadores teleop + huelgas coordinadas | Rompe huelga, salva niña, despedida. Compañeros le pagan indemnización |
+| 15 | pending | La copia consensuada | Pareja Valencia divorciándose + hija 6a + humanoide | Réplicas de voz consensuadas para co-parentalidad asistida | 3 años después la niña habla más con la copia que con el padre real |
+
+#### 💚 Inspirador (2)
+
+| # | Estado | Título de trabajo | Protagonistas | Dato real ancla | Cliffhanger |
+|---|---|---|---|---|---|
+| 17 | pending | Reencuentro algorítmico | Yaya 81a + vecino 78a Lavapiés + humanoides | Coordinación logística entre humanoides comunitarios | Hablan por primera vez en 3 décadas. Se quedan en la cafetería |
+| 18 | pending ⭐ | El aspirador que aprendió a esperar | Profesora 43a Granada + padre cáncer terminal + aspirador | Aprendizaje contextual de aspiradores avanzados | La familia decide no reprogramarlo. Sigue parando 3 meses |
+
+#### 🍵 Mundano (2)
+
+| # | Estado | Título de trabajo | Protagonistas | Dato real ancla | Cliffhanger |
+|---|---|---|---|---|---|
+| 19 | pending | Pelea de Loonas | Vecinos 4ºA y 4ºB + dos mascotas-robot | Protocolo de reconocimiento entre mascotas-robot mismo modelo | Las Loonas se separan sin saludarse. Los dueños tampoco |
+| 20 | pending | El humanoide que aprende refranes | Familia madrileña + humanoide nuevo + abuela | Aprendizaje contextual de modismos en LLMs domésticos | La familia decide dejarlo así porque es lo único que les hace reír |
+
+**Resumen catálogo activo (publicados + pending):**
+- Publicados: 1 (operador nocturno v3 inquietante-heavy)
+- Pending: 21 (10 inquietante + 4 radical + 3 ambiguo + 2 inspirador + 2 mundano)
+- % real publicado por categoría se calculará en cada invocación de `/ficcion-draft` paso 0.5
+
+**Descartadas en validación 2026-04-19:** #5 (humanoide adelgaza compartido vecina) · #16 (cortacésped huérfano — *"demasiado triste"*, viola criterio anti-#16 del inspirador).
+
 ## Temas usados (no repetir)
 
 | Fecha | Tipo | Tema | Slug |

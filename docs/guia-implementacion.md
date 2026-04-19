@@ -46,6 +46,7 @@
 ## 🎯 Roadmap actual (abr 2026)
 
 **Estado (19-abr-2026):**
+
 - ✅ **7 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [Mejor robot aspirador 2026: 6 finalistas + checklist](https://robohogar.com/p/mejor-robot-aspirador-2026) (2026-04-19).
 - ❌ **0 suscriptores** · newsletter semanal diferida hasta 30-50 subs.
 - ❌ **0 Ficciones Domésticas** publicadas (pilar experimental pendiente de arrancar).
@@ -97,7 +98,6 @@
 **Último artículo publicado:** #7 *Mejor robot aspirador 2026: 6 finalistas + checklist* (2026-04-19).
 **Último tangible publicado:** Hoja de Compra v2 PDF (2026-04-18) → `content/lead-magnets/hoja-compra/`.
 
-
 ### 🌍 Filtro mercado ES — regla base
 
 ROBOHOGAR se enfoca en **España primario + LATAM secundario**. Antes de aceptar un tema, validar distribución ES + keyword ES + cobertura en ≥2 fuentes de [`references/fuentes-es-master.md`](../references/fuentes-es-master.md). Regla completa: [`editorial.md § Filtro mercado ES/LATAM`](../.claude/rules/editorial.md). Los skills `/research-digest` y `/content-draft` ya lo aplican automáticamente.
@@ -119,11 +119,13 @@ El objetivo es llegar a **≥7 artículos publicados** antes de activar FASE 4B.
 Primera aplicación del pivote Cole *"tangible = producto"* con email gating real.
 
 **Estructura:**
+
 - **60% abierto (SEO-indexable):** intro, contexto mercado ES 2026, criterios de elección, análisis individual 4-5 modelos (Roborock / Dreame / Ecovacs / Samsung / Xiaomi — todos con distribución ES), opinión editorial.
 - **Content Gate split point:** bloque "Introduce tu email para seguir leyendo — tabla comparativa + checklist".
 - **40% gated:** tabla comparativa maestra con ganador por caso de uso, checklist "5 preguntas antes de comprar", veredicto por perfil (piso <70 m² / casa grande / mascota / presupuesto apretado).
 
 **Configuración Beehiiv (free plan — sin upgrade):**
+
 - Post settings → *Advanced email capture* → **Content Gate** ON.
 - Split point: justo antes de la tabla comparativa final.
 - Subs ya existentes: lectura completa sin gate (default).
@@ -270,6 +272,7 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 ### Ajustar sección por sección (Design Mode)
 
 **Hero (above the fold):**
+
 - [x] Headline → `Tu dosis de robótica doméstica`
 - [x] Subtítulo → `Cada semana, comparativas, reviews, editoriales y relatos`
 - [x] Placeholder del input → `tu@email.com`
@@ -278,6 +281,7 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 - [x] Imagen de la mascota principal con café
 
 **Artículos destacados (justo bajo el hero):**
+
 - [x] En Design Mode: añadir bloque **"Recent Posts"** o **"Featured Posts"**
 - [x] Configurar para mostrar 2-3 posts con imagen + título + excerpt
 - [x] Título de sección → `Lo último en ROBOHOGAR`
@@ -286,6 +290,7 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 > Esta sección estará vacía hasta que publiques los primeros artículos (FASE 2). Publica al menos 2 posts ANTES de compartir la landing públicamente.
 
 **Sobre qué escribimos** (3 pilares — formato 3-column horizontal, NO 4 cards apiladas):
+
 - [x] Título → `Sobre qué escribimos`
 - [x] 3 columnas (icono grande + headline en bold + sub-línea ≤30 chars):
   - `🤖 **Análisis** · Lo que pasa esta semana`
@@ -295,16 +300,19 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 > Beehiiv: usar el componente "Three Column" / "Features" del template Aurora News. Si no existe, usar bloque de HTML personalizado. NO usar el componente "Card list" actual (4 cards apiladas → mal UX en móvil).
 
 **Sobre el autor:**
+
 - [x] Imagen: subir `assets/branding/master/robohogar-mascot-leyendo.png` *(sección omitida — decisión editorial)*
 - [x] Texto → `Soy Rafael. Pruebo robots en casa, investigo lo que viene y te cuento lo que merece la pena — sin comunicados de prensa ni hype vacío.`
 > Nota: la bio personal mantiene "te cuento" (singular). El plural "contamos" se usa solo en la voz de marca (tagline, subtítulo).
 
 **FAQ:**
+
 - [x] Pregunta 1: `¿Con qué frecuencia llega?` *(omitida en implementación final — la frecuencia ya se indica en el tagline)*
 - [x] Pregunta 2: `¿Es gratis?`
 - [x] Pregunta 3: `¿Quién escribe esto?`
 
 **Footer:**
+
 - [x] Segundo CTA: `¿Te lo vas a perder?` + formulario de email
 - [x] Trust text bajo el formulario del footer → `100% gratis · Sin spam · Cancela cuando quieras` (única ubicación en toda la landing)
 - [x] Links a redes cuando estén creadas (FASE 5)
@@ -424,6 +432,7 @@ Cada artículo necesita 1 imagen destacada (1200x630). El agente de imágenes (`
 ### Patrones de formato por tipo de contenido
 
 **Review/Comparativa (70% del contenido):**
+
 - Tabla comparativa specs al inicio
 - Pros/Contras con iconos ✅/❌
 - Veredicto claro: "¿Lo compraría? Sí/No y por qué"
@@ -431,6 +440,7 @@ Cada artículo necesita 1 imagen destacada (1200x630). El agente de imágenes (`
 - Reference: Newsletter Operator usa inline CTA mid-article con lead magnet
 
 **Editorial/Futuro (30% del contenido):**
+
 - Hook con dato sorprendente o imagen evocadora
 - Opinión personal fuerte (no hedging)
 - Dato + especulación + consecuencia para el lector
@@ -438,6 +448,7 @@ Cada artículo necesita 1 imagen destacada (1200x630). El agente de imágenes (`
 - Reference: The Hustle "Originals" — reportajes largos con titulares creativos
 
 **Newsletter semanal:**
+
 - Template fijo de 5 secciones (ver FASE 4)
 - Máximo 1.500 palabras
 - Email gating en el artículo web más valioso de cada issue
@@ -511,6 +522,7 @@ Configurar estas categorías para organizar el contenido:
 ### Sistema de templates ROBOHOGAR
 
 **Principios de diseño:**
+
 1. **Automation-ready**: slots claros que `/content-draft` puede rellenar
 2. **Mobile-first**: 600px max, 14-16px body, single-column, touch targets 44px
 3. **Consistencia visual**: misma estructura = lectores saben qué esperar
@@ -529,6 +541,7 @@ Configurar estas categorías para organizar el contenido:
 | Editorial/Opinión | `content/templates/editorial-opinion.md` | 30% — futuro | ✅ Consolidado en master |
 
 **Proceso por template (7 pasos):**
+
 1. Investigar 3+ ejemplos reales del mismo tipo
 2. Diseñar estructura (secciones, headings, slots)
 3. Definir frontmatter (campos YAML para `/content-draft`)
@@ -736,6 +749,7 @@ ROBOHOGAR
 ```
 
 **Paso 5** — Verificar:
+
 - [ ] Subject empieza con 🤖 y dice "Bienvenido/a a ROBOHOGAR"
 - [ ] Preview text incluye la palabra "semanal"
 - [ ] Sender name = "Rafael de ROBOHOGAR"
@@ -1089,6 +1103,7 @@ No se necesitan plugins de Obsidian (QuickAdd, Periodic Notes, Templater). Claud
 > Fuente de verdad: `content/calendario-editorial.md`. Esta tabla es snapshot — actualizarla manualmente desactualiza el calendario. **Consultar el calendario, no esta tabla.**
 
 Snapshot 2026-04-17 de artículos **🔥🔥🔥 Alta**:
+
 - 1X NEO va a fábricas: contradicción del "robot doméstico" (editorial)
 - UniX AI Panther: primer humanoide en hogares reales (editorial)
 - Neura 4NE-1 Porsche Design €98k: la respuesta europea (editorial)
@@ -1100,6 +1115,7 @@ Snapshot 2026-04-17 de artículos **🔥🔥🔥 Alta**:
 ### Semillas de Ficciones Domésticas (pendientes)
 
 Snapshot 2026-04-17 — 4 semillas en backlog:
+
 - 🥇 "El operador nocturno" — teleop NEO + deal EQT (corto o mini-serie 3 eps)
 - 🥇 "El guante" — Sunday Skill Capture + cuidadora con alzhéimer (corto)
 - "Los del 4ºA" — F2 piloto China + brecha robótica en edificio (flash)
@@ -1110,6 +1126,7 @@ Snapshot 2026-04-17 — 4 semillas en backlog:
 ### Newsletter (diferida)
 
 La newsletter semanal se activa cuando haya **30-50 suscriptores** (ver FASE 9). Mientras tanto:
+
 - Cada artículo publicado `Email and web` YA va a los suscriptores actuales como email (no hace falta newsletter aparte)
 - El Welcome Email cubre la primera impresión
 - El espacio "newsletter semanal curada" se añadirá cuando la masa crítica justifique otra cadencia
@@ -1228,6 +1245,7 @@ Cuando Rafael vuelva a Claude Code después de días/semanas y quiera retomar es
 | Ver estado actual del plan | **"¿En qué fase del plan lazy-castle estamos?"** |
 
 Con esas frases, Claude debe:
+
 1. Leer este bloque (FASE 4C) + el plan file [`crea-el-plan-sugerido-lazy-castle.md`](../../.claude/plans/crea-el-plan-sugerido-lazy-castle.md)
 2. Revisar qué checkboxes están marcados y cuáles no
 3. Retomar en el primer paso pendiente de la fase solicitada
@@ -1272,6 +1290,7 @@ Regla de oro: si un tangible tarda >30 min, se simplifica o se omite.
 - [ ] Rafael valida diseño visualmente antes de pasar a FASE B
 
 **Identidad visual blindada — 9 elementos combinados que hacen que el PDF sea inequívocamente de ROBOHOGAR:**
+
 1. Header con monograma R (`assets/branding/master/robohogar-logo-monogram-v11.png`)
 2. Mascota firma en esquina inferior derecha
 3. Paleta 3-color estricta (#F5A623 · #0C0C0C · #FFFFFF)
@@ -1299,6 +1318,7 @@ Alineado con [plan-v2.md:108](plan-v2.md#L108) (modelo "lazy lead magnets"). Sta
 - [ ] Aplicar CTA actualizado a los 2 artículos ya publicados en Beehiiv
 
 **Voz (respetando anti-patterns):**
+
 - ❌ NO "honesta", "sin filtro", "guía definitiva"
 - ❌ NO superlativos vacíos ("revolucionario", "increíble", "el mejor")
 - ✅ Plural editorial ("hemos visto", "te proponemos")
@@ -1318,11 +1338,13 @@ Alineado con [plan-v2.md:108](plan-v2.md#L108) (modelo "lazy lead magnets"). Sta
 ### Métricas de éxito
 
 Benchmark playbook ([email-marketing-playbook.md:68](../references/newsletter/email-marketing-playbook.md#L68)):
+
 - Lead magnets: +384% signups
 - Content Gate: 3-10% conversión del tráfico SEO
 - CTA "Get my guide" > "Subscribe" (+33%)
 
 Target ROBOHOGAR:
+
 - Semana 1-2: 0 → 10 subs
 - Mes 1: 10 → 30 subs
 - Mes 3: 30 → 100 subs (milestone para activar newsletter semanal)
@@ -1350,6 +1372,7 @@ Cada card: PDF con gate (suscripción requerida). Convierte la landing en asset 
 ### Bundles temáticos (mes 6+)
 
 Cuando biblioteca >20 items, empaquetar:
+
 - "Aspiradores 2026" (checklists + comparativas)
 - "Humanoides doméstico" (editoriales + glosarios + mini-posters ficción)
 - "Cortacésped temporada primavera/verano"
@@ -1442,12 +1465,14 @@ Automatizar TODO excepto juicio editorial y voz. Rafael decide QUÉ contar y CÓ
 ### Cadencia operativa
 
 **Ritmo actual (fase de construcción de catálogo):**
+
 - 1 artículo/semana (objetivo)
 - 1 Ficción Doméstica cada 3-4 semanas
 - Digest: bajo demanda (antes de escribir si pasaron >5 días)
 - Newsletter semanal: diferida (activar con 30-50 subs)
 
 **Día típico de publicación (martes):**
+
 - Lunes noche: `/research-digest` si no hay uno reciente
 - Martes mañana: elegir tema + `/content-draft`
 - Martes mediodía: editar voz
@@ -1596,20 +1621,21 @@ Skill repetible para auditar el pipeline end-to-end. Invocar último viernes de 
 
 Definición completa: [`.claude/commands/pipeline-debug.md`](../.claude/commands/pipeline-debug.md).
 
-
-
 ### Workflow semanal (~30-60 min con Claude Code)
 
 **Agentes automáticos (Claude Code ejecuta):**
+
 - [ ] `/research-digest` — digest + backlog dual + semillas narrativas (solo si >5 días del último)
 - [ ] `/content-draft` — borrador HTML + hero + imágenes inline + PASOS.md
 - [ ] `/ficcion-draft` — relato completo desde semillas del backlog (cada 3-4 semanas)
 
 **Manual (Rafael):**
+
 - [ ] Editar borrador (añadir voz, opinión, humor) — 45-90 min
 - [ ] Publicar en Beehiiv (copy-paste + settings + hero + preview mobile)
 
 **Post-publicación (Claude Code ejecuta):**
+
 - [ ] `/post-publish <URL>` — 14 pasos: verifica OG, mueve a `published/`, actualiza registros + llms.txt + fuentes + catálogo + vault + commit
 - [ ] `/social-content` — posts para LinkedIn, X, Instagram, WhatsApp (opcional, cuando redes estén listas)
 - [ ] Programar posts en Buffer (manual hasta FASE 10)
@@ -1633,24 +1659,29 @@ Definición completa: [`.claude/commands/pipeline-debug.md`](../.claude/commands
 ### Actualizar landing en Beehiiv
 
 **Añadir secciones:**
+
 - En Beehiiv: **Website → Design Mode → Add Section**
 - Secciones candidatas: testimonios (cuando haya), contador de suscriptores, vídeo embed de YouTube
 
 **Cambiar imágenes:**
+
 - En Beehiiv: **Design Mode → clic en imagen → Replace**
 - Generar nuevas con `/nano-banana` → subir a Beehiiv
 - Assets van a `assets/images/` en el repo (backup)
 
 **Añadir vídeos:**
+
 - En Beehiiv: **Design Mode → Add Section → Video/Embed**
 - Pegar URL de YouTube — Beehiiv genera el embed automáticamente
 - Recomendado: 1 vídeo en la landing cuando haya contenido en YouTube
 
 **Actualizar FAQ:**
+
 - En Beehiiv: **Design Mode → FAQ section → Edit**
 - Añadir preguntas nuevas basadas en feedback de suscriptores
 
 **Actualizar social proof:**
+
 - Cuando alcances 100 subs: cambiar "Semanal · 5 min" → "Únete a 100+ lectores"
 - Cuando alcances 500: "Únete a 500+ lectores que ya viven con robots"
 

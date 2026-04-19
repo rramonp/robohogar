@@ -28,7 +28,11 @@ Output listo para copiar/pegar en cada plataforma.
 
 ### 2. Generar contenido por plataforma
 
-Aplicar tono de `rules/editorial.md`: cercano, informado, humor sutil, opiniones propias.
+**Carga obligatoria ANTES de redactar copy** (nueva regla desde 2026-04-19):
+
+1. [`@references/editorial-es/04-social-posts.md`](../../references/editorial-es/04-social-posts.md) **completo** — voz por plataforma (LinkedIn formal-cercano, X corto, IG caption, WhatsApp conversacional), transferencia del toque personal, calcos EN→ES sociales prohibidos, checklist §4.
+2. [`@references/editorial-es/02-newsletter-y-emails.md § 2`](../../references/editorial-es/02-newsletter-y-emails.md) — taxonomía de los 7 recursos del toque personal que se adaptan a redes (ver tabla §2 de `04-social-posts.md` para la calibración por plataforma).
+3. Aplicar tono baseline de `rules/editorial.md`: cercano, informado, humor sutil, opiniones propias.
 
 **Primera persona plural obligatoria** en todos los posts (ver `rules/editorial.md`).
 
@@ -128,3 +132,16 @@ Checklist pre-output:
 - [ ] 0 emojis decorativos en cascada (`🔥🚀✨`). Max 1-2 emojis icónicos por post.
 - [ ] Persona gramatical: `tú` imperativo o plural editorial (`hemos probado`). Nunca `vosotros` ni `usted`.
 - [ ] LinkedIn openings ES legítimos: afirmación directa · pregunta punzante · dato crudo. Nunca `Hola LinkedIn`.
+
+## Checklist prosa editorial ES — §4 del 04-social-posts.md (OBLIGATORIO pre-output)
+
+Ejecutar **además** de la checklist anti-anglicismos de arriba la checklist §4 de [`@references/editorial-es/04-social-posts.md § 4`](../../references/editorial-es/04-social-posts.md):
+
+- [ ] **§4.1 Flags automáticos (grep)**: 0 matches en calcos sociales anglo (`🧵 thread`, `don't miss`, `follow for more`, `here's why`, `game-changer`, `mind blown`, `TLDR`, `pro tip`, `únete a +`), anuncios de hilo `🧵 1/N`, hype + emojis en cascada, metanarración de plataforma, saludos anglo WhatsApp
+- [ ] **§4.2 Verificación semántica por plataforma**: LinkedIn (hook según §3 artículos + humildad epistémica + CTA editorial + ≤3 hashtags ES), X (1 sola idea + apertura con cifra/nombre + sin anuncio hilo + numeración discreta `(1/N)`), IG (primera línea 70% impacto + confesión autoparódica + CTA blando + ≤5 hashtags), WhatsApp (2-4 líneas + apertura conversacional + 1 dato + link)
+- [ ] **§4.3 Voz baseline cross-plataforma**: primera persona plural + tú + sin saludos anglo + anti-IA §1 si post >150 palabras
+
+**Regla de decisión combinada** (suma de anti-anglicismos + §4):
+- 0 flags agregados + hook sólido por plataforma → publicar
+- 1-2 flags → reescribir líneas señaladas
+- ≥3 flags O metanarración de plataforma O hype en cascada → reescribir post completo

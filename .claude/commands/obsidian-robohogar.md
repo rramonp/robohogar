@@ -23,7 +23,7 @@ $HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/
 
 ## Estructura del vault
 
-Subcarpetas principales de `05-01_Robotica Newsletter/`: `_archive/`, `Issues/`, `Metricas/`, `Research/` (+ `Clippings/`), `Templates/`, `Wiki/` (`Robots/`, `Empresas/`, `Conceptos/`, `Mercado/`), `02-Drafts/`, `03-Published/`, `06-Calendar/`. MOC: `Proyecto ROBOHOGAR.md`.
+Subcarpetas principales de `05-01_Robotica Newsletter/`: `_archive/`, `02-Drafts/`, `03-Published/`, `06-Calendar/`, `Docs/` (setup operativo: welcome flow y similares), `Issues/`, `Metricas/`, `Research/` (+ `Clippings/`; aloja también los snapshots `Research Mercado ES.md` / `Research Mercado EN.md`), `Templates/`, `Wiki/` (`Robots/`, `Empresas/`, `Conceptos/`, `Mercado/`). MOC: `Proyecto ROBOHOGAR.md`.
 
 ## Modos de operación
 

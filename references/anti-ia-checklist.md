@@ -193,6 +193,31 @@ Si el cliffhanger que sale es físico → volver a Paint The Villain y replantea
 
 Regla de decisión idéntica: ≥3 flags = rechazar; 1-2 = reescribir y re-correr.
 
+### §2.9 Calcos EN→ES en ficción narrativa — checklist específica
+
+Esta sección **complementa** §1.1 (que cubre calcos genéricos LLM como *tejer*, *susurrar*, *tapiz*) con calcos específicos de prosa narrativa que delatan traducción del inglés al lector ES literario contemporáneo. Origen: feedback Rafael 2026-04-19 sobre *El operador nocturno v1*.
+
+**Fuente canónica completa con muestras textuales de 10 autores ES peninsulares y 12 calcos con alternativas literarias:** [`@references/ficciones/castellano-literario-es.md`](ficciones/castellano-literario-es.md). Ese archivo se carga en `/ficcion-draft` paso 6 antes de generar prosa. Esta §2.9 contiene solo el quick check de las 5 verificaciones automáticas más frecuentes:
+
+```bash
+# Calco 1 — posesivo redundante con partes del cuerpo
+grep -E "sus (manos|ojos|piernas|brazos|labios|dedos|pies|hombros|rodillas|cabezas?)" <relato>   # → meta 0
+
+# Calco 3 — "de repente" como conector temporal
+grep -ic "de repente" <relato>   # → meta ≤1 en standalone
+
+# Calco 4 — adverbios -mente acumulados
+grep -oE "[a-záéíóúñ]+mente" <relato> | wc -l   # → meta ≤4 en standalone
+
+# Calco 5 — pasiva ser+participio
+grep -E "\b(fue|fueron|era|eran) [a-záéíóú]+ad[oa]s?\b" <relato>   # → revisar caso a caso
+
+# Calco 7 — conectores anglo
+grep -ic "sin embargo\|de hecho\|por supuesto\|en definitiva" <relato>   # → meta ≤1 cada uno
+```
+
+**Si alguna verificación supera el umbral → reescribir la línea afectada antes de entregar.** Para checklist completa (12 calcos + 12 recursos ES positivos + ritmo + espacio doméstico + voz por personaje + tecnología digerida), correr [`castellano-literario-es.md § 8`](ficciones/castellano-literario-es.md). Regla de decisión global: ≥4 fallos en la checklist completa → reescribir el relato; 1-3 fallos → reescribir párrafos concretos.
+
 ---
 
 ## Proceso de actualización de esta checklist
@@ -204,3 +229,4 @@ Regla de decisión idéntica: ≥3 flags = rechazar; 1-2 = reescribir y re-corre
 ## Changelog
 
 - **2026-04-18** — creación inicial. Destilado de research externo (Palahniuk, Chiang, Clarkesworld 2024-2025, Jane Friedman) y observación de patrones LLM en español.
+- **2026-04-19** — añadida §2.9 "Calcos EN→ES en ficción narrativa" con quick check (5 verificaciones grep) y cross-reference al nuevo knowledge base [`references/ficciones/castellano-literario-es.md`](ficciones/castellano-literario-es.md) (10 referentes ES peninsulares + 12 calcos completos + 12 recursos ES positivos). Origen: feedback Rafael sobre prosa de *El operador nocturno v1* que sonaba a traducción del inglés.

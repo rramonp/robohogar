@@ -81,6 +81,11 @@ Skills invocables (definidos en `.claude/commands/`). Pipeline principal en orde
 | `/social-content <URL>` | Posts LinkedIn/X/IG/WhatsApp listos para Buffer | Invocado automáticamente por post-publish paso 11 |
 | `/obsidian-robohogar` | Sync vault (guía, registro, wiki, calendario) | Invocado automáticamente por post-publish paso 12 |
 
+**Knowledge base de prosa editorial ES (no-ficción)** — cargado por skills antes de generar copy publicable:
+- `/content-draft` paso 8.5 bis → [`references/editorial-es/01-articulos-y-columnas.md`](references/editorial-es/01-articulos-y-columnas.md) (artículos, reviews, columnas). Paso 8.8 → [`references/editorial-es/03-microcopy-ctas-meta.md`](references/editorial-es/03-microcopy-ctas-meta.md) (banner lead magnet).
+- `/social-content` paso 2 → [`references/editorial-es/04-social-posts.md`](references/editorial-es/04-social-posts.md) + [`references/editorial-es/02-newsletter-y-emails.md`](references/editorial-es/02-newsletter-y-emails.md) §2 (taxonomía toque personal).
+- Emails del welcome flow (manuales, fuera de skill) + newsletter semanal → [`references/editorial-es/02-newsletter-y-emails.md`](references/editorial-es/02-newsletter-y-emails.md) (eje central, voz personal ES).
+
 Skills secundarios:
 - `/ficcion-draft` — relatos cortos Ficciones Domésticas (pilar ~10%)
 - `/pdf-brand cheatsheet <slug>` — genera **PDF tangible + ficha Beehiiv Digital Product** con marca (lead magnets) desde `content/lead-magnets/<slug>/data.py`. Validators bloquean roadmap futuro / fechas de revisión / byline personal automáticamente. Variantes restantes (comparativa/guia/relato) pendientes activación por demanda. Ver `.claude/commands/pdf-brand.md`.

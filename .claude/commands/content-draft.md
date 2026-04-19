@@ -198,9 +198,25 @@ Template origen: `content/templates/PASOS-template.md`. Script: `utilities/gener
 
 Cargar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) **§1 Universal completo** (§1.1 lista negra de palabras, §1.2 tricolon/em-dashes/contrast, §1.3 clichés sensoriales, §1.4 voz plural) y correrlo sobre el `borrador.html`. La §2 Ficción NO aplica aquí — solo relatos.
 
-**Regla de decisión:** ≥3 flags → rechazar output y reescribir · 1-2 flags → reescribir líneas ofensivas y re-correr · 0 flags → proceder al paso 9.
+**Regla de decisión:** ≥3 flags → rechazar output y reescribir · 1-2 flags → reescribir líneas ofensivas y re-correr · 0 flags → proceder al paso 8.5 bis.
 
 Complementa (no sustituye) las prohibiciones de `@rules/editorial.md` (autoridad propia, primera persona plural, filtro ES).
+
+### 8.5 bis. Prosa editorial ES — OBLIGATORIO antes de entregar borrador
+
+Cargar [`@references/editorial-es/01-articulos-y-columnas.md`](../../references/editorial-es/01-articulos-y-columnas.md) **completo** (§1 periodismo tech ES, §2 columnistas ES+LATAM, §3 7 patrones de apertura editorial, §4 calcos EN→ES en transiciones, §5 cierre de artículo, §6 transfusión del toque personal al artículo) y correr la **checklist §7** sobre `borrador.html`.
+
+Esta checklist complementa (no sustituye) la anti-IA universal del paso 8.5. La anti-IA filtra tics LLM genéricos; el KB editorial-es aplica los patrones concretos de los 13 referentes ES+LATAM auditados (Pastor, Eva R. de Luis, Lacort, Peirano, Ortiz, Vázquez, Paniagua, Carrión, Salazar, Caparrós, entre otros).
+
+**Verificaciones §7 OBLIGATORIAS:**
+- [ ] **§7.1 Flags automáticos (grep)**: 0 matches en conectores anglo vacíos, cierres cliché, superlativos genéricos sin matiz, narrar proceso de investigación
+- [ ] **§7.2 Hook**: primera frase cae en uno de los 7 patrones del §3 (apertura oblicua / hook en dos tiempos / dato concreto + año + lugar / subordinada + pero / hook en negativo concreto / apertura escénica en presente / pregunta propia obsesiva). Si cae en *"La inteligencia artificial es…"* o similar → reescribir
+- [ ] **§7.3 Voz personal** (≥3 de 4 en artículos ≥1.000 palabras): apertura con anécdota/persona/momento + humildad epistémica en veredicto + pregunta genuina (si editorial reflexivo) + reclamo humano (1 de cada 3 artículos)
+- [ ] **§7.4 Recursos ES positivos** (≥3 de 7): aposición explicativa + dos puntos como pivote + frase corta encadenada + autoexención voluntaria + perífrasis de reencuadre + plural impersonal inclusivo + puente oral ES (*"en honor a la verdad"*, *"tenemos claro que"*, *"letra pequeña"*)
+
+**Regla de decisión:** ≥3 flags automáticos O hook genérico O <3 recursos voz personal (§7.3) O <3 recursos ES positivos (§7.4) → reescribir apertura y cierre como mínimo · 1-2 flags → reescribir frases señaladas · 0 flags + hook ok + recursos presentes → proceder al paso 8.6.
+
+Referentes canónicos del nicho aspirador ROBOHOGAR: **Eva R. de Luis (Xataka)** para reviews — hook con subordinada + pero, veredicto segmentado por perfil, puentes orales ES. **Antonio Ortiz (Error500)** para editoriales — humildad epistémica y analogía estructural.
 
 ### 8.6. Formato técnico Beehiiv — OBLIGATORIO antes de entregar borrador
 
@@ -236,6 +252,8 @@ Aplicar [`@rules/tangibles.md § Reglas operativas`](../../.claude/rules/tangibl
 ### 8.8. Banner lead magnet — INSERCIÓN AUTOMÁTICA (paso ejecutable)
 
 **Activado como paso ejecutable desde 2026-04-19.** `/content-draft` debe emitir el `borrador.html` con el banner YA insertado en las posiciones correctas. No diferir a Rafael. No "recordar pegar". El HTML que sale del skill es el HTML final listo para Beehiiv.
+
+**Antes de componer el copy del banner** (eyebrow, título, subtítulo, CTA, trust-line): cargar [`@references/editorial-es/03-microcopy-ctas-meta.md`](../../references/editorial-es/03-microcopy-ctas-meta.md) §5 (*Banners con voz personal*) y §6 (*Checklist pre-output microcopy*). El banner debe incluir AL MENOS 3 de los 6 recursos positivos del §6.2: inversión del imperativo en CTA + dato no redondeado + paréntesis editorial confidencial + autodefinición plural cálido + tripleta coordinada concreta + microcopy post-CTA específico. Trust-line canónica sigue `rules/tangibles.md § Microcopy` (default *"PDF gratis con tu suscripción semanal. Cancela cuando quieras."*).
 
 **Algoritmo (aplicar al generar el borrador):**
 
