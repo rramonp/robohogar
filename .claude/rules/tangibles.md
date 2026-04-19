@@ -84,20 +84,31 @@ Todo botón/CTA de lead magnet (banner en artículo, ficha Beehiiv Digital Produ
 
 **Obligatorio — el trust-line debe incluir AL MENOS 2 de estos 3 elementos:**
 1. **Formato concreto del tangible:** "PDF · 2 páginas", "Checklist 7 preguntas", "Comparativa 6 modelos".
-2. **Baja fricción de salida:** "Te das de baja en un clic", "Baja cuando quieras", "Un clic para salir".
-3. **Transparencia del vínculo:** "Gratis" o "PDF + newsletter semanal" (si la suscripción es obligatoria para descargar, decirlo explícitamente).
+2. **Baja fricción de salida:** "Cancela cuando quieras", "Un clic para salir". Evitar "baja"/"darte de baja" — registro administrativo ES (Movistar/Seguridad Social), no editorial (ver research 2026-04-19 abajo).
+3. **Transparencia del vínculo:** "con tu suscripción" / "con tu suscripción semanal" / "gratis" (si la suscripción es obligatoria para descargar, decirlo explícitamente usando la palabra *suscripción* — es el término ES dominante en newsletters editoriales).
 
-**Formato:** inline separado por `·` (punto medio con espacios), minúsculas, sin punto final. Máximo ~80 caracteres — debe caber en una línea a 375px; si hace wrap que corte en `·`.
+**Formato:** una o dos frases con punto final (patrón ES editorial). El separador `·` (middot) es aceptable pero NO obligatorio; los newsletters ES de éxito usan mayoritariamente frase con punto, no middots (patrón tech/SaaS US-driven). Máximo ~80 caracteres — debe caber en una línea a 375px.
 
 **Default canónico ROBOHOGAR (Hoja de Compra y derivados):**
-> `PDF gratis · newsletter semanal · baja cuando quieras`
+> `PDF gratis con tu suscripción semanal. Cancela cuando quieras.`
 
-Elegido 2026-04-19 por consistencia con el modelo Beehiiv Digital Product (la descarga suscribe sí o sí — ocultarlo con eufemismos eleva spam reports en F1), alineación con brand voice ("amigo techie sin hype"), cadencia explícita (el lector sabe qué recibe) y cumplimiento del espíritu GDPR/LOPDGDD + Write With AI CTA no-spammy. Ritmo homogéneo (3 sintagmas nominales cortos) — la variante con cláusula verbal "te suscribes a la newsletter" fue rechazada por Rafael por romper el ritmo del punto medio.
+Elegido 2026-04-19 tras research sobre newsletters ES de éxito (Kloshletter, Suma Positiva, Xataka, Marketing4eCommerce, El Orden Mundial, El Confidencial) y validación de Rafael. Patrón ES confirmado: palabra *suscripción* domina sobre *newsletter* como sustantivo, *cancela* > *baja* como verbo (baja = registro administrativo), frase con punto > middots. Cadencia explícita ("semanal") se mantiene como diferencial ROBOHOGAR — ningún newsletter ES auditado la pone en la trust-line, por lo que nos sirve para resolver proactivamente la objeción *"¿cuánto me van a bombardear?"* en el banner de lead magnet (contexto distinto al form home).
+
+**Hallazgos del research 2026-04-19 (newsletters ES auditados):**
+- "Suscripción / Suscríbete / Suscribirse" gana 5/6 vs "newsletter" como verbo principal.
+- "Baja" / "cancela" → 0 apariciones en trust-lines ES editoriales. El patrón ES dominante es la aceptación de política de privacidad ("Al suscribirte aceptas…"), no la promesa SaaS "cancela cuando quieras".
+- Cadencia en trust-line → 0 menciones. Va en heading/eyebrow.
+- "Sin spam" → 0 apariciones.
+- Separador `·` → no es patrón ES, es tech/startup US.
+
+En ROBOHOGAR adaptamos el patrón ES editorial (frase, *suscripción*, *cancela*) sin caer en el trust-line meramente legal — añadimos cadencia explícita ("semanal") porque el contexto banner-en-artículo sí la demanda.
 
 **Variantes descartadas (documentadas como anti-patterns):**
-- `PDF gratis · te suscribes a la newsletter · baja cuando quieras` — Rechazada: cláusula verbal central rompe el ritmo con los dos sintagmas laterales; suena a formulario, no editorial.
+- `PDF gratis · newsletter semanal · baja cuando quieras` — Rechazada tras research ES: "baja" es registro administrativo, middots son patrón tech US, "newsletter" como sustantivo principal va contra el uso dominante ES.
+- `PDF gratis · te suscribes a la newsletter · baja cuando quieras` — Rechazada: cláusula verbal central rompe el ritmo.
 - `PDF · 2 páginas · gratis · te das de baja en un clic` — Rechazada: oculta la suscripción; riesgo de disonancia en el primer welcome email.
 - `Gratis · directo al email · sin letra pequeña` — Rechazada: "sin letra pequeña" es vago; "directo al email" no es elemento obligatorio.
+- `Te llega al email en 15 segundos` — Rechazada (incidente original): promesa de velocidad incontrolable (Beehiiv 30-90s + Promotions).
 
 **Validación pre-commit (`grep` sobre el HTML/markdown del banner, ficha o email):**
 ```

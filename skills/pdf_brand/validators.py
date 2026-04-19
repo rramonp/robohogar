@@ -78,7 +78,7 @@ _FORBIDDEN_PATTERNS: list[tuple[str, re.Pattern[str], str]] = [
         "microcopy_velocidad_entrega",
         # Matches "15 segundos", "llega al email en X segundos", "instantáneo", "al momento".
         re.compile(r"\b(\d+\s*segundos|llega\s+al\s+email\s+en|instant[aá]neo|al\s+momento)\b", re.IGNORECASE),
-        'Eliminar promesa de velocidad de entrega. No controlamos el tiempo de delivery de Beehiiv (30-90s reales + riesgo filtro Promotions). Reemplazar por trust-line canónica: "PDF gratis · newsletter semanal · baja cuando quieras".',
+        'Eliminar promesa de velocidad de entrega. No controlamos el tiempo de delivery de Beehiiv (30-90s reales + riesgo filtro Promotions). Reemplazar por trust-line canónica: "PDF gratis con tu suscripción semanal. Cancela cuando quieras.".',
     ),
     (
         "microcopy_sin_publicidad",
