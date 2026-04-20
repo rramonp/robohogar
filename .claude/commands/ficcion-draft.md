@@ -241,6 +241,18 @@ Output en español. Validar: cada frase avanza la acción, ninguna es decorativa
 
 Generar 5 frases siguiendo estructura: (1) Setup · (2) Incidente · (3) Complicación · (4) Turning point · (5) Payoff/lección. Cada frase ≤20 palabras.
 
+#### 5.5 Arquitectura lectora — declarar antes de expandir a prosa (OBLIGATORIO)
+
+Antes de saltar al paso 6 (prosa), cargar [`@references/ficciones/arquitectura-lectora.md`](../../references/ficciones/arquitectura-lectora.md) y declarar, sobre el outline recién generado, tres decisiones estructurales de información. Son decisiones de outline — no se improvisan en prosa.
+
+- **Anclaje de premisa (§1.1):** identificar los 1-3 hechos ficcionales clave que el lector debe registrar en los primeros 200 palabras para no descifrar mientras siente. Proponer una frase elíptica (no expositiva) para cada uno. Ejemplo canónico: *"Cinco años muerto y cada mañana en la cocina."* — ancla muerte del personaje sin explicarla.
+- **Punto de mayor carga (§1.2):** marcar en el outline **cuál es el giro, revelación o pivote moral central** del relato. Debe haber uno, no más. Reservarle párrafo propio en prosa + micro-acción física (gesto, no pensamiento) del personaje procesándolo. Ejemplo canónico: el pulgar que se detiene sobre la pantalla, el móvil que se baja y se vuelve a subir.
+- **Saltos temporales (§1.3):** enumerar los saltos de presente a pasado dentro de cada escena. Para cada uno, decidir marcador mínimo — punto y aparte, frase-bisagra de una línea sin glosa (*"El centro fue en septiembre."*), o anacoluto sintáctico. Sin glosa expositiva tipo *"al recordar…"* / *"Pilar pensó en…"*.
+
+**Regla de parada:** si el outline no permite identificar con claridad el punto de mayor carga (§1.2), o si los 1-3 hechos clave no caben en frases elípticas tempranas (§1.1), volver a paso 4-5 antes de pasar a prosa. El arreglo de arquitectura cuesta 10 veces menos en outline que en prosa ya escrita.
+
+Archivo vivo: los tres principios actuales nacen del feedback editorial 2026-04-20 sobre *El que viene a tomar café* v1. Si en futuras sesiones llega feedback nuevo que identifica otro patrón reproducible de arquitectura lectora, se añade a `arquitectura-lectora.md § 1.N` siguiendo su protocolo § 3 y se replica aquí la referencia al nuevo principio.
+
 ### 6. Expandir a prosa con MRUs — voz castellana literaria peninsular
 
 **Antes de generar prosa, cargar OBLIGATORIAMENTE [`@references/ficciones/castellano-literario-es.md`](../../references/ficciones/castellano-literario-es.md) como contexto.** Este archivo es la base de la voz: 10 referentes ES contemporáneos con muestra textual (Urraca · Amat · Morales · Martínez · de la Cruz · Adón · Barba · Moreno · Mesa · Otero), 5 patrones transversales, 12 calcos EN→ES con alternativas literarias, 12 recursos ES positivos y checklist operativa. Origen: feedback Rafael 2026-04-19 sobre *El operador nocturno v1* — la prosa sonaba a traducción del inglés porque el skill no cargaba ningún modelo de prosa narrativa española literaria, solo frameworks universales (Pixar, MRUs, Paint The Villain).
@@ -414,6 +426,11 @@ Si hay violaciones → limpiar antes de entregar (no se pregunta al usuario).
   - Ambiguo → decisión tomada sin juicio narrativo; dos lecturas igualmente sostenibles
   - Inspirador → cierre positivo sin pena residual; **prohibido cerrar con muerte/duelo/pérdida** (criterio anti-#16: el inspirador-triste cae en inquietante disfrazado)
   - Mundano → cierre descriptivo plano sin promesa; ≥1 detalle especulativo 2030-2040 obligatorio
+- [ ] **Arquitectura lectora — correr checklist de [`@references/ficciones/arquitectura-lectora.md § 4`](../../references/ficciones/arquitectura-lectora.md):**
+  - **§1.1 Anclaje de premisa:** los 1-3 hechos ficcionales clave quedan registrables en los primeros 200 palabras mediante frase elíptica (no expositiva). Test: un lector que lee solo los primeros 3 párrafos, ¿sabe qué está pasando sin esperar al párrafo 5?
+  - **§1.2 Ralentización del punto de mayor carga:** está identificado cuál es el giro central del relato (debe haber uno, no más); tiene párrafo propio, no embebido; hay micro-acción física (gesto, no pensamiento) del personaje procesándolo.
+  - **§1.3 Bisagra en saltos temporales:** cada salto de presente a pasado dentro de una escena tiene señal mínima (punto y aparte / frase-bisagra de una línea sin glosa / anacoluto). Sin *"al recordar…"* ni *"Pilar pensó en…"*.
+  - Archivo vivo: si tras el feedback pre-output Rafael identifica un patrón de arquitectura lectora no cubierto, se amplía `arquitectura-lectora.md` siguiendo su protocolo § 3 y se replica la nueva verificación aquí.
 
 ## Output — estructura obligatoria
 
@@ -616,6 +633,7 @@ Debe contener:
 - **Knowledge/soporte:**
   - **Tonalidad y mix editorial — sistema tonal canon (OBLIGATORIO, carga en paso 0.5):** `@references/ficciones/tonalidad-y-mix-editorial.md` — matriz 40/15/25/10/10, definición operativa por categoría, auto-balanceo del catálogo, criterio anti-triste para inspirador.
   - **Castellano literario ES — referentes peninsulares + calcos EN→ES + recursos positivos (OBLIGATORIO, carga en paso 6):** `@references/ficciones/castellano-literario-es.md`
+  - **Arquitectura lectora — dosificación de información dentro de la escena (OBLIGATORIO, carga en paso 5.5 + checklist en paso 9):** `@references/ficciones/arquitectura-lectora.md`. Archivo vivo: admite nuevos principios y casos de estudio vía protocolo § 3.
   - Knowledge base completa frameworks universales: `@references/writewithai/07-ficcion-y-narrativa-serializada.md`
   - **Bible maestra (catálogo de series + canon transversal):** `@references/ficciones/series-bible-maestra.md`
   - **Patrones serialized newsletter 2025-2026:** `@references/ficciones/serialized-newsletter-patterns.md`
