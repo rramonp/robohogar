@@ -251,55 +251,96 @@ Usar `assets/branding/social/thumbnail-default-1200x630.png` (monograma R sobre 
 
 ---
 
-## 5. Heros de ficción — still cinematográfico
+## 5. Heros de ficción — **canon "Portada minimalista · objeto-testigo"** (2026-04-20)
 
-Para el pilar **Ficciones Domésticas** (relatos de ciencia ficción doméstica próxima). Estilo diferente al product-hero de artículos: es un **still de película**, no una miniatura editorial.
+Para el pilar **Ficciones Domésticas** (relatos de ciencia ficción doméstica próxima). El estilo está canonizado tras iteración validada por Rafael el 2026-04-20 sobre los 3 one-shots iniciales (*El operador nocturno*, *El que viene a tomar café*, *Setenta y dos horas*). La imagen del relato funciona como **portada de ebook minimalista** que lee a thumbnail 120px Y a hero grande 1200×675.
 
-### Cuándo usar este estilo
+### Principio editorial
 
-- Cualquier relato generado por `/ficcion-draft` (flash, corto, mini-serie)
-- NO usar product-hero (esa paleta ámbar-cocina hogar editorial), es un lenguaje visual distinto
+La ficción vive de la imaginación del lector. La portada ancla la **serie** (Ficciones Domésticas) antes de leer el título, no ilustra la escena. Un solo **objeto-testigo** extraído del relato (Chekhov's gun) + un toque sintético/sci-fi seco anclado narrativamente + mucho negative space. Nunca escena compleja.
 
-### Referencias visuales
+### ADN visual compartido — los 3 elementos que hacen serie
 
-- *Black Mirror* en registro doméstico (no distópico-industrial)
-- *Her* (Spike Jonze) — luz cálida suavemente desaturada, composición íntima
-- *After Yang* (Kogonada) — quietud, objetos cotidianos, dolor contenido
-- *Ex Machina* en registro ligero — tensión sin amenaza
+Todo hero de Ficciones Domésticas comparte:
 
-### Parámetros
+1. **Fondo azul noche `#1E2A3A` plano** (pared matte dark blue-gray) ocupando el **tercio superior (55-60% del frame)**.
+2. **Superficie doméstica abajo** (encimera, mantel de hule, parquet, mesilla) ocupando el **tercio inferior (40-45%)**.
+3. **Luz cálida de lámpara doméstica lateral izquierda** (sin fuente visible, off-frame), amber highlight solo sobre el objeto + patch estrecho de superficie. Sombras alargadas hacia la derecha.
+
+### Por qué este canon y no "cinematic film still"
+
+El canon anterior ("film still" tipo *After Yang*) daba composiciones variables que no leían en thumbnail. El canon "portada-minimalista" se eligió porque:
+
+- **Thumbnail 120px** en landing Beehiiv y Substack — el "still" complejo se vuelve ruido; el "objeto único sobre pared" se distingue.
+- **Color-firma recurrente** (el azul noche) — el lector reconoce la serie antes de leer el título (referente Fitzcarraldo Editions).
+- **Evita el bug crítico de Gemini**: con "empty dark background" el modelo mete neones y caracteres asiáticos; con "plain matte dark blue-gray wall, completely bare and unmarked" el modelo respeta.
+
+### Composición obligatoria
 
 | Elemento | Especificación |
 |---|---|
-| **Composición** | Escena narrativa, no producto. Punto focal = momento emocional (una mano, un rostro, una silueta contra ventana) |
-| **Iluminación** | Motivada (ventana, lámpara de mesa, pantalla). No golden hour genérico — luz realista de hora concreta del día |
-| **Paleta** | Ámbar cálido ligeramente desaturado + azul frío de pantallas/ventanas nocturnas. Más melancólica que los heros de artículos |
-| **Grano** | Ligero grano fílmico, sensación anamórfica. Evitar render 3D perfectamente limpio |
-| **Texto** | NUNCA |
-| **Neones** | NUNCA (regla común con heros editoriales) |
+| **Aspect ratio** | `landscape` (16:9) — Beehiiv featured image |
+| **Objeto-testigo principal** | 1 objeto cotidiano del relato (el que simboliza el conflicto). Centrado ligeramente descentrado por regla de tercios. No producto, no escena — objeto simbólico. |
+| **Toque sintético/sci-fi** | 1 detalle narrativo que ancle la robótica doméstica: mano sintética matte, humanoide encogido al fondo desenfocado, tarjeta ID en blanco, pulsera smart, cable fino. **Nunca LEDs, nunca glow, nunca panel luminoso.** El toque tiene que justificarse por un momento concreto del relato, no pegado. |
+| **Fondo** | `solid dark empty wall, plain matte dark blue-gray paint, completely bare and unmarked, filling the top two thirds of the frame` (copiar literal — este fraseo es el que esquiva el sign-guard de nano-banana). |
+| **Superficie** | Encimera de acero inoxidable · mantel de hule con cenefa · parquet de roble · mesilla de madera — según relato. |
+| **Luz** | `Warm [kitchen/floor] lamp light from the upper left casting amber highlight only on [objeto] and a narrow patch of [superficie]`. Una única fuente. |
+| **Profundidad** | Macro depth of field, shallow focus sobre el objeto-testigo. Los elementos secundarios en soft blur. |
+| **Grano** | Fine film grain sutil, cinematic grade. |
+| **Texto** | **NUNCA.** Ni logo de marca en el objeto, ni números, ni carteles. Si el modelo los añade → v+1. |
+| **Neones** | **NUNCA.** Si Gemini los mete → archivar v fallida, regenerar. |
+| **Caracteres asiáticos** | **NUNCA.** Mismo protocolo. |
 
-### Prompt base (adaptar por escena)
+### Referencias visuales canonizadas
+
+- **Fitzcarraldo Editions** — color-firma recurrente de serie.
+- **Kogonada, *After Yang*** — quietud, objetos cotidianos tocados por luz cálida.
+- **Vilhelm Hammershøi** — interiores silenciosos, pared casi vacía, luz lateral.
+- **Wolfgang Tillmans** (still life domestic) — macro de objeto tocado por luz lámpara.
+- **Todd Hido** (empty interiors) — sensación de habitación donde alguien acaba de irse.
+- **Gregory Crewdson** (domestic stillness) — para los momentos más "radical" donde un humanoide aparece al fondo encogido.
+
+### Prompt template canónico (copiar y adaptar)
 
 ```
-Cinematic film still, 2030s Spanish home interior, [ESCENA CLAVE DEL RELATO —
-1-2 elementos focales, momento emocional concreto].
-Natural motivated light (from window / lamp / screen), slight desaturation,
-soft film grain, anamorphic lens feel, shallow depth of field.
-Editorial speculative fiction mood — warm but melancholic, intimate,
-quiet tension. Reference: Black Mirror domestic, After Yang, Her.
-Absolutely NO text, NO letters, NO words, NO writing of any kind.
+Tabletop still life photograph, close up of [OBJETO-TESTIGO PRINCIPAL] on a [SUPERFICIE DOMÉSTICA]. [TOQUE SCI-FI SUTIL: "A single matte white prosthetic humanoid hand entering from the right side of the frame, only the hand and part of the forearm visible, plain matte cream-white with subtle articulated segments at the knuckles and wrist, no glowing parts, no LEDs, no lights, no panels, no colored accents" / "A [OBJETO-GADGET DOMÉSTICO] leaning against the base" / (si es radical) en el fondo desenfocado, "In the blurred out-of-focus background: the silhouette of a matte white humanoid figure seated crumpled on the floor against a corner wall, head tilted forward as if powered off, completely still"]. Background is solid dark empty wall, plain matte dark blue-gray paint, completely bare and unmarked, filling the top two thirds of the frame. The [SUPERFICIE] fills the bottom third. Warm [kitchen/floor] lamp light from the upper left casting amber highlight only on [OBJETO] and a narrow patch of [SUPERFICIE]. Macro depth of field. Aesthetic: editorial still life photography, Kogonada After Yang, Hammershoi interior restraint, uncanny domestic tension.
 ```
+
+### Anti-sign-guard technique (aprendido 2026-04-20)
+
+El script `nano-banana` auto-inyecta un directive *"NO EMPTY SIGNS"* que fuerza a Gemini a rellenar cualquier "sign/billboard/panel" del escenario con neones y caracteres asiáticos. Aunque el prompt NO pida signs, Gemini los inventa al fondo para satisfacer el directive. Técnicas que sí esquivan el bug:
+
+- **NO usar** palabras como *"background"*, *"midnight blue background"*, *"dark space"*. Gemini interpreta "background" como "escenario urbano".
+- **SÍ usar** la frase exacta: *"solid dark empty wall, plain matte dark blue-gray paint, completely bare and unmarked, filling the top two thirds of the frame"*. Esta fórmula funciona porque describe una SUPERFICIE PINTADA sólida, no un espacio vacío.
+- **NO usar** *"sci-fi"*, *"futuristic"*, *"Asian style"* — triggers inmediatos de neones.
+- **NO usar listas largas de "NO X, NO Y, NO Z"** con muchas prohibiciones — entran en contradicción con el sign-guard y el modelo puede refusar.
+- Si añades un elemento sintético (mano, humanoide), describir SIEMPRE *"plain matte cream-white with no glowing parts, no LEDs, no lights, no panels, no colored accents"*.
 
 ### Parámetros técnicos nano-banana
 
 ```bash
-uv run "<path>/image.py" \
-  --prompt "<prompt>" \
-  --output "content/ficciones/<serie>/assets/hero-<slug>.png" \
+uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
+  --prompt "<prompt canónico adaptado>" \
+  --output "content/ficciones/<serie-o-one-shots>/<slug>/assets/hero-<slug>-v<N>.png" \
   --model flash \
   --aspect landscape \
   --size 1K
 ```
+
+Tras generar, exportar WebP <200KB con `PIL.Image.save(webp, 'WEBP', quality=85, method=6)` — typical output 10-30KB para este estilo por el plano azul uniforme.
+
+### Validación pre-output (obligatoria antes de dar por válida una v)
+
+- [ ] Fondo azul `#1E2A3A` dominante en los 2/3 superiores.
+- [ ] Un único objeto-testigo principal, centrado por regla de tercios.
+- [ ] Luz cálida lateral única (no plana, no multifuente).
+- [ ] Toque sintético/sci-fi coherente con relato, sin LEDs ni glow.
+- [ ] Cero texto legible en ninguna parte.
+- [ ] Cero neones, cero caracteres asiáticos, cero paneles luminosos.
+- [ ] Cero figuras humanas (ni primer plano ni fondo) — el humanoide encogido SÍ está permitido si el relato lo justifica.
+- [ ] A 120px de ancho, silhouette test: la imagen se distingue de otras de la serie por color-acento y silueta (p. ej. rojo del yoyó vs cenefa olivo vs tetrabrik blanco).
+
+Si falla alguno → archivar la v en `<slug>/assets/_archive/hero-v<N>-<motivo>-YYYY-MM-DD.png` y regenerar con v+1.
 
 ### Fallback
 
@@ -307,9 +348,11 @@ Usar `assets/branding/social/thumbnail-default-1200x630.png` como placeholder ne
 
 ### Registro de heros ficción
 
-| # | Serie | Slug relato | Fecha | Descripción |
-|---|---|---|---|---|
-| — | _(pendiente primer relato publicado)_ | | | |
+| # | Serie / One-shot | Slug relato | Fecha | Versión | Objeto-testigo | Toque sci-fi |
+|---|---|---|---|---|---|---|
+| 1 | One-shot | `el-operador-nocturno` | 2026-04-20 | v6 | Tetrabrik de leche blanco sin branding | Tarjeta ID plastificada en blanco con cordón (operador filipino invisible) |
+| 2 | One-shot | `el-que-viene-a-tomar-cafe` | 2026-04-20 | v3 | Taza blanca con vapor sobre mantel de hule con cenefa de olivos | Mano sintética humanoide reposando junto a la taza (el humanoide "Ramón") |
+| 3 | One-shot | `setenta-y-dos-horas` | 2026-04-20 | v3 | Yoyó rojo de madera sobre parquet de roble con sombra larga | Humanoide Tata encogido en rincón al fondo, desenfocado, como abrigo colgado de percha |
 
 ---
 

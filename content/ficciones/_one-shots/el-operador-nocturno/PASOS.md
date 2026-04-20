@@ -27,6 +27,12 @@
 
 ## Hero image
 
+**Estado:** generado 2026-04-20 · [`assets/hero-el-operador-nocturno-v6.png`](assets/hero-el-operador-nocturno-v6.png) (+ webp 9.7KB) · canon "portada minimalista · objeto-testigo" (ver `assets/branding/asset-catalog.md § 5`). Objeto-testigo: tetrabrik de leche blanco sin branding. Toque sci-fi sutil: tarjeta ID plastificada en blanco con cordón (implica al operador filipino invisible del call center). Iteraciones archivadas en `assets/_archive/`.
+
+---
+
+## Hero image (código visual original pre-canon — conservado por trazabilidad)
+
 Ruta pendiente: `content/ficciones/_one-shots/el-operador-nocturno/assets/hero-el-operador-nocturno.png`.
 
 **Código visual propuesto:** Black Mirror frío (reservado para "Relatos inversos de Black Mirror" — ver skill `/ficcion-draft` § hero ficción).

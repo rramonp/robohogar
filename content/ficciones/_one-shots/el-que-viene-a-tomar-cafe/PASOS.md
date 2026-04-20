@@ -35,7 +35,11 @@
 
 ## Hero image
 
-**Estado:** pendiente — Rafael aún no ha pedido hero para este one-shot.
+**Estado:** generado 2026-04-20 · [`assets/hero-el-que-viene-a-tomar-cafe-v3.png`](assets/hero-el-que-viene-a-tomar-cafe-v3.png) (+ webp 27.1KB) · canon "portada minimalista · objeto-testigo" (ver `assets/branding/asset-catalog.md § 5`). Objeto-testigo: taza blanca de cerámica con vapor sobre mantel de hule con cenefa de olivos. Toque sci-fi sutil: mano sintética humanoide reposando junto a la taza, articulaciones visibles sin LEDs (literal del humanoide-Ramón del relato). Iteraciones archivadas en `assets/_archive/`.
+
+---
+
+## Hero image (código visual original pre-canon — conservado por trazabilidad)
 
 **Código visual sugerido si se genera:** *domestic warm* adaptado a Vallecas de cocina popular (mantel de hule, maceta de geranios en ventana de patio interior, luz de enero fría cruzando la cocina). Humano = Pilar (50+, chándal, expresión aguantando) en marco de puerta; humanoide sentado de espaldas en primer plano frente a Soledad. NO usar el Black Mirror frío — este relato es ambiguo moral, no inquietante-heavy; la paleta Black Mirror rompería tono.
 
