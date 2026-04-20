@@ -3,6 +3,7 @@
 > Valores para configurar la Hoja de Compra en Beehiiv → Monetize → Digital Products → New Product.
 > PDF fuente: [`hoja-compra-robohogar-v2.pdf`](hoja-compra-robohogar-v2.pdf)
 > Generado desde el template canónico [`content/templates/beehiiv-digital-product-template.md`](../../templates/beehiiv-digital-product-template.md).
+> **v3 aplicada 2026-04-19** tras regla dura de honestidad — historial completo en [`docs/registro-automatizaciones.md § 1`](../../../docs/registro-automatizaciones.md).
 
 ## Campos obligatorios
 
@@ -16,14 +17,14 @@ Hoja de Compra ROBOHOGAR · 10 preguntas antes de comprar
 
 ### Description (150-200 chars)
 ```
-PDF 2 páginas. 10 preguntas que te ahorran 600 € antes de comprar tu robot doméstico.
+PDF 2 páginas. 10 preguntas clave que te ahorran varios cientos de euros antes de comprar tu robot doméstico.
 ```
 
 ### Product details (rich text — pegar con bold en cada encabezado)
 
 **Qué es**
 
-10 preguntas que nos hacemos nosotros antes de comprar cualquier robot doméstico. PDF de 2 páginas A4, pensado para imprimir o tener abierto en el móvil mientras comparas modelos en Amazon.es o MediaMarkt.
+10 preguntas clave que separan un robot doméstico que encaja en tu casa de uno que no. PDF de 2 páginas A4, pensado para imprimir o tener abierto en el móvil mientras comparas modelos en Amazon.es o MediaMarkt.
 
 **Qué cubre**
 
@@ -55,14 +56,21 @@ Aspiradores, cortacéspedes, mascotas-robot, fregasuelos y limpia-cristales. Con
 
 Cada pregunta lleva un callout con trampa, truco o dato específico ES (Amazon.es, MediaMarkt, ayuntamientos, etc.).
 
+**Qué más encontrarás si te quedas**
+
+Si el PDF te sirve y decides quedarte en la lista, esto es lo que vas recibiendo por email:
+
+- **Análisis** de modelos concretos. Probamos los que podemos, investigamos el resto a fondo.
+- **Comparativas** entre varios robots por perfil de casa y uso.
+- **Guías de compra** que responden a una pregunta de decisión concreta.
+- **Editoriales** sobre hacia dónde va el hogar robotizado y qué significa para ti.
+- **Ficciones Domésticas** — relatos cortos sobre cómo será vivir con robots en 2030-2040.
+
 **Qué pasa al descargarlo**
 
-Te llega a tu email en unos segundos, tras confirmar que eres una persona (doble opt-in obligatorio por GDPR). Después recibirás:
+Te mandamos el PDF por email tras confirmar que eres una persona (doble opt-in obligatorio por GDPR). Si no lo abres, te llega un recordatorio pasadas unas horas con 2 artículos del archivo por si te sirven mientras.
 
-1. Este PDF en el primer email, con una pregunta nuestra. Si respondes, lo leemos.
-2. Un segundo email 3 días después con 2 artículos del archivo ROBOHOGAR y qué esperar del newsletter semanal.
-
-Publicamos un email los martes a las 9:00, nada más. Nada de "no te lo pierdas" ni correos diarios.
+A partir de ahí recibirás el newsletter por email, con cadencia semanal. Nada de correos diarios ni "no te lo pierdas".
 
 ### Call-to-action copy
 ```
@@ -104,7 +112,7 @@ Secondary: — (no prioridad)
 |---|---|
 | File | `hoja-compra-robohogar-v2.pdf` |
 | Product name | `Hoja de Compra ROBOHOGAR · 10 preguntas antes de comprar` |
-| Description | `PDF 2 páginas. 10 preguntas que te ahorran 600 € antes de comprar tu robot doméstico.` |
+| Description | `PDF 2 páginas. 10 preguntas clave que te ahorran varios cientos de euros antes de comprar tu robot doméstico.` |
 | Product details | (ver bloques rich text arriba) |
 | Call-to-action copy | `Descargar gratis` |
 | Post-purchase redirect | (vacío) |
@@ -115,13 +123,19 @@ Secondary: — (no prioridad)
 
 ---
 
-## Checks aplicados a este copy
+## Checks aplicados a este copy (v3 — 2026-04-19)
 
 - ✅ Sin "próximos tangibles" / roadmap de futuros PDFs.
 - ✅ Sin fechas de revisión prometidas.
 - ✅ Sin byline personal.
-- ✅ Voz plural ("nos hacemos", "recibirás", "publicamos").
+- ✅ Voz plural ("recibirás", "mandamos", "publicamos").
 - ✅ Anti-IA §1: 0 palabras tóxicas.
+- ✅ Regla dura de honestidad 2026-04-19 (ver `references/editorial-es/02-newsletter-y-emails.md § 2.7`):
+  - Sin cifra inverificable (*"600 €"* → *"varios cientos de euros"*).
+  - Sin afirmación hands-on sobreprometida (*"nos hacemos nosotros"* → descripción funcional *"10 preguntas clave que separan…"*).
+  - Sin promesa de velocidad (*"en unos segundos"* → descripción del flujo sin tiempo específico).
+  - Sin mención al welcome flow MVP (no implementado): el *"segundo email 3 días después"* se elimina; el reminder 72h real queda cubierto por *"si no lo abres, te llega un recordatorio pasadas unas horas con 2 artículos"*.
+  - Sin comprometer día/hora del newsletter (*"los martes a las 9:00"* → *"cadencia semanal"*).
 
 ---
 
@@ -129,4 +143,4 @@ Secondary: — (no prioridad)
 
 Product page: `https://robohogar.com/products/hoja-de-compra`
 
-Esta URL va dentro del **Email 1 del welcome flow** (ver [`docs/welcome-flow-setup.md`](../../../docs/welcome-flow-setup.md) § Email 1 → sustituir `<URL_DEL_DIGITAL_PRODUCT>`).
+Esta URL va dentro del **Email 1 del automation Sign-up + entrega PDF** (ver [`docs/registro-automatizaciones.md § 1`](../../../docs/registro-automatizaciones.md) para copy v3 activo).
