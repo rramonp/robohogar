@@ -172,7 +172,9 @@ Formas prohibidas específicas:
 
 **Aplicación operativa:**
 - `content-draft.md` § 8.4 bis — grep pre-output de promesas internas + verificación de cada match.
-- `post-publish.md` § 1 — grep de referencias fantasma contra el HTML publicado antes de mover a `content/published/`; si aparecen, avisar a Rafael (no reescribir unilateralmente, Rafael decide).
+- `post-publish.md` § 1 — grep de referencias fantasma contra el HTML publicado. **Triaje obligatorio:**
+  - **Fantasma evidente + fix obvio** (≤1 frase tocada, sentido preservado, sin cambio de tesis) → arreglar directamente en `borrador.html` + `published/YYYY-MM-DD-<slug>.html` y reportar en el resumen. NO preguntar.
+  - **Fantasma ambiguo** (reescritura >1 frase, estructura del bloque afectada, o dato sin fuente que podría ser correcto) → PARAR y avisar a Rafael con la lista + propuesta de fix por cada una.
 - `ficcion-draft.md` — aplica parcialmente: en ficción la prosa puede insinuar elementos fuera de escena (Chekhov), pero NO prometer al lector secciones del relato que no existen. Los datos anclados (dato-real) sí tienen que existir y ser verificables.
 
 Voz de autoridad propia (§ editorial anterior) + cero referencias fantasma = contrato básico con el lector de ROBOHOGAR.

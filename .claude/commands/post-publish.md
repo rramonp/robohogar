@@ -27,7 +27,22 @@ Antes de hacer nada, comprobar que el artículo se ve correctamente:
   ```bash
   grep -nE "(tabla|gráfico|infografía|diagrama|imagen|sección|checklist|cuadro|bloque) (de abajo|abajo|arriba|que (te mostramos|verás|ves)|a continuación|más adelante|al final|al principio|al cierre)" <html-publicado>
   ```
-  Para cada match, verificar que el referente existe en el cuerpo (`<table>`, `<img>`, `<div class="checklist">`, H2 correspondiente, etc.). Si falta el referente: **PARAR y avisar a Rafael con la lista de promesas huérfanas**. No reescribir unilateralmente — Rafael decide qué frase reescribir y qué bloque eliminar. Regla completa: memoria [`feedback_robohogar_no_phantom_references.md`](../../../RRP-DEV/.claude/memory/feedback_robohogar_no_phantom_references.md) + `@rules/editorial.md § Cero referencias fantasma`. Incidente origen: artículo #8 humanoide-maraton (2026-04-20) — subtítulo prometía "tabla de Stanford abajo" inexistente; Rafael tuvo que reescribir post-publicación.
+  Para cada match, verificar que el referente existe en el cuerpo (`<table>`, `<img>`, `<div class="checklist">`, H2 correspondiente, etc.).
+
+  **Triaje + acción (decisión 2026-04-20):**
+
+  | Caso | Qué hace el skill |
+  |---|---|
+  | **Fantasma evidente + fix obvio** (p.ej. quitar "la tabla de abajo —" del subtítulo cuando no hay tabla; borrar un link cuyo URL destino no existe en `registro-articulos.md`; sustituir "Gartner" por la fuente correcta del cuerpo) | **Arreglar directamente** en `borrador.html` + `content/published/YYYY-MM-DD-<slug>.html`. Reportar el fix aplicado en el resumen final. NO preguntar a Rafael — las ediciones son obvias y de integridad editorial. Rafael las valida en el diff del commit. |
+  | **Fantasma ambiguo / fix no evidente** (p.ej. un párrafo entero se apoya en una tabla inexistente y reescribir implica redactar el argumento de otra forma; una cifra sin fuente que podría ser correcta pero no está citada) | **PARAR y avisar** con la lista de promesas huérfanas + la propuesta de fix para cada una. Rafael decide. |
+
+  **Regla operativa del auto-fix evidente:**
+  - El cambio es ≤1 frase tocada por fantasma (quitar un sub-fragmento, sustituir un sustantivo, eliminar un link).
+  - La frase mantiene sentido gramatical y semántico tras el recorte.
+  - No altera la tesis ni el ángulo del artículo.
+  - **Si el cambio obliga a reescribir >1 frase o cambia la estructura del bloque → ambiguo, consultar.**
+
+  Regla completa: memoria [`feedback_robohogar_no_phantom_references.md`](../../../RRP-DEV/.claude/memory/feedback_robohogar_no_phantom_references.md) + `@rules/editorial.md § Cero referencias fantasma`. Incidente origen: artículo #8 humanoide-maraton (2026-04-20) — subtítulo prometía "tabla de Stanford abajo" inexistente; Rafael tuvo que reescribir post-publicación.
 
 ### 2. Mover borrador a published
 
