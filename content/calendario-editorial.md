@@ -4,16 +4,19 @@
 
 ---
 
-## Cadencia (fase 0-100 suscriptores)
+## Cadencia (desde 2026-04-20 — SEO-first sprint)
 
-| Qué | Frecuencia | Publish to | Prioridad |
-|-----|-----------|-----------|-----------|
-| **Artículo web** | ~1/semana (objetivo) | `Email and web` | Alta — genera SEO y trae suscriptores |
-| **Ficciones Domésticas** | 1 cada 3-4 semanas | `Email and web` (tag: Ficciones Domésticas) | Media — pilar experimental ~10% del mix |
-| **Newsletter** | Activar cuando haya 30-50 suscriptores | `Email only` | Baja hasta tener audiencia |
-| **Research digest** | Bajo demanda (antes de escribir) | No se publica | Ejecutar si no hay digest reciente |
+| Qué | Frecuencia | Ratio ideal | Publish to | Prioridad |
+|-----|-----------|-------------|-----------|-----------|
+| **Evergreen SEO** (guías compra, reviews, comparativas) | ~1/semana (objetivo) | 3 de cada 4 artículos | `Email and web` | **Alta — motor de crecimiento orgánico** |
+| **Reactivo** (noticias, editoriales con caducidad <3m) | Cuando hay evergreen cerrado + noticia fuerte | 1 de cada 4 artículos | `Email and web` | Media — solo si hay hueco |
+| **Ficciones Domésticas** | Hasta 1 cada 1-2 semanas, **condicionada a evergreen-first** | — | `Email and web` (tag: Ficciones Domésticas) | Media — variedad editorial + diferenciación de marca |
+| **Newsletter semanal** | Activar cuando haya 30-50 suscriptores | — | `Email only` | Baja hasta tener audiencia |
+| **Research digest** | Bajo demanda (antes de escribir) | — | No se publica | Ejecutar si no hay digest reciente |
 
-**Flujo:** digest (si falta) → artículo → publicar → post-publish. Sin día fijo — cuando Rafael tenga tiempo.
+**Pivote 2026-04-20:** de "distribución activa Reddit/Menéame" a "sprint evergreen SEO". Motivo: outreach manual con 3-5 h/semana sin cuentas ES con karma previo tiene ROI prácticamente cero. El tráfico viene del SEO compuesto (mes 6-18) + tangibles como motor de conversión. Detalle: `docs/guia-implementacion.md § FASE 4B` + memoria `feedback_seo_first_pivote.md`.
+
+**Flujo:** digest (si falta) → elegir del backlog evergreen abajo → artículo → publicar → post-publish. Sin día fijo — cuando Rafael tenga tiempo. Regla dura: **ficción solo si el evergreen de la semana ya está entregado.**
 
 ### Tangibles (FASE 4C iniciada 2026-04-18)
 
@@ -23,7 +26,7 @@ Primer PDF activo: **Hoja de Compra ROBOHOGAR v2** (`content/lead-magnets/hoja-c
 
 Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurrentes. Pilar experimental, cadencia separada del artículo semanal.
 
-- **Cadencia objetivo:** 1 relato cada 3-4 semanas (no cada semana — la ficción satura más rápido)
+- **Cadencia objetivo:** hasta 1 relato cada 1-2 semanas, **condicionada a evergreen-first** (ficción sale solo si el evergreen SEO de la semana está entregado). Actualizado 2026-04-20 al pivote SEO-first.
 - **Formato:** flash 500-1.000 · relato corto 1.500-3.000 · mini-serie por episodios
 - **Skill:** `/ficcion-draft {semilla, personajes, longitud}`
 - **Output:** `content/ficciones/<serie>/YYYY-MM-DD-<slug>.md` + PASOS.md
@@ -34,11 +37,45 @@ Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurre
 
 ---
 
-## Backlog de temas
+## Backlog Evergreen SEO (prioridad 1 — 14 candidatos)
+
+> **Canon desde 2026-04-20.** Estos son los 14 evergreens priorizados que alimentan el sprint SEO-first. Cada uno construido para posicionar keyword con intención compra en 6-12 meses. El ratio 3:1 se cumple aquí: 3 evergreens de esta lista por 1 reactivo del backlog general de abajo.
+>
+> **Criterios de priorización:** (1) intención compra clara del keyword · (2) competencia ES media-baja · (3) estacionalidad si aplica · (4) alineación con tangibles descargables · (5) cobertura de perfiles de comprador distintos para capturar más long-tail.
+
+| # | Tema evergreen | Keyword SEO primaria | Intención | Estacional | Tangible acoplado | Prioridad |
+|---|----------------|----------------------|-----------|-----------|-------------------|-----------|
+| E1 | Mejor robot cortacésped 2026 | `mejor robot cortacésped` | Compra directa | ⭐ Primavera-verano (abr-jul) | Hoja de Compra cortacésped | Alta urgente |
+| E2 | Mejor robot aspirador barato (<300 €) | `robot aspirador barato 2026` | Compra long-tail | No | Checklist "5 preguntas sub-300" | Alta |
+| E3 | Mejor robot aspirador para mascotas (perro/gato) | `robot aspirador pelos mascota` | Compra segmento | No | Checklist "pelos y rodillos" | Alta |
+| E4 | Mejor robot aspirador para piso pequeño (<60 m²) | `robot aspirador piso pequeño` | Compra long-tail low-competition | No | Decision tree "pisos <60 m²" | Alta |
+| E5 | Roomba vs Roborock vs Dreame: diferencias reales 2026 | `roomba vs roborock vs dreame` | Comparativa educativa | No | Tabla comparativa 1-pager | Alta |
+| E6 | Mejor robot limpia-cristales 2026 | `robot limpia cristales` | Compra nicho low-competition | No | Hoja de Compra limpia-cristales | Media |
+| E7 | Cómo elegir un robot aspirador: 5 preguntas antes de comprar | `como elegir robot aspirador` | Educativa top-funnel | No | Checklist 5 preguntas (ya publicado) | Alta |
+| E8 | Mejor robot fregasuelos con vapor | `robot fregasuelos vapor` | Compra segmento | No | Ancla review Samsung Jet Bot | Media |
+| E9 | Robot aspirador con estación de lavado: ¿vale la pena? | `robot aspirador estacion lavado` | Educativa mid-funnel | No | Decision tree "estación sí/no" | Media |
+| E10 | Humanoides domésticos: qué NO te cuentan los fabricantes | `humanoide doméstico real vs marketing` | Anti-hype + long-tail | No | Checklist "detectar hype" | Media |
+| E11 | Mejor robot aspirador con IA: qué cambia de verdad | `robot aspirador ia 2026` | Emerging keyword | No | Comparativa IA vs no-IA | Media |
+| E12 | Robot cortacésped vs cortacésped tradicional: ROI en 3 años | `robot cortacésped rentabilidad` | Educativa + compra | Primavera-verano | Calculadora ROI 1-pager | Media |
+| E13 | Mejor mascota robot con IA 2026 (Loona, LOOI, Eilik, Ropet) | `mascota robot ia 2026` | Compra nicho viral | No | Comparativa 4 modelos | Alta (hedge viral) |
+| E14 | Asistentes IA de escritorio: landscape 2026-2027 (más allá de Alexa) | `asistente ia escritorio 2026` | Emerging keyword + educativa | No | Guía "qué esperar 2026-2027" | Alta (hedge emerging) |
+
+**Cómo elegir el siguiente evergreen cada semana:**
+1. Si estacional y en ventana (p.ej. E1/E12 en abril-julio) → priorizar siempre primero.
+2. Si no estacional → elegir "Alta" pendiente con menor competencia SEO.
+3. Si la semana incluye reactivo forzado (noticia fuerte) → 1 reactivo max, luego volver a evergreen siguiente.
+4. Marcar con ✅ cuando se publique + enlazar slug en la fila.
+
+**Integración con banco de 90 preguntas EoV (sección de abajo):** cada evergreen cubre 3-8 preguntas del banco. Al cerrar un evergreen, marcar ✅ junto a las preguntas cubiertas.
+
+---
+
+## Backlog de temas (reactivos + evergreens adicionales)
 
 > Temas candidatos para artículos futuros. Priorizar por SEO + viralidad + actualidad.
 > `/research-digest` añade temas aquí automáticamente con señal de viralidad.
 > 🔥 = poco debate / 🔥🔥 = varios medios + foros / 🔥🔥🔥 = cobertura masiva + mainstream
+> **Regla post-pivote 2026-04-20:** los reactivos solo se escriben cuando el evergreen de la semana está cerrado. 1 reactivo max por cada 3 evergreens.
 
 | Prioridad | Tema | Tipo | Keyword SEO | 🔥 | Notas |
 |-----------|------|------|-------------|---|-------|

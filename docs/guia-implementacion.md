@@ -11,9 +11,9 @@
 
 **Completado:** [[#FASE 0: Beehiiv Setup (30 min)|FASE 0 Beehiiv ✅]] · [[#FASE 1: Landing Page (1 hora)|FASE 1 Landing ✅]] · [[#FASE 1B: Estética del Blog (formato de artículos en Beehiiv)|FASE 1B Blog ✅]] · [[#FASE 1C: Base de Conocimiento Newsletter & Email|FASE 1C Knowledge ✅]] · [[#FASE 2: Contenido Base (semana 1-2)|FASE 2 Contenido base ✅]] · [[#FASE 3: Obsidian Knowledge Base (✅ COMPLETADA)|FASE 3 Obsidian ✅]]
 
-**En ejecución:** [[#FASE 4: Ciclo de creación de contenido (modo actual)|FASE 4 — Ciclo semanal ⚡]]
+**En ejecución:** [[#FASE 4: Ciclo de creación de contenido (modo actual)|FASE 4 — Ciclo semanal ⚡]] · [[#FASE 4B: Sprint Evergreen SEO (antes "Distribución activa")|FASE 4B Sprint Evergreen SEO ⚡]] · [[#FASE 4C: Lead Magnet #1 + Sistema de tangibles|FASE 4C Tangibles ⚡]]
 
-**Siguiente:** [[#FASE 4B: Distribución activa (0-50 subs)|FASE 4B Distribución activa ⏳]] · [[#FASE 4C: Lead Magnet #1 + Sistema de tangibles|FASE 4C Tangibles ⏳]]
+**Siguiente:** [[#FASE 4D: Biblioteca pública de tangibles (híbrida)|FASE 4D Biblioteca tangibles ⏳]] (activar al 3er tangible)
 
 **Referencia (no tocar todavía):** [[#FASE 5: Automatización (estado actual)|FASE 5 Automatización]] · [[#FASE 6: Métricas y Revisión|FASE 6 Métricas]] · [[#FASE 7: Post-lanzamiento y mantenimiento con Claude Code|FASE 7 Post-lanzamiento]]
 
@@ -32,7 +32,7 @@
 | **Mié** | 09:00 | Continuar artículo + heros | `/content-draft` · `/nano-banana` | *"Ritual miércoles — seguir"* |
 | **Jue** | 09:00 | Publicar + post-publish + social | `/post-publish <URL>` · `/social-content <URL>` | *"Ritual jueves — publicar"* |
 | **Vie** | 09:00 | Tangible (quincenal) · optim CTR/subs (viernes alterno) | `/pdf-brand <variante> <slug>` · *"Trigger optimización ROBOHOGAR"* | *"Ritual viernes — tangible"* · *"Ritual viernes — optimizar"* |
-| **Sáb** | libre | Promo foros/Reddit/Menéame (FASE 4B activa) | Manual + plantillas `@references/newsletter/email-marketing-playbook.md` | *"Ritual sábado — distribución"* |
+| **Sáb** | libre | ~~Promo foros/Reddit/Menéame~~ **PAUSADO 2026-04-20** — slot libre para lo que Rafael decida (ficción si evergreen cerrado, research adicional, o descanso) | — | — |
 | **Dom** | off | — | — | — |
 
 **Mantenimiento mensual (último viernes del mes):** `/pipeline-debug full` — audit completo del repo (skills, rules, refs, tangibles, memoria, docs, schedule). Genera report en `content/pipeline-debug-reports/<YYYY-MM-DD>-debug.md`. Ver [[#FASE 7: Post-lanzamiento y mantenimiento con Claude Code|FASE 7 § Mantenimiento]].
@@ -43,7 +43,7 @@
 
 ---
 
-## 🎯 Roadmap actual (abr 2026)
+## 🎯 Roadmap actual (abr 2026 — pivote SEO-first 2026-04-20)
 
 **Estado (20-abr-2026):**
 
@@ -53,32 +53,49 @@
 - ✅ **Pipeline de skills funcionando** (`/research-digest` · `/content-draft` · `/nano-banana` · `/post-publish` · `/social-content` · `/obsidian-robohogar`).
 - ✅ **Knowledge base Write With AI completa** — 9 archivos en [`references/writewithai/`](../references/writewithai/) + banco de 90 preguntas en [calendario-editorial.md § Elements of Value](../content/calendario-editorial.md#banco-de-preguntas--elements-of-value).
 
-### Prioridad 1 — VOLUMEN DE ARTÍCULOS ✅ 8 ALCANZADOS — FASE 4B DESBLOQUEADA
+### 🔄 Pivote 2026-04-20: de distribución activa → SEO-first evergreen
 
-- **Progreso:** 7 → **8 artículos publicados** (artículo #8 completado 20-abr-2026 con *Un humanoide bate el récord mundial humano de media maratón · Editorial reactivo sobre Unitree H1 en Pekín + checklist de 5 preguntas*).
-- **Nota operativa:** el #7 se publicó SIN content gate — decisión 2026-04-18 alineada con `@rules/tangibles.md` F1 (0-50 subs: tangible inline, sin gate). El gate se retoma cuando haya masa crítica de subs (F2 ~50 · F3 ~5K).
-- **Siguiente:** activar **FASE 4B — distribución activa**. Frase trigger: *"Retomamos distribución 4B — tócame los hilos Reddit activos"*.
-- **Skills:** `/content-draft` + `/post-publish` operativos y probados en todo el ciclo 6→8.
-- **Detalle operativo:** [[#FASE 4B: Distribución activa (0-50 subs)|FASE 4B]].
+Sesión 2026-04-20 confirmó que el outreach manual en Reddit/Menéame/Xataka/Forocoches no es viable con 3-5 h/sem y sin cuentas ES con karma previo: Reddit bloquea scraping con captcha, Xataka tiene comentarios desactivados hace años, Forocoches es por invitación, Facebook descartado. **Pivote completo:** el motor de crecimiento pasa a ser **SEO evergreen + tangibles como conversión**. Outreach manual queda en pausa indefinida.
 
-### Prioridad 2 — DISTRIBUCIÓN ACTIVA (siguiente) ⏳
+Detalle + razones: memoria `feedback_seo_first_pivote.md`.
 
-- **Activar cuando:** ≥6 artículos publicados.
-- **Target:** 0 → 50 subs vía Reddit + foros ES + Menéame + Beehiiv Boosts. Ventana objetivo: **alcanzar 50 subs entre 2026-06-13 y 2026-07-11** (8-12 semanas desde activación 2026-04-18 — si lees una fecha dentro o posterior a esa ventana y aún no estamos en 50 subs, revisar estrategia en FASE 4B).
-- **Frase trigger:** *"Retomamos distribución 4B — tócame los hilos Reddit activos"*.
-- **Detalle operativo:** [[#FASE 4B: Distribución activa (0-50 subs)|FASE 4B]].
+### Prioridad 1 — SPRINT EVERGREEN SEO ⚡ (motor de crecimiento)
 
-### Prioridad 3 — SISTEMA DE TANGIBLES (FASE 4C iniciada 2026-04-18 ⭐)
+- **Objetivo:** construir la biblioteca evergreen que atrae tráfico orgánico sostenido (mes 6-18) mediante guías de compra, reviews y comparativas con intención compra clara.
+- **Ratio:** 3 evergreens / 1 reactivo por cada 4 artículos publicados. Los reactivos (noticias con caducidad <3 meses) solo si el evergreen de la semana está cerrado.
+- **Backlog priorizado:** 14 candidatos E1-E14 en [`content/calendario-editorial.md § Backlog Evergreen SEO`](../content/calendario-editorial.md). Priorizar estacionales en ventana (E1 cortacésped · E12 ROI cortacésped → primavera-verano) + hedge emerging (E13 mascota robot · E14 asistentes IA escritorio).
+- **Frase trigger:** *"Retomamos evergreen — siguiente del backlog"* o *"Evergreen E<N>"* para elegir uno concreto.
+- **Detalle operativo:** [[#FASE 4B: Sprint Evergreen SEO (antes "Distribución activa")|FASE 4B]].
 
-- **Pivote editorial 18-abr-2026 ⭐:** *"tangible = producto, no bonus"* (Cole/Bush 2026). Cada artículo se diseña con el tangible como cliffhanger antes del CTA. Regla en [`tangibles.md`](../.claude/rules/tangibles.md) · blueprint completo [`08-paid-newsletter-blueprint-2026.md`](../references/writewithai/08-paid-newsletter-blueprint-2026.md).
-- **Skill `/pdf-brand cheatsheet` operativo desde 2026-04-18** (adelantado al tener plan Scale): `.claude/commands/pdf-brand.md` + `skills/pdf_brand/`. Variantes restantes (`comparativa` · `guia` · `relato`) pendientes activación por demanda.
-- **Primer tangible activo:** Hoja de Compra ROBOHOGAR (PDF 4pp, v2 validada 2026-04-18) en [`content/lead-magnets/hoja-compra/`](../content/lead-magnets/hoja-compra/). Subido a Beehiiv como Digital Product: `https://robohogar.com/products/hoja-de-compra`.
-- **Banner lead magnet Dark** activo en home + 3 artículos consumer (mejor-robot-asistente-ia-2026, roborock-saros-z70-review, samsung-jet-bot-steam-ultra-review). Snippets: [`content/templates/banner-lead-magnet-snippets.md`](../content/templates/banner-lead-magnet-snippets.md).
-- **Welcome flow MVP 2 emails** activo: guía setup en [`docs/welcome-flow-setup.md`](welcome-flow-setup.md) + checklist paso a paso en [`docs/activar-tangible-hoja-compra.md`](activar-tangible-hoja-compra.md).
+### Prioridad 2 — TANGIBLES COMO MOTOR DE CONVERSIÓN (FASE 4C ⭐)
+
+- **Principio editorial vigente:** *"tangible = producto, no bonus"* (Cole/Bush 2026). Cada artículo se diseña con el tangible como cliffhanger antes del CTA. Regla: [`tangibles.md`](../.claude/rules/tangibles.md).
+- **Skill `/pdf-brand cheatsheet` operativo desde 2026-04-18** — variantes restantes (`comparativa` · `guia` · `relato`) pendientes activación por demanda. Cada evergreen que lo requiera acopla su tangible (ver columna "Tangible acoplado" en E1-E14).
+- **Primer tangible activo:** Hoja de Compra ROBOHOGAR (PDF 4pp, v2 validada 2026-04-18) en [`content/lead-magnets/hoja-compra/`](../content/lead-magnets/hoja-compra/). Digital Product: `https://robohogar.com/products/hoja-de-compra`.
+- **Banner lead magnet Dark** activo en home + 3 artículos consumer. Snippets: [`content/templates/banner-lead-magnet-snippets.md`](../content/templates/banner-lead-magnet-snippets.md).
+- **Welcome flow MVP 2 emails** activo: [`docs/welcome-flow-setup.md`](welcome-flow-setup.md).
 - **Frase trigger:** *"Retomamos tangibles — siguiente PDF"*.
 - **Detalle operativo:** [[#FASE 4C: Lead Magnet #1 + Sistema de tangibles|FASE 4C]].
 
-> Las fases posteriores (5 automatización · 6 métricas · 7 post-lanzamiento · 8 crecimiento >50 subs · 9 optimización newsletter · 10 pipeline avanzado) siguen ahí pero no son el foco hasta haber movido las 3 prioridades anteriores.
+### Prioridad 3 — BIBLIOTECA PÚBLICA DE TANGIBLES (FASE 4D futura ⏳)
+
+- **Qué es:** página pública `robohogar.com/recursos` que muestre portada + título + descripción de TODOS los tangibles. CTA por tangible: *"Descargar gratis con la newsletter"* → Digital Product de Beehiiv (sigue con gate de suscripción). Opcional: 1 tangible "sampler" de 1 página sin gate como demo de calidad.
+- **Por qué:** aumenta la visibilidad pública del catálogo de tangibles (hoy solo descubribles banner-a-banner) sin romper la conversión del gate. Modelo híbrido validado por Rafael 2026-04-20.
+- **Activar cuando:** haya **≥3 tangibles publicados** (hoy 1). Candidatos siguientes: Guía primer mes aspirador + Decision tree cortacésped + Comparativa mascota robot.
+- **Frase trigger:** *"Retomamos FASE 4D — biblioteca pública de tangibles"*.
+- **Detalle operativo:** [[#FASE 4D: Biblioteca pública de tangibles (híbrida)|FASE 4D]].
+
+### 📊 Indicadores orientativos (sin decisión automática)
+
+> **No son métricas de corte.** Rafael decidió 2026-04-20: *"es un proyecto personal, no vamos a establecer métricas de corte"*. Estos números son solo **marco mental** — qué cabría esperar si el SEO compuesto funciona. La decisión de revisar o pivotar la toma Rafael cuando quiera, no lo dispara un umbral.
+
+| Horizonte | Tráfico orgánico esperado | Subs orgánicos acumulados | Lectura |
+|---|---|---|---|
+| M3 (jul-2026) | 200-500 visitas/mes | 3-15 | Si >500 y >20: mercado responde. Si <100: contenido no indexa — diagnóstico on-page necesario. |
+| M6 (oct-2026) | 1.000-3.000 | 10-90 | Si 1-2 evergreens top-10, empieza la curva. |
+| M12 (abr-2027) | 3.000-10.000 | 30-300 | Si 2-3 evergreens top-5, proyecto cumple hipótesis SEO-first. |
+
+> Las fases posteriores (5 automatización · 6 métricas · 7 post-lanzamiento · 8 crecimiento >50 subs · 9 optimización newsletter · 10 pipeline avanzado) siguen ahí pero no son el foco. La FASE 4B original (distribución activa Reddit/Menéame) queda **cerrada indefinidamente** — Rafael confirmó 2026-04-20 que no va a construir cuentas ES con karma previo. Única válvula de aceleración no-manual futura: **Beehiiv Boosts** (pagado), pero solo con cluster SEO maduro (≥10 evergreens + 2-3 tangibles). El motor es SEO orgánico + tangibles, sin plan B de outreach.
 
 ---
 
@@ -90,11 +107,11 @@
 
 > Plantilla viva. `/post-publish` y `/pdf-brand` **deben** actualizar estos 3 bullets al completar tareas (marcar el completado · añadir el siguiente desde backlog de `calendario-editorial.md` · actualizar "Último artículo" / "Último tangible" en [[#🎯 Roadmap actual (abr 2026)\|🎯 Roadmap actual]]). Si los 3 están marcados al abrir una sesión, tirar del backlog de calendario.
 
-- [x] **Next 1 —** ~~Publicar artículo #7 *"Mejor robot aspirador 2026 · Guía de compra"* con Content Gate~~ → Publicado 19-abr-2026 SIN gate (decisión F1 alineada con `@rules/tangibles.md`). URL: https://robohogar.com/p/mejor-robot-aspirador-2026
-- [x] **Next 2 —** ~~Publicar artículo #8 *"Un humanoide bate el récord mundial humano de media maratón · Editorial reactivo"*~~ → Publicado 20-abr-2026. URL: https://robohogar.com/p/humanoide-maraton-pekin-record-mundial
-- [ ] **Next 3 —** Primera flash Ficciones Domésticas *"El operador nocturno"* (teleoperación NEO + deal EQT) · frase trigger: *"Retomamos ficciones — arrancar piloto"* · `/ficcion-draft`
-- [ ] **Next 4 —** Activar FASE 4B distribución (≥8 artículos publicados ✅) · frase trigger: *"Retomamos distribución 4B — tócame los hilos Reddit activos"* · ver [[#FASE 4B: Distribución activa (0-50 subs)|FASE 4B]]
-- [ ] **Next 5 —** Publicar artículo #9 del backlog (elegir desde [`content/calendario-editorial.md § Backlog`](../content/calendario-editorial.md) según prioridad del momento) · frase trigger: *"Retomamos sprint — artículo #9"*
+- [x] **Next 1 —** ~~Publicar artículo #7 *"Mejor robot aspirador 2026 · Guía de compra"*~~ → Publicado 19-abr-2026. URL: https://robohogar.com/p/mejor-robot-aspirador-2026
+- [x] **Next 2 —** ~~Publicar artículo #8 *"Un humanoide bate el récord mundial humano de media maratón"*~~ → Publicado 20-abr-2026. URL: https://robohogar.com/p/humanoide-maraton-pekin-record-mundial
+- [ ] **Next 3 —** **Evergreen E1 — Mejor robot cortacésped 2026** (estacional primavera-verano, ventana abr-jul) · frase trigger: *"Retomamos evergreen — empezamos E1 cortacésped"* · `/content-draft Mejor robot cortacésped 2026 · guía de compra` · ver [calendario-editorial.md § Backlog Evergreen SEO](../content/calendario-editorial.md)
+- [ ] **Next 4 —** Primera flash Ficciones Domésticas *"El operador nocturno"* (solo si E1 está cerrado · regla evergreen-first) · frase trigger: *"Retomamos ficciones — arrancar piloto"* · `/ficcion-draft`
+- [ ] **Next 5 —** **Evergreen E13 o E14 — Mascota robot IA / Asistente IA escritorio** (hedge emerging · alto potencial viral) · frase trigger: *"Retomamos evergreen — E13"* o *"— E14"* · ver backlog E1-E14
 
 **Último artículo publicado:** #8 *Un humanoide ha batido el récord mundial humano de media maratón. Lo importante no es el robot* (2026-04-20).
 **Último tangible publicado:** Hoja de Compra v2 PDF (2026-04-18) → `content/lead-magnets/hoja-compra/`.
@@ -103,9 +120,9 @@
 
 ROBOHOGAR se enfoca en **España primario + LATAM secundario**. Antes de aceptar un tema, validar distribución ES + keyword ES + cobertura en ≥2 fuentes de [`references/fuentes-es-master.md`](../references/fuentes-es-master.md). Regla completa: [`editorial.md § Filtro mercado ES/LATAM`](../.claude/rules/editorial.md). Los skills `/research-digest` y `/content-draft` ya lo aplican automáticamente.
 
-### 🎯 Sprint concreto: #6 → #7 → #8
+### 🎯 Sprint concreto #6 → #7 → #8 ✅ COMPLETADO (abril 2026)
 
-El objetivo es llegar a **≥7 artículos publicados** antes de activar FASE 4B.
+> Histórico: sprint original del ciclo #6-#8 ya cerrado (#6 Samsung Jet Bot 18-abr · #7 Mejor aspirador 2026 19-abr · #8 Humanoide maratón Pekín 20-abr). **Tras 20-abr-2026 el sprint activo es el Sprint Evergreen SEO — ver [`Roadmap § Prioridad 1`](#prioridad-1--sprint-evergreen-seo--motor-de-crecimiento) y [`FASE 4B`](#fase-4b-sprint-evergreen-seo-antes-distribución-activa).**
 
 #### Artículo #6 — Samsung Jet Bot Steam Ultra ✅ PUBLICADO 18-abr-2026
 
@@ -140,12 +157,13 @@ Con ≥7 artículos publicados, activar [[#FASE 4B: Distribución activa (0-50 s
 
 **Frase trigger:** *"Retomamos distribución 4B — tócame los hilos Reddit activos"*.
 
-### 📖 Arrancar Ficciones Domésticas (paralelo al sprint)
+### 📖 Arrancar Ficciones Domésticas (paralelo al sprint evergreen)
 
-El pilar de ficción experimental (~10% del mix) **aún no está arrancado**. Buena ventana para hacer la primera flash (800 palabras) junto al #6 o #7 — la cadencia objetivo es 1 cada 3-4 semanas.
+El pilar de ficción experimental **aún no está arrancado** como publicación (hay 1 relato aprobado internamente pero no publicado en Beehiiv). Aporta diferenciación de marca y variedad editorial, no tráfico SEO — **cadencia hasta 1 cada 1-2 semanas, condicionada a evergreen-first** (solo sale si el evergreen de la semana está entregado). Actualizado 2026-04-20 al pivote SEO-first.
 
 - **Semilla prioritaria:** 🥇 *"El operador nocturno"* — teleoperación NEO desde Manila + deal EQT (dato real ancla).
 - **Comando:** `/ficcion-draft` (sin argumentos → skill lee el backlog y propone 3 opciones).
+- **Regla dura:** si el evergreen de la semana no está cerrado, NO publicar ficción esa semana. La ficción no canibaliza el motor de crecimiento.
 
 ### 📝 Principio editorial transversal — tangible = producto
 
@@ -153,11 +171,12 @@ Cuando invoques `/content-draft`, **empieza definiendo el tangible** en el `PASO
 
 ### 🚫 Qué NO hacer todavía
 
+- ❌ **No hacer outreach manual en Reddit / Menéame / foros ES.** **Cerrado indefinidamente** tras pivote 2026-04-20: Rafael confirmó que no va a construir cuentas ES con karma previo. La vía queda descartada como motor de crecimiento. Si en el futuro Rafael cambia de opinión, será caso-por-caso, no un sprint completo de distribución. Detalle: memoria `feedback_seo_first_pivote.md`.
 - ❌ **No activar newsletter semanal** — espera a 30-50 subs. Con `Email and web` los artículos ya se envían a los pocos subs que haya.
-- ❌ **No abrir canales sociales propios** con cadencia forzada (IG/LinkedIn/WhatsApp). Distribución activa empieza en FASE 4B.
-- ❌ **No tocar paid tier / paywall de pago / cadencia dual** — diferido a F3 (≥5K subs). Documentado en [`08-paid-newsletter-blueprint-2026.md`](../references/writewithai/08-paid-newsletter-blueprint-2026.md) como *reference*, no como acción. **Content Gate ≠ paywall** — Content Gate es gratis y solo pide email.
-- ❌ **No sobre-optimizar SEO on-page** en artículos sueltos. Objetivo ahora es volumen (llegar a 10-15 piezas); la optimización granular viene en FASE 6.
-- ❌ **No construir `/pdf-brand` todavía** — se activa en FASE 4C, al llegar a ~50 subs. El tangible del #7 es HTML inline gated, no PDF descargable.
+- ❌ **No abrir canales sociales propios** con cadencia forzada (IG/LinkedIn/WhatsApp). El motor actual es SEO + tangibles, no social.
+- ❌ **No tocar paid tier / paywall de pago / cadencia dual** — diferido a F3 (≥5K subs). Documentado en [`08-paid-newsletter-blueprint-2026.md`](../references/writewithai/08-paid-newsletter-blueprint-2026.md) como *reference*, no como acción. **Content Gate ≠ paywall**.
+- ❌ **No publicar ficción si el evergreen de la semana no está cerrado.** Regla dura post-pivote 2026-04-20.
+- ❌ **No romper el ratio 3 evergreens / 1 reactivo.** Los reactivos (noticias con caducidad <3m) son atractivos por frescura pero no traen tráfico orgánico sostenido. Solo 1 por cada 3 evergreens cerrados.
 - ❌ **No recomendar temas sin pasar el filtro mercado ES** (salvo mainstream Apple/Tesla/Samsung/Google/Xiaomi).
 
 ---
@@ -1134,99 +1153,86 @@ La newsletter semanal se activa cuando haya **30-50 suscriptores** (ver FASE 9).
 
 ---
 
-## FASE 4B: Distribución activa (0-50 subs)
+## FASE 4B: Sprint Evergreen SEO (antes "Distribución activa")
 
-> **Principio:** con 0 suscriptores y sin presencia social disponible (IG/LinkedIn personal sin usar, LinkedIn corporativo bloqueado, WhatsApp sin contactos), el motor de crecimiento inicial son canales donde Rafael puede aportar sin exponerse. Objetivo: 0 → 50 subs invirtiendo ~2h/semana + ~€20-40 de prueba en Beehiiv Boosts. Ventana temporal realista: **alcanzar 50 subs entre 2026-06-13 y 2026-07-11** (8-12 semanas desde activación 2026-04-18). Si lees una fecha posterior a 2026-07-11 y aún estamos <50 subs, revisar estrategia completa (cambiar canales, aumentar inversión o pivotar).
+> **Pivote 2026-04-20.** Esta fase se llamaba "Distribución activa (0-50 subs)" y el motor era Reddit + Menéame + Beehiiv Boosts. Tras la sesión de scouting del 2026-04-20 (5 descartes consecutivos en Reddit + Xataka sin comentarios + Forocoches por invitación + sin Facebook) + confirmación de Rafael de que no va a construir cuentas ES con karma, el motor cambia a **SEO evergreen compuesto**: publicar 14 evergreens priorizados durante los próximos ~4 meses, dejar que Google los indexe y que el tráfico llegue entre mes 6 y mes 18. Los tangibles descargables (FASE 4C) capturan la conversión de ese tráfico.
+>
+> **La FASE 4B antigua ("Reddit + Menéame + Beehiiv Boosts") queda cerrada indefinidamente** (archivada al final de esta sección como referencia histórica). No hay plan B de outreach manual. Única válvula de aceleración no-manual futura: **Beehiiv Boosts** pagado cuando el cluster SEO esté maduro. Detalle del pivote: memoria `feedback_seo_first_pivote.md`.
 
 ### 📌 Frases trigger para retomar en futuras sesiones
 
 | Qué quiero retomar | Frase exacta |
 |---|---|
-| Buscar hilos Reddit activos esta semana | **"Retomamos distribución 4B — tócame los hilos Reddit activos"** |
-| Preparar submit de Menéame | **"Prepárame el submit de Menéame para el artículo X"** |
-| Configurar Beehiiv Boosts | **"Arrancamos Beehiiv Boosts con piloto de €20"** |
-| Evaluar estado de la fase | **"¿Cómo va la distribución 4B?"** |
+| Empezar siguiente evergreen del backlog | **"Retomamos evergreen — siguiente del backlog"** |
+| Elegir uno concreto por número | **"Evergreen E1"** / **"Evergreen E13"** (reemplaza el N por el del backlog) |
+| Ver estado del sprint evergreen | **"¿Cómo va el sprint evergreen?"** |
+| Evaluar si toca ficción esta semana | **"¿Toca ficción? ¿Evergreen de la semana cerrado?"** |
 
 ### Activación
 
-Activar esta fase cuando haya **≥6 artículos publicados** (masa crítica para poder enlazar sin repetirse). Hasta entonces, seguir en FASE 4 produciendo volumen.
+**Activada 2026-04-20** tras pivote. Corre en paralelo a FASE 4C (tangibles) y reemplaza el motor de crecimiento de la FASE 4B original.
 
-### Canales
+### Operativa del sprint
 
-#### 4B.1 Reddit — tráfico orgánico cualificado
+#### Ritmo semanal
 
-- **Subreddits candidatos** (a validar en primera sesión de activación):
-  - r/espanol, r/spain (filtro "tecnología")
-  - r/domotica (si existe y está activo en español)
-  - r/homeautomation (en inglés pero con tráfico español)
-  - r/Mexico, r/argentina, r/chile — secciones tech/gadgets (LATAM)
-- **Playbook:**
-  - Buscar hilos de pregunta: *"¿qué robot aspirador compro?"*, *"vale la pena un humanoide doméstico?"*, *"Dreame vs Roborock"*
-  - Responder con valor (respuesta propia de 80-150 palabras) y enlazar al artículo de ROBOHOGAR como *contexto de apoyo*, no como CTA
-  - Nada de posts autopromocionales — 1 post de autopromo = shadowban en la mayoría de subs
-- **Cadencia objetivo:** 5-10 respuestas de calidad por semana (≈1-1,5 h). Mejor 5 bien hechas que 30 breves
-- **Soporte Claude:** cada lunes, al pedirlo, busca hilos activos relevantes (últimos 7 días, >10 comentarios) y pre-prepara drafts de respuesta citando los artículos publicados
+1. **Lunes:** elegir evergreen del backlog E1-E14 ([calendario-editorial.md § Backlog Evergreen SEO](../content/calendario-editorial.md)). Priorizar estacional-en-ventana (E1 cortacésped, E12 ROI cortacésped en primavera-verano) sobre no-estacional. Si ya cerraste el estacional, ir al siguiente "Alta".
+2. **Martes-jueves:** `/content-draft <tema E<N>>`. El skill lee el Elements of Value + fuentes ES + filtros mercado ES y genera el borrador HTML con hero + 3 variantes.
+3. **Viernes:** revisión de Rafael + publicar con `Email and web` + `/post-publish <URL>`. Ratio 3:1 garantizado si este flujo se repite 4 semanas seguidas.
+4. **Opcional Sábado:** `/ficcion-draft` si el evergreen está entregado. Si no, slot libre.
 
-#### 4B.2 Foros en español
+#### Checklist SEO on-page por evergreen (mínimo obligatorio)
 
-- **Candidatos a explorar** (evaluar ROI caso a caso en primeras 2 semanas — muchos foros están muertos):
-  - foro.xataka.com — sección hogar conectado
-  - forocoches → subforo tecnología (volumen alto, tono tosco)
-  - forobeta — blogueros y pequeños editores
-  - blogs de domótica ES con comentarios activos
-- **Misma lógica que Reddit:** aportar valor, enlazar tangencialmente
-- **Regla de corte:** si en 2 semanas un foro no ha dado ni 1 click al link de ROBOHOGAR, se abandona. No se invierten horas en foros muertos
+- [ ] Title tag ≤55 chars con keyword primaria al principio
+- [ ] Meta description 110-155 chars con tangible mencionado con cifra
+- [ ] H1 con keyword primaria, H2/H3 con variaciones semánticas y long-tail
+- [ ] URL slug corto con keyword (sin stop words)
+- [ ] Mínimo **2-3 enlaces internos** a otros artículos ROBOHOGAR (fuerza el cluster temático — regla clave de autoridad de dominio)
+- [ ] Alt text descriptivo en todas las imágenes, con keyword natural
+- [ ] Hero image: WebP <500KB, 1200x630 OG-compatible
+- [ ] **Tangible acoplado:** banner Hoja de Compra (si aspirador/cortacésped/fregasuelos/limpia-cristales) o tangible específico del evergreen
+- [ ] Subtítulo + meta description mencionan el tangible con cifra (regla `tangibles.md`)
 
-#### 4B.3 Menéame — agregador ES estilo Hacker News
+Los skills `/content-draft` y `/post-publish` ya aplican la mayoría de estos puntos; este checklist es la verificación manual antes de publicar.
 
-- **Qué es:** meneame.net, ~50K visitas/día. Si un artículo llega a portada: 500-2.000 visitas en 24h
-- **Qué submitear:** 1 de cada 3-4 artículos publicados. **Solo editoriales con ángulo controversia o servicio público** (NEO→fábricas, AI Act, Neura Porsche €98k). NO reviews genéricas ni comparativas SEO
-- **Cómo submitear:**
-  - Categoría: *tecnología*
-  - Titular: factual + hook, **NO clickbait** (Menéame banea clickbait)
-  - Resumen ≤250 caracteres con el dato más fuerte del artículo
-  - Timing óptimo: **martes-jueves 9-11h CET** (mayor actividad de usuarios)
-- **Soporte Claude:** al pedírselo, prepara titular y resumen adaptados a Menéame desde el HTML del artículo
+#### Regla del ratio 3:1
 
-#### 4B.4 Beehiiv Boosts — adquisición pagada nativa
+Cada 4 artículos publicados deben ser **3 evergreens + 1 reactivo** como máximo. Los reactivos (editoriales sobre noticias con caducidad <3 meses — NEO fábricas, humanoide maratón, AI Act) son tentadores por actualidad pero **no traen tráfico orgánico sostenido**: pico 1-2 semanas, luego cae a 0. Solo se escriben cuando el evergreen de la semana está entregado y hay una noticia fuerte que pide respuesta editorial.
 
-- **Qué es:** ad network integrado en Beehiiv. Otros newsletters recomiendan ROBOHOGAR a cambio de CPA
-- **Coste esperado:** €0,50-1,50 por suscriptor verificado (con email opt-in doble)
-- **Budget piloto:** €20 = 15-40 subs reales para arrancar (validar calidad antes de escalar)
-- **Configuración:**
-  - Beehiiv Dashboard → **Grow** → **Boosts**
-  - Definir CPA (empezar en €0,80)
-  - Audiencia: tech / gadgets / Spanish-speaking
-  - **Verification ON** (solo cuentan subs que confirman email)
-- **Revisión a las 2 semanas:**
-  - Si open rate de los subs adquiridos <20% → pausar y bajar CPA
-  - Si churn primera semana >40% → pausar y revisar copy del Welcome Email
-  - Si todo ok → escalar a €50/mes
+#### Ficción condicionada a evergreen-first
 
-#### 4B.5 Cross-promo newsletters hermanos
+Ficciones Domésticas se publican **hasta 1 cada 1-2 semanas, solo si el evergreen de la semana está cerrado**. Si falta el evergreen, no hay ficción esa semana. Regla dura post-pivote 2026-04-20.
 
-- **Placeholder — activar cuando haya ≥30 subs** (hay algo que ofrecer a cambio)
-- Candidatos a investigar: newsletters ES de tech/IA/gadgets/domótica con audiencia de 500-5.000 subs (ni micro ni gigante)
-- Modelo: swap de menciones (1 sección de cada parte recomendando el otro)
+### Qué NO hacer en esta fase
 
-### Métricas esperadas
+- ❌ **Outreach manual** en Reddit / Menéame / foros / Xataka comments. **Cerrado indefinidamente.** Rafael confirmó 2026-04-20 que no construye cuentas con karma ES — sin ese prerrequisito, cualquier outreach es shadowban garantizado. Esta vía queda descartada como motor; no es una pausa.
+- ❌ **Autopromoción con cuentas sin historial** — shadowban garantizado.
+- ❌ **Comprar listas de emails** (deliverability destruida en semanas).
+- ❌ **Pedir a amigos que se suscriban por compromiso** (open rate → 5%, Gmail manda todo a Promotions).
+- ❌ **Romper el ratio 3:1** escribiendo 2 reactivos seguidos porque "hay noticia fuerte". Siempre evergreen primero.
+- ❌ **Pagar Beehiiv Boosts ahora** — sin tangible robusto y sin cluster SEO, los subs adquiridos hacen churn. Es la única válvula de aceleración no-manual disponible a futuro, pero reevaluar solo cuando haya ≥10 evergreens publicados + 2-3 tangibles + welcome flow validado.
 
-| Horizonte | Acción dominante | Subs objetivo acumulados |
-|---|---|---|
-| Semana 1-2 | Reddit + Menéame orgánico | 0 → 5 |
-| Semana 3-4 | +Beehiiv Boosts €20 | 5 → 15 |
-| Mes 2 | +primer swap cross-promo | 15 → 30 |
-| Mes 3 | Escalar Boosts + segundo swap | 30 → 50 ✅ |
+### Indicadores de salud del sprint (orientativos, NO cortes automáticos)
 
-**Al tocar 50 subs:** desbloquear FASE 4C (sistema de tangibles) + evaluar si arrancar newsletter semanal curada (FASE 9 baseline).
+| Horizonte | Evergreens acumulados | Tráfico orgánico esperado | Subs orgánicos |
+|---|---|---|---|
+| Semana 1-4 | 2-3 (E1 + E2 o E3) | 0-50 visitas/mes | 0-2 |
+| Mes 2-3 | 5-8 | 100-300 | 3-10 |
+| Mes 4-6 | 10-14 (backlog cerrado) | 500-2.000 | 15-60 |
 
-### Límites — qué NO hacer en esta fase
+Si al final del mes 6 el tráfico está muy por debajo (< 100/mes con 10+ evergreens publicados), diagnóstico: competencia SEO demasiado alta para el dominio (sin backlinks), keywords mal elegidas o contenido sin intención compra suficiente. En ese caso Rafael decide si pivotar el nicho (p.ej. long-tail aún más específico), construir backlinks (difícil sin outreach), o pausar. **Decisión humana, no automática.**
 
-- ❌ Comprar listas de emails (deliverability destruida en semanas)
-- ❌ Pedir a amigos que se suscriban por compromiso (open rate → 5%, Gmail manda todo a Promotions)
-- ❌ Autopromoción directa en Reddit/foros ("suscríbete aquí") — shadowban garantizado
-- ❌ Spammear el mismo link en 10 hilos — calidad > volumen
-- ❌ Activar IG/LinkedIn orgánico con cadencia forzada — revisar en FASE 8 cuando haya masa crítica
+---
+
+### 🗃️ FASE 4B antigua (archivada 2026-04-20, cerrada indefinidamente) — Reddit + Menéame + Beehiiv Boosts
+
+> Queda como referencia histórica. Rafael confirmó 2026-04-20 que no va a construir cuentas ES con karma previo — la playbook original **no se va a reactivar**. Si en el futuro cambia de opinión, será caso-por-caso, no como sprint completo. Mientras tanto, NO seguir esta playbook.
+
+- ~~**4B.1 Reddit:** r/espana, r/AskSpain, r/podemos_ahorrar — buscar hilos de pregunta, responder con valor 80-150 palabras, enlazar como contexto de apoyo. Cadencia 5-10 respuestas/semana.~~ **Pausado:** captcha anti-bot impide scraping; sesión 2026-04-20 con 5 descartes consecutivos (3 LATAM fuera scope, 2 subs EN, 1 bloqueado).
+- ~~**4B.2 Foros en español:** foro.xataka, forocoches, forobeta.~~ **Pausado:** Xataka sin comentarios activos, Forocoches por invitación.
+- ~~**4B.3 Menéame:** submitear 1 de cada 3-4 artículos como editorial ángulo controversia.~~ **Pausado hasta karma suficiente:** submit de propia web con cuenta nueva = shadowban.
+- ~~**4B.4 Beehiiv Boosts:** €20 piloto.~~ **Pospuesto:** sin cluster SEO ni welcome validado, los subs adquiridos no retienen.
+- ~~**4B.5 Cross-promo newsletters hermanos.**~~ **Pospuesto:** sin audiencia propia no hay swap recíproco viable.
 
 ---
 
@@ -1352,27 +1358,9 @@ Target ROBOHOGAR:
 
 Si a las 4 semanas el magnet <1% conversión → iterar titular o probar otro magnet (testear 1/mes según [plan-v2.md:110](plan-v2.md#L110)).
 
-### Biblioteca pública (activar mes 2-3)
-
-Cuando haya ~10 tangibles acumulados, crear sección "Descargas" en landing Beehiiv:
-
-```
-Descargas ROBOHOGAR
-Todo lo tangible que hemos publicado.
-Suscripción gratuita = acceso a todo.
-
-[Grid de cards · 1 por tangible]
- 📄 Checklist · Saros Z70
- 📊 Tabla · Dreame vs Roborock 2026
- 📖 Glosario · 15 términos de robótica
- ...
-```
-
-Cada card: PDF con gate (suscripción requerida). Convierte la landing en asset cumulativo — cada semana aporta más valor sin esfuerzo marketing adicional.
-
 ### Bundles temáticos (mes 6+)
 
-Cuando biblioteca >20 items, empaquetar:
+Cuando la biblioteca >20 items, empaquetar:
 
 - "Aspiradores 2026" (checklists + comparativas)
 - "Humanoides doméstico" (editoriales + glosarios + mini-posters ficción)
@@ -1380,6 +1368,69 @@ Cuando biblioteca >20 items, empaquetar:
 - "Anuario ROBOHOGAR" (resumen + top tangibles del año)
 
 Bundles = puente natural a **paid tier** cuando >2.500 subs (ver FASE 9). Free tier: tangibles individuales. Paid tier: bundles.
+
+---
+
+## FASE 4D: Biblioteca pública de tangibles (híbrida)
+
+> **Principio:** resolver el dilema "gente ve todos los tangibles antes de suscribirse" SIN romper la conversión del gate. Modelo **híbrido** validado por Rafael 2026-04-20: página pública muestra portadas de todos los tangibles; descargar requiere suscripción (gate mantenido); opcional 1 "sampler" de 1 página sin gate como demo de calidad.
+
+### 📌 Frases trigger
+
+| Qué quiero retomar | Frase exacta |
+|---|---|
+| Empezar la biblioteca pública | **"Retomamos FASE 4D — biblioteca pública de tangibles"** |
+| Añadir un tangible al grid | **"Añade <slug-tangible> a la biblioteca pública"** |
+| Decidir sampler sin gate | **"Decidimos sampler gratuito de la biblioteca"** |
+
+### Activación
+
+Activar cuando haya **≥3 tangibles publicados**. Hoy (2026-04-20): 1 tangible (Hoja de Compra v2). Candidatos siguientes para alcanzar 3:
+
+- Guía primer mes aspirador (formato "estrenando" del funnel)
+- Decision tree cortacésped (acopla evergreen E1)
+- Checklist "pelos y rodillos" (acopla evergreen E3 mascotas)
+
+### Estructura híbrida
+
+**1 · Página pública `robohogar.com/recursos`**
+
+Grid con tarjeta por tangible:
+
+```
+Recursos ROBOHOGAR
+Guías, checklists y comparativas para ayudarte a comprar mejor.
+
+[Grid de cards · 1 por tangible]
+ 📄 Hoja de Compra — 5 preguntas antes de comprar cualquier robot · 2 páginas
+    [Descargar gratis con la newsletter →]
+ 📊 Comparativa — 6 aspiradores 2026 por perfil · 1 página
+    [Descargar gratis con la newsletter →]
+ 🌱 Decision tree — ¿Robot cortacésped o manual? · 1 página
+    [Descargar gratis con la newsletter →]
+ ...
+```
+
+**2 · Gate híbrido**
+
+- **Por defecto:** cada CTA apunta a la Digital Product de Beehiiv correspondiente → suscripción requerida para descargar. Esto mantiene la conversión intacta.
+- **Opcional (decidir cuando se active):** 1 tangible marcado como "sampler" con descarga directa sin gate. Ejemplo candidato: versión de 1 página de la Hoja de Compra. Actúa como demo de calidad.
+- **No hacer:** todo sin gate (perderíamos el mecanismo principal de captura) ni todo con gate (perderíamos la utilidad del grid público).
+
+**3 · Copy del CTA**
+
+Usar la trust-line canónica ROBOHOGAR: `PDF gratis con tu suscripción semanal. Cancela cuando quieras.` (ver regla en `tangibles.md § Microcopy de conversión`).
+
+### Implementación técnica
+
+- **Plataforma:** página pública en Beehiiv (no requiere dev) o página HTML custom en `robohogar.com/recursos` si se quiere más control de diseño.
+- **Assets reusables:** portadas PDF ya existen como WebP 1280×720 en cada `content/lead-magnets/<slug>/assets/`.
+- **UTM por tarjeta:** `?utm_source=recursos&utm_medium=biblioteca&utm_campaign=<slug>` para trackear qué tangible atrae más tráfico.
+- **Link en navbar principal:** añadir "Recursos" entre "Blog" y "Suscríbete" cuando se active.
+
+### Bundles (evolución mes 6+)
+
+Cuando la biblioteca >10 items, empaquetar subconjuntos por tema en la misma página con CTA único → ver sub-sección `Bundles temáticos (mes 6+)` arriba en FASE 4C.
 
 ---
 
