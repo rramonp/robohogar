@@ -118,7 +118,39 @@ cp content/registro-newsletters.md     "$VAULT/Registro Newsletters.md"
 
 ## Ejecución autónoma (sin modo específico)
 
-Sin modo explícito → ejecutar: 1) Sync always-sync files, 2) Repo mirror, 3) Audit, 4) Resumen.
+Sin modo explícito → ejecutar en orden: 1) Sync always-sync files, 2) **Reconcile `03-Published/`**, 3) Repo mirror, 4) Audit, 5) Resumen.
+
+### Reconcile `03-Published/` (paso 2 del modo autónomo)
+
+Objetivo: detectar artículos en `content/published/` del repo que NO están en el vault `03-Published/` y copiarlos automáticamente. Evita que un fallo histórico de `/post-publish` paso 12 deje el vault desfasado indefinidamente.
+
+**Lógica:**
+- Listar todos los `.html` en `content/published/` del repo
+- Listar todos los `.html` en `$VAULT/03-Published/`
+- Para cada archivo presente en repo y ausente en vault → copiar sin sobreescribir
+- Reportar los copiados en el resumen (sección "Reconcile")
+- Si no hay desfases → reportar "`03-Published/` alineado (N archivos)"
+
+**Implementación (bash, heredable por cualquier invocación autónoma):**
+
+```bash
+VAULT="$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter"
+copied=0; skipped=0
+for src in content/published/*.html; do
+  name=$(basename "$src")
+  dst="$VAULT/03-Published/$name"
+  if [ ! -f "$dst" ]; then
+    cp "$src" "$dst" && copied=$((copied+1)) && echo "+ $name"
+  else
+    skipped=$((skipped+1))
+  fi
+done
+echo "Reconcile: $copied copiados, $skipped ya presentes"
+```
+
+**Alcance:** solo copia archivos faltantes. No sobreescribe, no modifica frontmatter, no invoca `wiki-update` (eso es prerrogativa de `sync-published` cuando el artículo se publica por primera vez). Es una red de seguridad, no un pipeline de primera publicación.
+
+**Why:** incidente 2026-04-20 — al ejecutar el modo autónomo se detectaron 2 artículos publicados (`humanoides-en-casa-cuanto-falta`, `mejor-robot-aspirador-2026`) ausentes del vault porque `/post-publish` paso 12 no los procesó en su momento. Sin reconcile automático, el desfase sólo se descubre por casualidad.
 
 ## Reglas de Obsidian (heredadas del vault-organizer)
 
