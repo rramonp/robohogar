@@ -44,6 +44,27 @@ Antes de hacer nada, comprobar que el artículo se ve correctamente:
 
   Regla completa: memoria [`feedback_robohogar_no_phantom_references.md`](../../../RRP-DEV/.claude/memory/feedback_robohogar_no_phantom_references.md) + `@rules/editorial.md § Cero referencias fantasma`. Incidente origen: artículo #8 humanoide-maraton (2026-04-20) — subtítulo prometía "tabla de Stanford abajo" inexistente; Rafael tuvo que reescribir post-publicación.
 
+- [ ] **Datos con fuente rastreable** — verificar que cada cifra, dato o afirmación categórica del artículo publicado tiene fuente rastreable o framing que la marque como claim. Regla completa: `@rules/editorial.md § Datos con fuente rastreable`. Grep obligatorio:
+  ```bash
+  # (a) Cifras con unidades sin hipertexto cercano
+  grep -nE '[0-9]+([.,][0-9]+)?\s*(%|€|\$|millones?|mil|unidades|valoraciones|hogares|kPa|kg|puntos|estrellas|/5)' <html-publicado> | grep -v 'href='
+
+  # (b) Afirmaciones categóricas de exclusividad/primacía
+  grep -niE '\b(el único|la única|únic[oa] que|el primer[oa]?|la primera|el mejor|la mejor|jamás|nunca antes|récord absoluto)\b' <html-publicado>
+
+  # (c) Claims del fabricante sin framing "según X"
+  grep -niE '(tests? internos|según la marca|según el fabricante|la marca afirma|la compañía dice)' <html-publicado>
+  ```
+
+  **Triaje (mismo patrón que § Fantasma):**
+
+  | Caso | Qué hace el skill |
+  |---|---|
+  | **Evidente + fix obvio** (añadir framing "según Samsung", sustituir "mata el 99,99%" por "Samsung afirma que mata el 99,99%", suavizar "el único" → "uno de los únicos", quitar una cifra sin pilar editorial) | **Arreglar directamente** en `borrador.html` + `content/published/YYYY-MM-DD-<slug>.html`. Reportar el fix en el resumen final. NO preguntar. |
+  | **Ambiguo** (cifra sin fuente que puede ser correcta pero no sé verificar en sesión; reescritura afecta al argumento central; dato histórico dudoso como "NaviBot desde 2003" que requiere fact-check) | **PARAR y avisar** con la lista de claims sin fuente + propuesta de fix por cada uno (añadir link, suavizar, eliminar). Rafael decide. |
+
+  Fundamento: auditoría 2026-04-20 de los 8 primeros artículos detectó 14 claims sin fuente/framing (Samsung NaviBot 2003 probablemente erróneo, Tesla 20.000M sin cita, "el único compañero inteligente", 99,99% bacterias sin link, etc.). Corpus en [`references/audit-2026-04-20-unsourced-claims.md`](../../references/audit-2026-04-20-unsourced-claims.md).
+
 ### 2. Mover borrador a published
 
 **Pre-check obligatorio — variantes elegidas:** contar bloques de cada patrón v1/v2/v3 en el borrador (hook, veredicto, ¿sabías que?). Si queda ≥2 de cualquiera, **PARAR y avisar a Rafael** — no eligió, el artículo publicado tendría 2-3 bloques redundantes visibles.

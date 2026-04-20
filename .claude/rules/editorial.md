@@ -179,6 +179,50 @@ Formas prohibidas específicas:
 
 Voz de autoridad propia (§ editorial anterior) + cero referencias fantasma = contrato básico con el lector de ROBOHOGAR.
 
+## Datos con fuente rastreable — cada cifra cita o cualifica
+
+Regla hermana de "Cero referencias fantasma". Aplica a todo contenido publicable (artículo, review, comparativa, editorial, guía, newsletter, ficción con datos anclados).
+
+**Principio:** cada afirmación numérica o categórica del cuerpo debe llevar **fuente rastreable en la misma frase/párrafo** O framing que la marque como claim no verificado. Si no es posible, reescribir en términos aproximativos sin cifra.
+
+**Categorías que OBLIGATORIAMENTE llevan link/cita o framing explícito:**
+
+1. **Cifras de ventas/unidades** ("60.000 Eilik", "1,8M iFlytek") → link a comunicado/fuente primaria.
+2. **Ratings/valoraciones** ("4,8/5 con 1.000 reseñas") → plataforma explícita ("en Amazon ES", "en Trustpilot").
+3. **Eficacia/estadísticas** ("99,99% bacterias", "17% hogares España", "89,4% éxito simulación") → link al estudio + página/sección si es informe largo.
+4. **Inversión/financiación** ("10.000M levantados", "Tesla 20.000M en 2026") → link a Reuters/Bloomberg/TechCrunch o comunicado oficial.
+5. **Proyecciones de mercado** ("1,2M humanoides en 2030", "15% a hogares") → link al reporte + distinción explícita si el desglose es inferencia propia (*"nuestra estimación"*, *"extrapolando los datos"*).
+6. **Fechas regulatorias** ("AI Act 2 ago 2026") → link al texto normativo oficial (EUR-Lex, BOE).
+7. **Datos históricos** ("desde 2003", "primer NaviBot") → link a fuente que lo confirme. Si no se encuentra, cambiar a aproximación (*"desde mediados de los 2000"*) o eliminar.
+8. **Tests del fabricante** ("tests internos Samsung", "según la marca") → SIEMPRE cualificar como claim del fabricante, nunca presentar como dato independiente. Ej: ❌ *"mata el 99,99% de bacterias"* · ✅ *"Samsung afirma que mata el 99,99%"*.
+9. **"Único / primero / mejor jamás"** → o citar fuente que lo respalda O suavizar (*"uno de los únicos"*, *"de los primeros en…"*). Contradicción detectada en auditoría: dos productos presentados como "primer humanoide doméstico" en el mismo artículo.
+
+**Alternativa sin fuente:** reformular con framing de autoría.
+- ❌ *"Tesla invertirá 20.000M en humanoides en 2026"*
+- ✅ *"Tesla anuncia inversión masiva en humanoides para 2026"* (sin cifra)
+- ✅ *"Tesla apunta a inversiones del orden de decenas de miles de millones [según Reuters](url)"*
+
+**Verificación pre-output (grep):**
+
+```bash
+# (a) Cifras con unidades típicas sin hipertexto en la misma línea
+grep -nE '[0-9]+([.,][0-9]+)?\s*(%|€|\$|millones?|mil|unidades|valoraciones|hogares|kPa|kg|puntos|estrellas|/5)' <borrador.html> | grep -v 'href='
+
+# (b) Afirmaciones categóricas de exclusividad/primacía
+grep -niE '\b(el único|la única|únic[oa] que|el primer[oa]?|la primera|el mejor|la mejor|jamás|nunca antes|récord absoluto)\b' <borrador.html>
+
+# (c) Claims del fabricante sin framing
+grep -niE '(tests? internos|según la marca|según el fabricante|la marca afirma|la compañía dice)' <borrador.html>
+```
+
+Cada match → revisar manualmente. Si no hay `<a href>` cercano ni framing → arreglar antes de entregar.
+
+**Triaje en `/post-publish` (si aparece publicado):**
+- **Evidente + fix obvio** (añadir framing "según X", sustituir una palabra, quitar una cifra sin pilar editorial) → auto-fix en `borrador.html` + `published/` + reportar. NO preguntar.
+- **Ambiguo** (reescritura afecta argumento, cifra puede ser correcta pero no sé verificar en sesión) → PARAR y consultar con propuesta.
+
+**Fundamento empírico:** auditoría 2026-04-20 de los 8 artículos publicados detectó 14 claims sin fuente o con framing deficiente (Samsung NaviBot 2003 posiblemente erróneo, Tesla 20.000M sin cita, 99,99% bacterias sin link, "el único compañero inteligente" exagerado, etc.). Lista canónica en [`references/audit-2026-04-20-unsourced-claims.md`](../../references/audit-2026-04-20-unsourced-claims.md) como corpus de referencia + ejemplos canónicos para futuros artículos.
+
 ## Anti-IA checklist — OBLIGATORIO para TODO contenido
 
 Todo contenido publicado (artículo, review, comparativa, editorial, guía, newsletter Y ficción) DEBE pasar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) antes del output final.

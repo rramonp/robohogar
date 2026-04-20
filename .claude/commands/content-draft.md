@@ -211,9 +211,34 @@ Para cada match: verificar manualmente que el referente existe en el HTML (`<tab
 
 **Referencias cruzadas a otros artículos ROBOHOGAR:** la URL debe existir en `content/registro-articulos.md`. Si el artículo enlazado aún no está publicado → eliminar el link o dejarlo pendiente para futura actualización post-publish. Nunca linkear a URL especulativa.
 
-**Datos con fuente:** toda cifra concreta ("12% éxito", "50:26", "€98.000") debe tener fuente verificable en `references/fuentes-por-categoria.md` para esa categoría. Si no está catalogada → añadirla antes de entregar o descartar el dato.
+**Regla de decisión:** ≥1 referencia fantasma → rechazar output y reescribir frases · 0 referencias fantasma → proceder al paso 8.4 ter.
 
-**Regla de decisión:** ≥1 referencia fantasma → rechazar output y reescribir frases · 0 referencias fantasma → proceder al paso 8.5.
+### 8.4 ter. Datos con fuente rastreable — OBLIGATORIO antes de entregar borrador
+
+Regla hermana de 8.4 bis: **cada cifra o afirmación categórica del cuerpo debe llevar fuente rastreable en la misma frase/párrafo O framing que la marque como claim no verificado**. Regla completa con las 9 categorías + ejemplos: `@rules/editorial.md § Datos con fuente rastreable`.
+
+**Grep obligatorio pre-entrega:**
+
+```bash
+# (a) Cifras con unidades sin hipertexto cercano
+grep -nE '[0-9]+([.,][0-9]+)?\s*(%|€|\$|millones?|mil|unidades|valoraciones|hogares|kPa|kg|puntos|estrellas|/5)' content/articulos/<slug>/borrador.html | grep -v 'href='
+
+# (b) Afirmaciones categóricas de exclusividad/primacía
+grep -niE '\b(el único|la única|únic[oa] que|el primer[oa]?|la primera|el mejor|la mejor|jamás|nunca antes|récord absoluto)\b' content/articulos/<slug>/borrador.html
+
+# (c) Claims del fabricante sin framing "según X"
+grep -niE '(tests? internos|según la marca|según el fabricante|la marca afirma|la compañía dice)' content/articulos/<slug>/borrador.html
+```
+
+**Para cada match del grep (a):** ¿hay `<a href>` en la misma frase o párrafo? ¿O está cualificado con "según / aproximadamente / estimamos / el orden de"? Si no → añadir link O reescribir sin cifra.
+
+**Para cada match del grep (b):** ¿hay fuente que lo respalde? Si no → suavizar (*"uno de los únicos"*, *"de los primeros"*) o eliminar.
+
+**Para cada match del grep (c):** ¿la frase deja claro que es claim del fabricante? Ej: *"mata el 99,99%"* ❌ · *"Samsung afirma que mata el 99,99%"* ✅.
+
+**Datos catalogados:** toda cifra debe tener fuente verificable en `references/fuentes-por-categoria.md` para esa categoría. Si no está catalogada → añadirla antes de entregar o descartar el dato.
+
+**Regla de decisión:** ≥1 match sin arreglar → rechazar output · 0 matches sin arreglar → proceder al 8.5.
 
 ### 8.5. Anti-IA checklist §1 Universal — OBLIGATORIO antes de entregar borrador
 
