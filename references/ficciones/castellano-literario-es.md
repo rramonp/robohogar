@@ -146,6 +146,15 @@ Estos son los calcos que la prosa LLM mete por defecto y que están **ausentes**
 | 10 | **Construcción nominal recursiva** ("la X que era Y que tenía Z") | Frase principal + relativa simple, o partir en dos frases | ❌ *"Es una sonrisa ancha, preparada, la misma que aparece en el folleto que lleva el padre de Martín"* → ✅ *"La sonrisa es la del folleto. La que el padre lleva en la mano"* |
 | 11 | **Cierre staccato Hemingway sin afecto** | Cierre con voz narrativa o gesto del personaje | ❌ *"No es luz dentro. Es un reflejo."* → ✅ *"Lo que parecía luz dentro era reflejo. Eso era lo que Martín entendía pero no podía decirle a nadie."* |
 | 12 | **Determinante definido donde ES pide cero o demostrativo afectivo** | Cero artículo o *"ese"/"este"* afectivo | ❌ *"El aire acondicionado está roto desde el jueves"* (frío reportajeril) → ✅ *"Aire acondicionado roto desde el jueves"* / *"Ese aire acondicionado lleva roto desde el jueves"* |
+| 13 | **Sustantivos compuestos anglo "X center / facility" traducidos literal** | Omitir el sustantivo compuesto si no es narrativamente crítico, o nativizar a palabra ES directa | ❌ *"El centro de demostración fue en septiembre"* (demo center) → ✅ *"La demostración fue en septiembre, en unos grandes almacenes de Gran Vía"* · ❌ *"centro de llamadas"* (call center) → ✅ *"la centralita"* · ❌ *"centro de datos"* (data center) → ✅ *"el servidor"* / *"la sala de servidores"* · ❌ *"centro de atención al cliente"* → ✅ *"la oficina de atención"* |
+| 14 | **Expresiones "en [órgano] de [persona]" aplicadas a contexto NO-verbal** | Verbo específico visual o de acción, o directamente omitir | ❌ *"vio la escena en boca de una actriz contratada para hacer de abuela"* ("en boca de" es expresión verbal, para palabras dichas, no para actuación visual) → ✅ *"vio a la actriz contratada para hacer de abuela"* · La expresión *"en boca de X"* SÓLO es correcta si el contexto es habla (*"en boca del presidente, la frase sonó a amenaza"* ✅). Lo mismo para *"en ojos de X"* (solo si hay percepción visual de X), *"en manos de X"* (solo si X actúa sobre algo) |
+| 15 | **Voz técnica de manual infiltrándose en prosa doméstica del narrador** | Verbos domésticos ES equivalentes (*poner, sacar, guardar, entrar, salir, dejar*) | ❌ *"Pilar le había configurado cero"* (voz de manual en narrador cercano a cuidadora de 54a) → ✅ *"Pilar no le había puesto azúcar"* · ❌ *"Doméstica Ibérica lanzó la actualización"* → ✅ *"Doméstica Ibérica sacó la actualización"* · ❌ *"el humanoide lo registra como gesto espontáneo"* → ✅ *"el humanoide lo guarda como gesto espontáneo"* · ❌ *"ha cruzado con las fotos"* (jerga de BBDD) → ✅ *"ha comparado con las fotos"* · **EXCEPCIÓN:** si el texto CITA el manual/la app/un comunicado corporativo (fricción de registros Morales §1.3), la voz técnica es correcta y buscada — lo prohibido es el narrador adoptándola sin ironía |
+| 16 | **Colocaciones idiomáticas forzadas o inventadas** (calcos probables o construcciones ad hoc sin uso consolidado en ES) | Sustituir por la expresión idiomática ES canónica equivalente | ❌ *"vigilando de medio lado"* (probable calco de *out of the corner of her eye*, o construcción ad hoc) → ✅ *"vigilando de reojo"* · ❌ *"a medio camino de / en el medio de"* como traducción de *halfway* → ✅ *"a medias"* / *"por la mitad"* · Regla: si la expresión no la dice un nativo ES peninsular sin pensar, reescribirla con la idiomática canónica |
+| 17 | **Microcopy de UI anglo dentro de ficción especulativa** (botones, opciones de app, diálogos de sistema traducidos literal de patrones en inglés) | Microcopy ES realista de apps peninsulares 2025+ | ❌ *"No, gracias"* como opción de rechazo en botón de app (*"No, thanks"* traducido) → ✅ *"Ahora no"* / *"Cancelar"* / *"Rechazar"* · ❌ *"¿Estás seguro?"* en diálogo de confirmación → ✅ *"¿Confirmas?"* / *"¿Seguro?"* (a secas) · ❌ *"Enviar feedback"* → ✅ *"Enviar valoración"* / *"Enviar comentarios"* · ❌ *"Aprender más"* (learn more) → ✅ *"Más información"* / *"Saber más"* · ❌ *"Ajustes"* puede quedar OK, pero *"Configuraciones"* plural anglo → ✅ *"Ajustes"*. **Regla:** si el relato describe una app, panel o interfaz, verificar el microcopy contra apps ES reales (Amazon ES, Wallapop, Idealista, apps de banca ES, Glovo). Los patrones de UI en ES peninsular 2025+ son distintos de los anglo — usar referentes reales, no traducción literal |
+| 18 | **Preposiciones espaciales con objetos/personas en contexto no-espacial** (calco de *in front of / in presence of / with*) | Preposición ES canónica según el significado real | ❌ *"Carmen no ha estado enfrente del humanoide ni un minuto"* (sentido: *"en presencia de"*; *"enfrente de"* en ES es valor espacial cara-a-cara) → ✅ *"Carmen no ha estado a solas con el humanoide ni un minuto"* · ❌ *"hablaba enfrente de su madre"* → ✅ *"hablaba delante de su madre"* · ❌ *"se sentó en frente del cuidador"* cuando se quiere decir *"junto al"* → ✅ *"se sentó junto al cuidador"* · Regla: *"enfrente de"* / *"en frente de"* en ES = cara a cara, posición frontal. Si el significado es *"a solas con"* / *"delante de"* / *"junto a"* / *"en presencia de"*, usar la preposición específica |
+| 19 | **Clarificación anglosajona *"Es decir, X, y..."*** (patrón de aposición anglo *"That is to say, X, and..."*) | Punto seguido o paréntesis con aclaración corta | ❌ *"Comen las tres. Es decir, las dos, y el humanoide se sienta porque..."* (clarificación colgada entre comas que ralentiza) → ✅ *"Comen las tres. Las dos, en realidad. El humanoide se sienta porque..."* o *"Comen las tres (las dos, en realidad). El humanoide se sienta..."* · El patrón *"Es decir, X, y [conector + subordinada]"* es calco de *"I.e., X, and..."*. En ES literario la aclaración va con punto seguido o aposición breve |
+| 20 | **Em-dash triple (3+ guiones largos) en la misma frase** (tic de close third anglo moderno) | Mezcla de puntuación ES: dos puntos, paréntesis, punto seguido | ❌ *"Mira el reloj del horno — las ocho y veinticuatro — y, por la ventana, en diagonal, el aparcamiento..."* (3 em-dashes en una frase) → ✅ *"Mira el reloj del horno: las ocho y veinticuatro. Por la ventana, en diagonal, el aparcamiento..."* · Regla: máximo **1 par de em-dashes por frase** (un inciso, no dos). Si la prosa pide tres pausas, partir en dos frases o usar puntuación variada (paréntesis + comas + punto seguido). Tres em-dashes seguidos en una frase = tell de traducción de close third anglosajón |
+| 21 | **Pasivas con verbos dar/entregar/conceder a actor institucional** (calco de *"X is given to the [guardian/tutor/user]"*) | Impersonal activo plural (*"se la dan al X"*) o pasiva refleja con verbo más natural (*"se entrega al X"*) | ❌ *"La transparencia del reglamento europeo se da al tutor"* (pasiva refleja con *"dar"* en contexto legal) → ✅ *"La transparencia del reglamento europeo se entrega al tutor"* / *"se la dan al tutor"* · Aplica a verbos *"dar / dio / daba / dan / dieron"* + *"a el / al / a los / a las"* + sustantivo institucional (*tutor, usuario, cliente, representante, sistema, responsable, cuidador*). En ES peninsular literario suena mejor con verbo específico: *se entrega, se concede, se comunica, se informa al*, o con impersonal activo plural |
 
 **Verificación pre-output (grep patterns):**
 
@@ -164,7 +173,115 @@ grep -E "(fue|fueron|era|eran|es|son) [a-záéíóú]+ad[oa]s?"  → revisar tod
 
 # Calco 7: conectores
 grep -ic "sin embargo\|de hecho\|por supuesto\|en definitiva"  → meta ≤1 cada uno
+
+# Calco 13: sustantivos compuestos anglo "X center"
+# PATRONES UNICODE-SAFE — alternaciones (con-tilde|sin-tilde) en vez de [oó]
+grep -niE "(centro de (demostración|demostracion|llamadas|datos|servicio|atención|atencion|operaciones)|call center|data center|customer (service|care) center)"  → meta 0
+
+# Calco 14: expresiones "en [órgano] de [actor]" en contexto no-verbal
+grep -niE "en (boca|ojos|cabeza|mano) de [^.]*(actriz|actor|personaje|humanoide|robot|máquina|maquina)"  → revisar; si no hay verbo de habla/visión/acción coherente, reescribir
+
+# Calco 15: voz técnica de manual en prosa del narrador
+grep -niE "\b(configuré|configuró|configuro|configura|configurado|configurada|registra|registró|registro|registrado|registrada|activó|activo|activa|activado|activada|ejecutó|ejecuto|ejecuta|módulo|modulo|input|output|backend|lanzó (la|una) (actualización|actualizacion)|cruzó con (los |las |el |la )?(datos|fotos|archivos|registros|imágenes|imagenes|perfiles|contactos|campos))\b"  → revisar cada match; si está en boca del narrador (no del manual citado), sustituir por verbo doméstico
+
+# Calco 16: colocaciones idiomáticas forzadas
+grep -niE "(de medio lado|a medio camino de|en el medio de|out of the corner)"  → meta 0; sustituir por idiomática ES canónica
+
+# Calco 17: microcopy UI anglo en ficción especulativa
+grep -niE "(No, gracias|¿Estás seguro|¿Estas seguro|Enviar feedback|Aprender más|Aprender mas|Configuraciones\b|[Gg]ot it)"  → si aparece en contexto de app/panel/UI del relato, sustituir por microcopy ES realista
+
+# Calco 18: preposiciones espaciales con objetos/personas en contexto no-espacial
+grep -niE "\b(enfrente|en frente) (del|de la|de los|de las) (humanoide|robot|androide|autómata|automata|aparato|asistente|máquina|maquina|sistema|ordenador|teléfono|telefono|madre|padre|hijo|hija|hermano|hermana|usuario|cliente|cuidadora?|operadora?)"  → reescribir con preposición específica según significado: "a solas con", "delante de", "junto a", "en presencia de"
+
+# Calco 19: clarificación anglosajona "Es decir, X, y..."
+grep -niE "\bEs decir, [^.,]{1,40}, y [a-z]"  → revisar; si es aposición anglo ralentizadora, partir con punto seguido
+
+# Calco 20: inciso con em-dashes cerrando con ", y, " (coma tras "y" — patrón close third anglo)
+# REFORMULADO v3 · requiere coma obligatoria tras "y" para distinguir del inciso + continuación corta legítima
+# Ejemplo que SÍ matchea (error): "— las ocho y veinticuatro — y, por la ventana, en diagonal"
+# Ejemplo que NO matchea (correcto): "— el traje marrón — y luego la pantalla" (continuación natural sin coma)
+grep -niE "— [^—]{3,80} — y, "  → meta 0; si el inciso cierra con ", y, [subordinada]", reescribir con punto seguido o paréntesis
+
+# Calco 21: pasivas con dar/entregar a actor institucional
+grep -niE "\bse (da|dio|daba|dan|dieron|daban) (al|a los|a las|a la) (tutora?|usuario|cliente|representante|sistema|responsable|cuidadora?|paciente|administradora?)"  → reescribir con "se entrega/se concede/se comunica al X" o impersonal activo plural "se la dan al X"
 ```
+
+**Nota técnica crítica (2026-04-20):** en grep GNU bajo Windows + shell bash, las clases Unicode `[oó]` / `[aá]` / `[eé]` fallan silenciosamente al matchear caracteres con tilde porque interpretan los bytes UTF-8 individualmente. Por eso TODOS los patterns de arriba usan **alternaciones literales** `(con-tilde|sin-tilde)` en vez de clases. Es ligeramente más verboso pero garantiza matching cross-platform. Si se añade un calco nuevo con palabras acentuadas, seguir el mismo patrón.
+
+---
+
+## §3.bis Colocaciones léxicas EN→ES — casos de estudio canónicos
+
+Los calcos 13, 14, 15 y 16 son ampliación posterior a la v1 del archivo (2026-04-19). Se incorporaron el 2026-04-20 tras un incidente editorial real: el relato *El que viene a tomar café* v2 pasó las 5 verificaciones automáticas (calcos 1/3/4/5/7) y las 25 checks del skill, pero Rafael detectó leyendo **dos frases básicas sin sentido** que no entraban en ninguna categoría cubierta. La auditoría posterior del relato con agente Explore sumó ~10 casos más del mismo tipo.
+
+Este apartado recoge los **casos canónicos** como corpus de referencia permanente para futuras revisiones y para entrenar la detección del skill.
+
+### Caso 1 · Sustantivo compuesto anglo "demo center"
+
+- **Frase original:** *"El centro de demostración fue en septiembre."*
+- **Diagnóstico:** traducción literal del sustantivo compuesto anglo *demo center / demonstration center*. En ES peninsular nadie dice *"centro de demostración"* en conversación cotidiana — es calco de jerga corporativa anglosajona.
+- **Cómo un nativo ES lo pilla:** al leer se pregunta "¿qué centro?" porque en ES los espacios comerciales no se llaman así. *"El centro comercial"*, *"el centro médico"*, *"el centro cívico"* sí son ES. *"El centro de demostración"* no.
+- **Fix aplicado:** *"La demostración fue en septiembre, en unos grandes almacenes de Gran Vía."*
+- **Regla derivada (calco 13):** si el borrador contiene un sustantivo compuesto con *"centro de [X]"* donde [X] es actividad (demostración, llamadas, datos, operaciones), verificar si es jerga corporativa traducida. Si lo es: omitir el compuesto o nativizar (*"la demostración"*, *"la centralita"*, *"la sala de servidores"*).
+
+### Caso 2 · Expresión verbal "en boca de" en contexto visual
+
+- **Frase original:** *"vio la escena en boca de una actriz contratada para hacer de abuela"*
+- **Diagnóstico:** mezcla de registros. *"En boca de X"* es expresión ES perfectamente válida, pero su contexto es VERBAL (*"la palabra en boca del presidente sonó distinta"*, *"en boca de mi abuela, esa frase no era amenaza"*). Aplicarla a una actuación visual/performativa rompe la semántica: la actriz no está diciendo la escena, la está actuando.
+- **Cómo un nativo ES lo pilla:** espera que tras *"en boca de"* haya una cita o un dicho. Como no la hay, la frase queda colgada. Es el tipo de calco que suena "elegante" al ojo LLM pero no cuaja al oído ES.
+- **Fix aplicado:** *"vio a la actriz contratada para hacer de abuela"* (simplemente el verbo ver + la persona, que es lo que la escena pide).
+- **Regla derivada (calco 14):** la expresión *"en [órgano] de [persona]"* tiene contexto específico: *"en boca de"* = habla · *"en ojos de"* = percepción visual directa de X · *"en manos de"* = acción o custodia. Si el contexto narrativo no es ese, reescribir con verbo específico o directamente con el CD humano + preposición "a".
+
+### Caso 3 · Voz técnica infiltrándose en narrador doméstico
+
+- **Frase original:** *"El humanoide le ha puesto azúcar en el café aunque Pilar le había configurado cero"*
+- **Diagnóstico:** *"configurar cero"* es lenguaje de interfaz de usuario / manual técnico. El narrador del relato es una tercera cercana a Pilar (cuidadora de 54 años en Vallecas). Cuando el narrador adopta voz de manual, rompe la intimidad. ES: *"no le había puesto azúcar"* / *"lo tenía puesto sin azúcar"* / *"se lo había dejado sin azúcar"*.
+- **Cómo un nativo ES lo pilla:** la frase no es incorrecta gramaticalmente, pero suena a ficha técnica infiltrándose en la cocina. Rompe el registro de forma no buscada (distinto del caso Morales §1.3, donde la fricción de registros ES deliberada — aquí es descuido).
+- **Fix aplicado:** *"aunque Pilar no le había puesto azúcar"*.
+- **Regla derivada (calco 15):** si el narrador está cercano a un personaje NO técnico, prohibido adoptar voz de manual (*configurar, registrar, activar, input, output, módulo, sistema, ejecutar*). Usar verbo doméstico ES equivalente. Excepción: si el texto CITA el manual (pasaje marcado en cursiva o frase claramente de la app), la voz técnica es correcta y buscada — es fricción Morales.
+
+### Caso 4 · Colocación idiomática forzada "de medio lado"
+
+- **Frase original:** *"así que se queda en el quicio, vigilando de medio lado"*
+- **Diagnóstico:** *"de medio lado"* existe en ES para describir POSTURA física (*"se puso de medio lado en el sofá"*), pero no es la colocación idiomática canónica para MODO de vigilar. Para eso ES tiene *"de reojo"* (con el rabillo del ojo), *"a hurtadillas"*, *"sin que le vieran"*. Probable calco de *"watching out of the corner of her eye"* traducido como construcción ad hoc.
+- **Cómo un nativo ES lo pilla:** *"vigilando de medio lado"* suena traducido; el oído espera *"de reojo"* como la opción natural.
+- **Fix aplicado:** *"así que se queda en el quicio, vigilando de reojo"*.
+- **Regla derivada (calco 16):** si la expresión no es la que diría un nativo ES peninsular sin pensar, es calco probable o construcción forzada. Sustituir por la idiomática ES canónica (hay casi siempre una). En duda: test de lectura en voz alta.
+
+### Caso 5 · Microcopy de UI anglo en ficción especulativa
+
+- **Frase original:** *"Debajo, dos opciones. *Añadir perfil — Carmen García Torres, hermana, Bilbao*. *No, gracias*."*
+- **Diagnóstico:** *"No, gracias"* es calco de *"No, thanks"* — patrón de UI estándar en apps anglosajonas. Las apps ES peninsulares 2025+ usan *"Ahora no"*, *"Cancelar"*, *"Rechazar"* para la misma función. El usuario ES esperaría ver *"Ahora no"* en la app de Doméstica Ibérica, no *"No, gracias"*.
+- **Cómo un nativo ES lo pilla:** en conversación *"No, gracias"* es correcto ES. En microcopy de app (botón, opción de menú, diálogo de confirmación) suena a app mal traducida del inglés, de esas que todavía quedan en algunos servicios extranjeros. En ficción especulativa ES ambientada en 2030+, el microcopy debería ser realista según el estándar ES peninsular, no el estándar anglo.
+- **Fix aplicado:** *"Debajo, dos opciones. *Añadir perfil — Carmen García Torres, hermana, Bilbao*. *Ahora no*."*
+- **Regla derivada (calco 17):** toda interfaz descrita en prosa de ficción especulativa (app, panel, diálogo de sistema, pantalla, opción de menú) debe usar microcopy ES realista — verificar mentalmente contra apps ES reales contemporáneas (Amazon ES, Wallapop, Idealista, apps de banca ES, Glovo, BlaBlaCar ES) antes de escribir. Los patrones UI anglo (*"Yes/No"*, *"OK/Cancel"*, *"Learn more"*, *"Got it"*, *"No, thanks"*) traducidos literal son tell IMMEDIATE de traducción automática.
+
+### Protocolo permanente desde 2026-04-20
+
+A partir de este incidente, toda prosa de ficción que genere el skill `/ficcion-draft` debe pasar los **21 calcos** antes del output. Progresión histórica: 12 (v1 · 2026-04-19) → 17 (v2 · 2026-04-20 mañana) → 21 (v3 · 2026-04-20 tarde) → **self-learning activado (v4 · 2026-04-20 tarde)**.
+
+Los 4 calcos de la v3 (18-21) se añadieron tras el test empírico del validador `/validate-prose-es` sobre la v1 del relato: el Agent LLM solo detectó 3/10 errores que Rafael había pillado leyendo. Causa raíz: el LLM tiene sesgo estructural hacia las construcciones que él mismo genera — no las ve como calcos. Los greps deterministas sí los ven, pero solo si el patrón está documentado.
+
+**Principio consolidado:** los greps deterministas son más fiables que el juicio LLM para detectar calcos. El LLM complementa (ambigüedades, ritmo, registro nuevos), no sustituye.
+
+### Self-learning (v4 · desde 2026-04-20)
+
+A partir de v4, el validador `/validate-prose-es` es **self-learning vía Fase 4 · Auto-catalogación**. Cuando la Capa 2 (LLM) detecta un hallazgo que NO corresponde a los 21 calcos existentes, el skill:
+
+1. **Clasifica** el patrón (generalizable / caso único / expansión de calco existente).
+2. **Propone** regex Unicode-safe + entry §3 + caso §3.bis + checklist §8.1 + grep skill §8.3.
+3. **Auto-testea** la regex contra el fixture canónico + el borrador ya validado (debe detectar el hallazgo, no romper matches existentes, 0 FP en prosa publicable).
+4. **Pide OK a Rafael** (solo OK/skip/edit regex). Si OK → aplica los edits atómicos a los 4 archivos.
+5. **Logea** en `validator-reports/` con regex + tests + decisión + diff.
+
+Esto convierte el sistema en auto-mantenido: cada relato futuro puede enriquecer el knowledge sin requerir trabajo manual. El flujo completo está en [`.claude/commands/validate-prose-es.md § Fase 4`](../../.claude/commands/validate-prose-es.md).
+
+**Safeguards:**
+- Nunca auto-merge sin OK humano.
+- Auto-test obligatorio antes de proponer (si la regex no pasa los 3 tests, no se propone — se reporta como "candidato manual").
+- Máximo 1 propuesta por sesión de validación (evita fatiga de aprobación).
+
+Los casos canónicos (§3.bis casos 1-5) quedan como corpus mínimo de referencia. Casos futuros (6+) se añaden automáticamente vía Fase 4 tras aprobación de Rafael.
 
 ---
 
@@ -297,6 +414,17 @@ Esta es la checklist que el skill ejecuta sobre el borrador antes de cerrar. Com
 - [ ] `grep -ic "sin embargo"` → ≤1 (calco 7)
 - [ ] `grep -ic "de hecho"` → ≤1 (calco 7)
 - [ ] `grep -ic "por supuesto"` → ≤1 (calco 7)
+- [ ] `grep -niE "(centro de (demostración|demostracion|llamadas|datos|servicio|atención|atencion|operaciones)|call center|data center)"` → 0 (calco 13)
+- [ ] `grep -niE "en (boca|ojos|cabeza|mano) de [^.]*(actriz|actor|personaje|humanoide|robot|máquina|maquina)"` → revisar contexto (calco 14)
+- [ ] `grep -niE "\b(configuré|configuró|configuro|configura|configurado|configurada|registra|registró|registro|registrado|registrada|activó|activo|activa|activado|activada|ejecutó|ejecuto|ejecuta|módulo|modulo|input|output|backend|lanzó (la|una) (actualización|actualizacion)|cruzó con (los |las |el |la )?(datos|fotos|archivos|registros|imágenes|imagenes|perfiles|contactos|campos))\b"` → revisar contexto (calco 15)
+- [ ] `grep -niE "(de medio lado|a medio camino de|en el medio de)"` → 0 (calco 16)
+- [ ] `grep -niE "(No, gracias|¿Estás seguro|¿Estas seguro|Enviar feedback|Aprender más|Aprender mas|Configuraciones|[Gg]ot it)"` → 0 en UI/app (calco 17)
+- [ ] `grep -niE "\b(enfrente|en frente) (del|de la|de los|de las) (humanoide|robot|androide|autómata|automata|aparato|asistente|máquina|maquina|sistema|ordenador|teléfono|telefono|madre|padre|hijo|hija|hermano|hermana|usuario|cliente|cuidadora?|operadora?)"` → 0 (calco 18)
+- [ ] `grep -niE "\bEs decir, [^.,]{1,40}, y [a-z]"` → 0 (calco 19)
+- [ ] `grep -niE "— [^—]{3,80} — y, "` → 0 (calco 20 · inciso em-dash cerrando con ", y, " · coma obligatoria)
+- [ ] `grep -niE "\bse (da|dio|daba|dan|dieron|daban) (al|a los|a las|a la) (tutora?|usuario|cliente|representante|sistema|responsable|cuidadora?|paciente|administradora?)"` → 0 (calco 21)
+
+**Read-aloud test — último filtro:** si algún grep devuelve match ambiguo (típicamente calcos 14 · 15 · 17 por su dependencia del contexto), LEER LA FRASE EN VOZ ALTA. Si el oído peninsular tropieza, reescribir. Los greps son el primer filtro; la oreja es el segundo y definitivo.
 
 ### §8.2 Recursos ES literarios — verificación de presencia
 

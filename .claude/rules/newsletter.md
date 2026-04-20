@@ -28,6 +28,34 @@ Fitea uno de 5 arquetipos: curiosity gap · fear/warning · benefit · authority
 - Estándar **1-3-1**: 1 gancho + 3 puntos + 1 CTA (párrafo y email global)
 - CTA único por email, botón > enlace. Above fold + final en emails largos
 
+## URL destino de CTAs de suscripción — SIEMPRE landing
+
+Todo banner / botón / link de **suscripción al newsletter** ROBOHOGAR apunta siempre a `https://robohogar.com` (landing raíz). Nunca a `/subscribe`, `/signup`, `/newsletter` ni a ninguna ruta interna. Aplica a: banner al final de artículo, banner al final de ficción, CTA de cierre de email, P.D. con enlace, footer de PDF tangible, link en social copy, link en wiki del vault.
+
+**Por qué:** la landing contiene propuesta de valor completa + preview + social proof; `/subscribe` deja al lector en un formulario pelado, peor conversión. Regla dura establecida por Rafael 2026-04-20.
+
+**Excepción única:** el banner del tangible **Hoja de Compra** mantiene `https://robohogar.com/products/hoja-de-compra?utm_source=<slug>&utm_medium=banner&utm_campaign=hoja-compra` porque apunta al Beehiiv Digital Product page específico, no al newsletter genérico (ver `rules/tangibles.md` y memoria `feedback_banner_cta_uses_product_url.md`).
+
+**Verificación pre-output** en cualquier HTML generado por skills (`/content-draft`, `/social-content`, `/pdf-brand`, borradores manuales):
+
+```bash
+grep -nE 'href="https?://robohogar\.com/(subscribe|signup|newsletter)[/"?]' <archivo>
+```
+
+Debe devolver 0 matches. Si aparece, sustituir por `https://robohogar.com`.
+
+## Snippet canónico · banner suscripción al final de ficción
+
+Dark-themed, centrado, minimal (3 elementos: eyebrow ROBOHOGAR + frase principal + botón). Para pegar en Beehiiv vía `/html` → Custom HTML block tras el bloque "Lo real detrás del relato" de cada Ficción Doméstica.
+
+```html
+<div style="margin:40px 0 24px;padding:32px 24px;background:#283642;border-radius:10px;color:#FFFFFF;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;text-align:center;">
+  <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">ROBOHOGAR</div>
+  <div style="font-family:'DM Sans',sans-serif;font-size:24px;font-weight:700;color:#FFFFFF;line-height:1.25;margin-bottom:22px;">La próxima Ficción Doméstica, en tu correo.</div>
+  <a href="https://robohogar.com" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Suscribirme</a>
+</div>
+```
+
 ## Benchmarks, diseño, deliverability
 
 Open >41%, CTR >3.2%, mobile-first 600px, dark mode safe, SPF/DKIM/DMARC activos. Detalle → `references/newsletter/email-marketing-playbook.md`.

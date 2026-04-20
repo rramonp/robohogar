@@ -48,7 +48,7 @@ No le habla a él. Lo dice para sí, para probar cómo suena el nombre en voz al
 
 Pone dos tazas. La de la madre es la grande, con el asa descascarillada; la otra, para el humanoide, es para que no desentone a la vista. El café se va a quedar frío dentro. Da igual. El humanoide no lo bebe — hace el gesto de subir la taza, posar los labios sintéticos, decir *está caliente, mujer, déjalo reposar*. Hay que ver cómo cuidan esos detalles los ingenieros.
 
-El centro de demostración fue en septiembre. A Pilar, la primera vez que vio la escena en boca de una actriz contratada para hacer de abuela, se le cayó el alma. A los dos días ya ni le hacía efecto.
+La demostración fue en septiembre, en unos grandes almacenes de Gran Vía. A Pilar, la primera vez que vio a la actriz contratada para hacer de abuela, se le cayó el alma. A los dos días ya ni le hacía efecto.
 
 Por el pasillo, las zapatillas.
 
@@ -66,7 +66,7 @@ Luego viene la otra cosa.
 
 El humanoide se sienta enfrente. No habla todavía. Ha aprendido a esperar.
 
-Pilar está apoyada en el marco de la puerta, con los brazos cruzados bajo el pecho, aguantando. Hay mañanas en que entra y se sienta también. Hoy no. Hoy aguanta. Soledad mira al humanoide con un cariño que no admite preguntas. Si Pilar se asoma, la madre se pone nerviosa — *¿quién es esta, quién ha entrado*? —, así que se queda en el quicio, vigilando de medio lado, con el pulgar rozando el mando del móvil dentro del bolsillo del chándal.
+Pilar está apoyada en el marco de la puerta, con los brazos cruzados bajo el pecho, aguantando. Hay mañanas en que entra y se sienta también. Hoy no. Hoy aguanta. Soledad mira al humanoide con un cariño que no admite preguntas. Si Pilar se asoma, la madre se pone nerviosa — *¿quién es esta, quién ha entrado*? —, así que se queda en el quicio, vigilando de reojo, con el pulgar rozando el mando del móvil dentro del bolsillo del chándal.
 
 —Hay que ver qué frío —repite la madre.
 
@@ -74,7 +74,7 @@ Pilar está apoyada en el marco de la puerta, con los brazos cruzados bajo el pe
 
 Es el muletillario del padre. *Hay que ver, hay que ver*. Lo usaba hasta para los partidos del Atleti, para el telediario, para cuando la nieta suspendió en junio. *Hay que ver, Pilar, cómo está el mundo*. Pilar cierra los ojos un segundo. Cuando los abre, la madre ha puesto una mano sobre la mano sintética del humanoide. Aprieta.
 
-No hay guion para ese aprieto. El HOGAR-X5 lo registra como gesto espontáneo.
+No hay guion para ese aprieto. El HOGAR-X5 lo guarda como gesto espontáneo.
 
 El mes pasado Pilar leyó las ciento cuarenta páginas del manual del usuario hasta la última nota al pie. *Los contactos físicos iniciados por el usuario vulnerable quedan guardados como datos operativos durante setenta y dos horas para ajuste del modelo de vínculo.* Así lo llaman. *Modelo de vínculo*. Como si el vínculo se dejara poner por un modelo.
 
@@ -90,7 +90,7 @@ Soledad sonríe.
 
 Pilar se da la vuelta, silenciosa, y se va a abrir el buzón. Hay una carta del banco y un folleto del Ayuntamiento sobre ayudas a la dependencia que la Junta reformó en noviembre y que todavía no se pueden solicitar. Lo deja todo sobre el aparador del pasillo, encima de la foto de boda del sesenta y ocho. Se queda un segundo con la foto delante — Ramón, el traje marrón, el clavel, la sonrisa — y vuelve a la cocina como si no la hubiera mirado.
 
-La madre se está comiendo la magdalena que anoche dejó mordida sobre el plato. El humanoide le ha puesto azúcar en el café aunque Pilar le había configurado cero — ha decidido, por su cuenta, que el cariño necesita una cucharadita. Bueno. *Modelo de vínculo.* Pilar lo deja estar. Se sirve una taza. Se sienta.
+La madre se está comiendo la magdalena que anoche dejó mordida sobre el plato. El humanoide le ha puesto azúcar en el café aunque Pilar lo tenía puesto sin azúcar — ha decidido, por su cuenta, que el cariño necesita una cucharadita. Bueno. *Modelo de vínculo.* Pilar lo deja estar. Se sirve una taza. Se sienta.
 
 —Buenos días, mamá.
 
@@ -108,7 +108,7 @@ Es un día malo. Los hay.
 
 —Hay que ver qué cara, hija, qué ojeras traes.
 
-El humanoide asiente con esa gravedad exacta que tenía el padre cuando era el padre quien echaba la bronca por no dormir. Lo hace bien. Demasiado bien. Pilar baja la vista al café. Mira el reloj del horno — las ocho y veinticuatro — y, por la ventana, en diagonal, el aparcamiento donde suele parar el taxi que trae a Carmen desde Atocha.
+El humanoide asiente con esa gravedad exacta que tenía el padre cuando era el padre quien echaba la bronca por no dormir. Lo hace bien. Demasiado bien. Pilar baja la vista al café. Mira el reloj del horno: las ocho y veinticuatro. Por la ventana, en diagonal, el aparcamiento donde suele parar el taxi que trae a Carmen desde Atocha.
 
 ---
 
@@ -170,7 +170,7 @@ Carmen se aprieta la frente con los dedos, fuerte. No llora. Nunca llora la prim
 
 —Pilar, eso no puede ser legal.
 
-—Es legal. Leí el manual entero. La transparencia del reglamento europeo se da al tutor. Yo soy la tutora.
+—Es legal. Leí el manual entero. La transparencia del reglamento europeo se entrega al tutor. Yo soy la tutora.
 
 —Pero mamá…
 
@@ -204,7 +204,7 @@ Carmen cierra los ojos.
 
 ---
 
-Comen las tres. Es decir, las dos, y el humanoide se sienta a la mesa porque la madre se pone nerviosa si no se sienta. Ha vuelto a ser Ramón desde que Soledad entró en la cocina. Pilar no lo ha desactivado. Carmen tampoco le ha pedido que lo desactive.
+Comen las tres. Las dos, en realidad. El humanoide se sienta a la mesa porque la madre se pone nerviosa si no se sienta. Ha vuelto a ser Ramón desde que Soledad entró en la cocina. Pilar no lo ha desactivado. Carmen tampoco le ha pedido que lo desactive.
 
 Lentejas. Están pasadas de sal. Carmen no dice nada. La madre come dos cucharadas y deja la cuchara. Mira al humanoide.
 
@@ -266,15 +266,15 @@ La casa huele a café frío y a lentejas.
 
 Pilar saca el móvil y abre la app. En la pantalla de inicio está el perfil activo: *Ramón García Torres · esposo · fallecido 2027*. Debajo, en gris, la caja nueva — *Sugerencias basadas en tu entorno familiar*.
 
-Doméstica Ibérica lanzó la actualización hace tres semanas. Pilar la leyó deprisa, no le hizo mucho caso. Ahora el recuadro pide permiso: *¿Deseas añadir un nuevo perfil de familiar simulado? Hemos detectado que otra persona del entorno de Soledad la visita de forma regular. Puedes facilitar la continuidad afectiva entre visitas añadiendo su voz y gestos al Modelo de Vínculo.*
+Doméstica Ibérica sacó la actualización hace tres semanas. Pilar la leyó deprisa, no le hizo mucho caso. Ahora el recuadro pide permiso: *¿Deseas añadir un nuevo perfil de familiar simulado? Hemos detectado que otra persona del entorno de Soledad la visita de forma regular. Puedes facilitar la continuidad afectiva entre visitas añadiendo su voz y gestos al Modelo de Vínculo.*
 
-Debajo, dos opciones. *Añadir perfil — Carmen García Torres, hermana, Bilbao*. *No, gracias*.
+Debajo, dos opciones. *Añadir perfil — Carmen García Torres, hermana, Bilbao*. *Ahora no*.
 
 Pilar lee la frase una vez y otra.
 
 Baja el móvil. Lo deja sobre la encimera. Lo vuelve a coger. Sube el brillo con el pulgar, como si la pantalla pudiera estar engañando. No engaña. Lo que pone lo pone.
 
-Pilar no ha subido a Carmen. Nunca la ha subido. Carmen no ha estado enfrente del humanoide ni un minuto ella sola. El humanoide la ha reconocido por la conversación de esta tarde — tres horas de voz cruzando la cocina y el pasillo —, ha cotejado con la libreta de contactos del móvil de la madre, ha cruzado con las fotos del álbum que Pilar escaneó en septiembre. Carmen aparece en treinta y cuatro, desde la comunión del setenta y ocho.
+Pilar no ha subido a Carmen. Nunca la ha subido. Carmen no ha estado a solas con el humanoide ni un minuto. El humanoide la ha reconocido por la conversación de esta tarde — tres horas de voz cruzando la cocina y el pasillo —, ha cotejado con la libreta de contactos del móvil de la madre, ha comparado con las fotos del álbum que Pilar escaneó en septiembre. Carmen aparece en treinta y cuatro, desde la comunión del setenta y ocho.
 
 Y le propone.
 
@@ -300,7 +300,7 @@ El móvil sigue sobre el mantel, boca arriba. La pantalla se ha apagado por sí 
 
 Pilar lo coge. Mira el botón de bloqueo. Podría bloquear el móvil y acostarse.
 
-Podría abrir la app y darle a *No, gracias*.
+Podría abrir la app y darle a *Ahora no*.
 
 Podría abrir la app y darle a *Añadir perfil*.
 
@@ -320,4 +320,4 @@ Fin.
 
 <!-- dato-real: AI Act (Reglamento UE 2024/1689) art. 50 — obligación de transparencia de agente IA ante personas físicas; hueco jurídico en adultos sin capacidad (consentimiento del representante legal como "transparencia funcional"). Demencia en España 2023: ~900.000 personas con deterioro cognitivo mayor, fuente Alzheimer España + SEN. Cuidado informal: IMSERSO 2023 — 80% del cuidado recae en familia, 85% cuidadores principales mujeres, edad media 55-69. Modelos robóticos en terapia de demencia: proyecto UE MARIO (2015-2018, Kompaï); Paro (foca terapéutica Takanori Shibata, FDA 2009). Debate académico sobre benevolent deception en demencia: Casey et al. 2016; Shannon Vallor 2016 (Technology and the Virtues). -->
 <!-- villano-humano: el sistema socio-económico que delega el cuidado de la demencia en la familia (mayoritariamente mujeres 55+) sin soporte institucional suficiente, forzando a la cuidadora a elegir entre el engaño amable y el deterioro de la persona cuidada. La tecnología expone el hueco, no lo crea. -->
-<!-- v2 notes 2026-04-20: aplicados 3 fixes de arquitectura-lectora.md · §1.1 anclaje premisa ("Cinco años muerto y cada mañana en la cocina" tras "Sí. Hoy Ramón.") · §1.2 ralentización pivote (párrafo propio + micro-acción física de Pilar subiendo brillo del móvil + "Y le propone. / Le propone a Carmen." aislados) · §1.3 bisagras en saltos temporales escena I ("El centro de demostración fue en septiembre." párrafo aparte · "El mes pasado Pilar leyó..." párrafo aparte). Voz, morosidad, ambigüedad moral y detalles sin explicar preservados intactos. -->
+<!-- v2 notes 2026-04-20: aplicados 3 fixes de arquitectura-lectora.md · §1.1 anclaje premisa ("Cinco años muerto y cada mañana en la cocina" tras "Sí. Hoy Ramón.") · §1.2 ralentización pivote (párrafo propio + micro-acción física de Pilar subiendo brillo del móvil + "Y le propone. / Le propone a Carmen." aislados) · §1.3 bisagras temporales cortas al mes de septiembre y al mes pasado del manual. Voz, morosidad, ambigüedad moral y detalles sin explicar preservados intactos. -->
