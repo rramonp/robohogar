@@ -45,20 +45,20 @@
 
 ## 🎯 Roadmap actual (abr 2026)
 
-**Estado (19-abr-2026):**
+**Estado (20-abr-2026):**
 
-- ✅ **7 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [Mejor robot aspirador 2026: 6 finalistas + checklist](https://robohogar.com/p/mejor-robot-aspirador-2026) (2026-04-19).
+- ✅ **8 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [Un humanoide ha batido el récord mundial humano de media maratón. Lo importante no es el robot](https://robohogar.com/p/humanoide-maraton-pekin-record-mundial) (2026-04-20).
 - ❌ **0 suscriptores** · newsletter semanal diferida hasta 30-50 subs.
 - ❌ **0 Ficciones Domésticas** publicadas (pilar experimental pendiente de arrancar).
 - ✅ **Pipeline de skills funcionando** (`/research-digest` · `/content-draft` · `/nano-banana` · `/post-publish` · `/social-content` · `/obsidian-robohogar`).
 - ✅ **Knowledge base Write With AI completa** — 9 archivos en [`references/writewithai/`](../references/writewithai/) + banco de 90 preguntas en [calendario-editorial.md § Elements of Value](../content/calendario-editorial.md#banco-de-preguntas--elements-of-value).
 
-### Prioridad 1 — VOLUMEN DE ARTÍCULOS ✅ 7 ALCANZADOS — FASE 4B DESBLOQUEADA
+### Prioridad 1 — VOLUMEN DE ARTÍCULOS ✅ 8 ALCANZADOS — FASE 4B DESBLOQUEADA
 
-- **Target alcanzado:** 6 → **7 artículos publicados** (artículo #7 completado 19-abr-2026 con *Mejor robot aspirador 2026 · Guía de compra*).
+- **Progreso:** 7 → **8 artículos publicados** (artículo #8 completado 20-abr-2026 con *Un humanoide bate el récord mundial humano de media maratón · Editorial reactivo sobre Unitree H1 en Pekín + checklist de 5 preguntas*).
 - **Nota operativa:** el #7 se publicó SIN content gate — decisión 2026-04-18 alineada con `@rules/tangibles.md` F1 (0-50 subs: tangible inline, sin gate). El gate se retoma cuando haya masa crítica de subs (F2 ~50 · F3 ~5K).
 - **Siguiente:** activar **FASE 4B — distribución activa**. Frase trigger: *"Retomamos distribución 4B — tócame los hilos Reddit activos"*.
-- **Skills:** `/content-draft` + `/post-publish` operativos y probados en todo el ciclo 6→7.
+- **Skills:** `/content-draft` + `/post-publish` operativos y probados en todo el ciclo 6→8.
 - **Detalle operativo:** [[#FASE 4B: Distribución activa (0-50 subs)|FASE 4B]].
 
 ### Prioridad 2 — DISTRIBUCIÓN ACTIVA (siguiente) ⏳
@@ -84,18 +84,19 @@
 
 ## 📍 Dónde estoy hoy — siguiente paso
 
-> Última actualización: 19-abr-2026, tras publicar #7 *[Mejor robot aspirador 2026: 6 finalistas + checklist](https://robohogar.com/p/mejor-robot-aspirador-2026)*.
+> Última actualización: 20-abr-2026, tras publicar #8 *[Un humanoide ha batido el récord mundial humano de media maratón. Lo importante no es el robot](https://robohogar.com/p/humanoide-maraton-pekin-record-mundial)*.
 
 ### 📌 Próximos 3 next steps
 
 > Plantilla viva. `/post-publish` y `/pdf-brand` **deben** actualizar estos 3 bullets al completar tareas (marcar el completado · añadir el siguiente desde backlog de `calendario-editorial.md` · actualizar "Último artículo" / "Último tangible" en [[#🎯 Roadmap actual (abr 2026)\|🎯 Roadmap actual]]). Si los 3 están marcados al abrir una sesión, tirar del backlog de calendario.
 
 - [x] **Next 1 —** ~~Publicar artículo #7 *"Mejor robot aspirador 2026 · Guía de compra"* con Content Gate~~ → Publicado 19-abr-2026 SIN gate (decisión F1 alineada con `@rules/tangibles.md`). URL: https://robohogar.com/p/mejor-robot-aspirador-2026
-- [ ] **Next 2 —** Primera flash Ficciones Domésticas *"El operador nocturno"* (teleoperación NEO + deal EQT) · frase trigger: *"Retomamos ficciones — arrancar piloto"* · `/ficcion-draft`
-- [ ] **Next 3 —** Activar FASE 4B distribución (≥7 artículos publicados ✅) · frase trigger: *"Retomamos distribución 4B — tócame los hilos Reddit activos"* · ver [[#FASE 4B: Distribución activa (0-50 subs)|FASE 4B]]
-- [ ] **Next 4 —** Publicar artículo #8 del backlog (elegir desde [`content/calendario-editorial.md § Backlog`](../content/calendario-editorial.md) según prioridad del momento) · frase trigger: *"Retomamos sprint — artículo #8"*
+- [x] **Next 2 —** ~~Publicar artículo #8 *"Un humanoide bate el récord mundial humano de media maratón · Editorial reactivo"*~~ → Publicado 20-abr-2026. URL: https://robohogar.com/p/humanoide-maraton-pekin-record-mundial
+- [ ] **Next 3 —** Primera flash Ficciones Domésticas *"El operador nocturno"* (teleoperación NEO + deal EQT) · frase trigger: *"Retomamos ficciones — arrancar piloto"* · `/ficcion-draft`
+- [ ] **Next 4 —** Activar FASE 4B distribución (≥8 artículos publicados ✅) · frase trigger: *"Retomamos distribución 4B — tócame los hilos Reddit activos"* · ver [[#FASE 4B: Distribución activa (0-50 subs)|FASE 4B]]
+- [ ] **Next 5 —** Publicar artículo #9 del backlog (elegir desde [`content/calendario-editorial.md § Backlog`](../content/calendario-editorial.md) según prioridad del momento) · frase trigger: *"Retomamos sprint — artículo #9"*
 
-**Último artículo publicado:** #7 *Mejor robot aspirador 2026: 6 finalistas + checklist* (2026-04-19).
+**Último artículo publicado:** #8 *Un humanoide ha batido el récord mundial humano de media maratón. Lo importante no es el robot* (2026-04-20).
 **Último tangible publicado:** Hoja de Compra v2 PDF (2026-04-18) → `content/lead-magnets/hoja-compra/`.
 
 ### 🌍 Filtro mercado ES — regla base

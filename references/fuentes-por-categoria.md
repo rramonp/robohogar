@@ -114,6 +114,15 @@ Robots humanoides para tareas domésticas.
 | Futuring Robot (gasgoo) | autonews.gasgoo.com | Prensa china EN | Futuring Robot F2 piloto 300 hogares Pekín/Shanghái 36.000 yuanes |
 | Neura Robotics | neura-robotics.com | Sitio oficial | 4NE-1 Gen 3.5 Porsche Design pre-order (imagen oficial) |
 | Omicrono (El Español) | omicrono.elespanol.com | Medio tech ES | Panther + F2 en cobertura en español |
+| Stanford HAI — AI Index Report 2026 | hai.stanford.edu/ai-index/2026-ai-index-report | Académico | Reporte anual IA de Stanford. **Behavior-1K benchmark:** humanoides completan tareas domésticas reales con éxito+seguridad 12%, vs 89,4% en simulación. Cita clave usada en art.8 (maratón Pekín) — dato insight evergreen que se reutiliza en futuros artículos sobre hype vs realidad doméstica |
+| AI Index Report PDF | hai.stanford.edu/assets/files/ai_index_report_2026.pdf | Académico (PDF directo) | PDF del reporte 2026. Link directo para citas específicas |
+| Unitree Robotics | unitree.com | Fabricante oficial | Fabricante chino (Hangzhou) del humanoide H1 que batió récord media maratón Pekín 19-abr-2026 (50:26). También G1 y R1. Sitio oficial para specs y comunicados |
+| TechCentral | techcentral.co.za | Medio tech africano EN | Cobertura Reuters/France24/China Daily media maratón humanoides Pekín. Fuente de imagen oficial del Unitree H1 en carrera (usada en art.8 como figure-01) |
+| Reuters | reuters.com | Agencia internacional | Cobertura media maratón Pekín 19-abr-2026 (imagen original en circulación) |
+| France24 | france24.com | Prensa internacional EN/FR | Cobertura media maratón Pekín 19-abr-2026 |
+| PBS | pbs.org | Prensa internacional EN | Cobertura media maratón Pekín 19-abr-2026 |
+| Xataka (Unitree record) | xataka.com/robotica-e-ia/ano-pasado-casi-ningun-robot-termino-media-maraton-pekin-este-ano-uno-ha-batido-record-mundial-humano-siete-minutos | Medio tech ES | Artículo ES del record Pekín — contraste con Xataka genérico en "Humanoides" |
+| World Athletics | worldathletics.org | Oficial atletismo | Récord mundial humano de media maratón de Jacob Kiplimo (57:20, Lisboa, 16-mar-2026). Fuente autoritativa de todos los récords humanos |
 
 ### Fuentes independientes (ES)
 
