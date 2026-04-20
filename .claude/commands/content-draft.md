@@ -345,6 +345,41 @@ Si el conteo no coincide → auto-corregir antes de entregar. Además, verificar
 
 **Microcopy del banner — regla heredada de `@rules/tangibles.md § Microcopy de conversión`.** Si el skill genera una variante del texto del banner para un artículo (p. ej. tangible distinto, copy adaptado a la categoría), la trust-line debajo del CTA debe cumplir el default canónico `PDF gratis con tu suscripción semanal. Cancela cuando quieras.` o una variante que supere las 3 reglas: (a) ≥2 de los 3 elementos obligatorios (formato · salida · transparencia), (b) ninguna promesa prohibida (velocidad de entrega, ausencia futura de publicidad, hype), (c) ≤80 caracteres. Verificación: `grep -iE "15 segundos|llega al email en|instantáneo|sin publicidad|sin promociones|sin letra pequeña"` sobre el `borrador.html` — 0 matches obligatorio antes de entregar.
 
+### 8.9. Controles pre-publicación — 12 checks OBLIGATORIO antes de entregar borrador
+
+Última fase de acabado. Regla completa + ejemplos: `@rules/editorial.md § Controles pre-publicación — 12 checks`. Dos bloques independientes:
+
+- **Bloque A — Craft (5 checks):** A1 gancho en el título · A2 blindaje de cifras contrarian · A3 dato-trampolín prohibido · A4 precisión técnica > contundencia fácil · A5 leitmotiv en el cierre.
+- **Bloque B — Coherencia interna (7 checks):** B1 recomendación única · B2 paridad cuantitativa promesa↔entrega · B3 nomenclatura única por entidad · B4 criterio declarado=aplicado · B5 paridad de tratamiento visual · B6 verificación cruzada de datos técnicos asociados · B7 claridad de datos comparables.
+
+**Ejecución obligatoria:** responder los 12 checks por escrito en `PASOS.md § Controles pre-publicación` con este formato exacto:
+
+```
+## Controles pre-publicación (§ editorial.md — 12 checks)
+
+### Bloque A — Craft
+- A1 Gancho en título: [✅/❌] — [leído a la mitad: primera mitad engancha sola]
+- A2 Blindaje cifras contrarian: [✅/❌/N/A] — [cifras listadas con parentética, o N/A si no hay contrarian]
+- A3 Dato-trampolín: [✅/❌/N/A] — [cada dato asombroso tiene párrafo/frase propia]
+- A4 Precisión técnica: [✅/❌] — [rotundas escaneadas y defendibles]
+- A5 Leitmotiv en cierre: [✅/❌/N/A] — [verbo/frase repetida atada literal en cierre, o N/A si no hay leitmotiv]
+
+### Bloque B — Coherencia interna
+- B1 Recomendación única: [✅/❌/N/A] — [grep cruzado, 1 modelo por etiqueta convergente]
+- B2 Paridad cuantitativa: [✅/❌] — [subtítulo promete X → cuerpo entrega X literal y contable]
+- B3 Nomenclatura única: [✅/❌] — [cada producto ≥3 menciones usa forma canónica]
+- B4 Criterio declarado=aplicado: [✅/❌/N/A] — [incumplimientos justificados en texto del finalista]
+- B5 Paridad tratamiento visual: [✅/❌] — [N finalistas = N figures, o excepción en PASOS.md]
+- B6 Verificación cruzada datos técnicos: [✅/❌/N/A] — [asociaciones ("hermano", "sucesor") + specs coherentes]
+- B7 Claridad datos comparables: [✅/❌/N/A] — [nuevo/refurbed, PVP/promo, UE/import etiquetados]
+```
+
+**Regla de decisión:** ≥1 check en ❌ sin arreglar → rechazar output y reescribir. Todos en ✅ o N/A justificado → proceder al § 9 Prohibiciones.
+
+**N/A válido solo cuando el check no aplica por estructura del artículo** (ej: A2 N/A sin cifras contrarian; A5 N/A sin leitmotiv repetido; B1/B2 N/A en ficción o editorial sin comparativa; B6 N/A sin asociaciones narrativas entre productos). Documentar POR QUÉ es N/A en el comentario — no marcar N/A por pereza.
+
+Origen e incidentes completos: memoria [`feedback_robohogar_pre_publish_polish.md`](../../../RRP-DEV/.claude/memory/feedback_robohogar_pre_publish_polish.md) (feedback externo sobre maratón humanoide + aspiradores 2026, abril 2026).
+
 ### 9. Prohibiciones
 
 Aplicar todas las de `rules/editorial.md` (voz, tono, primera persona plural, prohibiciones de contenido, anti-anglicismos de apertura/cierre).
