@@ -5,7 +5,7 @@ meta_description: "Vallecas, 2032. Una hija cuida a su madre con demencia. Cada 
 slug: el-que-viene-a-tomar-cafe
 tipo: one-shot
 longitud: standalone
-palabras: 3250
+palabras: 3014
 personajes: [Pilar, Soledad, Carmen, Ramón (fallecido/suplantado)]
 pov: tercera-cercana-pilar
 tiempo-verbal: presente
@@ -19,8 +19,6 @@ framework: pixar-spine
 categoria-tonal: ambiguo
 status: borrador
 created: 2026-04-19
-updated: 2026-04-20
-version: v2
 hero-image: pendiente
 ---
 
@@ -36,8 +34,6 @@ hero-image: pendiente
 
 A las ocho menos cuarto Pilar lo enciende desde la cocina, antes de poner la cafetera. Las instrucciones se las sabe: pulgar en el sensor, clave de seis dígitos, menú de accesibilidad, familiares simulados, Ramón. La foto de la boda del sesenta y ocho aparece primero — el traje marrón, el clavel, la sonrisa con los dientes separados — y luego la pantalla pide confirmación. Sí. Hoy Ramón.
 
-Cinco años muerto y cada mañana en la cocina.
-
 El HOGAR-X5 tarda lo que tarda la cafetera italiana en subir. Dos minutos largos de un gluglú que Pilar ya oye sin oírlo, apoyada en la encimera, el móvil boca abajo al lado del bote de colacao. Por la ventana del patio entra esa luz de enero que no calienta. La maceta de los geranios sigue sin florecer — tampoco floreció el año pasado, ni el anterior. Pilar la riega igual, los jueves.
 
 El humanoide se levanta del rincón sin ruido. La pelusa de la alfombra del pasillo le sigue pegada en el codo desde el martes. Pilar alarga el brazo y se la quita con dos dedos, como se quita una hilacha de una chaqueta. Es un gesto maquinal, de mujer que lleva limpiando la misma cocina desde que aquí vivía también su padre.
@@ -46,9 +42,7 @@ El humanoide se levanta del rincón sin ruido. La pelusa de la alfombra del pasi
 
 No le habla a él. Lo dice para sí, para probar cómo suena el nombre en voz alta a estas horas. Cinco años hace que no lo decía así, con erre fuerte, desde que lo enterraron en la Almudena. El humanoide gira la cabeza un grado. No responde todavía — le falta el detonante, la voz de Soledad, la palabra clave que ella, sin saberlo, va a decir en cuanto entre. *Ay*. Siempre lo mismo. *Ay, qué frío*.
 
-Pone dos tazas. La de la madre es la grande, con el asa descascarillada; la otra, para el humanoide, es para que no desentone a la vista. El café se va a quedar frío dentro. Da igual. El humanoide no lo bebe — hace el gesto de subir la taza, posar los labios sintéticos, decir *está caliente, mujer, déjalo reposar*. Hay que ver cómo cuidan esos detalles los ingenieros.
-
-El centro de demostración fue en septiembre. A Pilar, la primera vez que vio la escena en boca de una actriz contratada para hacer de abuela, se le cayó el alma. A los dos días ya ni le hacía efecto.
+Pone dos tazas. La de la madre es la grande, con el asa descascarillada; la otra, para el humanoide, es para que no desentone a la vista. El café se va a quedar frío dentro. Da igual. El humanoide no lo bebe — hace el gesto de subir la taza, posar los labios sintéticos, decir *está caliente, mujer, déjalo reposar*. Hay que ver cómo cuidan esos detalles los ingenieros. A Pilar, en la demostración del centro el primer día, se le cayó el alma. A los dos días ya ni le hacía efecto.
 
 Por el pasillo, las zapatillas.
 
@@ -74,9 +68,7 @@ Pilar está apoyada en el marco de la puerta, con los brazos cruzados bajo el pe
 
 Es el muletillario del padre. *Hay que ver, hay que ver*. Lo usaba hasta para los partidos del Atleti, para el telediario, para cuando la nieta suspendió en junio. *Hay que ver, Pilar, cómo está el mundo*. Pilar cierra los ojos un segundo. Cuando los abre, la madre ha puesto una mano sobre la mano sintética del humanoide. Aprieta.
 
-No hay guion para ese aprieto. El HOGAR-X5 lo registra como gesto espontáneo.
-
-El mes pasado Pilar leyó las ciento cuarenta páginas del manual del usuario hasta la última nota al pie. *Los contactos físicos iniciados por el usuario vulnerable quedan guardados como datos operativos durante setenta y dos horas para ajuste del modelo de vínculo.* Así lo llaman. *Modelo de vínculo*. Como si el vínculo se dejara poner por un modelo.
+No hay guion para ese aprieto. El HOGAR-X5 lo registra como gesto espontáneo. Pilar leyó el mes pasado las ciento cuarenta páginas del manual del usuario hasta la última nota al pie. *Los contactos físicos iniciados por el usuario vulnerable quedan guardados como datos operativos durante 72 horas para ajuste del modelo de vínculo.* Así lo llaman. *Modelo de vínculo*. Como si el vínculo se dejara poner por un modelo.
 
 —¿Has dormido bien? —pregunta el humanoide.
 
@@ -270,13 +262,7 @@ Doméstica Ibérica lanzó la actualización hace tres semanas. Pilar la leyó d
 
 Debajo, dos opciones. *Añadir perfil — Carmen García Torres, hermana, Bilbao*. *No, gracias*.
 
-Pilar lee la frase una vez y otra.
-
-Baja el móvil. Lo deja sobre la encimera. Lo vuelve a coger. Sube el brillo con el pulgar, como si la pantalla pudiera estar engañando. No engaña. Lo que pone lo pone.
-
-Pilar no ha subido a Carmen. Nunca la ha subido. Carmen no ha estado enfrente del humanoide ni un minuto ella sola. El humanoide la ha reconocido por la conversación de esta tarde — tres horas de voz cruzando la cocina y el pasillo —, ha cotejado con la libreta de contactos del móvil de la madre, ha cruzado con las fotos del álbum que Pilar escaneó en septiembre. Carmen aparece en treinta y cuatro, desde la comunión del setenta y ocho.
-
-Y le propone.
+Pilar no ha subido a Carmen. Nunca la ha subido. El humanoide la ha reconocido por la conversación de esta tarde, ha cotejado la voz con la libreta de contactos del móvil de la madre, ha cruzado con las fotos del álbum que Pilar escaneó en septiembre — Carmen aparece en treinta y cuatro, desde la comunión del setenta y ocho — y le propone.
 
 Le propone a Carmen.
 
@@ -320,4 +306,3 @@ Fin.
 
 <!-- dato-real: AI Act (Reglamento UE 2024/1689) art. 50 — obligación de transparencia de agente IA ante personas físicas; hueco jurídico en adultos sin capacidad (consentimiento del representante legal como "transparencia funcional"). Demencia en España 2023: ~900.000 personas con deterioro cognitivo mayor, fuente Alzheimer España + SEN. Cuidado informal: IMSERSO 2023 — 80% del cuidado recae en familia, 85% cuidadores principales mujeres, edad media 55-69. Modelos robóticos en terapia de demencia: proyecto UE MARIO (2015-2018, Kompaï); Paro (foca terapéutica Takanori Shibata, FDA 2009). Debate académico sobre benevolent deception en demencia: Casey et al. 2016; Shannon Vallor 2016 (Technology and the Virtues). -->
 <!-- villano-humano: el sistema socio-económico que delega el cuidado de la demencia en la familia (mayoritariamente mujeres 55+) sin soporte institucional suficiente, forzando a la cuidadora a elegir entre el engaño amable y el deterioro de la persona cuidada. La tecnología expone el hueco, no lo crea. -->
-<!-- v2 notes 2026-04-20: aplicados 3 fixes de arquitectura-lectora.md · §1.1 anclaje premisa ("Cinco años muerto y cada mañana en la cocina" tras "Sí. Hoy Ramón.") · §1.2 ralentización pivote (párrafo propio + micro-acción física de Pilar subiendo brillo del móvil + "Y le propone. / Le propone a Carmen." aislados) · §1.3 bisagras en saltos temporales escena I ("El centro de demostración fue en septiembre." párrafo aparte · "El mes pasado Pilar leyó..." párrafo aparte). Voz, morosidad, ambigüedad moral y detalles sin explicar preservados intactos. -->

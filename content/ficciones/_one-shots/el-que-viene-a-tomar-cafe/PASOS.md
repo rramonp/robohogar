@@ -3,10 +3,19 @@
 **Slug:** `el-que-viene-a-tomar-cafe`
 **Tipo:** ficción one-shot (standalone, sin serie)
 **Categoría tonal:** `ambiguo` (25% canon · categoría nueva en el catálogo)
-**Fecha borrador:** 2026-04-19 (v1)
-**Palabras:** ~3.100 prosa narrativa (dentro rango standalone 2.500-3.500)
+**Fecha borrador:** 2026-04-19 (v1) · 2026-04-20 (v2)
+**Versión actual:** v2 (v1 archivada como `-v1.md` para comparación editorial)
+**Palabras:** ~3.200 prosa narrativa (dentro rango standalone 2.500-3.500)
 
-> **Nota de concepto:** segundo one-shot del catálogo de Ficciones Domésticas tras *El operador nocturno*. Éste estrena la categoría **ambiguo moral** — el dilema no se resuelve y el lector debe decidir. A diferencia del operador nocturno (inquietante-heavy · "alguien calla silenciosamente"), aquí la decisión central es de la cuidadora y el lector está invitado a juzgarla — o a no juzgarla. Cumple la verificación §2.3 de `tonalidad-y-mix-editorial.md`: si 10 lectores votaran, al menos 4 defenderían cada lado.
+> **Nota v2 (2026-04-20):** primera aplicación real del knowledge `references/ficciones/arquitectura-lectora.md`. Feedback editorial externo 2026-04-20 sobre v1 identificó tres fallos simultáneos de arquitectura de información — no de voz, no de tono. Se aplicaron los 3 fixes canónicos sin tocar voz peninsular, morosidad, detalles sin explicar, presente verbal ni ambigüedad moral:
+>
+> - **§1.1 Anclaje de premisa:** añadida frase elíptica *"Cinco años muerto y cada mañana en la cocina."* inmediatamente después de *"Sí. Hoy Ramón."* (primer párrafo). El lector ancla la muerte del padre sin salir de la voz.
+> - **§1.2 Ralentización del punto de mayor carga:** el momento en que la app propone a Carmen por iniciativa propia (el corazón del relato) ahora tiene párrafo propio + micro-acción física: *"Pilar lee la frase una vez y otra. / Baja el móvil. Lo deja sobre la encimera. Lo vuelve a coger. Sube el brillo con el pulgar, como si la pantalla pudiera estar engañando. No engaña. Lo que pone lo pone."* + *"Y le propone. / Le propone a Carmen."* aislados.
+> - **§1.3 Bisagra mínima en saltos temporales (escena I):** los dos saltos de presente a pasado reciben frase-bisagra corta + párrafo aparte. *"El centro de demostración fue en septiembre."* y *"El mes pasado Pilar leyó las ciento cuarenta páginas del manual del usuario hasta la última nota al pie."* — sin glosa expositiva, solo respiración visual.
+>
+> Subió de 3.100 → 3.200 palabras (los fixes suman ~100 palabras de arquitectura). v1 preservada intacta en `-v1.md` para que quede trazabilidad editorial. Audiolibro del vault regenerado con las mismas mejoras.
+
+> **Nota de concepto v1 (2026-04-19):** segundo one-shot del catálogo de Ficciones Domésticas tras *El operador nocturno*. Éste estrena la categoría **ambiguo moral** — el dilema no se resuelve y el lector debe decidir. A diferencia del operador nocturno (inquietante-heavy · "alguien calla silenciosamente"), aquí la decisión central es de la cuidadora y el lector está invitado a juzgarla — o a no juzgarla. Cumple la verificación §2.3 de `tonalidad-y-mix-editorial.md`: si 10 lectores votaran, al menos 4 defenderían cada lado.
 
 ---
 
@@ -127,6 +136,9 @@ Ejecutadas 2026-04-19 sobre el `.md` final:
 - [x] **Anti-IA §2.6:** cliffhanger moral sin peligro físico ✅
 - [x] **§8.5 Formato técnico Beehiiv:** sin bold dentro de H1/H2/H3; sin tablas (no aplica); sin bloques `.checklist` (no aplica) ✅
 - [x] **`left-wall` + `big-lie`:** declarados en frontmatter YAML + bloque visible bajo H1 ✅
+- [x] **Arquitectura lectora §1.1 (anclaje premisa, v2):** frase *"Cinco años muerto y cada mañana en la cocina."* inmediatamente después de *"Sí. Hoy Ramón."*. El lector registra la muerte sin esperar al párrafo 4 ✅
+- [x] **Arquitectura lectora §1.2 (ralentización pivote, v2):** punto de mayor carga (la app identifica a Carmen por su cuenta) con párrafo propio + 4 frases de micro-acción física (*"Baja el móvil. Lo deja sobre la encimera. Lo vuelve a coger. Sube el brillo con el pulgar, como si la pantalla pudiera estar engañando"*) + *"Y le propone. / Le propone a Carmen."* aislados ✅
+- [x] **Arquitectura lectora §1.3 (bisagras en saltos temporales, v2):** dos saltos en escena I con frase-bisagra + párrafo aparte (*"El centro de demostración fue en septiembre."* + *"El mes pasado Pilar leyó las ciento cuarenta páginas del manual..."*) ✅
 - [x] **`categoria-tonal` = ambiguo:** cierre sin juicio narrativo, dos lecturas igualmente sostenibles (Pilar hace bien / Pilar hace mal) ✅
 
 ---
