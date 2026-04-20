@@ -61,6 +61,45 @@ If Firecrawl MCP is not connected, notify Rafael and fall back to WebFetch + Web
    - De las Top + Notable stories, identificar 2-4 que tengan "alma" narrativa: implican cambios en la vida cotidiana, tensión humana latente, dilema moral, o escenas físicas evocativas en un hogar
    - Para cada semilla extraer: (a) gancho 1-frase especulativo 2030-2040, (b) **dato real anclado** (ley, estadística, spec), (c) **villano humano implícito** (soledad, burnout, brecha digital, miedo a obsolescencia — NUNCA el robot), (d) personajes tipo que podrían encajar (abuela sola, familia con hijos pequeños, técnico de servicio, etc.)
    - Estas semillas alimentan el backlog Ficciones Domésticas (paso 6b). Rafael decidirá luego en qué serie encajan
+5.5 **Consolidar backlog vivo — el bloque de recomendación debe ser autosuficiente** (regla dura añadida 2026-04-20 por petición de Rafael):
+
+   Rafael lee la "📌 Recomendación ROBOHOGAR" en el chat tras la invocación; **no** abre el markdown completo ni revisa digests antiguos. Eso significa: cada digest tiene que mostrarle TODO lo vivo candidato a publicar, no sólo lo nuevo de esta semana.
+
+   Acciones obligatorias:
+   - Leer **`content/calendario-editorial.md` § Backlog de temas** → extraer los 5 temas con prioridad más alta que NO tengan `~~tachado~~` ni URL de publicación.
+   - Leer **§ Backlog Ficciones Domésticas** → extraer las 3 semillas con prioridad más alta que NO estén marcadas `published`.
+   - Evaluar **vigencia** de cada candidato arrastrado:
+     - 🟢 **Vigente** — dato ancla sigue siendo noticia o es evergreen (comparativas, guías, editoriales de concepto).
+     - 🟡 **En ventana** — dato ancla tiene ≤6 semanas, todavía publicable pero perdiendo frescura. Recomendación: priorizar esta semana o la siguiente.
+     - 🔴 **Anticuado** — dato ancla pasado (>6 semanas) y ya cubierto masivamente por medios ES. Recomendación: descartar o replantear ángulo.
+   - Para marcar vigencia, usar Google Trends + cobertura ES reciente como criterio. Si se dudase, marcar 🟡 por defecto.
+   - El bloque "📌 Recomendación ROBOHOGAR" del digest debe tener **DOS pools**:
+     - **Pool A — Lo más fresco de este digest** (lo de siempre: 🥇🥈🥉 artículo + 🥇🥈 ficción de lo nuevo de esta semana).
+     - **Pool B — Del backlog vivo (digests anteriores)**: tabla de 5 artículos candidatos + 3 semillas ficción, con columna vigencia y recordatorio del digest de origen.
+   - El **mensaje en chat** tras invocar `/research-digest` DEBE incluir ambos pools resumidos (máximo 10 líneas en total), para que Rafael elija sin abrir el markdown.
+
+   **5.5 bis — Recomendación razonada obligatoria** (añadido 2026-04-20 por petición directa de Rafael):
+
+   El chat no debe limitarse a listar candidatos. **Debe cerrar con una recomendación clara (1 artículo + 1 ficción) + el razonamiento en 3-5 líneas**. Criterios de decisión a aplicar EN ORDEN:
+
+   1. **Ventana de viralidad**: si un tema es 🔥🔥🔥 ⭐⭐⭐ con cobertura mainstream de ≤48 h → casi siempre gana, porque la ventana caduca en 7-10 días y perderla = Xataka/Omicrono se quedan con el tráfico SEO.
+   2. **Balance temático del histórico**: leer `content/registro-articulos.md` (últimos 7-10 artículos). Si Rafael lleva 3+ artículos seguidos en la misma categoría (humanoides, aspiradores), penalizar los candidatos de esa misma categoría a favor de categorías sin tocar. El newsletter pierde foco cuando se vuelve monotema.
+   3. **Sinergia con lo ya publicado**: un artículo que enlace natural a 2+ publicaciones previas (internal linking) gana. Ejemplo: un editorial sobre "humanoide corre más que un humano pero no dobla la ropa" enlaza al editorial "Humanoides en casa" + a la comparativa "Humanoides 2026".
+   4. **Ventana SEO estacional**: guías estacionales (cortacésped primavera-verano, aspirador pre-navidad) tienen ventanas de 2-3 meses. Si estamos en su ventana, subir 1 escalón de prioridad.
+   5. **Alineación con tangibles activos**: si un candidato permite CTA natural a un tangible ya publicado (ej: Hoja de Compra para artículos consumer), preferirlo sobre uno neutro.
+   6. **Dupla artículo + ficción**: si artículo y ficción pueden compartir ángulo editorial de la semana (ej: maratón humanoide + "La maratonista y su sombra"), la dupla gana — permite narrativa editorial unificada y social content coherente.
+
+   Formato del cierre en chat:
+
+   ```
+   🎯 Mi recomendación: **Artículo #N + Ficción #L**
+
+   Razón:
+   - <criterio 1 aplicado, con dato concreto>
+   - <criterio 2 aplicado>
+   - <alternativa si no te convence: #N' + #L'>
+   ```
+
 6. Output DUAL:
    - Repo: `content/drafts/research-digest-YYYY-MM-DD.md`
    - Vault Obsidian: `$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/Research/Research Digest YYYY-MM-DD.md`
