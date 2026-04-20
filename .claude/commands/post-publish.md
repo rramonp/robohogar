@@ -23,6 +23,11 @@ Antes de hacer nada, comprobar que el artículo se ve correctamente:
 - [ ] **OG image** — comprobar con `https://opengraph.xyz/<URL>` que la miniatura se ve bien y el WebP carga rápido. Reportar a Rafael si hay problemas
 - [ ] **Links internos** — verificar que los links dentro del artículo funcionan (especialmente CTAs de suscripción y links a otros artículos)
 - [ ] **Imágenes inline** — confirmar que todas las imágenes aparecen en el artículo publicado
+- [ ] **Cero referencias fantasma** — contrastar el HTML publicado contra promesas internas sin referente real. Grep + verificación manual:
+  ```bash
+  grep -nE "(tabla|gráfico|infografía|diagrama|imagen|sección|checklist|cuadro|bloque) (de abajo|abajo|arriba|que (te mostramos|verás|ves)|a continuación|más adelante|al final|al principio|al cierre)" <html-publicado>
+  ```
+  Para cada match, verificar que el referente existe en el cuerpo (`<table>`, `<img>`, `<div class="checklist">`, H2 correspondiente, etc.). Si falta el referente: **PARAR y avisar a Rafael con la lista de promesas huérfanas**. No reescribir unilateralmente — Rafael decide qué frase reescribir y qué bloque eliminar. Regla completa: memoria [`feedback_robohogar_no_phantom_references.md`](../../../RRP-DEV/.claude/memory/feedback_robohogar_no_phantom_references.md) + `@rules/editorial.md § Cero referencias fantasma`. Incidente origen: artículo #8 humanoide-maraton (2026-04-20) — subtítulo prometía "tabla de Stanford abajo" inexistente; Rafael tuvo que reescribir post-publicación.
 
 ### 2. Mover borrador a published
 

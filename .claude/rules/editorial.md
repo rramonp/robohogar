@@ -157,6 +157,26 @@ Knowledge base: `@references/writewithai/07-ficcion-y-narrativa-serializada.md`.
 Patrones serialized newsletter 2025: `@references/ficciones/serialized-newsletter-patterns.md`.
 Roadmap ebook: `@references/ficciones/ebook-roadmap.md`.
 
+## Cero referencias fantasma — integridad editorial
+
+Regla estricta: **toda promesa interna del texto debe tener referente real en el mismo artículo**. Prohibido prometer al lector tablas, gráficos, infografías, diagramas, imágenes, secciones, checklists o bloques que no existen literalmente en el post publicado.
+
+Formas prohibidas específicas:
+- *"La noticia real está una tabla de [X] abajo"* · *"hay que leer lo mismo desde otra tabla"* → si no hay `<table>`.
+- *"como verás en el gráfico de [X]"* · *"la infografía más adelante"* → si no se inserta ningún `<img>`/figura correspondiente.
+- *"el análisis completo abajo"* · *"la sección al final"* → si no hay H2/H3 subsiguiente con ese contenido.
+- Links a artículos ROBOHOGAR que aún no están publicados — la URL debe existir en `content/registro-articulos.md`.
+- Cifras concretas ("12% éxito", "€98.000") sin fuente verificable en `references/fuentes-por-categoria.md` para esa categoría.
+
+**Razón e incidente origen:** artículo #8 *"Humanoide bate récord media maratón"* (2026-04-20): el subtítulo y un callout prometían "la tabla de Stanford abajo" pero el artículo solo citaba el informe en prosa + un gráfico Behavior-1K, no había tabla ninguna. Rafael tuvo que reescribir el subtítulo y eliminar el callout entero tras publicar. Regla ampliada y grep pre-output: memoria [`feedback_robohogar_no_phantom_references.md`](../../../RRP-DEV/.claude/memory/feedback_robohogar_no_phantom_references.md).
+
+**Aplicación operativa:**
+- `content-draft.md` § 8.4 bis — grep pre-output de promesas internas + verificación de cada match.
+- `post-publish.md` § 1 — grep de referencias fantasma contra el HTML publicado antes de mover a `content/published/`; si aparecen, avisar a Rafael (no reescribir unilateralmente, Rafael decide).
+- `ficcion-draft.md` — aplica parcialmente: en ficción la prosa puede insinuar elementos fuera de escena (Chekhov), pero NO prometer al lector secciones del relato que no existen. Los datos anclados (dato-real) sí tienen que existir y ser verificables.
+
+Voz de autoridad propia (§ editorial anterior) + cero referencias fantasma = contrato básico con el lector de ROBOHOGAR.
+
 ## Anti-IA checklist — OBLIGATORIO para TODO contenido
 
 Todo contenido publicado (artículo, review, comparativa, editorial, guía, newsletter Y ficción) DEBE pasar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) antes del output final.

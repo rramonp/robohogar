@@ -194,6 +194,27 @@ Luego rellenar a mano los bloques marcados `[rellenar: ...]`:
 
 Template origen: `content/templates/PASOS-template.md`. Script: `utilities/generate_pasos.py`.
 
+### 8.4 bis. Cero referencias fantasma — OBLIGATORIO antes de entregar borrador
+
+Regla de integridad editorial: **toda promesa interna del texto debe tener referente real en el mismo artículo**. Si el subtítulo dice "la tabla de abajo", debe existir `<table>`. Si un callout dice "hay que leer lo mismo desde otra tabla", esa tabla tiene que estar. Si el cuerpo promete "la checklist al final", la checklist tiene que existir.
+
+Regla completa + incidente origen (artículo #8 maratón humanoide, 2026-04-20): memoria [`feedback_robohogar_no_phantom_references.md`](../../../RRP-DEV/.claude/memory/feedback_robohogar_no_phantom_references.md) + `@rules/editorial.md § Cero referencias fantasma`.
+
+**Grep obligatorio pre-entrega:**
+
+```bash
+# Detectar promesas de elementos internos
+grep -nE "(tabla|gráfico|infografía|diagrama|imagen|sección|checklist|cuadro|bloque) (de abajo|abajo|arriba|que (te mostramos|verás|ves)|a continuación|más adelante|al final|al principio|al cierre)" content/articulos/<slug>/borrador.html
+```
+
+Para cada match: verificar manualmente que el referente existe en el HTML (`<table>`, `<img>`, `<div class="checklist">`, H2 con nombre correspondiente, etc.). Si no existe: **reescribir la frase** (no eliminar el bloque entero si la frase es recuperable) o **eliminar la promesa** y dejar solo prosa informativa.
+
+**Referencias cruzadas a otros artículos ROBOHOGAR:** la URL debe existir en `content/registro-articulos.md`. Si el artículo enlazado aún no está publicado → eliminar el link o dejarlo pendiente para futura actualización post-publish. Nunca linkear a URL especulativa.
+
+**Datos con fuente:** toda cifra concreta ("12% éxito", "50:26", "€98.000") debe tener fuente verificable en `references/fuentes-por-categoria.md` para esa categoría. Si no está catalogada → añadirla antes de entregar o descartar el dato.
+
+**Regla de decisión:** ≥1 referencia fantasma → rechazar output y reescribir frases · 0 referencias fantasma → proceder al paso 8.5.
+
 ### 8.5. Anti-IA checklist §1 Universal — OBLIGATORIO antes de entregar borrador
 
 Cargar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) **§1 Universal completo** (§1.1 lista negra de palabras, §1.2 tricolon/em-dashes/contrast, §1.3 clichés sensoriales, §1.4 voz plural) y correrlo sobre el `borrador.html`. La §2 Ficción NO aplica aquí — solo relatos.
