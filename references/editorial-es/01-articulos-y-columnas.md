@@ -225,6 +225,8 @@ Conectores ES literarios y anti-calcos específicos del registro editorial no-fi
 | 6 | *"Es por ello que"* / *"Es por esto que"* | *"Por eso"* o *"De ahí que"* | Inflación silábica anglo |
 | 7 | *"A la hora de"* + infinitivo | *"Al"* + infinitivo o *"cuando"* + subjuntivo | Perífrasis vacía |
 | 8 | *"De cara a"* + sustantivo | *"Para"* + sustantivo | Calco corporativo |
+| 9 | *"No compres de más"* / *"no pagues de más"* / *"ahorrarte comprar de más"* | *"No pagar más de la cuenta"* / *"no te equivoques al comprar"* / *"para que la compra te salga a cuenta"* | Calco literal de *"don't overbuy"* / *"don't overpay"*. *"Comprar de más"* en ES peninsular implica comprar demasiadas unidades por error (*"he comprado de más, ahora sobran"*), no pagar un precio excesivo por una. El marketing-copy anglo usa *"overbuy/overpay"* intercambiable; ES los distingue. En cualquier subtítulo, meta description, CTA o banner, la forma idiomática ES es *"no pagar más de la cuenta"* (frase hecha) o reescribir sin cifra. Incidente origen 2026-04-21, artículo #9 cortacésped. |
+| 10 | *"Darle al botón de X"* / *"darle al botón de comprar"* | *"Pulsar comprar"* / *"cerrar la compra"* / *"pagar"* | Calco de *"hit the button"*. ES peninsular dice *"darle al botón"* informal pero SIN la preposición *"de"* + infinitivo. *"Dale al botón"* OK; *"dale al botón de comprar"* es inglés traducido. Alternativas editoriales: *"antes de pagar"*, *"antes de cerrar la compra"*, *"antes de finalizar"*. |
 
 ### 4.2 Recursos ES positivos en transiciones
 
@@ -273,7 +275,7 @@ Los 7 recursos de [`02-newsletter-y-emails.md § 2`](02-newsletter-y-emails.md) 
 | **§2.4 Numeración / callback** | N/A en artículo suelto; sí en newsletter con recopilación |
 | **§2.5 Pregunta propia obsesiva** | En editoriales y guías reflexivas (no en reviews) — *"Una pregunta que llevamos meses dándole vueltas: …"*. 1 por editorial largo |
 | **§2.6 Tagline-identidad** | No en cuerpo del artículo; sí en bio del autor / about page |
-| **§2.7 Reclamo humano** | En sección *"Cómo lo hemos probado"* o en la bio del autor — *"Probamos los robots, los desmontamos, los comparamos en casa"*. Al menos en 1 de cada 3 artículos visibles |
+| **§2.7 Reclamo humano** | En sección *"Cómo lo hemos elegido"* o en la bio — *"Analizamos fichas oficiales, cruzamos con reviews internacionales y verificamos distribución ES"*. Al menos en 1 de cada 3 artículos visibles. **Importante:** ROBOHOGAR no prueba en mano ni desmonta (ver `@rules/editorial.md § Honestidad de primera persona`). Verbos honestos: *analizamos · comparamos · cruzamos · descartamos · verificamos en [fuente]*. |
 
 ---
 
@@ -300,11 +302,23 @@ grep -iE "(el mejor [^,\.]+ del mercado|el m\u00e1s [^,\.]+ jam\u00e1s|revolucio
 grep -iE "(hemos le\u00eddo [0-9]+|hemos revisado [0-9]+|hemos recopilado|nos hemos metido en|contrastado con [0-9]+|tras revisar [0-9]+ newsletters)" <borrador>
 # Match → eliminar, convertir en cita puntual de autoridad
 
-# (e) Anti-IA universal — correr checklist completa
+# (e) Calcos léxicos EN→ES específicos de marketing-copy (tabla §4.1 #9 y #10)
+grep -niE "(no (compres|pagues?) de más|comprar de más|pagar de más|ahorrarte comprar|dale al botón de (comprar|pagar|finalizar))" <borrador>
+# Match → reescribir: "no pagar más de la cuenta" / "no te equivoques al comprar" / "antes de cerrar la compra"
+
+# (f) Verbos de test no realizado (`editorial.md § Honestidad de primera persona`)
+grep -niE "\b(probad[oa]s?|probamos|hemos probado|testad[oa]s?|hemos testado|medid[oa]s?|hemos medido|desmontad[oa]s?|hemos desmontado|hemos cronometrado|uso real en (jardines|pisos|hogares)|en nuestro test|en nuestras pruebas)\b" <borrador>
+# Match → reescribir con verbo honesto ROBOHOGAR (comparado, analizado, declarado por [marca], según reviews)
+
+# (g) Cifras de ahorro inventadas sin resta aritmética (`editorial.md § Honestidad de primera persona`)
+grep -niE "(te ahorra[s]? [0-9]+(\.[0-9]+)?\s*(€|EUR|euros)|ahorra[o] [0-9]+(\.[0-9]+)?\s*€|se ahorran? [0-9]+(\.[0-9]+)?\s*€)" <borrador>
+# Match → suavizar a "cientos de euros" o eliminar cifra (solo permitida si es resta aritmética sobre precios citados)
+
+# (h) Anti-IA universal — correr checklist completa
 # Ver referencias/anti-ia-checklist.md §1
 ```
 
-Objetivo: 0 matches en (a), (b), (c), (d). Si matches en (e), seguir la decisión de la checklist anti-IA.
+Objetivo: 0 matches en (a), (b), (c), (d), (e), (f), (g). Si matches en (h), seguir la decisión de la checklist anti-IA.
 
 ### 7.2 Verificación semántica del hook (§3)
 

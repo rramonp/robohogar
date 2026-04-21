@@ -2,6 +2,55 @@
 
 Destilación ejecutable de las reglas de `asset-catalog.md` para HEROS de artículos. Objetivo: reducir iteraciones por neones de 7-9 a 2-3. Evidencia: tras 5 artículos, Gemini mete neones/pantallas/texto asiático siempre que haya (a) pared trasera visible + múltiples objetos, (b) "LED accents" + varios robots, o (c) escenas tipo "showroom/lineup/gallery".
 
+---
+
+## ⚠️ Dimensiones obligatorias para hero de artículo ROBOHOGAR
+
+**Regla dura 2026-04-21 (reincidente; Rafael lleva tiempo insistiendo):**
+
+- Dimensión final **1200 × 630** (OG estándar Beehiiv / Twitter / LinkedIn card). No 1024×1024. No cuadrado. No otra cosa.
+- Aspect ratio de generación: **16:9** (luego crop centrado a 1200×630, ver § Crop abajo).
+- Modelo obligatorio: `--model 2` (o `--model pro`). **Nunca `flash`**: el `flash` (gemini-2.5-flash-image) **ignora silenciosamente** el parámetro `--aspect` y genera siempre cuadrado 1024×1024. El `2` (gemini-3.1-flash-image-preview) y `pro` respetan 16:9.
+- Tamaño de generación: **`--size 2K`** (produce 2752×1536 aprox). El `1K` en `flash` es lo que causaba los 1024×1024 falsos.
+
+**Comando canónico para hero de artículo ROBOHOGAR:**
+
+```bash
+uv run image.py \
+  --prompt "<prompt específico> <suffix compilado>" \
+  --output "content/articulos/<slug>/assets/hero-<slug>-v<N>.png" \
+  --model 2 \
+  --aspect 16:9 \
+  --size 2K
+```
+
+**Crop obligatorio post-generación** a 1200×630 (ratio 1.905, algo más panorámico que 16:9 puro 1.778):
+
+```python
+from PIL import Image
+TARGET_W, TARGET_H = 1200, 630
+TARGET_RATIO = TARGET_W / TARGET_H  # 1.905
+
+img = Image.open(png_path)
+w, h = img.size
+src_ratio = w / h
+if src_ratio > TARGET_RATIO:
+    new_w = int(h * TARGET_RATIO); left = (w - new_w) // 2
+    img = img.crop((left, 0, left + new_w, h))
+else:
+    new_h = int(w / TARGET_RATIO); top = (h - new_h) // 2
+    img = img.crop((0, top, w, top + new_h))
+img = img.resize((TARGET_W, TARGET_H), Image.LANCZOS)
+img.save(png_path, 'PNG', optimize=True)
+img.save(png_path.replace('.png', '.webp'), 'WEBP', quality=85, method=6)
+```
+
+**Verificación pre-output:** antes de cerrar el artículo, comprobar que los 3 heros tienen `img.size == (1200, 630)` exactos. Si alguno sale a otra dimensión, regenerar. NO ENTREGAR un borrador con heros cuadrados o cualquier otro ratio — es fallo de config, no de gusto del fabricante.
+
+**Incidente origen:** ver § Historial de errores resueltos (entrada 2026-04-21 al final).
+
+---
+
 **Uso:** toda invocación de `/nano-banana` para un hero de artículo DEBE componer el prompt así:
 
 ```
@@ -79,5 +128,6 @@ Si falla alguno: archivar la variante con `mv <archivo> assets/_archive/` (regla
 | `humanoides-domesticos-2026-comparativa` v4 | LED accents → paneles rosa/naranja en robots | Chest panels luminosos | "Matte solid, no illumination" |
 | `humanoides-domesticos-2026-comparativa` v5 | TV con caracteres asiáticos + círculo morado | Decoración de pared | "Eliminar pared — overhead/limbo/backlit" |
 | `la-casa-de-amparo` ep0 v1 | Hero ficción con ventana exterior de barrio Lavapiés | Neones de caracteres asiáticos (morado/cyan/naranja) en escaparates visibles por la ventana del piso | Para heros de ficción en "Lavapiés/Madrid/barrio multicultural": **no usar ventana exterior visible** — mantener escena 100% interior, o usar ventana con persianas cerradas sin exterior a la vista |
+| `mejor-robot-cortacesped-2026` v1/v2/v3 | Hero generado con `--model flash --size 1K --aspect landscape` | Devolvió 1024×1024 cuadrado (el modelo `flash` ignora silenciosamente `--aspect`) | Usar SIEMPRE `--model 2` (o `pro`) + `--aspect 16:9` + `--size 2K` + crop Pillow centrado a 1200×630. Ver § "Dimensiones obligatorias" al inicio de este archivo. Regla dura desde 2026-04-21 tras reincidencia (Rafael había avisado antes). |
 
 Cuando ocurra un error nuevo, añadir fila aquí y regla a § "Palabras a evitar".

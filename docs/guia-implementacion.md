@@ -45,9 +45,9 @@
 
 ## 🎯 Roadmap actual (abr 2026 — pivote SEO-first 2026-04-20)
 
-**Estado (20-abr-2026):**
+**Estado (21-abr-2026):**
 
-- ✅ **8 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [Un humanoide ha batido el récord mundial humano de media maratón. Lo importante no es el robot](https://robohogar.com/p/humanoide-maraton-pekin-record-mundial) (2026-04-20).
+- ✅ **9 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [Mejor robot cortacésped 2026: 6 finalistas + checklist de 7 preguntas antes de comprar](https://robohogar.com/p/mejor-robot-cortacesped-2026) (2026-04-21).
 - ❌ **0 suscriptores** · newsletter semanal diferida hasta 30-50 subs.
 - ❌ **0 Ficciones Domésticas** publicadas (pilar experimental pendiente de arrancar).
 - ✅ **Pipeline de skills funcionando** (`/research-digest` · `/content-draft` · `/nano-banana` · `/post-publish` · `/social-content` · `/obsidian-robohogar`).
@@ -101,19 +101,19 @@ Detalle + razones: memoria `feedback_seo_first_pivote.md`.
 
 ## 📍 Dónde estoy hoy — siguiente paso
 
-> Última actualización: 20-abr-2026, tras publicar #8 *[Un humanoide ha batido el récord mundial humano de media maratón. Lo importante no es el robot](https://robohogar.com/p/humanoide-maraton-pekin-record-mundial)*.
+> Última actualización: 21-abr-2026, tras publicar #9 *[Mejor robot cortacésped 2026: 6 finalistas + checklist de 7 preguntas antes de comprar](https://robohogar.com/p/mejor-robot-cortacesped-2026)*.
 
 ### 📌 Próximos 3 next steps
 
 > Plantilla viva. `/post-publish` y `/pdf-brand` **deben** actualizar estos 3 bullets al completar tareas (marcar el completado · añadir el siguiente desde backlog de `calendario-editorial.md` · actualizar "Último artículo" / "Último tangible" en [[#🎯 Roadmap actual (abr 2026)\|🎯 Roadmap actual]]). Si los 3 están marcados al abrir una sesión, tirar del backlog de calendario.
 
-- [x] **Next 1 —** ~~Publicar artículo #7 *"Mejor robot aspirador 2026 · Guía de compra"*~~ → Publicado 19-abr-2026. URL: https://robohogar.com/p/mejor-robot-aspirador-2026
-- [x] **Next 2 —** ~~Publicar artículo #8 *"Un humanoide bate el récord mundial humano de media maratón"*~~ → Publicado 20-abr-2026. URL: https://robohogar.com/p/humanoide-maraton-pekin-record-mundial
-- [ ] **Next 3 —** **Evergreen E1 — Mejor robot cortacésped 2026** (estacional primavera-verano, ventana abr-jul) · frase trigger: *"Retomamos evergreen — empezamos E1 cortacésped"* · `/content-draft Mejor robot cortacésped 2026 · guía de compra` · ver [calendario-editorial.md § Backlog Evergreen SEO](../content/calendario-editorial.md)
-- [ ] **Next 4 —** Primera flash Ficciones Domésticas *"El operador nocturno"* (solo si E1 está cerrado · regla evergreen-first) · frase trigger: *"Retomamos ficciones — arrancar piloto"* · `/ficcion-draft`
-- [ ] **Next 5 —** **Evergreen E13 o E14 — Mascota robot IA / Asistente IA escritorio** (hedge emerging · alto potencial viral) · frase trigger: *"Retomamos evergreen — E13"* o *"— E14"* · ver backlog E1-E14
+- [x] **Next 1 —** ~~Publicar artículo #8 *"Un humanoide bate el récord mundial humano de media maratón"*~~ → Publicado 20-abr-2026. URL: https://robohogar.com/p/humanoide-maraton-pekin-record-mundial
+- [x] **Next 2 —** ~~Publicar artículo #9 *"Mejor robot cortacésped 2026 · Guía de compra"* (E1 del backlog evergreen, estacional)~~ → Publicado 21-abr-2026. URL: https://robohogar.com/p/mejor-robot-cortacesped-2026
+- [ ] **Next 3 —** Primera flash Ficciones Domésticas *"El operador nocturno"* (ahora que el evergreen de la semana está cerrado · regla evergreen-first cumplida) · frase trigger: *"Retomamos ficciones — arrancar piloto"* · `/ficcion-draft`
+- [ ] **Next 4 —** **Evergreen E12 — Robot cortacésped vs tradicional: ROI en 3 años** (estacional mismo pico abr-jul · cluster SEO con E1 vía internal linking) · frase trigger: *"Retomamos evergreen — empezamos E12 ROI cortacésped"* · `/content-draft Robot cortacésped vs cortacésped tradicional: ROI en 3 años` · ver [calendario-editorial.md § Backlog Evergreen SEO](../content/calendario-editorial.md)
+- [ ] **Next 5 —** **Evergreen E4 — Mejor robot aspirador para piso pequeño (<60 m²)** (long-tail baja competencia, perfil ES típico, no estacional) · frase trigger: *"Retomamos evergreen — empezamos E4 piso pequeño"* · `/content-draft`
 
-**Último artículo publicado:** #8 *Un humanoide ha batido el récord mundial humano de media maratón. Lo importante no es el robot* (2026-04-20).
+**Último artículo publicado:** #9 *Mejor robot cortacésped 2026: 6 finalistas + checklist de 7 preguntas antes de comprar* (2026-04-21).
 **Último tangible publicado:** Hoja de Compra v2 PDF (2026-04-18) → `content/lead-magnets/hoja-compra/`.
 
 ### 🌍 Filtro mercado ES — regla base

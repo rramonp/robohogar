@@ -180,6 +180,72 @@ Formas prohibidas específicas:
 
 Voz de autoridad propia (§ editorial anterior) + cero referencias fantasma = contrato básico con el lector de ROBOHOGAR.
 
+## Honestidad de primera persona — cero verbos de acción no realizada
+
+Regla dura hermana de "Voz de autoridad propia" y "Cero referencias fantasma". Aplica a todo contenido publicable (artículo, review, comparativa, editorial, guía, newsletter, ficha tangible).
+
+**Principio:** la voz plural editorial ("hemos") solo puede atribuirse a acciones que ROBOHOGAR realmente ha realizado. El equipo editorial de ROBOHOGAR trabaja con fichas oficiales, reviews internacionales, datos públicos de mercado y criterio editorial. **No tiene laboratorio, no tiene los robots en mano, no desmonta unidades, no mide ruido ni duración de batería, no prueba en jardines ni en pisos**. Cualquier verbo que implique acción experimental física que no hemos hecho es mentira — y una sola mentira rompe el contrato con el lector para todo el resto del artículo.
+
+**Verbos prohibidos en voz ROBOHOGAR salvo que describa algo literalmente ejecutado:**
+
+| Verbo/frase prohibida | Por qué | Sustitución honesta |
+|---|---|---|
+| "6 modelos probados" · "hemos probado" · "probamos X" | Implica test físico en mano | "6 modelos comparados" · "hemos analizado" · "contrastamos fichas y reviews" |
+| "uso real en pisos/jardines españoles" · "en nuestras pruebas" · "en nuestro test" | Implica experimentación propia | "en reviews internacionales del último año" · "según la ficha oficial" · "contrastando fichas + reviews" |
+| "hemos medido X dB" · "ruido medido de 57 dB" | Implica equipo calibrado | "57 dB declarados por [marca]" · "según ficha oficial de [marca]" |
+| "hemos desmontado" · "hemos abierto" · "hemos visto por dentro" | Implica unidad de muestra | "según el despiece publicado por [fuente]" · eliminar si no hay fuente |
+| "nos ha gustado" · "nos ha convencido al probarlo" · "lo hemos oído" | Implica experiencia sensorial | "según las reviews que cubren el modelo" · "en reviews internacionales" · reescribir sin claim sensorial |
+| "Instalación en 30 minutos literales" · "le hemos cronometrado" | Implica medición propia | "Instalación declarada de 30 minutos por el fabricante" |
+| "en primeros meses aún pisa alguna flor" · "nos atacó una flor" | Claim de uso propio | "reviews internacionales del primer año señalan confusiones con flores pequeñas" |
+| "De 14 modelos probados nos quedamos con 6" | Implica 14 unidades en mano | "De 14 candidatos revisados nos quedamos con 6" · "seleccionados entre 14 candidatos tras cruzar fichas y distribución ES" |
+
+**Verbos ✅ permitidos en voz plural ROBOHOGAR:**
+
+- *"hemos comparado"* · *"hemos analizado"* · *"hemos leído"* · *"hemos seleccionado"* · *"hemos elegido"* · *"hemos descartado"* · *"hemos cruzado"* · *"hemos contrastado"*
+- *"hemos decidido"* · *"hemos priorizado"* · *"hemos revisado"* · *"hemos verificado en [fuente externa]"* · *"hemos confirmado en Amazon.es"*
+- *"nos ha sorprendido la ficha"* · *"nos ha llamado la atención el precio"* · *"nos parece"* · *"nuestra lectura es"*
+- *"recomendamos"* · *"descartamos"* · *"preferimos"*
+
+Lo que ROBOHOGAR hace de verdad es **análisis editorial riguroso sobre información pública**: leer fichas oficiales, cruzar con reviews internacionales de Xataka, T3, PCMag, Wirecutter, CGMagazine, YouTube-reviewers, verificar distribución ES en Amazon.es / Leroy Merlin / tiendas oficiales, y emitir juicio editorial por perfiles. Eso es más que suficiente para una guía de compra honesta y con voz propia — no hace falta mentir con verbos de test que no existen.
+
+**Cifras concretas de ahorro/ventaja/pérdida — prohibido inventar:**
+
+Promesas tipo *"te ahorra 800 €"*, *"te ahorras 600 € antes de comprar"*, *"ahorra 200 € al mes"*, *"diferencia de 450 € frente a X"* que aparezcan en **subtítulos, meta descriptions, hooks, callouts o CTAs** están PROHIBIDAS salvo que la cifra sea aritmética directa sobre precios citados en el mismo artículo con fuente (ej: "el NERA te saca 900 € por encima del Worx" cuando NERA=2.099 € y Worx=1.199 € son precios citados con link → 900 € es resta verificable ✅).
+
+Prohibido por inventadas:
+- ❌ *"checklist de 7 preguntas que te ahorra 800 € antes de comprar"* (¿800 € frente a qué alternativa?)
+- ❌ *"checklist de 5 preguntas que te ahorra 600 € antes de comprar"* (idem, artículo aspirador 2026)
+- ❌ *"te ahorra 80-120 € si ya tienes X en casa"* (cifra inventada sobre accesorios)
+- ❌ *"Gardena te ahorra 200 €"* (diferencia aritmética que no corresponde con los precios citados)
+
+Sustitución honesta — opciones ordenadas de menos a más conservadora:
+1. **Resta aritmética directa**: cuando los dos precios están citados con fuente, dar la cifra (*"te saca 900 € por encima del Worx M800"*). Si falta uno de los dos precios con fuente, no.
+2. **Generalización cualitativa**: *"cientos de euros"*, *"varias decenas de euros"*, *"una diferencia notable"*, *"el equivalente a una cuota de comunidad"*.
+3. **Sin cifra, promesa de no-error**: *"checklist de 7 preguntas para no equivocarte al comprar"*, *"checklist de 7 preguntas para que no compres de más"*, *"checklist de 5 cosas que verificar antes de darle al botón"*.
+
+La promesa de "no equivocarse" o "no comprar de más" es más fuerte editorialmente que una cifra inventada, porque es verdad y porque el lector sabe que las cifras redondas en headlines son marketing. Usar la versión 3 como default cuando no haya resta aritmética defendible.
+
+**Claims sensoriales y técnicos siempre con framing:**
+
+Cualquier afirmación sobre ruido, silencio, fluidez de corte, duración real de batería, capacidad real de pendiente, etc. debe llevar en la **misma frase o párrafo** uno de estos framings:
+
+- *"declarado por [marca]"* · *"según la ficha oficial"*
+- *"según las reviews internacionales"* · *"según el review de [medio]"*
+- *"según usuarios verificados en [plataforma]"*
+
+Sin framing → reescribir sin claim sensorial o eliminar la frase.
+
+**Incidente origen 2026-04-21:** artículo #9 *"Mejor robot cortacésped 2026"* (guía de compra evergreen). El subtítulo de entrada abría con *"6 modelos probados, de 1.099 € a 2.499 €…"* — mentira flagrante (ningún modelo se había probado, solo se habían analizado fichas + reviews). Además: *"filtro de uso real en jardines españoles, no ficha técnica en frío"* (exactamente lo contrario de la realidad), *"instalación en 30 minutos literales"* (implica cronómetro propio), *"57 dB medido"* (implica equipo propio), *"en los primeros meses pisa alguna flor"* (implica test de campo). Rafael detectó el subtítulo a los 3 segundos de abrir el borrador y paró la entrega. Ampliación: memoria [`feedback_robohogar_no_fake_testing_claims.md`](../../../RRP-DEV/.claude/memory/feedback_robohogar_no_fake_testing_claims.md).
+
+**Aplicación operativa:**
+- `content-draft.md` § 8.4 quater — grep pre-output obligatorio sobre la lista de verbos prohibidos de arriba. Rechazo automático si hay ≥1 match sin justificación explícita.
+- `ficcion-draft.md` — no aplica en narrador omnisciente (la ficción puede inventar acciones del personaje). Sí aplica en el bloque "Lo real detrás del relato" cuando la voz vuelve a ser ROBOHOGAR editorial.
+- `post-publish.md` — grep final en el HTML publicado. **Triaje:** mentira evidente + fix ≤1 frase → auto-fix en borrador + published + reportar. Mentira estructural (afecta tesis del artículo) → parar y consultar.
+
+**Regla de actitud:** cuando el agente redacte una frase que contenga "hemos X", debe preguntarse: *"¿realmente hemos hecho X?"*. Si no, reescribir. El escape fácil ("6 modelos probados" es marketing clásico) es el que rompe el contrato editorial. ROBOHOGAR no hace marketing, hace análisis editorial riguroso.
+
+Voz de autoridad propia + cero referencias fantasma + cero verbos de acción no realizada = contrato editorial completo con el lector de ROBOHOGAR.
+
 ## Datos con fuente rastreable — cada cifra cita o cualifica
 
 Regla hermana de "Cero referencias fantasma". Aplica a todo contenido publicable (artículo, review, comparativa, editorial, guía, newsletter, ficción con datos anclados).

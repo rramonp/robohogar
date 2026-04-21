@@ -102,11 +102,18 @@ El flag se replica en `content/registro-articulos.md` (columna Evergreen) como f
 
 ### 6. Generar hero image (OBLIGATORIO — 3 variantes)
 
-Generar 3 variantes con composiciones distintas → `content/articulos/<slug>/assets/hero-<slug>-v{1,2,3}.png`. Modelo: `flash`, aspect: `landscape`, size: `1K`. Script: `$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py`.
+Generar 3 variantes con composiciones distintas → `content/articulos/<slug>/assets/hero-<slug>-v{1,2,3}.png`. Script: `$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py`.
+
+**⚠️ Configuración obligatoria (regla dura 2026-04-21 — reincidente):**
+- Modelo: `--model 2` (o `--model pro`). **NUNCA `flash`** — el `flash` (gemini-2.5-flash-image) ignora silenciosamente el parámetro `--aspect` y genera siempre cuadrado 1024×1024, rompiendo el estándar OG 1200×630.
+- Aspect: `--aspect 16:9`.
+- Size: `--size 2K` (produce 2752×1536 aprox — base para el crop).
+- **Crop obligatorio post-generación a 1200×630 exacto** (OG estándar Beehiiv/Twitter/LinkedIn) con Pillow. Receta canónica: `assets/branding/nano-banana-prompt-base.md § Dimensiones obligatorias`.
+- **Verificación pre-output:** abrir los 3 `.webp` con Pillow y comprobar `img.size == (1200, 630)`. Si alguno no lo cumple → regenerar. No entregar borrador con heros cuadrados o ratios equivocados.
 
 **Antes de lanzar cualquier prompt:** leer `assets/branding/nano-banana-prompt-base.md`. Contiene el **decision tree** (qué composición usar según escena — 1 robot vs varios, home vs warehouse, etc.) y el **suffix compilado anti-neones** que DEBE concatenarse al prompt específico. Con eso se reduce de 7-9 iteraciones a 2-3 por hero.
 
-Secundariamente, `assets/branding/asset-catalog.md` para prompts exactos por tipo de artículo. El script genera `.webp` automáticamente — subir WebP a Beehiiv.
+Secundariamente, `assets/branding/asset-catalog.md` para prompts exactos por tipo de artículo. El script genera `.webp` automáticamente al guardar el PNG — subir WebP a Beehiiv (mantener PNG + WebP en repo).
 
 ### 7. Descargar imágenes inline de fuentes (OBLIGATORIO — EJECUTAR EN EL MISMO TURNO)
 
@@ -238,7 +245,48 @@ grep -niE '(tests? internos|según la marca|según el fabricante|la marca afirma
 
 **Datos catalogados:** toda cifra debe tener fuente verificable en `references/fuentes-por-categoria.md` para esa categoría. Si no está catalogada → añadirla antes de entregar o descartar el dato.
 
-**Regla de decisión:** ≥1 match sin arreglar → rechazar output · 0 matches sin arreglar → proceder al 8.5.
+**Regla de decisión:** ≥1 match sin arreglar → rechazar output · 0 matches sin arreglar → proceder al 8.4 quater.
+
+### 8.4 quater. Honestidad de primera persona — OBLIGATORIO antes de entregar borrador
+
+Regla dura activada 2026-04-21. Aplica `@rules/editorial.md § Honestidad de primera persona — cero verbos de acción no realizada`. ROBOHOGAR NO prueba robots en mano, NO desmonta unidades, NO mide dB ni tiempos con cronómetro propio. Cualquier verbo que implique eso es mentira editorial inmediata.
+
+**Grep obligatorio pre-entrega** (`borrador.html`):
+
+```bash
+# (a) Verbos de test físico con voz plural/pasado
+grep -niE "\b(probad[oa]s?|probamos|hemos probado|testad[oa]s?|hemos testad|medid[oa]s?|hemos medido|desmontad[oa]s?|hemos desmontado|hemos usado|hemos visto en acción|en nuestro test|en nuestras pruebas|en mano|lo hemos oído|lo hemos tenido|hemos comprobado|hemos cronometrado)\b" content/articulos/<slug>/borrador.html
+
+# (b) Afirmaciones de "uso real" que implican experimentación propia
+grep -niE "(uso real en (jardines|pisos|hogares|casas)|en pruebas reales|probados en|testados en|en nuestras manos|nuestra experiencia con el producto)" content/articulos/<slug>/borrador.html
+
+# (c) Claims sensoriales o de medición sin framing de fuente
+grep -niE "(literal(es|mente) [0-9]|cronometrados? en|medimos |medid[ao] (por nosotros|en nuestro)|hemos (escuchado|oído|percibido|visto por dentro))" content/articulos/<slug>/borrador.html
+
+# (d) "6 modelos probados" / "Probados X robots" en subtítulos/headers
+grep -niE "(probad[oa]s? [0-9]+ (modelos?|robots?|aspiradores?|cortacésped|humanoides))" content/articulos/<slug>/borrador.html
+
+# (e) Cifras de ahorro/ventaja inventadas en subtítulos/CTAs/meta (patrón "te ahorra X €")
+grep -niE "(te ahorra[s]? [0-9]+(\.[0-9]+)?\s*(€|EUR|euros)|ahorr[ao] [0-9]+(\.[0-9]+)?\s*€|ahorran [0-9]+(\.[0-9]+)?\s*€|diferencia de [0-9]+(\.[0-9]+)?\s*€|se ahorran? [0-9]+(\.[0-9]+)?\s*€)" content/articulos/<slug>/borrador.html
+```
+
+**Para cada match:** reescribir con un sustituto honesto de la tabla de `@rules/editorial.md § Honestidad de primera persona`. Ej:
+- *"6 modelos probados"* → *"6 modelos comparados sobre fichas oficiales y reviews internacionales"*
+- *"filtro de uso real en jardines españoles"* → *"filtro que cruza ficha oficial + reviews internacionales + distribución ES"*
+- *"instalación en 30 minutos literales"* → *"instalación declarada de 30 minutos por el fabricante"*
+- *"57 dB de ruido medido"* → *"57 dB declarados por [marca]"*
+- *"en primeros meses aún pisa alguna flor"* → *"reviews internacionales del primer año señalan confusiones con flores pequeñas"*
+- *"checklist que te ahorra 800 € antes de comprar"* → *"checklist para no equivocarte al comprar"* / *"checklist para no comprar de más"* / *"checklist de 5 cosas que verificar antes de darle al botón"*
+- *"te ahorra 80-120 € si ya tienes X"* → *"te ahorra algo de dinero si ya tienes X"* o eliminar la cifra
+- Resta aritmética directa SÍ permitida: *"el NERA te saca 900 € por encima del Worx"* cuando ambos precios están citados con fuente en el mismo artículo (2.099 − 1.199 = 900)
+
+**Verbos ✅ permitidos en voz plural ROBOHOGAR:** "hemos comparado", "hemos analizado", "hemos leído", "hemos seleccionado", "hemos descartado", "hemos cruzado", "hemos contrastado", "hemos verificado en [fuente]", "nos ha sorprendido la ficha", "nos parece", "recomendamos", "descartamos". Lo que ROBOHOGAR hace de verdad es análisis editorial sobre información pública — eso basta.
+
+**Regla de decisión:** ≥1 match sin justificación explícita en la misma frase (framing "según el fabricante" / "según reviews de [medio]" / "declarado por [marca]") → **rechazar output y reescribir**. Nunca entregar un borrador con un solo verbo mentiroso — la voz entera del artículo se cae con él.
+
+**Incidente origen + detalle operativo:** memoria [`feedback_robohogar_no_fake_testing_claims.md`](../../../RRP-DEV/.claude/memory/feedback_robohogar_no_fake_testing_claims.md). Regla completa: `@rules/editorial.md § Honestidad de primera persona`.
+
+Proceder al 8.5 solo con 0 matches (o todos los matches justificados con framing de fuente).
 
 ### 8.5. Anti-IA checklist §1 Universal — OBLIGATORIO antes de entregar borrador
 
@@ -260,9 +308,54 @@ Esta checklist complementa (no sustituye) la anti-IA universal del paso 8.5. La 
 - [ ] **§7.3 Voz personal** (≥3 de 4 en artículos ≥1.000 palabras): apertura con anécdota/persona/momento + humildad epistémica en veredicto + pregunta genuina (si editorial reflexivo) + reclamo humano (1 de cada 3 artículos)
 - [ ] **§7.4 Recursos ES positivos** (≥3 de 7): aposición explicativa + dos puntos como pivote + frase corta encadenada + autoexención voluntaria + perífrasis de reencuadre + plural impersonal inclusivo + puente oral ES (*"en honor a la verdad"*, *"tenemos claro que"*, *"letra pequeña"*)
 
-**Regla de decisión:** ≥3 flags automáticos O hook genérico O <3 recursos voz personal (§7.3) O <3 recursos ES positivos (§7.4) → reescribir apertura y cierre como mínimo · 1-2 flags → reescribir frases señaladas · 0 flags + hook ok + recursos presentes → proceder al paso 8.6.
+**Regla de decisión:** ≥3 flags automáticos O hook genérico O <3 recursos voz personal (§7.3) O <3 recursos ES positivos (§7.4) → reescribir apertura y cierre como mínimo · 1-2 flags → reescribir frases señaladas · 0 flags + hook ok + recursos presentes → proceder al paso 8.5 ter.
 
 Referentes canónicos del nicho aspirador ROBOHOGAR: **Eva R. de Luis (Xataka)** para reviews — hook con subordinada + pero, veredicto segmentado por perfil, puentes orales ES. **Antonio Ortiz (Error500)** para editoriales — humildad epistémica y analogía estructural.
+
+### 8.5 ter. Calcos léxicos EN→ES — OBLIGATORIO antes de entregar borrador
+
+Capa adicional de validación ES activada 2026-04-21. Motivo: el LLM sigue introduciendo calcos sintácticos/léxicos específicos (*"no compres de más"*, *"dale al botón de comprar"*, *"centro de llamadas"*) que no filtran ni el §8.5 anti-IA ni el §8.5 bis editorial-es. Replica el enfoque que ya aplica `/ficcion-draft § 8.3` en narrativa, adaptado a no-ficción.
+
+**Cargar** (lectura obligatoria si no están en contexto):
+- [`@references/editorial-es/01-articulos-y-columnas.md § 4.1`](../../references/editorial-es/01-articulos-y-columnas.md) — tabla de calcos anglo en transiciones y marketing-copy (10 entradas).
+- [`@references/ficciones/castellano-literario-es.md § 8.1`](../../references/ficciones/castellano-literario-es.md) — los 21 calcos canónicos (aplicar los relevantes a no-ficción: 1 posesivos con partes del cuerpo · 3 "de repente" · 4 adverbios -mente · 7 conectores anglo · 13 "centro de X" · 15 voz técnica · 17 microcopy UI anglo · 19 "Es decir, X, y Y" · 20 inciso em-dash · 21 dativos de persona errados; NO aplicar los específicos de narrativa: 5 voz pasiva en narrador · 14 "en boca de").
+
+**Grep obligatorio pre-entrega** sobre `borrador.html`:
+
+```bash
+# (a) Calcos de marketing-copy anglo (editorial-es §4.1 #9 y #10)
+grep -niE "(no (compres|pagues?) de más|comprar de más|pagar de más|ahorrarte comprar|dale al botón de (comprar|pagar|finalizar))" content/articulos/<slug>/borrador.html
+
+# (b) Conectores anglo en transiciones (editorial-es §4.1 #1-#8)
+grep -niE "(por otro lado|en este sentido|dicho esto|es importante destacar|cabe destacar|adicionalmente|en conclusión,|en definitiva,|es por ello que|es por esto que|a la hora de|de cara a)" content/articulos/<slug>/borrador.html
+
+# (c) "Centro de X" traducido de "X center" (calco #13 ficciones)
+grep -niE "(centro de (demostración|demostracion|llamadas|datos|servicio|atención|atencion|operaciones)|call center|data center)" content/articulos/<slug>/borrador.html
+
+# (d) Voz técnica anglo en narrador editorial (calco #15 ficciones)
+grep -niE "\b(configuré|configuró|configuro|configura|configurado|registra|registró|registrado|activó|activado|ejecutó|ejecuta|módulo|input|output|backend|cruzó con (los |las |el |la )?(datos|fotos|archivos|registros|imágenes|imagenes|perfiles|contactos|campos))\b" content/articulos/<slug>/borrador.html
+
+# (e) Microcopy UI anglo traducido (calco #17 ficciones)
+grep -niE "(No, gracias|¿Estás seguro|¿Estas seguro|Enviar feedback|Aprender más|Aprender mas|Configuraciones|[Gg]ot it)" content/articulos/<slug>/borrador.html
+
+# (f) Adverbios -mente en cascada (calco #4 ficciones, aplica a artículos)
+COUNT=$(grep -oE "[a-záéíóúñ]+mente\b" content/articulos/<slug>/borrador.html | wc -l)
+echo "Adverbios -mente: $COUNT (objetivo ≤8 en guía de compra ≥2.500 palabras · ≤4 en artículo <1.200 palabras)"
+
+# (g) "Es decir, X, y Y" — inciso con coordinación anglo (calco #19 ficciones)
+grep -niE "\bEs decir, [^.,]{1,40}, y [a-z]" content/articulos/<slug>/borrador.html
+```
+
+**Regla de decisión:**
+- ≥1 match en (a), (c), (d), (e), (g) → **reescribir antes de entregar** (son calcos duros sin contexto válido en artículo).
+- Matches en (b) → revisar caso a caso; algunos pueden tener uso válido (*"por otro lado"* como transición limpia entre dos tesis contrapuestas ≠ relleno anglo).
+- Count (f) fuera de objetivo → reescribir frases con -mente de más a perífrasis (*"absolutamente"* → *"del todo"*, *"rápidamente"* → *"rápido"*).
+
+**Read-aloud test — último filtro (heredado de ficciones § 8.1):** si algún match es ambiguo (típicamente (d) y (g) por contexto), LEER LA FRASE EN VOZ ALTA. Si el oído peninsular tropieza — si suena a doblaje de serie, a voz de Google Translate, o a manual técnico traducido — reescribir. Los greps son el primer filtro; la oreja es el segundo y definitivo.
+
+**Origen e incidente 2026-04-21:** artículo #9 cortacésped. El subtítulo entregado decía *"checklist de 7 preguntas para que no compres de más al darle al botón"* — calco literal de *"don't overbuy at checkout"*. Rafael lo detectó al leer: *"'comprar de más' en ES significa 'he comprado 20 aspiradores sin querer, no sea caso'; la forma ES es 'pagar más de la cuenta'"*. Las reglas previas (§ 8.5 anti-IA + § 8.5 bis editorial-es) no incluían este calco específico. Este paso 8.5 ter cierra el agujero.
+
+**Regla de decisión final:** proceder al 8.6 solo con 0 matches en (a), (c), (d), (e), (g) + count (f) dentro de objetivo + cualquier match ambiguo resuelto por read-aloud test.
 
 ### 8.6. Formato técnico Beehiiv — OBLIGATORIO antes de entregar borrador
 
@@ -309,12 +402,15 @@ Aplicar [`@rules/tangibles.md § Reglas operativas`](../../.claude/rules/tangibl
 
    | `category` | Banner Hoja de Compra | Posiciones a insertar |
    |---|---|---|
-   | `aspirador`, `cortacésped`, `fregasuelos`, `limpia-cristales` | ✅ Sí | Si words >1.500: **intro + cierre**. Si words ≤1.500: **solo cierre**. |
+   | `aspirador`, `fregasuelos`, `limpia-cristales` | ✅ Sí | Si words >1.500: **intro + cierre**. Si words ≤1.500: **solo cierre**. |
+   | `cortacésped` | ❌ No — ajuste 2026-04-21 | Las 10 preguntas de Hoja de Compra son aspirador-céntricas (m² piso, umbrales, pelo de mascota, ecosistema Matter). Dolor del lector cortacésped es distinto (pendiente, cable perimetral, ruido vecindario, servicio técnico ES). Tangible específico "Hoja de Compra cortacésped" pendiente F2. |
    | `mascota-robot` (Aibo/Loona/LOOI) | ❌ No — ajuste 2026-04-19 | Tangible específico "Mascota-robot: qué esperar" pendiente F2. Intención lector ≠ aspirador. |
    | `asistente-ia-escritorio` (Eilik, asistentes IA de escritorio) | ❌ No — ajuste 2026-04-19 | Tangible específico pendiente F2. |
    | `humanoide` | ❌ No | Tangible "Guía early adopter humanoides" pendiente mes 3-4. |
    | `ficcion` | ❌ No | Canal narrativo, no mezclar con CTA comercial. |
    | `editorial` sin ángulo de compra | ❌ No | — |
+
+   **Regla general (2026-04-21):** un banner solo se pega si el tangible al que apunta **responde las preguntas concretas** del lector de ese artículo. "Categoría consumer dentro de 500-1.500 €" NO es criterio suficiente. Si no hay variante del tangible para la categoría → artículo SIN banner hasta que la haya. Ver `@rules/tangibles.md § Reglas operativas` "Regla general".
 
 4. **Insertar el banner como BLOQUE DE CÓDIGO VISIBLE** (`<div class="snippet-block">`), NO como `<div>` inline renderizado. Regla completa: `@rules/design.md § Bloques de código para snippets HTML inline en borradores`. Razón: Rafael publica haciendo copy-paste desde el borrador al editor Beehiiv vía `/html` → "Custom HTML block", que requiere el HTML como **texto copiable**, no como elemento ya renderizado.
    - **Posición intro:** tras el callout de intro amber, antes del primer `<h2>` de contenido.
@@ -335,11 +431,11 @@ Aplicar [`@rules/tangibles.md § Reglas operativas`](../../.claude/rules/tangibl
 7. **UTMs estándar Beehiiv** en el `href` del banner: `?utm_source=<slug>&amp;utm_medium=banner&amp;utm_campaign=hoja-compra`.
 
 **Verificación pre-output:** antes de cerrar el skill, contar bloques `<div class="snippet-block">` que contengan "Banner Hoja de Compra" en el HTML generado. Debe ser:
-- 0 si `category ∈ {humanoide, ficcion, editorial}`
-- 1 si categoría consumer y words ≤1.500
-- 2 si categoría consumer y words >1.500
+- **0** si `category ∈ {humanoide, mascota-robot, asistente-ia-escritorio, cortacésped, ficcion, editorial-sin-angulo-compra}`
+- **1** si categoría incluida en el scope (`aspirador · fregasuelos · limpia-cristales`) y words ≤1.500
+- **2** si categoría incluida en el scope y words >1.500
 
-Si el conteo no coincide → auto-corregir antes de entregar. Además, verificar que el CSS `.snippet-block` esté en el `<style>` del borrador.
+Si el conteo no coincide → auto-corregir antes de entregar. Además, verificar que el CSS `.snippet-block` esté en el `<style>` del borrador **solo si hay al menos 1 snippet**; si el artículo va sin banner, el CSS `.snippet-block` puede omitirse (no afecta si se queda — es CSS inerte).
 
 **Versionado futuro:** si aparece un nuevo tangible (ej. Guía primer mes aspirador, Glosario ROBOHOGAR), ampliar la tabla de arriba (categoría → tangible → posición) y los snippets en [`banner-lead-magnet-snippets.md`](../../content/templates/banner-lead-magnet-snippets.md). Un artículo puede llevar 2 banners distintos (1 por momento de funnel — ver `@rules/tangibles.md § Mapeo momento del funnel`).
 

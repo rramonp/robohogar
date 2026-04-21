@@ -205,11 +205,43 @@ Reviews, comparativas, guías de compra de robots aspiradores.
 
 ## Cortacéspedes
 
-Reviews, configuración, mantenimiento de robots cortacésped.
+Reviews, configuración, mantenimiento de robots cortacésped. Catalogado 2026-04-21 tras artículo #9 guía de compra 2026.
 
-### Fuentes independientes
+### Fuentes oficiales de fabricante (ES/EU)
 
-*Pendiente: investigación dedicada cuando toque artículo de cortacéspedes*
+| Fabricante | URL oficial | Qué cubre |
+|---|---|---|
+| Husqvarna | https://www.husqvarna.com/es/robots-cortacesped/ | Automower, NERA, EPOS (navegación satélite propia) |
+| Gardena (Husqvarna Group) | https://www.gardena.com/es/productos/cuidado-del-cesped/robots-cortacesped/ | Sileno Life / City / Minimo · cable perimetral + Smart App |
+| Worx | https://eu.worx.com/en/worx-landroid-vision-m800-wr208e/ · https://eu.worx.com/ | Landroid Vision M800/L · cámara 4K + AI Vision · plataforma PowerShare |
+| Mammotion | https://es.mammotion.com/ · https://mammotion.com/ | LUBA 2/3 AWD (RTK 4×4) · YUKA / YUKA mini 2 (LiDAR) |
+| Segway Navimow | https://navimow.segway.com/ · https://navimow.com/ | Navimow i2 LiDAR (solid-state) · NetRTK opcional |
+| Stihl | https://www.stihl.es/ | iMOW 5/6 · cable perimetral |
+| Ecovacs | https://www.ecovacs.com/es/ | GOAT G1 · AIVI 3D · distribución ES fragmentada (validar PVP en sesión) |
+
+### Reviews independientes útiles
+
+| Fuente | Idioma | Nota |
+|---|---|---|
+| Xataka Home · tag cortacésped | ES | Referencia nacional para reviews de jardín |
+| Omicrono / El Español | ES | Cobertura de lanzamientos EU (MOVA, Mammotion) |
+| T3 | EN | Reviews sólidas de Husqvarna y Mammotion |
+| PCMag · Best Robot Lawn Mowers | EN | Ranking anual comparable |
+| Wirecutter (NYT) | EN | Test metodológico — útil como fuente de autoridad puntual |
+| CGMagazine | EN | Reviews de nicho |
+
+### Retailers ES con stock verificable
+
+- **Leroy Merlin** — Husqvarna, Gardena, Worx. Gama media-alta con servicio técnico en tienda.
+- **Amazon.es** — catálogo más amplio pero mezcla productos con y sin garantía peninsular (validar vendedor).
+- **Anova Tienda, Agrieuro, Domasa, Lineonline** — distribuidores especializados ES para Gardena/Husqvarna/Stihl con PVP publicado.
+- **MediaMarkt / El Corte Inglés** — catálogo muy limitado en cortacésped robot (solo modelos básicos).
+
+### Datos de mercado ES/EU
+
+- **Statista Market Outlook — Lawn Mowers Spain** (https://www.statista.com/outlook/cmo/household-appliances/large-appliances/lawn-mowers/spain) — penetración ES vs EU.
+- **INE encuesta tiempo tareas domésticas** (https://www.ine.es/prensa/ect_2023.pdf) — tiempo dedicado a jardinería en hogares ES.
+- **Husqvarna Group corporate news — EPOS 2024** (https://www.husqvarna.com/international/about-us/corporate-news/2024/epos-wire-free-milestone) — contexto histórico adopción wire-free.
 
 ---
 
