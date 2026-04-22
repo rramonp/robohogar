@@ -55,7 +55,7 @@ Dark-themed, centrado, 4 elementos (pregunta + beneficio + botón + trust-line).
 ```html
 <div style="margin:40px 0 0;padding:28px 24px;background:#283642;border-radius:8px;color:#FFFFFF;text-align:center;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;">
   <div style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;color:#FFFFFF;line-height:1.3;margin-bottom:10px;">¿Te ha servido este análisis?</div>
-  <p style="margin:8px 0 16px;font-size:15px;color:#FFFFFF;line-height:1.55;">Cada semana, comparativas, reviews, editoriales y relatos.</p>
+  <p style="margin:8px 0 16px;font-size:15px;color:#FFFFFF;line-height:1.55;">De andar por casa. Cada semana.</p>
   <a href="https://robohogar.com" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:12px 24px;border-radius:6px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Suscribirse</a>
   <p style="margin:14px 0 0;font-size:12px;color:#FFFFFF;line-height:1.4;">Newsletter gratis. Un email por semana. Cancela cuando quieras.</p>
 </div>

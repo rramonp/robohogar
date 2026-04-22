@@ -212,7 +212,7 @@ git pull
 - [x] Ir a **https://app.beehiiv.com/signup**
 - [x] Rellenar: nombre → `Rafael`, email → tu email personal, contraseña
 - [x] Publication Name → `ROBOHOGAR`
-- [x] Description → `Tu dosis de robótica doméstica · Cada semana, comparativas, reviews, editoriales y relatos`
+- [x] Description → `ROBOHOGAR — Robótica doméstica de andar por casa. Análisis y Ficciones Domésticas cada semana.`
 - [x] Category → `Technology`
 - [x] Frequency → `Weekly`
 
@@ -293,8 +293,8 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 
 **Hero (above the fold):**
 
-- [x] Headline → `Tu dosis de robótica doméstica`
-- [x] Subtítulo → `Cada semana, comparativas, reviews, editoriales y relatos`
+- [x] Headline → `Robótica doméstica de andar por casa`
+- [x] Subtítulo → `Análisis y Ficciones Domésticas. Cada semana.`
 - [x] Placeholder del input → `tu@email.com`
 - [x] Botón → `Suscríbete gratis` con fondo `#F5A623`, texto `#FFFFFF`
 - [x] Sin texto bajo el botón — el trust text (`100% gratis · Sin spam · Cancela cuando quieras`) va SOLO en el footer

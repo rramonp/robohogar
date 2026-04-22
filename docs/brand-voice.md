@@ -33,7 +33,7 @@ Cada semana, en tu bandeja, los **3 pilares** del newsletter:
 
 **Tagline oficial (una sola frase para todas las superficies):**
 
-> **Tu dosis de robótica doméstica · Cada semana, comparativas, reviews, editoriales y relatos**
+> **ROBOHOGAR — Robótica doméstica de andar por casa. Análisis y Ficciones Domésticas cada semana.**
 
 Úsala íntegra siempre que haya espacio (landing subtitle, Beehiiv description, firma de email, bios sociales amplias, OG/meta, welcome email). Evitamos "gratis" y "en español" — redundantes (la web está en español; la gratuidad ya está en el CTA y el trust text del formulario).
 
@@ -41,9 +41,10 @@ Cada semana, en tu bandeja, los **3 pilares** del newsletter:
 
 | Contexto | Versión corta | Cuándo |
 |---|---|---|
-| **Title tag** (browser tab) | `ROBOHOGAR — Tu dosis de robótica doméstica` | Google trunca a ~60 chars |
-| **Bio social compacta** (X, IG one-liner) | `Tu dosis de robótica doméstica · robohogar.com` | Cuando el contador de caracteres no deja la frase larga |
-| **Welcome email opening** | `Soy Rafael, y esto es ROBOHOGAR — tu dosis de robótica doméstica` | Tono personal, 1ª línea del welcome |
+| **Title tag** (browser tab) | `ROBOHOGAR — Robótica doméstica de andar por casa` | Google trunca a ~60 chars (52 chars ✅) |
+| **Meta description** (home) | `Análisis, crítica y Ficciones Domésticas sobre robótica doméstica. Cada semana, directo a tu correo.` | 110-155 chars target (102 chars, borderline pero OK) |
+| **Bio social compacta** (X, IG one-liner) | `Robótica doméstica de andar por casa · robohogar.com` | Cuando el contador de caracteres no deja la frase larga |
+| **Welcome email opening** | `Soy Rafael, y esto es ROBOHOGAR — robótica doméstica de andar por casa` | Tono personal, 1ª línea del welcome |
 
 > **Regla de oro:** si el espacio lo permite, tagline completa. No inventar variantes nuevas — si falta una superficie, añadirla a esta tabla antes de usarla.
 
