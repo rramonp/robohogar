@@ -171,10 +171,100 @@ Substituir: `<DURACION>` (minutos redondeado del MP3), `<slug>`, `<URL_R2_MP3>` 
 
 Substituir: `<slug>` (3 veces), `<URL_R2_MP3>` (2 veces), `<DURACION>`, `<Título del relato>` (en el metadata).
 
-### 6. Instrucciones de pegado para Rafael
+### 6. Persistir los 4 strings + metadata en el repo (OBLIGATORIO)
 
-Presentar al final, tras los 4 strings:
+Los 4 strings y la metadata del MP3 **deben quedar guardados en un archivo del repo** junto al relato, para que Rafael los recupere en sesiones futuras sin depender del chat. Rafael trabaja en sesiones espaciadas (3-5 h/semana): si cierra la conversación y vuelve 3 días después a publicar, tiene que poder encontrar todo sin pedir regeneración.
 
+Escribir `content/ficciones/**/<slug>/beehiiv-audiolibro-snippets.md` con esta estructura exacta:
+
+```markdown
+# Beehiiv · snippets audiolibro · <Título del relato>
+
+**Generado:** YYYY-MM-DD por `/audiobook-generate <slug>`.
+**Relato fuente:** [`<fecha>-<slug>.md`](<fecha>-<slug>.md)
+**Texto TTS:** [`audiolibro.txt`](audiolibro.txt)
+**MP3 local:** `assets/audio/ficciones/<slug>.mp3`
+
+## Datos del MP3
+
+| Campo | Valor |
+|---|---|
+| **URL pública R2** | <URL_R2_MP3> |
+| **Duración** | <X,Y> min (<Zs>s) |
+| **Tamaño** | <N,N> MB (<bytes> bytes) |
+| **Bitrate** | 128 kbps · 44,1 kHz mono |
+| **Chunks TTS** | <N> · <chars> chars · coste real $<X,YY> (~<Z> % cuota Starter) |
+| **Verificaciones** | HTTP 200 ✅ · Content-Type `audio/mpeg` ✅ · ffprobe OK |
+
+---
+
+## (a) Título del post Beehiiv
+
+\`\`\`
+🎧 Ficción · <Título del relato>
+\`\`\`
+
+*<N> chars — <comentario sobre subject line>.*
+
+---
+
+## (b) Subtítulo / dek
+
+\`\`\`
+<meta_description del frontmatter>
+\`\`\`
+
+---
+
+## (c) Custom HTML block · email-only
+
+En Beehiiv: `/html` → Custom HTML block → pega esto → engranaje del bloque → **hide from web**.
+
+\`\`\`html
+<bloque HTML (c) con substituciones aplicadas>
+\`\`\`
+
+---
+
+## (d) Custom HTML block · web-only
+
+En Beehiiv: `/html` → Custom HTML block → pega esto → engranaje del bloque → **hide from email**.
+
+\`\`\`html
+<bloque HTML (d) con substituciones aplicadas>
+\`\`\`
+
+---
+
+## Orden de pegado en Beehiiv
+
+1. **(a)** como título del post.
+2. **(b)** como subtítulo.
+3. **(c)** primer Custom HTML block inmediatamente después del subtítulo → engranaje → **hide from web**.
+4. **(d)** segundo Custom HTML block inmediatamente después → engranaje → **hide from email**.
+5. El cuerpo del relato (`Uno. / Dos. / …`) va **después** de ambos bloques HTML.
+6. Publica con **Email and web**.
+7. Pasa la URL definitiva del post al chat y lanzamos `/post-publish <URL>` para el cierre.
+
+## Regeneración parcial
+
+Si algún chunk suena mal (transición rara, nombre pronunciado torcido):
+
+- Chunks persistidos en `assets/audio/ficciones/_chunks-<slug>/`
+- Regenerar solo el chunk afectado con ajustes en `voice_settings` (stability / similarity_boost)
+- Re-concatenar con ffmpeg + re-subir a R2 (sobrescribe la key `<slug>.mp3`)
+
+Ahorra cuota API vs regenerar los N chunks completos.
+```
+
+**Regla dura:** este archivo se escribe SIEMPRE al final del pipeline, sin preguntar. Es idempotente (se sobrescribe si se regenera el audiolibro). El chat muestra además los 4 strings para comodidad inmediata, pero la **fuente de verdad persistente es el `.md` del repo** — nunca solo el chat.
+
+### 7. Instrucciones de pegado para Rafael
+
+Presentar al final en el chat, tras los 4 strings:
+
+> **Archivo con todo persistido:** `content/ficciones/**/<slug>/beehiiv-audiolibro-snippets.md`
+>
 > **Posición en Beehiiv** (orden de pegado):
 > 1. Pega (a) como título del post.
 > 2. Pega (b) como subtítulo.
@@ -183,7 +273,7 @@ Presentar al final, tras los 4 strings:
 > 5. **Configurar visibility por bloque:**
 >    - Bloque (c) → hide from web (solo email).
 >    - Bloque (d) → hide from email (solo web).
-> 6. El cuerpo del relato (`I. Título capítulo...`) va después de ambos bloques.
+> 6. El cuerpo del relato (`Uno. / Dos. / …`) va después de ambos bloques.
 
 ## Verificación pre-output
 
