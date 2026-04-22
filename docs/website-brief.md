@@ -132,7 +132,7 @@ Es un **consumidor curioso** que quiere opiniones honestas.
 [Mascota robot]  ROBOHOGAR
                  Robótica doméstica de andar por casa
                  
-                 Análisis y Ficciones Domésticas. Cada semana.
+                 Análisis y Ficciones Domésticas. Cada semana
                  
                  [tu@email.com] [Suscríbete gratis]
 ```
@@ -181,7 +181,7 @@ PAGE STRUCTURE (this exact order, based on top-performing newsletter landings):
 SECTION 1 — HERO (above the fold, most important):
 - Left side: headline + subtitle + email signup form (NO trust text under the button — the trust text lives only in the footer)
 - Headline: "Robótica doméstica de andar por casa"
-- Subtitle: "Análisis y Ficciones Domésticas. Cada semana."
+- Subtitle: "Análisis y Ficciones Domésticas. Cada semana" *(no final period — hero convention: intermediate period yes, final period no)*
 - Email input field with placeholder "tu@email.com"
 - Submit button: "Suscríbete gratis" in amber #F5A623
 - Right side: space for mascot image (I'll upload after)

@@ -294,7 +294,7 @@ Registros DNS que Beehiiv típicamente pide (los valores exactos los da Beehiiv 
 **Hero (above the fold):**
 
 - [x] Headline → `Robótica doméstica de andar por casa`
-- [x] Subtítulo → `Análisis y Ficciones Domésticas. Cada semana.`
+- [x] Subtítulo → `Análisis y Ficciones Domésticas. Cada semana` *(sin punto final — convención hero: punto intermedio sí, punto final no)*
 - [x] Placeholder del input → `tu@email.com`
 - [x] Botón → `Suscríbete gratis` con fondo `#F5A623`, texto `#FFFFFF`
 - [x] Sin texto bajo el botón — el trust text (`100% gratis · Sin spam · Cancela cuando quieras`) va SOLO en el footer
