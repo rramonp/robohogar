@@ -1104,13 +1104,31 @@ No se necesitan plugins de Obsidian (QuickAdd, Periodic Notes, Templater). Claud
 - [ ] Verificar dato real ancla sigue presente y visible
 - [ ] Confirmar villano humano (no el robot)
 
-**4. Publicar**
+**4. Audiolibro (opcional)**
+
+Solo si quieres añadir audiolibro al relato. Invocación **siempre manual** sobre texto final aprobado:
+
+- [ ] **Frase trigger:** *"Retomamos plan audiolibros — genera audiolibro de `<slug>`"* o directamente `/audiobook-generate <slug>`.
+- [ ] Claude construye el `audiolibro.txt` TTS-optimizado desde el markdown del relato (o desde la URL publicada si ya existe).
+- [ ] Claude te muestra stats (chars, duración estimada, coste) **y espera tu OK antes de gastar API**.
+- [ ] Con el OK: genera MP3 con voz Luis, concatena intro+silencio+narración+outro, sube a R2.
+- [ ] Te devuelve 4 strings listos para copy-paste en Beehiiv:
+  - (a) Título del post: `🎧 Ficción · <Título>`
+  - (b) Subtítulo: gancho narrativo del frontmatter
+  - (c) Bloque Custom HTML email-only (texto + links al post web y MP3 directo)
+  - (d) Bloque Custom HTML web-only (player `<audio>` + Media Session API para lockscreen móvil)
+- [ ] Pegar los 4 strings en el draft Beehiiv. Configurar visibility por bloque: (c) → hide from web · (d) → hide from email.
+- [ ] **Regla dura:** este paso NUNCA se encadena automáticamente desde `/ficcion-draft` ni `/post-publish`. Solo se activa cuando tú lo invocas literalmente. Razón: economía de API (cada iteración del borrador quemaría ~9k chars).
+- Coste típico en cuota Starter: standalone (~3500 palabras) ≈ 33% mensual, episodio-serie (~1500 palabras) ≈ 15%, flash (~700 palabras) ≈ 7%.
+- Detalle completo: [`.claude/commands/audiobook-generate.md`](../.claude/commands/audiobook-generate.md). Plan: [`docs/plan-audiolibros-ficciones.md`](plan-audiolibros-ficciones.md).
+
+**5. Publicar**
 
 - [ ] Beehiiv `Publish to: Email and web` con **tag dedicado "Ficciones Domésticas"**
 - [ ] Hero estilo still cinematográfico (NO product-hero)
 - [ ] Referencia visual: Black Mirror doméstico, After Yang, Her
 
-**5. Post-publish**
+**6. Post-publish**
 
 - [ ] `/post-publish <URL>` funciona igual que para artículos (detecta el tipo automáticamente)
 

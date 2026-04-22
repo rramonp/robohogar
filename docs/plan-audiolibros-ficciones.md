@@ -41,6 +41,33 @@ Ofrecer en cada relato de Ficciones Domésticas publicado en Beehiiv (`robohogar
 
 - **Host del MP3 — Cloudflare R2.** Razón: proyecto personal, R2 es la elección preferida por Rafael por gusto/coherencia con el resto de su stack web. 0 € hasta 10 GB (volumen ROBOHOGAR cabrá durante años: 50 relatos × ~10 MB ≈ 500 MB). URL pública vía `pub-<hash>.r2.dev/<filename>` para FASE 0/1 piloto; subdominio custom `audio.robohogar.com` diferido a FASE 3. Descartado GitHub Releases (URL fea, sin CDN, lock-in a GitHub) y Backblaze (más servicios sin ventaja real para este volumen).
 
+- **Canon editorial para Ficciones Domésticas con audiolibro** (cerrado tras piloto *El que viene a tomar café* 2026-04-22). Arquitectura de 4 capas lógicas, con la capa 3 desdoblada en 2 bloques Beehiiv (email + web) por incompatibilidad de `<script>`/`<audio>` en clientes de email:
+
+  1. **Título (Beehiiv post title):** `🎧 Ficción · <Título del relato>`. El 🎧 al inicio es signal visual instantáneo que se propaga a landing + OG card + email subject. `Ficción ·` mantiene marca de pilar (vs reviews/guías). Middle dot coherente con design system ROBOHOGAR. Cabe en ≤45 chars (límite subject line) para títulos de relato ≤30 chars.
+  2. **Subtítulo/dek (Beehiiv subtitle field):** **el gancho narrativo puro, SIN meta-información del formato**. Es lo que aparece en landing preview + OG description + email preview — aquí compite el relato por la atención del lector. Meter "Audiolibro X min" aquí sería malgastar el espacio de enganche. Ejemplo piloto: *"Vallecas, 2032. Una hija cuida a su madre con demencia y cada mañana enciende al humanoide para que sea su padre muerto. Hasta que llega la hermana."*
+  3. **Par de bloques Custom HTML consecutivos** (inmediatamente tras el dek), con visibility toggles de Beehiiv por canal:
+
+     - **3a. Bloque email-only** (hide from web). HTML simple con fuentes universales Arial/Helvetica, solo inline styles seguros para Gmail/Outlook/Apple Mail/Yahoo. Contiene: emoji 🎧 + label `Audiolibro disponible · X min` + 2 links (al post web y al MP3 directo). No usa `<script>` ni `<audio>` porque todos los clientes email strippean scripts y renderizan `<audio>` inconsistentemente.
+
+     - **3b. Bloque web-only** (hide from email). El snippet canónico completo con `<audio controls preload="none">` + `<script>` Media Session API para lockscreen móvil. La etiqueta del player (`🎧 Escuchar · X min`) comunica formato al lector que ya está dentro.
+
+  4. **Cuerpo del relato:** H2 `I. La cocina...` empieza la narrativa inmediatamente después de los 2 bloques email/web.
+
+  **Configuración Beehiiv por bloque:**
+
+  | Bloque | Hide from web | Hide from email | Canal visible |
+  |---|---|---|---|
+  | 3a (texto con links) | ☑ | ☐ | Solo email |
+  | 3b (player con `<audio>` + script) | ☐ | ☑ | Solo web |
+
+  **Decisión del par email+web 2026-04-22** (post piloto): primera iteración del canon asumía un único snippet Custom HTML funcionando en los 2 canales. Rafael detectó el riesgo al preguntar por el comportamiento en email. Realidad: `<script>` lo strippean 100% de clientes email por seguridad; `<audio>` HTML5 solo renderiza en Apple Mail, muy inconsistente en Gmail Web/Android/Outlook/Yahoo. Estimación: ~70-80% de aperturas por email no verían el player. Solución: bloque 3a garantiza que el suscriptor de email recibe links accesibles (al post web o descarga MP3 directo) y el bloque 3b conserva la experiencia óptima para lectores web.
+
+  **Decisión de simplificación intra-web 2026-04-22:** versión temprana del canon incluía una 5ª capa con línea "Audiolibro X min disponible al inicio. Léelo o escúchalo." entre el dek y el player. Eliminada tras feedback de Rafael: el widget self-explain (🎧 + "Escuchar" + duración + play button) la hace redundante. Principio UX: si un componente visual comunica algo, la descripción textual duplicada añade ruido sin señal.
+
+  **Razón del orden 1→2 (dek narrativo sin marker de formato):** detectado al pegar el piloto — si meta-información del formato (duración, "audiolibro") va en el dek, roba el espacio de enganche visible en landing/OG a la narrativa. El 🎧 del título ya hace el trabajo de "hay audio" en todos los previews externos.
+
+  **Aplicación en `/audiobook-generate` (FASE 2):** el skill imprime al terminar los 4 strings listos para copy-paste directo en Beehiiv: (a) título con 🎧, (b) dek narrativo del frontmatter, (c) HTML del bloque 3a email-only, (d) HTML del bloque 3b web-only. Rafael solo configura los toggles de visibilidad por bloque tras pegar.
+
 ## Decisiones pendientes
 
 - **Nombre final del skill**: propuesta `/audiobook-generate <slug>`.
@@ -192,11 +219,11 @@ Verificación:
 
 ### FASE 2 — Automatización (si FASE 1 convence)
 
-- [ ] Escribir `utilities/generate_audio.py` comentado.
-- [ ] Escribir skill `.claude/commands/audiobook-generate.md` con pasos, verificación pre-output, y frases trigger.
-- [ ] Añadir entrada en `CLAUDE.md § Skills del pipeline` (tabla de skills secundarios, sección junto a `/ficcion-draft`), marcando explícitamente que la invocación es **manual**, sobre texto final aprobado, y que **no se encadena** desde `/ficcion-draft` ni `/post-publish`.
-- [ ] Actualizar `docs/guia-implementacion.md` con la nueva fase de producción de audio + frases trigger manuales (**"Generar audiolibro de `<slug>`"**).
-- [ ] Documentar coste real en régimen Starter ($5/mes yearly, ~60.000 chars Multilingual v2/mes ≈ ~4 relatos/mes con regeneraciones). Añadir nota sobre umbral de upgrade a Creator ($11/mes yearly) si sostenidamente se cruzan los 60k chars/mes tres meses seguidos.
+- [x] **`utilities/generate_audio.py` operativo** (FASE 1 piloto lo creó y validó con *El que viene a tomar café*). Pipeline: chunking por párrafos ≤4500 chars → TTS con voz Luis + `previous_text`/`next_text` → ffmpeg concat (intro + 2s silencio + chunks + outro, recodificación uniforme 44.1kHz mono 128kbps) → upload a R2. Detecta ffmpeg vía PATH o WinGet install location.
+- [x] **Skill `.claude/commands/audiobook-generate.md` creado** 2026-04-22 tras piloto. Workflow de 6 pasos: localizar relato → construir/validar `audiolibro.txt` con Rafael → correr `generate_audio.py` → imprimir 4 strings copy-paste para Beehiiv (título 🎧 + dek + bloque HTML email-only + bloque HTML web-only). Incluye pre-requisitos, transformaciones TTS detalladas, y regla dura de invocación manual-only.
+- [x] **Entrada en `CLAUDE.md § Skills del pipeline`** (Skills secundarios, junto a `/ficcion-draft`) marcando explícitamente invocación manual sobre texto final aprobado, nunca encadenado.
+- [x] **Actualizada `docs/guia-implementacion.md`** con el paso 4 "Audiolibro (opcional)" en el workflow Ficciones Domésticas, entre "Editar" y "Publicar". Incluye frase trigger, los 4 strings que devuelve el skill, regla dura de invocación manual, y estimación de coste por tipo de relato.
+- [x] **Coste real documentado en régimen Starter** ($5/mes yearly, ~60k chars Multilingual v2/mes ≈ ~3-4 relatos standalone/mes con regeneraciones). Piloto *El que viene a tomar café* consumió 18.5k chars = ~31% cuota. Umbral upgrade a Creator ($11/mes yearly, 121k credits) si se cruzan 60k chars/mes tres meses seguidos.
 
 ### FASE 3 — Mejoras opcionales (post-validación)
 

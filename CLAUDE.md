@@ -88,6 +88,7 @@ Skills invocables (definidos en `.claude/commands/`). Pipeline principal en orde
 
 Skills secundarios:
 - `/ficcion-draft` — relatos cortos Ficciones Domésticas (pilar ~10%)
+- `/audiobook-generate <slug>` — genera audiolibro MP3 de un relato de Ficciones con voz Luis ElevenLabs + upload a Cloudflare R2 + devuelve 4 strings (título 🎧 + dek + 2 bloques HTML email/web) para copy-paste en Beehiiv. **Invocación SIEMPRE MANUAL** sobre texto final aprobado, NUNCA encadenado desde `/ficcion-draft` ni `/post-publish` (economía de API). Detalle: `.claude/commands/audiobook-generate.md`. Plan: `docs/plan-audiolibros-ficciones.md`.
 - `/pdf-brand cheatsheet <slug>` — genera **PDF tangible + ficha Beehiiv Digital Product** con marca (lead magnets) desde `content/lead-magnets/<slug>/data.py`. Validators bloquean roadmap futuro / fechas de revisión / byline personal automáticamente. Variantes restantes (comparativa/guia/relato) pendientes activación por demanda. Ver `.claude/commands/pdf-brand.md`.
 - `/pipeline-debug [scope]` — auditoría repetible del repo (skills, rules, refs, tangibles, memoria, docs, schedule). Invocar al introducir novedad mayor o cada 4-6 semanas como mantenimiento preventivo. Genera report en `content/pipeline-debug-reports/`.
 - `/workflow-excalidraw` — diagramas de flujo (uso ocasional)
