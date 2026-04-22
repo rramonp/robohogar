@@ -44,17 +44,48 @@ grep -nE 'href="https?://robohogar\.com/(subscribe|signup|newsletter)[/"?]' <arc
 
 Debe devolver 0 matches. Si aparece, sustituir por `https://robohogar.com`.
 
+## Snippet canónico · banner CTA suscripción al final de artículo (no-ficción)
+
+Dark-themed, centrado, 4 elementos (pregunta + beneficio + botón + trust-line). Obligatorio como **snippet final** de todo artículo no-ficción (review, comparativa, editorial, guía, tutorial, newsletter). Se pega en Beehiiv vía `/html` → Custom HTML block.
+
+**Posición en el esqueleto del borrador:** justo después del bloque `¿Sabías que…?` + su `<div class="separator"></div>`, y antes del bloque `Más en ROBOHOGAR` (internal linking) + disclaimer. Razón: el CTA principal se presenta antes del jumpoff a otros artículos — si el lector va a convertir, lo hace aquí; si no, sigue leyendo por los links de abajo.
+
+**Relación con el banner Hoja de Compra:** son bloques distintos y compatibles. Hoja de Compra (si aplica por categoría) va en posición intro o cierre-tras-veredicto como tangible específico. Este CTA va al **final absoluto del contenido editorial** como invitación al newsletter raíz, sin UTM (regla `§ URL destino de CTAs de suscripción — SIEMPRE landing`).
+
+```html
+<div style="margin:40px 0 0;padding:28px 24px;background:#283642;border-radius:8px;color:#FFFFFF;text-align:center;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;">
+  <div style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;color:#FFFFFF;line-height:1.3;margin-bottom:10px;">¿Te ha servido este análisis?</div>
+  <p style="margin:8px 0 16px;font-size:15px;color:#FFFFFF;line-height:1.55;">Cada semana, comparativas, reviews, editoriales y relatos.</p>
+  <a href="https://robohogar.com" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:12px 24px;border-radius:6px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Suscribirse</a>
+  <p style="margin:14px 0 0;font-size:12px;color:#FFFFFF;line-height:1.4;">Newsletter gratis. Un email por semana. Cancela cuando quieras.</p>
+</div>
+```
+
+Texto fijo, no se varía por artículo. El botón dice `Suscribirse` (infinitivo) — el de ficción mantiene `Suscribirme` (primera persona). Trust-line cumple la regla `@rules/tangibles.md § Microcopy de conversión`: 3 elementos (formato "gratis" · cadencia "semanal" · salida "cancela cuando quieras"). `href` apunta a `https://robohogar.com` sin UTM.
+
+**Verificación pre-output:** todo borrador no-ficción debe tener exactamente 1 bloque `<div class="snippet-block">` que contenga el string `¿Te ha servido este análisis?` en la posición descrita. Si 0 → falta; si ≥2 → duplicado.
+
 ## Snippet canónico · banner suscripción al final de ficción
 
-Dark-themed, centrado, minimal (3 elementos: eyebrow ROBOHOGAR + frase principal + botón). Para pegar en Beehiiv vía `/html` → Custom HTML block tras el bloque "Lo real detrás del relato" de cada Ficción Doméstica.
+Dark-themed, centrado, 5 elementos en orden fijo: eyebrow `ROBOHOGAR` + pregunta-gancho `¿Te ha gustado?` + título-promesa `La próxima Ficción Doméstica, en tu correo.` + botón `Suscribirme` + trust-line. Actualizado 2026-04-22 (añadida pregunta-gancho + trust-line). Para pegar en Beehiiv vía `/html` → Custom HTML block tras el bloque "Lo real detrás del relato" de cada Ficción Doméstica.
 
 ```html
 <div style="margin:40px 0 24px;padding:32px 24px;background:#283642;border-radius:10px;color:#FFFFFF;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;text-align:center;">
   <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">ROBOHOGAR</div>
-  <div style="font-family:'DM Sans',sans-serif;font-size:24px;font-weight:700;color:#FFFFFF;line-height:1.25;margin-bottom:22px;">La próxima Ficción Doméstica, en tu correo.</div>
+  <div style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;color:#FFFFFF;line-height:1.3;margin-bottom:10px;">¿Te ha gustado?</div>
+  <div style="font-family:'DM Sans',sans-serif;font-size:20px;font-weight:700;color:#FFFFFF;line-height:1.25;margin-bottom:22px;">La próxima Ficción Doméstica, en tu correo.</div>
   <a href="https://robohogar.com" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Suscribirme</a>
+  <p style="margin:14px 0 0;font-size:12px;color:#FFFFFF;line-height:1.4;">Newsletter gratis. Un email por semana. Cancela cuando quieras.</p>
 </div>
 ```
+
+**Diferencias con el CTA final de artículo no-ficción** (arriba en este mismo archivo):
+- Ficción lleva eyebrow `ROBOHOGAR` + pregunta-gancho; artículo entra directo con la pregunta sin eyebrow.
+- Ficción mantiene el título-promesa `La próxima Ficción Doméstica, en tu correo.` como línea propia.
+- Botón `Suscribirme` (1ª persona) vs `Suscribirse` (infinitivo) en artículos. No mezclar.
+- Ambos comparten trust-line, paleta, tamaños de padding y UTM ausente (`href` a `https://robohogar.com` raíz).
+
+Texto fijo — no se varía por relato. La prosa del cierre es el último contacto del lector con la ficción; mantener el CTA consistente refuerza la marca editorial por encima de adornos por relato.
 
 ## Benchmarks, diseño, deliverability
 

@@ -441,6 +441,51 @@ Si el conteo no coincide → auto-corregir antes de entregar. Además, verificar
 
 **Microcopy del banner — regla heredada de `@rules/tangibles.md § Microcopy de conversión`.** Si el skill genera una variante del texto del banner para un artículo (p. ej. tangible distinto, copy adaptado a la categoría), la trust-line debajo del CTA debe cumplir el default canónico `PDF gratis con tu suscripción semanal. Cancela cuando quieras.` o una variante que supere las 3 reglas: (a) ≥2 de los 3 elementos obligatorios (formato · salida · transparencia), (b) ninguna promesa prohibida (velocidad de entrega, ausencia futura de publicidad, hype), (c) ≤80 caracteres. Verificación: `grep -iE "15 segundos|llega al email en|instantáneo|sin publicidad|sin promociones|sin letra pequeña"` sobre el `borrador.html` — 0 matches obligatorio antes de entregar.
 
+### 8.8 bis. Snippet CTA suscripción final — INSERCIÓN OBLIGATORIA en todo artículo no-ficción
+
+**Activo desde 2026-04-22.** Todo borrador no-ficción (review, comparativa, editorial, guía, tutorial, newsletter semanal) cierra con un snippet CTA dark al newsletter raíz. Canon y HTML exacto: `@rules/newsletter.md § Snippet canónico · banner CTA suscripción al final de artículo (no-ficción)`. Las ficciones NO llevan este CTA — usan el suyo propio (`§ Snippet canónico · banner suscripción al final de ficción`).
+
+**Posición exacta en el esqueleto:** justo después del bloque `¿Sabías que…?` + su `<div class="separator"></div>`, y antes del bloque `Más en ROBOHOGAR` + disclaimer. Estructura resultante:
+
+```
+<h2>💡 ¿Sabías que…?</h2>
+<div>... dato + fuente ...</div>
+<div class="separator"></div>
+<!-- ═══ SNIPPET CTA SUSCRIPCIÓN FINAL (bloque de código para Beehiiv) ═══ -->
+<div class="snippet-block">
+  <p class="snippet-header">📋 Snippet N · CTA Suscripción final · posición fin-artículo</p>
+  <p class="snippet-hint">En Beehiiv: escribe <code>/html</code> → "Custom HTML block" → pega el código de abajo.</p>
+  <pre><code>&lt;div style="..."&gt;...&lt;/div&gt;</code></pre>
+</div>
+<p><strong>Más en ROBOHOGAR:</strong></p>
+<ul>...</ul>
+<p class="disclaimer">...</p>
+```
+
+**Reglas:**
+
+- Insertar como `<div class="snippet-block">` con HTML escapado (`<` → `&lt;`, `>` → `&gt;`) igual que el banner Hoja de Compra. Razón heredada: Rafael copia-pega a Beehiiv vía `/html` → Custom HTML block, que necesita el HTML como texto copiable.
+- `href` = `https://robohogar.com` **sin UTM** (regla `@rules/newsletter.md § URL destino de CTAs de suscripción`). Excepción única sigue siendo el banner Hoja de Compra.
+- Texto fijo — no variar pregunta, beneficio, botón ni trust-line por artículo. El CTA es un bloque de marca consistente, no copy creativo por post.
+- Botón dice `Suscribirse` (infinitivo) — NO `Suscribirme` (eso es solo del banner de ficción).
+- El CSS `.snippet-block` ya debe estar en el `<style>` del borrador si el artículo lleva además banner Hoja de Compra; si no, incluirlo igual (es el único bloque snippet del borrador).
+
+**Verificación pre-output:**
+
+```bash
+# (a) Exactamente 1 snippet CTA final en el borrador
+grep -c "¿Te ha servido este análisis?" <borrador.html>   # debe ser 1
+
+# (b) El CTA NO debe llevar UTM
+grep -nE '¿Te ha servido[^<]*</div>.*utm_' <borrador.html>  # debe ser 0
+
+# (c) Posición correcta: después del ¿Sabías que? + separator, antes de Más en ROBOHOGAR
+grep -nE 'Sabías que|¿Te ha servido|Más en ROBOHOGAR' <borrador.html>
+# el orden de líneas debe ser: Sabías → ¿Te ha servido → Más en ROBOHOGAR
+```
+
+Si algún check falla → auto-corregir antes de entregar. No dejar en PASOS.md como "pendiente".
+
 ### 8.9. Controles pre-publicación — 12 checks OBLIGATORIO antes de entregar borrador
 
 Última fase de acabado. Regla completa + ejemplos: `@rules/editorial.md § Controles pre-publicación — 12 checks`. Dos bloques independientes:

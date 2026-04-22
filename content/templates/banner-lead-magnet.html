@@ -1,38 +1,49 @@
 <!--
-  ROBOHOGAR — Banner Lead Magnet · Hoja de Compra
-  Variante oficial: DARK (validada por Rafael 2026-04-18).
+  ROBOHOGAR — Banner Lead Magnet · Tangible PDF (template canónico)
+  Variante oficial: DARK CENTRADO (validada por Rafael 2026-04-22).
+
+  Formato 2026-04-22 (SUSTITUYE al anterior 2026-04-18):
+    - Contenedor centrado (text-align:center) — todos los elementos alineados al centro, botón incluido.
+    - Estructura de 4 elementos fijos (en orden): eyebrow · título-beneficio · botón CTA · trust-line.
+    - Sin párrafo intermedio de beneficio. La trust-line vive como <p> DESPUÉS del botón, no antes.
+    - Botón canónico: "Enviádmelo al correo" (flow descriptivo: click → formulario email → PDF en la bandeja).
+    - Trust-line canónica: "PDF gratis con tu suscripción semanal. Cancela cuando quieras."
 
   Decisiones técnicas:
     - Inline styles (Beehiiv strippea <style> al hacer paste).
     - color: #FFFFFF !important en el botón porque Beehiiv fuerza ámbar en <a> por defecto.
-    - Placeholder <SRC_SLUG> se sustituye por el slug del artículo (o "home" para la home) — va al utm_source.
-      UTMs estándar Beehiiv: utm_source=<slug> · utm_medium=banner · utm_campaign=hoja-compra.
-      Beehiiv solo captura UTMs con estos nombres estándar; un `?src=` custom no se guarda en el perfil del subscriber.
     - Paleta idéntica al bloque dark "Si te ha servido" del PDF backcover (consistencia PDF ↔ artículo).
+    - UTMs estándar Beehiiv: utm_source=<SRC_SLUG> · utm_medium=banner · utm_campaign=<CAMPAIGN_SLUG>.
+      Beehiiv solo captura UTMs con estos nombres estándar; un `?src=` custom no se guarda en el perfil del subscriber.
 
-  Scope — aplicar en artículos de estas categorías:
-    ✅ Aspiradores, cortacéspedes, mascotas-robot, consumer mainstream (guías de compra, reviews, comparativas)
-    ❌ Humanoides domésticos (tangible específico pendiente, no encaja el CTA "antes de comprar tu robot doméstico")
-    ❌ Ficciones Domésticas (otro tangible propio pendiente, no mezclar canales narrativos con CTA comercial)
-    ⚠️ Editoriales/opinión: solo si tienen ángulo de decisión de compra; si es puro editorial, omitir
+  Scope — aplicar en artículos que responden AL DOLOR del tangible concreto:
+    ✅ Hoja de Compra → aspiradores, fregasuelos, limpia-cristales (decidiendo-compra mainstream).
+    ❌ Cortacésped (ajuste 2026-04-21): las 10 preguntas de Hoja de Compra son aspirador-céntricas → esperar tangible específico.
+    ❌ Humanoides domésticos, mascotas-robot, asistentes IA escritorio, ficciones, editoriales sin ángulo compra.
+    Regla general: "el tangible debe responder las preguntas concretas del lector del artículo" — si no, sin banner.
 
   Posiciones recomendadas:
     1. Tras intro/callout inicial (CTA temprano para lector que skimmea).
     2. Tras veredicto o cierre (CTA al lector que llegó hasta el final).
-    — En artículos cortos (<800 palabras): solo 1 banner (al final).
-    — En artículos largos (>1.500 palabras): los 2.
+    — Artículos <800 palabras: solo 1 banner (al final).
+    — Artículos >1.500 palabras: los 2.
 
-  Cómo personalizar por artículo:
-    - Sustituir <SRC_SLUG> por el slug real (ej: "samsung-steam-ultra", "mejor-robot-asistente-ia-2026").
-    - El copy estándar sirve para aspiradores / consumer; en otras categorías ajustar "tu robot doméstico" si hace falta.
+  Placeholders a sustituir al personalizar:
+    <EYEBROW>           → "Checklist · N preguntas · P páginas" (describe el formato del tangible).
+    <TITULO_BENEFICIO>  → frase-beneficio específica del tangible para este artículo (≤90 chars orientativo).
+    <PRODUCT_SLUG>      → slug del Beehiiv Digital Product (ej: "hoja-de-compra").
+    <SRC_SLUG>          → slug del artículo (ej: "mejor-robot-aspirador-2026").
+    <CAMPAIGN_SLUG>     → slug de la campaña de tracking (ej: "hoja-compra").
+    <CTA_TEXTO>         → default canónico: "Enviádmelo al correo". No variar salvo razón editorial explícita.
+    <TRUST_LINE>        → default canónico: "PDF gratis con tu suscripción semanal. Cancela cuando quieras."
 
   Snippets ya personalizados para los artículos publicados:
     → content/templates/banner-lead-magnet-snippets.md (copy-paste directo a Beehiiv)
 -->
 
-<div style="margin:32px 0;padding:28px 24px;background:#283642;border-radius:10px;color:#FFFFFF;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;">
-  <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Antes de comprar</div>
-  <div style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#FFFFFF;line-height:1.2;margin-bottom:10px;">Descarga gratis la Hoja de Compra ROBOHOGAR</div>
-  <p style="margin:0 0 18px;font-size:15px;color:rgba(255,255,255,0.88);line-height:1.5;">10 preguntas para no pagar de más al comprar tu robot doméstico. PDF gratis con tu suscripción semanal. Cancela cuando quieras.</p>
-  <a href="https://robohogar.com/products/hoja-de-compra?utm_source=<SRC_SLUG>&utm_medium=banner&utm_campaign=hoja-compra" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Descargar gratis →</a>
+<div style="margin:32px 0;padding:28px 24px;background:#283642;border-radius:10px;color:#FFFFFF;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;text-align:center;">
+  <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;"><EYEBROW></div>
+  <div style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#FFFFFF;line-height:1.25;margin-bottom:18px;"><TITULO_BENEFICIO></div>
+  <a href="https://robohogar.com/products/<PRODUCT_SLUG>?utm_source=<SRC_SLUG>&utm_medium=banner&utm_campaign=<CAMPAIGN_SLUG>" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;"><CTA_TEXTO></a>
+  <p style="margin:14px 0 0;font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;"><TRUST_LINE></p>
 </div>

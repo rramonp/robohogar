@@ -129,6 +129,60 @@ Si matchea, reescribir antes de pegar en artículo o publicar ficha. El validato
 
 Regla validada por Rafael 2026-04-19 tras pedir best practices certificadas — investigación en `references/writewithai/extractions/ctas.md`, `references/writewithai/extractions/lead-magnets.md`, `references/writewithai/04-email-newsletter-patterns.md` §§ 58-70, `references/newsletter/email-marketing-playbook.md` §13. Memoria: `feedback_microcopy_trust_lines.md`.
 
+## Snippet canónico — banner tangible PDF (formato centrado)
+
+Formato oficial del banner para **cualquier tangible PDF** promocionado en artículo. Canonizado 2026-04-22 (Rafael). Reemplaza al formato anterior del template [`content/templates/banner-lead-magnet.html`](../../content/templates/banner-lead-magnet.html), que también ha sido actualizado.
+
+**Características no negociables:**
+
+- **Contenedor centrado**: `text-align:center;` en el `<div>` raíz. Todos los elementos (eyebrow, título, botón, trust-line) quedan alineados al centro.
+- **4 elementos en orden fijo**: (1) eyebrow ámbar uppercase que describe el formato del tangible · (2) título-beneficio grande · (3) botón CTA · (4) trust-line `<p>` separada debajo del botón. No hay párrafo intermedio entre título y botón.
+- **Botón canónico**: `Enviádmelo al correo`. Describe el flow (click → formulario email → PDF llega). Solo variar con razón editorial explícita; el product page en Beehiiv mantiene el mismo texto en `Call-to-action copy` (coherencia banner ↔ product page).
+- **Trust-line canónica**: `PDF gratis con tu suscripción semanal. Cancela cuando quieras.` Hereda de `§ Microcopy de conversión — trust-lines bajo CTA`.
+- **Paleta fija**: fondo `#283642`, acento `#F5A623`, blancos para texto/botón, trust-line `rgba(255,255,255,0.65)` más apagada.
+- **UTM obligatoria**: `?utm_source=<slug>&utm_medium=banner&utm_campaign=<campaign>`. Excepción única a la regla `rules/newsletter.md § URL destino de CTAs de suscripción` (que prohíbe UTM) — este banner apunta a Beehiiv Digital Product page específico, no al newsletter raíz.
+
+**HTML canónico con placeholders** (fuente de verdad: [`content/templates/banner-lead-magnet.html`](../../content/templates/banner-lead-magnet.html)):
+
+```html
+<div style="margin:32px 0;padding:28px 24px;background:#283642;border-radius:10px;color:#FFFFFF;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;text-align:center;">
+  <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;"><EYEBROW></div>
+  <div style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#FFFFFF;line-height:1.25;margin-bottom:18px;"><TITULO_BENEFICIO></div>
+  <a href="https://robohogar.com/products/<PRODUCT_SLUG>?utm_source=<SRC_SLUG>&utm_medium=banner&utm_campaign=<CAMPAIGN_SLUG>" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;"><CTA_TEXTO></a>
+  <p style="margin:14px 0 0;font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;"><TRUST_LINE></p>
+</div>
+```
+
+**Qué cambia por tangible/artículo:**
+
+| Placeholder | Qué sustituir | Ejemplo (Hoja de Compra en aspirador 2026) |
+|---|---|---|
+| `<EYEBROW>` | Describe formato del tangible: `<Tipo> · <N> <unidad> · <P> páginas` | `Checklist · 10 preguntas · 2 páginas` |
+| `<TITULO_BENEFICIO>` | Frase-beneficio específica ≤90 chars orientativo | `Las 10 preguntas clave antes de comprar un aspirador que te ahorran cientos de euros` |
+| `<PRODUCT_SLUG>` | Slug del Beehiiv Digital Product | `hoja-de-compra` |
+| `<SRC_SLUG>` | Slug del artículo fuente | `mejor-robot-aspirador-2026` |
+| `<CAMPAIGN_SLUG>` | Slug de la campaña de tracking | `hoja-compra` |
+| `<CTA_TEXTO>` | Default canónico | `Enviádmelo al correo` |
+| `<TRUST_LINE>` | Default canónico | `PDF gratis con tu suscripción semanal. Cancela cuando quieras.` |
+
+**Verificación pre-output** (grep sobre HTML del banner generado antes de entregar):
+
+```bash
+# (a) Debe tener text-align:center en el contenedor
+grep -E 'background:#283642[^"]*text-align:center' <archivo>   # match obligatorio
+
+# (b) Botón canónico
+grep -E '>Enviádmelo al correo</a>' <archivo>   # match obligatorio salvo override editorial
+
+# (c) Trust-line como <p> DESPUÉS del botón (no como <p> de beneficio antes)
+grep -E '</a>\s*<p[^>]*color:rgba\(255,255,255,0\.65\)' <archivo>   # match obligatorio
+
+# (d) Sin párrafo intermedio de beneficio entre título y botón (formato viejo)
+grep -E '10 preguntas para no pagar de más al comprar tu robot doméstico' <archivo>   # 0 matches en formato nuevo
+```
+
+**Herencia:** `/content-draft § 8.8` al insertar banner de tangible aplica este formato. `/pdf-brand` para futuras variantes (guía, comparativa, relato) genera el snippet promocional con esta estructura. Los snippets pre-publicados de `roborock-saros-z70-review` y `samsung-jet-bot-steam-ultra-review` en [`content/templates/banner-lead-magnet-snippets.md`](../../content/templates/banner-lead-magnet-snippets.md) mantienen el formato anterior porque ya están en Beehiiv — migrar solo si el rebote lo justifica.
+
 ## Roadmap
 
 - **F1 (hoy, 0-50 subs):** tangible definido en PASOS.md + entregado inline en el HTML del artículo. PDFs descargables activos vía `/pdf-brand cheatsheet` (adelantado desde 2026-04-18 al tener plan Scale y primer PDF Hoja de Compra v2 validado).

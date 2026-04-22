@@ -69,12 +69,14 @@ URL prevista: https://robohogar.com/p/mejor-robot-aspirador-2026
 
 Guía evergreen de compra · tangible inline (tabla + checklist) + banner Hoja de Compra como captura lead magnet (complementario). Posiciones en el borrador marcadas con comentario `<!-- 📌 PEGAR AQUÍ -->`.
 
+**Formato 2026-04-22:** centrado + copy específico del aspirador (eyebrow descriptivo del tangible + título-beneficio + botón `Enviádmelo al correo` + trust-line separada). Canon en `rules/tangibles.md § Snippet canónico — banner tangible PDF (formato centrado)`.
+
 ```html
-<div style="margin:32px 0;padding:28px 24px;background:#283642;border-radius:10px;color:#FFFFFF;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;">
-  <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Antes de comprar</div>
-  <div style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#FFFFFF;line-height:1.2;margin-bottom:10px;">Descarga gratis la Hoja de Compra ROBOHOGAR</div>
-  <p style="margin:0 0 18px;font-size:15px;color:rgba(255,255,255,0.88);line-height:1.5;">10 preguntas para no pagar de más al comprar tu robot doméstico. PDF gratis con tu suscripción semanal. Cancela cuando quieras.</p>
-  <a href="https://robohogar.com/products/hoja-de-compra?utm_source=mejor-robot-aspirador-2026&utm_medium=banner&utm_campaign=hoja-compra" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Descargar gratis →</a>
+<div style="margin:32px 0;padding:28px 24px;background:#283642;border-radius:10px;color:#FFFFFF;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;text-align:center;">
+  <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Checklist · 10 preguntas · 2 páginas</div>
+  <div style="font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#FFFFFF;line-height:1.25;margin-bottom:18px;">Las 10 preguntas clave antes de comprar un aspirador que te ahorran cientos de euros</div>
+  <a href="https://robohogar.com/products/hoja-de-compra?utm_source=mejor-robot-aspirador-2026&utm_medium=banner&utm_campaign=hoja-compra" style="display:inline-block;background:#F5A623;color:#FFFFFF !important;padding:14px 26px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;font-family:'DM Sans',sans-serif;">Enviádmelo al correo</a>
+  <p style="margin:14px 0 0;font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;">PDF gratis con tu suscripción semanal. Cancela cuando quieras.</p>
 </div>
 ```
 

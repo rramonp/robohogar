@@ -74,8 +74,10 @@ A partir de ahí recibirás el newsletter por email, con cadencia semanal. Nada 
 
 ### Call-to-action copy
 ```
-Descargar gratis
+Enviádmelo al correo
 ```
+
+> Actualizado 2026-04-22 para coherencia con el banner del artículo (antes: `Descargar gratis`). El flow es click → formulario email → PDF en la bandeja, así que `Enviádmelo al correo` describe mejor lo que pasa.
 
 ### Post-purchase redirect
 ```
@@ -114,7 +116,7 @@ Secondary: — (no prioridad)
 | Product name | `Hoja de Compra ROBOHOGAR · 10 preguntas antes de comprar` |
 | Description | `PDF 2 páginas. 10 preguntas clave que te ahorran varios cientos de euros antes de comprar tu robot doméstico.` |
 | Product details | (ver bloques rich text arriba) |
-| Call-to-action copy | `Descargar gratis` |
+| Call-to-action copy | `Enviádmelo al correo` |
 | Post-purchase redirect | (vacío) |
 | Survey | `No survey` |
 | Product page URL | `hoja-de-compra` |
