@@ -25,8 +25,8 @@ Ofrecer en cada relato de Ficciones Domésticas publicado en Beehiiv (`robohogar
 
 - **Reproducción:** `<audio controls>` HTML5 nativo, streaming in-page dentro del propio post Beehiiv (no página custom; Beehiiv ya da URL única por relato).
 - **Descarga:** botón explícito `<a href download>` además del reproductor, pensado para "escuchar en el coche".
-- **Intro de marca (5-8s):** *"Ficciones Domésticas, de ROBOHOGAR. [Título]. Por [narrador]."* + 2s silencio.
-- **Outro de marca (10-15s):** *"Has escuchado [título], una Ficción Doméstica de ROBOHOGAR. Si te ha gustado, puedes leer más relatos y suscribirte al newsletter en robohogar.com."*
+- **Intro de marca (5-8s) — texto TTS:** *"Ficciones Domésticas, de ROBO OGAR."* + 2s silencio. (Visual de marca sigue siendo "ROBOHOGAR" — el texto TTS separa en 2 palabras y **elimina la H** para que el Multilingual v2 no aspire la H estilo inglés, que al oído peninsular suena cercano a "robojogar". La H es muda en español, por lo que al oyente el resultado es indistinguible de "ROBOHOGAR" escrito. Convención validada por Rafael 2026-04-22 tras probar en ElevenLabs Studio con la voz Luis.)
+- **Outro de marca (10-15s) — texto TTS:** *"Has escuchado una Ficción Doméstica de ROBO OGAR. Si te ha gustado, puedes leer más relatos y suscribirte al newsletter en ROBO OGAR punto com."* (URL: "ROBO OGAR punto com" en la misma convención de la marca + "punto com" explícito en vez de `.com` para forzar lectura correcta).
 - **Mid-roll:** descartado. Rompe inmersión y contradice el posicionamiento premium del pilar ficción. Excepción permitida: bumper de 3s "ROBOHOGAR" entre episodios de mini-serie como sello sonoro.
 - **Voz narrador:** única y consistente para todos los relatos (sello sonoro reconocible = tipografía sonora). Voice_id ElevenLabs pendiente elegir.
 - **Motor TTS:** ElevenLabs API (ya validado por Rafael como herramienta de uso personal en ElevenLabs Reader).
@@ -37,14 +37,12 @@ Ofrecer en cada relato de Ficciones Domésticas publicado en Beehiiv (`robohogar
 - **Invocación del skill — política dura:** `/audiobook-generate` se invoca **SIEMPRE manualmente**, NUNCA inline dentro de `/ficcion-draft`. Razón de economía: cada iteración de borrador que Rafael edita (voz, cliffhanger, anti-IA, castellano literario) quema ~9.000 chars de API. Dos revisiones = 27k chars tirados porque el audio de v1 no vale cuando publicas v2. El audio se genera **solo sobre texto final aprobado**.
 - **Input TTS:** `02-Drafts/Ficciones/<slug>-audiolibro.md` generado automáticamente por `/ficcion-draft` (memoria `feedback_ficcion_audiolibro_copy.md`: prosa TTS-optimizada, números a palabras, sin cursivas, sin siglas duras).
 
+## Decisiones cerradas adicionales 2026-04-22
+
+- **Host del MP3 — Cloudflare R2.** Razón: proyecto personal, R2 es la elección preferida por Rafael por gusto/coherencia con el resto de su stack web. 0 € hasta 10 GB (volumen ROBOHOGAR cabrá durante años: 50 relatos × ~10 MB ≈ 500 MB). URL pública vía `pub-<hash>.r2.dev/<filename>` para FASE 0/1 piloto; subdominio custom `audio.robohogar.com` diferido a FASE 3. Descartado GitHub Releases (URL fea, sin CDN, lock-in a GitHub) y Backblaze (más servicios sin ventaja real para este volumen).
+
 ## Decisiones pendientes
 
-- **Host del MP3** — candidatos ordenados:
-  1. **Cloudflare R2** (recomendado): 0€ realistas hasta 10 GB + 0€ egress, pensado para media, CDN global, range requests OK para scrubbing móvil. Setup inicial ~10 min. Permite servir desde `audio.robohogar.com/<slug>.mp3` si `robohogar.com` está en Cloudflare DNS.
-  2. **GitHub Releases** (piloto barato): 0€, 2 GB/archivo, tolerado por GitHub para binarios. URLs menos bonitas, sin CDN optimizado. Válido para validar formato antes de invertir en R2.
-  3. **Backblaze B2 + Cloudflare**: alternativa clásica a R2, 2 servicios que configurar.
-  4. **GitHub Pages**: **descartado**. TOS desaconseja audio/vídeo, range requests poco fiables en móvil → scrubbing falla.
-  5. **Beehiiv media library**: **no soporta audio** (verificado 2026), solo imagen.
 - **Nombre final del skill**: propuesta `/audiobook-generate <slug>`.
 - **Compatibilidad de `<script>` inline en Custom HTML block de Beehiiv** — Media Session API (ver snippet v2 abajo) requiere JS inline. Si Beehiiv sanea `<script>` → fallback a atributo `onplay` inline. Se valida en FASE 1 piloto.
 
@@ -137,9 +135,12 @@ Comentado (regla `literate-code.md`), idempotente, batch-ready. Dependencias:
 - `ffmpeg-python` o llamada a `ffmpeg` vía subprocess
 
 Variables de entorno requeridas en `.claude/settings.local.json`:
-- `ELEVENLABS_API_KEY`
-- Si R2: `R2_ACCOUNT_ID`, `R2_ACCESS_KEY`, `R2_SECRET_KEY`, `R2_BUCKET`
-- Si GH Releases: `GITHUB_TOKEN` con scope `contents:write`
+- `ELEVENLABS_API_KEY` — API key ElevenLabs Starter plan (permisos Text to Speech + Voices Read).
+- `R2_ACCOUNT_ID` — ID de cuenta Cloudflare (se ve en el endpoint URL de R2 o en el dashboard).
+- `R2_ACCESS_KEY` — Access Key ID del API token de R2.
+- `R2_SECRET_KEY` — Secret Access Key del API token de R2.
+- `R2_BUCKET` — nombre del bucket (`robohogar-audio`).
+- `R2_PUBLIC_URL` — URL base pública del bucket para servir los MP3 (en FASE 0/1: `https://pub-<hash>.r2.dev`; tras FASE 3: `https://audio.robohogar.com`).
 
 ### Skill `/audiobook-generate` (propuesta)
 
@@ -167,11 +168,13 @@ Verificación:
 - [ ] Generar `ELEVENLABS_API_KEY` en dashboard → API Keys → Create API Key.
 - [ ] Guardar `ELEVENLABS_API_KEY` en `.claude/settings.local.json` (gitignored).
 - [x] **Voz narrador elegida:** Luis — Polished, Mature and Credible. `voice_id = GojDwihhnL1f7RrBuXsJ`. Cerrada 2026-04-22 (ver sección "Decisiones cerradas").
-- [ ] Decidir host (R2 vs GH Releases).
-- [ ] Crear cuenta/bucket del host elegido + API token.
-- [ ] Guardar credenciales host en `.claude/settings.local.json`.
-- [ ] Generar `intro-ficciones.mp3` + `outro-ficciones.mp3` con ElevenLabs Studio (manual, una vez) usando el `voice_id` elegido.
-- [ ] Guardar ambos en `assets/audio/`.
+- [x] **Host elegido: Cloudflare R2** (decisión cerrada 2026-04-22 — preferencia personal de Rafael).
+- [x] **Bucket `robohogar-audio` creado en R2** + Public Development URL habilitada (`https://pub-b56f5adc8cbc43b496efa01905f715f7.r2.dev`) + API token `robohogar-audiobook-uploader` creado con permiso Object Read & Write scoped a ese bucket.
+- [x] **5 env vars R2 guardadas en `.claude/settings.local.json`** (desktop) + Chrome Password Manager. Smoke test `utilities/verify_r2_auth.py` 4/4 OK 2026-04-22 (HEAD + PUT + GET público + DELETE).
+- [ ] **Gotcha operativo documentado:** el GET público a `*.r2.dev` requiere User-Agent de navegador (Cloudflare rechaza UAs tipo `python-urllib/...` con 403 como protección anti-bot). Sin impacto en producción (el `<audio>` en Beehiiv usa UA del navegador del lector), solo afecta a scripts programáticos que hagan GET directo. `verify_r2_auth.py` envía UA de Chrome para esquivarlo.
+- [ ] **Laptop pendiente:** crear `C:\Users\bakal\robohogar\.claude\settings.local.json` con los 6 env vars (ElevenLabs + 5 R2), copiados desde Chrome Password Manager. `pip install boto3` también. Ejecutar `python utilities/verify_r2_auth.py` en laptop para confirmar.
+- [x] **`intro-ficciones.mp3` (2.53s) + `outro-ficciones.mp3` (11.89s) generados** en ElevenLabs Studio con voz Luis 2026-04-22. Guardados en `assets/audio/`. Ambos MP3 44.1kHz mono, calidad adecuada para voz. Convención `ROBO OGAR` validada en ambos bumpers.
+- [x] **Nota de silencio:** el intro no incluye los 2s de silencio finales que especificaba el plan original. El silencio se inyectará **dinámicamente en la concatenación** de `/audiobook-generate` vía `ffmpeg -af "apad=pad_dur=2"`. Más flexible que bakearlo en el asset — permite ajustar la pausa por relato si hace falta.
 - [x] **ffmpeg 8.1 full build instalado** vía `winget install Gyan.FFmpeg` (2026-04-22). Binario en `%LOCALAPPDATA%\Microsoft\WinGet\Packages\Gyan.FFmpeg_.../ffmpeg-8.1-full_build/bin/ffmpeg.exe`, alias en PATH vía WindowsApps. Incluye `libmp3lame` (codec MP3 necesario para concat intro+narración+outro).
 - [ ] **Addendum snippet v2:** documentar en el skill cómo derivar las portadas `covers/<slug>-{512,1024}.webp` desde el hero del relato (crop cuadrado + resize), y cómo subirlas al mismo bucket que el MP3.
 
