@@ -27,6 +27,16 @@ Preguntar si no está claro:
 > **IMPORTANTE:** Artículos = `Email and web` (aparecen en landing + se envían por email).
 > Newsletter = `Email only` (solo inbox, NO aparece en la landing).
 
+### 1 bis. Diagnóstico editorial — ángulo 4A + memoria de los últimos 5 artículos
+
+Objetivo: romper monotonía. Evitar que el nuevo artículo clone combo (título · subtítulo · secciones · checklist · cierre · longitud) del anterior. Regla completa + tablas A-F: [`@references/writewithai/10-fundamentals-5-lessons.md`](../../references/writewithai/10-fundamentals-5-lessons.md) (§ Lección 1 y § Matriz de variedad editorial).
+
+**(a) Leer los últimos 5 `PASOS.md`** de `content/articulos/*/PASOS.md` ordenados por fecha descendente (por frontmatter `created` o mtime). De cada uno extraer el bloque `## Decisiones editoriales` si existe (generado desde este paso 1 bis en adelante) y listar los 6 campos editoriales: ángulo 4A · headline template · subtítulo variante · longitud bucket · tangible · cierre · métodos de expansión. Si el artículo es anterior a esta regla y no tiene el bloque, inferir a mano 4A + template + longitud bucket leyendo subtítulo, H2 y cierre — basta estimación.
+
+**(b) Elegir ángulo 4A** (uno de los cuatro de Cole): **Analytical** (*"aquí está el análisis"*) · **Aspirational** (*"te enseño el estado futuro posible"*) · **Anthropological** (*"aquí está la psicología detrás"*) · **Actionable** (*"paso a paso"*). Regla anti-repetición: no repetir el mismo 4A en 2 de los últimos 3 artículos; en ventana de 5, aspirar a ≥3 ángulos distintos. Si la restricción deja 1 opción forzada, declarar el porqué en PASOS.md. Si deja 2-3 opciones, elegir por criterio editorial del tema y documentar.
+
+Salida obligatoria de este paso: una mini-tabla mental con las 6 columnas de los últimos 5 artículos + la decisión provisional para el nuevo. Esa tabla se formaliza en PASOS.md § Decisiones editoriales (paso 8).
+
 ### 2. Recopilar input
 
 - **Consultar `content/calendario-editorial.md`** — verificar backlog de temas y temas usados (no repetir)
@@ -49,6 +59,13 @@ Si 2 de 3 son "no" → avisar a Rafael con el texto exacto: *"Este tema parece v
 Excepción: si la marca es Apple, Tesla, Google, Samsung o Xiaomi → pasar directamente (editorial mainstream). No bloquear.
 
 ### 3. Generar borrador
+
+**Decisiones de variedad editorial — OBLIGATORIO antes de abrir el template** (aplicar las tablas del § 1 bis contra los últimos 5 artículos):
+
+- **Longitud bucket** — elegir 1 de 4: `flash` 600-900w · `medio` 1000-1500w · `largo` 1800-2500w · `pillar` 2500+. Anti-repetición: máximo 2 artículos consecutivos del mismo bucket. El nº de H2 escala con el bucket (flash 3 · medio 4-5 · largo 5-6 · pillar 6-7); no clonar el nº exacto del artículo anterior. Declarar en PASOS.md. Tabla C: [`10-fundamentals-5-lessons.md § Tabla C`](../../references/writewithai/10-fundamentals-5-lessons.md).
+- **Headline (H1 + subtítulo + meta_description)** — elegir **1 de las 5 Headline Templates Cole** con trípode **WHO / WHAT / WHY** completo: `List` · `Story` · `Opinion` · `Question` · `Framework`. Anti-repetición en template vs últimos 3. **Subtítulo: elegir 1 de 3 variantes**: `cifra+tangible` (default compatible con § 8.7) · `pregunta-gancho` · `afirmación-provocadora`; anti-repetición de variante vs últimos 3. Respetar ≤55 chars title tag (`@rules/seo.md`) + `@rules/editorial.md § Honestidad` + `@rules/editorial.md § Anti-anglicismos`. Tablas A-B: [`10-fundamentals-5-lessons.md § Lección 4`](../../references/writewithai/10-fundamentals-5-lessons.md).
+- **Template estructural** — elegir 1 de los 3 (`problem-solution` · `mistakes` · `how-to` → sección "Templates estructurales" al final de este skill) con anti-repetición vs últimos 3. El template dicta la escaleta de H2, no el contenido concreto.
+- **Desarrollo por sección: 5 Métodos de Expansión** — cada `<section>` del cuerpo aplica 1 de los 5 métodos Cole: `Reasons` · `Mistakes` · `Action Steps` · `Personal Story` · `Curated Examples`. Prohibido repetir método en secciones contiguas. En artículo con 5 H2, aspirar a 5 métodos distintos. `Personal Story` se entiende SIEMPRE como análisis editorial real del equipo (*"comparamos 14 modelos y descartamos 8 tras cruzar ficha oficial + 3 reviews internacionales"*), NUNCA experimento físico (`@rules/editorial.md § Honestidad de primera persona`). Asignación método↔sección se declara en PASOS.md. Detalle: [`10-fundamentals-5-lessons.md § Lección 5`](../../references/writewithai/10-fundamentals-5-lessons.md).
 
 **Template único — todos los tipos:** `content/templates/articulo-beehiiv-master.html`. Copiar el HTML master y reemplazar el contenido. No hay templates por tipo — el esqueleto es el mismo y la estructura interna se adapta según review, comparativa, editorial, guía o newsletter.
 
@@ -81,6 +98,15 @@ Para otros tipos (editorial, guía, newsletter), usar el mismo master `articulo-
 - `false` = editorial reactivo sobre noticia/deal/lanzamiento concreto con fecha → caducable en 3-6 meses
 
 El flag se replica en `content/registro-articulos.md` (columna Evergreen) como fuente de verdad del backlog social.
+
+### 3 bis. Diversificación de tangible y cierre
+
+Complementa las decisiones del § 3 con las dos dimensiones que más clonaban artículos consecutivos (feedback Rafael 2026-04-22): checklist idéntica siempre + cierre clonado. Reglas y ejemplos: [`@references/writewithai/10-fundamentals-5-lessons.md § Tablas D-E`](../../references/writewithai/10-fundamentals-5-lessons.md).
+
+- **Tangible** — `@rules/tangibles.md § Checklist accionable` ya contempla sustitución por decision tree / dossier 3-datos / cuadro qué-sí-qué-no. Activar esa sustitución sistemáticamente con anti-repetición: no repetir el mismo tangible en 2 de los últimos 3 artículos. Menú operativo de 5: (a) `checklist` accionable 3-7 ítems · (b) `decision-tree` mini 4-6 bifurcaciones · (c) `dossier-3-datos` clave con fuente · (d) `cuadro-si-no` (qué-sí / qué-no en 2 columnas) · (e) `tabla-standalone` comparativa con ganador marcado. La regla "toda guía publicable lleva 1 bloque accionable visible" del § 8.7 sigue vigente — lo que rota es el **formato** del bloque, no su presencia.
+- **Cierre** — elegir 1 de 6 variantes con anti-repetición vs últimos 3: (a) `checklist-CTA` (checklist final + banner suscripción) · (b) `veredicto` suelto 2-3 frases sin checklist · (c) `pregunta` abierta al lector · (d) `manifiesto` 3-5 frases de posición editorial · (e) `tabla-resumen` como último bloque · (f) `minimo-banner` (solo CTA sin prosa). El snippet canónico de banner CTA suscripción (`@rules/newsletter.md § Snippet canónico`) se inserta SIEMPRE al final; lo que varía es **solo la prosa que lo precede**. Tabla E con ejemplos detonantes: [`10-fundamentals-5-lessons.md § Tabla E`](../../references/writewithai/10-fundamentals-5-lessons.md).
+
+Ambas decisiones se declaran en PASOS.md § Decisiones editoriales (paso 8).
 
 ### 4. Checklist SEO (de `rules/seo.md`)
 
@@ -198,6 +224,38 @@ Luego rellenar a mano los bloques marcados `[rellenar: ...]`:
 - **Datos a validar** (precios, fechas que puedan haber cambiado desde research)
 - **Fuentes del artículo** (tabla dato/fuente/verificación)
 - **Notas editoriales** (tono, ángulo, decisiones)
+
+**Bloque OBLIGATORIO "Decisiones editoriales" — activo 2026-04-22** (alimenta la anti-repetición del § 1 bis + § 3 + § 3 bis del próximo artículo). Insertar al principio del PASOS.md, antes del bloque SEO:
+
+```markdown
+## Decisiones editoriales (variedad)
+- **Ángulo 4A:** [Analytical | Aspirational | Anthropological | Actionable] — razón: …
+- **Headline template:** [List | Story | Opinion | Question | Framework]
+- **Subtítulo variante:** [cifra+tangible | pregunta-gancho | afirmación-provocadora]
+- **Longitud bucket:** [flash | medio | largo | pillar] — palabras objetivo: …
+- **Template estructural:** [problem-solution | mistakes | how-to]
+- **Tangible:** [checklist | decision-tree | dossier-3-datos | cuadro-si-no | tabla-standalone]
+- **Cierre:** [checklist-CTA | veredicto | pregunta | manifiesto | tabla-resumen | minimo-banner]
+- **Métodos de expansión por sección:**
+
+  | # | H2 | Método |
+  |---|---|---|
+  | 1 | … | Reasons |
+  | 2 | … | Mistakes |
+  | … | … | … |
+
+### Diff vs últimos 3 artículos
+| Dimensión | N-1 | N-2 | N-3 | Este | ¿Distinto? |
+|---|---|---|---|---|---|
+| Template H1 | … | … | … | … | ✅/❌ |
+| 4A | … | … | … | … | ✅/❌ |
+| Subtítulo variante | … | … | … | … | ✅/❌ |
+| Longitud bucket | … | … | … | … | ✅/❌ |
+| Tangible | … | … | … | … | ✅/❌ |
+| Cierre | … | … | … | … | ✅/❌ |
+```
+
+Control de calidad: si la tabla diff muestra ≥2 `❌` (repeticiones), reconsiderar la decisión antes de entregar el borrador — una dimensión que colisiona con los últimos 3 rompe la regla anti-repetición del § 1 bis. Los bloques son el único gate: si no están rellenados, el paso 8 no se cierra.
 
 Template origen: `content/templates/PASOS-template.md`. Script: `utilities/generate_pasos.py`.
 
@@ -567,7 +625,7 @@ Regla con incidente de origen documentado: `feedback_article_voice_authority.md`
 
 ## Templates estructurales (destilados de Write With AI)
 
-> Las tres plantillas maestras de Cole/Bush mapean 1:1 a los tipos ROBOHOGAR. Parámetro opcional `--template=<tipo>` para forzar esqueleto. Prompts literales ejecutables → [`../../references/writewithai/05-prompts-utiles.md`](../../references/writewithai/05-prompts-utiles.md). Estructura visual y diagramas ASCII → [`../../references/writewithai/02-estructura-articulo-visual.md`](../../references/writewithai/02-estructura-articulo-visual.md).
+> Las tres plantillas maestras de Cole/Bush mapean 1:1 a los tipos ROBOHOGAR. Parámetro opcional `--template=<tipo>` para forzar esqueleto. Prompts literales ejecutables → [`../../references/writewithai/05-prompts-utiles.md`](../../references/writewithai/05-prompts-utiles.md). Estructura visual y diagramas ASCII → [`../../references/writewithai/02-estructura-articulo-visual.md`](../../references/writewithai/02-estructura-articulo-visual.md). **4A Framework (ángulo editorial), 5 Headline Templates (H1), 5 Métodos de Expansión (desarrollo de sección) y reglas de anti-repetición vs últimos 3 artículos → [`../../references/writewithai/10-fundamentals-5-lessons.md`](../../references/writewithai/10-fundamentals-5-lessons.md).**
 
 ### Sintaxis sugerida
 
@@ -641,6 +699,8 @@ La primera frase abre un "loop" — si no provoca leer la segunda, está rota. 5
 - [ ] **Escena sensorial** — *"Martes, 7:40. El robot sale de su base sin ruido. El bebé sigue durmiendo."*
 - [ ] **Stat impactante** — *"Solo el 14% de los hogares españoles tiene robot aspirador. En Alemania, el doble."*
 - [ ] **Reframe violento / anti-cliché** — *"Los listados 'top 10 robots 2026' aburren. Lo que os vamos a contar es qué NO comprar."*
+
+Complemento a nivel H1/subtítulo/meta (no sustituye este hook-checklist): 5 Headline Templates + trípode WHO/WHAT/WHY → [`../../references/writewithai/10-fundamentals-5-lessons.md § Lección 4 + Tabla A`](../../references/writewithai/10-fundamentals-5-lessons.md). El hook abre el cuerpo; el headline abre la OG card. Son 2 decisiones distintas y ambas se declaran en PASOS.md.
 
 ### Renderizado OBLIGATORIO de los 3 hooks en el HTML
 
