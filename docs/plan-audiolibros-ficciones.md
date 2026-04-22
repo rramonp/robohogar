@@ -95,7 +95,7 @@ Va dentro del `.snippet-block` de `/html` Beehiiv (regla `design.md § Bloques d
   <p class="audio-label">🎧 Escuchar · <span class="audio-duration">12 min</span></p>
   <audio id="audio-<slug>" controls preload="none" src="https://audio.robohogar.com/<slug>.mp3"></audio>
   <a href="https://audio.robohogar.com/<slug>.mp3" download class="audio-download">
-    ⬇ Descargar MP3 (para el coche)
+    ⬇ Descargar MP3
   </a>
 </div>
 <script>

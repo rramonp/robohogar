@@ -215,3 +215,9 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Audiolibros generados — viven canónicamente en R2, no en git
+# El local es para debug. Regeneración bajo demanda vía /audiobook-generate.
+# Los assets de marca (intro/outro) SÍ se commitean — están en assets/audio/*.mp3 (root nivel).
+assets/audio/ficciones/*.mp3
+assets/audio/ficciones/_chunks-*/
