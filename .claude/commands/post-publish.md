@@ -238,7 +238,13 @@ Rafael pega este snippet en **Beehiiv → Settings → Website → Pages → Arc
 
 **(e) Actualizar la metadata del comentario inicial** del fichero: línea `Último artículo añadido: <slug> (<fecha>)` con el slug y fecha del artículo recién publicado.
 
-**(f) Entregar el snippet a Rafael** — mostrarle en el chat un bloque de código con el contenido ENTERO del fichero `content/templates/beehiiv-archive-snippet.html` actualizado (sin el comentario HTML de cabecera que es interno del repo), listo para copy-paste al Custom HTML block de Beehiiv. Recordarle la ruta: *"Settings → Website → Pages → Archive → Top content → /html → Custom HTML block → pegar (reemplaza el anterior)."*
+**(f) Guardar snapshot junto al artículo** — copiar el template actualizado a `content/articulos/<slug>/beehiiv-archive-snippet.html`. Esto deja un snapshot histórico del estado del archive justo después de que este artículo entró: útil para auditoría ("¿cómo estaba el archive el día que publiqué X?") y para recuperación rápida si el template central se edita mal.
+
+```bash
+cp content/templates/beehiiv-archive-snippet.html content/articulos/<slug>/beehiiv-archive-snippet.html
+```
+
+**(g) Entregar el snippet a Rafael** — mostrarle en el chat un bloque de código con el contenido ENTERO del fichero `content/templates/beehiiv-archive-snippet.html` actualizado (sin el comentario HTML de cabecera que es interno del repo), listo para copy-paste al Custom HTML block de Beehiiv. Recordarle la ruta: *"Settings → Website → Pages → Archive → Top content → /html → Custom HTML block → pegar (reemplaza el anterior)."*
 
 **Regla anti-duplicados:** antes de insertar, grep el fichero por la URL del artículo nuevo (`grep -c "<URL_ARTICULO>"` en el fichero). Si devuelve ≥1, el artículo ya está en el archive — no insertar, avisar a Rafael *"Este artículo ya está en el snippet archive — no duplico."* y continuar al paso 6.
 
