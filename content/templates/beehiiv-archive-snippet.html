@@ -1,0 +1,305 @@
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  ARCHIVE · Snippet HTML para Beehiiv (Custom HTML block · página Archive)
+═══════════════════════════════════════════════════════════════════════════════
+
+  FUENTE DE VERDAD · actualizado por /post-publish tras cada publicación.
+
+  Qué es: el listado completo del archivo de robohogar.com con filtro por
+  chips de categoría (CSS puro, sin JS). Se pega en Beehiiv → Settings →
+  Website → Pages → Archive → Top content → /html → Custom HTML block.
+
+  Cómo crece:
+    1. /post-publish paso 5.7 lee el artículo recién publicado y construye
+       un `<a class="rbh-arc-card">` con título, subtitle, hero URL y chip.
+    2. Lo inserta como PRIMERA card del `<div class="rbh-arc-grid">` (orden
+       cronológico descendente — el más reciente arriba).
+    3. Guarda este fichero actualizado y entrega el snippet completo en el
+       chat para que Rafael lo copie a Beehiiv.
+
+  Mapeo frontmatter.category → data-category del chip:
+    aspirador          → aspirador-suelos
+    fregasuelos        → aspirador-suelos
+    limpia-cristales   → aspirador-suelos
+    cortacésped        → cortacesped
+    humanoide          → humanoide-ia
+    asistente-ia-escritorio → humanoide-ia
+    mascota-robot      → humanoide-ia
+    ficcion            → ficciones
+
+  REGLAS FIJAS DE COMPOSICIÓN (no tocar sin consultar a Rafael):
+
+    - FICCIONES → el título SIEMPRE lleva prefijo "🎧 " (emoji auriculares
+      + espacio). Marca visual del pilar "Ficciones Domésticas" + señal
+      al lector de que hay audiolibro disponible. Único emoji permitido
+      en cards del archive. Aplica aunque el audiolibro no esté activo aún.
+
+    - BYLINE → siempre "Rafael de ROBOHOGAR" + avatar circular 22px
+      (18px móvil). URL del avatar hardcodeada — si Rafael cambia el
+      perfil en Beehiiv, actualizar aquí + en /post-publish paso 5.7(c).
+
+    - MÓVIL → cards apiladas en 1 columna con separador fino entre cada
+      una. `padding: 18px 0` en .rbh-arc-card dentro del @media
+      max-width:600px (simetría byline→separator = separator→siguiente
+      imagen). No volver al grid horizontal estilo Substack — Rafael lo
+      descartó 2026-04-23.
+
+    - CHIPS MÓVIL → grid 2x2 + Ficciones Domésticas en fila completa
+      abajo (grid-column: 1 / -1). Sin scroll horizontal — descartado
+      2026-04-23.
+
+  Último artículo añadido: mejor-robot-cortacesped-2026 (2026-04-21)
+═══════════════════════════════════════════════════════════════════════════════
+-->
+
+<style>
+  .rbh-arc-wrap {
+    max-width: 1100px; margin: 24px auto 48px; padding: 0 16px;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #0C0C0C;
+    text-align: left !important;
+  }
+  .rbh-arc-wrap * { text-align: left !important; }
+  .rbh-arc-wrap input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+
+  /* ── Chips ── */
+  .rbh-arc-chips {
+    display: flex !important; flex-wrap: wrap;
+    justify-content: flex-start !important;
+    gap: 10px; margin: 0 0 40px !important; align-items: center;
+  }
+  .rbh-arc-chip {
+    display: inline-block; padding: 9px 18px;
+    border: 1.5px solid rgba(12,12,12,0.15);
+    border-radius: 999px; background: #FFFFFF;
+    color: #0C0C0C; font-size: 14px; font-weight: 500;
+    cursor: pointer; line-height: 1; white-space: nowrap;
+    transition: all 0.15s ease; user-select: none;
+  }
+  .rbh-arc-chip:hover { border-color: #F5A623; background: #FFF9EF; }
+  .rbh-arc-chip-featured {
+    border-color: #F5A623; border-width: 2px;
+    background: #FFF9EF; font-weight: 700;
+  }
+  .rbh-arc-divider {
+    width: 1px; height: 20px; background: rgba(12,12,12,0.15); margin: 0 6px;
+  }
+
+  /* ── Grid + cards ── */
+  .rbh-arc-grid {
+    display: grid; gap: 44px 28px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .rbh-arc-card {
+    display: block; text-decoration: none; color: inherit;
+    transition: opacity 0.15s ease;
+  }
+  .rbh-arc-card:hover .rbh-arc-card-title { color: #F5A623; }
+  .rbh-arc-thumb {
+    width: 100%; aspect-ratio: 3/2;
+    border-radius: 4px; overflow: hidden; margin-bottom: 18px;
+    background: linear-gradient(135deg, #F5A623 0%, #283642 100%);
+  }
+  .rbh-arc-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .rbh-arc-card-title {
+    font-size: 21px; font-weight: 700; line-height: 1.22;
+    color: #0C0C0C; margin: 0 0 10px;
+    transition: color 0.15s ease;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .rbh-arc-card-dek {
+    font-size: 15px; line-height: 1.5; color: #4B5563;
+    margin: 0 0 14px; font-family: 'Inter', -apple-system, sans-serif;
+  }
+  .rbh-arc-card-byline {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #9CA3AF;
+    margin: 0; font-family: 'DM Sans', sans-serif;
+  }
+  .rbh-arc-card-avatar {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: #FFF9EF;
+    border: 1px solid rgba(12,12,12,0.08);
+  }
+
+  /* ── Estado activo del chip ── */
+  #rbh-f-all:checked ~ .rbh-arc-chips label[for="rbh-f-all"],
+  #rbh-f-aspirador-suelos:checked ~ .rbh-arc-chips label[for="rbh-f-aspirador-suelos"],
+  #rbh-f-cortacesped:checked ~ .rbh-arc-chips label[for="rbh-f-cortacesped"],
+  #rbh-f-humanoide-ia:checked ~ .rbh-arc-chips label[for="rbh-f-humanoide-ia"],
+  #rbh-f-ficciones:checked ~ .rbh-arc-chips label[for="rbh-f-ficciones"] {
+    background: #F5A623; color: #FFFFFF; border-color: #F5A623;
+  }
+
+  /* ── Filtrado de cards ── */
+  #rbh-f-aspirador-suelos:checked ~ .rbh-arc-grid .rbh-arc-card:not([data-category="aspirador-suelos"]) { display: none; }
+  #rbh-f-cortacesped:checked ~ .rbh-arc-grid .rbh-arc-card:not([data-category="cortacesped"]) { display: none; }
+  #rbh-f-humanoide-ia:checked ~ .rbh-arc-grid .rbh-arc-card:not([data-category="humanoide-ia"]) { display: none; }
+  #rbh-f-ficciones:checked ~ .rbh-arc-grid .rbh-arc-card:not([data-category="ficciones"]) { display: none; }
+
+  @media (max-width: 600px) {
+    /* ── Chips: grid 2x2 + Ficciones full width ── */
+    .rbh-arc-chips {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 0 0 24px !important;
+    }
+    .rbh-arc-chip {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; padding: 13px 10px;
+      font-size: 13.5px; text-align: center !important;
+      box-sizing: border-box;
+    }
+    .rbh-arc-chip-featured {
+      grid-column: 1 / -1;
+    }
+    .rbh-arc-divider { display: none; }
+
+    /* ── Grid 1 columna con separadores entre cards ── */
+    .rbh-arc-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .rbh-arc-card {
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(12,12,12,0.08);
+    }
+    .rbh-arc-card:first-of-type { padding-top: 0; }
+    .rbh-arc-card:last-of-type { border-bottom: 0; padding-bottom: 0; }
+
+    /* Tipografía más compacta */
+    .rbh-arc-card-title { font-size: 20px; }
+    .rbh-arc-card-dek { font-size: 14.5px; }
+  }
+</style>
+
+<div class="rbh-arc-wrap">
+
+  <input type="radio" name="rbh-filter" id="rbh-f-all" checked>
+  <input type="radio" name="rbh-filter" id="rbh-f-aspirador-suelos">
+  <input type="radio" name="rbh-filter" id="rbh-f-cortacesped">
+  <input type="radio" name="rbh-filter" id="rbh-f-humanoide-ia">
+  <input type="radio" name="rbh-filter" id="rbh-f-ficciones">
+
+  <div class="rbh-arc-chips">
+    <label class="rbh-arc-chip" for="rbh-f-all">Todos</label>
+    <label class="rbh-arc-chip" for="rbh-f-aspirador-suelos">Aspiradores y suelos</label>
+    <label class="rbh-arc-chip" for="rbh-f-cortacesped">Cortacéspedes</label>
+    <label class="rbh-arc-chip" for="rbh-f-humanoide-ia">Humanoides e IA</label>
+    <span class="rbh-arc-divider" aria-hidden="true"></span>
+    <label class="rbh-arc-chip rbh-arc-chip-featured" for="rbh-f-ficciones">Ficciones Domésticas</label>
+  </div>
+
+  <div class="rbh-arc-grid">
+
+    <!-- ══ NUEVAS CARDS SE INSERTAN AQUÍ (más reciente arriba) ══ -->
+
+    <a class="rbh-arc-card" data-category="cortacesped" href="https://robohogar.com/p/mejor-robot-cortacesped-2026">
+      <div class="rbh-arc-thumb"><img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/9ce0875f-c32f-4ebf-93b4-c51f58355258/hero-mejor-robot-cortacesped-2026-v2.webp" alt=""></div>
+      <h3 class="rbh-arc-card-title">Mejor robot cortacésped 2026: 6 finalistas + checklist de 7 preguntas antes de comprar</h3>
+      <p class="rbh-arc-card-dek">6 modelos comparados sobre fichas oficiales y reviews internacionales, de 1.099 € a 2.499 €.</p>
+      <div class="rbh-arc-card-byline">
+        <img class="rbh-arc-card-avatar" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/user/profile_picture/864dc8b9-fd48-414a-ac12-0b53cb770fe9/profile-icon-1080x1080.png" alt="">
+        <span>Rafael de ROBOHOGAR</span>
+      </div>
+    </a>
+
+    <a class="rbh-arc-card" data-category="ficciones" href="https://robohogar.com/p/el-que-viene-a-tomar-cafe">
+      <div class="rbh-arc-thumb"><img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/c6c76294-0bbd-4756-814e-afc3ef6e7440/hero-el-que-viene-a-tomar-cafe-v5.webp" alt=""></div>
+      <h3 class="rbh-arc-card-title">🎧 El que viene a tomar café</h3>
+      <p class="rbh-arc-card-dek">Vallecas, 2032. Una hija cuida a su madre con demencia y cada mañana enciende al humanoide.</p>
+      <div class="rbh-arc-card-byline">
+        <img class="rbh-arc-card-avatar" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/user/profile_picture/864dc8b9-fd48-414a-ac12-0b53cb770fe9/profile-icon-1080x1080.png" alt="">
+        <span>Rafael de ROBOHOGAR</span>
+      </div>
+    </a>
+
+    <a class="rbh-arc-card" data-category="humanoide-ia" href="https://robohogar.com/p/humanoide-maraton-pekin-record-mundial">
+      <div class="rbh-arc-thumb"><img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/757cf081-1169-487c-93e9-29071a072c93/hero-humanoide-maraton-pekin-record-mundial-v10.webp" alt=""></div>
+      <h3 class="rbh-arc-card-title">Un humanoide ha batido el récord mundial humano de media maratón. Lo importante no es el robot</h3>
+      <p class="rbh-arc-card-dek">El Unitree H1 paró el crono en 50:26 y el titular recorrió medio mundo en 24 horas.</p>
+      <div class="rbh-arc-card-byline">
+        <img class="rbh-arc-card-avatar" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/user/profile_picture/864dc8b9-fd48-414a-ac12-0b53cb770fe9/profile-icon-1080x1080.png" alt="">
+        <span>Rafael de ROBOHOGAR</span>
+      </div>
+    </a>
+
+    <a class="rbh-arc-card" data-category="aspirador-suelos" href="https://robohogar.com/p/mejor-robot-aspirador-2026">
+      <div class="rbh-arc-thumb"><img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/8056464d-99ed-4fdc-b30e-a8a1545031f7/hero-mejor-robot-aspirador-2026-v1.webp" alt=""></div>
+      <h3 class="rbh-arc-card-title">Mejor robot aspirador 2026: 6 finalistas + checklist de 5 preguntas antes de comprar</h3>
+      <p class="rbh-arc-card-dek">6 modelos, 3 perfiles y una checklist de 5 preguntas que te ahorra cientos de € antes de darle al botón.</p>
+      <div class="rbh-arc-card-byline">
+        <img class="rbh-arc-card-avatar" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/user/profile_picture/864dc8b9-fd48-414a-ac12-0b53cb770fe9/profile-icon-1080x1080.png" alt="">
+        <span>Rafael de ROBOHOGAR</span>
+      </div>
+    </a>
+
+    <a class="rbh-arc-card" data-category="aspirador-suelos" href="https://robohogar.com/p/samsung-jet-bot-steam-ultra-review">
+      <div class="rbh-arc-thumb"><img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/eb9b1fee-1ac2-4c98-824e-864f03ee6f93/hero-samsung-jet-bot-steam-ultra-review-v3.png" alt=""></div>
+      <h3 class="rbh-arc-card-title">Samsung Jet Bot Steam Ultra: vapor a 100°C, pero no donde piensas</h3>
+      <p class="rbh-arc-card-dek">Friega tu suelo con vapor a 100 °C. Pero la letra pequeña cuenta otra cosa: el vapor no toca tu suelo.</p>
+      <div class="rbh-arc-card-byline">
+        <img class="rbh-arc-card-avatar" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/user/profile_picture/864dc8b9-fd48-414a-ac12-0b53cb770fe9/profile-icon-1080x1080.png" alt="">
+        <span>Rafael de ROBOHOGAR</span>
+      </div>
+    </a>
+
+    <a class="rbh-arc-card" data-category="humanoide-ia" href="https://robohogar.com/p/humanoides-domesticos-2026-comparativa">
+      <div class="rbh-arc-thumb"><img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/a7f4d491-255b-41ea-8150-402498aa5b45/hero-humanoides-domesticos-2026-comparativa-v7.webp" alt=""></div>
+      <h3 class="rbh-arc-card-title">Humanoides domésticos 2026: los 7 que puedes comprar o reservar</h3>
+      <p class="rbh-arc-card-dek">Siete robots diferentes quieren entrar en tu casa este año. Hemos repasado precios y disponibilidad.</p>
+      <div class="rbh-arc-card-byline">
+        <img class="rbh-arc-card-avatar" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/user/profile_picture/864dc8b9-fd48-414a-ac12-0b53cb770fe9/profile-icon-1080x1080.png" alt="">
+        <span>Rafael de ROBOHOGAR</span>
+      </div>
+    </a>
+
+    <a class="rbh-arc-card" data-category="humanoide-ia" href="https://robohogar.com/p/neo-humanoide-fabricas-eqt">
+      <div class="rbh-arc-thumb"><img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/317161c8-155b-417d-8602-ea738eb7df13/hero-neo-humanoide-fabricas-eqt-v8.webp" alt=""></div>
+      <h3 class="rbh-arc-card-title">NEO va a fábricas: ¿humanoide doméstico o industrial?</h3>
+      <p class="rbh-arc-card-dek">1X firma con EQT para desplegar 10.000 NEO en empresas del portfolio industrial, pero sigue cobrando pre-orders a familias por un envío que solo llegará a EE.UU. y Canadá.</p>
+      <div class="rbh-arc-card-byline">
+        <img class="rbh-arc-card-avatar" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/user/profile_picture/864dc8b9-fd48-414a-ac12-0b53cb770fe9/profile-icon-1080x1080.png" alt="">
+        <span>Rafael de ROBOHOGAR</span>
+      </div>
+    </a>
+
+    <a class="rbh-arc-card" data-category="aspirador-suelos" href="https://robohogar.com/p/roborock-saros-z70-review">
+      <div class="rbh-arc-thumb"><img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/e112a177-525a-4d88-845b-154b276c237a/thumbnail-roborock-saros-z70-review.webp" alt=""></div>
+      <h3 class="rbh-arc-card-title">Roborock Saros Z70: ¿merece la pena pagar por un brazo mecánico?</h3>
+      <p class="rbh-arc-card-dek">El brazo es el futuro, pero el futuro aún no funciona.</p>
+      <div class="rbh-arc-card-byline">
+        <img class="rbh-arc-card-avatar" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/user/profile_picture/864dc8b9-fd48-414a-ac12-0b53cb770fe9/profile-icon-1080x1080.png" alt="">
+        <span>Rafael de ROBOHOGAR</span>
+      </div>
+    </a>
+
+    <a class="rbh-arc-card" data-category="humanoide-ia" href="https://robohogar.com/p/humanoides-en-casa-cuanto-falta">
+      <div class="rbh-arc-thumb"><img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/1e3b7543-6954-4fa5-8db0-e835e8fe49db/hero-humanoides-v10.webp" alt=""></div>
+      <h3 class="rbh-arc-card-title">Humanoides en casa: ¿cuánto falta de verdad?</h3>
+      <p class="rbh-arc-card-dek">Ya puedes comprar un robot humanoide por el precio de un coche usado. El problema: no sabe limpiar tu baño (todavía).</p>
+      <div class="rbh-arc-card-byline">
+        <img class="rbh-arc-card-avatar" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/user/profile_picture/864dc8b9-fd48-414a-ac12-0b53cb770fe9/profile-icon-1080x1080.png" alt="">
+        <span>Rafael de ROBOHOGAR</span>
+      </div>
+    </a>
+
+    <a class="rbh-arc-card" data-category="humanoide-ia" href="https://robohogar.com/p/mejor-robot-asistente-ia-2026">
+      <div class="rbh-arc-thumb"><img src="https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/c019dd96-edc5-4691-a40b-c600146ec93e/hero-mejor-robot-asistente-ia-2026-v6.webp" alt=""></div>
+      <h3 class="rbh-arc-card-title">Robots de escritorio con IA: cuál merece tu dinero (y cuál es humo)</h3>
+      <p class="rbh-arc-card-dek">Eilik, LOOI, Loona, EMO y Vector: los hemos investigado a fondo para que tú no tengas que hacerlo.</p>
+      <div class="rbh-arc-card-byline">
+        <img class="rbh-arc-card-avatar" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/user/profile_picture/864dc8b9-fd48-414a-ac12-0b53cb770fe9/profile-icon-1080x1080.png" alt="">
+        <span>Rafael de ROBOHOGAR</span>
+      </div>
+    </a>
+
+  </div>
+</div>

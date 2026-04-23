@@ -196,6 +196,61 @@ Automation que se disparará:
 
 Mostrar a Rafael este bloque al final del paso 5. Pedir confirmación: "¿tags asignados en Beehiiv?" antes de continuar al paso 6. Si Rafael dice "no todavía", anotarlo en el resumen final (paso 14) y continuar.
 
+### 5.7. Actualizar snippet archive Beehiiv (OBLIGATORIO)
+
+Tras registrar el artículo, actualizar el snippet HTML del listado del archive de Beehiiv para que incluya la card del artículo recién publicado. Fichero fuente-de-verdad: [`content/templates/beehiiv-archive-snippet.html`](../../content/templates/beehiiv-archive-snippet.html).
+
+Rafael pega este snippet en **Beehiiv → Settings → Website → Pages → Archive → Top content → `/html` → Custom HTML block** cada vez que hay un artículo nuevo. Este paso lo genera listo para copy-paste.
+
+**(a) Extraer metadata del post publicado** con un solo `WebFetch <URL>` (reaprovechar el del paso 1 si ya se hizo):
+
+- **Título** → `<h1>` del post publicado.
+- **Subtítulo/dek** → `<p class="subtitle">` del post publicado (el que aparece bajo el H1). Si no existe, usar `meta_description` del frontmatter del borrador.
+- **Hero URL** → `og:image` del `<head>` del post publicado (es la URL CDN de Beehiiv tipo `https://media.beehiiv.com/cdn-cgi/image/format=auto,fit=scale-down,onerror=redirect/uploads/asset/file/<uuid>/<filename>.webp`).
+
+**(b) Mapear `frontmatter.category` al `data-category` del chip:**
+
+| `frontmatter.category` | `data-category` del chip |
+|---|---|
+| `aspirador` · `fregasuelos` · `limpia-cristales` | `aspirador-suelos` |
+| `cortacésped` | `cortacesped` |
+| `humanoide` · `asistente-ia-escritorio` · `mascota-robot` | `humanoide-ia` |
+| `ficcion` | `ficciones` |
+| `editorial` (sin categoría de producto clara) | inferir por tag Beehiiv dominante (`humanoide-ia` si Humanoides/IA, `aspirador-suelos` si Aspiradores, etc.) |
+
+**(c) Construir la card** con este template exacto (sustituir los 5 placeholders). El byline usa la URL del avatar de autor Beehiiv (hardcodeada — si Rafael cambia el avatar de autor en Beehiiv, actualizar ESTA url + la del template en `beehiiv-archive-snippet.html`).
+
+**Regla especial para ficciones (`data-category="ficciones"`):** el `<TITULO>` SIEMPRE va prefijado con `🎧 ` (emoji auriculares + espacio) para señalar que el relato tiene audiolibro. Ej: `<h3 class="rbh-arc-card-title">🎧 El que viene a tomar café</h3>`. Es el único emoji permitido en las cards del archive (regla editorial "no emojis" se relaja aquí por decisión Rafael 2026-04-23). Aplica aunque el post no tenga audiolibro activo todavía — la 🎧 es marcador visual del pilar "Ficciones Domésticas", no de "tiene audio".
+
+```html
+    <a class="rbh-arc-card" data-category="<CHIP_SLUG>" href="<URL_ARTICULO>">
+      <div class="rbh-arc-thumb"><img src="<HERO_URL>" alt=""></div>
+      <h3 class="rbh-arc-card-title"><TITULO></h3>
+      <p class="rbh-arc-card-dek"><SUBTITULO></p>
+      <div class="rbh-arc-card-byline">
+        <img class="rbh-arc-card-avatar" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/user/profile_picture/864dc8b9-fd48-414a-ac12-0b53cb770fe9/profile-icon-1080x1080.png" alt="">
+        <span>Rafael de ROBOHOGAR</span>
+      </div>
+    </a>
+```
+
+**(d) Insertar al principio del grid** del fichero `content/templates/beehiiv-archive-snippet.html`. El marcador `<!-- ══ NUEVAS CARDS SE INSERTAN AQUÍ (más reciente arriba) ══ -->` señala la posición exacta: la card nueva va inmediatamente **después** de ese comentario y **antes** de la primera `<a class="rbh-arc-card">` existente. Así el archivo mantiene orden cronológico descendente (más reciente arriba — patrón idéntico a `robohogar.com`).
+
+**(e) Actualizar la metadata del comentario inicial** del fichero: línea `Último artículo añadido: <slug> (<fecha>)` con el slug y fecha del artículo recién publicado.
+
+**(f) Entregar el snippet a Rafael** — mostrarle en el chat un bloque de código con el contenido ENTERO del fichero `content/templates/beehiiv-archive-snippet.html` actualizado (sin el comentario HTML de cabecera que es interno del repo), listo para copy-paste al Custom HTML block de Beehiiv. Recordarle la ruta: *"Settings → Website → Pages → Archive → Top content → /html → Custom HTML block → pegar (reemplaza el anterior)."*
+
+**Regla anti-duplicados:** antes de insertar, grep el fichero por la URL del artículo nuevo (`grep -c "<URL_ARTICULO>"` en el fichero). Si devuelve ≥1, el artículo ya está en el archive — no insertar, avisar a Rafael *"Este artículo ya está en el snippet archive — no duplico."* y continuar al paso 6.
+
+**Verificación pre-output:**
+```bash
+# El grid debe tener exactamente 1 card por artículo del registro.
+# Usar ^\s* para excluir las menciones del comentario HTML de cabecera.
+grep -cE '^\s*<a class="rbh-arc-card"' content/templates/beehiiv-archive-snippet.html
+# Debe coincidir con el nº de artículos en content/registro-articulos.md
+# (filas de la tabla, excluyendo encabezado + línea del campo Evergreen).
+```
+
 ### 6. Regenerar llms.txt
 
 Actualizar `content/llms.txt` con el artículo recién publicado. El archivo sigue la spec de [llmstxt.org](https://llmstxt.org) y ayuda a los LLMs a entender el sitio cuando lo citan.
