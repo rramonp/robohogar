@@ -142,6 +142,20 @@ Ejecutar **además** de la checklist anti-anglicismos de arriba la checklist §4
 - [ ] **§4.3 Voz baseline cross-plataforma**: primera persona plural + tú + sin saludos anglo + anti-IA §1 si post >150 palabras
 
 **Regla de decisión combinada** (suma de anti-anglicismos + §4):
-- 0 flags agregados + hook sólido por plataforma → publicar
+- 0 flags agregados + hook sólido por plataforma → pasar a second reader externo (siguiente bloque)
 - 1-2 flags → reescribir líneas señaladas
 - ≥3 flags O metanarración de plataforma O hype en cascada → reescribir post completo
+
+## Second reader externo · `/validate-prose-es` — OBLIGATORIO para posts ≥150 palabras (añadido 2026-04-23)
+
+Los posts sociales cortos (<150 palabras) los cubre la checklist de arriba. Pero para **posts largos de LinkedIn, hilos X completos concatenados, IG caption extenso o WhatsApp multi-bloque (≥150 palabras de prosa sumada por pieza)**, invocar `/validate-prose-es` sobre el archivo `social-<slug>.md` tras pasar la checklist combinada con 0 flags.
+
+**Invocación autónoma y sin permiso:** es paso del pipeline, no decisión editorial. Se ejecuta solo para piezas por encima del umbral. Rafael recibe el reporte como parte del output.
+
+- **READY** → publicar.
+- **PENDING_FIXES** → aplicar fixes al `.md` y re-invocar una vez. Si sigue PENDING, mostrar reporte a Rafael.
+- **MAJOR_REWRITE** → bloquear output y volver a generación.
+
+Log en `content/social/<slug>/validator-reports/YYYY-MM-DD-report.md`.
+
+**Por qué:** sesgo estructural del LLM generador (tics anglo invisibles para él) + umbral por longitud (<150 palabras el grep ya atrapa lo gordo, el Agent LLM aporta poco; ≥150 palabras empiezan a aparecer colocaciones no documentadas y registros mezclados que sí valen la pena auditar).

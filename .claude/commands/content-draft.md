@@ -413,7 +413,25 @@ grep -niE "\bEs decir, [^.,]{1,40}, y [a-z]" content/articulos/<slug>/borrador.h
 
 **Origen e incidente 2026-04-21:** artículo #9 cortacésped. El subtítulo entregado decía *"checklist de 7 preguntas para que no compres de más al darle al botón"* — calco literal de *"don't overbuy at checkout"*. Rafael lo detectó al leer: *"'comprar de más' en ES significa 'he comprado 20 aspiradores sin querer, no sea caso'; la forma ES es 'pagar más de la cuenta'"*. Las reglas previas (§ 8.5 anti-IA + § 8.5 bis editorial-es) no incluían este calco específico. Este paso 8.5 ter cierra el agujero.
 
-**Regla de decisión final:** proceder al 8.6 solo con 0 matches en (a), (c), (d), (e), (g) + count (f) dentro de objetivo + cualquier match ambiguo resuelto por read-aloud test.
+**Regla de decisión final:** proceder al 8.5 quater solo con 0 matches en (a), (c), (d), (e), (g) + count (f) dentro de objetivo + cualquier match ambiguo resuelto por read-aloud test.
+
+### 8.5 quater. Second reader externo · `/validate-prose-es` — OBLIGATORIO antes de entregar borrador (añadido 2026-04-23)
+
+Los greps de 8.5 ter cogen calcos sintácticos documentados (21 patterns ES) + los específicos de marketing-copy del § 4.1 de editorial-es. Pero NO cogen: colocaciones ambiguas no documentadas aún, registros mezclados, frases que requieren releer, ritmo incoherente, verosimilitud de diálogo. Para eso existe `/validate-prose-es` — un segundo lector sin contexto del proceso de generación que hace challenge por capas (grep deterministic + Agent LLM complementario).
+
+**Invocación obligatoria y autónoma:** tras pasar 8.5 ter con 0 fallos, invocar `/validate-prose-es content/articulos/<slug>/borrador.html` (o la ruta al `.md` si el borrador vive como markdown). **El skill se ejecuta sin pedir autorización a Rafael** — es paso del pipeline, no decisión editorial. Rafael recibe el reporte como parte del output del draft.
+
+El skill devuelve uno de 3 veredictos:
+
+- **READY** — proceder al paso 8.6.
+- **PENDING_FIXES** — aplicar los fixes de la tabla al `borrador.html` en pasada atómica. Re-invocar `/validate-prose-es` una vez más. Si sigue PENDING tras 2 pases, mostrar el reporte a Rafael antes de continuar.
+- **MAJOR_REWRITE** — BLOQUEAR output. Volver al paso 6 (prosa) con el reporte del validador.
+
+**Log permanente** en `content/articulos/<slug>/validator-reports/YYYY-MM-DD-report.md` (trazabilidad editorial).
+
+**Por qué ojo fresco y no auto-auditoría:** el generador tiene sesgo estructural hacia las decisiones que ya tomó. El validador externo no comparte ese sesgo porque no ve el prompt, no ve `PASOS.md`, no ve el razonamiento. Lección del incidente 2026-04-20 (origen de `/validate-prose-es`): el relato `el-que-viene-a-tomar-cafe` v2 pasó 25 validaciones del skill generador pero Rafael detectó 10+ frases sin sentido al leer. El second reader es la defensa sistémica contra ese sesgo.
+
+Aplica a: reviews, comparativas, guías de compra, editoriales, tutoriales, newsletters publicables, cheatsheets. Cualquier prosa visible al lector ROBOHOGAR.
 
 ### 8.6. Formato técnico Beehiiv — OBLIGATORIO antes de entregar borrador
 

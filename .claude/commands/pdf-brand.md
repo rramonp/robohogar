@@ -72,6 +72,22 @@ Antes de invocar el skill, Claude debe:
 
 Si encuentra violaciones → **NO llama al skill**, reporta a Rafael y pide corregir el `contenido.md` primero. (El validator del skill también bloquea pre-PDF por si Claude falla, pero mejor catch temprano.)
 
+### 3 bis. Second reader externo · `/validate-prose-es` — OBLIGATORIO antes de invocar el skill (añadido 2026-04-23)
+
+Los validators Python del skill (`skills/pdf_brand/validators.py`) cubren las 3 prohibiciones duras (roadmap futuros / fechas revisión / byline personal) + anti-IA §1 + microcopy de conversión + anti-anglicismos ES + jerga `tangible` filtrada. Pero NO cogen: calcos sintácticos EN→ES (21 patterns del knowledge ES), colocaciones ambiguas no documentadas, registros mezclados, frases que requieren releer — los mismos vicios que `/content-draft § 8.5 quater` y `/ficcion-draft § 8.4` defienden vía `/validate-prose-es`.
+
+**Invocación obligatoria y autónoma:** tras pasar las verificaciones del paso 3 con 0 violaciones, invocar `/validate-prose-es content/lead-magnets/<slug>/contenido.md` (la fuente de prosa del PDF, antes de que el skill Python la transforme en HTML/PDF). **El skill se ejecuta sin pedir autorización a Rafael** — es paso del pipeline.
+
+- **READY** → proceder al paso 4 (invocar skill Python).
+- **PENDING_FIXES** → aplicar fixes directamente al `contenido.md`. Re-invocar una vez. Si sigue PENDING, mostrar reporte a Rafael antes de generar PDF.
+- **MAJOR_REWRITE** → BLOQUEAR generación PDF. Volver a reescritura de `contenido.md`.
+
+**Por qué validar aquí y no solo en el PDF renderizado:** el PDF es artefacto final difícil de iterar (regenerarlo cuesta ~5 min de compute + incrementar versión del filename). La prosa fuente en markdown es el lugar natural para auditar — si el validador pide cambios, se tocan 3 líneas en `contenido.md` y se relanza. Atajar calcos aquí evita PDFs v2/v3/v4 por iteración editorial.
+
+Log en `content/lead-magnets/<slug>/validator-reports/YYYY-MM-DD-report.md`.
+
+**Ámbito:** aplica a cualquier variante de `/pdf-brand` que genere prosa significativa — cheatsheet (activo), guia (futuro), comparativa (futuro), relato (futuro). La ficha Beehiiv Digital Product generada en paso 6 hereda esta validación porque su contenido deriva del mismo `contenido.md`.
+
 ### 4. Invocar el skill programáticamente
 
 ```python

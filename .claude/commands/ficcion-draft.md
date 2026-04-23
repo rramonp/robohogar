@@ -458,7 +458,7 @@ Esta checklist complementa (no sustituye) la `anti-ia-checklist § 1 + § 2`. La
 
 Los greps automáticos de 8.3 cogen calcos sintácticos específicos con patrones concretos (17 regex), pero NO cogen colocaciones ambiguas, registros mezclados, frases que requieren releer, o cualquier vicio léxico no previsto. Para eso existe el validador externo `/validate-prose-es`: un segundo lector sin contexto del proceso de generación que hace challenge mediante preguntas específicas a frases sospechosas.
 
-**Invocación obligatoria:** tras pasar 8.3 con 0 fallos, invocar `/validate-prose-es <path-al-md-del-relato>`. El skill ejecuta 3 fases (challenge · respuesta · veredicto) según [`@.claude/commands/validate-prose-es.md`](validate-prose-es.md).
+**Invocación obligatoria y autónoma:** tras pasar 8.3 con 0 fallos, invocar `/validate-prose-es <path-al-md-del-relato>`. **El skill se ejecuta sin pedir autorización a Rafael** — es paso del pipeline, no decisión editorial. Saltarlo rompe el contrato del skill `/ficcion-draft`: si lo detectas saltado en generación previa, ejecutarlo inmediatamente sobre el relato pendiente. Rafael recibe el reporte como parte del output del draft. El skill ejecuta 3 fases (challenge · respuesta · veredicto) según [`@.claude/commands/validate-prose-es.md`](validate-prose-es.md).
 
 **Qué hace el validador (sin acceso al proceso del generador):**
 
