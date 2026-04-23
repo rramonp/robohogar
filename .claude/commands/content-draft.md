@@ -433,6 +433,53 @@ El skill devuelve uno de 3 veredictos:
 
 Aplica a: reviews, comparativas, guías de compra, editoriales, tutoriales, newsletters publicables, cheatsheets. Cualquier prosa visible al lector ROBOHOGAR.
 
+### 8.5 cinco. Paridad de tratamiento visual — TODO producto analizado lleva foto inline (OBLIGATORIO)
+
+Regla dura desde 2026-04-23. Aplica `@rules/editorial.md § Controles pre-publicación § B5`. En artículos de **comparativa, guía de compra, review multi-producto o editorial que analice productos concretos**, cada producto con análisis propio debe llevar ≥1 `<img class="inline">` dentro de su sección con `<p class="fig-caption">` y fuente. Cero excepciones por "remisión al artículo contenedor" ni por "el fabricante no facilita render".
+
+**Scope aplica al check:**
+- ✅ Productos con `<div class="model-card">` (bloque canónico ROBOHOGAR para análisis de producto)
+- ✅ Productos con H2/H3 dedicado + bloque de precio (`class="price"` o equivalente) + *"para quién sí / no"*
+- ❌ Productos descartados (bloque *"los que dejamos fuera"* / *"descartados"*) — son referencias negativas, bullet con razón editorial basta
+- ❌ Productos citados solo como comparación puntual en prosa (sin H2/H3 ni card)
+
+**Script de verificación obligatorio pre-output** (`borrador.html`):
+
+```bash
+uv run --with beautifulsoup4 python -c "
+from bs4 import BeautifulSoup
+import sys
+with open('content/articulos/<slug>/borrador.html', encoding='utf-8') as f:
+    soup = BeautifulSoup(f.read(), 'html.parser')
+cards = soup.find_all('div', class_='model-card')
+failed = []
+for i, card in enumerate(cards, 1):
+    h3 = card.find(['h3','h2'])
+    label = h3.get_text(strip=True) if h3 else f'card-{i}'
+    imgs = card.find_all('img', class_='inline')
+    if len(imgs) == 0:
+        failed.append(label)
+print(f'Modelos analizados: {len(cards)}')
+print(f'Modelos con foto inline: {len(cards) - len(failed)}')
+if failed:
+    print('❌ FAIL — productos sin foto inline:')
+    for f in failed: print(f'  - {f}')
+    sys.exit(1)
+else:
+    print('✅ OK — paridad visual cumplida')
+"
+```
+
+**Regla de decisión:**
+- Script devuelve ✅ → proceder al paso 8.6.
+- Script devuelve ❌ → **bloqueo del output**. Para cada producto sin foto:
+  1. Intentar descargar foto oficial del fabricante (proceso del paso 7).
+  2. Si la oficial no existe, buscar en review reputada (Xataka Home, TechRadar, Vacuum Wars, Computer Hoy, etc.) y citar fuente.
+  3. Si ni eso se encuentra, **reconsiderar** si el producto merece análisis propio o si pasa a mención-bullet en prosa.
+- Nunca entregar borrador con `<div class="model-card">` sin `<img class="inline">` dentro.
+
+**Incidente origen:** borrador #10 *mejor-robot-aspirador-mascotas-2026* v1 (2026-04-23) entregó 5 `.model-card` con solo 2 fotos (Ecovacs X8, Dreame X50), argumentando en `PASOS.md` "remisión editorial al artículo #6 contenedor" como justificación para Roborock Qrevo Curv 2 / Eufy X10 / Cecotec Conga 11090. Rafael rechazó al revisar: *"no puede ser que pongamos artículos y analicemos productos sin poner fotos"*. Añadió las 3 fotos manualmente y canonizó la regla dura: todo producto analizado SÍ, todo descartado NO. Este paso 8.5 cinco automatiza el check para que no vuelva a pasar.
+
 ### 8.6. Formato técnico Beehiiv — OBLIGATORIO antes de entregar borrador
 
 Verificar contra `@rules/editorial.md § Formato técnico (Beehiiv)`. Aplica a TODO tipo de contenido (review, comparativa, editorial, guía, cheatsheet, newsletter).
@@ -457,12 +504,35 @@ Si hay violaciones → limpiar antes de entregar. No es opcional ni se pregunta 
 
 Aplicar [`@rules/tangibles.md § Reglas operativas`](../../.claude/rules/tangibles.md). Todo borrador DEBE contener:
 
-- [ ] **Checklist accionable** (3-7 ítems concretos) antes del veredicto/cierre, etiquetada visualmente como callout crema `#FFF9EF` + borde `#F5A623` (`<div class="checklist">`). H2 del bloque empieza por `Checklist —` para que el lector lo reconozca como producto (ej: `<h2>Checklist — 5 preguntas antes de comprar</h2>`). Si el tema no admite checklist natural, sustituir por decision tree mini, dossier "3 datos clave" o cuadro "qué hacer / qué no hacer" — pero NUNCA omitir el bloque accionable.
+- [ ] **Tangible accionable visible** (3-7 ítems o equivalente) antes del veredicto/cierre, etiquetado visualmente como callout crema `#FFF9EF` + borde `#F5A623`. Tipo del tangible se elige según § 3 bis con anti-repetición vs últimos 3 artículos — menú operativo: `checklist` (`<div class="checklist">`) · `decision-tree` (`<div class="decision-cards">`) · `dossier-3-datos` · `cuadro-si-no` · `tabla-standalone`. H2 del bloque empieza por una palabra que lo marque como producto (`Checklist — ...`, `El árbol de decisión ROBOHOGAR...`, etc.). NUNCA omitir el bloque accionable.
+- [ ] **Snippet HTML copy-paste del tangible con estilos inline + mobile-first 100 %** (regla dura 2026-04-23). Por cada tangible inline renderizado con clases CSS globales, insertar inmediatamente después un `<div class="snippet-block">` con el mismo tangible en **HTML de estilos inline escapado** (`<pre><code>` con `&lt;` / `&gt;` / `&amp;`). Rafael copia ese código a Beehiiv vía `/html` → "Custom HTML block". Razón: las clases CSS del borrador no viajan a Beehiiv al hacer copy-paste directo — el tangible pierde crema, ámbar, fuente y padding. Fuente de verdad de las plantillas: [`content/templates/tangibles-snippets.md`](../../content/templates/tangibles-snippets.md) (contiene preview + snippet inline por tipo, listo para adaptar placeholders con el contenido editorial concreto). El snippet inline debe renderizar legible en viewport **375 px sin scroll horizontal** — sin `@media queries`, sin ASCII art, sin elementos de ancho fijo. Si el tangible del artículo usa un tipo no canonizado todavía (`dossier-3-datos`, `cuadro-si-no`, `tabla-standalone`, o futuro): desarrollar ad-hoc con estilos inline siguiendo la paleta ROBOHOGAR + proponer extracción a `tangibles-snippets.md` tras aprobación.
 - [ ] **Subtítulo del artículo** (el `<p class="subtitle">` bajo el H1) menciona el tangible con cifra o promesa concreta. Fórmula: `<qué entrega el artículo> + <tangible con número>`. Ejemplos válidos: *"6 modelos, 3 perfiles y una checklist de 5 preguntas que te ahorra 600 € antes de comprar"*, *"Review + checklist de 5 cosas que verificar en cualquier aspirador con vapor"*. Prohibido subtítulo genérico sin cifra ni tangible (*"la guía honesta, sin hype"* ❌).
 - [ ] **`meta_description`** del frontmatter (≤155 chars) también menciona el tangible concreto — es lo que Google muestra en SERP y Beehiiv replica en OG card. Reutilizar la misma promesa que el subtítulo pero reformulada para SEO.
-- [ ] **`title`/`seo_title`** puede (opcional) incorporar `+ checklist` si la keyword principal deja margen de caracteres: *"Mejor robot aspirador 2026: 6 finalistas + checklist"* (52 chars). Sin forzar si rompe el límite de 55-60 chars.
+- [ ] **`title`/`seo_title`** puede (opcional) incorporar `+ checklist` / `+ árbol` si la keyword principal deja margen de caracteres. Sin forzar si rompe el límite de 55-60 chars.
 
-**Rechazo automático:** si el borrador sale sin checklist/tangible accionable O con subtítulo/meta_description genéricos sin cifra → bloquear y reescribir. No entregar "pendiente de añadir checklist" en PASOS.md.
+**Verificación pre-output del snippet (script)**:
+
+```bash
+uv run --with beautifulsoup4 python -c "
+from bs4 import BeautifulSoup
+import sys
+with open('content/articulos/<slug>/borrador.html', encoding='utf-8') as f:
+    soup = BeautifulSoup(f.read(), 'html.parser')
+tangible_previews = soup.find_all('div', class_=['checklist','decision-cards','dossier-cards','si-no-cards','standalone-table'])
+snippet_blocks = [s for s in soup.find_all('div', class_='snippet-block')
+                  if any(kw in s.get_text() for kw in ['Checklist','Árbol de decisión','Dossier','Cuadro','Tabla'])]
+print(f'Tangible previews: {len(tangible_previews)} · Snippet-blocks de tangible: {len(snippet_blocks)}')
+if len(tangible_previews) > 0 and len(snippet_blocks) < len(tangible_previews):
+    print('❌ FAIL — falta snippet-block copy-paste del tangible inline')
+    sys.exit(1)
+else:
+    print('✅ OK — tangibles con snippet inline cumplidos')
+"
+```
+
+**Rechazo automático:** si el borrador sale sin tangible accionable O sin `.snippet-block` copy-paste correspondiente O con subtítulo/meta_description genéricos sin cifra → bloquear y reescribir. No entregar "pendiente añadir snippet" en PASOS.md.
+
+**Incidente origen 2026-04-23:** borrador #10 *mejor-robot-aspirador-mascotas-2026* v1 entregó el árbol de decisión solo como preview con clases CSS. Rafael al pegarlo a Beehiiv perdió todos los estilos y canonizó la regla *"todos los tangibles dentro de artículos con snippet HTML copy-paste mobile-first, siempre"*. Plantillas reutilizables extraídas a `tangibles-snippets.md`; patrón norma para el pipeline.
 
 ### 8.8. Banner lead magnet — INSERCIÓN AUTOMÁTICA (paso ejecutable)
 
@@ -586,7 +656,7 @@ Si algún check falla → auto-corregir antes de entregar. No dejar en PASOS.md 
 - B2 Paridad cuantitativa: [✅/❌] — [subtítulo promete X → cuerpo entrega X literal y contable]
 - B3 Nomenclatura única: [✅/❌] — [cada producto ≥3 menciones usa forma canónica]
 - B4 Criterio declarado=aplicado: [✅/❌/N/A] — [incumplimientos justificados en texto del finalista]
-- B5 Paridad tratamiento visual: [✅/❌] — [N finalistas = N figures, o excepción en PASOS.md]
+- B5 Paridad tratamiento visual — TODO producto analizado lleva foto: [✅/❌] — [script § 8.5 cinco devuelve ✅; 0 model-cards sin img.inline]
 - B6 Verificación cruzada datos técnicos: [✅/❌/N/A] — [asociaciones ("hermano", "sucesor") + specs coherentes]
 - B7 Claridad datos comparables: [✅/❌/N/A] — [nuevo/refurbed, PVP/promo, UE/import etiquetados]
 ```
