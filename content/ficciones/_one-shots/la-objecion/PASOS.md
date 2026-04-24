@@ -4,7 +4,7 @@
 
 - **Title Beehiiv:** La objeción
 - **SEO title:** La objeción | Ficciones Domésticas ROBOHOGAR
-- **Meta description:** Un humanoide doméstico descubre que el ministro al que sirve filtra un expediente OTAN. Tiene veintitrés días y un botón que no hace ruido.
+- **Meta description:** Un humanoide doméstico descubre que el ministro al que sirve filtra un expediente OTAN. Tiene veintitrés días y una alarma silenciosa.
 - **Slug:** la-objecion
 - **Tag Beehiiv:** Ficciones Domésticas
 - **Categoría tonal:** inquietante (primaria) con deriva radical

@@ -435,6 +435,10 @@ grep -niE "— [^—]{3,80} — y, " <relato.md>   # → meta 0 · reescribir co
 
 # Calco 21 — pasiva con dar/entregar a actor institucional (v3)
 grep -niE "\bse (da|dio|daba|dan|dieron|daban) (al|a los|a las|a la) (tutora?|usuario|cliente|representante|sistema|responsable|cuidadora?|paciente|administradora?)" <relato.md>   # → meta 0 · reescribir con "se entrega/se concede al X"
+
+# Calco 22 — frase relativa descriptiva en lugar de adjetivo/sustantivo ES idiomático (v5 · 2026-04-24)
+# Origen: subtítulo "un botón que no hace ruido" en La objeción · validador no lo detectó porque patrón nuevo
+grep -niE "(un[oa]?|el|la|los|las|este|esta|estos|estas|ese|esa|esos|esas) [a-záéíóúñ]+ que no (hace|se [a-záéíóúñ]+|para de [a-záéíóúñ]+|deja de [a-záéíóúñ]+|tiene [a-záéíóúñ]+)" <relato.md>   # → revisar caso a caso · si existe adjetivo/sustantivo ES más conciso (silencioso, mudo, perpetuo, callado, ciego), reescribir · si la relativa es deliberadamente literaria, defender
 ```
 
 **Read-aloud test — último filtro obligatorio (añadido 2026-04-20):** si algún grep de los calcos 14 · 15 · 17 · 18 devuelve match ambiguo (imposible decidir con grep si es error o uso buscado), LEER LA FRASE EN VOZ ALTA o pasar por TTS ES peninsular. Si el oído tropieza — si hay que releer para entender — reescribir. El grep es el primer filtro; el oído nativo ES es el filtro definitivo.

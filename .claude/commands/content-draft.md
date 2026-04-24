@@ -376,7 +376,7 @@ Capa adicional de validación ES activada 2026-04-21. Motivo: el LLM sigue intro
 
 **Cargar** (lectura obligatoria si no están en contexto):
 - [`@references/editorial-es/01-articulos-y-columnas.md § 4.1`](../../references/editorial-es/01-articulos-y-columnas.md) — tabla de calcos anglo en transiciones y marketing-copy (10 entradas).
-- [`@references/ficciones/castellano-literario-es.md § 8.1`](../../references/ficciones/castellano-literario-es.md) — los 21 calcos canónicos (aplicar los relevantes a no-ficción: 1 posesivos con partes del cuerpo · 3 "de repente" · 4 adverbios -mente · 7 conectores anglo · 13 "centro de X" · 15 voz técnica · 17 microcopy UI anglo · 19 "Es decir, X, y Y" · 20 inciso em-dash · 21 dativos de persona errados; NO aplicar los específicos de narrativa: 5 voz pasiva en narrador · 14 "en boca de").
+- [`@references/ficciones/castellano-literario-es.md § 8.1`](../../references/ficciones/castellano-literario-es.md) — los 22 calcos canónicos (aplicar los relevantes a no-ficción: 1 posesivos con partes del cuerpo · 3 "de repente" · 4 adverbios -mente · 7 conectores anglo · 13 "centro de X" · 15 voz técnica · 17 microcopy UI anglo · 19 "Es decir, X, y Y" · 20 inciso em-dash · 21 dativos de persona errados · 22 frase relativa descriptiva ↔ adjetivo ES; NO aplicar los específicos de narrativa: 5 voz pasiva en narrador · 14 "en boca de").
 
 **Grep obligatorio pre-entrega** sobre `borrador.html`:
 
@@ -402,10 +402,16 @@ echo "Adverbios -mente: $COUNT (objetivo ≤8 en guía de compra ≥2.500 palabr
 
 # (g) "Es decir, X, y Y" — inciso con coordinación anglo (calco #19 ficciones)
 grep -niE "\bEs decir, [^.,]{1,40}, y [a-z]" content/articulos/<slug>/borrador.html
+
+# (h) Frase relativa descriptiva en lugar de adjetivo ES idiomático (calco #22 ficciones, v5 · 2026-04-24)
+# Origen: subtítulo "un botón que no hace ruido" (La objeción) — el validador no lo cogió. Patrón anglo.
+# En artículos aplica especialmente a subtítulos, deks, callouts, conclusiones — lugares donde la concisión manda.
+grep -niE "(un[oa]?|el|la|los|las|este|esta|estos|estas|ese|esa|esos|esas) [a-záéíóúñ]+ que no (hace|se [a-záéíóúñ]+|para de [a-záéíóúñ]+|deja de [a-záéíóúñ]+|tiene [a-záéíóúñ]+)" content/articulos/<slug>/borrador.html
 ```
 
 **Regla de decisión:**
 - ≥1 match en (a), (c), (d), (e), (g) → **reescribir antes de entregar** (son calcos duros sin contexto válido en artículo).
+- Matches en (h) → revisar caso a caso; si existe adjetivo/sustantivo ES más conciso (silencioso, mudo, perpetuo, callado, ciego), reescribir. Si la relativa es deliberadamente literaria, defender. Especialmente bloqueante en subtítulos/deks/callouts.
 - Matches en (b) → revisar caso a caso; algunos pueden tener uso válido (*"por otro lado"* como transición limpia entre dos tesis contrapuestas ≠ relleno anglo).
 - Count (f) fuera de objetivo → reescribir frases con -mente de más a perífrasis (*"absolutamente"* → *"del todo"*, *"rápidamente"* → *"rápido"*).
 

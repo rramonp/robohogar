@@ -31,7 +31,7 @@
 ## (b) Subtítulo / dek
 
 ```
-Un humanoide doméstico descubre que el ministro al que sirve filtra un expediente OTAN. Tiene veintitrés días y un botón que no hace ruido.
+Un humanoide doméstico descubre que el ministro al que sirve filtra un expediente OTAN. Tiene veintitrés días y una alarma silenciosa.
 ```
 
 ---

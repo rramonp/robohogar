@@ -1,7 +1,7 @@
 ---
 title: "La objeción"
 seo_title: "La objeción | Ficciones Domésticas ROBOHOGAR"
-meta_description: "Un humanoide doméstico descubre que el ministro al que sirve filtra un expediente OTAN. Tiene veintitrés días y un botón que no hace ruido."
+meta_description: "Un humanoide doméstico descubre que el ministro al que sirve filtra un expediente OTAN. Tiene veintitrés días y una alarma silenciosa."
 slug: la-objecion
 serie: _one-shots
 episodio: null

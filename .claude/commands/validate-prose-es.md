@@ -39,13 +39,13 @@
 │ CAPA 1 · GREP DETERMINISTIC (obligatoria,      │
 │ primera, infalible en su scope)                │
 │                                                │
-│ Ejecuta los 21 greps del knowledge ES          │
+│ Ejecuta los 22 greps del knowledge ES          │
 │ (castellano-literario-es.md §§ 3 + 8.1)        │
 │ sobre el path dado. Reporta CADA match con     │
 │ contexto (±1 línea).                           │
 │                                                │
 │ Output:                                        │
-│ - Lista de matches por calco (1-21)            │
+│ - Lista de matches por calco (1-22)            │
 │ - Total de hits                                │
 └──────────────────┬─────────────────────────────┘
                    │
@@ -89,21 +89,21 @@
 
 ## CAPA 1 · Grep deterministic
 
-### Patrones a ejecutar (21 calcos)
+### Patrones a ejecutar (22 calcos)
 
-Los 21 calcos están documentados en [`references/ficciones/castellano-literario-es.md § 3 + § 8.1`](../../references/ficciones/castellano-literario-es.md) con sus regex exactas.
+Los 22 calcos están documentados en [`references/ficciones/castellano-literario-es.md § 3 + § 8.1`](../../references/ficciones/castellano-literario-es.md) con sus regex exactas.
 
 **Comando consolidado (ejecutar vía bash tool):**
 
 ```bash
 #!/bin/bash
-# /validate-prose-es · Capa 1 · 21 greps deterministic
+# /validate-prose-es · Capa 1 · 22 greps deterministic
 # Uso: bash validate-layer-1.sh <path-al-relato.md>
 
 TEXT="$1"
 TOTAL=0
 
-echo "═══ CAPA 1 · GREP DETERMINISTIC · 21 calcos ═══"
+echo "═══ CAPA 1 · GREP DETERMINISTIC · 22 calcos ═══"
 
 check() {
   local num="$1" name="$2" pattern="$3" flags="${4:--niE}"
@@ -134,6 +134,9 @@ check 18 "Preposiciones espaciales calcadas"   "\\b(enfrente|en frente) (del|de 
 check 19 "Clarificación anglo 'Es decir X y'"  "\\bEs decir, [^.,]{1,40}, y [a-z]"
 check 20 "Inciso em-dash cerrando con ', y, '"  "— [^—]{3,80} — y, "
 check 21 "Pasiva con dar a actor institucional" "\\bse (da|dio|daba|dan|dieron|daban) (al|a los|a las|a la) (tutora?|usuario|cliente|representante|sistema|responsable|cuidadora?|paciente|administradora?)"
+# Calco 22 (v5 · 2026-04-24) — frase relativa descriptiva en lugar de adjetivo/sustantivo ES idiomático
+# Origen: subtítulo "un botón que no hace ruido" en La objeción (detectado por Rafael leyendo, validador no lo cogió)
+check 22 "Frase relativa descriptiva ↔ adjetivo ES" "(un[oa]?|el|la|los|las|este|esta|estos|estas|ese|esa|esos|esas) [a-záéíóúñ]+ que no (hace|se [a-záéíóúñ]+|para de [a-záéíóúñ]+|deja de [a-záéíóúñ]+|tiene [a-záéíóúñ]+)"
 
 echo ""
 echo "═══ CAPA 1 TOTAL · $TOTAL matches literales (calcos 20 aparte) ═══"
@@ -142,7 +145,7 @@ echo "═══ CAPA 1 TOTAL · $TOTAL matches literales (calcos 20 aparte) ═�
 **Interpretación de matches:**
 
 - **Calcos 1, 3, 13, 16, 17, 18, 20, 21:** meta = 0. Cualquier match es error. Reescribir.
-- **Calcos 4, 5, 7, 14, 15, 19:** revisar contexto. Pueden tener excepciones legítimas (cita de manual en calco 15, adverbio ocasional en calco 4, pasiva refleja legítima en calco 5). El autor debe defender cada match en la respuesta.
+- **Calcos 4, 5, 7, 14, 15, 19, 22:** revisar contexto. Pueden tener excepciones legítimas (cita de manual en calco 15, adverbio ocasional en calco 4, pasiva refleja legítima en calco 5, frase relativa deliberadamente literaria en calco 22). El autor debe defender cada match en la respuesta.
 - Si TOTAL ≥ 1 en calcos meta=0 → **BLOQUEO automático**. Fix obligatorio antes de Capa 2.
 
 ### Formato del output de Capa 1
@@ -152,7 +155,7 @@ Lo que Claude Code muestra a Rafael:
 ```
 ═══ VALIDADOR · CAPA 1 · GREP DETERMINISTIC ═══
 
-Ejecutados los 21 greps sobre <path>.
+Ejecutados los 22 greps sobre <path>.
 
 [Lista de matches por calco si hay]
 
@@ -249,7 +252,7 @@ def veredicto_combinado(capa1_matches, capa2_hallazgos):
 
 ## Fase 4 · Auto-catalogación — el validador aprende automáticamente (v4 · 2026-04-20)
 
-**Principio clave:** cada hallazgo de Capa 2 (LLM) que NO corresponde a los 21 calcos existentes genera una propuesta de **auto-documentación** del knowledge. El validador deja de ser filtro pasivo para convertirse en sistema self-learning.
+**Principio clave:** cada hallazgo de Capa 2 (LLM) que NO corresponde a los 22 calcos existentes genera una propuesta de **auto-documentación** del knowledge. El validador deja de ser filtro pasivo para convertirse en sistema self-learning.
 
 ### Por qué
 

@@ -204,6 +204,11 @@ grep -niE "— [^—]{3,80} — y, "  → meta 0; si el inciso cierra con ", y, 
 
 # Calco 21: pasivas con dar/entregar a actor institucional
 grep -niE "\bse (da|dio|daba|dan|dieron|daban) (al|a los|a las|a la) (tutora?|usuario|cliente|representante|sistema|responsable|cuidadora?|paciente|administradora?)"  → reescribir con "se entrega/se concede/se comunica al X" o impersonal activo plural "se la dan al X"
+
+# Calco 22: frase relativa descriptiva en lugar de adjetivo/sustantivo ES idiomático (v5 · 2026-04-24)
+# Patrón anglo: "the X that doesn't make Y" / "the X that never Z" descripción funcional vía relativa
+# Cuando ES tiene un adjetivo o sustantivo más conciso, usarlo. La frase relativa es la opción anglo por defecto.
+grep -niE "(un[oa]?|el|la|los|las|este|esta|estos|estas|ese|esa|esos|esas) [a-záéíóúñ]+ que no (hace|se [a-záéíóúñ]+|para de [a-záéíóúñ]+|deja de [a-záéíóúñ]+|tiene [a-záéíóúñ]+)"  → revisar caso a caso; si existe adjetivo/sustantivo ES más conciso (silencioso, mudo, perpetuo, callado, ciego), reescribir; si es deliberadamente literaria, mantener y defender
 ```
 
 **Nota técnica crítica (2026-04-20):** en grep GNU bajo Windows + shell bash, las clases Unicode `[oó]` / `[aá]` / `[eé]` fallan silenciosamente al matchear caracteres con tilde porque interpretan los bytes UTF-8 individualmente. Por eso TODOS los patterns de arriba usan **alternaciones literales** `(con-tilde|sin-tilde)` en vez de clases. Es ligeramente más verboso pero garantiza matching cross-platform. Si se añade un calco nuevo con palabras acentuadas, seguir el mismo patrón.
@@ -247,6 +252,26 @@ Este apartado recoge los **casos canónicos** como corpus de referencia permanen
 - **Cómo un nativo ES lo pilla:** *"vigilando de medio lado"* suena traducido; el oído espera *"de reojo"* como la opción natural.
 - **Fix aplicado:** *"así que se queda en el quicio, vigilando de reojo"*.
 - **Regla derivada (calco 16):** si la expresión no es la que diría un nativo ES peninsular sin pensar, es calco probable o construcción forzada. Sustituir por la idiomática ES canónica (hay casi siempre una). En duda: test de lectura en voz alta.
+
+### Caso 6 · Frase relativa descriptiva en lugar de adjetivo ES idiomático (origen 2026-04-24)
+
+- **Frase original (subtítulo SEO de *La objeción*):** *"Tiene veintitrés días y un botón que no hace ruido."*
+- **Diagnóstico:** *"Un botón que no hace ruido"* sigue el patrón anglo `the X that doesn't [verb]` — descripción funcional vía relativa. En ES peninsular literario, donde existe un adjetivo o un sustantivo idiomático para esa misma cualidad, se prefiere ese: *"un botón silencioso"*, *"una alarma silenciosa"*, *"un interruptor mudo"*. La frase relativa funciona en inglés (*"a button that doesn't make a sound"*) pero traducida literal suena a doblaje. Detectado por Rafael 2026-04-24 leyendo el dek SEO; el validador `/validate-prose-es` v4 no lo cogió porque el patrón no estaba documentado entre los 21 calcos previos.
+- **Cómo un nativo ES lo pilla:** la frase es gramaticalmente correcta pero el oído ES la registra como descripción larga donde podría haber un adjetivo. Especialmente cantoso en posiciones cortas (subtítulo, dek, cierre, headline) donde la concisión es la regla.
+- **Fix aplicado:** *"Tiene veintitrés días y una alarma silenciosa."* — el sustantivo *alarma* hereda el matiz de seguridad/complot (asociación bancaria *alarma silenciosa* del cajero) y *silenciosa* sustituye la frase relativa entera.
+- **Regla derivada (calco 22):** si el borrador contiene `un/a + [sustantivo] + que (no) [verbo sensorial]` y existe en ES un adjetivo o sustantivo más conciso para la misma cualidad, reescribir. Tabla de equivalencias canónicas:
+
+| Frase relativa anglo (calco) | Adjetivo/sustantivo ES idiomático |
+|---|---|
+| un botón que no hace ruido | un botón silencioso · una alarma silenciosa |
+| una luz que no se apaga | una luz perpetua · una vela encendida |
+| un teléfono que no suena | un teléfono mudo · el silencio del teléfono |
+| una puerta que no se abre | una puerta cerrada · un cerrojo echado |
+| un reloj que no para | un reloj incansable · un tic-tac perpetuo |
+| una mano que no se mueve | una mano inerte · una mano muerta |
+| un ojo que no parpadea | un ojo fijo · una mirada inmóvil |
+
+- **Excepción legítima:** cuando la frase relativa es deliberadamente literaria/poética (*"el dios que no responde"*, *"el padre que nunca volvió"*) y la concisión rompería el ritmo o el matiz emocional, mantener la relativa. El criterio: ¿la sustitución por adjetivo gana en concisión SIN perder peso? Si sí, reescribir. Si pierde, defender.
 
 ### Caso 5 · Microcopy de UI anglo en ficción especulativa
 
