@@ -196,10 +196,13 @@ Reviews, comparativas, guías de compra de robots aspiradores.
 | Fuente | URL | Tipo | Notas |
 |--------|-----|------|-------|
 | Statista Market Outlook Spain | statista.com/outlook/cmo/household-appliances/small-appliances/robotic-vacuum-cleaners/spain | Datos de mercado | Penetración de categoría en hogares ES + compatibilidad cross-country (Alemania, Corea). Usado art.6 (Mejor robot aspirador 2026) para sección "¿sabías que?" · dato "17% hogares ES, 34% Alemania, 41% Corea en 2026" |
+| ANFAAC · Censo de mascotas 2025 | anfaac.org/datos-sectoriales/ | Asociación Nacional de Fabricantes Alimentos Animales Compañía | Fuente oficial ES para datos de tenencia de mascotas. Usado art.10 (mejor-aspirador-mascotas-2026) · dato "13M perros y gatos registrados, 40% hogares ES" en sección "¿sabías que?" |
+| American Veterinary Medical Association | avma.org/resources/pet-owners/petcare/cat-behavior | Asociación veterinaria EE.UU. | Guía oficial de conducta felina. Fuente de respaldo para insight "altura bajo muebles" (variante v2 ¿sabías que?, archivada) en art.10 |
+| AEPNAA · Alergia animales | aepnaa.org/ver/144/alergia-a-los-animales.html | Asociación Española Personas con Alergia a Alimentos y Látex | Guía sobre alérgenos Fel d 1 / Can f 1 + filtración HEPA. Fuente de respaldo para insight "depósito sellado vs HEPA" (variante v3 ¿sabías que?, archivada) en art.10 |
 
 ### Robots en esta categoría
 
-*Pendiente: investigación dedicada cuando toque artículo de aspiradores*
+*Ampliado con art.10 (aspiradores mascotas): Ecovacs Deebot X8 Pro Omni · Roborock Qrevo Curv 2 · Dreame X50 Ultra · Eufy X10 Pro Omni · Cecotec Conga 11090 Ultra.*
 
 ---
 

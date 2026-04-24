@@ -47,7 +47,7 @@
 
 **Estado (21-abr-2026):**
 
-- ✅ **9 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [Mejor robot cortacésped 2026: 6 finalistas + checklist de 7 preguntas antes de comprar](https://robohogar.com/p/mejor-robot-cortacesped-2026) (2026-04-21).
+- ✅ **10 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [Mejor robot aspirador para mascotas 2026: los 5 errores que pagas caro y el árbol de decisión ROBOHOGAR](https://robohogar.com/p/mejor-robot-aspirador-mascotas-2026) (2026-04-23).
 - ❌ **0 suscriptores** · newsletter semanal diferida hasta 30-50 subs.
 - ❌ **0 Ficciones Domésticas** publicadas (pilar experimental pendiente de arrancar).
 - ✅ **Pipeline de skills funcionando** (`/research-digest` · `/content-draft` · `/nano-banana` · `/post-publish` · `/social-content` · `/obsidian-robohogar`).
@@ -101,7 +101,7 @@ Detalle + razones: memoria `feedback_seo_first_pivote.md`.
 
 ## 📍 Dónde estoy hoy — siguiente paso
 
-> Última actualización: 21-abr-2026, tras publicar #9 *[Mejor robot cortacésped 2026: 6 finalistas + checklist de 7 preguntas antes de comprar](https://robohogar.com/p/mejor-robot-cortacesped-2026)*.
+> Última actualización: 23-abr-2026, tras publicar #10 *[Mejor robot aspirador para mascotas 2026: los 5 errores que pagas caro y el árbol de decisión ROBOHOGAR](https://robohogar.com/p/mejor-robot-aspirador-mascotas-2026)*.
 
 ### 📌 Próximos 3 next steps
 
@@ -109,11 +109,12 @@ Detalle + razones: memoria `feedback_seo_first_pivote.md`.
 
 - [x] **Next 1 —** ~~Publicar artículo #8 *"Un humanoide bate el récord mundial humano de media maratón"*~~ → Publicado 20-abr-2026. URL: https://robohogar.com/p/humanoide-maraton-pekin-record-mundial
 - [x] **Next 2 —** ~~Publicar artículo #9 *"Mejor robot cortacésped 2026 · Guía de compra"* (E1 del backlog evergreen, estacional)~~ → Publicado 21-abr-2026. URL: https://robohogar.com/p/mejor-robot-cortacesped-2026
-- [ ] **Next 3 —** Primera flash Ficciones Domésticas *"El operador nocturno"* (ahora que el evergreen de la semana está cerrado · regla evergreen-first cumplida) · frase trigger: *"Retomamos ficciones — arrancar piloto"* · `/ficcion-draft`
-- [ ] **Next 4 —** **Evergreen E12 — Robot cortacésped vs tradicional: ROI en 3 años** (estacional mismo pico abr-jul · cluster SEO con E1 vía internal linking) · frase trigger: *"Retomamos evergreen — empezamos E12 ROI cortacésped"* · `/content-draft Robot cortacésped vs cortacésped tradicional: ROI en 3 años` · ver [calendario-editorial.md § Backlog Evergreen SEO](../content/calendario-editorial.md)
-- [ ] **Next 5 —** **Evergreen E4 — Mejor robot aspirador para piso pequeño (<60 m²)** (long-tail baja competencia, perfil ES típico, no estacional) · frase trigger: *"Retomamos evergreen — empezamos E4 piso pequeño"* · `/content-draft`
+- [x] **Next 3 —** ~~Publicar artículo #10 *"Mejor robot aspirador para mascotas 2026"* (evergreen long-tail mascotas, tangible árbol de decisión + banner Hoja de Compra)~~ → Publicado 23-abr-2026. URL: https://robohogar.com/p/mejor-robot-aspirador-mascotas-2026
+- [ ] **Next 4 —** Primera flash Ficciones Domésticas *"El operador nocturno"* (ahora que hay 4 evergreens consecutivos · regla evergreen-first cumplida con margen) · frase trigger: *"Retomamos ficciones — arrancar piloto"* · `/ficcion-draft`
+- [ ] **Next 5 —** **Evergreen E12 — Robot cortacésped vs tradicional: ROI en 3 años** (estacional mismo pico abr-jul · cluster SEO con E1 vía internal linking) · frase trigger: *"Retomamos evergreen — empezamos E12 ROI cortacésped"* · `/content-draft Robot cortacésped vs cortacésped tradicional: ROI en 3 años` · ver [calendario-editorial.md § Backlog Evergreen SEO](../content/calendario-editorial.md)
+- [ ] **Next 6 —** **Evergreen E4 — Mejor robot aspirador para piso pequeño (<60 m²)** (long-tail baja competencia, perfil ES típico, no estacional) · frase trigger: *"Retomamos evergreen — empezamos E4 piso pequeño"* · `/content-draft`
 
-**Último artículo publicado:** #9 *Mejor robot cortacésped 2026: 6 finalistas + checklist de 7 preguntas antes de comprar* (2026-04-21).
+**Último artículo publicado:** #10 *Mejor robot aspirador para mascotas 2026: los 5 errores que pagas caro y el árbol de decisión ROBOHOGAR* (2026-04-23).
 **Último tangible publicado:** Hoja de Compra v2 PDF (2026-04-18) → `content/lead-magnets/hoja-compra/`.
 
 ### 🌍 Filtro mercado ES — regla base
