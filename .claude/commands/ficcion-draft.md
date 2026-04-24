@@ -24,6 +24,7 @@ Rafael usa una de estas frases para invocar el skill en el modo correspondiente.
 | Episode 0 de nueva serie (entrada suave) | **`/ficcion-draft serie <slug> episode-0`** | `episode-0` |
 | Flash piloto (testar serie antes de comprometer) | **`/ficcion-draft piloto <serie-candidata>`** | `piloto` |
 | Tie-in con artículo publicado | **`/ficcion-draft tie-in <url-articulo>`** | `tie-in` |
+| Exploración pre-escritura (pitch) | **`/ficcion-draft pitch <semilla>`** · *"cuéntame más sobre X"* · *"explora el pitch de X"* · *"desarrolla X"* | `pitch` |
 | Ver estado del pilar | **`¿Qué series tengo activas y qué episodios llevo?`** | `estado` (lee `series-bible-maestra.md` y reporta) |
 
 ## When to activate
@@ -86,6 +87,7 @@ Primer paso ANTES de leer inputs: detectar qué modo pide Rafael según la frase
 | `episode-0` | Entrada suave a nueva serie. Lee `character-bible.md` + `arco-serie.md` (recién rellenados). Presenta universo + personajes + regla del universo. Debe funcionar standalone (lector nuevo puede empezar aquí). Longitud ~1.500. |
 | `piloto` | Flash testador — serie candidata aún no activada. Lee propuesta en `series-bible-maestra.md` si existe. NO canoniza nada — es desechable. Longitud `flash` (500-800). |
 | `tie-in` | Relato flash que dialoga con un artículo publicado. Lee el artículo (URL o path), extrae dato real + tensión humana, genera relato flash. Slot destacado en email siguiente al artículo. Longitud `flash`. |
+| `pitch` | NO genera prosa. Devuelve **pitch canónico de exploración** (template descrito en "Modo `pitch` — formato canónico de exploración" al final del doc). Rafael lee, elige entre variantes ofrecidas por bloque, y luego reinvoca otro modo (`one-shot`/`serie`/`piloto`) con la semilla refinada. Saltar pasos 2-9; solo ejecutar paso 0 (detectar modo) + 0.5 (declarar tonal) + bloque pitch. Output: chat + opcionalmente guardar en `content/ficciones/_pitches/<slug>.md` si Rafael lo pide. |
 | `estado` | NO genera relato. Lee `references/ficciones/series-bible-maestra.md` + `content/ficciones/<slug>/character-bible.md` de series activas + calendario editorial. Devuelve tabla: series activas · último episodio · próximo previsto · hilos pendientes. |
 
 **Si Rafael no especifica modo**: preguntar por la frase trigger adecuada. NO asumir.
@@ -725,5 +727,80 @@ Debe contener:
   - Prompts genéricos: `@references/writewithai/05-prompts-utiles.md`
   - Voz/hooks genéricos: `@references/writewithai/01-voz-y-estructura.md`
   - Asset catalog (estilo hero ficción): `@assets/branding/asset-catalog.md` → sección "Heros ficción"
+
+---
+
+## Modo `pitch` — formato canónico de exploración
+
+Cuando se invoca el skill en modo `pitch` (frases trigger: `/ficcion-draft pitch <semilla>`, *"cuéntame más sobre X"*, *"explora el pitch de X"*, *"desarrolla X"*), el skill **NO escribe prosa**. Genera un documento de exploración estructurado para que Rafael elija opciones antes de comprometerse a redactar. Ejecutar solo pasos 0 (detectar modo) + 0.5 (declarar tonal provisional) + este bloque.
+
+**Por qué existe este modo:** brainstorming estructurado sin quemar context window ni tokens en prosa que se va a descartar. Rafael ve las decisiones importantes (personajes, localización, tono, estructura, finales, título) con una opción elegida + variantes, elige, y luego reinvoca `/ficcion-draft one-shot <semilla-refinada>` con la decisión tomada. Separa *qué contar* de *cómo contarlo*.
+
+### Regla de forma — opción elegida + variantes, siempre
+
+Cada bloque que admite variación presenta **una opción elegida (razonada)** y **2-3 variantes descartadas** con media línea sobre qué cambia. Nunca listar opciones equiparables sin marcar cuál recomienda el skill — Rafael pidió decisión con criterio, no un menú neutro. La razón de la elegida es lo que le permite decidir si contraargumentar.
+
+### Template obligatorio — 10 bloques en este orden
+
+**1. El pulso** (2-3 frases).
+De qué va **en verdad** el relato (conflicto humano subyacente, no premisa superficial). El robot es MacGuffin que obliga al protagonista a mirar algo. Aquí no hay variantes — es la tesis del relato.
+
+**2. Anclaje canon** (Tchaikovsky + MRU).
+- **Left-wall** — restricción tecnológica real e inviolable que hace el relato plausible. Una sola, concreta, con referencia a investigación real (papers, específicos de fabricante, ley, informe). No inventar capacidades.
+- **Big-lie** — única licencia creativa por encima del left-wall. Marca explícita: *"Es el único salto que pide el relato; todo lo demás se sostiene solo."*. Máximo una.
+- **MRU** — POV (1ª persona de X / 3ª cercana a Y / omnisciente), tiempo verbal (presente / pasado), triángulo autor/personaje/lector (quién sabe qué, dónde está la asimetría dramática).
+
+**3. Geografía y personajes** (con opciones).
+- **Localización** — ciudad + barrio concreto. **Elegido: X — razón.** Variantes descartadas: 2-3 alternativas con media línea. El barrio importa (clase social, subtexto).
+- **Protagonista** — nombre ES peninsular plausible, edad, oficio, anclaje biográfico en 1 línea. **Elegido: X.** Variantes: 2-3 nombres/perfiles alternativos.
+- **Secundarios** — solo los que tienen escena (máx 2-3). Mismo formato.
+- **Robot/IA** — nombre propio ficticio del canon ROBOHOGAR (Tico, Hugo, RONDA-3, Eva, MAIA) o propuesta nueva. Si el relato pide robot sin nombre (como en *El partido de los domingos*, donde la ausencia de nombre es el filo), declararlo explícitamente y razonar por qué.
+
+**4. Estructura propuesta** (con longitud).
+- **Longitud recomendada** — `flash` (500-800) / `episodio-serie` (1.200-1.800) / `standalone` (2.500-3.500). Razón en media línea. Alternativas brevemente mencionadas si aplica.
+- **Esqueleto de escenas** — 2-4 bloques con marcador (Escena 1, Intermedio, Escena 2, etc.) y qué pasa en cada uno. Sin prosa — solo sinopsis.
+
+**5. Por qué funciona** (3 puntos).
+- **El villano es humano / doble / ninguno.** Qué problema humano real revela o amplifica el relato (Paint The Villain invertido).
+- **Cliffhanger estrictamente emocional.** Qué decisión queda abierta sin resolver. Nunca físico (regla canon).
+- **Resonancia con lector ES 30-55.** Por qué el relato tiene tracción emocional en el público objetivo ROBOHOGAR.
+
+**6. Finales posibles** (tabla, 3 opciones).
+Tabla de 3 filas con columnas: **Final · Qué pasa · Tono**. Marcar **elegido** con asterisco o negrita y razonar en 2-3 líneas por qué ese es el que recomienda el skill. Los otros dos deben ser finales genuinamente distintos (no variaciones cosméticas del mismo) — cada uno cambia el peso moral del relato.
+
+**7. Datos reales anclables** (bullets).
+Lista 3-5 referencias verificables (ley/regulación · paper técnico · estadística INE/Eurostat · spec de fabricante · literatura clínica/psicológica). El relato usará 1 como ancla principal + otros como atmósfera. Si falta dato real obvio → flag: *"buscar verificación en `/research-digest` antes de redactar"*.
+
+**8. Riesgos editoriales** (con antídotos).
+Lista 2-4 riesgos: sentimentalidad, calcos anglo, comparación con obra conocida (Her, Black Mirror episodio X), Pixar/redención fácil, antropomorfización. Para cada uno: **antídoto operativo concreto** (qué regla técnica aplicar en la redacción para esquivarlo — ej: cero *thought verbs*, robot no habla en escena, detalle ES peninsular específico).
+
+**9. Título** (con alternativa).
+- **Título de trabajo: X** — razón en una línea.
+- **Alternativa: Y** — por qué podría ser mejor / peor.
+Máximo 2 alternativas. Marcar cuál gana y por qué.
+
+**10. Pregunta de cierre al usuario.**
+Lista compacta de qué opciones tiene que decidir Rafael antes de pasar a redacción: final (A/B/C), longitud (flash/episodio-serie/standalone), confirmar o cambiar localización/protagonista/título. Terminar con: *"Si te convence, dime las opciones y lo meto por `/ficcion-draft <modo> <semilla-refinada>`."*.
+
+### Principios de composición del pitch
+
+- **Brevedad con densidad.** Cada bloque debe ser escaneable pero dar meat suficiente para decidir. Sin frases de relleno. Sin *filler* ni resúmenes redundantes entre bloques.
+- **Sin prosa del relato.** El pitch describe, no ejecuta. Ni una frase que pueda ir literal en el relato final — si aparece, reescribir o borrar.
+- **Voz ROBOHOGAR del skill (no del relato).** El pitch usa voz plural editorial (*"el relato pide"*, *"recomendamos"*) y es analítico/editorial, no narrativo. La voz del narrador del relato se decide en paso 2 (MRU) como opción, no se demuestra.
+- **Castellano peninsular directo.** Misma regla que el resto del skill (§§ 3 + 3.bis de `castellano-literario-es.md`). Sin calcos anglo aunque sea análisis editorial.
+- **Anti-IA §1 aplica.** Sin *tapiz / entramado / intrincado / matizado*, sin tricolon mecánico, sin em-dashes en cascada decorativa.
+
+### Output del modo pitch
+
+- **Default**: volcar el pitch en el chat con los 10 bloques.
+- **Opcional**: si Rafael dice *"guárdalo"* / *"que quede en repo"* → escribir en `content/ficciones/_pitches/<slug>.md` con frontmatter mínimo (`titulo`, `tonal-provisional`, `fecha`, `estado: pitch`). Este archivo NO es el borrador — es solo el documento de exploración. Cuando Rafael decida opciones y reinvoque `/ficcion-draft one-shot <slug>`, el skill lo lee como contexto y ejecuta los pasos 1-9 normales.
+
+### Cuándo NO usar modo `pitch`
+
+- Si Rafael dice *"escribe X"* / *"genera X"* / *"relato sobre X"* directamente — no. Quiere prosa. Ir directo a `one-shot` / `serie`.
+- Si el backlog de calendario editorial ya tiene la semilla con gancho + tema humano + formato + dato real → usar `one-shot`, no `pitch` (el pitch equivalente ya está en el backlog).
+- Si Rafael repite modo `pitch` sobre la misma semilla — preguntar qué sigue sin cerrar (quizá faltan opciones de personaje o final que no consideramos).
+
+**Incidente origen:** 2026-04-24, Rafael pidió "cuéntame más" sobre una premisa (#10 *El partido de los domingos*) durante brainstorming. El skill respondió con un documento exploratorio estructurado (pulso, anclaje canon, personajes, 3 finales con elegido, riesgos, título con alternativa). Rafael pidió canonizar ese formato y añadirlo al pipeline para que se aplique consistentemente en futuras exploraciones. Regla nueva 2026-04-24. Memoria: `feedback_ficcion_modo_pitch.md`.
 
 <!-- created by wwai-integration 2026-04-17 -->

@@ -15,6 +15,7 @@ Distinto de [`registro-articulos.md`](registro-articulos.md), que cataloga la no
 | # | Fecha | Título | Slug | URL | Serie | Episodio | Categoría tonal | Audiolibro | Notas |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | 2026-04-23 | La objeción | la-objecion | https://robohogar.com/p/la-objecion | `_one-shots` | — | inquietante (con deriva radical) | ✅ 19 min | Ministro español filtra Expediente COSMIC OTAN a Grupo de Puebla; humanoide VELA-9 con cláusula 47 del AI Act. Cliffhanger Sopranos (`Aprieta. / Uno. / Dos. / El dedo sigue apoyado.`). |
+| 2 | 2026-04-24 | La llave inglesa | la-llave-inglesa | *(pendiente publicación)* | `_one-shots` | — | radical | ⏳ pendiente R2 | Ejercicio gubernamental 48h sin luz ni internet en Ayllón (Segovia). Tres vecinos sin humanoide sabotean la subestación para alargar el apagón tras redescubrir el tejido vecinal. Alcalde Sanchidrián descubre a los autores y miente al Ministerio. Cierre: saludo silencioso de dos dedos con Alicia Peña en la plaza. POV 3ª persona cercana, presente. Cliffhanger emocional (el alcalde-cómplice). |
 
 ## Backfill pendiente (relatos publicados antes de este registro)
 

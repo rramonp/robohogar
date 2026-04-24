@@ -229,7 +229,7 @@ Rafael pega este snippet en **Beehiiv → Settings → Website → Pages → Arc
       <p class="rbh-arc-card-dek"><SUBTITULO></p>
       <div class="rbh-arc-card-byline">
         <img class="rbh-arc-card-avatar" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,quality=80,format=auto,onerror=redirect/uploads/user/profile_picture/864dc8b9-fd48-414a-ac12-0b53cb770fe9/profile-icon-1080x1080.png" alt="">
-        <span>Rafael de ROBOHOGAR</span>
+        <span>ROBOHOGAR</span>
       </div>
     </a>
 ```
