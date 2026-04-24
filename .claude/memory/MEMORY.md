@@ -40,8 +40,7 @@
 - [feedback_ficcion_modo_pitch.md](feedback_ficcion_modo_pitch.md) — /ficcion-draft modo pitch: 10 bloques canónicos, exploración pre-escritura sin prosa
 
 ## Feedback — Beehiiv & Platform
-- [feedback_robohogar_h2_no_bold.md](feedback_robohogar_h2_no_bold.md) — DM Sans Bold + Inter Regular; sin negrita en headings/tablas/checklist; tablas máx 4 cols
-- [feedback_beehiiv_bold_copypaste.md](feedback_beehiiv_bold_copypaste.md) — Usar <strong>, NUNCA <span class="bold">; nunca bold en H1-H4/thead/.checklist
+- [feedback_beehiiv_tipografia_bold_tablas.md](feedback_beehiiv_tipografia_bold_tablas.md) — Formato técnico Beehiiv maestro: DM Sans Bold + Inter Regular · bold SÍ/NO + bug copy-paste (usar <strong>, nunca <span class="bold">) · tablas mobile-first máx 4 cols ≤25 chars
 - [feedback_beehiiv_digital_product_fields.md](feedback_beehiiv_digital_product_fields.md) — Ficha Beehiiv obligatoria por tangible (beehiiv-ficha.md) con 10 campos + 4 defaults
 - [feedback_beehiiv_email_web_dual_block.md](feedback_beehiiv_email_web_dual_block.md) — Widgets interactivos: 2 bloques con visibility toggles opuestos (email-only + web-only)
 - [feedback_robohogar_byline_mayusculas.md](feedback_robohogar_byline_mayusculas.md) — Byline = ROBOHOGAR en mayúsculas, sin "Rafael de". Históricos no se migran en bulk
@@ -74,7 +73,6 @@
 - [feedback_memoria_local_robohogar.md](feedback_memoria_local_robohogar.md) — Toda memoria generada aquí se queda EXCLUSIVAMENTE en robohogar/.claude/memory/. Nunca escribir a RRP-DEV/ desde este repo
 
 ## Feedback — Guides & Sync
-- [feedback_sync_obsidian.md](feedback_sync_obsidian.md) — Siempre copiar guia-implementacion.md del repo al vault Obsidian después de cada cambio
-- [feedback_robohogar_obsidian_sync.md](feedback_robohogar_obsidian_sync.md) — ROBOHOGAR guia-implementacion.md must ALWAYS sync to Obsidian vault after edits
+- [feedback_robohogar_obsidian_sync.md](feedback_robohogar_obsidian_sync.md) — Tras cada edit a guia-implementacion.md (y docs ROBOHOGAR consultados en Obsidian), cp inmediato al vault. Sin sync, Rafael ve contenido stale
 - [feedback_robohogar_guide_triggers.md](feedback_robohogar_guide_triggers.md) — Documentar fases/workflows con frases trigger + prompts + inputs/outputs
 - [feedback_research_before_guessing.md](feedback_research_before_guessing.md) — Never guess platform solutions — WebSearch first if unsure
