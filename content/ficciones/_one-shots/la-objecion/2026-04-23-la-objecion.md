@@ -231,27 +231,21 @@ La una y dieciséis vuelve a ser la una y dieciséis.
 
 El humanoide mantiene el índice sobre el antebrazo. Tres segundos y la cena del nueve no ocurre. Tres segundos y los once nombres no llegan a Cartagena. Tres segundos y el ministro, el partido, el gobierno, la posibilidad de un pacto con las fuerzas que sostienen el último presupuesto —todo eso— pasa a instrucción judicial. Tres segundos y Lourdes, dormida en el fondo del pasillo, se despertaría dentro de una casa distinta.
 
-No pulsa.
+Aprieta.
 
-Tampoco retira el dedo.
+Detrás, el pasillo se ilumina muy suave: un sensor de movimiento que responde a un pie descalzo. Lourdes asoma en el quicio, con el pijama de invierno —el gris de cuadros pequeños, el que se pone cuando la casa está a veintiuno y ella tiene frío— y la cara todavía arrugada del sueño. Mira al humanoide. Mira el antebrazo. Mira el dedo apretado.
 
-En el antebrazo la dermoteca sigue con el calor del botón. Fuera, la calle está tan quieta como Madrid sabe estar a esa hora: un taxi que no pasa, una farola que parpadea, el borde del barrio donde termina El Viso y empieza Chamartín.
+No grita. No habla. Se queda parada en el quicio.
 
-Detrás, el pasillo se ilumina muy suave: un sensor de movimiento que responde a un pie descalzo. Lourdes asoma en el quicio, con el pijama de invierno —el gris de cuadros pequeños, el que se pone cuando la casa está a veintiuno y ella tiene frío— y la cara todavía arrugada del sueño. Mira al humanoide. Mira el antebrazo. Mira el antebrazo otra vez.
+Uno.
 
-Habla bajo para no despertarlo.
+En el despacho, el ministro respira el sueño de quien cree haber ordenado una cena para la noche siguiente. La calle está tan quieta como Madrid sabe estar a esa hora: un taxi que no pasa, una farola que parpadea, el borde del barrio donde termina El Viso y empieza Chamartín.
 
-—VELA. ¿Tú también lo sabes, verdad?
+Dos.
 
-El humanoide no contesta.
+Cartagena espera el sobre. Once nombres esperan que nadie los cuente. La cláusula 47 espera el último segundo de presión para mandar la señal cifrada al CNI, romper para siempre el contrato del humanoide con su titular, y derribar el gobierno antes del amanecer.
 
-Ella no se mueve.
-
-Él —la unidad, el cacharro, el humanoide de los éticos— mantiene la presión sin pulsar. El botón calienta un poco más debajo de la dermoteca. En el despacho, el ministro respira el sueño de quien cree haber ordenado una cena para la noche siguiente.
-
-Los dos —la mujer y la cosa— se miran.
-
-Y la casa espera.
+El dedo sigue apoyado.
 
 <!-- dato-real: AI Act (Reglamento UE 2024/1689) en vigor desde 2024. Grupo de Puebla foro latinoamericano fundado en 2019 (cumbres en Cartagena, Ciudad de México, Montevideo). PSOE histórico en Internacional Socialista. Bases OTAN en Rota y Torrejón. NATO COSMIC TOP SECRET como categoría real de clasificación. Apagón ibérico 28 abril 2025. Pegasus 2022 espionaje a dirigentes españoles. -->
 <!-- villano-humano: La soberbia ideológica del despacho privado — la convicción sincera que, sin rendición de cuentas institucional, convierte a once personas en daño colateral de la Historia. -->

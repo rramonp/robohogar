@@ -355,6 +355,7 @@ Usar `assets/branding/social/thumbnail-default-1200x630.png` como placeholder ne
 | 1 | One-shot | `el-operador-nocturno` | 2026-04-20 | v6 | Tetrabrik de leche blanco sin branding | Tarjeta ID plastificada en blanco con cordón (operador filipino invisible) |
 | 2 | One-shot | `el-que-viene-a-tomar-cafe` | 2026-04-20 | v3 | Taza blanca con vapor sobre mantel de hule con cenefa de olivos | Mano sintética humanoide reposando junto a la taza (el humanoide "Ramón") |
 | 3 | One-shot | `setenta-y-dos-horas` | 2026-04-20 | v3 | Yoyó rojo de madera sobre parquet de roble con sombra larga | Humanoide Tata encogido en rincón al fondo, desenfocado, como abrigo colgado de percha |
+| 4 | One-shot | `la-objecion` | 2026-04-23 | v2 | Tela ceremonial doblada en tri-fold militar (amarillo central con escudo heráldico abstracto, rojos plegados a los bordes) sobre mesa wenge | Mano sintética humanoide matte cream-white reposando palma abajo sobre la tela en gesto ambivalente — el dilema moral del robot ante el secreto institucional. v1 archivada (manos en quietud sin gesto cliffhanger ni carga política). |
 
 ---
 

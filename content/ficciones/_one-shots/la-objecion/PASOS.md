@@ -10,29 +10,32 @@
 - **Categoría tonal:** inquietante (primaria) con deriva radical
 - **Tipo publicación:** Email and web (según preferencia F1)
 
-## Hero elegido
+## Hero elegido — v2 (definitivo, 2026-04-23)
 
-Pendiente generar vía `/nano-banana`. Código visual one-shot (no es serie), recomendación: **canon "portada minimalista · objeto-testigo"** (asset-catalog §5 del repo).
+**Activos:**
+- `content/ficciones/_one-shots/la-objecion/assets/hero-la-objecion-v2.png` (1.459 KB · 1200×630)
+- `content/ficciones/_one-shots/la-objecion/assets/hero-la-objecion-v2.webp` (26 KB · usar este como featured image en Beehiiv)
 
-Prompt sugerido:
+**Concepto:** macro still life canon ROBOHOGAR "portada minimalista · objeto-testigo". Tela ceremonial doblada en tri-fold militar (amarillo central con escudo heráldico abstracto sin letras, rojos plegados a los bordes) sobre mesa wenge oscura, fondo azul `#1E2A3A` plano dominante en 2/3 superiores, mano sintética matte cream-white del humanoide reposando palma abajo sobre la tela en gesto ambivalente. Luz cálida única lateral.
 
-```
-Minimal poster style, close-mid shot of humanoid figure in dim corridor of Madrid upper-middle-class house at night, standing still in front of closed study door, right index finger pressed on left forearm synthetic skin, matte body no LEDs, face unlit, 2036 Spanish domestic interior (wooden parquet, framed photograph on wall, single warm lamp spilling from below closed door), deep night blue palette #1E2A3A with warm amber spill #F5A623 on forearm, 3/4 profile, shallow depth of field, cinematic still 16:9, no text, no letters, no asian characters, no windows to exterior, no glowing eyes, no neon, testigo silencioso mood, tension without horror, After Yang + Ex Machina corridor composition
-```
+**Lectura simbólica:**
+- Tela ceremonial = el país, lo institucional, lo solemne.
+- Mano sintética humanoide encima = el robot literalmente con el país en sus manos.
+- Gesto ambivalente de la palma = ¿cubre / aprieta / retira? La decisión moral sin tomar.
+- Plegado militar = solemnidad, gravitas funeral. Encaja con la traición OTAN del relato.
 
-Archivo destino: `content/ficciones/_one-shots/la-objecion/assets/hero-la-objecion.png`
+**v1 archivada:** `assets/_archive/hero-v1-manos-quietas-sin-gesto-cliffhanger-2026-04-23.png` (manos en quietud sin carga simbólica política — descartada por Rafael).
 
 ## Checklist publicación
 
-- [ ] Rafael relee el borrador (`content/ficciones/_one-shots/la-objecion/2026-04-23-la-objecion.md`)
-- [ ] Escuchar audiolibro en móvil — copia en vault: `02-Drafts/Ficciones/La objeción (audiolibro).md`
-- [ ] Correr `/validate-prose-es content/ficciones/_one-shots/la-objecion/2026-04-23-la-objecion.md` (paso 8.4 obligatorio, second reader externo)
-- [ ] Ajustes pos-validador si devuelve PENDING_FIXES
-- [ ] Generar hero via `/nano-banana` con prompt arriba
-- [ ] Pegar prosa en Beehiiv (post con formato Markdown o bloques nativos), cover = hero
-- [ ] Configurar SEO title + meta description + slug + tag
+- [x] Rafael relee el borrador y el nuevo final cliffhanger Sopranos (`Aprieta. / Uno. / Dos. / El dedo sigue apoyado.`)
+- [x] Escuchar audiolibro en móvil — copia en vault: `02-Drafts/Ficciones/La objeción (audiolibro).md`
+- [x] Correr `/validate-prose-es` (paso 8.4 obligatorio, second reader externo) → READY v2
+- [x] Generar hero via `/nano-banana` → v2 elegida
+- [ ] Pegar prosa en Beehiiv (post con formato Markdown o bloques nativos), cover = `hero-la-objecion-v2.webp`
+- [ ] Configurar SEO title + meta description + slug + tag (`Ficciones Domésticas`)
 - [ ] Publicar como `Email and web`
-- [ ] Tras publicar, ejecutar `/post-publish <URL>` (sync published, registro, llms.txt, vault, social)
+- [ ] Pasar URL pública a Claude → ejecuta `/post-publish <URL>` (sync published, registro, llms.txt, vault, social)
 
 ## Log editorial
 
