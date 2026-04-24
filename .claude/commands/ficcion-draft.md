@@ -530,6 +530,7 @@ $HBX_VAULT/.../05-01_Robotica Newsletter/02-Drafts/Ficciones/
 **Reglas:**
 - El `.md` del repo es la **fuente de verdad** para revisión y publicación (frontmatter, metadata, cursivas, comentarios HTML con dato-real y villano-humano).
 - La copia audiolibro del vault es **mirror derivado** pensado exclusivamente para que Rafael escuche el relato en el móvil antes de publicar. Se regenera si el original cambia. No se publica nunca.
+- **Subtítulos descriptivos OBLIGATORIOS en cada sección** (regla permanente desde 2026-04-24, tras feedback de Rafael): cada `<h2>` del relato lleva número romano + título descriptivo en formato `## I. <Título sobrio>` · `## II. <Título sobrio>` · etc. Tres formatos consistentes (markdown fuente · HTML Beehiiv · audiolibro TTS): los tres comparten exactamente los mismos subtítulos. **Prohibido publicar romanos pelados** (`## I` sin texto) en ninguno de los tres. Razón: la audiencia Beehiiv es lectura mainstream en móvil/email, no minimalismo literario peninsular tipo Bolaño/Adón. Subtítulos cortos (1-4 palabras), sobrios (no Wattpad), sin spoiler, ES peninsular. Plantilla canónica de elección: la primera línea narrativa o el objeto-testigo de la escena (ej: *"El botón"*, *"Hernán"*, *"La diapositiva"*, *"La cláusula"*, *"Managua"*, *"La una y dieciséis"*). En el TXT de audiolibro se transforma `## I. El botón` → `Parte uno. El botón.` Detalle de transformación TTS en § Copia audiolibro paso 9. Memoria de la regla: `feedback_ficcion_subtitulos_descriptivos.md`.
 
 ### Frontmatter YAML del relato
 
@@ -665,7 +666,7 @@ fuente: content/ficciones/<serie>/YYYY-MM-DD-<slug>.md
 6. **Labels de UI en inglés con traducción → preferir la traducción** cuando el diegetismo lo permite. `Session ended` → *"sesión terminada"* (en narrador). Los rótulos que SON inglés en la escena (p. ej. cartel plastificado en un call center) se mantienen en inglés — es diegético.
 7. **Diálogo en inglés diegético (traducido simultáneamente en la escena) → se mantiene en inglés.** Es parte del relato que el inglés suene extranjero; el TTS español con voz neural lo pronuncia aceptable y refuerza el tono. La traducción de la traductora aparece justo después en castellano.
 8. **Palabras extranjeras puntuales (tagalo, japonés, etc.) → se mantienen** y se explican una vez en la sección *"Notas para narrarlo"* con pronunciación aproximada. No se escriben en fonética dentro del bloque; rompería la prosa.
-9. **Separadores de escena (`---` + `## I.` del original) → sustituir por** una línea en blanco + *"Parte uno. <localización natural en palabras>."* / *"Parte dos. …"* / *"Parte tres. …"* al inicio de cada escena, como párrafo propio. Los dividers de markdown no se leen.
+9. **Separadores de escena (`---` + `## I. <Título>` del original) → sustituir por** una línea en blanco + *"Parte uno. <Mismo título descriptivo del .md>."* / *"Parte dos. <Mismo título>."* / *"Parte tres. <Mismo título>."* al inicio de cada escena, como párrafo propio. **Los subtítulos descriptivos son los mismos que en el .md fuente** (regla permanente desde 2026-04-24): si el .md dice `## IV. La diapositiva`, el TXT audiolibro dice `Parte cuatro. La diapositiva.`. Los dividers de markdown no se leen.
 10. **Cierre:** el bloque termina con una línea *"Fin."* para dar pausa natural al narrador.
 
 **Verificación pre-output del archivo audiolibro:**
