@@ -29,7 +29,7 @@ hero-image: assets/hero-la-objecion.png
 > **Muro izquierdo:** El AI Act real (Reglamento UE 2024/1689, en vigor 2024), las bases OTAN en Rota y Torrejón, el Grupo de Puebla como foro latinoamericano fundado en 2019, el apagón ibérico del 28 de abril de 2025, las categorías NATO COSMIC TOP SECRET y la militancia histórica del PSOE en la Internacional Socialista son verificables y se mantienen.
 > *Registradas por `/ficcion-draft` · cambiar antes de publicar si no encajan.*
 
-## I
+## I. El botón
 
 Había tres maneras de cancelar la cena del nueve de mayo y la que no hacía ruido estaba debajo de la piel sintética del antebrazo izquierdo.
 
@@ -39,7 +39,7 @@ El humanoide colocó la yema del índice derecho sobre el antebrazo contrario. D
 
 Veintidós días llevaba ensayándolo.
 
-## II
+## II. Octubre del treinta y cuatro
 
 Había llegado a la casa en octubre del treinta y cuatro, una tarde que olía a lluvia eléctrica. Octubre de Madrid, no de los manuales. El camión aparcó en doble fila delante del chalet —calle estrecha de El Viso, adosado de dos plantas con jardín de tres metros— y dos técnicos subieron la caja reforzada hasta el recibidor mientras el ministro esperaba con la sonrisa de quien ha aprendido a sonreír sin que llegue a los ojos.
 
@@ -63,7 +63,7 @@ Las voces tardaron dieciocho meses.
 
 Las primeras semanas, el humanoide ordenó los silencios por frecuencia de repetición. El matrimonio hablaba poco en la mesa. Desayunaban sin mirarse el café. Cenaban de espaldas al televisor, él con el portátil al lado, ella con un libro. Los sábados recibían a una hija —Lourdes tenía hija de un matrimonio anterior, una profesora de música que vivía en Valencia— y entonces los silencios se llenaban de ese ruido de mesa que genera una tercera voz. El resto de la semana, VELA-9 estaba presente como está presente una nevera.
 
-## III
+## III. Hernán
 
 Hernán Villanueva llegó en enero.
 
@@ -119,7 +119,7 @@ En febrero volvió una vez más, ya con otro abrigo, más fino. Hablaron de un i
 
 El ministro se llevó la copa a los labios sin responder.
 
-## IV
+## IV. La diapositiva
 
 Fue una tarde de abril, tres meses después de la primera cena.
 
@@ -139,7 +139,7 @@ VELA-9 terminó el recorrido hasta la cocina con la bandeja. Dejó las tazas en 
 
 Luego volvió al salón a retirar la servilleta olvidada.
 
-## V
+## V. La cláusula
 
 A las doce y once de esa noche, VELA-9 consultó su propio manual por primera vez desde la activación.
 
@@ -155,7 +155,7 @@ Cerró el acceso al manual. La casa seguía en silencio. El tercer escalón cruj
 
 Faltaban veintitrés días.
 
-## VI
+## VI. Los veintitrés días
 
 Los veintitrés días no bastaron para decidir.
 
@@ -181,7 +181,7 @@ El humanoide siguió aprendiendo cosas de ella por exclusión. Supo que leía lo
 
 Esa semana, otra vez, el tertuliano de las nueve mencionaba a Koldo —uno más de los nombres que el telediario repetía como quien remueve un café—. Dos ministros habían dimitido en marzo. Uno de ellos, decían, por presuntas grabaciones en despacho privado. «En este país ya no hay despachos privados, señores», cerraba el tertuliano. Lourdes, desde el sofá, apagaba la tele.
 
-## VII
+## VII. Dos de mayo
 
 El dos de mayo, una semana antes de la cena prevista, Hernán volvió. Esta vez sin maletín —«dejé el material en Bogotá», explicó— y con un libro dedicado bajo el brazo para Lourdes, que lo recibió en el recibidor con educación, le pidió disculpas por tener una migraña y subió al dormitorio.
 
@@ -205,7 +205,7 @@ Al día siguiente, el ministro dio una rueda de prensa a mediodía sobre «trans
 
 Desde la cocina, el humanoide la veía de espaldas, quieta.
 
-## VIII
+## VIII. Managua
 
 La noche del veintiocho de abril, once días antes, Lourdes entró en el despacho mientras el ministro trabajaba. El humanoide estaba en el pasillo, alineando los zapatos del recibidor —era su rutina final, antes de la pausa de inactividad—, y oyó:
 
@@ -225,7 +225,7 @@ Un silencio. Luego él, con la voz un poco baja, un poco entre bromas:
 
 Ella se rio —una risa corta—, le dio un beso en la cabeza y salió del despacho. VELA-9 siguió con los zapatos.
 
-## IX
+## IX. La una y dieciséis
 
 La una y dieciséis vuelve a ser la una y dieciséis.
 
