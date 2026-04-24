@@ -255,6 +255,8 @@ Usar `assets/branding/social/thumbnail-default-1200x630.png` (monograma R sobre 
 
 ## 5. Heros de ficción — **canon "Portada minimalista · objeto-testigo"** (2026-04-20)
 
+> **Catálogo de archetypes compositivos (2026-04-24):** el ADN fijo de la serie vive en esta sección; las **15 composiciones distintas** que pueden habitar ese ADN sin romperlo están canonizadas en [`ficcion-hero-archetypes.md`](ficcion-hero-archetypes.md). Antes de generar cualquier hero nuevo, `/nano-banana` modo ficción **debe** leer también ese archivo y aplicar la regla anti-repetición (ningún archetype en 2 heros consecutivos del mismo grupo).
+
 Para el pilar **Ficciones Domésticas** (relatos de ciencia ficción doméstica próxima). El estilo está canonizado tras iteración validada por Rafael el 2026-04-20 sobre los 3 one-shots iniciales (*El operador nocturno*, *El que viene a tomar café*, *Setenta y dos horas*). La imagen del relato funciona como **portada de ebook minimalista** que lee a thumbnail 120px Y a hero grande 1200×675.
 
 ### Principio editorial
@@ -350,12 +352,14 @@ Usar `assets/branding/social/thumbnail-default-1200x630.png` como placeholder ne
 
 ### Registro de heros ficción
 
-| # | Serie / One-shot | Slug relato | Fecha | Versión | Objeto-testigo | Toque sci-fi |
-|---|---|---|---|---|---|---|
-| 1 | One-shot | `el-operador-nocturno` | 2026-04-20 | v6 | Tetrabrik de leche blanco sin branding | Tarjeta ID plastificada en blanco con cordón (operador filipino invisible) |
-| 2 | One-shot | `el-que-viene-a-tomar-cafe` | 2026-04-20 | v3 | Taza blanca con vapor sobre mantel de hule con cenefa de olivos | Mano sintética humanoide reposando junto a la taza (el humanoide "Ramón") |
-| 3 | One-shot | `setenta-y-dos-horas` | 2026-04-20 | v3 | Yoyó rojo de madera sobre parquet de roble con sombra larga | Humanoide Tata encogido en rincón al fondo, desenfocado, como abrigo colgado de percha |
-| 4 | One-shot | `la-objecion` | 2026-04-23 | v2 | Tela ceremonial doblada en tri-fold militar (amarillo central con escudo heráldico abstracto, rojos plegados a los bordes) sobre mesa wenge | Mano sintética humanoide matte cream-white reposando palma abajo sobre la tela en gesto ambivalente — el dilema moral del robot ante el secreto institucional. v1 archivada (manos en quietud sin gesto cliffhanger ni carga política). |
+Columna `Archetype` usa la codificación `A·B/C·D` de [`ficcion-hero-archetypes.md`](ficcion-hero-archetypes.md) o el número 01-15 si coincide con un archetype canónico. La regla anti-repetición prohíbe 2 filas consecutivas del mismo grupo (one-shot / serie-X) con el mismo archetype.
+
+| # | Serie / One-shot | Slug relato | Fecha | Versión | Archetype | Objeto-testigo | Toque sci-fi |
+|---|---|---|---|---|---|---|---|
+| 1 | One-shot | `el-operador-nocturno` | 2026-04-20 | v6 | 02 (A1·B1·D.i) | Tetrabrik de leche blanco sin branding | Tarjeta ID plastificada en blanco con cordón (operador filipino invisible) — leído como C5/ausencia tardía |
+| 2 | One-shot | `el-que-viene-a-tomar-cafe` | 2026-04-20 | v3 | 01 (A1·C1·D.i) | Taza blanca con vapor sobre mantel de hule con cenefa de olivos | Mano sintética humanoide reposando junto a la taza (el humanoide "Ramón") |
+| 3 | One-shot | `setenta-y-dos-horas` | 2026-04-20 | v3 | 07 (A1·C2·D.i) | Yoyó rojo de madera sobre parquet de roble con sombra larga | Humanoide Tata encogido en rincón al fondo, desenfocado, como abrigo colgado de percha |
+| 4 | One-shot | `la-objecion` | 2026-04-24 | v8 | 10 (A4·B1+C2·D.i) | Tela ceremonial tri-fold (amarillo central con escudo heráldico abstracto + rojos plegados) sobre mesilla wenge del despacho, vista a través de puerta entreabierta desde el pasillo oscuro | Humanoide VELA-9 cream-white encogido en el rincón contra la pared azul del despacho, rodillas recogidas, cabeza inclinada como en reposo/objeción. Lámpara doméstica upper-right ilumina solo la bandera y al humanoide. v1·v2·v3·v4·v5·v6·v7 archivadas (v2 era A1·C1·D.i idéntica a #2 Café). |
 
 ---
 

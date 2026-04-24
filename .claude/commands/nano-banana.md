@@ -76,13 +76,23 @@ El suffix evita los 3 fallos recurrentes de Gemini: paneles luminosos en cuerpos
 
 **Invocado automáticamente por `/content-draft`** como paso del pipeline de creación de artículos.
 
-### Modo 2: Hero de ficción (still cinematográfico)
+### Modo 2: Hero de ficción (portada minimalista · objeto-testigo)
 
-- Leer `assets/branding/asset-catalog.md` § "Heros de ficción"
-- Estilo distinto al product-hero: film still, paleta desaturada, grano ligero
+**Regla irrenunciable — "cotidiano + sci-fi siempre mezclados":** toda miniatura de Ficciones Domésticas es imagen cotidiana del día a día con un toque de ciencia ficción o robótica humanoide que rompa la tendencia cotidiana. La familia C del catálogo de archetypes (presencia humanoide) NO es opcional — aparece explícita (mano/silueta/fragmento) o indirecta (percha con forma de uniforme, cable de carga, tarjeta ID, sombra humanoide proyectada). Cualquier prompt que haya eliminado C se rechaza antes de enviarlo a Gemini. Fuente: memoria `feedback_ficcion_hero_cotidiano_mas_scifi`.
+
+- **LEER SIEMPRE PRIMERO (los dos archivos, en este orden):**
+  1. `assets/branding/asset-catalog.md § 5` — ADN fijo de la serie (fondo, luz base, paleta, anti-triggers)
+  2. `assets/branding/ficcion-hero-archetypes.md` — catálogo de 15 archetypes compositivos + algoritmo de selección por tonalidad + regla anti-repetición
+- **Elegir archetype ANTES de componer el prompt:**
+  1. Leer tonalidad del relato (inquietante / radical / ambiguo / inspirador / mundano) desde el `PASOS.md` o el frontmatter del borrador
+  2. Filtrar los 15 archetypes por la matriz tonal del catálogo
+  3. Excluir el archetype del último hero del mismo grupo (one-shot / serie) — leer columna `Archetype` de `asset-catalog.md § 5 · Registro de heros ficción`
+  4. Si hay varios candidatos, preferir el que más se diferencie a thumbnail 120px por silueta / ángulo / presencia humanoide
+- **Componer el prompt:** partir del esqueleto canónico de `asset-catalog.md § 5 · Prompt template canónico` y sustituir las partes variables por los fragments del archetype elegido en `ficcion-hero-archetypes.md § Prompt fragments por archetype` (A · B/C · D).
 - NO usar `--reference`
-- Modelo: `flash`. Aspect: `landscape`. Size: `1K`
-- Output: `content/ficciones/<serie>/assets/hero-<slug>-v<N>.png`
+- Modelo: `2`. Aspect: `16:9`. Size: `2K` (usar `--model 2 --aspect 16:9 --size 2K`, luego crop Pillow a 1200×630 si hace falta — el bug `--model flash` cae a 1024×1024, no usar)
+- Output: `content/ficciones/<serie-o-_one-shots>/<slug>/assets/hero-<slug>-v<N>.png`
+- **Post-generación:** ejecutar la checklist de 8 puntos de `asset-catalog.md § 5 · Validación pre-output`. Si falla → archivar v en `<slug>/assets/_archive/hero-v<N>-<motivo>-YYYY-MM-DD.png` y regenerar con v+1. Al aceptar una v, actualizar el registro con el archetype usado.
 
 ## Workflow
 

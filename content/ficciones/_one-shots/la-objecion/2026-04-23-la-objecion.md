@@ -20,7 +20,7 @@ framework: pixar-spine
 categoria-tonal: inquietante
 status: borrador
 created: 2026-04-23
-hero-image: assets/hero-la-objecion.png
+hero-image: assets/hero-la-objecion-v8.png
 ---
 
 # La objeción
