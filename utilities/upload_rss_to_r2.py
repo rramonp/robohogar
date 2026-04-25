@@ -73,6 +73,19 @@ def main() -> None:
     print(f"Public URL : {env['R2_FEED_PUBLIC_URL'].rstrip('/')}/{FEED_KEY}")
     print()
 
+    # Pre-step OBLIGATORIO: validar+heal de assets referenciados por el feed.
+    # Si CLOUDFLARE_API_TOKEN está disponible se usa heal automático; si no,
+    # solo se valida y se aborta si hay huérfanos. El validador usa la REST
+    # API para subir (api.cloudflare.com), independiente del endpoint S3
+    # — útil cuando R2 S3 está caído pero la API REST no.
+    # Garantiza que las plataformas nunca encuentren 404 al primer fetch.
+    # Incidente origen: 2026-04-25 con el-que-viene-a-tomar-cafe.
+    from validate_podcast_assets import validate_and_heal
+    full_env = json.loads(SETTINGS_FILE.read_text(encoding="utf-8")).get("env", {})
+    has_token = bool(full_env.get("CLOUDFLARE_API_TOKEN"))
+    validate_and_heal(full_env, FEED_LOCAL, heal=has_token)
+    print()
+
     s3 = boto3.client(
         "s3",
         endpoint_url=f"https://{env['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",

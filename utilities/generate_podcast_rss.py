@@ -35,6 +35,7 @@ un canal válido con 0 items — Spotify y Amazon aceptan, Apple los rechaza
 para review (subir el primer episodio antes de pedir alta en Apple).
 """
 
+import hashlib
 import json
 import re
 import sys
@@ -58,6 +59,33 @@ COVERS_DIR = AUDIO_DIR / "covers"
 OUTPUT_FEED = REPO_ROOT / "content" / "podcast" / "feed.xml"
 
 FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
+
+
+def cache_bust_query(local_file: Path) -> str:
+    """Devuelve `?v=<hash8>` calculado del contenido del archivo local.
+
+    Sirve para que Spotify, Amazon Music y otros podcast players invaliden
+    su caché del artwork automáticamente cuando la imagen cambia, sin
+    intervención manual. La URL del feed pasa de `cover.jpg` a
+    `cover.jpg?v=ab12cd34` y, si re-generamos el cover, el hash cambia →
+    URL distinta para la plataforma → re-fetch garantizado.
+
+    Cloudflare R2 ignora el query string al resolver el objeto, así que la
+    misma key sigue sirviendo el contenido — lo único que cambia es lo que
+    ven las plataformas como string de URL.
+
+    Solo aplica a `<itunes:image>`. NO aplicar a `<enclosure>` del MP3:
+    cambiar la URL del MP3 puede hacer que Apple Podcasts trate el
+    episodio como nuevo y duplique la entrada en la app.
+
+    Si el archivo local no existe, devuelve string vacío (sin cache bust).
+    El validador de assets (`validate_podcast_assets.py`) detectará
+    después si el remoto también falta y abortará el upload del feed.
+    """
+    if not local_file.exists():
+        return ""
+    h = hashlib.sha256(local_file.read_bytes()).hexdigest()[:8]
+    return f"?v={h}"
 
 
 def load_env() -> dict:
@@ -204,6 +232,12 @@ def build_channel_xml(canal: dict, items_xml: str) -> str:
     now = format_datetime(datetime.now(timezone.utc))
     explicit = "true" if str(canal.get("explicit", "false")).lower() == "true" else "false"
 
+    # Cache-bust del artwork del canal: hash del archivo local en
+    # `assets/branding/podcast-canal-artwork-3000x3000.jpg`. Si re-generamos
+    # el artwork, el hash cambia y las plataformas re-fetchan automático.
+    canal_artwork_local = REPO_ROOT / "assets" / "branding" / "podcast-canal-artwork-3000x3000.jpg"
+    artwork_url_busted = canal["artwork_url"] + cache_bust_query(canal_artwork_local)
+
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
      xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
@@ -223,7 +257,7 @@ def build_channel_xml(canal: dict, items_xml: str) -> str:
       <itunes:name>{escape(canal['owner_name'])}</itunes:name>
       <itunes:email>{escape(canal['owner_email'])}</itunes:email>
     </itunes:owner>
-    <itunes:image href="{escape(canal['artwork_url'])}" />
+    <itunes:image href="{escape(artwork_url_busted)}" />
     <itunes:category text="{escape(canal['category_main'])}">
       {f'<itunes:category text="{escape(canal["category_sub"])}" />' if canal.get('category_sub') else ''}
     </itunes:category>
@@ -240,7 +274,13 @@ def build_item_xml(episode: dict, env: dict, canal: dict) -> str:
     slug = episode["slug"]
     feed_base = env["R2_FEED_PUBLIC_URL"].rstrip("/")
     mp3_url = f"{feed_base}/{slug}.mp3"
-    cover_url = f"{feed_base}/covers/{slug}-podcast-1400x1400.jpg"
+    # Cache-bust automático en la cover del episodio: `?v=<hash8>` derivado
+    # del contenido del JPG local. Si el cover cambia (re-generación tras
+    # editar el hero), el hash cambia → URL distinta para Spotify/Amazon
+    # → refetch automático. NO se aplica al MP3 (`enclosure`) porque
+    # cambiar la URL del MP3 puede hacer que Apple duplique el episodio.
+    local_cover = COVERS_DIR / f"{slug}-podcast-1400x1400.jpg"
+    cover_url = f"{feed_base}/covers/{slug}-podcast-1400x1400.jpg{cache_bust_query(local_cover)}"
 
     # Tamaño del MP3 para `<enclosure length>`. Si no podemos medirlo
     # localmente, fallback a 0 (Apple lo tolera pero no es ideal).
@@ -252,13 +292,18 @@ def build_item_xml(episode: dict, env: dict, canal: dict) -> str:
 
     # Show notes: hook narrativo + CTA al post web. Va en `<itunes:summary>`
     # y `<description>` (HTML permitido en description vía CDATA).
+    # `home_url` es la landing del newsletter (sin /p/<slug>) — la usamos
+    # para envolver la última mención "robohogar.com" del párrafo de cierre
+    # como <a href> clickable. Amazon Music y Apple respetan los <a> del
+    # CDATA, Spotify hace strip.
     web_url = f"{canal['link'].rstrip('/')}/p/{slug}"
+    home_url = canal["link"].rstrip("/")
     summary_text = episode["description"]
     description_html = f"""<p>{escape(summary_text)}</p>
 
 <p>▶ Lee el relato completo + suscríbete al newsletter: <a href="{escape(web_url)}">{escape(web_url)}</a></p>
 
-<p>Audiolibro narrado con voz Luis (ElevenLabs Multilingual v2). Ficciones Domésticas — relatos de ciencia ficción próxima sobre robótica en el hogar. Cada semana, junto al newsletter en robohogar.com.</p>"""
+<p>Ficciones Domésticas — relatos de ciencia ficción próxima sobre robótica en el hogar. Cada semana, junto al newsletter en <a href="{escape(home_url)}">robohogar.com</a>.</p>"""
 
     # GUID derivado del slug = inmutable para siempre. Las plataformas
     # identifican el episodio por GUID, no por URL del MP3.
