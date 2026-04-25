@@ -317,7 +317,13 @@ def build_description(slug: str, frontmatter: dict, index_data: dict) -> str:
 
     # Build chapters block. Primer entry SIEMPRE 00:00 (requisito YouTube).
     intro_dur = index_data.get("intro_duration_seconds", 0)
-    silence_dur = index_data.get("silence_duration_seconds", 0)
+    # Schema v2 separa silence_after_intro / silence_before_outro; v1 (la-objecion piloto)
+    # solo tenía silence_duration_seconds. Compat fallback para no romper distribución del piloto.
+    silence_after_intro = index_data.get(
+        "silence_after_intro_seconds",
+        index_data.get("silence_duration_seconds", 0),
+    )
+    silence_before_outro = index_data.get("silence_before_outro_seconds", 0)
     total_dur = index_data["total_duration_seconds"]
     outro_dur = index_data.get("outro_duration_seconds", 0)
     outro_start = total_dur - outro_dur if outro_dur > 0 else None

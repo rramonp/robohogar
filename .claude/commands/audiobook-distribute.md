@@ -121,7 +121,8 @@ if dur_min > 15:
 - Reconstrucción manual del `chunks-index.json` con la heurística siguiente:
   ```python
   # Para cada match de "Parte X." en el .txt, calcular start_seconds:
-  # start_seconds = intro_duration_seconds + silence_duration_seconds
+  # silence_after_intro = idx.get('silence_after_intro_seconds', idx.get('silence_duration_seconds', 0))  # v2 con fallback v1
+  # start_seconds = intro_duration_seconds + silence_after_intro
   #               + (char_offset_en_txt / total_chars_txt) * narration_duration_seconds
   ```
 - Sobreescribir el JSON. Continuar.
@@ -428,7 +429,9 @@ txt_path = next(Path('content/ficciones').rglob(f'{slug}/audiolibro.txt'))
 text = txt_path.read_text(encoding='utf-8')
 
 intro_s = idx['intro_duration_seconds']
-silence_s = idx['silence_duration_seconds']
+# v2 (canónico) tiene silence_after_intro / silence_before_outro separados.
+# v1 (la-objecion piloto) tiene un único silence_duration_seconds. Fallback compat.
+silence_s = idx.get('silence_after_intro_seconds', idx.get('silence_duration_seconds', 0))
 narration_s = idx['narration_duration_seconds']
 total_chars = len(text)
 chars_per_second = total_chars / narration_s

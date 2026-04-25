@@ -8,8 +8,10 @@ Pipeline end-to-end:
   3. Llama `/v1/text-to-speech/{voice_id}` por cada chunk con voz Luis
      (GojDwihhnL1f7RrBuXsJ) y modelo Multilingual v2. Pasa previous_text /
      next_text para mantener prosodia coherente entre chunks.
-  4. Concatena con ffmpeg: intro + 2s silencio + chunks narración + outro,
-     recodificando todo a 44.1kHz mono 128kbps MP3 consistente.
+  4. Concatena con ffmpeg: intro + 2s silencio + chunks narración + 3s
+     silencio + outro, recodificando todo a 44.1kHz mono 128kbps MP3
+     consistente. El silencio de 3s antes del outro es respiro narrativo
+     entre el FIN del relato y la CTA final de marca (decisión 2026-04-25).
   5. Sube el MP3 final a Cloudflare R2 bucket (ContentType audio/mpeg)
      y devuelve la URL pública.
 
@@ -69,6 +71,14 @@ MAX_CHUNK_CHARS = 4500
 # La regla original del plan pedía 2s baked en el intro; lo inyectamos aquí
 # para mantener el intro asset limpio y reutilizable.
 SILENCE_AFTER_INTRO_SEC = 2.0
+
+# Silencio entre la última palabra de la narración (FIN del relato) y la
+# CTA final de marca (outro-ficciones.mp3). Default 3s para dar respiro
+# narrativo al lector — más largo que el silencio de entrada porque el
+# contraste tonal es mayor (de prosa íntima a voz de marca corporativa).
+# Decisión 2026-04-25 tras feedback Rafael: el outro arrancaba inmediato
+# tras el FIN y rompía el respiro emocional del cierre del relato.
+SILENCE_BEFORE_OUTRO_SEC = 3.0
 
 # Paths relativos al root del repo (este script vive en utilities/).
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -277,8 +287,9 @@ def call_elevenlabs_tts(
 def concat_with_ffmpeg(
     ffmpeg: str,
     intro: Path,
-    silence_sec: float,
+    silence_after_intro_sec: float,
     chunk_files: list[Path],
+    silence_before_outro_sec: float,
     outro: Path,
     output: Path,
 ) -> None:
@@ -290,21 +301,26 @@ def concat_with_ffmpeg(
 
     Pipeline de streams:
       intro -> [0:a]
-      silencio 2s -> [1:a]
+      silencio after_intro -> [1:a]
       chunk1 -> [2:a]
       chunk2 -> [3:a]
       ...
-      outro -> [N:a]
+      chunkN -> [N+1:a]
+      silencio before_outro -> [N+2:a]
+      outro -> [N+3:a]
     """
     inputs: list[str] = ["-i", str(intro), "-f", "lavfi",
-                          "-t", str(silence_sec),
+                          "-t", str(silence_after_intro_sec),
                           "-i", "anullsrc=r=44100:cl=mono"]
     for cf in chunk_files:
         inputs.extend(["-i", str(cf)])
+    inputs.extend(["-f", "lavfi",
+                   "-t", str(silence_before_outro_sec),
+                   "-i", "anullsrc=r=44100:cl=mono"])
     inputs.extend(["-i", str(outro)])
 
-    # n_total = intro (1) + silencio (1) + chunks (N) + outro (1)
-    n_total = 2 + len(chunk_files) + 1
+    # n_total = intro (1) + silencio after_intro (1) + chunks (N) + silencio before_outro (1) + outro (1)
+    n_total = 2 + len(chunk_files) + 2
     stream_labels = "".join(f"[{i}:a]" for i in range(n_total))
     filter_str = f"{stream_labels}concat=n={n_total}:v=0:a=1[out]"
 
@@ -443,7 +459,8 @@ def build_chunks_index(
     chunk_files: list[Path],
     ffmpeg: str,
     intro_duration: float,
-    silence_duration: float,
+    silence_after_intro: float,
+    silence_before_outro: float,
     outro_duration: float,
     total_duration: float,
 ) -> dict:
@@ -475,8 +492,8 @@ def build_chunks_index(
 
     # Detectar capítulos sobre el texto narrativo.
     chapters_raw = detect_chapters(text)
-    # Offset = intro + silencio (la narración empieza ahí dentro del MP3).
-    narration_start = intro_duration + silence_duration
+    # Offset = intro + silencio after intro (la narración empieza ahí dentro del MP3).
+    narration_start = intro_duration + silence_after_intro
     chapters = [
         {
             "number": ch["number"],
@@ -500,11 +517,12 @@ def build_chunks_index(
     # Estructura JSON final. Versionada por si downstream cambia
     # parsing y necesita compatibilidad hacia atrás.
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "slug": slug,
         "total_duration_seconds": round(total_duration, 2),
         "intro_duration_seconds": round(intro_duration, 2),
-        "silence_duration_seconds": round(silence_duration, 2),
+        "silence_after_intro_seconds": round(silence_after_intro, 2),
+        "silence_before_outro_seconds": round(silence_before_outro, 2),
         "outro_duration_seconds": round(outro_duration, 2),
         "narration_duration_seconds": round(narration_duration, 2),
         "narration_chars": narration_chars,
@@ -607,12 +625,13 @@ def main() -> None:
         chunk_files.append(chunk_file)
     print()
 
-    # Concatenación con intro + 2s silencio + chunks + outro.
+    # Concatenación con intro + silencio after intro + chunks + silencio before outro + outro.
     final_dir = REPO_ROOT / "assets" / "audio" / "ficciones"
     final_dir.mkdir(parents=True, exist_ok=True)
     final_mp3 = final_dir / f"{slug}.mp3"
     concat_with_ffmpeg(
-        ffmpeg, INTRO_MP3, SILENCE_AFTER_INTRO_SEC, chunk_files, OUTRO_MP3, final_mp3,
+        ffmpeg, INTRO_MP3, SILENCE_AFTER_INTRO_SEC, chunk_files,
+        SILENCE_BEFORE_OUTRO_SEC, OUTRO_MP3, final_mp3,
     )
     duration = probe_duration(ffmpeg, final_mp3)
     print(f"  -> {final_mp3.name}: {final_mp3.stat().st_size / 1024:,.0f} KB, "
@@ -630,7 +649,8 @@ def main() -> None:
         slug=slug, text=text, chunks=chunks, chunk_files=chunk_files,
         ffmpeg=ffmpeg,
         intro_duration=intro_dur,
-        silence_duration=SILENCE_AFTER_INTRO_SEC,
+        silence_after_intro=SILENCE_AFTER_INTRO_SEC,
+        silence_before_outro=SILENCE_BEFORE_OUTRO_SEC,
         outro_duration=outro_dur,
         total_duration=duration,
     )

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <atom:link href="https://feed.robohogar.com/feed.xml" rel="self" type="application/rss+xml" />
+    <title>Ficciones Domésticas — ROBOHOGAR</title>
+    <link>https://robohogar.com</link>
+    <description>Relatos de ciencia ficción próxima sobre robótica doméstica. Lo que pasa cuando los robots llegan a casa: humanoides, aspiradores con IA, cuidados, soledades, hogares que aprenden. Cada semana, junto al newsletter en robohogar.com.</description>
+    <language>es</language>
+    <copyright>© ROBOHOGAR · Rafael</copyright>
+    <lastBuildDate>Sat, 25 Apr 2026 15:20:39 +0000</lastBuildDate>
+    <itunes:author>ROBOHOGAR</itunes:author>
+    <itunes:summary>Relatos de ciencia ficción próxima sobre robótica doméstica. Lo que pasa cuando los robots llegan a casa: humanoides, aspiradores con IA, cuidados, soledades, hogares que aprenden. Cada semana, junto al newsletter en robohogar.com.</itunes:summary>
+    <itunes:owner>
+      <itunes:name>ROBOHOGAR</itunes:name>
+      <itunes:email>bakalap2@gmail.com</itunes:email>
+    </itunes:owner>
+    <itunes:image href="https://feed.robohogar.com/podcast-canal-artwork-3000x3000.jpg" />
+    <itunes:category text="Fiction">
+      <itunes:category text="Drama" />
+    </itunes:category>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <item>
+      <title>La objeción</title>
+      <link>https://robohogar.com/p/la-objecion</link>
+      <description><![CDATA[<p>Un humanoide doméstico descubre que el ministro al que sirve filtra un expediente OTAN. Tiene veintitrés días y una alarma silenciosa.</p>
+
+<p>▶ Lee el relato completo + suscríbete al newsletter: <a href="https://robohogar.com/p/la-objecion">https://robohogar.com/p/la-objecion</a></p>
+
+<p>Audiolibro narrado con voz Luis (ElevenLabs Multilingual v2). Ficciones Domésticas — relatos de ciencia ficción próxima sobre robótica en el hogar. Cada semana, junto al newsletter en robohogar.com.</p>]]></description>
+      <itunes:summary>Un humanoide doméstico descubre que el ministro al que sirve filtra un expediente OTAN. Tiene veintitrés días y una alarma silenciosa.</itunes:summary>
+      <itunes:author>ROBOHOGAR</itunes:author>
+      <itunes:image href="https://feed.robohogar.com/covers/la-objecion-podcast-1400x1400.jpg" />
+      <enclosure url="https://feed.robohogar.com/la-objecion.mp3" length="18290773" type="audio/mpeg" />
+      <guid isPermaLink="false">robohogar-ficciones-la-objecion</guid>
+      <pubDate>Thu, 23 Apr 2026 09:00:00 +0000</pubDate>
+      <itunes:duration>00:19:03</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+  </channel>
+</rss>

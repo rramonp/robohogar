@@ -152,7 +152,7 @@ python utilities/generate_audio.py content/ficciones/**/<slug>/audiolibro.txt <s
 El script (ver [`utilities/generate_audio.py`](../../utilities/generate_audio.py)) hace:
 - Chunking por párrafos ≤4500 chars (límite Multilingual v2).
 - TTS por chunk con voz Luis (`GojDwihhnL1f7RrBuXsJ`), modelo `eleven_multilingual_v2`, formato `mp3_44100_128`, con `previous_text`/`next_text` para prosodia coherente entre chunks.
-- Concatenación ffmpeg: intro (2.53s) + 2s silencio + chunks narración + outro (11.89s), recodificando todo a 44.1kHz mono 128kbps.
+- Concatenación ffmpeg: intro (2.53s) + 2s silencio + chunks narración + 3s silencio + outro (11.89s), recodificando todo a 44.1kHz mono 128kbps. El silencio de 3s antes del outro (decisión 2026-04-25) da respiro narrativo entre el FIN del relato y la CTA final de marca.
 - Upload a R2 bucket `robohogar-audio` con ContentType `audio/mpeg`, key = `<slug>.mp3`.
 - Versionado local (`_chunks-<slug>/` persistente para debug o regeneración parcial).
 
@@ -315,15 +315,16 @@ Ahorra cuota API vs regenerar los N chunks completos.
 - **Chapters timestamped en la descripción YouTube** — formato `MM:SS Capítulo I — Título` que YouTube auto-renderiza como navegación interna del vídeo.
 - **Show notes RSS** (opcional, futuro) — secciones de capítulos en el `<itunes:summary>` del item.
 
-Estructura JSON (schema_version: 1):
+Estructura JSON (schema_version: 2):
 
 ```json
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "<slug>",
   "total_duration_seconds": ...,
   "intro_duration_seconds": 2.53,
-  "silence_duration_seconds": 2.0,
+  "silence_after_intro_seconds": 2.0,
+  "silence_before_outro_seconds": 3.0,
   "outro_duration_seconds": 11.89,
   "narration_duration_seconds": ...,
   "narration_chars": ...,
@@ -332,6 +333,8 @@ Estructura JSON (schema_version: 1):
   "chapters": [{"number": 1, "title": "La cocina", "start_seconds": 6.1}, ...]
 }
 ```
+
+**Cambio 2026-04-25 — schema v1 → v2.** El campo `silence_duration_seconds` (silencio único después del intro) se sustituye por dos campos separados: `silence_after_intro_seconds` (default 2.0s, inicio narración) y `silence_before_outro_seconds` (default 3.0s, respiro narrativo entre el FIN del relato y la CTA final de marca). El JSON v1 de `la-objecion` (piloto) sigue siendo compatible con `/audiobook-distribute` (lee `silence_duration_seconds` como fallback si v2 no está presente). Audiolibros nuevos van directamente con v2.
 
 **Detección de capítulos:** regex `CHAPTER_HEADING_RE` sobre el `audiolibro.txt` que matchea las dos convenciones soportadas (ver paso 2 § "Convención de headings de capítulo"):
 - `Uno. La cocina.` (canónica corta)
