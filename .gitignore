@@ -138,6 +138,19 @@ celerybeat.pid
 .claude/settings.local.json
 .playwright-mcp/
 
+# OAuth tokens (YouTube refresh + access tokens)
+content/podcast/_oauth-tokens/
+
+# Audiobook large generated assets (MP3 + chunks + MP4 + chunks-index)
+# Estos viven en disco local + R2; no hace falta versionarlos en git.
+# Excepción: el feed.xml SÍ se trackea (tamaño <100KB, útil tener histórico).
+assets/audio/ficciones/*.mp3
+assets/audio/ficciones/*.mp4
+assets/audio/ficciones/*-chunks-index.json
+assets/audio/ficciones/_chunks-*/
+assets/audio/ficciones/covers/*.png
+assets/audio/ficciones/covers/*.jpg
+
 # Test screenshots from Playwright MCP
 *.png
 !assets/**/*.png

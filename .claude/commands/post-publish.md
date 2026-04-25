@@ -339,9 +339,76 @@ Cleaned <N> unused hero variants, updated sources/catalog, synced Obsidian.
 
 **NO pushear automáticamente.** Preguntar a Rafael: "¿Hago `git push`?". Regla del proyecto (CLAUDE.md): no auto-push a menos que Rafael lo pida.
 
+### 13.5. Distribución audiolibro (si aplica) — auto-fire
+
+**Solo se dispara si el artículo es ficción CON audiolibro generado.** Pre-check obligatorio (todo debe ser true):
+
+```bash
+# (a) ¿Es ficción? Detectar por categoría del frontmatter o por path published
+CATEGORY=$(grep -E "^category:" content/articulos/<slug>/borrador.html | head -1 | sed 's/.*: //')
+IS_FICTION=false
+[[ "$CATEGORY" == "ficcion" ]] && IS_FICTION=true
+# Fallback: si el slug existe bajo content/ficciones/**, también es ficción
+ls content/ficciones/**/<slug>/audiolibro.txt 2>/dev/null && IS_FICTION=true
+
+# (b) ¿Hay audiolibro generado? Verificar los 3 artefactos clave
+HAS_AUDIO=true
+[[ ! -f assets/audio/ficciones/<slug>.mp3 ]] && HAS_AUDIO=false
+[[ ! -f assets/audio/ficciones/<slug>-chunks-index.json ]] && HAS_AUDIO=false
+ls content/ficciones/**/<slug>/beehiiv-audiolibro-snippets.md 2>/dev/null || HAS_AUDIO=false
+
+# (c) ¿Existen los covers derivados? Si no, generar antes
+[[ ! -f assets/audio/ficciones/covers/<slug>-yt-1280x720.png ]] && \
+  python utilities/generate_audiobook_covers.py <slug>
+[[ ! -f assets/audio/ficciones/covers/<slug>-podcast-1400x1400.jpg ]] && \
+  python utilities/generate_audiobook_covers.py <slug>
+
+# (d) ¿Credenciales OAuth YouTube válidas?
+python utilities/verify_youtube_auth.py
+# Si falla → STOP, mostrar fix exacto del Bloque 1 de la guía Obsidian
+```
+
+**Decisión por estado del pre-check:**
+
+| Caso | Acción del skill |
+|---|---|
+| **No ficción** (`IS_FICTION=false`) | Saltar paso 13.5 entero. Continuar al paso 14. |
+| **Ficción sin audiolibro** (`HAS_AUDIO=false`) | Saltar paso 13.5. **Notificar al final del paso 14:** *"Este relato no tiene audiolibro generado. Si quieres distribuirlo a YouTube/podcast, primero corre `/audiobook-generate <slug>`."*. Continuar al paso 14. |
+| **Ficción con audiolibro + verify_youtube_auth FAIL** | STOP en este paso. Mostrar el error exacto + el comando de fix (`python utilities/upload_youtube.py --auth` si token caducó, o link al Bloque 1.5 de la guía Obsidian si setup incompleto). NO continuar al paso 14 hasta que Rafael resuelva (no queremos cerrar el resumen sin distribución cuando claramente la queríamos). |
+| **Ficción con audiolibro + setup distribución incompleto** (R2_FEED_PUBLIC_URL faltante, canal-metadata.md sin valores reales, etc.) | STOP. Mostrar el bloque concreto pendiente de la guía Obsidian. NO continuar. |
+| **Todo OK** | Invocar `/audiobook-distribute <slug>` y propagar resultado al paso 14. |
+
+**Auto-fire del skill `/audiobook-distribute`:**
+
+1. Llamar al skill con el slug detectado.
+2. El skill ejecuta su workflow de 6 pasos (MP4 + upload YouTube + RSS + snapshot).
+3. Capturar URLs devueltas: `youtube_url`, `feed_url`, `pinned_comment_text`, `episode_count_in_feed`.
+4. Si el skill falla a mitad (ej. YouTube acepta upload pero falla thumbnail): NO bloquear el paso 14 — reportar el fallo parcial en el resumen y dejar instrucciones de fix manual.
+5. Si Rafael ya commiteó en paso 13: hacer un segundo commit ahora con `distribution: <slug>` que incluya el `distribucion-snapshot.md` nuevo + cualquier cambio en `content/podcast/feed.xml`. Si no commiteó, todo va en el commit del paso 13 (mover el commit DESPUÉS del 13.5).
+
+**Re-distribución (snapshot existe):** si Rafael invoca `/post-publish <URL>` sobre un artículo que YA tiene `distribucion-snapshot.md`, el paso 13.5 detecta el duplicado en su propio pre-check y para con un mensaje *"Este relato ya se distribuyó (videoId X, RSS update YYYY-MM-DD). Re-distribuir gasta 150 units quota + crea segundo vídeo. ¿Confirmas?"*. Sin confirmación → saltar el paso, continuar al 14 con la nota *"Distribución previa intacta."*.
+
+**Why auto-fire:** Rafael trabaja en sesiones espaciadas (3-5 h/semana). Acoplar la distribución a `/post-publish` evita que olvide invocarla manual. La complejidad operativa (OAuth + ffmpeg + RSS) ya está abstraída por `/audiobook-distribute` — el coste cognitivo del auto-fire es marginal y el beneficio (cero pasos manuales por episodio) es alto. Coherente con el principio "yo no quiero hacer nada" del plan.
+
 ### 14. Reportar resumen
 
-Mostrar a Rafael un resumen con 4 secciones: **Verificación** (artículo, OG, links, imágenes), **Repo** (published, limpieza, fuentes, catalog, llms.txt, commit), **Distribución** (social + welcome email), **Obsidian** (guía, artículo, wiki). Cada línea con ✅/❌. Incluir recordatorio de pegar `content/llms.txt` en Beehiiv.
+Mostrar a Rafael un resumen con **5 secciones**: **Verificación** (artículo, OG, links, imágenes), **Repo** (published, limpieza, fuentes, catalog, llms.txt, commit), **Distribución web/social** (social posts + welcome email + tags Beehiiv), **Distribución audio** (solo si paso 13.5 corrió: YouTube URL, RSS feed URL, episode count, ⚠️ pinned comment manual con texto literal copy-paste), **Obsidian** (guía, artículo, wiki). Cada línea con ✅/❌. Incluir recordatorio de pegar `content/llms.txt` en Beehiiv.
+
+**Sección Distribución audio (formato):**
+
+```
+🎬 YouTube  : https://www.youtube.com/watch?v=<videoId>
+📡 RSS feed : https://feed.robohogar.com/feed.xml (<N> episodios totales)
+📁 Snapshot: content/ficciones/**/<slug>/distribucion-snapshot.md
+
+⚠️ ACCIÓN MANUAL — pegar pinned comment en YouTube:
+─────────────────────────────────────────────
+<texto literal del pinned comment>
+─────────────────────────────────────────────
+   → Abrir el video, comentar, click en 3-dots → Pin.
+```
+
+Si paso 13.5 se saltó por no aplicar: omitir esta sección entera (no introducir ruido). Si se intentó pero falló: mostrar la sección con ❌ + fix sugerido.
 
 ## Rules
 

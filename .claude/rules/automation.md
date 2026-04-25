@@ -11,6 +11,7 @@ RSS feeds → Agente Research → Research Digest .md
 Rafael elige temas + ángulos → Agente Escritura → Borrador → Rafael edita → Publicar
 Borrador listo → Agente Imágenes → Hero branded (1200x630) + catálogo actualizado
 Publicación → Agente Social → Posts para LinkedIn, X, IG, WhatsApp → Buffer
+Audiolibro publicado (ficción) → Skill Distribute → MP4 YouTube + episodio RSS → Spotify/Apple/Amazon
 ```
 
 Tabla de skills, inputs y outputs → `CLAUDE.md` sección "Skills del pipeline". Flujo detallado → `docs/plan-v2.md` sección 4.

@@ -35,6 +35,7 @@ sale raro, y se pueden borrar a mano al confirmar que el MP3 final va bien.
 import glob
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -44,6 +45,14 @@ from pathlib import Path
 
 import boto3
 from botocore.client import Config
+
+
+# Defensive: fuerza UTF-8 en stdout para no romper en consolas Windows que
+# usan cp1252 por defecto (Python 3.14 + cmd.exe/PS5 sin chcp 65001). En
+# bash MINGW o PowerShell 7+ ya es UTF-8 así que el reconfigure es no-op.
+# `errors="replace"` evita crashes si algún glyph no existe en la consola.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 
 # Decisiones canon del plan audiolibros (docs/plan-audiolibros-ficciones.md).
@@ -117,6 +126,53 @@ def find_ffmpeg() -> str:
     if matches:
         return matches[0]
     sys.exit("ERROR: ffmpeg no encontrado ni en PATH ni en WinGet install")
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# Normalización de marca para TTS
+# ══════════════════════════════════════════════════════════════════════════
+
+# Pattern que captura todas las variantes históricas y futuras de la marca
+# en el texto TTS. Cubre: ROBOHOGAR, ROBO OGAR, ROBO  OGAR (doble espacio),
+# ROBO,OGAR (sin espacio post-coma), ROBO, OGAR (canónica). Case-sensitive
+# a propósito: solo normalizamos cuando la marca aparece en uppercase como
+# asset de marca; "robohogar" en lowercase dentro del cuerpo de un relato
+# se respeta tal cual (decisión editorial del autor).
+BRAND_PATTERN = re.compile(r"\bROBO\s*,?\s*H?OGAR\b")
+BRAND_CANONICAL = "ROBO, OGAR"
+
+
+def apply_tts_brand_substitutions(text: str) -> str:
+    """Normaliza menciones de la marca ROBOHOGAR para TTS → 'ROBO, OGAR'.
+
+    Por qué la coma: el motor Multilingual v2 de ElevenLabs puede aspirar
+    la H estilo inglés cuando ve "ROBOHOGAR" como token contiguo, sonando
+    "RoboJOgar" al oído castellano peninsular (donde la H es muda). La
+    convención previa "ROBO OGAR" (espacio simple) tampoco garantizaba
+    pausa: el motor en ciertos contextos empalmaba las dos palabras.
+
+    La coma fuerza una pausa prosódica de ~150-300 ms que el espacio
+    simple no garantiza, suficiente para separar las dos sílabas sin
+    que suene a final de frase (eso lo haría el punto). Decisión
+    canonizada 2026-04-25 — ver `feedback_robohogar_tts_pronunciation.md`
+    + `docs/plan-audiolibros-ficciones.md § Decisiones cerradas`.
+
+    Idempotente: aplicar 2 veces produce el mismo resultado. Migra
+    automáticamente la convención antigua "ROBO OGAR" presente en
+    relatos generados con la versión previa del pipeline.
+    """
+    matches = BRAND_PATTERN.findall(text)
+    if matches:
+        # Solo informamos si había variantes no-canónicas — evita ruido
+        # cuando el texto ya viene normalizado.
+        non_canonical = [m for m in matches if m != BRAND_CANONICAL]
+        if non_canonical:
+            print(
+                f"  Normalizadas {len(non_canonical)} mención(es) de marca "
+                f"a '{BRAND_CANONICAL}' (pronunciación TTS canónica)",
+                flush=True,
+            )
+    return BRAND_PATTERN.sub(BRAND_CANONICAL, text)
 
 
 # ══════════════════════════════════════════════════════════════════════════
@@ -297,6 +353,137 @@ def probe_duration(ffmpeg: str, mp3: Path) -> float:
         return 0.0
 
 
+# ══════════════════════════════════════════════════════════════════════════
+# Indexado de capítulos para distribución downstream
+# ══════════════════════════════════════════════════════════════════════════
+
+# Ordinales en español que se usan como heading de capítulo en audiolibro.txt
+# (convención TTS § paso 2 del skill audiobook-generate.md). Mapeo a número
+# arábigo para que el JSON downstream pueda ordenar/iterar fácilmente.
+SPANISH_ORDINALS = {
+    "Uno": 1, "Dos": 2, "Tres": 3, "Cuatro": 4, "Cinco": 5,
+    "Seis": 6, "Siete": 7, "Ocho": 8, "Nueve": 9, "Diez": 10,
+    "Once": 11, "Doce": 12,
+}
+
+# Heading de capítulo: "Uno.", "Dos.", ... seguido de espacio + título + ".".
+# Anclado a inicio de línea (re.MULTILINE) para evitar falsos positivos
+# como "Beso." / "Silencio." / "Lentejas." que aparecen mid-paragraph.
+CHAPTER_HEADING_RE = re.compile(
+    r"^({ordinals})\.\s+(.+?)\.\s*$".format(
+        ordinals="|".join(SPANISH_ORDINALS.keys())
+    ),
+    re.MULTILINE,
+)
+
+
+def detect_chapters(text: str) -> list[dict]:
+    """Detecta headings de capítulo en el texto TTS.
+
+    Devuelve lista ordenada de capítulos con su posición de char absoluta:
+    `[{number: 1, title: "La cocina", char_position: 0, char_text: "Uno. La cocina."}, ...]`.
+
+    El char_position se usa después para mapear a tiempo del MP3 final
+    asumiendo velocidad de narración uniforme — error ±5% aceptable para
+    YouTube chapters (donde el oyente tolera offset de 1-2 s).
+    """
+    chapters = []
+    for m in CHAPTER_HEADING_RE.finditer(text):
+        chapters.append({
+            "number": SPANISH_ORDINALS[m.group(1)],
+            "title": m.group(2).strip(),
+            "char_position": m.start(),
+            "char_text": m.group(0).strip(),
+        })
+    return chapters
+
+
+def build_chunks_index(
+    slug: str,
+    text: str,
+    chunks: list[str],
+    chunk_files: list[Path],
+    ffmpeg: str,
+    intro_duration: float,
+    silence_duration: float,
+    outro_duration: float,
+    total_duration: float,
+) -> dict:
+    """Construye el dict serializable que se vuelca a chunks-index.json.
+
+    El JSON es la fuente de verdad downstream para `/audiobook-distribute`:
+      - YouTube chapters de la descripción (con timestamps por capítulo).
+      - Composición del MP4 con chyrons cambiantes (cada capítulo su drawtext).
+      - Show notes RSS con sección "capítulos" si quisiéramos en futuro.
+
+    Estrategia de timestamping de capítulos: velocidad uniforme global.
+      Calculamos chars/segundo sobre la narración total (excluyendo intro,
+      silencio y outro) y mapeamos cada char_position a un offset relativo.
+      Para Luis ES Multilingual v2 sale ~16-20 cps, suficientemente uniforme
+      entre chunks para que el error sea de 1-3 s, dentro de tolerancia.
+    """
+    # Duraciones reales de cada chunk (medidas con ffprobe, no estimadas).
+    # Sirven para que downstream pueda ofrecer timestamps muy precisos por
+    # chunk individual aunque el chapters_index use velocidad uniforme.
+    chunk_durations = [probe_duration(ffmpeg, cf) for cf in chunk_files]
+
+    # Total chars de narración (excluye outro/intro porque no son chunks).
+    narration_chars = sum(len(c) for c in chunks)
+    narration_duration = sum(chunk_durations)
+
+    # Velocidad de narración chars/segundo. Fallback razonable si ffprobe
+    # falló (devolvió 0.0): ~17 cps que es la media empírica de Luis ES.
+    cps = narration_chars / narration_duration if narration_duration > 0 else 17.0
+
+    # Detectar capítulos sobre el texto narrativo.
+    chapters_raw = detect_chapters(text)
+    # Offset = intro + silencio (la narración empieza ahí dentro del MP3).
+    narration_start = intro_duration + silence_duration
+    chapters = [
+        {
+            "number": ch["number"],
+            "title": ch["title"],
+            "start_seconds": round(narration_start + ch["char_position"] / cps, 2),
+        }
+        for ch in chapters_raw
+    ]
+
+    # Si no se detectó ningún capítulo (relato sin "Uno. Dos. Tres."),
+    # generamos un único chapter sintético "Relato" para que YouTube
+    # tenga al menos 1 entry de chapters válida (requiere ≥3 entries
+    # para auto-generar chapters reales — pero un solo entry no rompe).
+    if not chapters:
+        chapters = [{
+            "number": 1,
+            "title": "Relato",
+            "start_seconds": round(narration_start, 2),
+        }]
+
+    # Estructura JSON final. Versionada por si downstream cambia
+    # parsing y necesita compatibilidad hacia atrás.
+    return {
+        "schema_version": 1,
+        "slug": slug,
+        "total_duration_seconds": round(total_duration, 2),
+        "intro_duration_seconds": round(intro_duration, 2),
+        "silence_duration_seconds": round(silence_duration, 2),
+        "outro_duration_seconds": round(outro_duration, 2),
+        "narration_duration_seconds": round(narration_duration, 2),
+        "narration_chars": narration_chars,
+        "narration_chars_per_second": round(cps, 2),
+        "chunks": [
+            {
+                "index": i + 1,
+                "file_relative": str(cf.relative_to(REPO_ROOT)).replace("\\", "/"),
+                "duration_seconds": round(chunk_durations[i], 2),
+                "char_count": len(chunks[i]),
+            }
+            for i, cf in enumerate(chunk_files)
+        ],
+        "chapters": chapters,
+    }
+
+
 def upload_to_r2(env: dict, local_path: Path, key: str) -> str:
     """Sube el MP3 a Cloudflare R2. Devuelve la URL pública."""
     s3 = boto3.client(
@@ -345,6 +532,10 @@ def main() -> None:
 
     # Carga y chunking
     text = input_file.read_text(encoding="utf-8").strip()
+    # Safety-net: normaliza marca a 'ROBO, OGAR' antes del TTS aunque el
+    # skill /audiobook-generate ya debería haberlo aplicado al construir
+    # audiolibro.txt. Idempotente.
+    text = apply_tts_brand_substitutions(text)
     chunks = chunk_text(text)
     total_chars = sum(len(c) for c in chunks)
     print(f"Texto: {len(text):,} chars totales ({total_chars:,} en chunks).")
@@ -390,6 +581,32 @@ def main() -> None:
           f"duración {duration / 60:.1f} min ({duration:.1f}s)")
     print()
 
+    # Construcción del chunks-index.json con timestamps de capítulos
+    # mapeados a segundos del MP3 final. Lo consume `/audiobook-distribute`
+    # para componer chyrons del MP4 YouTube + chapters de descripción +
+    # show notes RSS. Se escribe antes del upload R2 — si falla el upload,
+    # el JSON queda disponible para reintentar la subida sin regenerar.
+    intro_dur = probe_duration(ffmpeg, INTRO_MP3)
+    outro_dur = probe_duration(ffmpeg, OUTRO_MP3)
+    index_data = build_chunks_index(
+        slug=slug, text=text, chunks=chunks, chunk_files=chunk_files,
+        ffmpeg=ffmpeg,
+        intro_duration=intro_dur,
+        silence_duration=SILENCE_AFTER_INTRO_SEC,
+        outro_duration=outro_dur,
+        total_duration=duration,
+    )
+    index_file = final_dir / f"{slug}-chunks-index.json"
+    index_file.write_text(
+        json.dumps(index_data, ensure_ascii=False, indent=2), encoding="utf-8",
+    )
+    n_chapters = len(index_data["chapters"])
+    print(f"  -> chunks-index.json escrito ({n_chapters} capítulo(s) detectado(s)):")
+    for ch in index_data["chapters"]:
+        m, s = divmod(int(ch["start_seconds"]), 60)
+        print(f"     {m:02d}:{s:02d} · {ch['number']}. {ch['title']}")
+    print()
+
     # Subida a R2 → URL pública.
     public_url = upload_to_r2(env, final_mp3, f"{slug}.mp3")
 
@@ -397,10 +614,12 @@ def main() -> None:
     print("=" * 72)
     print(f"AUDIOLIBRO GENERADO · {slug}")
     print("=" * 72)
-    print(f"MP3 local : {final_mp3}")
-    print(f"URL pública: {public_url}")
-    print(f"Duración  : {duration / 60:.1f} min")
-    print(f"Chunks    : {len(chunks)} (temp en {tmp_dir.relative_to(REPO_ROOT)})")
+    print(f"MP3 local      : {final_mp3}")
+    print(f"URL pública    : {public_url}")
+    print(f"Duración       : {duration / 60:.1f} min")
+    print(f"Chunks         : {len(chunks)} (temp en {tmp_dir.relative_to(REPO_ROOT)})")
+    print(f"Chapters index : {index_file.relative_to(REPO_ROOT)}")
+    print(f"Capítulos      : {n_chapters} detectado(s)")
     print("=" * 72)
 
 

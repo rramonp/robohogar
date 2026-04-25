@@ -63,7 +63,7 @@ Aplicar las siguientes transformaciones:
 | Markdown bold | `**palabra**` | `palabra` (mismo motivo) |
 | Middle dots en texto de app/UI | `Ramón García Torres · esposo · fallecido 2027` | `Ramón García Torres, esposo, fallecido dos mil veintisiete` (comas + años a palabras) |
 | Modelos ficticios con guión | `HOGAR-X5` | `HOGAR equis cinco` (el guión confunde, la separación forzada evita que Luis diga "menos" o "guión") |
-| Marca ROBOHOGAR (si aparece literal) | `ROBOHOGAR` | `ROBO OGAR` (regla del plan — evita que Multilingual v2 aspire la H a la inglesa) |
+| Marca ROBOHOGAR (si aparece literal) | `ROBOHOGAR`, `ROBO OGAR`, `ROBO  OGAR`, `ROBO,OGAR` | **`ROBO, OGAR`** (coma + espacio — refuerzo canónico 2026-04-25). La coma fuerza pausa prosódica de ~150-300 ms en Multilingual v2 que el espacio simple **no garantiza**: en ciertos contextos el motor empalmaba "ROBO" con "OGAR" creando una H aspirada parásita estilo inglés ("RoboJOgar"). El símbolo escrito de marca sigue siendo ROBOHOGAR sin coma — la coma vive solo en `audiolibro.txt` y assets TTS, nunca en HTML/banners/metadata visible al lector. Detalle: `feedback_robohogar_tts_pronunciation.md` + `docs/plan-audiolibros-ficciones.md § Decisiones cerradas`. **Safety-net automático:** `utilities/generate_audio.py` aplica esta sustitución idempotente sobre el texto antes del TTS aunque se cuele alguna variante no canónica. |
 | Años en italic o prose corta | `2027`, `2024/1689` | `dos mil veintisiete`, eliminar parentéticos con slash (reescribir si son técnicos) |
 | Porcentajes | `80%`, `85%` | `ochenta por ciento`, `ochenta y cinco por ciento` |
 | Cifras grandes redondas | `900.000 personas` | `novecientas mil personas` |
@@ -90,6 +90,23 @@ Presentar a Rafael:
 - Ruta del archivo creado
 - Stats: `wc -c` chars, aproximación de palabras, duración estimada (~150 palabras/min para narración ES), coste estimado en overage ($0.10/1k chars), % de cuota mensual Starter (60k chars).
 - Transformaciones clave aplicadas (tabla resumen).
+
+**Verificación pre-output OBLIGATORIA — pronunciación canónica de marca:**
+
+```bash
+# (a) ROBOHOGAR sin separar — debe ser 0
+grep -cE '\bROBOHOGAR\b' content/ficciones/**/<slug>/audiolibro.txt
+
+# (b) ROBO OGAR sin coma (convención antigua) — debe ser 0 tras refuerzo 2026-04-25
+grep -cE '\bROBO +OGAR\b' content/ficciones/**/<slug>/audiolibro.txt
+
+# (c) ROBO, OGAR canónica — debe ser ≥1 si la marca aparece en el texto
+grep -cE '\bROBO, OGAR\b' content/ficciones/**/<slug>/audiolibro.txt
+```
+
+Si (a) o (b) devuelven >0 → editar `audiolibro.txt` sustituyendo a `ROBO, OGAR` antes de continuar. El script `utilities/generate_audio.py` aplica un safety-net automático que normaliza estas variantes en runtime (idempotente), pero la fuente local debe quedar limpia para que las regeneraciones futuras y el control de versiones reflejen la convención canónica.
+
+Razón: regla del plan audiolibros § Decisiones cerradas + memoria `feedback_robohogar_tts_pronunciation.md`.
 
 Preguntar: *"¿Procedo a generar el MP3 o quieres tocar algo primero?"*
 
@@ -258,6 +275,57 @@ Ahorra cuota API vs regenerar los N chunks completos.
 ```
 
 **Regla dura:** este archivo se escribe SIEMPRE al final del pipeline, sin preguntar. Es idempotente (se sobrescribe si se regenera el audiolibro). El chat muestra además los 4 strings para comodidad inmediata, pero la **fuente de verdad persistente es el `.md` del repo** — nunca solo el chat.
+
+### 6.5. chunks-index.json — automático, no requiere acción
+
+`utilities/generate_audio.py` genera automáticamente `assets/audio/ficciones/<slug>-chunks-index.json` al final del run. Lo consume `/audiobook-distribute` (FASE 3) para componer:
+
+- **Chyrons del MP4 YouTube** — un drawtext por capítulo con fade in/out al cruzar `start_seconds` (opción D++ híbrido del plan).
+- **Chapters timestamped en la descripción YouTube** — formato `MM:SS Capítulo I — Título` que YouTube auto-renderiza como navegación interna del vídeo.
+- **Show notes RSS** (opcional, futuro) — secciones de capítulos en el `<itunes:summary>` del item.
+
+Estructura JSON (schema_version: 1):
+
+```json
+{
+  "schema_version": 1,
+  "slug": "<slug>",
+  "total_duration_seconds": ...,
+  "intro_duration_seconds": 2.53,
+  "silence_duration_seconds": 2.0,
+  "outro_duration_seconds": 11.89,
+  "narration_duration_seconds": ...,
+  "narration_chars": ...,
+  "narration_chars_per_second": ...,
+  "chunks": [{"index": 1, "file_relative": "...", "duration_seconds": ..., "char_count": ...}, ...],
+  "chapters": [{"number": 1, "title": "La cocina", "start_seconds": 6.1}, ...]
+}
+```
+
+**Detección de capítulos:** regex sobre el `audiolibro.txt` que matchea headings `Uno. / Dos. / Tres. / ... / Diez. / Once. / Doce.` aislados al inicio de línea (re.MULTILINE) con título corto + punto final. Convención TTS del paso 2 — los headings de capítulo van numerados con ordinales en español, no con números arábigos ni romanos.
+
+**Mapping char→tiempo:** velocidad uniforme global. `chars_per_second = narration_chars / narration_duration` calculado tras el TTS. Asume que Luis lee a velocidad constante entre chapters — error real ±5% (1-3 s en chapters de 5+ minutos), tolerable para YouTube chapters donde el espectador acepta offset menor.
+
+**Fallback sin capítulos detectados:** si el relato no tiene headings `Uno. Dos. Tres.` (relatos cortos o experimentales), se genera 1 chapter sintético `{"number": 1, "title": "Relato", "start_seconds": <intro+silencio>}` para que YouTube tenga al menos 1 entry válida.
+
+### 6.6. Generar covers derivados (YouTube + podcast)
+
+Tras escribir `chunks-index.json`, invocar:
+
+```bash
+python utilities/generate_audiobook_covers.py <slug>
+```
+
+Genera 2 outputs idempotentes desde el hero del relato (`content/ficciones/**/<slug>/assets/hero-<slug>-*.png` o variantes):
+
+- `assets/audio/ficciones/covers/<slug>-yt-1280x720.png` — cover YouTube 16:9 PNG. Sin texto overlay (los chyrons los añade ffmpeg en runtime al MP4). Sirve también como thumbnail estático del vídeo antes de play.
+- `assets/audio/ficciones/covers/<slug>-podcast-1400x1400.jpg` — cover podcast 1:1 JPEG quality 88. Va al `<itunes:image>` de cada `<item>` del feed RSS y aparece como artwork del episodio en Spotify/Apple/Amazon.
+
+**Si falta el hero del relato:** el script falla amigablemente sugiriendo correr `/nano-banana` para generarlo. Sin hero no hay distribución.
+
+**Estrategia de transformación:** crop al center con aspect ratio target (no letterbox), Lanczos resize. Preserva el sujeto centrado de los heros generados con `/nano-banana` (convención visual ROBOHOGAR).
+
+**Versionado:** las versiones se sobrescriben (idempotente — son derivados, no assets primarios). El hero original sigue versionado como siempre (`hero-<slug>-v2`, `-v3`...).
 
 ### 7. Instrucciones de pegado para Rafael
 

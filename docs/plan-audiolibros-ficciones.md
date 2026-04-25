@@ -25,8 +25,8 @@ Ofrecer en cada relato de Ficciones Domésticas publicado en Beehiiv (`robohogar
 
 - **Reproducción:** `<audio controls>` HTML5 nativo, streaming in-page dentro del propio post Beehiiv (no página custom; Beehiiv ya da URL única por relato).
 - **Descarga:** botón explícito `<a href download>` además del reproductor, pensado para "escuchar en el coche".
-- **Intro de marca (5-8s) — texto TTS:** *"Ficciones Domésticas, de ROBO OGAR."* + 2s silencio. (Visual de marca sigue siendo "ROBOHOGAR" — el texto TTS separa en 2 palabras y **elimina la H** para que el Multilingual v2 no aspire la H estilo inglés, que al oído peninsular suena cercano a "robojogar". La H es muda en español, por lo que al oyente el resultado es indistinguible de "ROBOHOGAR" escrito. Convención validada por Rafael 2026-04-22 tras probar en ElevenLabs Studio con la voz Luis.)
-- **Outro de marca (10-15s) — texto TTS:** *"Has escuchado una Ficción Doméstica de ROBO OGAR. Si te ha gustado, puedes leer más relatos y suscribirte al newsletter en ROBO OGAR punto com."* (URL: "ROBO OGAR punto com" en la misma convención de la marca + "punto com" explícito en vez de `.com` para forzar lectura correcta).
+- **Intro de marca (5-8s) — texto TTS:** *"Ficciones Domésticas, de ROBO, OGAR."* + 2s silencio. (Visual de marca sigue siendo "ROBOHOGAR" — el texto TTS separa en 2 palabras, **elimina la H** y mete una **coma + espacio** entre "ROBO" y "OGAR" para que Multilingual v2 no aspire la H estilo inglés. La coma fuerza pausa prosódica de ~150-300 ms que el espacio simple de la convención original `ROBO OGAR` no garantizaba. La H es muda en español, por lo que al oyente el resultado es indistinguible de "ROBOHOGAR" escrito. Convención validada por Rafael 2026-04-22 con `ROBO OGAR`; **refuerzo 2026-04-25** a `ROBO, OGAR` tras detectar aspiración residual con espacio simple en algunos contextos. Detalle: `feedback_robohogar_tts_pronunciation.md`.)
+- **Outro de marca (10-15s) — texto TTS:** *"Has escuchado una Ficción Doméstica de ROBO, OGAR. Si te ha gustado, puedes leer más relatos y suscribirte al newsletter en ROBO, OGAR punto com."* (URL: "ROBO, OGAR punto com" en la misma convención + "punto com" explícito en vez de `.com` para forzar lectura correcta. Asset MP3 actual sigue en versión 2026-04-22 con `ROBO OGAR` espacio simple — re-grabar con `ROBO, OGAR` si las primeras producciones distribuidas a YouTube/Spotify revelan aspiración audible. Coste re-grabación: ~$0.10 ElevenLabs, 2 minutos de trabajo.)
 - **Mid-roll:** descartado. Rompe inmersión y contradice el posicionamiento premium del pilar ficción. Excepción permitida: bumper de 3s "ROBOHOGAR" entre episodios de mini-serie como sello sonoro.
 - **Voz narrador:** única y consistente para todos los relatos (sello sonoro reconocible = tipografía sonora). Voice_id ElevenLabs pendiente elegir.
 - **Motor TTS:** ElevenLabs API (ya validado por Rafael como herramienta de uso personal en ElevenLabs Reader).
@@ -225,12 +225,42 @@ Verificación:
 - [x] **Actualizada `docs/guia-implementacion.md`** con el paso 4 "Audiolibro (opcional)" en el workflow Ficciones Domésticas, entre "Editar" y "Publicar". Incluye frase trigger, los 4 strings que devuelve el skill, regla dura de invocación manual, y estimación de coste por tipo de relato.
 - [x] **Coste real documentado en régimen Starter** ($5/mes yearly, ~60k chars Multilingual v2/mes ≈ ~3-4 relatos standalone/mes con regeneraciones). Piloto *El que viene a tomar café* consumió 18.5k chars = ~31% cuota. Umbral upgrade a Creator ($11/mes yearly, 121k credits) si se cruzan 60k chars/mes tres meses seguidos.
 
-### FASE 3 — Mejoras opcionales (post-validación)
+### FASE 3 — Distribución multi-plataforma (EN EJECUCIÓN 2026-04-25)
 
-- [ ] Subdominio `audio.robohogar.com` en Cloudflare apuntando al bucket R2.
-- [ ] Player custom con diseño ROBOHOGAR (superar el look nativo del navegador) — solo si Rafael lo pide.
-- [ ] Feed RSS podcast auto-generado desde los relatos con audio → publicable en Spotify/Apple Podcasts como canal "Ficciones Domésticas ROBOHOGAR". Evaluar solo con ≥5 relatos en audio.
-- [ ] Transcripción sincronizada (karaoke-style) si alguna vez Rafael quiere un formato premium.
+**Plan ejecutivo:** [`~/.claude/plans/c-users-bakal-robohogar-pendientes-rebra-playful-hearth.md`](../../../.claude/plans/c-users-bakal-robohogar-pendientes-rebra-playful-hearth.md). Setup manual one-time en Obsidian: `Docs/Guia Distribucion Audiolibros.md` (3 bloques: YouTube + R2 custom domain + RSS/plataformas). Skill nuevo: [`.claude/commands/audiobook-distribute.md`](../.claude/commands/audiobook-distribute.md). Auto-fire desde `/post-publish § paso 13.5`.
+
+**Decisiones cerradas (2026-04-25):**
+- Plataformas v1: **YouTube + RSS propio en Cloudflare R2** (sirve Spotify + Apple Podcasts + Amazon Music con un solo feed). iVoox diferido.
+- Formato vídeo YouTube: **opción D++ híbrido** (cover + waveform ámbar + chyron de capítulo cambiante con fade in/out + logo permanente). Render 1-4 min. Cumple algoritmo 2026.
+- Hosting podcast: **RSS propio en R2 con custom domain `feed.robohogar.com`**. Anchor descartado por riesgo de plataforma documentado.
+- Pinned comment YouTube: **string copy-paste manual** (~1 min/release). API restringida desde 2023.
+- CTA newsletter: intro corto sello sonoro + outro completo (sin cambios) + descripción YouTube línea 1 + show notes RSS línea 1 + pinned comment.
+- Pronunciación canónica TTS: refuerzo `ROBO OGAR` → **`ROBO, OGAR`** (coma + espacio, garantiza microsilencio prosódico). Memoria `feedback_robohogar_tts_pronunciation.md`.
+
+**Status checklist:**
+- [x] Plan ejecutivo aprobado y escrito.
+- [x] Refuerzo pronunciación TTS: `utilities/generate_audio.py` + skill + memoria + plan actualizado.
+- [x] Guía operativa Obsidian: `Docs/Guia Distribucion Audiolibros.md` (3 bloques, frases trigger, ~2h setup).
+- [x] `utilities/generate_audio.py` ahora escribe `chunks-index.json` con timestamps de capítulos + UTF-8 stdout fix.
+- [x] 6 utilidades Python creadas: `verify_youtube_auth.py`, `generate_audiobook_covers.py`, `generate_youtube_video.py`, `upload_youtube.py`, `generate_podcast_rss.py`, `upload_rss_to_r2.py`.
+- [x] Template `content/podcast/canal-metadata.md` creado (placeholders por rellenar en setup manual).
+- [x] Skill `.claude/commands/audiobook-distribute.md` creado.
+- [x] Skill `.claude/commands/audiobook-generate.md` ampliado con pasos 6.5 (chunks-index doc) + 6.6 (covers).
+- [x] `.claude/commands/post-publish.md` ampliado con paso 13.5 auto-fire + paso 14 con sección "Distribución audio".
+- [x] `CLAUDE.md` lista el nuevo skill en "Skills secundarios".
+- [x] `.claude/rules/automation.md § Pipeline de contenido` añade la línea de distribución de audiolibro.
+- [x] `.gitignore` ignora `content/podcast/_oauth-tokens/` + assets de audio generados.
+- [ ] **Pendiente Rafael — Setup manual ~2h** siguiendo `Docs/Guia Distribucion Audiolibros.md` (Bloques 1-3): canal YouTube + Google Cloud OAuth en producción + Cloudflare custom domain + alta única en Spotify/Apple/Amazon.
+- [ ] **Pendiente Rafael — Test piloto** sobre `papa-desde-singapur` (ya tiene MP3 en R2; falta hero del relato + setup) o sobre `el-que-viene-a-tomar-cafe` (ya tiene MP3 + audiolibro.txt validado, podría reutilizarse).
+- [ ] **Pendiente Rafael — Validar pronunciación ROBOHOGAR** en producción tras 2-3 episodios distribuidos. Si sigue sonando aspirada, re-grabar `intro-ficciones.mp3` + `outro-ficciones.mp3` con `ROBO, OGAR` (~$0.10, 2 min ElevenLabs Studio).
+
+### FASE 3.5 — Mejoras opcionales post-validación
+
+- [ ] **Canal trailer 60-90 s** subido a Spotify/Apple/Amazon como asset único. Spotify y Apple lo muestran a oyentes nuevos ANTES de elegir suscribirse — ahí cabe explicar largo qué es Ficciones Domésticas + ROBOHOGAR. Asset único, ~$0.50 ElevenLabs.
+- [ ] **iVoox** (plataforma podcast popular ES) — alta separada, no acepta RSS estándar siempre. Evaluar tras 3-5 episodios distribuidos.
+- [ ] **Subdominio `audio.robohogar.com`** apuntando al bucket R2 (separado del `feed.robohogar.com`).
+- [ ] **Player custom con diseño ROBOHOGAR** (superar el look nativo del navegador) — solo si Rafael lo pide tras feedback.
+- [ ] **Transcripción sincronizada** (karaoke-style con Whisper local) si Rafael quiere SEO + accesibilidad extra.
 
 ## Coste estimado en régimen
 
