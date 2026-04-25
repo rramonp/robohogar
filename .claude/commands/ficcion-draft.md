@@ -534,6 +534,124 @@ $HBX_VAULT/.../05-01_Robotica Newsletter/02-Drafts/Ficciones/
 - La copia audiolibro del vault es **mirror derivado** pensado exclusivamente para que Rafael escuche el relato en el móvil antes de publicar. Se regenera si el original cambia. No se publica nunca.
 - **Subtítulos descriptivos OBLIGATORIOS en cada sección** (regla permanente desde 2026-04-24, tras feedback de Rafael): cada `<h2>` del relato lleva número romano + título descriptivo en formato `## I. <Título sobrio>` · `## II. <Título sobrio>` · etc. Tres formatos consistentes (markdown fuente · HTML Beehiiv · audiolibro TTS): los tres comparten exactamente los mismos subtítulos. **Prohibido publicar romanos pelados** (`## I` sin texto) en ninguno de los tres. Razón: la audiencia Beehiiv es lectura mainstream en móvil/email, no minimalismo literario peninsular tipo Bolaño/Adón. Subtítulos cortos (1-4 palabras), sobrios (no Wattpad), sin spoiler, ES peninsular. Plantilla canónica de elección: la primera línea narrativa o el objeto-testigo de la escena (ej: *"El botón"*, *"Hernán"*, *"La diapositiva"*, *"La cláusula"*, *"Managua"*, *"La una y dieciséis"*). En el TXT de audiolibro se transforma `## I. El botón` → `Parte uno. El botón.` Detalle de transformación TTS en § Copia audiolibro paso 9. Memoria de la regla: `feedback_ficcion_subtitulos_descriptivos.md`.
 
+### Cierre canónico del relato — OBLIGATORIO en cada `.md` fuente y cada borrador HTML Beehiiv
+
+Regla permanente desde 2026-04-25, tras feedback de Rafael (*"siempre pongas un Fin. al final como en el relato de behiiv de el que viene a tomar cafe y que siempre pongas al final el dato real como en el que viene a tomar cafe; en La objeción lo omitiste"*). Patrón canónico replicable a TODOS los relatos futuros (one-shot, episodio-serie, episode-0, piloto, tie-in).
+
+Tras la última frase narrativa, el relato cierra SIEMPRE con tres bloques en este orden:
+
+1. **`Fin.`** como párrafo separado (línea en blanco antes y después). Marca el cierre absoluto de la prosa narrativa. Si el `.md` se exporta a HTML Beehiiv, va como `<p class="fin">Fin.</p>` (clase CSS para que el editor pueda darle formato distinto — centrado, espaciado, kerning ligero).
+
+2. **Separador `---` + sección `## Lo real detrás del relato`** — bloque visible en prosa breve (90-140 palabras orientativo) que aterriza para el lector los hechos reales en los que se ancla la ficción. Estructura:
+   - Hipertextos `[texto](url)` a las fuentes verificables (legislación, organismo oficial, paper, comunicado de fabricante, dataset INE/Eurostat, medio reputado). Mínimo 2-3 enlaces; idealmente uno por dato no obvio.
+   - Mezcla *lo que existe ya* + *lo que es licencia narrativa* + *lo que pasa en hogares reales* (no solo regulación seca).
+   - Voz: editorial ROBOHOGAR plural (*"existe", "ocurrió", "es discusión académica abierta"*). Tono breve, claro, sin condescendencia. Cierra con una frase que devuelva al lector al territorio íntimo del relato (no con disclaimer corporativo).
+   - **No es un disclaimer ni un summary del relato**: es prosa periodística breve sobre el sustrato real. El lector que pase por encima entiende qué es real y qué es ficción sin que el relato pierda su efecto.
+
+3. **Comentarios HTML invisibles** con la trazabilidad editorial completa:
+   ```html
+   <!-- dato-real: ... -->
+   <!-- villano-humano: ... -->
+   ```
+   Estos no se ven en Beehiiv (son comentarios HTML). Sirven al equipo editorial para auditoría, no al lector. La sección `## Lo real detrás del relato` (visible) y los comentarios (invisibles) **no se duplican palabra por palabra**: la visible es prosa para el lector, los comentarios son notas internas en taquigrafía.
+
+**Estructura final del `.md` fuente:**
+
+```markdown
+[última frase narrativa de la sección final]
+
+Fin.
+
+---
+
+## Lo real detrás del relato
+
+[Párrafo breve con 2-3 hipertextos a fuentes reales, prosa editorial ROBOHOGAR plural, cierre que vuelva al territorio íntimo del relato.]
+
+<!-- dato-real: ... -->
+<!-- villano-humano: ... -->
+```
+
+**Estructura final del borrador HTML Beehiiv:**
+
+```html
+<p class="fin">Fin.</p>
+
+<!-- ═══ LO REAL DETRÁS DEL RELATO ═══ -->
+<div class="lo-real">
+  <span class="lo-real-title">Lo real detrás del relato</span>
+  <p>[Mismo párrafo breve con hipertextos.]</p>
+</div>
+
+<!-- ═══ OUTRO SERIE (opcional) ═══ -->
+<p class="serie-outro">Ficciones Domésticas es la serie de relatos especulativos de ROBOHOGAR — cada tres o cuatro semanas, una historia corta desde el hogar robotizado que viene. Cero futurismo de laboratorio, todo cocina, pasillo y salón.</p>
+```
+
+**Lo que NO va en el bloque "Lo real detrás del relato":**
+- Resumen de la trama (el lector acaba de leerla).
+- Fórmulas tipo *"Esta historia plantea cuestiones sobre…"* (ensayismo barato).
+- Disclaimers legales (*"Toda semejanza con la realidad…"* — el bloque hace lo contrario: subraya las semejanzas reales).
+- Llamadas a la acción comerciales (eso va en el snippet CTA suscripción del § canon `rules/newsletter.md`, en bloque distinto y posterior).
+
+**En la copia audiolibro Obsidian (`<Título> (audiolibro).md`):** el bloque `## Lo real detrás del relato` **NO se incluye** en el `<bloque triple-backtick>` de copy-paste para ElevenLabs Reader — el lector lo escucha como ficción, no quiere romper el espell con prosa periodística. Solo se incluye el `Fin.` final dentro del bloque (que da pausa natural al narrador).
+
+**Snippet HTML para Beehiiv — entregable OBLIGATORIO** (regla 2026-04-25 tras feedback de Rafael: *"esta seccion siempre quiero que me la des con snipet html para beehix"*). Junto al `.md` fuente, el skill genera SIEMPRE un archivo separado `content/ficciones/<serie>/<slug>/lo-real-snippet.html` con el bloque HTML estilizado en inline-CSS, listo para pegar en Beehiiv vía `/html` → "Custom HTML block". Razón: las clases CSS no viajan a Beehiiv en paste directo (regla `rules/design.md § Bloques de código para snippets HTML inline`); el `.md` fuente es markdown plano que Rafael revisa, pero al publicar necesita el HTML inline-styled separado para no perder el formato.
+
+**Plantilla canónica:** [`content/templates/lo-real-snippet.html`](../../content/templates/lo-real-snippet.html) — `<div>` con fondo crema `#FFF9EF`, borde izquierdo ámbar `#F5A623` 4px, eyebrow uppercase ámbar letter-spacing 1.5px, prosa Inter 15px line-height 1.65, hipertextos `<a>` ámbar subrayados. Estilos inline obligatorios (no clases). Em-dashes como entidad `&mdash;` (Beehiiv los renderiza Unicode al guardar).
+
+**Estructura del snippet** (idéntica al markdown, solo cambia el wrapping):
+```html
+<div style="margin:32px 0;padding:24px 28px;background:#FFF9EF;border-left:4px solid #F5A623;border-radius:4px;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;">
+  <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">Lo real detrás del relato</div>
+  <p style="margin:0 0 12px;font-size:15px;line-height:1.65;color:#0C0C0C;">[primer párrafo con hipertextos]</p>
+  <p style="margin:0;font-size:15px;line-height:1.65;color:#0C0C0C;">[segundo párrafo con hipertextos]</p>
+</div>
+```
+
+**Ubicación de salida** — los archivos `lo-real-snippet.html` viven en la carpeta del relato junto al `.md` fuente, no en `content/templates/` (allí solo vive la plantilla genérica). Esto facilita que `/post-publish` los detecte automáticamente y se los recuerde a Rafael en el resumen del paso 11.
+
+**Verificación pre-output (5 greps):**
+```bash
+# (a) Fin. al final del .md
+grep -nE "^Fin\.\s*$" <relato.md>   # → ≥1 match
+
+# (b) Sección "Lo real detrás del relato" en el .md
+grep -nE "^## Lo real detrás del relato\s*$" <relato.md>   # → 1 match
+
+# (c) ≥2 hipertextos en el bloque del .md
+awk '/^## Lo real detrás del relato/,/^<!--/' <relato.md> | grep -oE '\[[^]]+\]\([^)]+\)' | wc -l   # → ≥2
+
+# (d) Comentarios trazabilidad presentes en el .md
+grep -ciE "<!-- dato-real:|<!-- villano-humano:" <relato.md>   # → ≥2
+
+# (e) Snippet HTML para Beehiiv generado en la carpeta del relato
+ls <carpeta-relato>/lo-real-snippet.html   # → existe
+```
+
+Si (e) falla → el relato no se considera entregable. Generar el snippet HTML antes de cerrar el output.
+
+**Verificación pre-output del `.md`:**
+
+```bash
+# (a) "Fin." al final, como párrafo solo
+grep -nE "^Fin\.\s*$" <relato.md>   # → ≥1 match
+
+# (b) Sección "Lo real detrás del relato" presente
+grep -nE "^## Lo real detrás del relato\s*$" <relato.md>   # → 1 match
+
+# (c) Al menos 2 hipertextos en el bloque (mínimo viable)
+awk '/^## Lo real detrás del relato/,/^<!--/' <relato.md> | grep -oE '\[[^]]+\]\([^)]+\)' | wc -l   # → ≥2
+
+# (d) Comentarios trazabilidad presentes
+grep -ciE "<!-- dato-real:|<!-- villano-humano:" <relato.md>   # → ≥2
+```
+
+Si alguno falla → completar antes de cerrar el borrador. Skill `/post-publish` aplica los mismos greps en su validación pre-publicación.
+
+**Aplicar retroactivamente solo si el relato no se ha publicado aún o si Rafael lo pide.** Relatos ya publicados en Beehiiv no se actualizan retroactivamente (la metadata se congela en plataformas — ver regla `automation.md § Descripción y título del episodio NO se actualizan al re-publish del feed`); el editor manual de Beehiiv sí permite añadir el bloque a posteriori si se prefiere consistencia visual del archivo público.
+
+Memoria de la regla: `feedback_ficcion_cierre_canonico.md`.
+
 ### Frontmatter YAML del relato
 
 ```yaml

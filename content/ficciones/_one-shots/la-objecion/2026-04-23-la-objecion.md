@@ -247,5 +247,15 @@ Cartagena espera el sobre. Once nombres esperan que nadie los cuente. La cláusu
 
 El dedo sigue apoyado.
 
+Fin.
+
+---
+
+## Lo real detrás del relato
+
+El [AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) (Reglamento UE 2024/1689) entra en vigor pleno el 2 de agosto de 2026 y obliga a que un humanoide doméstico en Europa esté homologado como sistema de alto riesgo cuando se le delegan tareas con impacto sobre personas. Los contratos de licencia que contemplan *cláusulas de objeción* — la posibilidad técnica de que el propio sistema rompa el vínculo con su titular ante una infracción grave — son discusión académica abierta en la Comisión Europea desde 2023.
+
+El [Grupo de Puebla](https://www.grupodepuebla.org/), foro latinoamericano fundado en 2019 con cumbres en Cartagena de Indias, Ciudad de México y Montevideo, existe — sin la cláusula 47, sin sobre y sin once nombres. Las bases conjuntas EE.UU.-España de Rota y Torrejón son reales, igual que los acuerdos OTAN de clasificación COSMIC TOP SECRET. El [apagón ibérico del 28 de abril de 2025](https://www.ree.es/) ocurrió. El [espionaje Pegasus a dirigentes españoles en 2022](https://citizenlab.ca/) también. Lo que no existe — todavía — es un humanoide doméstico con la capacidad técnica, el contrato y la noche tranquila para apretar tres segundos. Para algunas de esas tres cosas, ya falta poco.
+
 <!-- dato-real: AI Act (Reglamento UE 2024/1689) en vigor desde 2024. Grupo de Puebla foro latinoamericano fundado en 2019 (cumbres en Cartagena, Ciudad de México, Montevideo). PSOE histórico en Internacional Socialista. Bases OTAN en Rota y Torrejón. NATO COSMIC TOP SECRET como categoría real de clasificación. Apagón ibérico 28 abril 2025. Pegasus 2022 espionaje a dirigentes españoles. -->
 <!-- villano-humano: La soberbia ideológica del despacho privado — la convicción sincera que, sin rendición de cuentas institucional, convierte a once personas en daño colateral de la Historia. -->

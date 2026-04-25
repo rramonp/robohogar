@@ -1,0 +1,37 @@
+<!--
+═══════════════════════════════════════════════════════════════════
+PLANTILLA CANÓNICA · Bloque "Lo real detrás del relato" · Beehiiv
+Ficciones Domésticas — ROBOHOGAR
+═══════════════════════════════════════════════════════════════════
+
+Uso:
+  - Lo genera /ficcion-draft junto al .md fuente del relato.
+  - Se guarda en content/ficciones/<serie>/<slug>/lo-real-snippet.html
+    para que Rafael lo tenga listo cuando publique en Beehiiv.
+  - Se pega en Beehiiv vía /html → "Custom HTML block" entre el último
+    párrafo narrativo (después de "Fin.") y el banner CTA suscripción.
+
+Reglas:
+  - Estilos INLINE obligatorios (las clases CSS no viajan a Beehiiv).
+  - Paleta canónica ROBOHOGAR: fondo crema #FFF9EF, borde ámbar #F5A623,
+    texto #0C0C0C, eyebrow ámbar uppercase letter-spacing 1.5px.
+  - Mínimo 2 hipertextos `<a href>` a fuentes verificables; idealmente
+    uno por dato no obvio (legislación, organismo oficial, paper, INE/
+    Eurostat, fabricante, medio reputado).
+  - Voz editorial ROBOHOGAR plural — sin disclaimers corporativos.
+  - 90-140 palabras orientativo (1-2 párrafos).
+  - Cierre que devuelva al territorio íntimo del relato, no fórmula
+    tipo "Esta historia plantea cuestiones sobre…".
+  - Em-dash con espacios (` &mdash; `) para guiones largos en HTML;
+    en HTML literal usar la entidad `&mdash;` (Beehiiv editor las
+    convierte a Unicode al renderizar).
+
+Sustituir los placeholders entre [CORCHETES] por el contenido del relato.
+═══════════════════════════════════════════════════════════════════
+-->
+
+<div style="margin:32px 0;padding:24px 28px;background:#FFF9EF;border-left:4px solid #F5A623;border-radius:4px;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;">
+  <div style="color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">Lo real detrás del relato</div>
+  <p style="margin:0 0 12px;font-size:15px;line-height:1.65;color:#0C0C0C;">[PRIMER PÁRRAFO con 1-2 hipertextos a fuentes legislativas/regulatorias/oficiales. Establece la base científica o regulatoria del big-lie del relato. Mezcla "lo que existe ya" + "lo que es licencia narrativa". Ejemplo de hipertexto: <a href="[URL]" style="color:#F5A623;text-decoration:underline;">[texto-ancla]</a>.]</p>
+  <p style="margin:0;font-size:15px;line-height:1.65;color:#0C0C0C;">[SEGUNDO PÁRRAFO con 1-2 hipertextos adicionales a fuentes humanas/sociales/de mercado. Aterriza el dato sociológico o económico. Cierra con frase que devuelva al territorio íntimo del relato — un eco emocional al protagonista, no un resumen ni una llamada a la acción.]</p>
+</div>
