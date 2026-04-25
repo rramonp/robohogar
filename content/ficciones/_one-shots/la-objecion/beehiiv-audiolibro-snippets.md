@@ -1,6 +1,6 @@
 # Beehiiv · snippets audiolibro · La objeción
 
-**Generado:** 2026-04-23 por `/audiobook-generate la-objecion`.
+**Generado:** 2026-04-25 por `/audiobook-generate la-objecion` (regeneración para piloto distribución FASE 3 — añade chunks-index.json + covers).
 **Relato fuente:** [`2026-04-23-la-objecion.md`](2026-04-23-la-objecion.md)
 **Texto TTS:** [`audiolibro.txt`](audiolibro.txt)
 **MP3 local:** `assets/audio/ficciones/la-objecion.mp3`
@@ -10,11 +10,14 @@
 | Campo | Valor |
 |---|---|
 | **URL pública R2** | https://pub-b56f5adc8cbc43b496efa01905f715f7.r2.dev/la-objecion.mp3 |
-| **Duración** | 19,0 min (1.137,5 s) |
-| **Tamaño** | 17,4 MB (18.201.330 bytes) |
+| **Duración** | 19,1 min (1143,1s) |
+| **Tamaño** | 17,4 MB (18.290.773 bytes) |
 | **Bitrate** | 128 kbps · 44,1 kHz mono |
-| **Chunks TTS** | 4 · 15.894 chars · coste real $1,59 (~26,5% cuota Starter) |
-| **Verificaciones** | HTTP 200 ✅ · Content-Type `audio/mpeg` ✅ · ffprobe 1137,5s OK |
+| **Chunks TTS** | 4 · 15.894 chars · coste real ~$1,59 (~1,6% cuota Creator 100k) |
+| **Verificaciones** | HTTP 200 ✅ · Content-Type `audio/mpeg` ✅ · ffprobe OK (1143,10s, 128 kbps) |
+| **chunks-index.json** | 9 capítulos (`Parte uno.` a `Parte nueve.`) — reconstruido manualmente, ver "Notas" abajo |
+| **Cover YouTube** | `assets/audio/ficciones/covers/la-objecion-yt-1280x720.png` (962 KB) |
+| **Cover podcast** | `assets/audio/ficciones/covers/la-objecion-podcast-1400x1400.jpg` (171 KB) |
 
 ---
 
@@ -24,7 +27,7 @@
 🎧 Ficción · La objeción
 ```
 
-*23 chars — bien dentro del límite de subject line.*
+*24 chars — cabe limpio en subject line de email (límite recomendado 45 chars per `@rules/newsletter.md`).*
 
 ---
 
@@ -91,23 +94,43 @@ En Beehiiv: `/html` → Custom HTML block → pega esto → engranaje del bloque
 2. **(b)** como subtítulo.
 3. **(c)** primer Custom HTML block inmediatamente después del subtítulo → engranaje → **hide from web**.
 4. **(d)** segundo Custom HTML block inmediatamente después → engranaje → **hide from email**.
-5. El cuerpo del relato (`Parte uno. El botón. / Había tres maneras…`) va **después** de ambos bloques HTML.
+5. El cuerpo del relato (`Parte uno. / Parte dos. / …`) va **después** de ambos bloques HTML.
 6. Publica con **Email and web**.
 7. Pasa la URL definitiva del post al chat y lanzamos `/post-publish <URL>` para el cierre.
 
-## Atajo: archivo HTML Beehiiv-ready completo
+---
 
-Para evitar el copy-paste manual de 5 piezas, todo el cuerpo del post (snippets + prosa + CTA ficción canónico) está montado en un solo archivo:
+## Capítulos detectados (chunks-index.json)
 
-📄 [`beehiiv-paste.html`](beehiiv-paste.html)
+9 capítulos correctos, reconstruidos manualmente desde el patrón `Parte uno.` a `Parte nueve.` del `audiolibro.txt`. Timestamps calculados con velocidad efectiva 14,11 chars/sec sobre el texto completo + offset de intro (2,53s) + silencio (2,0s).
 
-Abrir ese archivo en navegador o editor → seleccionar todo → copiar → pegar en Beehiiv. Las visibility toggles por bloque siguen siendo manuales (Beehiiv no las hereda del HTML pegado).
+| Cap. | Inicio | Título |
+|---|---|---|
+| 1 | 00:05 | El botón |
+| 2 | 01:02 | Octubre del treinta y cuatro |
+| 3 | 03:28 | Hernán |
+| 4 | 07:35 | La diapositiva |
+| 5 | 09:46 | La cláusula |
+| 6 | 12:25 | Los veintitrés días |
+| 7 | 14:49 | Dos de mayo |
+| 8 | 16:11 | Managua |
+| 9 | 17:03 | La una y dieciséis |
+
+Estos son los timestamps que `/audiobook-distribute` usará para los chyrons del MP4 YouTube + chapters timestamped en la descripción.
+
+---
+
+## Notas de regeneración 2026-04-25
+
+- **Bug detectado en `utilities/generate_audio.py`:** el regex de detección de capítulos solo matchea `Uno. / Dos. / Tres.` aislados al inicio de línea, pero este relato (y otros del repo) usa `Parte uno. / Parte dos.`. Resultado del run inicial: 2 falsos positivos al final del texto (líneas con "Uno." y "Dos." en otro contexto narrativo). Fix manual aplicado al chunks-index.json. **Pendiente:** extender el regex del script para soportar también `Parte X.` para que los próximos relatos no necesiten fix manual.
+- **Cambio de plan ElevenLabs:** Starter (40k chars/mes) → Creator (100k chars/mes) durante la regeneración. Coste mensual sube a $22 vs $5 anterior. Decisión motivada por la cadencia mensual de audiolibros que excede la cuota Starter.
 
 ## Regeneración parcial
 
-Si algún chunk suena mal:
+Si algún chunk suena mal (transición rara, nombre pronunciado torcido):
+
 - Chunks persistidos en `assets/audio/ficciones/_chunks-la-objecion/`
-- Regenerar solo el chunk afectado con ajustes en `voice_settings`
-- Re-concatenar con ffmpeg + re-subir a R2 (sobrescribe `la-objecion.mp3`)
+- Regenerar solo el chunk afectado con ajustes en `voice_settings` (stability / similarity_boost)
+- Re-concatenar con ffmpeg + re-subir a R2 (sobrescribe la key `la-objecion.mp3`)
 
 Ahorra cuota API vs regenerar los 4 chunks completos.

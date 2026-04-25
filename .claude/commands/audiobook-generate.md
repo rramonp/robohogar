@@ -32,6 +32,31 @@ Antes de invocar, Claude debe verificar:
 - [ ] `assets/audio/intro-ficciones.mp3` y `outro-ficciones.mp3` existen (bumpers de marca con voz Luis, generados una vez en FASE 0).
 - [ ] `ffmpeg` accesible vía PATH o WinGet install location. El script `utilities/generate_audio.py` ya detecta ambos.
 - [ ] `boto3` instalado (`pip install boto3`).
+- [ ] **Cuota ElevenLabs suficiente para el relato** (CRÍTICO antes de invocar — evita fallo mid-pipeline tras gastar TTS de algunos chunks). Estimación rápida: cada relato consume ~80% de los chars del `audiolibro.txt` (algunos chars no van al TTS). Margen recomendado: **chars libres ≥ chars del .txt**. Verificación:
+
+  ```bash
+  python -c "
+  import requests, json
+  from pathlib import Path
+  env = json.loads(Path('.claude/settings.local.json').read_text())['env']
+  txt_chars = len(Path('content/ficciones/**/<slug>/audiolibro.txt').read_text(encoding='utf-8'))
+  # Cuota: la API user/subscription requiere scope user_read; si la API key no lo tiene,
+  # el script TTS falla con HTTP 401 quota_exceeded incluyendo info en el error.
+  # Workaround pragmático: intentar un chunk dummy de 1 char y leer el header X-Character-Cost
+  # vs response, o revisar manualmente el dashboard https://elevenlabs.io/app/usage.
+  print(f'Chars del .txt: {txt_chars}')
+  print(f'Cuota mensual Starter: 40.000 chars · Creator: 100.000 chars')
+  print(f'Si es la primera invocación del mes, sobra. Si ya generaste otros audios este mes,')
+  print(f'verificar en https://elevenlabs.io/app/usage que quedan ≥{int(txt_chars * 1.1)} chars libres.')
+  "
+  ```
+
+  Si la cuota libre es <1.1× los chars del .txt, advertir a Rafael ANTES de empezar TTS:
+  - Opción A: esperar al reset mensual (mirar fecha en dashboard).
+  - Opción B: upgrade de plan (Starter $5 → Creator $22, multiplica cuota ×2.5).
+  - Opción C: comprar pack de créditos extra one-time si Eleven lo ofrece.
+
+  **NO empezar `python utilities/generate_audio.py` si hay riesgo de quota_exceeded a mitad de los chunks** — costaría re-generar todo desde cero al recargar cuota, ya que los chunks parciales no son recuperables. Bug origen 2026-04-25: regeneración de "la-objecion" falló en el chunk 1 con HTTP 401 quota_exceeded (880 créditos restantes vs 3.373 necesarios), forzando upgrade a Creator a mitad de la sesión.
 
 Si falta algo → reportar al usuario y detener antes de empezar.
 
@@ -53,6 +78,12 @@ El directorio debería contener el `.md` del relato (típicamente `YYYY-MM-DD-<s
 Fuente preferida por orden:
 1. **URL publicada del post** (si Rafael la da o está en `content/registro-articulos.md`). Usar WebFetch con prompt específico para extraer solo la prosa narrativa + "Lo real detrás del relato" si existe. Esta es la versión canónica que lee el lector.
 2. **Markdown del relato local** (`<slug>/<fecha>-<slug>.md`). Parsear el frontmatter y el cuerpo, ignorando bloques editoriales (`> **Mentira grande:**`, `> **Muro izquierdo:**`), HTML comments y separators `---`.
+
+**Convención de headings de capítulo (importante para chunks-index downstream):** dos formatos válidos, equivalentes:
+- **Canónica corta:** `Uno. La cocina.` · `Dos. Hernán.` · ... · `Doce. El final.` (ordinal en Title-case + punto + espacio + título + punto final)
+- **Larga:** `Parte uno. La cocina.` · `Parte dos. Hernán.` · ... · `Parte doce. El final.` (prefijo `Parte` case-insensitive)
+
+Cualquiera de las dos se detecta por el regex de `utilities/generate_audio.py § CHAPTER_HEADING_RE`. Mezclar ambas en un mismo relato funciona pero es feo — escoger una y mantenerla. Para relatos que NO tienen capítulos (flash <800 palabras), no hace falta heading: el script genera 1 chapter sintético "Relato" automáticamente.
 
 Aplicar las siguientes transformaciones:
 
@@ -302,11 +333,39 @@ Estructura JSON (schema_version: 1):
 }
 ```
 
-**Detección de capítulos:** regex sobre el `audiolibro.txt` que matchea headings `Uno. / Dos. / Tres. / ... / Diez. / Once. / Doce.` aislados al inicio de línea (re.MULTILINE) con título corto + punto final. Convención TTS del paso 2 — los headings de capítulo van numerados con ordinales en español, no con números arábigos ni romanos.
+**Detección de capítulos:** regex `CHAPTER_HEADING_RE` sobre el `audiolibro.txt` que matchea las dos convenciones soportadas (ver paso 2 § "Convención de headings de capítulo"):
+- `Uno. La cocina.` (canónica corta)
+- `Parte uno. La cocina.` (alternativa larga, prefijo case-insensitive)
+
+Anclado a inicio de línea (re.MULTILINE) + ordinal case-insensitive + título corto + punto final. Evita falsos positivos de párrafos que contengan "Uno." mid-sentence (cardinales numéricos narrativos).
 
 **Mapping char→tiempo:** velocidad uniforme global. `chars_per_second = narration_chars / narration_duration` calculado tras el TTS. Asume que Luis lee a velocidad constante entre chapters — error real ±5% (1-3 s en chapters de 5+ minutos), tolerable para YouTube chapters donde el espectador acepta offset menor.
 
-**Fallback sin capítulos detectados:** si el relato no tiene headings `Uno. Dos. Tres.` (relatos cortos o experimentales), se genera 1 chapter sintético `{"number": 1, "title": "Relato", "start_seconds": <intro+silencio>}` para que YouTube tenga al menos 1 entry válida.
+**Fallback sin capítulos detectados:** si el relato no tiene headings `Uno. Dos. Tres.` ni `Parte uno. Parte dos.` (relatos flash <800 palabras o experimentales), se genera 1 chapter sintético `{"number": 1, "title": "Relato", "start_seconds": <intro+silencio>}` para que YouTube tenga al menos 1 entry válida.
+
+**Verificación post-output OBLIGATORIA del chunks-index** (Claude debe correrla antes de cerrar el skill — evita pasar un index roto a `/audiobook-distribute`):
+
+```bash
+python -c "
+import json, re
+from pathlib import Path
+slug = '<slug>'
+idx = json.loads(Path(f'assets/audio/ficciones/{slug}-chunks-index.json').read_text(encoding='utf-8'))
+txt = next(Path('content/ficciones').rglob(f'{slug}/audiolibro.txt')).read_text(encoding='utf-8')
+real = max(
+    len(re.findall(r'^Parte (uno|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|once|doce)\.', txt, re.MULTILINE | re.IGNORECASE)),
+    len(re.findall(r'^(Uno|Dos|Tres|Cuatro|Cinco|Seis|Siete|Ocho|Nueve|Diez|Once|Doce)\.', txt, re.MULTILINE)),
+)
+detected = len(idx['chapters'])
+long_titles = [c for c in idx['chapters'] if len(c['title']) > 80]
+print(f'Capítulos detectados: {detected} | esperados según .txt: {real}')
+print(f'Títulos largos (>80 chars, posibles falsos positivos): {len(long_titles)}')
+ok = (detected == real or (detected == 1 and idx['chapters'][0]['title'] == 'Relato')) and not long_titles
+print('OK' if ok else 'FAIL — revisar manualmente antes de /audiobook-distribute')
+"
+```
+
+Si imprime FAIL → reportar a Rafael con detalle (capítulos detectados vs esperados, títulos sospechosos) y NO continuar con `/audiobook-distribute` hasta arreglar. El fix recomendado es renombrar headings del `audiolibro.txt` a la convención canónica + re-ejecutar el script (NO requiere re-gastar TTS — `chunks-index.json` se regenera barato del .txt). Bug origen 2026-04-25: regex antiguo solo aceptaba `Uno./Dos.`; ahora soporta también `Parte X.` tras fix.
 
 ### 6.6. Generar covers derivados (YouTube + podcast)
 

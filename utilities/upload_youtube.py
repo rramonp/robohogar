@@ -56,6 +56,69 @@ SCOPES = [
 # usa esto como pista weak para recomendaciones.
 DEFAULT_CATEGORY_ID = "24"
 
+# Mapping serie-slug → nombre legible para el título de YouTube. Las series con
+# acrónimos o nombres compuestos no se derivan bien por Title-case automático,
+# así que mantenemos un mapping explícito. Añadir entrada cuando se cree serie nueva.
+SERIES_DISPLAY_NAMES = {
+    "cartas-a-maia": "Cartas a MAIA",
+    "la-casa-de-amparo": "La Casa de Amparo",
+    "cronicas-ronda-3": "Crónicas RONDA-3",
+}
+
+
+def build_youtube_title(frontmatter: dict) -> str:
+    """Construye el título YouTube según el patrón canónico de Ficciones Domésticas.
+
+    Reglas (decisión Rafael 2026-04-25):
+      - **Plural OBLIGATORIO**: "Ficciones Domésticas", NO "Ficción Doméstica".
+        Razones: (1) coincide con el nombre canónico de la serie en CLAUDE.md +
+        bible + descripción del canal; (2) algoritmo YouTube agrupa contenido
+        por strings repetidos en títulos — todos los relatos comparten esa
+        cola y YouTube los ofrece como "siguiente vídeo" entre ellos.
+      - **Hook primero, etiqueta después**: el título del relato va al inicio
+        para crear curiosity gap (Mobile YouTube corta a ~60 chars; el hook
+        debe estar a salvo en los primeros chars).
+      - **Em-dash con espacios** (` — `) entre hook y serie. Permitido en
+        títulos de YouTube (regla `editorial.md` solo prohíbe em-dash en
+        trust-lines ≤15 palabras).
+
+    3 patrones según el contexto del relato:
+
+    | Caso | Patrón | Detección |
+    |---|---|---|
+    | Standalone | `{title} — Ficciones Domésticas` | `frontmatter.serie == "_one-shots"` o no definido |
+    | Episodio serie | `{title} · {SerieDisplay} #{N} — Ficciones Domésticas` | `frontmatter.serie != "_one-shots"` y `frontmatter.episodio` numérico |
+    | Piloto serie nueva | `{title} — Ficciones Domésticas · Piloto` | `frontmatter.tipo == "piloto"` (opt-in explícito) |
+
+    Cap defensivo: 100 chars (límite YouTube). Si el título compuesto excede,
+    truncar el hook (no la cola "Ficciones Domésticas") para preservar la
+    palabra-marca al final.
+    """
+    relato_title = frontmatter.get("title", "Sin título").strip()
+    serie = (frontmatter.get("serie") or "").strip()
+    episodio = frontmatter.get("episodio")
+    tipo = (frontmatter.get("tipo") or "").strip().lower()
+
+    # Caso piloto (opt-in): frontmatter explícito tipo: piloto.
+    if tipo == "piloto":
+        suffix = " — Ficciones Domésticas · Piloto"
+    # Caso episodio de serie con bible (slug de serie + episodio numérico).
+    elif serie and serie != "_one-shots" and episodio is not None:
+        serie_display = SERIES_DISPLAY_NAMES.get(serie, serie.replace("-", " ").title())
+        suffix = f" · {serie_display} #{episodio} — Ficciones Domésticas"
+    # Caso standalone (default — _one-shots o frontmatter sin serie).
+    else:
+        suffix = " — Ficciones Domésticas"
+
+    title = relato_title + suffix
+    if len(title) > 100:
+        # Truncar el hook conservando la cola "Ficciones Domésticas".
+        # Reservamos los chars del suffix + 1 elipsis "…" + corte del título.
+        max_relato = 100 - len(suffix) - 1
+        title = relato_title[:max_relato].rstrip() + "…" + suffix
+    return title
+
+
 # Tags por defecto que aplican a TODO audiolibro de Ficciones Domésticas.
 # YouTube tags pesan menos que en 2015 pero siguen ayudando a discovery
 # en búsqueda interna y en la categorización del algoritmo.
@@ -282,8 +345,6 @@ def build_description(slug: str, frontmatter: dict, index_data: dict) -> str:
 Ficciones Domésticas: relatos de ciencia ficción próxima sobre robótica en el hogar.
 Cada semana, junto al newsletter en robohogar.com.
 
-Audiolibro narrado con voz Luis (ElevenLabs Multilingual v2).
-
 #FiccionesDomesticas #ROBOHOGAR #Audiolibro #CienciaFiccion"""
 
     # YouTube acepta hasta 5000 chars en descripción. Cap defensivo a 4900.
@@ -423,8 +484,7 @@ def main() -> None:
     print()
 
     # Construir metadata.
-    relato_title = frontmatter.get("title", slug.replace("-", " ").title())
-    yt_title = f"{relato_title} — Ficción Doméstica"
+    yt_title = build_youtube_title(frontmatter)
     description = build_description(slug, frontmatter, index_data)
     pinned_comment = build_pinned_comment_text(slug, frontmatter)
 

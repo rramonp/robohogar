@@ -366,19 +366,40 @@ SPANISH_ORDINALS = {
     "Once": 11, "Doce": 12,
 }
 
-# Heading de capítulo: "Uno.", "Dos.", ... seguido de espacio + título + ".".
-# Anclado a inicio de línea (re.MULTILINE) para evitar falsos positivos
-# como "Beso." / "Silencio." / "Lentejas." que aparecen mid-paragraph.
+# Heading de capítulo: dos convenciones soportadas (ambas detectables sin
+# colisión porque el prefijo `Parte ` es específico):
+#   1. `Uno. La cocina.`  — convención canónica corta.
+#   2. `Parte uno. El botón.` — convención larga (case insensitive en el ordinal).
+# Restricciones para evitar falsos positivos:
+#   - Anclado a inicio de línea (re.MULTILINE).
+#   - El título (grupo 2) limitado a max 60 chars (`{1,60}`) — un heading real
+#     siempre es corto. Párrafos narrativos completos que empiezan por
+#     "Tres meses antes..." o "Uno por uno..." no matchean porque el `.` final
+#     del párrafo queda muchos chars más adelante.
+#   - El título no puede contener `,` ni `;` ni `:` — separadores típicos de
+#     prosa narrativa. Headings reales son frases nominales secas.
+# Bug origen 2026-04-25 (slug "la-objecion"): regex antiguo solo aceptaba
+# `Uno./Dos./...` y agarró 2 falsos positivos al final del texto. Bug
+# secundario detectado en testing post-fix (slug "papa-desde-singapur"):
+# regex SIN límite de título capturaba párrafos enteros que empiezan por
+# `Tres meses antes` / `Las últimas dos semanas`. Fix definitivo: límite
+# 1-60 chars + sin separadores intra-frase.
+MAX_CHAPTER_TITLE_CHARS = 60
 CHAPTER_HEADING_RE = re.compile(
-    r"^({ordinals})\.\s+(.+?)\.\s*$".format(
-        ordinals="|".join(SPANISH_ORDINALS.keys())
+    r"^(?:Parte\s+)?({ordinals})\.\s+([^,;:\n]{{1,{maxlen}}}?)\.\s*$".format(
+        ordinals="|".join(SPANISH_ORDINALS.keys()),
+        maxlen=MAX_CHAPTER_TITLE_CHARS,
     ),
-    re.MULTILINE,
+    re.MULTILINE | re.IGNORECASE,
 )
 
 
 def detect_chapters(text: str) -> list[dict]:
     """Detecta headings de capítulo en el texto TTS.
+
+    Soporta dos convenciones (ver `CHAPTER_HEADING_RE`):
+      - `Uno. La cocina.` (canónica corta)
+      - `Parte uno. El botón.` (alternativa larga)
 
     Devuelve lista ordenada de capítulos con su posición de char absoluta:
     `[{number: 1, title: "La cocina", char_position: 0, char_text: "Uno. La cocina."}, ...]`.
@@ -386,15 +407,32 @@ def detect_chapters(text: str) -> list[dict]:
     El char_position se usa después para mapear a tiempo del MP3 final
     asumiendo velocidad de narración uniforme — error ±5% aceptable para
     YouTube chapters (donde el oyente tolera offset de 1-2 s).
+
+    Filtro post-regex: además del límite de longitud del título a nivel regex,
+    descartamos capítulos numerados fuera de orden (ej: si encuentra "5" sin
+    haber encontrado "1, 2, 3, 4" antes, es falso positivo). Eso bloquea el
+    último vestigio de matches espurios cuando un relato menciona "Tres" o
+    "Cinco" como sustantivo aislado en su propia línea.
     """
-    chapters = []
+    raw = []
     for m in CHAPTER_HEADING_RE.finditer(text):
-        chapters.append({
-            "number": SPANISH_ORDINALS[m.group(1)],
+        ordinal_key = m.group(1).capitalize()
+        raw.append({
+            "number": SPANISH_ORDINALS[ordinal_key],
             "title": m.group(2).strip(),
             "char_position": m.start(),
             "char_text": m.group(0).strip(),
         })
+
+    # Filtro de orden: el número de capítulo debe ser igual al índice+1 (1, 2, 3, ...).
+    # Si encontramos "5" cuando esperábamos "3", ese match es spurio (palabra suelta).
+    # Recortamos en el primer capítulo que rompa la secuencia.
+    chapters = []
+    for i, ch in enumerate(raw):
+        if ch["number"] == i + 1:
+            chapters.append(ch)
+        else:
+            break
     return chapters
 
 

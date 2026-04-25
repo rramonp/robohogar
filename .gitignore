@@ -217,6 +217,9 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
+# Replicación setup desktop (contiene API keys reales para copy-paste — temporal, borrar tras usar)
+replicar-distribucion-audiolibros-desktop.md
+
 # Cursor
 #  Cursor is an AI-powered code editor. `.cursorignore` specifies files/directories to
 #  exclude from AI features like autocomplete and code analysis. Recommended for sensitive data
@@ -234,3 +237,9 @@ __marimo__/
 # Los assets de marca (intro/outro) SÍ se commitean — están en assets/audio/*.mp3 (root nivel).
 assets/audio/ficciones/*.mp3
 assets/audio/ficciones/_chunks-*/
+
+# Covers de audiolibro (regenerables vía generate_audiobook_covers.py).
+# Override final que tiene precedencia sobre la regla `!assets/**/*.png` de
+# arriba — sin esto, los covers ~1MB se colarían al repo.
+assets/audio/ficciones/covers/*.png
+assets/audio/ficciones/covers/*.jpg

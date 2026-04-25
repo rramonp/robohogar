@@ -56,11 +56,15 @@ AUDIO_DIR = REPO_ROOT / "assets" / "audio" / "ficciones"
 COVERS_DIR = AUDIO_DIR / "covers"
 LOGO_PATH = REPO_ROOT / "assets" / "branding" / "logo-robohogar-200x200.png"
 
-# Font para drawtext. Arial Bold viene en cualquier Windows. Si en el futuro
-# queremos DM Sans (font oficial de marca), añadirla al repo y apuntar aquí.
-# El path va con `/` no `\\` porque ffmpeg's filter parser interpreta `\` como
-# escape — `/` funciona también en Windows internamente.
-FONT_FILE = "C:/Windows/Fonts/arialbd.ttf"
+# Font para drawtext. Copia local en el repo para evitar problemas de escape
+# en filter_complex con paths absolutos Windows que llevan `:` (C:/...). El
+# parser de filtros de ffmpeg en Windows interpreta los `:` del path como
+# separadores de opciones y romper el filter, incluso con escape `\:`. Path
+# relativo al repo root resuelve sin necesidad de escape. Ver
+# `escape_path_for_filter` en este mismo archivo para detalles del parser.
+# Si en el futuro queremos DM Sans (font oficial de marca), reemplazar este
+# .ttf por DMSans-Bold.ttf y mantener el mismo path.
+FONT_FILE = "assets/fonts/arialbd.ttf"
 
 # Resolución del MP4. 1280×720 (HD ready) es suficiente para audiolibro
 # (no hay detalle visual que justifique 1080p), reduce render time y peso
@@ -119,6 +123,24 @@ def escape_drawtext_text(text: str) -> str:
     return text
 
 
+def escape_path_for_filter(path: str) -> str:
+    """Escapa una ruta de fichero para que sea válida en filter_complex.
+
+    El parser de filtros de ffmpeg interpreta los `:` como separadores de
+    opciones (`opt1=val1:opt2=val2`). Cuando un valor de opción contiene `:`
+    (típico en paths Windows: `C:/Windows/...`), las comillas simples NO
+    protegen el path si el filter se carga desde fichero (-filter_complex_script
+    o -/filter_complex). El parser parsea `fontfile='C:/Windows/...'` como
+    `fontfile='C` + opción `/Windows/...` (rota).
+
+    Solución portable: escapar el `:` con `\\:` y NO usar comillas. Funciona
+    tanto inline (-filter_complex) como por fichero. Adicionalmente
+    normalizamos `\\` → `/` para que el path use forward slashes (ambos
+    funcionan en Windows pero `/` evita capas extra de escape).
+    """
+    return path.replace("\\", "/").replace(":", "\\:")
+
+
 def build_chyron_filter(chapter: dict, video_label_in: str, video_label_out: str) -> str:
     """Construye un drawtext filter con fade in/out para un capítulo.
 
@@ -160,7 +182,7 @@ def build_chyron_filter(chapter: dict, video_label_in: str, video_label_out: str
     return (
         f"[{video_label_in}]drawtext="
         f"text='{text}'"
-        f":fontfile='{FONT_FILE}'"
+        f":fontfile={escape_path_for_filter(FONT_FILE)}"
         f":fontsize=42"
         f":fontcolor=white"
         f":bordercolor=black"
@@ -173,20 +195,31 @@ def build_chyron_filter(chapter: dict, video_label_in: str, video_label_out: str
     )
 
 
-def build_filter_complex(chapters: list[dict]) -> str:
+def build_filter_complex(chapters: list[dict], with_logo: bool = False) -> str:
     """Construye el filter_complex completo del MP4 D++ híbrido.
 
     Pipeline de streams (números de input fijados por el orden de -i):
       [0:a] = audio MP3
       [1:v] = cover hero (loop static)
-      [2:v] = logo robot (loop static)
+      [2:v] = logo robot (loop static, solo si with_logo=True)
 
     Outputs intermedios:
       [bg]   = cover scaled + format yuv420p
       [wave] = showwaves overlay del audio
       [v0]   = bg + wave
       [v1], [v2], [v3], ... = v0 con un drawtext de chyron añadido cada vez
-      [outv] = vN + logo overlay esquina
+      [outv] = vN (sin logo) o vN + logo overlay esquina (con logo)
+
+    Decisión 2026-04-25: por defecto **NO añadimos logo overlay quemado en el
+    MP4**. Razón: YouTube tiene una marca de agua del canal (configurable en
+    Studio → Branding → Watermark) que aparece en TODOS los vídeos del canal
+    automáticamente y es CLICKABLE → suscribirse. Quemar otro logo en el MP4
+    crea duplicación visual + el logo del MP4 no es clickable. La marca de
+    agua del canal sustituye al logo overlay para uso en YouTube.
+
+    Si en el futuro se quiere reusar el MP4 fuera de YouTube (donde no hay
+    marca de agua del canal), invocar el script con `--logo` para incluir el
+    overlay quemado y conservar branding standalone.
 
     Comma `,` separa filters dentro de un mismo nodo; `;` separa nodos.
     """
@@ -214,20 +247,40 @@ def build_filter_complex(chapters: list[dict]) -> str:
         parts.append(build_chyron_filter(chapter, current_label, next_label))
         current_label = next_label
 
-    # 5. Logo overlay esquina inferior derecha. Margen 30 px.
-    parts.append(f"[{current_label}][2:v]overlay=W-w-30:H-h-30[outv]")
+    # 5. Logo overlay esquina inferior derecha (opcional, solo si --logo).
+    # Por defecto: la marca de agua del canal de YouTube cubre el branding
+    # de forma clickable y configurable. Sin overlay quemado evita duplicación.
+    if with_logo:
+        parts.append(f"[{current_label}][2:v]overlay=W-w-30:H-h-30[outv]")
+    else:
+        # Renombramos el último label intermedio a [outv] para que -map [outv]
+        # funcione igual aunque no haya overlay de logo. Usamos `null` filter
+        # como passthrough sin coste — solo renombra el label.
+        parts.append(f"[{current_label}]null[outv]")
 
     # Unimos todos los nodos con `;` separator.
     return ";".join(parts)
 
 
 def main() -> None:
-    if len(sys.argv) != 2:
+    # Sintaxis: python utilities/generate_youtube_video.py <slug> [--logo]
+    # `--logo` activa el overlay quemado del robot en esquina inferior derecha.
+    # Por defecto (sin flag): NO se quema overlay — se asume que el vídeo va
+    # a YouTube y allí ya lo cubre la marca de agua del canal (Studio →
+    # Branding → Watermark, clickable y configurable). Decisión 2026-04-25
+    # tras detectar duplicación visual del logo (overlay quemado + marca de
+    # agua YT) en el vídeo `BFliK-JcwGc` de "la-objecion".
+    args = [a for a in sys.argv[1:] if a]
+    with_logo = "--logo" in args
+    positional = [a for a in args if not a.startswith("--")]
+    if len(positional) != 1:
         sys.exit(
-            f"Uso: python {sys.argv[0]} <slug>\n"
-            f"Ejemplo: python utilities/generate_youtube_video.py papa-desde-singapur"
+            f"Uso: python {sys.argv[0]} <slug> [--logo]\n"
+            f"Ejemplo (sin overlay, default): python utilities/generate_youtube_video.py papa-desde-singapur\n"
+            f"Ejemplo (con overlay quemado, MP4 standalone fuera de YT): "
+            f"python utilities/generate_youtube_video.py papa-desde-singapur --logo"
         )
-    slug = sys.argv[1]
+    slug = positional[0]
 
     # Inputs requeridos — chequeo upfront para fallar amigable.
     audio = AUDIO_DIR / f"{slug}.mp3"
@@ -247,10 +300,11 @@ def main() -> None:
             f"  - {cover_yt.relative_to(REPO_ROOT)} "
             f"(correr `python utilities/generate_audiobook_covers.py {slug}`)"
         )
-    if not LOGO_PATH.exists():
+    # Logo solo es requerido si --logo. Sin flag, no hace falta el archivo.
+    if with_logo and not LOGO_PATH.exists():
         missing.append(
             f"  - {LOGO_PATH.relative_to(REPO_ROOT)} "
-            f"(generar logo 200x200 desde profile-icon-1080x1080 — ver guía Bloque 1.6)"
+            f"(necesario solo con --logo; generar 200x200 desde watermark transparente — ver guía Bloque 1.6)"
         )
     if missing:
         print("ERROR: faltan inputs:")
@@ -271,7 +325,10 @@ def main() -> None:
     print(f"Audio   : {audio.relative_to(REPO_ROOT)} "
           f"({index_data['total_duration_seconds']:.1f}s = {index_data['total_duration_seconds']/60:.1f} min)")
     print(f"Cover   : {cover_yt.relative_to(REPO_ROOT)}")
-    print(f"Logo    : {LOGO_PATH.relative_to(REPO_ROOT)}")
+    if with_logo:
+        print(f"Logo    : {LOGO_PATH.relative_to(REPO_ROOT)} (--logo overlay quemado activado)")
+    else:
+        print(f"Logo    : SIN OVERLAY (default — la marca de agua del canal YT lo cubre)")
     print(f"Capítulos: {len(chapters)}")
     for ch in chapters:
         m, s = divmod(int(ch["start_seconds"]), 60)
@@ -282,14 +339,28 @@ def main() -> None:
     print(f"Output  : {output.relative_to(REPO_ROOT)}")
     print()
 
-    filter_complex = build_filter_complex(chapters)
+    filter_complex = build_filter_complex(chapters, with_logo=with_logo)
 
+    # Pasamos el filter_complex via fichero (-/filter_complex_script) en lugar
+    # de como argumento CLI. Razón: con muchos chyrons (≥6 capítulos) el filter
+    # supera fácilmente los ~2000 chars y ffmpeg en Windows lo rechaza con
+    # "Invalid argument" antes incluso de parsearlo. El filter file evita el
+    # límite de longitud de la línea de comando + el escaping de la shell.
+    # Path en AUDIO_DIR (junto al MP4 output) para que vivan juntos en disco.
+    filter_file = AUDIO_DIR / f"{slug}-filter.tmp"
+    filter_file.write_text(filter_complex, encoding="utf-8")
+
+    # Inputs ffmpeg: el logo (-i [2:v]) solo se incluye si --logo. Si no,
+    # ffmpeg ni siquiera carga el PNG, ahorrando un input slot y memory.
     cmd = [
         ffmpeg, "-y",
         "-i", str(audio),               # [0:a]
         "-loop", "1", "-i", str(cover_yt),     # [1:v]
-        "-loop", "1", "-i", str(LOGO_PATH),    # [2:v]
-        "-filter_complex", filter_complex,
+    ]
+    if with_logo:
+        cmd += ["-loop", "1", "-i", str(LOGO_PATH)]   # [2:v]
+    cmd += [
+        "-/filter_complex", str(filter_file),
         "-map", "[outv]",
         "-map", "0:a",
         # Vídeo: H.264 fast preset, 25 fps, yuv420p para compat universal.
@@ -309,9 +380,15 @@ def main() -> None:
 
     print("Ejecutando ffmpeg...")
     print(f"  Filter complex: {len(filter_complex)} chars, {filter_complex.count(';') + 1} nodos")
+    print(f"  Filter via fichero: {filter_file.relative_to(REPO_ROOT)}")
     print()
 
-    result = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    finally:
+        # Limpiar el fichero temporal del filter siempre, OK o KO.
+        if filter_file.exists():
+            filter_file.unlink()
     if result.returncode != 0:
         print("ffmpeg FAIL — últimos 1000 chars de stderr:")
         print(result.stderr[-1000:])
