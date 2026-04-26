@@ -127,3 +127,64 @@ Skills que generan borradores aplican esta regla cuando el HTML destino incluye 
 **Ampliación 2026-04-23 — bloques visuales del cuerpo editorial (árboles de decisión, infografías, tarjetas apiladas, tablas estilizadas).** El patrón `.snippet-block` aplica también a cualquier bloque visual del cuerpo que dependa de CSS propio y tenga que pegarse en Beehiiv vía `/html`. Regla: preview renderizado + snippet inline copy-paste con estilos inline (las clases CSS del borrador no viajan a Beehiiv).
 
 **Plantillas canónicas de bloques inline + checklist mobile-first 375 px + incidente origen** → [`content/templates/tangibles-snippets.md`](../../content/templates/tangibles-snippets.md). Skills que generan borradores leen ese archivo directamente. Verificación pre-output: por cada `<div class="decision-cards">` / `<div class="infographic">` / `<div class="comparison-cards">` o equivalente en el cuerpo editorial, debe existir un `.snippet-block` correspondiente con HTML en estilos inline.
+
+**Ampliación 2026-04-26 — `beehiiv-paste.html` de Ficciones Domésticas.** Regla dura aplicable a TODO `beehiiv-paste.html` de relatos de Ficciones (con o sin audiolibro): cualquier snippet que se pegue en Beehiiv vía `/html` → "Custom HTML block" — incluye reproductor de audiolibro email-only, reproductor web-only, "Lo real detrás del relato", CTA suscripción ficción — vive como `.snippet-block` con HTML escapado dentro de `<pre><code>`, NO como `<div>` renderizado inline. Razón canónica: Rafael publica haciendo copy-paste desde el archivo al editor Beehiiv, y los Custom HTML blocks requieren el HTML como **texto copiable**, no como elemento ya renderizado. Si el snippet vive como `<div>` inline en el archivo, al copiar desde navegador se copia el texto visible, no el código source — el bloque entonces se pega como prosa rota, sin estilos.
+
+**Estructura canónica del `beehiiv-paste.html`** de Ficción (orden fijo, todos los `.snippet-block` son copy-paste para Rafael):
+
+1. Header de instrucciones (HTML comments con orden de pegado).
+2. **Meta A** · Title del post (`.snippet-block` con texto plano del título). Pegar en campo "Title" del editor — NO es /html.
+3. **Meta B** · Subtítulo / dek (`.snippet-block` con texto plano del subtítulo). Pegar en campo "Subtitle" del editor + reutilizar como "Meta description" del SEO panel — NO es /html.
+4. **Meta C** · URL slug (`.snippet-block` con texto plano del slug). Pegar en campo "URL slug" del editor (panel SEO/Settings) — NO es /html. URL pública resultante: `https://robohogar.com/p/<slug>`.
+5. Snippet 1 · audiolibro email-only (`.snippet-block` con HTML escapado) — solo si hay audiolibro. /html → hide from web.
+6. Snippet 2 · audiolibro web-only (`.snippet-block` con HTML escapado) — solo si hay audiolibro. /html → hide from email.
+7. Cuerpo del relato (`<h2>` + `<p>`) — texto editor normal en Beehiiv, NO snippet-block.
+8. `Fin.` centrado.
+9. Snippet 3 (o 1 si no hay audiolibro) · "Lo real detrás del relato" (`.snippet-block` con HTML escapado). /html.
+10. Snippet 4 (o 2 si no hay audiolibro) · CTA suscripción ficción (`.snippet-block` con HTML escapado). /html.
+
+**Conteo total de `.snippet-block`:**
+- **Con audiolibro:** 7 = 3 Meta + 4 /html (audiolibro x2 + Lo real + CTA).
+- **Sin audiolibro:** 5 = 3 Meta + 2 /html (Lo real + CTA).
+
+**Distinción visual de los headers:**
+- `📝 Meta A/B/C` para los 3 campos del editor (title, subtitle, URL slug) — texto plano dentro del `<pre><code>`, sin escapado HTML.
+- `📋 Snippet 1/2/3/4` para los bloques /html → Custom HTML block — HTML escapado (`&lt;`/`&gt;`) dentro del `<pre><code>`.
+
+**Skills que generan o actualizan `beehiiv-paste.html`:**
+- `/ficcion-draft` lo crea con 5 `.snippet-block` (Meta A + Meta B + Meta C + Lo real + CTA) si el relato no tiene audiolibro.
+- `/audiobook-generate` (paso 6.4) lo amplía añadiendo los 2 `.snippet-block` del audiolibro entre Meta C y el cuerpo cuando se genera el MP3.
+
+**Verificación pre-output (greps obligatorios sobre el `beehiiv-paste.html` final):**
+
+```bash
+# (a) Conteo de .snippet-block correcto (5 sin audiolibro, 7 con)
+grep -c 'class="snippet-block"' <archivo>
+
+# (a2) Meta A, Meta B y Meta C presentes
+grep -cE '📝 Meta [ABC]' <archivo>  # esperado: 3
+
+# (a3) Snippets /html presentes (2 sin audiolibro, 4 con)
+grep -cE '📋 Snippet [1-4]' <archivo>
+
+# (b) HTML escapado dentro de los <pre><code> de los snippets /html (esperado >0)
+grep -c '&lt;\|&gt;' <archivo>
+
+# (c) NO hay <div> de "Lo real" renderizado inline (esperado 0)
+grep -c '<div style="margin:32px 0;padding:24px 28px;background:#FFF9EF' <archivo>
+
+# (d) NO hay <div> de CTA dark renderizado inline (esperado 0 — va en snippet-block)
+grep -cE '<div style="margin:40px 0[^"]*background:#283642' <archivo>
+
+# (e) NO hay reproductor de audio renderizado inline (esperado 0 — va en Snippet 2)
+grep -cE '<audio id="audio-' <archivo>
+```
+
+Si (c), (d) o (e) > 0 → reescribir el snippet correspondiente como `.snippet-block` antes de entregar a Rafael.
+
+**Incidentes origen:**
+- **2026-04-26 (parte 1):** `beehiiv-paste.html` de `el-operador-nocturno` v1 entregaba "Lo real" + CTA como `<div>` inline renderizado. Rafael: *"quiero que los snippets de lo real y de los reproductores estén todos en bloques de código en el beehive-paste.html SIEMPRE"*.
+- **2026-04-26 (parte 2):** v2 corregía los 4 snippets /html como bloques de código, pero dejaba Title + Subtítulo solo en HTML comments del header. Rafael: *"donde está el subtítulo? también lo quiero en el beehiv past junto al título"* + *"ahora y siempre"*. Migración aplicada: añadidos Meta A (Title) + Meta B (Subtítulo) como `.snippet-block` con texto plano, antes de los snippets /html.
+- **2026-04-26 (parte 3):** v3 incluía Meta A + Meta B pero el slug seguía solo en HTML comments. Rafael: *"pon también en beehiiv paste.html el url para el post, ahora y siempre"*. Migración aplicada: añadido Meta C (URL slug) como `.snippet-block` con texto plano del slug, entre Meta B y los snippets /html.
+
+**Aplicación retroactiva:** los `beehiiv-paste.html` previos a 2026-04-26 (la-objecion publicada con `<div>` inline) NO se actualizan retroactivamente — la versión publicada en Beehiiv ya está correcta y el archivo del repo es histórico de cómo se pegó. Aplica solo a relatos nuevos desde 2026-04-26 (`el-operador-nocturno` en adelante).

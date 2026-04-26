@@ -48,6 +48,13 @@ from pathlib import Path
 import boto3
 from botocore.client import Config
 
+# Contador local de saldo ElevenLabs. Necesario porque la API key actual no
+# tiene permiso user_read y /v1/user/subscription devuelve 401 — sin esto
+# no podemos saber si quedan créditos antes de lanzar TTS y los chunks
+# parciales no son recuperables si la cuota se agota mid-pipeline.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from elevenlabs_balance import pre_check, record_usage  # noqa: E402
+
 
 # Defensive: fuerza UTF-8 en stdout para no romper en consolas Windows que
 # usan cp1252 por defecto (Python 3.14 + cmd.exe/PS5 sin chcp 65001). En
@@ -392,17 +399,23 @@ SPANISH_ORDINALS = {
 #     siempre es corto. Párrafos narrativos completos que empiezan por
 #     "Tres meses antes..." o "Uno por uno..." no matchean porque el `.` final
 #     del párrafo queda muchos chars más adelante.
-#   - El título no puede contener `,` ni `;` ni `:` — separadores típicos de
-#     prosa narrativa. Headings reales son frases nominales secas.
+#   - El título no puede contener `;` ni `:` — separadores fuertes de prosa
+#     narrativa. La coma SÍ se permite porque algunos relatos usan headings
+#     con location + tiempo separados por coma (ej: "Madrid, un martes a las
+#     tres y catorce." en `el-operador-nocturno`). El filtro post-regex de
+#     orden secuencial (más abajo) descarta cualquier falso positivo que pase.
 # Bug origen 2026-04-25 (slug "la-objecion"): regex antiguo solo aceptaba
 # `Uno./Dos./...` y agarró 2 falsos positivos al final del texto. Bug
 # secundario detectado en testing post-fix (slug "papa-desde-singapur"):
 # regex SIN límite de título capturaba párrafos enteros que empiezan por
-# `Tres meses antes` / `Las últimas dos semanas`. Fix definitivo: límite
-# 1-60 chars + sin separadores intra-frase.
+# `Tres meses antes` / `Las últimas dos semanas`. Fix terciario 2026-04-26
+# (slug "el-operador-nocturno"): regex con `[^,;:\n]` rechazaba 3 headings
+# legítimos por contener coma → 0 capítulos detectados, fallback "Relato".
+# Fix definitivo: límite 1-60 chars + sin `;:` (sí coma) + filtro orden
+# secuencial post-regex que ya bloquea spurios.
 MAX_CHAPTER_TITLE_CHARS = 60
 CHAPTER_HEADING_RE = re.compile(
-    r"^(?:Parte\s+)?({ordinals})\.\s+([^,;:\n]{{1,{maxlen}}}?)\.\s*$".format(
+    r"^(?:Parte\s+)?({ordinals})\.\s+([^;:\n]{{1,{maxlen}}}?)\.\s*$".format(
         ordinals="|".join(SPANISH_ORDINALS.keys()),
         maxlen=MAX_CHAPTER_TITLE_CHARS,
     ),
@@ -606,6 +619,25 @@ def main() -> None:
     print(f"Estimación coste: ${cost_usd:.2f} (en cuota Starter: ~{total_chars/60000*100:.1f}% del mes)")
     print()
 
+    # Pre-check del contador local de saldo ElevenLabs. Si el contador
+    # detecta saldo insuficiente para los total_chars del relato, abortamos
+    # ANTES de gastar el primer chunk (los chunks parciales no son
+    # recuperables si la cuota se agota mid-pipeline — incidente origen
+    # 2026-04-25 con la-objecion).
+    # `--force` (env var ROBOHOGAR_ELEVENLABS_FORCE=1) salta el bloqueo si
+    # Rafael acaba de pagar overage y el contador aún no lo refleja.
+    force = os.environ.get("ROBOHOGAR_ELEVENLABS_FORCE", "").strip() in ("1", "true", "yes")
+    ok, msg = pre_check(chars=total_chars)
+    print(f"Contador saldo: {msg}")
+    if not ok and not force:
+        sys.exit(
+            "\n[ABORT] Saldo insuficiente según contador local. "
+            "Si has pagado overage o quieres ignorar el bloqueo, re-ejecuta con "
+            "ROBOHOGAR_ELEVENLABS_FORCE=1. Si es error del contador, actualízalo "
+            "con `python utilities/elevenlabs_balance.py set --credits N`."
+        )
+    print()
+
     # Directorio temp para chunks — persistente entre runs para facilitar debug.
     tmp_dir = REPO_ROOT / "assets" / "audio" / "ficciones" / f"_chunks-{slug}"
     tmp_dir.mkdir(parents=True, exist_ok=True)
@@ -667,6 +699,13 @@ def main() -> None:
 
     # Subida a R2 → URL pública.
     public_url = upload_to_r2(env, final_mp3, f"{slug}.mp3")
+
+    # Registrar consumo en el contador local. Llegamos aquí solo si TTS +
+    # concat + upload pasaron — así no contabilizamos generaciones que
+    # fallaron a mitad. El balance se decrementa por chars * ratio configurado.
+    usage_event = record_usage(slug=slug, chars=total_chars)
+    print(f"Saldo ElevenLabs tras generación: {usage_event['credits_after']:,} "
+          f"créditos (decrementado en {usage_event['credits_estimated']:,}).")
 
     print()
     print("=" * 72)

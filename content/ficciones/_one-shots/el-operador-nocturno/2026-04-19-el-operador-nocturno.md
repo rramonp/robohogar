@@ -188,6 +188,16 @@ Espera con los ojos cerrados.
 
 El reloj del horno de la cocina parpadea, como cada noche, las tres y dieciséis.
 
+Fin.
+
+---
+
+## Lo real detrás del relato
+
+El [AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) (Reglamento UE 2024/1689) entra en vigor pleno el 2 de agosto de 2026 y obliga a transparencia cuando un agente IA interactúa con personas (art. 50). [1X Technologies](https://www.1x.tech/) comercializa NEO, humanoide doméstico que se apoya en teleoperación humana remota para resolver el ~20% de tareas que la IA local no completa: el operador opera con cámara, micro ambiental y altavoz bidireccional del aparato. El [acuerdo 1X &mdash; EQT del 12 de abril de 2026](https://www.eqtgroup.com/) compromete 10.000 unidades industriales en paralelo al canal doméstico. La licencia narrativa del relato es una sola: que el panel del operador permita calibrar audio sintetizado al umbral de sueño infantil con biometría pasiva, y que el log registre solo el ID sin auditar contenido. Plausible técnicamente, todavía no documentado.
+
+Los call centers de teleoperación robótica se concentran en Filipinas, Vietnam e India, con salarios reportados de 3-5 USD/hora según informes recientes de la [Organización Internacional del Trabajo](https://www.ilo.org/) sobre la gig economy de la robótica de servicios. Las grandes citas del sector &mdash; ferias como las de [IFEMA Madrid](https://www.ifema.es/) &mdash; venden la promesa de la asistencia doméstica del norte global sin contar nunca quién está, exactamente, al otro lado del visor del aparato. El reloj del horno parpadea las tres y dieciséis en cocinas de verdad. Casi siempre no hay nadie despierto para ponerlo en hora.
+
 ---
 
 <!-- dato-real: 1X NEO (2026-2032) requiere teleoperación humana remota en parte de las tareas domésticas; el panel del operador permite reproducir audio sintetizado a través del altavoz del humanoide para "mensajes empresa". Logs marcan "audio output ID" sin guardar contenido sintetizado — vacío de auditoría señalado por Ética Digital en el informe Q2 2032 (ficcional, verosímil con marcos actuales). Deal 1X+EQT (12-abr-2026) compromete 10.000 unidades en entornos industriales en paralelo al canal doméstico. AI Act art. 50 exige transparencia cuando un agente IA interactúa con personas; entrada en vigor plena alto-riesgo: 2 agosto 2026. Call centers de teleoperación robótica concentrados en Filipinas/Vietnam/India, salarios 3-5 USD/hora según informes Gig Economy Robotics (ILO 2026). -->

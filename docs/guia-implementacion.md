@@ -47,7 +47,7 @@
 
 **Estado (21-abr-2026):**
 
-- ✅ **11 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [Mejor robot aspirador barato 2026: 6 modelos por menos de 300 €](https://robohogar.com/p/mejor-robot-aspirador-barato-2026) (2026-04-26).
+- ✅ **12 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [🎧 Ficción · El operador nocturno](https://robohogar.com/p/el-operador-nocturno) (2026-04-26 · primer relato Ficciones Domésticas con audiolibro generado).
 - ❌ **0 suscriptores** · newsletter semanal diferida hasta 30-50 subs.
 - ❌ **0 Ficciones Domésticas** publicadas (pilar experimental pendiente de arrancar).
 - ✅ **Pipeline de skills funcionando** (`/research-digest` · `/content-draft` · `/nano-banana` · `/post-publish` · `/social-content` · `/obsidian-robohogar`).
@@ -101,7 +101,7 @@ Detalle + razones: memoria `feedback_seo_first_pivote.md`.
 
 ## 📍 Dónde estoy hoy — siguiente paso
 
-> Última actualización: 26-abr-2026, tras publicar #11 *[Mejor robot aspirador barato 2026: 6 modelos por menos de 300 € que merecen la pena](https://robohogar.com/p/mejor-robot-aspirador-barato-2026)*.
+> Última actualización: 26-abr-2026, tras publicar #12 *[🎧 Ficción · El operador nocturno](https://robohogar.com/p/el-operador-nocturno)* (primer relato Ficciones Domésticas one-shot · audiolibro 23 min con voz Luis ElevenLabs · pivote tonal a inquietante-heavy).
 
 ### 📌 Próximos 3 next steps
 
@@ -110,11 +110,12 @@ Detalle + razones: memoria `feedback_seo_first_pivote.md`.
 - [x] **Next 1 —** ~~Publicar artículo #9 *"Mejor robot cortacésped 2026 · Guía de compra"* (E1 del backlog evergreen, estacional)~~ → Publicado 21-abr-2026. URL: https://robohogar.com/p/mejor-robot-cortacesped-2026
 - [x] **Next 2 —** ~~Publicar artículo #10 *"Mejor robot aspirador para mascotas 2026"* (evergreen long-tail mascotas, tangible árbol de decisión + banner Hoja de Compra)~~ → Publicado 23-abr-2026. URL: https://robohogar.com/p/mejor-robot-aspirador-mascotas-2026
 - [x] **Next 3 —** ~~Publicar artículo #11 *"Mejor robot aspirador barato 2026"* (E2 evergreen long-tail sub-300 €, primer artículo entregado vía paste-md a Beehiiv)~~ → Publicado 26-abr-2026. URL: https://robohogar.com/p/mejor-robot-aspirador-barato-2026
-- [ ] **Next 4 —** Primera flash Ficciones Domésticas *"El operador nocturno"* (ahora que hay 5 evergreens consecutivos · regla evergreen-first cumplida con margen) · frase trigger: *"Retomamos ficciones — arrancar piloto"* · `/ficcion-draft`
+- [x] **Next 4 —** ~~Primera Ficción Doméstica *"El operador nocturno"* (one-shot standalone · pivote tonal inquietante-heavy · audiolibro Luis 23 min)~~ → Publicado 26-abr-2026. URL: https://robohogar.com/p/el-operador-nocturno
 - [ ] **Next 5 —** **Evergreen E12 — Robot cortacésped vs tradicional: ROI en 3 años** (estacional mismo pico abr-jul · cluster SEO con E1 vía internal linking) · frase trigger: *"Retomamos evergreen — empezamos E12 ROI cortacésped"* · `/content-draft Robot cortacésped vs cortacésped tradicional: ROI en 3 años` · ver [calendario-editorial.md § Backlog Evergreen SEO](../content/calendario-editorial.md)
 - [ ] **Next 6 —** **Evergreen E4 — Mejor robot aspirador para piso pequeño (<60 m²)** (long-tail baja competencia, perfil ES típico, no estacional) · frase trigger: *"Retomamos evergreen — empezamos E4 piso pequeño"* · `/content-draft`
+- [ ] **Next 7 —** **Evergreen E5 — Aspirador robot vs escoba inteligente: ¿reemplazo o complemento?** (long-tail comparativo · cluster SEO aspiradores) · frase trigger: *"Retomamos evergreen — empezamos E5 aspirador vs escoba"* · `/content-draft`
 
-**Último artículo publicado:** #11 *Mejor robot aspirador barato 2026: 6 modelos por menos de 300 € que merecen la pena* (2026-04-26).
+**Último artículo publicado:** #12 *🎧 Ficción · El operador nocturno* (2026-04-26).
 **Último tangible publicado:** Hoja de Compra v2 PDF (2026-04-18) → `content/lead-magnets/hoja-compra/`.
 
 ### 🌍 Filtro mercado ES — regla base

@@ -123,6 +123,11 @@ Robots humanoides para tareas domésticas.
 | PBS | pbs.org | Prensa internacional EN | Cobertura media maratón Pekín 19-abr-2026 |
 | Xataka (Unitree record) | xataka.com/robotica-e-ia/ano-pasado-casi-ningun-robot-termino-media-maraton-pekin-este-ano-uno-ha-batido-record-mundial-humano-siete-minutos | Medio tech ES | Artículo ES del record Pekín — contraste con Xataka genérico en "Humanoides" |
 | World Athletics | worldathletics.org | Oficial atletismo | Récord mundial humano de media maratón de Jacob Kiplimo (57:20, Lisboa, 16-mar-2026). Fuente autoritativa de todos los récords humanos |
+| EUR-Lex AI Act | eur-lex.europa.eu/eli/reg/2024/1689/oj | Regulatorio UE oficial | Texto legal completo del Reglamento UE 2024/1689 (AI Act). Fuente autoritativa para citar art. 50 (transparencia agente IA) y otros artículos. Usado en relato Ficción "El operador nocturno" (26-abr-2026) |
+| 1X Technologies | 1x.tech | Fabricante oficial | Sitio oficial de 1X Technologies (NEO humanoide doméstico). Specs, comunicados, deal con EQT. Usado como ancla en relato "El operador nocturno" |
+| EQT Group | eqtgroup.com | Inversor institucional | Sitio oficial de EQT Group (firma de inversión sueca). Acuerdo 12-abr-2026 con 1X para 10.000 unidades industriales. Usado en relato "El operador nocturno" |
+| ILO (OIT) | ilo.org | Organismo internacional ONU | Organización Internacional del Trabajo. Informes sobre gig economy de la robótica de servicios, salarios de teleoperación robótica en Filipinas/Vietnam/India. Usado en relato "El operador nocturno" como base del villano humano |
+| IFEMA Madrid | ifema.es | Recinto ferial oficial | Recinto ferial de Madrid (pabellones de Juan Carlos I). Sede de eventos como Mobile World Congress B2B, ferias tech anuales. Usado como decorado real en relato "El operador nocturno" (escena III stand humanoide) |
 
 ### Fuentes independientes (ES)
 

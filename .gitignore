@@ -243,3 +243,9 @@ assets/audio/ficciones/_chunks-*/
 # arriba — sin esto, los covers ~1MB se colarían al repo.
 assets/audio/ficciones/covers/*.png
 assets/audio/ficciones/covers/*.jpg
+
+# Estado mutable local de utilities (contadores, balances, caches).
+# El balance ElevenLabs cambia con cada generación TTS y al pagar overage —
+# fuente de verdad es el dashboard ElevenLabs, este JSON es proyección local.
+utilities/_state/*.json
+!utilities/_state/.gitkeep

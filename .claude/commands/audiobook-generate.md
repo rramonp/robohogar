@@ -32,31 +32,33 @@ Antes de invocar, Claude debe verificar:
 - [ ] `assets/audio/intro-ficciones.mp3` y `outro-ficciones.mp3` existen (bumpers de marca con voz Luis, generados una vez en FASE 0).
 - [ ] `ffmpeg` accesible vía PATH o WinGet install location. El script `utilities/generate_audio.py` ya detecta ambos.
 - [ ] `boto3` instalado (`pip install boto3`).
-- [ ] **Cuota ElevenLabs suficiente para el relato** (CRÍTICO antes de invocar — evita fallo mid-pipeline tras gastar TTS de algunos chunks). Estimación rápida: cada relato consume ~80% de los chars del `audiolibro.txt` (algunos chars no van al TTS). Margen recomendado: **chars libres ≥ chars del .txt**. Verificación:
+- [ ] **Cuota ElevenLabs suficiente para el relato** — verificación automática vía contador local [`utilities/elevenlabs_balance.py`](../../utilities/elevenlabs_balance.py). El módulo sincroniza saldo desde el endpoint `/v1/usage/character-stats` (que SÍ funciona con la API key estándar de ROBOHOGAR; el endpoint `/v1/user/subscription` requiere permiso `user_read` que la key no tiene → bloqueado HTTP 401). Verificación:
 
   ```bash
-  python -c "
-  import requests, json
-  from pathlib import Path
-  env = json.loads(Path('.claude/settings.local.json').read_text())['env']
-  txt_chars = len(Path('content/ficciones/**/<slug>/audiolibro.txt').read_text(encoding='utf-8'))
-  # Cuota: la API user/subscription requiere scope user_read; si la API key no lo tiene,
-  # el script TTS falla con HTTP 401 quota_exceeded incluyendo info en el error.
-  # Workaround pragmático: intentar un chunk dummy de 1 char y leer el header X-Character-Cost
-  # vs response, o revisar manualmente el dashboard https://elevenlabs.io/app/usage.
-  print(f'Chars del .txt: {txt_chars}')
-  print(f'Cuota mensual Starter: 40.000 chars · Creator: 100.000 chars')
-  print(f'Si es la primera invocación del mes, sobra. Si ya generaste otros audios este mes,')
-  print(f'verificar en https://elevenlabs.io/app/usage que quedan ≥{int(txt_chars * 1.1)} chars libres.')
-  "
+  # Sincroniza saldo desde la API ElevenLabs (idempotente, lectura pura).
+  # Plan + límite + reset day vienen del dashboard ElevenLabs (Subscription page).
+  python utilities/elevenlabs_balance.py sync \
+      --tier Creator --limit 121880 --reset-day 25 --ratio 0.79
+
+  # Pre-check de margen para los chars del relato.
+  python utilities/elevenlabs_balance.py check --chars <chars_del_audiolibro_txt>
   ```
 
-  Si la cuota libre es <1.1× los chars del .txt, advertir a Rafael ANTES de empezar TTS:
-  - Opción A: esperar al reset mensual (mirar fecha en dashboard).
-  - Opción B: upgrade de plan (Starter $5 → Creator $22, multiplica cuota ×2.5).
-  - Opción C: comprar pack de créditos extra one-time si Eleven lo ofrece.
+  Salida esperada del `check` con saldo OK: línea verde `✅ Saldo OK. X créditos antes → Y después...`. Si sale `❌ Saldo insuficiente`, abortar antes de TTS — los chunks parciales no son recuperables si la cuota se agota mid-pipeline (incidente origen 2026-04-25 con `la-objecion`: la regeneración falló en el chunk 1 con HTTP 401 quota_exceeded, forzando upgrade de plan a mitad de la sesión).
 
-  **NO empezar `python utilities/generate_audio.py` si hay riesgo de quota_exceeded a mitad de los chunks** — costaría re-generar todo desde cero al recargar cuota, ya que los chunks parciales no son recuperables. Bug origen 2026-04-25: regeneración de "la-objecion" falló en el chunk 1 con HTTP 401 quota_exceeded (880 créditos restantes vs 3.373 necesarios), forzando upgrade a Creator a mitad de la sesión.
+  **El hook ya está integrado en `generate_audio.py`** — el script llama `pre_check()` antes del primer TTS y aborta si saldo insuficiente, y llama `record_usage()` solo si TTS+concat+upload pasaron. La invocación `python utilities/generate_audio.py …` no requiere acción extra para el contador.
+
+  **Override `ROBOHOGAR_ELEVENLABS_FORCE=1`** salta el bloqueo si Rafael acaba de pagar overage y el contador local aún no lo refleja.
+
+  **Si el contador no está configurado** (estado vacío al iniciar el repo en una máquina nueva), el primer `sync` lo inicializa. Datos a meter — visibles en https://elevenlabs.io/app/subscription:
+  - `--tier`: Starter / Creator / Pro / Scale / Business.
+  - `--limit`: créditos/mes del plan (Creator base = 100.000, pero la cuenta de Rafael tiene 121.880 por extras — verificar en dashboard "X / Y credits").
+  - `--reset-day`: día del mes en que renueva (formato dashboard: "Renews on May 25" → `--reset-day 25`).
+
+  **Opciones si la cuota no llega** (saldo < chars × ratio):
+  - Esperar al reset mensual (visible en `status` con campo "Día reset mensual").
+  - Pagar overage (~$0,20 / 1k chars) en el dashboard y re-ejecutar `sync` para refrescar.
+  - Upgrade de plan (Creator → Pro multiplica cuota ×5).
 
 Si falta algo → reportar al usuario y detener antes de empezar.
 
@@ -306,6 +308,130 @@ Ahorra cuota API vs regenerar los N chunks completos.
 ```
 
 **Regla dura:** este archivo se escribe SIEMPRE al final del pipeline, sin preguntar. Es idempotente (se sobrescribe si se regenera el audiolibro). El chat muestra además los 4 strings para comodidad inmediata, pero la **fuente de verdad persistente es el `.md` del repo** — nunca solo el chat.
+
+### 6.4. Actualizar `beehiiv-paste.html` con los 4 snippets como bloques de código (OBLIGATORIO)
+
+**Regla dura 2026-04-26 (refuerzo Rafael):** todos los snippets que se pegan en Beehiiv vía `/html` → "Custom HTML block" — audiolibro email-only, audiolibro web-only, "Lo real detrás del relato", CTA suscripción ficción — viven en el `beehiiv-paste.html` como **bloques de código copy-paste** (`.snippet-block`), NO como `<div>` renderizados. Razón: Rafael publica haciendo copy-paste desde el archivo al editor Beehiiv. Los Custom HTML blocks requieren el HTML como **texto copiable**, no como elemento ya renderizado. Si los snippets viven como `<div>` inline en el archivo, al copiar desde navegador se copia el texto visible, no el código source.
+
+Esta regla es la aplicación a Ficciones del patrón canónico ya canonizado en [`@rules/design.md § Bloques de código para snippets HTML inline en borradores`](../../.claude/rules/design.md). Aplica a TODO `beehiiv-paste.html` de Ficciones (con o sin audiolibro).
+
+**Estructura obligatoria del `beehiiv-paste.html`** tras `/audiobook-generate` — 7 `.snippet-block` (3 meta + 4 /html) más el cuerpo del relato:
+
+```
+<!DOCTYPE html><html><head><style>.snippet-block { ... }</style></head><body>
+
+<!-- INSTRUCCIONES (orden de pegado en Beehiiv) -->
+
+<div class="snippet-block">  <!-- Meta A: Title del post -->
+  <p class="snippet-header">📝 Meta A · Title · campo "Title" del editor</p>
+  <p class="snippet-hint">No es /html — es el campo de título del post. Pegar tal cual.</p>
+  <pre><code>🎧 Ficción · &lt;Título del relato&gt;</code></pre>
+</div>
+
+<div class="snippet-block">  <!-- Meta B: Subtítulo / dek -->
+  <p class="snippet-header">📝 Meta B · Subtítulo · campo "Subtitle" + "Meta description" SEO</p>
+  <p class="snippet-hint">No es /html — es el subtítulo / dek del post. Pegar también como meta_description en el SEO panel.</p>
+  <pre><code>&lt;meta_description del frontmatter del .md&gt;</code></pre>
+</div>
+
+<div class="snippet-block">  <!-- Meta C: URL slug -->
+  <p class="snippet-header">📝 Meta C · URL slug · campo "URL slug" del editor</p>
+  <p class="snippet-hint">No es /html — es el slug del post. Pegar en el campo "URL slug" (panel SEO/Settings). URL pública resultante: https://robohogar.com/p/&lt;slug&gt;.</p>
+  <pre><code>&lt;slug&gt;</code></pre>
+</div>
+
+<div class="snippet-block">  <!-- Snippet 1: audiolibro email-only -->
+  <p class="snippet-header">📋 Snippet 1 · Audiolibro email-only · hide from web</p>
+  <p class="snippet-hint">/html → Custom HTML block → engranaje → Hide from web.</p>
+  <pre><code>&lt;div...&gt;...&lt;/div&gt;</code></pre>
+</div>
+
+<div class="snippet-block">  <!-- Snippet 2: audiolibro web-only -->
+  <p class="snippet-header">📋 Snippet 2 · Audiolibro web-only · hide from email</p>
+  <p class="snippet-hint">/html → Custom HTML block → engranaje → Hide from email.</p>
+  <pre><code>&lt;div...&gt;...&lt;/div&gt;&lt;script&gt;...&lt;/script&gt;</code></pre>
+</div>
+
+<!-- CUERPO DEL RELATO (texto editor normal en Beehiiv, NO snippet-block) -->
+<h2 style="text-align:center;">I. ...</h2>
+<p>...</p>
+<h2 style="text-align:center;">II. ...</h2>
+<p>...</p>
+...
+<p style="text-align:center;font-style:italic;color:#6B7280;margin-top:32px;">Fin.</p>
+
+<div class="snippet-block">  <!-- Snippet 3: Lo real detrás del relato -->
+  <p class="snippet-header">📋 Snippet 3 · Lo real detrás del relato · tras "Fin."</p>
+  <p class="snippet-hint">/html → Custom HTML block → pega el código.</p>
+  <pre><code>&lt;div...&gt;...&lt;/div&gt;</code></pre>
+</div>
+
+<div class="snippet-block">  <!-- Snippet 4: CTA suscripción ficción -->
+  <p class="snippet-header">📋 Snippet 4 · CTA suscripción ficción · final del post</p>
+  <p class="snippet-hint">/html → Custom HTML block → pega el código.</p>
+  <pre><code>&lt;div...&gt;...&lt;/div&gt;</code></pre>
+</div>
+
+</body></html>
+```
+
+**Reglas Meta A / Meta B / Meta C:**
+- **Meta A · Title:** prefijo fijo `🎧 Ficción · ` + título del relato (del frontmatter `title`). Sin escapado HTML — es texto plano.
+- **Meta B · Subtítulo:** literal del frontmatter `meta_description` del relato. Sin escapado HTML — es texto plano. Reutilizable como `Meta description` del SEO panel del editor (mismo string).
+- **Meta C · URL slug:** literal del frontmatter `slug` del relato. Sin escapado HTML — es texto plano (kebab-case). La URL pública resultante en Beehiiv será `https://robohogar.com/p/<slug>`.
+
+**CSS canónico** del `<style>` (copiar tal cual al `<head>` del `beehiiv-paste.html` — no viaja a Beehiiv, es solo para preview en navegador local):
+
+```css
+.snippet-block { background: #F0F0F0; border: 2px dashed #535252; border-radius: 8px; padding: 16px 18px; margin: 32px 0; }
+.snippet-block .snippet-header { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px; color: #283642; margin: 0 0 6px; letter-spacing: 0.5px; text-transform: uppercase; }
+.snippet-block .snippet-hint { font-style: italic; font-size: 13px; color: #6B7280; margin: 0 0 12px; }
+.snippet-block pre { background: #FFFFFF; border: 1px solid #C0C0C0; border-radius: 4px; padding: 12px 14px; margin: 0; overflow-x: auto; }
+.snippet-block code { font-family: 'Courier New', Consolas, Monaco, monospace; font-size: 12px; color: #0C0C0C; white-space: pre-wrap; word-break: break-word; }
+```
+
+**Reglas de escapado dentro de `<pre><code>`:**
+- `<` → `&lt;`
+- `>` → `&gt;`
+- `&` → `&amp;` (cuidado con entidades preexistentes como `&mdash;` que se vuelven `&amp;mdash;` y se renderizan como `&mdash;` en Beehiiv tras copy-paste — esto es el comportamiento deseado)
+- Comillas dobles dentro de atributos HTML quedan tal cual.
+
+**Verificación pre-output (grep, debe pasar todo):**
+
+```bash
+FILE="content/ficciones/**/<slug>/beehiiv-paste.html"
+
+# (a) Siete .snippet-block (3 Meta A/B/C + 4 /html: audiolibro x2 + Lo real + CTA)
+grep -c 'class="snippet-block"' "$FILE"  # esperado: 7
+
+# (a2) Meta A, Meta B y Meta C presentes
+grep -cE '📝 Meta [ABC]' "$FILE"  # esperado: 3
+
+# (a3) Snippets 1-4 presentes
+grep -cE '📋 Snippet [1-4]' "$FILE"  # esperado: 4
+
+# (b) HTML escapado dentro de los <pre><code> de los 4 snippets /html
+grep -c '&lt;\|&gt;' "$FILE"  # esperado: >0 (típico ~25-40 según relato)
+
+# (c) Capítulos del cuerpo (h2)
+grep -cE '<h2[^>]*>I+[\.I]' "$FILE"  # esperado: número de escenas del relato
+
+# (d) Fin. cierra el cuerpo
+grep -c '>Fin\.<' "$FILE"  # esperado: 1
+
+# (e) NO hay <div style="margin:32px 0;padding:24px 28px;background:#FFF9EF"> renderizado
+#     (eso es el bloque "Lo real" que DEBE estar dentro de <pre><code>, no inline)
+grep -c '<div style="margin:32px 0;padding:24px 28px;background:#FFF9EF' "$FILE"  # esperado: 0
+
+# (f) NO hay reproductor de audio renderizado inline (debe estar dentro de Snippet 2)
+grep -cE '<audio id="audio-' "$FILE"  # esperado: 0
+```
+
+Si (a) ≠ 7 o (e) > 0 o (f) > 0 → reescribir el `beehiiv-paste.html` antes de entregar a Rafael.
+
+**Aplicación retroactiva:** los `beehiiv-paste.html` previos al refuerzo 2026-04-26 (la-objecion publicada con `<div>` inline, el-pendiente borrador) NO se actualizan retroactivamente salvo petición explícita — la versión publicada en Beehiiv ya está correcta y el archivo del repo es histórico de cómo se pegó. Aplica solo a relatos nuevos desde 2026-04-26 (`el-operador-nocturno` en adelante).
+
+**Ficciones SIN audiolibro:** el `beehiiv-paste.html` lleva 5 `.snippet-block` (Meta A + Meta B + Meta C + Snippet 1 = "Lo real detrás del relato" + Snippet 2 = CTA suscripción ficción), sin los dos del audiolibro. La estructura general se mantiene.
 
 ### 6.5. chunks-index.json — automático, no requiere acción
 
