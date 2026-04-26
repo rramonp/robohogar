@@ -38,6 +38,9 @@
 - [feedback_ficcion_hero_style.md](feedback_ficcion_hero_style.md) — Hero ficción: humano con cara + robot entero, luz ámbar, detalles domésticos ES
 - [feedback_ficcion_hero_canon_portada_minimalista.md](feedback_ficcion_hero_canon_portada_minimalista.md) — Canon "portada minimalista · objeto-testigo" (sustituye still cinematográfico)
 - [feedback_ficcion_modo_pitch.md](feedback_ficcion_modo_pitch.md) — /ficcion-draft modo pitch: 10 bloques canónicos, exploración pre-escritura sin prosa
+- [feedback_ficcion_hook_obligatorio.md](feedback_ficcion_hook_obligatorio.md) — Hook fuerte obligatorio en apertura (24 tipos canon en hooks-taxonomia.md) + no repetir mismo hook en últimos 5 relatos
+- [feedback_ficcion_cierre_canonico.md](feedback_ficcion_cierre_canonico.md) — Cierre canónico obligatorio con `Fin.` + sección "Lo real detrás del relato" + comentarios HTML trazabilidad
+- [feedback_ficcion_anti_self_plagio.md](feedback_ficcion_anti_self_plagio.md) — Sistema multinivel anti-self-plagio: bloqueo duro 4 ejes + tropos quemados + saturación voces ES + grep cruzado + intensidad narrativa cinematográfica por defecto
 
 ## Feedback — Beehiiv & Platform
 - [feedback_beehiiv_tipografia_bold_tablas.md](feedback_beehiiv_tipografia_bold_tablas.md) — Formato técnico Beehiiv maestro: DM Sans Semibold (600) + Inter Regular · bold SÍ/NO + bug copy-paste (usar <strong>, nunca <span class="bold">) · tablas mobile-first máx 4 cols ≤25 chars
@@ -68,6 +71,11 @@
 - [feedback_branding_always_crop.md](feedback_branding_always_crop.md) — Clean checker + crop + white bg + JPG export after EVERY branding image
 - [feedback_branding_pure_white_bg.md](feedback_branding_pure_white_bg.md) — Social branding: pure white #FFFFFF bg, never cream
 - [feedback_robohogar_archive_heroes.md](feedback_robohogar_archive_heroes.md) — Archivar heros no usados en assets/_archive/, nunca rm
+
+## Feedback & Reference — Audio production & infra
+- [feedback_robohogar_tts_pronunciation.md](feedback_robohogar_tts_pronunciation.md) — Marca en TTS = `ROBO, OGAR` (coma + espacio) para evitar aspiración inglesa de la H por Multilingual v2. Visible en HTML/copy queda como `ROBOHOGAR` (no coma)
+- [reference_robohogar_elevenlabs_balance.md](reference_robohogar_elevenlabs_balance.md) — Contador local saldo ElevenLabs (utilities/elevenlabs_balance.py) sincroniza desde /v1/usage/character-stats; bloquea TTS pre-flight si saldo insuficiente. Plan Creator 121.880 créditos/mes reset día 25
+- [reference_robohogar_r2_rest_fallback.md](reference_robohogar_r2_rest_fallback.md) — Fallback REST API (utilities/upload_rss_to_r2_via_api.py) cuando endpoint S3 R2 está caído por outage parcial Cloudflare. Diagnosticar primero (ping rango 172.64), no asumir local
 
 ## Feedback — Meta (memoria del propio sistema)
 - [feedback_memoria_local_robohogar.md](feedback_memoria_local_robohogar.md) — Toda memoria generada aquí se queda EXCLUSIVAMENTE en robohogar/.claude/memory/. Nunca escribir a RRP-DEV/ desde este repo

@@ -1,0 +1,21 @@
+---
+name: ROBOHOGAR Ficciones — cierre canónico Fin. + Lo real detrás del relato
+description: Todo relato de Ficciones Domésticas cierra siempre con tres bloques en orden — "Fin." como párrafo solo, sección visible "## Lo real detrás del relato" con hipertextos a fuentes reales, y comentarios HTML invisibles de trazabilidad (dato-real, villano-humano).
+type: feedback
+originSessionId: 4763d061-ea50-4792-bfd0-6665d955e8f2
+---
+Todo relato de Ficciones Domésticas (one-shot, episodio-serie, episode-0, piloto, tie-in) cierra obligatoriamente con tres bloques en este orden tras la última frase narrativa:
+
+1. **`Fin.`** como párrafo separado (línea en blanco antes y después). En HTML Beehiiv: `<p class="fin">Fin.</p>`.
+2. **Separador `---` + sección `## Lo real detrás del relato`** — bloque visible 90-140 palabras con hipertextos a las fuentes reales que sustentan la ficción (legislación, organismos oficiales, papers, fabricantes, INE/Eurostat, medios reputados). Voz editorial ROBOHOGAR plural. Mezcla "lo que existe ya" + "lo que es licencia narrativa" + "lo que pasa en hogares reales". Cierra con frase que devuelva al territorio íntimo del relato — no con disclaimer corporativo. En HTML Beehiiv: `<div class="lo-real">` con `<span class="lo-real-title">`.
+3. **Comentarios HTML invisibles** `<!-- dato-real: ... -->` y `<!-- villano-humano: ... -->` — trazabilidad editorial interna en taquigrafía. No duplican palabra por palabra el bloque visible: la visible es prosa para el lector, los comentarios son notas para auditoría.
+
+**Why:** 2026-04-25, Rafael (*"siempre pongas un Fin. al final como en el relato de behiiv de el que viene a tomar cafe y que siempre pongas al final el dato real como en el que viene a tomar cafe; en La objeción lo omitiste"*). El bloque "Lo real detrás del relato" es el contrato editorial de Ficciones Domésticas con el lector: la ficción especulativa se sustenta en hechos verificables y el lector tiene derecho a saber qué frontera cruza el relato. El "Fin." aporta cierre tipográfico que el lector ES literario reconoce y que el editor de Beehiiv puede formatear con clase CSS propia. La omisión en `la-objecion` (publicada en Beehiiv 2026-04-23 sin el bloque) creó inconsistencia frente al canon establecido por `el-que-viene-a-tomar-cafe`.
+
+**How to apply:**
+- Skill `/ficcion-draft` ahora documenta esta regla en su sección "Output § Cierre canónico del relato" (añadido 2026-04-25). Aplica a todos los modos de invocación.
+- Entregable doble obligatorio: (1) bloque markdown en el `.md` fuente para revisión editorial; (2) **snippet HTML estilizado inline en archivo separado `content/ficciones/<serie>/<slug>/lo-real-snippet.html`** listo para pegar en Beehiiv vía `/html` → "Custom HTML block". Las clases CSS no viajan a Beehiiv (regla `rules/design.md`); por eso los estilos van inline (fondo crema `#FFF9EF`, borde ámbar `#F5A623`, eyebrow uppercase, hipertextos `<a>` ámbar). Plantilla canónica en `content/templates/lo-real-snippet.html`.
+- Verificación pre-output con 5 greps: (a) `^Fin\.\s*$` ≥1, (b) `^## Lo real detrás del relato\s*$` =1, (c) ≥2 hipertextos `[texto](url)` en el bloque, (d) ≥2 comentarios HTML de trazabilidad, (e) `lo-real-snippet.html` existe en la carpeta del relato.
+- En la copia audiolibro Obsidian (`<Título> (audiolibro).md`) el bloque "Lo real detrás del relato" NO se incluye dentro del `<bloque triple-backtick>` para ElevenLabs Reader — rompe el espell narrativo. Solo el `Fin.` final entra en el bloque (da pausa natural al narrador). El bloque "Lo real" puede vivir fuera del bloque copy-paste como sección independiente del archivo Obsidian si se quiere referencia.
+- Aplicar retroactivamente solo si el relato no se ha publicado aún o si Rafael lo pide. Relatos ya en Beehiiv no se actualizan retroactivamente vía pipeline (la metadata se congela igual que la del feed RSS — ver `automation.md § Descripción y título del episodio NO se actualizan al re-publish del feed`); el editor manual de Beehiiv sí permite añadir el bloque a posteriori si se quiere consistencia visual del archivo público.
+- Aplicado retroactivamente al `.md` fuente de `el-pendiente` (2026-04-25, mismo día) y `la-objecion` (2026-04-25 vía edit, publicada 2026-04-23 sin el bloque — Rafael decidirá si actualiza el Beehiiv público manualmente).
