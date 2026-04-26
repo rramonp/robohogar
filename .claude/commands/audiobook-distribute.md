@@ -231,6 +231,47 @@ Ejemplos generados:
 
 Captura `videoId` y URL pública `https://www.youtube.com/watch?v=<videoId>`.
 
+### 4.5. Asignación a playlists YouTube (master + específica)
+
+`utilities/upload_youtube.py` invoca automáticamente `assign_video_to_playlists()` de [`utilities/youtube_playlists.py`](../../utilities/youtube_playlists.py) tras `thumbnails.set` cuando el upload es `public` (los `--private` se saltan: las playlists son públicas y no queremos meter vídeos privados ahí). Cero acción manual.
+
+**Routing canónico** (decisiones Rafael 2026-04-26):
+
+| Tipo de relato | Detección frontmatter | Playlists destino |
+|---|---|---|
+| **One-shot** (standalone) | `serie: null` · `serie: _one-shots` · sin campo `serie` | `Ficciones Domésticas` (master) + `Ficciones Domésticas · One-shots` |
+| **Episodio de serie** | `serie: <slug>` con slug real (ej `cartas-a-maia`) | `Ficciones Domésticas` (master) + `Ficciones Domésticas · <SerieDisplay>` |
+| **Piloto de serie nueva** | `serie: <slug>` + `tipo: piloto` | Igual que episodio de serie (entra a la playlist de la serie como primer episodio) |
+
+**Naming canónico**:
+- Master: `Ficciones Domésticas` (sin sufijo) — agrega TODOS los relatos cronológicamente.
+- Específicas: `Ficciones Domésticas · <Categoría>` con middot (` · `) coherente con la convención de títulos del skill (mismo separador entre hook y serie en el título YouTube).
+- `<SerieDisplay>` se autoresuelve desde [`utilities/audiobook_constants.py § SERIES_DISPLAY_NAMES`](../../utilities/audiobook_constants.py) (`cartas-a-maia` → `Cartas a MAIA`, etc.). Sin entrada, fallback a Title-case del slug.
+
+**Idempotencia**: re-ejecutar el upload (re-distribución, backfill) NO duplica nada. `ensure_playlist()` busca por título exacto y solo crea si no existe; `add_video_to_playlist()` chequea con `playlistItems.list(playlistId, videoId)` antes de insertar y devuelve `was_added=False` si el vídeo ya estaba dentro.
+
+**Coste API**:
+- Por relato nuevo en régimen estable: ~102 units (1 list playlists + 2*51 inserts).
+- Setup inicial con K playlists nuevas + N vídeos backfill: 50*K + 50*N*2 ≈ 350-500 units. Trivial vs 10.000/día.
+
+**Privacy**: todas las playlists creadas por el helper son `public`. Si en el futuro se quieren playlists privadas (drafts/internas), pasar `privacy="private"` a `ensure_playlist()`.
+
+**Orden dentro de la playlist**: default YouTube = orden de inserción al añadir el vídeo (= orden de publicación si se añade al subir). Sin reordenamientos automáticos; si Rafael quiere otro orden, drag-and-drop manual desde YouTube Studio.
+
+**Salida en stdout** durante la asignación:
+
+```
+Asignando a playlists...
+  Playlist: Ficciones Domésticas
+    [existente] id=PLxxxxxxxxxxxxxxxxx
+    [AÑADIDO] item_id=UExxxxxxxxxxxxxxx...
+  Playlist: Ficciones Domésticas · One-shots
+    [CREADA] id=PLxxxxxxxxxxxxxxxxx
+    [AÑADIDO] item_id=UExxxxxxxxxxxxxxx...
+```
+
+**Salida en el resumen final**: las URLs públicas de las playlists tocadas se imprimen junto al `videoId` para copy-paste rápido al canal/landing.
+
 ### 5. Regenerar y subir RSS feed
 
 ```bash
@@ -270,7 +311,14 @@ Escribir `content/ficciones/**/<slug>/distribucion-snapshot.md` con todo lo nece
 | URL pública | https://www.youtube.com/watch?v=<videoId> |
 | Privacy | public |
 | Thumbnail | `covers/<slug>-yt-1280x720.png` |
-| Coste API | 150 units (100 insert + 50 thumbnail) |
+| Coste API | 150 units (100 insert + 50 thumbnail) + ~100 playlists (1 list + 2*51 inserts) |
+
+### Playlists asignadas
+
+| Playlist | URL | Estado playlist | Estado vídeo |
+|---|---|---|---|
+| Ficciones Domésticas | https://www.youtube.com/playlist?list=<plId> | existente / CREADA | añadido / ya estaba |
+| Ficciones Domésticas · One-shots *(o serie)* | https://www.youtube.com/playlist?list=<plId> | existente / CREADA | añadido / ya estaba |
 
 ### ⚠️ Acción manual pendiente — Pinned comment
 
@@ -322,6 +370,7 @@ Antes de devolver el resumen final, Claude debe:
 
 - [ ] **MP4 verificado**: `ffprobe` confirma duración ≈ MP3 ± 2 s + codec H.264 + container MP4.
 - [ ] **YouTube URL accesible**: `curl -sI https://www.youtube.com/watch?v=<videoId>` devuelve 200.
+- [ ] **Playlists asignadas** (solo upload public): el log de `upload_youtube.py` muestra 2 playlists tocadas (master + One-shots/serie) con `[AÑADIDO]` o `[ya estaba]`. Si una salió `[CREADA]`, verificarla desde Studio para confirmar título/descripción correctos.
 - [ ] **RSS feed válido**: `curl -sI https://feed.robohogar.com/feed.xml` devuelve 200 + `Content-Type: application/rss+xml`. Recordar a Rafael que valide con [Cast Feed Validator](https://castfeedvalidator.com) si es la primera distribución del setup.
 - [ ] **Snapshot persistido** en el directorio del relato.
 - [ ] **Anti-IA en descripción YouTube y show notes RSS**: revisar que no haya tics tipo *intrincado/tapiz/matizado/entramado*, em-dashes en cascada, ni hype anglosajón. Regla `editorial.md § Anti-IA checklist § §1 Universal`.
@@ -505,7 +554,10 @@ Causa: error de timestamping del `chunks-index.json`. Velocidad uniforme tiene e
   - [`utilities/verify_youtube_auth.py`](../../utilities/verify_youtube_auth.py)
   - [`utilities/generate_audiobook_covers.py`](../../utilities/generate_audiobook_covers.py)
   - [`utilities/generate_youtube_video.py`](../../utilities/generate_youtube_video.py)
-  - [`utilities/upload_youtube.py`](../../utilities/upload_youtube.py)
+  - [`utilities/upload_youtube.py`](../../utilities/upload_youtube.py) — sube vídeo + thumbnail + asigna playlists.
+  - [`utilities/youtube_playlists.py`](../../utilities/youtube_playlists.py) — helper de playlists (idempotente).
+  - [`utilities/audiobook_constants.py`](../../utilities/audiobook_constants.py) — `SERIES_DISPLAY_NAMES` + naming canónico de playlists, compartido entre upload y backfill.
+  - [`utilities/backfill_youtube_playlists.py`](../../utilities/backfill_youtube_playlists.py) — script de mantenimiento idempotente que escanea snapshots y asigna a playlists. Útil tras añadir series nuevas a `SERIES_DISPLAY_NAMES`, o si Rafael borra/recrea una playlist en Studio.
   - [`utilities/generate_podcast_rss.py`](../../utilities/generate_podcast_rss.py)
   - [`utilities/upload_rss_to_r2.py`](../../utilities/upload_rss_to_r2.py)
 - Memoria pronunciación marca: [`feedback_robohogar_tts_pronunciation.md`](../../../RRP-DEV/.claude/memory/feedback_robohogar_tts_pronunciation.md).

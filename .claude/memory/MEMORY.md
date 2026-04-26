@@ -8,6 +8,8 @@
 - [project_beehiiv_scale_plan.md](project_beehiiv_scale_plan.md) — ROBOHOGAR corre en Beehiiv plan Scale — automations, segmentación, welcome flows desde 2026-04-18
 - [project_pdf_brand_skill_ready.md](project_pdf_brand_skill_ready.md) — Skill /pdf-brand operativo desde 2026-04-18; 3 variantes pendientes activación por demanda
 - [project_audiolibros_ficciones.md](project_audiolibros_ficciones.md) — Plan audiolibros Ficciones. ElevenLabs Starter, /audiobook-generate MANUAL-ONLY. Pendiente FASE 0
+- [project_tomo_1_clima_reset.md](project_tomo_1_clima_reset.md) — Tomo 1 cierra con el Día 1 del Gran Reset. Relatos que lo spoilean se reservan en _archive-pre-tomo-1/, no se descartan. La Unidad archivada 2026-04-26
+- [project_youtube_playlists_workflow.md](project_youtube_playlists_workflow.md) — Playlists YouTube de audiolibros: master + específicas con middot. Auto-asigna en upload public; backfill idempotente. IDs de las 2 playlists actuales
 
 ## Feedback — Editorial & Content
 - [feedback_article_voice_authority.md](feedback_article_voice_authority.md) — Nunca narrar "hemos leído X newsletters" en artículo publicado

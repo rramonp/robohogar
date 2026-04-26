@@ -73,3 +73,14 @@ python utilities/upload_rss_to_r2.py
 - YouTube Data API v3 (`/audiobook-distribute`): 150 units de los 10.000 disponibles hoy
 - Cloudflare R2 (MP3 + cover podcast + feed): bajo free tier 10 GB
 - ffmpeg compute local: ~3-4 min CPU
+
+## Actualización 2026-04-26 — Playlists asignadas
+
+Backfill via `python utilities/backfill_youtube_playlists.py` tras decisión Rafael 2026-04-26 (master + específica con middot). Idempotente: re-correr el backfill no duplica.
+
+| Playlist | URL | Estado playlist | Estado vídeo |
+|---|---|---|---|
+| Ficciones Domésticas | https://www.youtube.com/playlist?list=PLNWdNerZ2NVDbG_ZbFwstyVApv8JuIkwS | CREADA en este backfill | añadido |
+| Ficciones Domésticas · One-shots | https://www.youtube.com/playlist?list=PLNWdNerZ2NVAmgH2_Ybmg5F4C86GECyon | CREADA en este backfill | añadido |
+
+Coste extra: ~150 units API (1 list + 50 create master + 50 create One-shots + 51 insert master + ~50 insert One-shots con retry post-create). Total acumulado este relato: 300 units de los 10.000/día. $0.

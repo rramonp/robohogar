@@ -98,3 +98,15 @@ Lista canónica para evitar que vuelvan a ocurrir en futuras invocaciones de `/a
 5. **`PODCAST_OWNER_EMAIL` missing en settings.local.json.** Bloque 3 de la guía no completado. RSS no se regenera hasta que esté hecho. No es bloqueante para YouTube.
 
 6. **ElevenLabs cuota Starter agotada (40k chars/mes).** Los 3 audios anteriores ya consumieron ~39k. Regenerar este forzó upgrade a Creator (100k chars/mes, $22). **Anotado en CLAUDE.md / plan audiolibros**: la cadencia mensual ROBOHOGAR de 1-2 audiolibros/mes excede Starter.
+
+
+## Actualización 2026-04-26 — Playlists asignadas
+
+Backfill via `python utilities/backfill_youtube_playlists.py` tras decisión Rafael 2026-04-26 (master + específica con middot). Idempotente: re-correr el backfill no duplica.
+
+| Playlist | URL | Estado playlist | Estado vídeo |
+|---|---|---|---|
+| Ficciones Domésticas | https://www.youtube.com/playlist?list=PLNWdNerZ2NVDbG_ZbFwstyVApv8JuIkwS | existente | añadido |
+| Ficciones Domésticas · One-shots | https://www.youtube.com/playlist?list=PLNWdNerZ2NVAmgH2_Ybmg5F4C86GECyon | existente | añadido |
+
+Coste extra: ~102 units API (1 list + 51 insert master + 51 insert One-shots — playlists ya creadas en el backfill por `el-operador-nocturno`). Total acumulado este relato: ~252 units. $0.

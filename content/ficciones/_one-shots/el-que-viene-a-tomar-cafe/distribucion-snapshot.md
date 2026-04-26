@@ -53,3 +53,15 @@ python utilities/upload_youtube.py el-que-viene-a-tomar-cafe
 python utilities/generate_podcast_rss.py
 python utilities/upload_rss_to_r2.py   # ⚠️ requiere VPN HBX OFF
 ```
+
+
+## Actualización 2026-04-26 — Playlists asignadas
+
+Backfill via `python utilities/backfill_youtube_playlists.py` tras decisión Rafael 2026-04-26 (master + específica con middot). Idempotente: re-correr el backfill no duplica.
+
+| Playlist | URL | Estado playlist | Estado vídeo |
+|---|---|---|---|
+| Ficciones Domésticas | https://www.youtube.com/playlist?list=PLNWdNerZ2NVDbG_ZbFwstyVApv8JuIkwS | existente | añadido |
+| Ficciones Domésticas · One-shots | https://www.youtube.com/playlist?list=PLNWdNerZ2NVAmgH2_Ybmg5F4C86GECyon | existente | añadido |
+
+Coste extra: ~102 units API (1 list + 51 insert master + 51 insert One-shots — playlists ya creadas en el backfill por `el-operador-nocturno`). Total acumulado este relato: ~252 units. $0.

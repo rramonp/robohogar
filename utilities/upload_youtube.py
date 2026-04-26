@@ -33,6 +33,10 @@ import re
 import sys
 from pathlib import Path
 
+# Mapping de naming canónico (series + playlists) compartido con
+# youtube_playlists.py vía módulo independiente para evitar import circular.
+from audiobook_constants import SERIES_DISPLAY_NAMES
+
 
 # Defensive UTF-8 stdout para no romper en consolas Windows cp1252.
 if hasattr(sys.stdout, "reconfigure"):
@@ -55,15 +59,6 @@ SCOPES = [
 # de ficción `24` encaja mejor que `22` que es más vlog/personal. YouTube
 # usa esto como pista weak para recomendaciones.
 DEFAULT_CATEGORY_ID = "24"
-
-# Mapping serie-slug → nombre legible para el título de YouTube. Las series con
-# acrónimos o nombres compuestos no se derivan bien por Title-case automático,
-# así que mantenemos un mapping explícito. Añadir entrada cuando se cree serie nueva.
-SERIES_DISPLAY_NAMES = {
-    "cartas-a-maia": "Cartas a MAIA",
-    "la-casa-de-amparo": "La Casa de Amparo",
-    "cronicas-ronda-3": "Crónicas RONDA-3",
-}
 
 
 def build_youtube_title(frontmatter: dict) -> str:
@@ -505,6 +500,27 @@ def main() -> None:
         creds, mp4, thumbnail, yt_title, description, DEFAULT_TAGS, privacy,
     )
 
+    # Asignación a playlists. Idempotente: re-ejecutar para el mismo video_id
+    # no duplica nada — las playlists existentes se reutilizan, los items ya
+    # presentes se detectan antes de insertar. Decisiones canónicas
+    # (master + específica · middot · orden de inserción) en audiobook_constants.py.
+    # Si el upload era --private (test), saltamos porque las playlists son
+    # public por default y no queremos meter vídeos privados en listas públicas.
+    playlist_results = {}
+    if privacy == "public":
+        from googleapiclient.discovery import build as _build
+        from youtube_playlists import assign_video_to_playlists, playlist_public_url
+
+        youtube = _build("youtube", "v3", credentials=creds, cache_discovery=False)
+        print()
+        print("Asignando a playlists...")
+        playlist_results = assign_video_to_playlists(
+            youtube, video_id, frontmatter, verbose=True,
+        )
+    else:
+        print()
+        print("Privacy=private → saltando asignación a playlists (las playlists son public).")
+
     video_url = f"https://www.youtube.com/watch?v={video_id}"
     print()
     print("=" * 72)
@@ -514,6 +530,17 @@ def main() -> None:
     print(f"URL         : {video_url}")
     print(f"Privacy     : {privacy}")
     print(f"Título      : {yt_title}")
+    if playlist_results:
+        # Lazy re-import para acceder al helper de URL pública desde el resumen.
+        from youtube_playlists import playlist_public_url
+        print()
+        print("Playlists:")
+        for title, info in playlist_results.items():
+            url = playlist_public_url(info["playlist_id"])
+            tag_pl = " (CREADA)" if info["playlist_was_created"] else ""
+            tag_it = "+vídeo añadido" if info["video_was_added"] else "vídeo ya estaba"
+            print(f"  - {title}{tag_pl} · {tag_it}")
+            print(f"      {url}")
     print()
     print("ACCIÓN MANUAL — pegar este pinned comment en YouTube:")
     print("-" * 72)
