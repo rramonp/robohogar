@@ -278,6 +278,227 @@ Antes de saltar al paso 6 (prosa), cargar [`@references/ficciones/arquitectura-l
 
 Archivo vivo: los tres principios actuales nacen del feedback editorial 2026-04-20 sobre *El que viene a tomar café* v1. Si en futuras sesiones llega feedback nuevo que identifica otro patrón reproducible de arquitectura lectora, se añade a `arquitectura-lectora.md § 1.N` siguiendo su protocolo § 3 y se replica aquí la referencia al nuevo principio.
 
+### 5.6 Variability gate — OBLIGATORIO antes de prosa (regla dura 2026-04-26 PM, bloqueo duro)
+
+**Por qué este paso existe.** Auditoría 2026-04-26 sobre 9 relatos detectó: copy-paste literal de párrafo entero (cafetera+geranios+luz) entre *El que viene a tomar café* y *El chaval*; 14 tropos saturados (gestos, símiles, frases-fórmula, setting clichés); 66% del catálogo en mismo conflicto humano (duelo+demencia+soledad-cuidadora); 77% en mismo POV; 67% en misma postura humanoide. Cita Rafael: *"No digo la forma o la composición, sino directamente copy-paste. Esto es inviable."* La regla cumple su objetivo: *"Lo que haga falta para que esto no vuelva nunca a ocurrir."* Detalle completo en memoria `feedback_ficcion_anti_self_plagio.md` y plan `se-han-utilizado-recursos-scalable-duckling.md`.
+
+**Lógica del gate — bloqueo duro.** Antes de avanzar al hook (5.7) y a prosa (6), el skill ejecuta este paso obligatoriamente sobre el outline declarado en pasos 4-5.5.
+
+**1. Leer registro estructural** ([`content/registro-ficciones.md`](../../content/registro-ficciones.md)) — tomar las **5 filas más recientes** (publicados + drafts pre-pub combinados, ordenados por fecha) y extraer 4 columnas:
+- `Perfil POV` (edad±5 + género + relación familiar dominante)
+- `Setting` (ciudad + momento del día + objeto-testigo central)
+- `Conflicto humano` (uno o dos canónicos del catálogo)
+- `Cliffhanger tipo` (uno del catálogo)
+
+**2. Leer registro de tropos quemados** ([`references/ficciones/tropos-quemados.md`](../../references/ficciones/tropos-quemados.md)) — tomar la lista de tropos en estado 🔴 QUEMADO (≥2 usos en últimos 5 relatos).
+
+**3. Calcular ejes saturados.** Reportar al chat:
+
+```
+🔴 Ejes saturados en últimos 5 relatos:
+- Perfil POV: <N>/5 son <perfil dominante> → próximo NO puede ser ese perfil
+- Setting: <N>/5 son <triple dominante> → próximo en otra combinación
+- Conflicto humano: <N>/5 giran en <conflicto dominante> → próximo en otro vector
+- Cliffhanger: <N>/5 cierran con <tipo dominante> → próximo en otro tipo
+- Tropos quemados activos: <lista de los 🔴 con ventana de enfriamiento aún activa>
+```
+
+**4. Validar el outline contra los 4 ejes.** Para cada eje, comparar el valor del outline declarado con el conjunto `ejes_saturados`:
+
+| Eje | Resultado | Acción |
+|---|---|---|
+| `Perfil POV` ya está en últimos 5 | ❌ BLOQUEO | Volver a paso 4 (Paint The Villain / outline) — cambiar protagonista a perfil distinto |
+| `Setting` triple ya está en últimos 5 | ❌ BLOQUEO | Cambiar al menos uno de los tres componentes (ciudad / hora / objeto-testigo) |
+| `Conflicto humano` principal ya está en últimos 5 | ❌ BLOQUEO | Reformular el conflicto desde otro vector canónico |
+| `Cliffhanger tipo` ya está en últimos 5 | ❌ BLOQUEO | Cambiar el cierre antes de prosa |
+| Algún tropo 🔴 QUEMADO planeado para el outline | ❌ BLOQUEO | Reescribir el outline sin ese tropo |
+
+**Excepción única — sello de serie declarado:** una serie puede mantener un eje fijo (ej: serie epistolar siempre POV-1ª-confesional) si está declarado explícitamente en su `arco-serie.md` como sello editorial. Sin declaración escrita previa al relato, no aplica la excepción.
+
+**5. Si todos los ejes pasan → continuar a paso 5.7 (hook).** Si alguno falla → reportar a Rafael:
+
+```
+❌ Variability gate FALLIDO en N ejes:
+- <Eje>: <valor outline> ya está en últimos 5 (<relatos>) → propuesta de cambio: <X>
+...
+
+¿Cambio el outline a <X>, o documentas excepción de serie en arco-serie.md?
+```
+
+Si Rafael confirma cambio → re-ejecutar paso 5.6 sobre el outline corregido. Si Rafael documenta excepción de serie → registrarla y avanzar.
+
+**6. Anti-tropos canónicos como sugerencia inspiradora.** Si los 4 ejes están en saturación grave (la lista canónica está agotada), `tropos-quemados.md § 5` lista los anti-tropos del universo: POVs no explorados, settings no usados, conflictos sin tocar, cliffhangers nuevos. Sugerir a Rafael 2-3 combinaciones de la lista anti-tropos para inspirar el siguiente outline.
+
+**7. Registrar la decisión.** El paso de Output del skill (al cerrar el relato) actualiza `content/registro-ficciones.md` con los 4 valores estructurales del nuevo relato + actualiza `tropos-quemados.md` con las 5-10 figuras dominantes detectadas.
+
+### 5.6.bis Saturación de catálogo de voces — sub-paso del Variability gate (canonizado 2026-04-26 PM)
+
+**Por qué este sub-paso existe.** El catálogo de referentes en [`@references/ficciones/castellano-literario-es.md § 1 + § 1.bis`](../../references/ficciones/castellano-literario-es.md) tiene 17 autores. Si el skill siempre carga los mismos 3-4 (Urraca/Adón/Mesa para inquietante, Vilas para popular, Chirbes para radical), aunque los 4 ejes estructurales de § 5.6 pasen, la **voz** de los relatos converge igual. El feedback Rafael 2026-04-26 PM lo pidió explícitamente: *"si te das cuenta de que se está quedando corto el número de autores españoles que hay dentro de Castellano literario es, sugiéreme aumentar el registro en más autores."*
+
+**Ejecutar siempre tras el Variability gate (§5.6) y antes del hook (§5.7).**
+
+**1. Leer columna `Referente principal`** de [`content/registro-ficciones.md`](../../content/registro-ficciones.md) — extraer el valor de los últimos 5 y los últimos 10 relatos (publicados + drafts pre-pub).
+
+**2. Calcular métricas de saturación** según [`castellano-literario-es.md § 2.bis.1`](../../references/ficciones/castellano-literario-es.md):
+
+| Métrica | Umbral | Estado |
+|---|---|---|
+| Referentes distintos en últimos 5 | ≤ 2 | 🔴 SATURACIÓN CRÍTICA |
+| Referentes distintos en últimos 5 | 3 | 🟡 SATURACIÓN LEVE |
+| Referentes distintos en últimos 10 | < 6 | 🟡 SATURACIÓN LEVE |
+| Mismo referente repetido en últimos 3 consecutivos | sí | 🔴 RACHA SATURANTE |
+| Referentes distintos en últimos 10 | ≥ 8 | 🟢 SANO (no reportar) |
+
+**3. Si estado 🟢 SANO** → no reportar. Continuar al paso 5.7.
+
+**4. Si estado 🟡 LEVE** → incluir línea informativa en el reporte normal del Variability gate sin bloquear:
+
+```
+ℹ️ Saturación leve de catálogo: 3 referentes distintos en últimos 5 relatos (Adón, Mesa, Urraca).
+   Considera tirar del catálogo §1.bis (Vilas/Mendoza/Aramburu/Pron/Chirbes/Grandes/Enriquez)
+   o del banco curado §2.bis.2 (Abreu/Sara Torres/Jiménez Serrano/Sánchez/Portela/Muñoz Molina/
+   Marías/Vila-Matas/Gopegui/Marta Sanz/Schweblin/Travacio) para el próximo relato.
+```
+
+Continuar al paso 5.7.
+
+**5. Si estado 🔴 CRÍTICA o RACHA SATURANTE** → INTERRUMPIR el flujo y reportar a Rafael:
+
+```
+🔴 Saturación de catálogo detectada — el sistema sugiere ampliar el registro:
+
+   Distribución últimos 5: <X usos de Adón, Y usos de Mesa, Z usos de Urraca>
+   Referentes distintos últimos 10: <N> de 17 disponibles
+   <Si racha:> "Adón ha sido referente principal de los últimos 3 relatos consecutivos."
+
+📚 Catálogo §1+§1.bis SIN usar en últimos 5 relatos:
+   <listado>
+
+📦 Banco curado §2.bis.2 (12 candidatos disponibles para activar):
+   <listado completo de los 12 con descripción de 1 línea>
+
+Para el relato actual ({semilla}, categoría tonal {X}, hook propuesto {Y}):
+   - Mejor encaje del catálogo §1.bis: <recomendación con razón>
+   - Mejor encaje del banco §2.bis.2: <recomendación con razón>
+
+¿Cómo procedemos?
+   (a) Activar <candidato A del banco> como referente principal del relato actual (Nivel A puntual).
+   (b) Activar <candidato B del catálogo §1.bis> que aún no se ha usado.
+   (c) Sigues con el referente que ya tenías propuesto en mente.
+   (d) Sugiéreme nombres distintos que no estén ni en catálogo ni en banco — ampliemos el banco.
+```
+
+**6. Si Rafael elige (d) ampliar el banco**: el skill propone 2-3 autores ES/iberoamericanos no presentes en §1, §1.bis ni §2.bis.2 con justificación de qué registro nuevo aportan. Si Rafael acepta uno → se añade al banco §2.bis.2 con el formato canónico (registro · aporta · cuándo activarlo · NO usar para). Si Rafael lo descarta → entra a la lista §2.bis.4 ("descartados con razón documentada").
+
+**7. Registrar `referente-principal` en frontmatter** del relato (uno del catálogo §1, §1.bis, banco §2.bis.2 activado, o nuevo si Rafael lo aceptó). Opcional `referente-secundario` cuando la prosa mezcla dos registros (común en relatos largos).
+
+**8. Aviso de banco corto.** Si el banco §2.bis.2 tiene ≤2 candidatos sin promover (porque varios ya pasaron a §1.tris), avisar a Rafael: *"Banco de ampliación con solo {N} candidatos sin activar. Considera proponer nombres nuevos para mantener variabilidad futura."* Esa es la regla recursiva: la propia detección de saturación se aplica al banco también.
+
+### 5.6.tris Intensidad narrativa — declaración + validación de outline (canonizado 2026-04-26 PM tarde)
+
+**Por qué este paso existe.** El catálogo histórico (9 relatos) era 56% Atmosférico + 22% Slice = **78% bajo en eventos**. Eso es prosa literaria peninsular preciosa pero NO funciona para audiencia ROBOHOGAR (audionovelas en newsletter de gente acostumbrada a YouTube/TikTok). Cita Rafael: *"todos los relatos parecen iguales… aquí no ha ocurrido nada y siempre parece que aquí no ha pasado nada. Por defecto quiero que ocurran más cosas."* La nueva matriz canon ([`intensidad-narrativa.md`](../../references/ficciones/intensidad-narrativa.md)) pone **Cinematográfico (≥5 eventos) como default** y limita Atmosférico al 20% + Slice al 5%.
+
+**Ejecutar tras Variability gate (5.6) + Saturación de catálogo (5.6.bis), antes de hook (5.7).**
+
+**1. Detectar categoría de intensidad declarada por Rafael.** Si Rafael especificó (`--intensidad=cinematografico`, *"escribe algo dinámico"*, *"flash atmosférico"*) → usar esa. Si no especifica → ejecutar **auto-balanceo** sobre [`content/registro-ficciones.md § Intensidad`](../../content/registro-ficciones.md):
+- Calcular % real publicado por categoría sobre los últimos 12 relatos.
+- Identificar la categoría con mayor déficit respecto a la matriz canon (40/35/20/5).
+- Default propuesto = categoría con mayor déficit. Reportar el cálculo a Rafael:
+
+```
+🎬 Catálogo intensidad: Cinematográfico 0% / Dinámico 22% / Atmosférico 56% / Slice 22%
+   Déficits respecto a matriz canon:
+   - Cinematográfico: -40pp (objetivo 40%, actual 0%)
+   - Dinámico: -13pp (objetivo 35%, actual 22%)
+   - Atmosférico: +36pp (sobre-representado)
+   - Slice: +17pp (sobre-representado)
+
+   Default propuesto: 🎬 CINEMATOGRÁFICO. ¿Confirmas o sobrescribes?
+```
+
+**2. Si la categoría es 🎬 Cinematográfico o ⚡ Dinámico**, validar el outline declarado en pasos 4-5.5 contra el target de eventos:
+
+| Categoría | Mínimo eventos significativos en outline |
+|---|---|
+| 🎬 Cinematográfico | ≥ 5 |
+| ⚡ Dinámico | 3-4 |
+| 🌫️ Atmosférico | 1-2 |
+| 🍵 Slice of life | 0-1 |
+
+**Contar eventos del outline** según definición de [`intensidad-narrativa.md § 2`](../../references/ficciones/intensidad-narrativa.md):
+- ✅ Cuentan: alguien gana/pierde algo · alguien decide algo irreversible · alguien hace algo concreto con consecuencia · humanoide rompe patrón programado · llega noticia externa que cambia escenario · encuentro con personaje nuevo.
+- ❌ No cuentan: descripción atmosférica, recuerdo, observación interior, gesto cotidiano repetido, diálogo informativo sin tensión.
+
+**3. Si el outline NO cumple el target**:
+
+```
+🔴 Intensidad insuficiente:
+   Categoría declarada: Cinematográfico (≥5 eventos)
+   Eventos en outline: 3 (lista)
+     1. <evento>
+     2. <evento>
+     3. <evento>
+
+   Faltan ≥2 eventos significativos. Propuestas para añadir al outline:
+   - <evento sugerido A — encaja con la semilla>
+   - <evento sugerido B>
+   - <evento sugerido C>
+
+   ¿Cuáles añadimos al outline antes de prosa?
+```
+
+**Volver a paso 4-5 (Paint The Villain / Pixar Spine) hasta que el outline tenga eventos suficientes.**
+
+**4. Cargar referente secundario de género** (recomendado para Cinematográfico/Dinámico): proponer al menos 1 referente del banco §2.bis.2 ampliado para combinar con la voz literaria peninsular ya elegida en `§ 5.6.bis`. Opciones según semilla:
+- Conflicto moral con consecuencia ineludible → **Pierre Lemaitre** (thriller psicológico).
+- Eventos físicos en cadena (asalto, motín, evacuación) → **Don Winslow** (acción rápida).
+- Colapso sistémico (Reset, blackout, fallo masivo) → **Daniel Suarez** (sci-fi colapso, ya canon en setting `el-gran-reset.md`).
+- Thriller con anclaje peninsular ES (urbano, policial, secreto familiar) → **Eva García Sáenz de Urturi**.
+
+Registrar en frontmatter `referente-secundario: <Nombre>` cuando aplique.
+
+**5. Registrar `intensidad-narrativa` en frontmatter** del relato (uno de las 4 categorías canon). Sin él, el output del skill se bloquea.
+
+**6. Documentar la lista de eventos en `PASOS.md`** del relato bajo el epígrafe `### Eventos del relato`. Esto sirve para verificación pre-output (`§ 9`) y para auditoría futura.
+
+### 5.7 Elegir tipo de hook de apertura — OBLIGATORIO antes de prosa (regla dura 2026-04-26)
+
+**Por qué este paso existe.** Todo relato Ficciones Domésticas abre con un gancho fuerte estilo cold open de piloto HBO o teaser de YouTube — no apertura ambiental literaria neutra. Y la variedad de hooks entre relatos es regla dura: si ROBOHOGAR siempre abre igual (siempre cold open con anomalía, siempre flash-forward, siempre cuenta atrás), el lector recurrente baja la guardia. Razón completa: `@rules/editorial.md § Narrativa especulativa § Hook de apertura`. Origen del feedback: memoria `feedback_ficcion_hook_obligatorio.md`.
+
+**1. Cargar catálogo canon (obligatorio).** Leer [`@references/ficciones/hooks-taxonomia.md`](../../references/ficciones/hooks-taxonomia.md) — 24 tipos en 6 familias (A Evento detonante · B Pregunta-enigma · C Estructura temporal · D Voz-forma · E Personaje · F Atmósfera-mundo) + tabla de encaje por semilla narrativa § 4 + lista de anti-patterns § 5.
+
+**2. Calcular `hooks_recientes` (obligatorio).** Leer las últimas 5 filas de [`content/registro-ficciones.md`](../../content/registro-ficciones.md) (publicados + drafts en pre-pub) y extraer la columna `Hook`. Computar el conjunto de tipos concretos usados recientemente.
+
+**3. Sugerir 3 candidatos al lector** (Rafael), con razón explícita:
+
+```
+📚 Catálogo: 24 hooks · Últimos 5 relatos: <hook_a, hook_b, hook_c, hook_d, hook_e>
+
+Para esta semilla (<semilla>) + categoría tonal <X>, propongo:
+
+  [1] <Hook_concreto> (familia <Y>) — <razón de encaje con la semilla> · NO usado en últimos 5 ✓
+  [2] <Hook_concreto> (familia <Y>) — <razón de encaje con la semilla> · NO usado en últimos 5 ✓
+  [3] <Hook_concreto> (familia <Y>) — <razón de encaje con la semilla> · NO usado en últimos 5 ✓
+
+¿Cuál usamos, o prefieres otro del catálogo?
+```
+
+**Lógica de priorización del skill al elegir los 3 candidatos:**
+
+- **Filtro duro:** descartar tipos presentes en `hooks_recientes` (excepción "sello de serie" documentada en `arco-serie.md` o "tie-in con artículo" documentada en `PASOS.md`).
+- **Filtro semántico:** priorizar tipos de la tabla § 4 que encajan con la semilla narrativa.
+- **Filtro de variedad de familia:** si la última familia usada fue X, priorizar candidatos de familias distintas a X.
+- **Cobertura tonal:** filtrar por las categorías tonales del hook que encajan con la `categoria-tonal` declarada en paso 0.5.
+
+**4. Si Rafael delega o no responde** → usar el candidato [1] sin pedir confirmación adicional. El paso no bloquea el flujo si Rafael ya está en modo automático.
+
+**5. Registrar `hook_type` elegido.** El valor exacto (uno de los 24, ej: `A4 Ruptura mínima de rutina`, `B2 Anomalía minúscula que obsesiona`, `D1 Apertura epistolar`) entra en:
+- Frontmatter YAML del relato: `hook_type: <Letra><Número> <Nombre canónico>`.
+- Variable de trabajo del skill (se valida en paso 9).
+- Fila correspondiente del registro al publicar (paso de Output / `/post-publish`).
+
+**6. Excepciones documentadas.** Si Rafael fuerza un hook que ya está en `hooks_recientes`, el skill registra la excepción con razón en `PASOS.md` del relato (`hook_repetido_justificacion: <razón>`) y avisa: *"Rafael, este hook (X) se usó hace 3 relatos. ¿Confirmas la repetición y la razón? (sello-serie / tie-in / decisión editorial)"*. Sin razón → no avanzar.
+
 ### 6. Expandir a prosa con MRUs — voz castellana literaria peninsular
 
 **Antes de generar prosa, cargar OBLIGATORIAMENTE [`@references/ficciones/castellano-literario-es.md`](../../references/ficciones/castellano-literario-es.md) como contexto.** Este archivo es la base de la voz: 10 referentes ES contemporáneos con muestra textual (Urraca · Amat · Morales · Martínez · de la Cruz · Adón · Barba · Moreno · Mesa · Otero), 5 patrones transversales, 12 calcos EN→ES con alternativas literarias, 12 recursos ES positivos y checklist operativa. Origen: feedback Rafael 2026-04-19 sobre *El operador nocturno v1* — la prosa sonaba a traducción del inglés porque el skill no cargaba ningún modelo de prosa narrativa española literaria, solo frameworks universales (Pixar, MRUs, Paint The Villain).
@@ -331,7 +552,7 @@ Reglas de prosa (obligatorias, condensadas del knowledge base):
 - **Nombres propios distinguibles fonéticamente entre personajes principales.** No nombrar dos protagonistas con la misma inicial + sílaba inicial parecida (ej. *Miguel* + *Martín* — ambos M+vocal cerrada o abierta + R/G; confunden tanto leyendo como en audiolibro TTS). Verificación pre-output: si dos personajes con líneas de POV o diálogo significativo comparten inicial, comprobar que la segunda sílaba diverge claramente (*Daniel* vs *Martín* OK · *Joel* vs *Martín* OK · *Miguel* vs *Martín* ❌). Origen: feedback Rafael 2026-04-19 sobre *El operador nocturno v1/v2* — Miguel/Martín se confundían en lectura y en TTS; renombrado a Joel Santos en v2 final. Excepción: si dos personajes secundarios o de fondo comparten patrón fonético, documenta el riesgo en PASOS.md y prioriza lectura/escucha de prueba.
 - **Presente para inmediatez / pasado para reflexión.** No mezclar en la misma escena salvo justificación narrativa explícita (flashback marcado).
 - **Cada 300-400 palabras**, una frase-gancho que reabra loop nuevo.
-- **Hook de primera frase:** elegir de la tabla de `@references/writewithai/07-ficcion-y-narrativa-serializada.md § 5` (in medias res, objeto mundano crítico, diálogo cortado, etc.). Prohibido párrafo de orientación inicial estilo anglo (*"Era una mañana de abril en Madrid…"* ❌).
+- **Hook de apertura:** ya elegido en paso 5.7 (`hook_type` declarado). La primera frase / primer párrafo debe **ejecutar literalmente** ese hook según el ejemplo canónico de [`@references/ficciones/hooks-taxonomia.md § 2`](../../references/ficciones/hooks-taxonomia.md). Prohibidos los 8 anti-patterns de `hooks-taxonomia.md § 5` (apertura ambiental sin tensión · resumen biográfico · filosofía declarativa · *"Todo empezó cuando…"* · primera frase explicativa del universo · pregunta retórica al lector · presentación con adjetivos · descripción del robot como decorado).
 - **Tecnología digerida** (regla específica ROBOHOGAR): nunca término técnico sin caracterización del narrador o personaje. El robot debe tener mote afectivo en focalización interior de al menos un personaje (no solo *"el humanoide"* en todas las escenas). Detalle en `castellano-literario-es.md § 7`.
 - **Anclaje genérico técnico — REGLA DEL BALANCE (`castellano-literario-es.md § 7.1`):** cada escena del relato debe contener **al menos 1 mención del término técnico genérico** correspondiente a la categoría editorial (`humanoide` · `aspirador` · `cortacésped` · `mascota-robot` · `fregasuelos` · `autómata` · `androide`). Esto preserva la coherencia con tags Beehiiv, llms.txt y el lector que llega desde el catálogo. Después del anclaje, libertad léxica POV (*aparato*, *bicho*, *cabrón*, *chisme*, *armatoste*) según registro del personaje. Verificación pre-output: `grep -c "<término-categoría>" <relato>` por escena → ≥1 cada escena.
 - **Jerga sci-fi clásica permitida (`castellano-literario-es.md § 7.2`):** Asimov (*autómata*, *modelo*, *unidad*), Dick (*androide*, *réplica*, *simulacro*), Tchaikovsky (*espécimen*, *terminal*, *nodo*), genérico contemporáneo (*humanoide*, *unidad doméstica*, *asistente robótico*). Bienvenida en escenas corporativas, bocas de personajes técnicos, anclajes de género literario. Evitar en boca de personajes ajenos al sector (yaya, niño, padre madrileño) salvo justificación; respeta canon ROBOHOGAR (sin marcas comerciales reales en narrador).
@@ -497,7 +718,49 @@ Si hay violaciones → limpiar antes de entregar (no se pregunta al usuario).
 - [ ] **Dato real anclado**: ≥1 fact verificable (AI Act, INE, spec de robot). Citar en comentario HTML invisible al final: `<!-- dato-real: ... -->`
 - [ ] **Villano humano, no robot**: el conflicto emocional debe ser identificable en 1 frase.
 - [ ] **Voz**: POV consistente (omnisciente O 1ª persona del personaje). **Excepción explícita a la regla de "primera persona plural" baseline.**
-- [ ] **Hook de primera frase**: el primer período debe provocar "una más".
+- [ ] **Hook de apertura — `hook_type` declarado en frontmatter** (uno de los 24 canon de [`@references/ficciones/hooks-taxonomia.md § 2`](../../references/ficciones/hooks-taxonomia.md)). Sin él, output bloqueado.
+- [ ] **Hook concreto NO repetido en últimos 5 relatos** (consultar columna `Hook` de [`content/registro-ficciones.md`](../../content/registro-ficciones.md)). Excepción documentada en `arco-serie.md` (sello de serie) o `PASOS.md` (tie-in / decisión editorial); sin justificación → cambiar.
+- [ ] **Primera frase / primer párrafo coincide con el `hook_type` declarado** — lectura manual obligatoria. Si no coincide o cae en uno de los 8 anti-patterns de `hooks-taxonomia.md § 5` (apertura ambiental neutra, resumen biográfico, filosofía abstracta, *"Todo empezó cuando…"*, primera frase explicativa, pregunta retórica al lector, presentación con adjetivos, descripción del robot como decorado) → reescribir antes de entregar.
+- [ ] **Variabilidad inter-relatos — 4 ejes estructurales NO repetidos en últimos 5** (regla dura 2026-04-26 PM). Verificar contra [`content/registro-ficciones.md`](../../content/registro-ficciones.md):
+  - `Perfil POV` del relato (edad±5 + género + relación familiar dominante) NO presente en últimos 5 relatos.
+  - `Setting` triple (ciudad + momento del día + objeto-testigo central) NO presente en últimos 5.
+  - `Conflicto humano` principal NO presente en últimos 5.
+  - `Cliffhanger tipo` NO presente en últimos 5.
+
+  Excepción única documentada: sello de serie declarado explícitamente en `arco-serie.md`. Sin declaración previa, no aplica. Si alguno repite → bloqueo, reescribir el outline. Detalle en [`@.claude/rules/editorial.md § Variabilidad inter-relatos`](../../.claude/rules/editorial.md).
+- [ ] **Referente principal declarado en frontmatter** (`referente-principal: <Nombre>`) — uno del catálogo activo de [`@references/ficciones/castellano-literario-es.md § 1 + § 1.bis + § 1.tris`](../../references/ficciones/castellano-literario-es.md) o del banco §2.bis.2 si Rafael lo activó en el paso 5.6.bis. Sin declaración → bloqueo. Opcional `referente-secundario` cuando la prosa mezcla dos registros.
+- [ ] **Saturación de catálogo de voces verificada** (regla dura 2026-04-26 PM). Si el paso 5.6.bis detectó 🔴 SATURACIÓN CRÍTICA o 🔴 RACHA SATURANTE y Rafael activó un candidato del banco curado, confirmar que el relato escrito **efectivamente refleja** la voz del candidato activado (no solo que se haya declarado en frontmatter). Lectura manual obligatoria: ¿la prosa final tiene el patrón sintáctico/distancia narrativa/registro del candidato? Si solo coincide en frontmatter pero la prosa sigue siendo Adón/Urraca por defecto → reescribir antes de entregar.
+- [ ] **`intensidad-narrativa` declarada en frontmatter** (uno de `Cinematográfico` · `Dinámico` · `Atmosférico` · `Slice of life`). Sin él, output bloqueado. Detalle en [`@references/ficciones/intensidad-narrativa.md`](../../references/ficciones/intensidad-narrativa.md).
+- [ ] **Eventos significativos del relato listados en `PASOS.md § Eventos del relato`** y conteo cumple el target de la categoría declarada:
+
+  | Categoría | Mínimo eventos | ¿Cumple? |
+  |---|---|---|
+  | 🎬 Cinematográfico | ≥ 5 | ✅/❌ |
+  | ⚡ Dinámico | 3-4 | ✅/❌ |
+  | 🌫️ Atmosférico | 1-2 | ✅/❌ |
+  | 🍵 Slice of life | 0-1 | ✅/❌ |
+
+  Si Cinematográfico declarado y solo hay 3 eventos → reescribir antes de entregar. Definición de "evento significativo" en [`intensidad-narrativa.md § 2`](../../references/ficciones/intensidad-narrativa.md).
+- [ ] **Si Cinematográfico/Dinámico** — verificar las 4 condiciones específicas de [`intensidad-narrativa.md § 3.1` o `§ 3.2`](../../references/ficciones/intensidad-narrativa.md):
+  - [ ] **Decisión moral concreta del protagonista** en al menos una escena (no solo registro emocional).
+  - [ ] **Intervención del humanoide** que sale de patrón programado en al menos un beat (acción, no solo observación).
+  - [ ] **Cliffhanger fuerte al cierre**: pregunta concreta que el lector se hace al cerrar y que NO se responde en el relato.
+  - [ ] **Ratio acción/atmósfera**: ≥75% acción/decisión/diálogo/consecuencia · ≤25% descripción atmosférica pura para Cinematográfico (ratio 60/40 para Dinámico).
+- [ ] **Robot NO villano** (regla canon): el humanoide actúa pero el villano humano sigue siendo el motor del conflicto. Aplica especialmente en Cinematográfico, donde el ritmo puede tentar a hacer del robot la amenaza.
+- [ ] **Tropos quemados — verificar contra [`@references/ficciones/tropos-quemados.md`](../../references/ficciones/tropos-quemados.md)**. El borrador no debe contener ningún tropo en estado 🔴 QUEMADO (≥2 usos, ventana de enfriamiento 5 relatos activa). Particularmente atento a setting clichés (cafetera italiana, geranios sin florecer, luz que no calienta, tortilla francesa), gestos físicos (pelusa-codo-dos-dedos, gesto de servirse café que no bebe, bata azul abrochada al revés), símiles (humanoide=abrigo en percha) y frases-fórmula (*"Cinco años hace ya"*, *"Hace tres años que no le hace ya nada"*). Si match → reescribir.
+- [ ] **Validación grep cruzada — anti-auto-plagio léxico** (regla dura 2026-04-26 PM). Ejecutar:
+
+  ```bash
+  python utilities/check_self_plagiarism.py <ruta-al-relato.md> --window 5
+  ```
+
+  El script compara n-gramas ≥6 palabras del nuevo borrador contra los últimos 5 relatos publicados + drafts pre-pub. Resultado:
+  - **Match ≥6 palabras consecutivas** → BLOQUEO. Reescribir las frases marcadas antes de entregar.
+  - **Match 4-5 palabras de fórmula reconocible** (ej: *"Hace tres años que"*, *"luz de … que no calienta"*) → warning. Revisar y reescribir si la fórmula está saturada en `tropos-quemados.md`.
+  - **0 matches ≥4 palabras** → procede al output.
+
+  Saltar este paso rompe el contrato del skill — no es opcional.
+- [ ] **Actualizar registro al cerrar el relato:** añadir fila a [`content/registro-ficciones.md`](../../content/registro-ficciones.md) con los 4 valores estructurales (Perfil POV, Setting, Conflicto humano, Cliffhanger tipo) + actualizar [`references/ficciones/tropos-quemados.md`](../../references/ficciones/tropos-quemados.md) con las 5-10 figuras dominantes detectadas en el relato (gesto físico clave, metáfora dominante, objeto-testigo cargado, frase-fórmula recurrente). Sin esta actualización, el siguiente relato no tendrá registro contra el que comparar.
 - [ ] **Tag visual**: "Ficciones Domésticas" en frontmatter + categoría Beehiiv "Opinión" o tag dedicado.
 - [ ] **Pasa la checklist de [`@references/ficciones/castellano-literario-es.md § 8`](../../references/ficciones/castellano-literario-es.md)** — anti-calco EN→ES + presencia de recursos ES positivos + ritmo + espacio doméstico activo + voz por personaje + tecnología digerida. Si falla ≥4 ítems, reescribir el relato; si falla 1-3, reescribir párrafos concretos.
 - [ ] **`categoria-tonal` declarada en frontmatter** (`inquietante` · `inquietante-heavy` · `radical` · `ambiguo` · `inspirador` · `mundano`) y **desenlace coherente** con la categoría según [`@references/ficciones/tonalidad-y-mix-editorial.md § 2`](../../references/ficciones/tonalidad-y-mix-editorial.md). Verificación específica:

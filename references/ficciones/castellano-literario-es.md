@@ -94,6 +94,84 @@ El relato *La menuda* (Lara Moreno + Ilu Ros, Páginas de Espuma 2023) merece tr
 
 ---
 
+## §1.bis Siete referentes ampliados — diversificación de registro (canonizado 2026-04-26 PM)
+
+Los 10 referentes de §1 son todos del **mismo registro literario**: peninsular contemplativo, corporalización, contención poética, voz interior. Cuando ese registro fue lo único que el skill cargó, el catálogo convergió a un solo modo de prosa (auditoría 2026-04-26 detectó 66% del catálogo en mismo conflicto humano + prosa que el lector identifica como "molde ROBOHOGAR" en el segundo párrafo). Estos 7 referentes adicionales aportan **rangos de voz distintos** que rompen la convergencia. **Operativa:** cuando la categoría tonal del relato pide otro registro (cómico, popular oral, terror, coral, intelectual, cínico moral), cargar la subsección correspondiente en lugar de — o además de — los referentes §1.
+
+### §1.bis.1 Manuel Vilas · *Ordesa* (2018) · *Alegría* (2019) · *Los besos* (2021)
+
+- **Concepto clave:** prosa autobiográfica oral, primera persona conversacional, frases cortas que martillan, fragmentos numerados breves. Cómico-trágico simultáneo: la frase que hace gracia es la misma que duele.
+- **Patrón:** párrafos de 1-3 frases. Repetición rítmica como motor (*"Los muertos. Los muertos. Los muertos."*). Coloquialismo aragonés-castellano sin folklorismo. La autoconciencia del narrador como técnica: comenta lo que está contando mientras lo cuenta.
+- **Adoptar para ROBOHOGAR:** ficciones en primera persona del personaje vulnerable (POV niño, anciano, divorciado). Cuando el conflicto humano sea pérdida, ridículo cotidiano o introspección autobiográfica. Permite humor en territorios donde el registro Urraca/Adón se quedaría seco.
+- **NO usar para:** ficciones omniscientes corales, narrador externo distante, escenas de acción.
+
+### §1.bis.2 Almudena Grandes · *Las edades de Lulú* (1989) · *Los aires difíciles* (2002) · *Episodios de una guerra interminable* (2010-2020)
+
+- **Concepto clave:** popular madrileño con calle real. Voz colectiva sin perderse en lo individual. Diálogo madrileño como instrumento de clase social — el habla revela origen, generación, posicionamiento político.
+- **Patrón:** descripción exhaustiva de espacio físico (un patio, una panadería, una boca de metro) como anclaje sociopolítico. Frases largas con subordinación natural (no calcada). Personajes secundarios con voz propia inmediata.
+- **Adoptar para ROBOHOGAR:** ficciones corales con varios POVs en mismo barrio (cuando llegue el momento), escenas de interacción con vecindario, conflictos de clase y gentrificación con humanoides como marcador social. Cuando la ciudad ES no sea decorado sino personaje.
+- **NO usar para:** flash de 500 palabras (la voz Grandes pide despliegue), POV humanoide.
+
+### §1.bis.3 Eduardo Mendoza · *Sin noticias de Gurb* (1991) · *El asombroso viaje de Pomponio Flato* (2008) · serie *Pomponio*
+
+- **Concepto clave:** comicidad seca por contraste de registro. Una voz culta-formal-administrativa describe un desastre cotidiano absurdo sin alterarse. La distancia entre tono y contenido genera la gracia.
+- **Patrón:** registro de informe burocrático aplicado a situaciones absurdas. Verbos formales (*"se procede a"*, *"se constata que"*, *"con el debido respeto"*) en escenas surrealistas. Ironía sin guiño explícito al lector.
+- **Adoptar para ROBOHOGAR:** ficciones cómicas. POV humanoide en modo "informe oficial" cuando el conflicto es absurdo doméstico. Categoría tonal `mundano` o `inspirador` con humor seco. Escenas familiares donde la solemnidad del aparato choca con el caos humano.
+- **NO usar para:** inquietante-heavy, radical, registros emocionales sin distancia.
+
+### §1.bis.4 Mariana Enriquez · *Las cosas que perdimos en el fuego* (2016) · *Nuestra parte de noche* (2019)
+
+- **Concepto clave:** terror doméstico latinoamericano. Lo cotidiano se desliza hacia lo siniestro sin marca explícita. Casas, vecindarios, familias normales atravesadas por una grieta que el lector siente antes de identificar.
+- **Patrón:** descripción minuciosa de lo cotidiano con UN detalle que no encaja del todo. Verbos de acción concretos. POV de personajes femeninos jóvenes-medianos en barrios populares. La violencia sugerida pesa más que la descrita.
+- **Adoptar para ROBOHOGAR:** categoría tonal `inquietante-heavy`. Cuando el humanoide deba leerse como umbral de algo siniestro sin ser villano. Relaja la regla de peninsularidad cuando el conflicto humano lo pida (terror doméstico no es repertorio fuerte de la prosa peninsular contemporánea — Enriquez lo aporta sin pedir disculpas).
+- **NO usar para:** mundano puro, comedia, voz coral. **Atención:** el registro Enriquez es rioplatense — al escribir ROBOHOGAR ES peninsular, adoptar **patrón**, no léxico (no "vos", no "che", no "boludo"; sí estructura de frase que avanza por capas).
+
+### §1.bis.5 Fernando Aramburu · *Patria* (2016) · *El trompetista del Utopía* (2003)
+
+- **Concepto clave:** prosa coral con saltos de POV controlados, voces múltiples del mismo conflicto. Moral colectiva sin moralismo. El narrador no juzga, los personajes sí — y se contradicen entre ellos.
+- **Patrón:** capítulos breves con cambio de POV; mismo evento contado desde dos cabezas diferentes; tiempo presente con flashbacks puntuales tipo Lost (no doble línea paralela). Léxico vasco-castellano sin folklorismo.
+- **Adoptar para ROBOHOGAR:** ficciones radicales o ambiguas con conflicto político-social donde se necesita mostrar dos posiciones igualmente defendibles. POV alternante hermano/hermana, vecino/vecino, ministro/funcionario, técnico/operador. Cuando el relato necesite mostrar el peso colectivo del Reset, no solo el íntimo.
+- **NO usar para:** flash, POV único interior, comedia.
+
+### §1.bis.6 Patricio Pron · *Mañana tendremos otros nombres* (2019) · *El comienzo de la primavera* (2008)
+
+- **Concepto clave:** prosa enfermiza contemporánea, registro intelectualizado por personajes de clase media-alta urbana. Disección milimétrica de relaciones afectivas, jerga literaria/cinematográfica/filosófica integrada al diálogo sin pedantería.
+- **Patrón:** frases largas con incisos múltiples. Personajes que piensan en términos de teoría literaria o psicoanálisis aplicados a su propia situación. Distancia analítica del narrador frente al personaje aunque comparta clase social.
+- **Adoptar para ROBOHOGAR:** ficciones inquietantes con POV de personajes universitarios, profesionales urbanos, parejas modernas. Cuando el humanoide sea objeto de reflexión consciente, no presencia ambiental. Conflictos contemporáneos con vocabulario psicoanalítico (apego, narcisismo, deseo, transferencia).
+- **NO usar para:** POV popular, pueblo, infancia, comedia. **Atención:** Pron es argentino — adoptar registro intelectualizado pero con léxico peninsular (no "departamento", sí "piso"; no "celular", sí "móvil").
+
+### §1.bis.7 Rafael Chirbes · *Crematorio* (2007) · *En la orilla* (2013)
+
+- **Concepto clave:** cinismo moral mediterráneo. Narrador interno tóxico que no se hace ilusiones sobre nada — ni sobre sí mismo, ni sobre los suyos, ni sobre el sistema. Mirada económica-clasista que ve estructuras detrás de gestos cotidianos.
+- **Patrón:** monólogo interior denso, párrafos largos que arrastran capas de cinismo y autoincriminación. Diálogo escaso pero cortante. Espacios físicos (urbanizaciones costeras, descampados, comercios cerrados) como evidencia del colapso.
+- **Adoptar para ROBOHOGAR:** ficciones radicales con POV de personajes que tienen poder y lo ejercen mal (ministros, empresarios, propietarios). Contextos del setting `el-gran-reset` Libro 1 cuando el POV sea el ministro o el comandante general. Conflictos de corrupción, decadencia, complicidad.
+- **NO usar para:** POV vulnerable, infancia, esperanza. Chirbes es lo opuesto a Mendoza/Vilas: si necesitas humor o calidez, no es la voz.
+
+### §1.bis.8 Tabla de aplicación rápida — qué referente usar según contexto
+
+| Categoría tonal | POV | Referente principal | Apoyo |
+|---|---|---|---|
+| inquietante (sello casa) | mujer 50-60 cuidadora | Urraca · Adón | Enriquez (cuando vire heavy) |
+| inquietante-heavy | cualquiera | Enriquez · Adón | Mesa (humor distante) |
+| radical | hombre poder político | Chirbes · Aramburu | Morales (humor político) |
+| ambiguo | múltiples POVs | Aramburu · Pron | Mesa · Barba |
+| inspirador | adolescente, anciano | Vilas · Otero · Moreno | Grandes (calidez popular) |
+| mundano | personaje urbano clase media | Pron · Mendoza | Vilas |
+| cómico-mundano | familia o pareja | Mendoza · Vilas | Otero |
+| coral político | comunidad | Aramburu · Grandes | Chirbes (cuando vire oscuro) |
+| terror doméstico | mujer joven-media | Enriquez · Adón | Martínez (Carcoma) |
+| infantil-adulto | niño 8-12 | Vilas (autobiográfico) · Moreno | Otero |
+
+### §1.bis.9 Cómo no copiar el registro nuevo — adaptación, no calco
+
+Cada referente aporta **patrón** (estructura de frase, distancia narrativa, registro), no **léxico literal**. Adaptar a ROBOHOGAR:
+
+- **No usar tics regionales** del referente original cuando no encajen con el español peninsular contemporáneo del POV: no "vos" ni "che" de Enriquez/Pron en narrador, no folklorismo aragonés exagerado de Vilas, no léxico vasco de Aramburu salvo si el POV es vasco.
+- **Sí adoptar la estructura sintáctica** y la distancia narrativa: la frase corta autoconsciente de Vilas, el inciso intelectualizado de Pron, el coral cortado de Aramburu, el cinismo descriptivo de Chirbes.
+- **El test de la voz:** si el lector ES contemporáneo del relato dijera *"esto está escrito como Mendoza"* o *"como Aramburu"*, OK. Si dijera *"esto suena traducido del argentino"* o *"esto es Aramburu pero con humanoides"*, no.
+
+---
+
 ## §2 Cinco patrones recurrentes — síntesis transversal
 
 ### §2.1 El cuerpo como instrumento de exactitud
@@ -125,6 +203,187 @@ Todos los autores incorporan oralidad (coloquialismos, registros de clase, jerga
 Urraca, Otero, Mesa, Moreno: el humor aparece en los momentos de mayor oscuridad pero no para aliviar la tensión sino para sostenerla. *"Es difícil amar a los humanos sin despreciarlos"* (Moreno) define la relación con el lector que es también la del robot doméstico ideal: afecto con distancia, ternura con ironía.
 
 **Aplicación:** prohibido el humor de alivio (chiste que rompe la tensión). Permitido el humor seco que la sostiene. Si una escena es oscura y aparece un toque cómico, comprobar: ¿el lector se ríe y respira o se ríe incómodo? El segundo sirve, el primero rompe el relato.
+
+---
+
+## §2.bis Saturación de catálogo — detección y ampliación dinámica (canonizado 2026-04-26 PM)
+
+> Validación añadida tras feedback Rafael: *"si te das cuenta de que se está quedando corto el número de autores españoles que hay dentro de Castellano literario es, sugiéreme aumentar el registro en más autores."*
+>
+> El catálogo §1 + §1.bis lista actualmente 17 referentes. Conforme la saga crezca (15-20-50 relatos), si el skill `/ficcion-draft` siempre carga los mismos 3-4 referentes dominantes (Urraca · Adón · Mesa para inquietante; Vilas para popular; Chirbes para radical político), el catálogo deja de aportar variedad y la prosa converge igual que antes (auto-plagio de voz, no solo de figuras). Esta sección define cuándo el sistema debe **proponer ampliación** y de qué banco curado tirar.
+
+### §2.bis.1 Heurística de detección de saturación
+
+Cada relato declara en su frontmatter `referente-principal: <Nombre>` (autor cuya voz literaria se ha tomado como guía dominante). Opcional `referente-secundario` si la prosa mezcla dos registros.
+
+El skill `/ficcion-draft § 5.6.bis Saturación de catálogo` calcula automáticamente sobre el registro `content/registro-ficciones.md`:
+
+| Métrica | Umbral | Estado |
+|---|---|---|
+| Referentes distintos en últimos 5 relatos | ≤ 2 | 🔴 SATURACIÓN CRÍTICA |
+| Referentes distintos en últimos 5 relatos | 3 | 🟡 SATURACIÓN LEVE |
+| Referentes distintos en últimos 10 relatos | < 6 | 🟡 SATURACIÓN LEVE |
+| Referentes distintos en últimos 10 relatos | ≥ 8 | 🟢 SANO |
+| Mismo referente principal repetido en últimos 3 relatos consecutivos | sí | 🔴 RACHA SATURANTE |
+
+**Cuando se dispara 🔴**: el skill INTERRUMPE el flujo en `§ 5.6.bis` y reporta a Rafael:
+
+```
+🔴 Saturación de catálogo detectada:
+- Últimos 5 relatos: 4/5 con registro Urraca/Adón (peninsular contemplativo)
+- Últimos 10 relatos: solo 4 referentes distintos del catálogo (17 disponibles)
+- Racha: Adón en 3 relatos consecutivos (#7, #8, #9)
+
+📚 Catálogo activo (cargado en este relato): Urraca + Adón
+   Faltarían registros: <listado de los 17 referentes NO usados en últimos 5>
+
+¿Quieres que proponga 2-3 candidatos del banco de ampliación (§2.bis.2) para
+romper la racha? (a) Sí, propón. (b) No, sigue con los actuales. (c) Sugiéreme
+nombres distintos que no estén ni en catálogo ni en banco.
+```
+
+**Cuando se dispara 🟡**: el skill incluye en el reporte normal del Variability gate una línea informativa: *"Catálogo en uso intenso de [referentes X, Y]. Considera tirar del catálogo §1.bis o del banco §2.bis.2 para el siguiente relato."*. No interrumpe.
+
+### §2.bis.2 Banco curado de ampliación — 12 candidatos
+
+Banco de candidatos pre-curados, listos para activarse cuando el skill detecte saturación o Rafael lo solicite explícitamente. Cada uno con descripción breve, registro que aporta y aplicación recomendada. **No están en el catálogo activo §1/§1.bis hasta que Rafael los promueva** (ver §2.bis.3).
+
+#### Voces ES jóvenes/contemporáneas no cubiertas
+
+**1. Andrea Abreu** · *Panza de burro* (2020) · *Bien Súper* (2024)
+- **Registro:** voz canaria adolescente, oral popular insular, frontera lenguaje peninsular/canario, niñas POV de 10 años.
+- **Aporta:** POV infantil-adolescente con voz fonéticamente marcada, oralidad transcrita sin folklore.
+- **Cuándo activarlo:** relatos con POV niño o preadolescente, tonal `mundano` o `inspirador`, escenarios no-Madrid (insulares, periferia).
+- **NO usar para:** narrador adulto, registro literario contemplativo.
+
+**2. Sara Torres** · *Lo que hay* (2022) · *Conjuntos* (2020)
+- **Registro:** prosa lésbica intelectualizada, deseo y duelo, poesía-en-prosa contemporánea, registro filosófico-corporal.
+- **Aporta:** inquietante íntimo y ambiguo afectivo desde un cuerpo que piensa el deseo en voz alta. Hueco que ni Adón ni Urraca cubren.
+- **Cuándo activarlo:** relatos `inquietante-heavy` o `ambiguo` con eje afectivo/sexual/familiar adulto. POV mujer adulta-joven.
+- **NO usar para:** comedia, POV infantil, voz coral.
+
+**3. Marta Jiménez Serrano** · *Los nombres propios* (2021) · *La mujer pez* (2024)
+- **Registro:** voz millennial madrileña, autoficción contemplativa, humor seco generacional, parejas y familias urbanas.
+- **Aporta:** registro mundano-cotidiano con humor sutil que el catálogo actual no tiene (Urraca es más oscuro, Otero más popular).
+- **Cuándo activarlo:** tonal `mundano` o `inspirador` con POV 25-40, conflicto cotidiano de pareja/familia/laboral.
+- **NO usar para:** inquietante-heavy, radical político, POV anciano.
+
+**4. Almudena Sánchez** · *Fármaco* (2021) · *La acústica de los iglús* (2016)
+- **Registro:** crónica de la depresión + medicación + cuerpo, prosa enferma generacional, registro ensayo-narrativo.
+- **Aporta:** inquietante-heavy desde POV vulnerable mujer joven con conciencia clínica de su malestar. Más analítico que Urraca, menos teórico que Sara Torres.
+- **Cuándo activarlo:** relatos donde el conflicto humano sea salud mental + tecnología (humanoide cuidador de paciente con depresión, ansiedad, trastorno alimentario).
+- **NO usar para:** POV resiliente, comedia, coral.
+
+**5. Edurne Portela** · *Mejor la ausencia* (2017) · *Formas de estar lejos* (2019)
+- **Registro:** vasca, conflicto/violencia/silencios familiares, registro coral con focalización rotativa, prosa espesa moralmente.
+- **Aporta:** POV coral político y radical desde lo familiar (no desde el aparato como Chirbes). Cuando el setting `el-gran-reset` Libro 2 pida violencia comunitaria contra humanoides, esta voz es la natural.
+- **Cuándo activarlo:** tonal `radical` con conflicto comunidad/violencia/herencia. POV adulto en familia atravesada.
+- **NO usar para:** flash, comedia.
+
+#### Voces ES canónicas mayores no cubiertas
+
+**6. Antonio Muñoz Molina** · *El jinete polaco* (1991) · *Sefarad* (2001) · *La noche de los tiempos* (2009)
+- **Registro:** prosa larga reflexiva, memoria histórica, registro intelectual, frases con subordinación elaborada pero sin barroquismo.
+- **Aporta:** coral histórico para flashbacks elaborados del Reset Libro 1 (los del hacker, los del ministro). Estructura tipo Lost que el setting pide.
+- **Cuándo activarlo:** flashbacks largos en relatos del mundo `el-gran-reset` cuando el POV sea hacker o ministro y se necesite construcción de privilegio/radicalización.
+- **NO usar para:** flash 500-800 palabras (Muñoz Molina pide despliegue), POV infantil.
+
+**7. Javier Marías** · *Corazón tan blanco* (1992) · *Mañana en la batalla piensa en mí* (1994) · *Los enamoramientos* (2011)
+- **Registro:** subordinación infinita, monólogo interior denso, espionaje-traducción-secreto como motor temático, POV intelectual masculino.
+- **Aporta:** ambigüedad moral profunda en POV consciente de su propia ambigüedad. Único registro del catálogo capaz de sostener un POV tipo el ministro de la saga sin caer en cinismo Chirbes.
+- **Cuándo activarlo:** relatos `ambiguo` con POV adulto que se autoanaliza mientras decide. Cuando el conflicto sea epistemológico (qué se sabe, qué se calla, qué se inventa).
+- **NO usar para:** ritmo rápido, comedia, POV popular.
+
+**8. Enrique Vila-Matas** · *Bartleby y compañía* (2000) · *Doctor Pasavento* (2005) · *Aire de Dylan* (2012)
+- **Registro:** metaliteratura, fragmento, narrador inventando narrador, citas falsas, autoconciencia literaria continua.
+- **Aporta:** hooks D1/D4 (epistolar/confesional) con autoconciencia. Para relatos donde el narrador es un humanoide que ha aprendido a leer ficción y empieza a escribirla, o un humano que escribe sobre su humanoide como personaje.
+- **Cuándo activarlo:** experimentos formales puntuales. Categoría tonal `ambiguo` o `mundano` con vocación literaria. Spin-off del setting Reset que sea un ensayo-relato.
+- **NO usar para:** thriller, ritmo, claridad, POV popular o infantil.
+
+**9. Belén Gopegui** · *El padre de Blancanieves* (2007) · *Quédate este día y esta noche conmigo* (2017)
+- **Registro:** politización del relato cotidiano, conflicto laboral y económico narrado desde lo doméstico, militancia sin panfleto.
+- **Aporta:** corrupción institucional y conflicto de clase con anclaje doméstico. Hueco entre Chirbes (cinismo de poder) y Aramburu (coral familiar).
+- **Cuándo activarlo:** tonal `radical` o `inquietante-heavy` con POV trabajadora media-baja. Cuando el humanoide doméstico sea variable de explotación laboral, no objeto afectivo.
+- **NO usar para:** infancia, comedia, lirismo puro.
+
+**10. Marta Sanz** · *Daniela Astor y la caja negra* (2013) · *Clavícula* (2017) · *Persianas metálicas fuera de hora* (2023)
+- **Registro:** cuerpo enfermo, cinismo feminista, ensayo-narrativo, prosa con conciencia de género y clase.
+- **Aporta:** inquietante con eje cuerpo-de-mujer-mayor que el catálogo no cubre directamente (Adón y Urraca son más jóvenes; Sara Torres no enfoca el envejecimiento).
+- **Cuándo activarlo:** POV mujer 50-70 con conciencia política del propio cuerpo. Conflicto humano: envejecimiento, menopausia, dolor crónico, cuidado del propio cuerpo en mundo automatizado.
+- **NO usar para:** masculino, infantil, comedia ligera.
+
+#### Voces latinoamericanas como excepción documentada (registro no peninsular)
+
+**11. Samanta Schweblin** · *Distancia de rescate* (2014) · *Pájaros en la boca* (2009) · *Kentukis* (2018)
+- **Registro:** argentina, terror sin recurso fácil, distancia analítica fría, lo siniestro emergiendo de lo sintético-tecnológico (especialmente *Kentukis* — cuasi-humanoide doméstico, lectura obligatoria para ROBOHOGAR).
+- **Aporta:** inquietante-heavy donde Enriquez sea demasiado popular y se quiera registro más cerebral. Único referente del catálogo que ha escrito específicamente sobre humanoides domésticos.
+- **Cuándo activarlo:** inquietante-heavy con humanoide en plano elevado, no como sirviente. POV adulto.
+- **NO usar para:** registro popular, comedia. **Atención:** rioplatense — adoptar **patrón** (frase corta+ extrañamiento), nunca léxico (no "vos", no "che").
+
+**12. Mariana Travacio** · *Como si existiese el perdón* (2016) · *Quebrada* (2022)
+- **Registro:** argentina, pueblo árido, herencia y violencia rural, prosa seca con economía McCarthy traducida al castellano.
+- **Aporta:** rural post-colapso para el setting `el-gran-reset` Libro 2+ cuando los humanoides organizados rompan con humanos en pueblos. Hueco que ni Aramburu ni Chirbes cubren.
+- **Cuándo activarlo:** relatos rurales del mundo Reset (Libro 2+), con violencia heredada o pendiente.
+- **NO usar para:** urbano, infantil, contemporáneo Madrid.
+
+#### Voces de género para relatos Cinematográficos / Dinámicos (canonizado 2026-04-26 PM tarde)
+
+Tras canonizar la matriz de intensidad narrativa ([`intensidad-narrativa.md`](intensidad-narrativa.md)) con default Cinematográfico ≥5 eventos, el banco se amplía con 4 referentes de **estructura de género** — thriller psicológico, sci-fi de colapso, audionovela ES — que el skill puede cargar como **referente secundario** combinado con voz peninsular literaria. Dan estructura de eventos y ritmo, mientras la voz dominante sigue cuidada.
+
+**13. Pierre Lemaitre** · *Tres días y una vida* (2016) · *Némesis* (2017) · *Recursos inhumanos* (2010)
+- **Registro:** thriller psicológico francés, prosa precisa que avanza por consecuencias. Estructura de cine policiaco con trasfondo histórico-social. Capítulos cortos, escena por escena, escalada controlada.
+- **Aporta:** estructura de eventos para relatos Cinematográficos donde el conflicto humano sea moral con consecuencia ineludible (qué hace el personaje cuando ya ha cruzado una línea sin querer). El humanoide doméstico como testigo o cómplice de un secreto.
+- **Cuándo activarlo como secundario:** Cinematográfico con conflicto `acto-irreversible-suspendido` o `decisión-moral-pendiente`. La voz primaria sigue siendo Adón/Mesa/Pron; Lemaitre da el ritmo y la mecánica de escena.
+- **NO usar para:** comedia, slice of life, POV infantil.
+
+**14. Don Winslow** · *El cártel* (2015) · *Salvajes* (2010) · *El poder del perro* (2005)
+- **Registro:** thriller americano de acción rápida, frases cortas declarativas, alternancia de POVs múltiples en escenas paralelas, estilo cinematográfico-pulp con ambición coral.
+- **Aporta:** ritmo extremo para relatos Cinematográficos cuando el evento sea físico inmediato (asalto, persecución, evacuación, motín). Frases-película.
+- **Cuándo activarlo como secundario:** Cinematográfico con eventos físicos en cadena. Mundo `el-gran-reset` Libro 1 escenas de calle, supermercado, rellano del bloque, caos urbano.
+- **NO usar para:** introspección, atmósfera, POV literario contemplativo. **Atención:** es americano — adoptar **estructura** (escena breve + alternancia rápida), no léxico (no traducir directamente, mantener registro ES peninsular).
+
+**15. Daniel Suarez** · *Daemon* (2006) · *Freedom™* (2010) · *Influx* (2014)
+- **Registro:** sci-fi de colapso sistémico, ya canon en el setting `el-gran-reset.md § 9` como referencia tonal. Mecánica del colapso técnico narrada con precisión + thriller. POVs múltiples.
+- **Aporta:** estructura de eventos para relatos en el mundo Reset que necesiten describir cómo cae un sistema (banca, red, comunicaciones, suministro) sin perder la perspectiva humana del POV doméstico. Perfecto para Cinematográfico cuando el evento detonante es sistémico.
+- **Cuándo activarlo como secundario:** mundo `el-gran-reset`, Libro 1 Día 1-7 (colapso por capas) o Libro 2 (sociedad humanoide organizándose). Voz dominante peninsular literaria; Suarez da la mecánica del colapso.
+- **NO usar para:** ficciones puramente domésticas sin eje sistémico, comedia.
+
+**16. Eva García Sáenz de Urturi** · *El silencio de la ciudad blanca* (2016) · *Los señores del tiempo* (2018)
+- **Registro:** thriller con anclaje peninsular ES (Vitoria como personaje), prosa accesible que respeta el ritmo del lector mainstream sin caer en pulp. Capítulos breves, ganchos cada 2-3 páginas, equilibrio entre trama y voz.
+- **Aporta:** modelo más cercano a ROBOHOGAR de cómo un autor ES contemporáneo funciona en audiolibro mainstream sin sacrificar voz. Es la pieza que **cierra el hueco** entre la voz literaria peninsular del catálogo §1 y la estructura de género del thriller.
+- **Cuándo activarlo como secundario:** Cinematográfico ES con anclaje urbano peninsular. Madrid, Barcelona, Vitoria, Zaragoza, Sevilla. Conflicto policial-investigativo o secreto familiar con humanoide implicado.
+- **NO usar para:** flash 500-800 (su ritmo pide despliegue), POV infantil.
+
+#### Standby — no activar salvo demanda específica
+
+- **Roberto Bolaño** (chileno, novela-río): solo si se hace una mini-serie estilo *Los detectives salvajes* en el Reset Libro 2.
+- **Alejandro Zambra** (chileno, autoficción mínima): para flash cuando sea un solo personaje y dos páginas.
+- **Liu Cixin** (chino, *El problema de los tres cuerpos*): ya en setting Reset § 9 como referencia tonal. Para coral cinematográfica con ambición de escala (Libros 2-3).
+
+### §2.bis.3 Protocolo de activación — cómo se promueve un candidato al catálogo activo
+
+Cuando el skill propone un candidato del banco §2.bis.2 y Rafael acepta, hay 2 niveles de activación:
+
+**Nivel A — Activación puntual** (un solo relato): el skill carga el patrón del candidato como registro principal del relato actual. Se registra en frontmatter (`referente-principal: <Nombre>`) y en `registro-ficciones.md`. Si el experimento sale bien, en futuros relatos se podrá repetir invocándolo explícitamente. NO se mueve al catálogo §1.bis.
+
+**Nivel B — Promoción al catálogo activo §1.tris** (uso recurrente): si tras 2-3 relatos puntuales el candidato funciona, Rafael decide promoverlo. Se añade nueva sección `§1.tris.<N>` en este archivo con análisis literario completo (concepto clave + patrón + adoptar para ROBOHOGAR + NO usar para), siguiendo el formato de §1.bis. A partir de ese momento, el candidato es referente activo y entra en la rotación natural del catálogo.
+
+**Quién decide:** Rafael, no el skill. El skill solo propone y registra el experimento; la promoción es decisión editorial.
+
+**Banco vivo:** este banco §2.bis.2 puede crecer. Si Rafael identifica un autor ES que no esté ni en catálogo ni en banco, se añade aquí con el formato canónico (registro + aporta + cuándo activarlo + NO usar para). Si el banco se quedara corto en futuro (por ejemplo: queda solo 1 candidato sin promover), el skill avisa: *"banco §2.bis.2 con solo N candidatos sin promover. Considera ampliar."* — sigue el mismo principio que la propia regla.
+
+### §2.bis.4 Lista de referentes ES potenciales que NO entran en banco curado (registro)
+
+Estos autores se descartaron como candidatos para el banco actual por razones documentadas. Si en el futuro Rafael discrepa, se promueven al §2.bis.2:
+
+- **Carmen Martín Gaite** — tradición clásica, registro ya cubierto por Lara Moreno y Sara Mesa.
+- **Ana María Matute** — registro infantil y mítico que el banco actual no necesita (el setting Reset es realista).
+- **Manuel Rivas** — gallego, registro lírico-ensoñador que choca con el realismo duro del setting.
+- **Camilo José Cela** — registro de los 50s, anacrónico para 2030-2040 contemporáneo.
+- **Eduardo Halfon** — guatemalteco, autoficción judía, fuera del foco temático ROBOHOGAR.
+- **Pola Oloixarac** — argentina, intelectualismo de elite, registro ya cubierto por Pron.
+
+Cada uno se documenta para que el debate quede zanjado y no se reabra cada vez. Si Rafael cambia de opinión, se re-evalúa caso por caso.
 
 ---
 
