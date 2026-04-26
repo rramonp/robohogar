@@ -1,6 +1,6 @@
 ---
 name: Formato técnico Beehiiv — tipografía + bold + copy-paste + tablas mobile
-description: Config tipográfica global Beehiiv (DM Sans Bold headings + Inter Regular body) · política de negritas (dónde sí / dónde no) · bug copy-paste obliga a usar <strong> NUNCA <span class="bold"> · tablas mobile-first (máx 4 cols, cells ≤25 chars).
+description: Config tipográfica global Beehiiv (DM Sans Semibold headings + Inter Regular body) · política de negritas (dónde sí / dónde no) · bug copy-paste obliga a usar <strong> NUNCA <span class="bold"> · tablas mobile-first (máx 4 cols, cells ≤25 chars).
 type: feedback
 ---
 
@@ -8,7 +8,7 @@ Memoria maestra de formato técnico Beehiiv para ROBOHOGAR. Consolida tipografí
 
 ## 1. Config tipográfica global
 
-- **Headings H1/H2/H3/H4:** DM Sans · **Bold** (aplicado como global setting en el admin de Beehiiv).
+- **Headings H1/H2/H3/H4:** DM Sans · **Semibold (600)** (aplicado como global setting en Beehiiv → Settings → Theme → Typography → Heading → Font weight). Cambio Bold → Semibold validado 2026-04-26 para reducir el peso visual de los headings al pegar Markdown directo.
 - **Body / párrafo:** Inter · Regular.
 - La config vive en Beehiiv admin, no en los borradores. Los borradores generan Markdown/HTML semántico plano y Beehiiv aplica el estilo al renderizar.
 
@@ -19,7 +19,7 @@ Memoria maestra de formato técnico Beehiiv para ROBOHOGAR. Consolida tipografí
 - Listas/bullets de prosa dentro de párrafos.
 
 **❌ NO** (aunque la fuente lo permita):
-- **Headings H1/H2/H3/H4** — Beehiiv ya aplica DM Sans Bold global; cualquier `<strong>` / `<b>` / `** **` dentro duplica peso visible.
+- **Headings H1/H2/H3/H4** — Beehiiv ya aplica DM Sans Semibold (600) global; cualquier `<strong>` / `<b>` / `** **` dentro duplica peso visible y rompe la sensación visual buscada.
 - **`<thead>` de tablas** — Beehiiv estiliza el header con su propio font-weight. En `<tbody>`: solo la col 1 (ancla de escaneo móvil) puede ir en `<strong>`; col 2+ siempre regular.
 - **Callouts `.checklist`** (fondo crema `#FFF9EF` + borde `#F5A623`) — items en peso regular, nunca `<li><strong>`.
 

@@ -67,14 +67,14 @@ Referencia completa: `@references/research-newsletters-es-2026-04-19.md`. Skills
 
 ## Formato técnico (Beehiiv)
 
-- **Tipografía global (config Beehiiv):** headings H1/H2/H3/H4 en **DM Sans Bold**, body en **Inter Regular**. Beehiiv aplica este estilo al renderizar; los borradores generan Markdown/HTML semántico plano (sin forzar fuentes inline).
+- **Tipografía global (config Beehiiv → Settings → Theme → Typography):** headings H1/H2/H3/H4 en **DM Sans Semibold (600)**, body en **Inter Regular (400)**. Beehiiv aplica este estilo al renderizar; los borradores generan Markdown/HTML semántico plano (sin forzar fuentes inline). El cambio Bold → Semibold (validado 2026-04-26) reduce la sensación de "headings que gritan" y mantiene jerarquía visual suficiente; el peso del heading sigue prohibiendo `<strong>`/`**` interno (regla siguiente: política de negritas).
 
 - **Política de negritas (DURA — OBLIGATORIA).**
 
   **✅ Permitido — negrita en párrafos de texto corrido** (intro, desarrollo, callouts `.callout-amber` / `.callout-gray`, notas, bullets fuera de `.checklist`): usar **siempre `<strong>`**, nunca `<span class="bold">` ni `style="font-weight"` inline ni `<b>`. Razón completa en el bullet siguiente.
 
   **❌ PROHIBIDO — BOLD NUNCA dentro de headings ni tablas ni callouts crema:**
-  - **Headings H1/H2/H3/H4** (incluye emojis prefijo tipo `<h2>🏆 Nuestro veredicto</h2>` — el heading entero YA es bold por config global Beehiiv; cualquier `<strong>`/`<b>`/`**...**` dentro duplica el peso).
+  - **Headings H1/H2/H3/H4** (incluye emojis prefijo tipo `<h2>🏆 Nuestro veredicto</h2>` — el heading entero YA tiene peso semibold (600) por config global Beehiiv → Theme → Typography; cualquier `<strong>`/`<b>`/`**...**` dentro duplica el peso y rompe la sensación visual buscada).
   - **Tablas `<thead>`**: nunca en bold (Beehiiv estiliza el thead con su font-weight). En `<tbody>`: solo la **columna 1** (etiqueta de fila) puede ir en `<strong>` para anclar escaneo móvil; columnas 2+ siempre regular.
   - **Recuadros checklist** (div `.checklist` con fondo crema `#FFF9EF` + borde `#F5A623`): items en peso regular. Nunca `<li><strong>...</strong>` ni `<li>**...**</li>` dentro de `.checklist`.
   - Nunca `## **Título**` en Markdown, nunca `<h2><strong>...</strong></h2>` en HTML. Al copiar de fuentes externas, limpiar bold embebido antes de publicar.

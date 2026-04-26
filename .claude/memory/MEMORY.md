@@ -40,7 +40,7 @@
 - [feedback_ficcion_modo_pitch.md](feedback_ficcion_modo_pitch.md) — /ficcion-draft modo pitch: 10 bloques canónicos, exploración pre-escritura sin prosa
 
 ## Feedback — Beehiiv & Platform
-- [feedback_beehiiv_tipografia_bold_tablas.md](feedback_beehiiv_tipografia_bold_tablas.md) — Formato técnico Beehiiv maestro: DM Sans Bold + Inter Regular · bold SÍ/NO + bug copy-paste (usar <strong>, nunca <span class="bold">) · tablas mobile-first máx 4 cols ≤25 chars
+- [feedback_beehiiv_tipografia_bold_tablas.md](feedback_beehiiv_tipografia_bold_tablas.md) — Formato técnico Beehiiv maestro: DM Sans Semibold (600) + Inter Regular · bold SÍ/NO + bug copy-paste (usar <strong>, nunca <span class="bold">) · tablas mobile-first máx 4 cols ≤25 chars
 - [feedback_beehiiv_digital_product_fields.md](feedback_beehiiv_digital_product_fields.md) — Ficha Beehiiv obligatoria por tangible (beehiiv-ficha.md) con 10 campos + 4 defaults
 - [feedback_beehiiv_email_web_dual_block.md](feedback_beehiiv_email_web_dual_block.md) — Widgets interactivos: 2 bloques con visibility toggles opuestos (email-only + web-only)
 - [feedback_robohogar_byline_mayusculas.md](feedback_robohogar_byline_mayusculas.md) — Byline = ROBOHOGAR en mayúsculas, sin "Rafael de". Históricos no se migran en bulk
