@@ -561,6 +561,35 @@ else:
 
 **Incidente origen 2026-04-23:** borrador #10 *mejor-robot-aspirador-mascotas-2026* v1 entregó el árbol de decisión solo como preview con clases CSS. Rafael al pegarlo a Beehiiv perdió todos los estilos y canonizó la regla *"todos los tangibles dentro de artículos con snippet HTML copy-paste mobile-first, siempre"*. Plantillas reutilizables extraídas a `tangibles-snippets.md`; patrón norma para el pipeline.
 
+### 8.7 bis. Tabla resumen comparativa — SIEMPRE como snippet HTML inline (regla dura 2026-04-26)
+
+Aplica a TODO borrador que contenga `<table class="comparativa">` (review multi-producto, comparativa, guía de compra con tabla de cierre). La tabla del cuerpo editorial se entrega en el borrador con **dos representaciones en orden** (igual patrón que tangibles inline):
+
+1. **Preview renderizado** con `<table class="comparativa">` + `<thead>` + `<tr class="winner">` para la fila ganadora. CSS global `table.comparativa th { background: #F8F8F8; font-weight: 600; ... }` + `tr.winner { background: #FFF9EF; }` ya está en el master template.
+2. **`<div class="snippet-block">`** con header `📋 Snippet N · Tabla resumen comparativa` que contiene la **misma tabla en HTML con estilos inline escapado** (`<pre><code>` con `&lt;` / `&gt;` / `&amp;`). Plantilla canónica: [`content/templates/tangibles-snippets.md § 5. Tabla standalone comparativa`](../../content/templates/tangibles-snippets.md).
+
+**Por qué obligatorio:** las tablas Markdown puras pegadas a Beehiiv pierden el highlight del header — la cabecera sale sin fondo gris y pierde la distinción visual frente al cuerpo. Las tablas HTML semánticas (`<table>`) sin estilos inline pierden todo al pegar también (las clases CSS del borrador no viajan a Beehiiv). Solo las **tablas con estilos inline escapados** dentro de un `.snippet-block` pegado vía `/html` → Custom HTML block mantienen el look ROBOHOGAR canónico.
+
+**Aplicación operativa en `.md` paste-ready:** el `borrador.md` que se pega en blank a Beehiiv NO incluye la tabla Markdown — la sustituye por la marca `📋 Pega aquí Snippet N — Tabla resumen comparativa`, igual patrón que banners y CTA. Rafael pega el snippet aparte vía `/html`.
+
+**Verificación pre-output (extiende el script de § 8.7):** por cada `<table class="comparativa">` en `borrador.html` debe existir un `.snippet-block` correspondiente que contenga `📋 Snippet N · Tabla resumen` en el header. Si falta → bloqueo del output.
+
+```bash
+uv run --with beautifulsoup4 python -c "
+from bs4 import BeautifulSoup
+with open('content/articulos/<slug>/borrador.html', encoding='utf-8') as f:
+    soup = BeautifulSoup(f.read(), 'html.parser')
+tables = soup.find_all('table', class_='comparativa')
+table_snippets = [s for s in soup.find_all('div', class_='snippet-block')
+                  if 'Tabla resumen' in s.get_text()]
+print(f'Tablas comparativa: {len(tables)} · Snippet-blocks de tabla: {len(table_snippets)}')
+assert len(table_snippets) >= len(tables), '❌ FAIL — falta snippet-block de tabla resumen'
+print('✅ OK')
+"
+```
+
+**Incidente origen 2026-04-26:** la tabla resumen del borrador `mejor-robot-aspirador-barato-2026.md` se entregó como Markdown puro. Rafael lo pegó en Beehiiv y la cabecera salió sin fondo gris, indistinguible del cuerpo. Comparó con el cortacésped (que tiene `<table class="comparativa">` y se ve bien gracias a otro flujo) y detectó la diferencia. Fix: snippet HTML inline canonizado + plantilla en `tangibles-snippets.md § 5` + este paso pre-output.
+
 ### 8.8. Banner lead magnet — INSERCIÓN AUTOMÁTICA (paso ejecutable)
 
 **Activado como paso ejecutable desde 2026-04-19.** `/content-draft` debe emitir el `borrador.html` con el banner YA insertado en las posiciones correctas. No diferir a Rafael. No "recordar pegar". El HTML que sale del skill es el HTML final listo para Beehiiv.

@@ -155,14 +155,7 @@ Los Pa (pascales, unidad de succión) que aparecen en la ficha son cifras declar
 
 Por encima de la asignación, la tabla resume las tres dimensiones que importan en la decisión: precio actual, fortaleza principal y para quién no es. La fila destacada es nuestra recomendación global del segmento.
 
-| Modelo | Precio | Fortaleza | No para |
-|--------|--------|-----------|---------|
-| **🏆 Roborock Q10 S5+** | 229-279 € | LiDAR + base auto-vaciado | Pelo largo |
-| Roborock Q5 Pro | 179-219 € | LiDAR sub-200 € | Piso >100 m² |
-| Cecotec Conga 11090 | 249-299 € | Servicio técnico ES | Pisos complejos |
-| Xiaomi X20+ | 253-289 € | Base 4L + Mi Home | Fuera ecosistema |
-| Tapo RV30 MAX Plus | 199-249 € | Precio-prestaciones | Apegados a marca |
-| Roomba 105 Combo | 249-299 € | Marca + cepillos goma | Quien quiera LiDAR |
+📋 **Pega aquí Snippet 5 — Tabla resumen comparativa** (en lugar de la tabla Markdown, que pierde la cabecera gris al pegarse a Beehiiv; el snippet HTML inline mantiene look ROBOHOGAR).
 
 ---
 

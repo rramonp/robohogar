@@ -31,7 +31,7 @@ Anti-repetición de tangible entre artículos consecutivos. Ver `@.claude/comman
 | **Decision-tree** | Guías de compra con bifurcaciones claras (4-6 preguntas con respuestas → modelo) | ✅ Canonizada abajo |
 | **Dossier 3-datos clave** | Editoriales anti-hype · ancla-de-realidad con 3 cifras + fuente | 🟡 Pendiente canonizar con próximo artículo |
 | **Cuadro sí / no** | Comparativas binarias: "qué hacer / qué no hacer" en 2 columnas | 🟡 Pendiente canonizar |
-| **Tabla standalone comparativa** | Review multi-producto con 4 columnas apretadas (mobile-first dura) | 🟡 Pendiente canonizar |
+| **Tabla standalone comparativa** | Review multi-producto con 4 columnas apretadas (mobile-first dura). **Obligatoriamente como snippet HTML inline**, no como Markdown puro (Beehiiv pierde el highlight del header al pegar Markdown). | ✅ Canonizada 2026-04-26 |
 | **[Nuevos formatos]** | A medida que Rafael introduzca nuevos tangibles, documentar aquí con preview + snippet inline | — |
 
 **Regla para añadir nuevos tipos:** cuando un artículo introduzca un tangible de formato no canonizado todavía, el primer uso se desarrolla ad-hoc en el borrador; tras la aprobación de Rafael, **se extrae a esta tabla + se añade su plantilla** en la sección "Plantillas" de abajo. No se deja ad-hoc dos veces.
@@ -183,9 +183,83 @@ Plantilla a desarrollar con el próximo tutorial/guía que use este formato. Con
 
 ---
 
-### 5. Tabla standalone comparativa 🟡 pendiente canonizar
+### 5. Tabla standalone comparativa ✅ canonizada 2026-04-26
 
-Plantilla a desarrollar. Las tablas del borrador ya usan `<table class="comparativa">` con CSS global — para el snippet inline hay que replicar los estilos `<table style="border-collapse:collapse;..."> <th style="..."> <td style="..."> ` con atención especial al máximo de 4 columnas mobile-first (regla `@rules/editorial.md § Formato técnico tablas`).
+**Regla dura: TODA tabla resumen / comparativa que vaya a Beehiiv se entrega como snippet HTML inline.** Las tablas Markdown puras pegadas a Beehiiv pierden el highlight del header (cabecera sin fondo gris distintivo, indistinguible del cuerpo). El HTML inline garantiza el look ROBOHOGAR canónico: header gris `#F8F8F8` con DM Sans Semibold, fila ganadora con fondo crema `#FFF9EF`, separadores limpios `#E5E7EB`, máximo 4 columnas (regla mobile-first 375 px).
+
+**Incidente origen 2026-04-26:** la tabla resumen del borrador `mejor-robot-aspirador-barato-2026.md` se generó como Markdown puro. Al pegarla en Beehiiv, el header salió sin diferenciación (texto bold sobre fondo blanco) frente al look correcto que sí mantienen artículos con tabla `<table class="comparativa">` en HTML semántico (cortacésped 2026). La fix permanente: las tablas del `.md` paste-ready se entregan como `📋 Snippet — Tabla resumen` con HTML inline, igual que banners y CTA. La tabla Markdown del `.md` se sustituye por la marca `📋 Pega aquí Snippet N`.
+
+#### Preview renderizado (HTML con clases del borrador)
+
+```html
+<table class="comparativa">
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Precio</th>
+      <th>Fortaleza</th>
+      <th>No para</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="winner">
+      <td><strong>🏆 [Modelo ganador]</strong></td>
+      <td>[precio]</td>
+      <td>[fortaleza]</td>
+      <td>[no para]</td>
+    </tr>
+    <!-- ...resto de filas sin clase... -->
+  </tbody>
+</table>
+```
+
+(Asume que el `<style>` global del borrador tiene `table.comparativa th { background: #F8F8F8; font-weight: 600; ... }` y `tr.winner { background: #FFF9EF; }` — ya está en el master template y se hereda en cada borrador.)
+
+#### Snippet inline copy-paste (para pegar en Beehiiv `/html`)
+
+```html
+<table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;color:#0C0C0C;">
+  <thead>
+    <tr style="background:#F8F8F8;">
+      <th style="padding:12px 10px;text-align:left;font-family:'DM Sans',sans-serif;font-weight:600;color:#0C0C0C;border-bottom:1px solid #C0C0C0;">Modelo</th>
+      <th style="padding:12px 10px;text-align:left;font-family:'DM Sans',sans-serif;font-weight:600;color:#0C0C0C;border-bottom:1px solid #C0C0C0;">Precio</th>
+      <th style="padding:12px 10px;text-align:left;font-family:'DM Sans',sans-serif;font-weight:600;color:#0C0C0C;border-bottom:1px solid #C0C0C0;">Fortaleza</th>
+      <th style="padding:12px 10px;text-align:left;font-family:'DM Sans',sans-serif;font-weight:600;color:#0C0C0C;border-bottom:1px solid #C0C0C0;">No para</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:#FFF9EF;">
+      <td style="padding:10px;border-bottom:1px solid #E5E7EB;"><strong>🏆 [Ganador]</strong></td>
+      <td style="padding:10px;border-bottom:1px solid #E5E7EB;">[precio]</td>
+      <td style="padding:10px;border-bottom:1px solid #E5E7EB;">[fortaleza]</td>
+      <td style="padding:10px;border-bottom:1px solid #E5E7EB;">[no para]</td>
+    </tr>
+    <tr>
+      <td style="padding:10px;border-bottom:1px solid #E5E7EB;">[modelo 2]</td>
+      <td style="padding:10px;border-bottom:1px solid #E5E7EB;">[...]</td>
+      <td style="padding:10px;border-bottom:1px solid #E5E7EB;">[...]</td>
+      <td style="padding:10px;border-bottom:1px solid #E5E7EB;">[...]</td>
+    </tr>
+    <!-- ...resto de filas... la última fila SIN border-bottom para limpiar el cierre frente al `</table>` -->
+    <tr>
+      <td style="padding:10px;">[último modelo]</td>
+      <td style="padding:10px;">[...]</td>
+      <td style="padding:10px;">[...]</td>
+      <td style="padding:10px;">[...]</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+**Reglas de uso:**
+- Máximo **4 columnas** (regla mobile-first 375 px · `@rules/editorial.md § Formato técnico tablas`).
+- Cell text **≤25 caracteres** orientativo. Nombres de producto cortos (marca + modelo en 2-3 palabras).
+- Fila ganadora con `style="background:#FFF9EF;"` + `<strong>🏆 ...</strong>` en columna 1. Solo **una** fila ganadora por tabla.
+- Última fila SIN `border-bottom` (limpia el cierre visual frente al `</table>`).
+- El emoji 🏆 se permite solo en la fila ganadora — refuerza visualmente la recomendación editorial.
+- El snippet va en `<div class="snippet-block">` con header `📋 Snippet N · Tabla resumen comparativa` igual que banners y CTA.
+
+**Aplicación operativa:** `/content-draft` genera ambos (preview con clases en el `borrador.html` para validar visual + snippet-block inline). El `.md` paste-ready sustituye la tabla Markdown por la marca `📋 Pega aquí Snippet N — Tabla resumen comparativa`. Verificación pre-output: cada borrador con `<table class="comparativa">` debe contener un `.snippet-block` correspondiente con `📋 Snippet N · Tabla resumen`.
 
 ---
 
