@@ -10,7 +10,7 @@
     <description>Relatos de ciencia ficción próxima sobre robótica doméstica. Lo que pasa cuando los robots llegan a casa: humanoides, aspiradores con IA, cuidados, soledades, hogares que aprenden. Cada semana, junto al newsletter en robohogar.com.</description>
     <language>es</language>
     <copyright>© ROBOHOGAR · Rafael</copyright>
-    <lastBuildDate>Sat, 25 Apr 2026 19:22:53 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2026 11:44:05 +0000</lastBuildDate>
     <itunes:author>ROBOHOGAR</itunes:author>
     <itunes:summary>Relatos de ciencia ficción próxima sobre robótica doméstica. Lo que pasa cuando los robots llegan a casa: humanoides, aspiradores con IA, cuidados, soledades, hogares que aprenden. Cada semana, junto al newsletter en robohogar.com.</itunes:summary>
     <itunes:owner>
@@ -38,6 +38,24 @@
       <guid isPermaLink="false">robohogar-ficciones-la-objecion</guid>
       <pubDate>Thu, 23 Apr 2026 09:00:00 +0000</pubDate>
       <itunes:duration>00:19:03</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
+      <title>El operador nocturno</title>
+      <link>https://robohogar.com/p/el-operador-nocturno</link>
+      <description><![CDATA[<p>Madrid 2032, las tres y catorce. Un niño se levanta a beber agua. En la cocina hay alguien. No es el robot. Es el que lo pilota desde Manila — y lleva semanas calibrando el ruido para verlo despierto.</p>
+
+<p>▶ Lee el relato completo + suscríbete al newsletter: <a href="https://robohogar.com/p/el-operador-nocturno">https://robohogar.com/p/el-operador-nocturno</a></p>
+
+<p>Ficciones Domésticas — relatos de ciencia ficción próxima sobre robótica en el hogar. Cada semana, junto al newsletter en <a href="https://robohogar.com">robohogar.com</a>.</p>]]></description>
+      <itunes:summary>Madrid 2032, las tres y catorce. Un niño se levanta a beber agua. En la cocina hay alguien. No es el robot. Es el que lo pilota desde Manila — y lleva semanas calibrando el ruido para verlo despierto.</itunes:summary>
+      <itunes:author>ROBOHOGAR</itunes:author>
+      <itunes:image href="https://feed.robohogar.com/covers/el-operador-nocturno-podcast-1400x1400.jpg?v=85995cc8" />
+      <enclosure url="https://feed.robohogar.com/el-operador-nocturno.mp3" length="22164001" type="audio/mpeg" />
+      <guid isPermaLink="false">robohogar-ficciones-el-operador-nocturno</guid>
+      <pubDate>Sun, 19 Apr 2026 09:00:00 +0000</pubDate>
+      <itunes:duration>00:23:05</itunes:duration>
       <itunes:explicit>false</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
     </item>
