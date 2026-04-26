@@ -6,14 +6,15 @@
 |---|---|---|
 | Repo Git (desktop) | `c:\Users\cri-c\robohogar\` | Desarrollo, commits, scripts |
 | Repo Git (laptop) | `c:\Users\bakal\robohogar\` | Desarrollo, commits, scripts |
-| **Vault Obsidian** | `$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/` | Notas, wiki, templates, calendario editorial |
+| **Vault Obsidian** | resolver vía `python utilities/get_vault_path.py` (autodetect bakal/cri-c) | Notas, wiki, templates, calendario editorial |
 | Mirror RRP-DEV | `$HOME/RRP-DEV/projects/robohogar/` | Solo referencia cruzada desde RRP-DEV |
 
 **REGLAS:**
 - Archivos `.md` de consulta/wiki/templates → Obsidian vault
 - Archivos de código, assets, config, docs técnicos → Repo Git
 - NUNCA crear carpetas ni archivos .md en rutas incorrectas
-- NUNCA buscar el vault — la ruta es la de arriba, siempre
+- **NUNCA usar literal `$HBX_VAULT` en bash** — la variable no está exportada al shell de Claude Code. Usar siempre `VAULT=$(python utilities/get_vault_path.py)`. El helper autodetecta laptop/desktop sin depender de variables externas. Detalle: `@.claude/commands/obsidian-robohogar.md § Vault Path`.
+- El vault está SIEMPRE accesible (sincronizado vía OneDrive HBX Group + Syncthing entre laptop bakal y desktop cri-c). Si el helper falla, hay un problema de configuración, no de "vault desconectado" — investigar antes de saltar el sync.
 
 ## Project files
 

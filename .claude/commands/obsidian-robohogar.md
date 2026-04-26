@@ -13,13 +13,21 @@ calendario editorial. Skill autónomo — NO depende del vault-organizer de RRP-
 
 ## Vault Path
 
-```
-$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/
+**Resolver SIEMPRE vía helper** (regla dura 2026-04-26):
+
+```bash
+VAULT=$(python utilities/get_vault_path.py)
 ```
 
-`$HBX_VAULT` se resuelve automáticamente según la máquina:
-- Desktop (cri-c): `C:\Users\cri-c\OneDrive - HBX Group\Desktop\DEMAND\Obsidian`
-- Laptop (bakal): `C:\Users\bakal\OneDrive - HBX Group\Desktop\DEMAND\Obsidian`
+`utilities/get_vault_path.py` autodetecta la ruta absoluta del vault Obsidian ROBOHOGAR sin depender de variables de entorno externas. El vault está sincronizado vía OneDrive HBX Group + Syncthing entre las dos máquinas de Rafael (laptop bakal · desktop cri-c) y SIEMPRE está accesible. Estrategias del helper (en orden): `$HBX_VAULT` → layouts conocidos hardcoded → autodetect por `$USERPROFILE` → búsqueda en OneDrive. Si una máquina nueva entra al pipeline, basta con añadir su ruta a `KNOWN_LAYOUTS` en el helper.
+
+**Layouts canónicos:**
+- Laptop (bakal): `C:\Users\bakal\OneDrive - HBX Group\Desktop\DEMAND\Obsidian\RRP\RRP_ONEDRIVE\HBX\05_Personal\05-01_Robotica Newsletter`
+- Desktop (cri-c): `C:\Users\cri-c\OneDrive - HBX Group\Desktop\DEMAND\Obsidian\RRP\RRP_ONEDRIVE\HBX\05_Personal\05-01_Robotica Newsletter`
+
+**Prohibido** (regla dura): usar literal `$HBX_VAULT/...` en bash o asumir que la variable está exportada en el shell. NO está. Usar siempre el helper.
+
+**Incidente origen 2026-04-26:** durante un `/post-publish` el skill marcó "vault no accesible" porque `$HBX_VAULT` no resuelve en el shell de Bash que ejecuta Claude Code. Rafael lo confirmó: el vault SÍ está siempre accesible (Syncthing + OneDrive), el problema era exclusivamente la variable. Helper resuelve sin depender de ella.
 
 ## Estructura del vault
 
@@ -104,7 +112,7 @@ Al ejecutar CUALQUIER modo de este skill, sincronizar estos archivos del repo al
 | `content/registro-newsletters.md` | `Registro Newsletters.md` | Catálogo de newsletters enviados |
 
 ```bash
-VAULT="$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter"
+VAULT=$(python utilities/get_vault_path.py)
 cp docs/guia-implementacion.md         "$VAULT/Guia Implementacion.md"
 cp docs/plan-v2.md                     "$VAULT/Plan v2.md"
 cp content/registro-articulos.md       "$VAULT/Registro Articulos.md"
@@ -134,7 +142,7 @@ Objetivo: detectar artículos en `content/published/` del repo que NO están en 
 **Implementación (bash, heredable por cualquier invocación autónoma):**
 
 ```bash
-VAULT="$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter"
+VAULT=$(python utilities/get_vault_path.py)
 copied=0; skipped=0
 for src in content/published/*.html; do
   name=$(basename "$src")
