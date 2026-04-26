@@ -269,8 +269,159 @@ Warm amber light filtered through a slatted blind / a lace curtain / a lamp shad
 - **`/ficcion-draft`:** al cerrar el draft, en `PASOS.md § Hero` anotar qué archetype propone (A·B/C·D) y por qué, para que `/nano-banana` lo recoja sin reinterpretación.
 - **`asset-catalog.md § 5 · Registro de heros ficción`:** añadir columna "Archetype" (número 01-15 o combinación A·B/C·D si es ad-hoc) para hacer cumplir la regla anti-repetición.
 
+## Grupo `personaje-acción-imposibilidad` — canon paralelo 2026-04-26 PM
+
+> **Catálogo nuevo paralelo a los 15 archetypes minimalistas de arriba.** Ese sigue siendo válido (paradigma `minimalista` · canon § 5 de [`asset-catalog.md`](asset-catalog.md)). Lo que sigue es el paradigma `personaje-acción-imposibilidad` (canon § 5.bis) que se convierte en **default** desde 2026-04-26 PM para one-shots y miniseries futuras. Las series activas con código declarado (Amparo, Ronda 3, MAIA) no usan este grupo — mantienen su código existente. El paradigma `minimalista` queda como opción declarativa cuando un relato tiene un objeto-testigo aislado más fuerte que cualquier personaje en frame (ej: *La objeción* tela ceremonial).
+
+**Por qué grupo paralelo y no extender los 15 archetypes:** los 15 archetypes minimalistas tienen ADN específico (objeto-testigo aislado, fondo azul 2/3 superior, regla "cotidiano + sci-fi sutil" sin personaje en primer plano). El nuevo paradigma rompe ese ADN compositivo (personaje en primer plano, fondo azul 1/3 superior, objeto-imposibilidad **materializado** no sutil). Mezclarlos en una misma tabla destruiría la lógica de anti-repetición. Solución: **dos grupos independientes** que comparten paleta + estilo fotográfico + dimensiones + anti-sign-guard pero no comparten composición.
+
+### ADN del paradigma personaje-acción-imposibilidad (recordatorio canon § 5.bis)
+
+| Elemento | Especificación |
+|---|---|
+| **Personaje** | Identificable por rol/oficio/atrezzo en primer plano · pose dinámica (no contemplativa) |
+| **Acción visible** | Verbo del `display_title` traducido visualmente (forjando · cosiendo · ajustando · firmando · vigilando) |
+| **Objeto-imposibilidad** | Materializado físicamente (humo de color · líquido luminoso · partículas que escriben · luz que escapa · humanoide en gesto incoherente) |
+| **Composición** | Personaje en una zona, objeto-imposibilidad a contrapunto, foco lumínico ámbar diagonal sobre la unión |
+| **Fondo** | Azul `#1E2A3A` matte plain unmarked en tercio superior (reducido vs minimalista 2/3) |
+| **Look fotográfico** | Still-life cinematográfico (After Yang / Hammershoi / Wenders) — **NO** oil painting / digital painting / cartoon |
+| **Identidad de figuras públicas (banda D)** | Por rol y atrezzo solamente · **nunca cara reconocible de figura real** · regen si Gemini la mete |
+
+### Las 5 bandas de personaje
+
+El paradigma se subdivide en 5 bandas según el universo del personaje. La banda determina (a) el atrezzo identificador, (b) el escenario doméstico/laboral, (c) la convención de identidad real (banda D especialmente).
+
+#### Banda A — Oficios domésticos / familia / cotidiano
+
+Personajes del entorno familiar y del hogar. Atrezzo: delantal, mandil de cocina, bata casera, gafas de leer, pijama, pantuflas, herramienta doméstica (sartén, tenedor, paño). Escenario: cocina, salón, dormitorio, pasillo de piso, cuarto infantil. Edad: cualquiera.
+
+| Banda A # | Archetype concreto | Atrezzo / pose | Objeto-imposibilidad |
+|---|---|---|---|
+| A-01 | Cuidador/a en cocina hirviendo caldo | Mandil + cucharón en mano + cabeza ladeada hacia humanoide encogido | Caldo del que sale humo en forma de palabras o frases |
+| A-02 | Niño/a en cuarto frente a aspirador | Pijama + linterna en mano + arrodillado frente a aspirador domóstico | Aspirador trazando con su sensor la sombra de un perro o gato ausente |
+| A-03 | Anciano/a en sillón frente a humanoide vigilante | Bata + libro abierto + humanoide cream-white sentado al lado en posición vigilancia | Objeto cotidiano (taza, gafas) levitando entre ambos como si dudara de a quién pertenecer |
+| A-04 | Yaya/yayo en mesa con humanoide pidiendo comida | Mantel de hule + cuchara llena de cuchareada hacia humanoide + plato vacío en centro | Humanoide imitando el gesto de comer con la boca abierta sin nada que llevarse |
+| A-05 | Nieta/o reprogramando humanoide dormido | Pijama de adolescente + portátil + cable conectado a humanoide cream-white tendido en cama | Letras de código saliendo del cable como humo dorado |
+
+#### Banda B — Trabajadores reconocibles del día a día ES
+
+Personajes de oficios cotidianos del paisaje laboral español, identificables por uniforme/atrezzo. Atrezzo: chaleco de cajera, mochila isotérmica de rider, bata de tienda, pijama sanitario, mono industrial, llaves de portería, mandil de papelería. Escenario: súper, portal, finca, aula, taller, oficina pequeña. Edad: típicamente 25-55.
+
+| Banda B # | Archetype concreto | Atrezzo / pose | Objeto-imposibilidad |
+|---|---|---|---|
+| B-01 | Cajera de súper escaneando humanoide cliente | Chaleco corporativo + mano sobre lector de barras + humanoide cream-white frente al mostrador | Ticket impreso saliendo del lector que se hace cada vez más largo, palabras visibles en serpentina |
+| B-02 | Rider de delivery en portal frente a humanoide vecino | Mochila isotérmica al hombro + bolsa en mano + humanoide cream-white abriendo desde el otro lado | Bolsa que pesa progresivamente más al subir el peldaño |
+| B-03 | Conserje de finca frente a buzonera con humanoide haciendo cola | Bata azul de conserje + bolígrafo en mano + humanoide cream-white delante de la cola | Cartas en la buzonera con remitentes que ya no existen (fallecidos) |
+| B-04 | Profesora de instituto frente a tablet de alumno | Camisa+chaqueta + tiza en mano + tablet de alumno mostrando voz humanoide en pantalla | Tiza que escribe sola en la pizarra mientras la profesora la sostiene quieta |
+| B-05 | Operario/a de mantenimiento frente a humanoide desmontado | Mono industrial naranja + destornillador en mano + humanoide cream-white abierto sobre banco | Tornillos flotando en arco ámbar entre las dos manos del operario |
+| B-06 | Teleoperador/a en penumbra frente a holograma | Auriculares + cabeza inclinada + sala oscura + holograma de cuerpo humano lejano | Reloj detrás del operador con manecillas que avanzan al revés |
+| B-07 | Técnica del SAS frente a humanoide en consulta | Pijama sanitario azul + estetoscopio + humanoide cream-white en camilla | Estetoscopio escuchando sonido de oleaje en lugar de latido |
+
+#### Banda C — Funcionarios y oficios públicos
+
+Personajes con función pública o administrativa. Atrezzo: corbata sobria, americana, sello, ventanilla, expediente abierto, número de turno, chaleco fluorescente municipal. Escenario: ventanilla administrativa, despacho municipal, sala registral, mostrador SEPE, oficina de Hacienda, calle pública con vehículo de servicio. Edad: 30-60.
+
+| Banda C # | Archetype concreto | Atrezzo / pose | Objeto-imposibilidad |
+|---|---|---|---|
+| C-01 | Interventora municipal firmando expediente con humanoide | Americana + bolígrafo en mano + humanoide cream-white sentado frente a la mesa | Papel del expediente cuyo número en la cabecera cambia cada vez que se firma |
+| C-02 | Agente SS frente a humanoide cuidador a punto de jubilarse | Camisa institucional + carpeta abierta + humanoide cream-white de pie con hoja de servicios | Carpeta que al abrir muestra solo páginas en blanco |
+| C-03 | Técnica de Hacienda frente a humanoide declarando | Americana + sello en mano + humanoide cream-white sentado con tablet | Sello que se gasta hasta hacerse transparente sin marcar el papel |
+| C-04 | Subinspectora SEPE frente a humanoide en cola | Chaqueta gris + pantalla con número de turno + humanoide cream-white esperando | Pantalla cuyo número de turno retrocede en lugar de avanzar |
+| C-05 | Registradora civil frente a humanoide pidiendo nombre | Bata oscura + pluma estilográfica + humanoide cream-white inclinado frente al mostrador | Pluma escribiendo en una lengua extinta o glifos desconocidos |
+| C-06 | Trabajador municipal con chaleco fluor frente a humanoide en calle | Chaleco fluorescente naranja + escoba o cono de obra + humanoide cream-white retirado a un lado de la calzada | Farola que se enciende sola sin pulsador, ámbar en pleno día |
+
+#### Banda D — Figuras públicas por rol
+
+Personajes con función política, jurídica, sindical o diplomática reconocible **por rol y atrezzo**, no por cara real. Atrezzo: chaqueta de protocolo, atril institucional, escudo abstracto, micrófono de pleno, corbata con pin abstracto, martillo de juez, pancarta sindical. Escenario: sala de pleno, sala de protocolo, juzgado, asamblea sindical, sala diplomática. Edad: 40-70 típicamente.
+
+**Regla dura de identidad:** la cara del personaje **no debe parecerse a figura pública concreta**. Si Gemini genera cara reconocible (Sánchez, Feijóo, Díaz, Abascal, Ayuso, Belarra, etc.) → regenerar. Atrezzo institucional sí permitido (escudo abstracto del Congreso, atril sin logos identificables, micrófono institucional sin marca). El `display_title` correspondiente NO menciona nombre propio real.
+
+| Banda D # | Archetype concreto | Atrezzo / pose | Objeto-imposibilidad |
+|---|---|---|---|
+| D-01 | Ministra/o en sala vacía de Congreso cargando humanoide | Chaqueta de protocolo + cable de carga conectado a enchufe institucional + humanoide cream-white de pie | Atril que multiplica la voz del personaje aunque no esté hablando |
+| D-02 | Alcalde/sa en pleno municipal con humanoide tomando acta | Pin solapa abstracto + bolígrafo + humanoide cream-white sentado al lado tomando notas | Acta cuyas líneas se reescriben solas mientras el alcalde habla |
+| D-03 | Sindicalista en asamblea con humanoide entre compañeros | Chaqueta vaquera + megáfono + humanoide cream-white sentado entre obreros humanos | Pancarta cuyo texto cambia cada vez que la cámara la mira |
+| D-04 | Juez/a en sala con humanoide testigo | Toga negra + martillo levantado + humanoide cream-white de pie en el estrado | Martillo que pesa cada vez más, brazo del juez tembloroso por el peso |
+| D-05 | Embajador/a en sala protocolaria con humanoide traduciendo | Chaqueta de protocolo + copa en mano + humanoide cream-white inclinado hacia oído de visita | Cáliz que vierte luz dorada en lugar de líquido |
+
+#### Banda E — Cultura pop / mediática
+
+Personajes del ecosistema mediático y de cultura pop reconocibles por entorno y atrezzo (set, anillo de luz, vestuario deportivo, partitura, micrófono). Atrezzo: anillo de luz de streamer, sudadera con merch, equipación deportiva genérica (sin colores de equipo real), partitura, micrófono de podcast, gafas de presentadora. Escenario: setup de streaming, vestuario deportivo, plató de tertulia, estudio de podcast, backstage de concierto. Edad: 18-50.
+
+**Regla complementaria:** equipación deportiva **sin colores ni escudo de equipo real** (azul/blanco genérico, no Real Madrid; rojo/azul genérico, no Barça). Camisetas de selección genérica sin números reales de jugadores actuales.
+
+| Banda E # | Archetype concreto | Atrezzo / pose | Objeto-imposibilidad |
+|---|---|---|---|
+| E-01 | Influencer streamer en setup con anillo de luz y humanoide | Sudadera + auriculares + anillo de luz redondo + humanoide cream-white sentado al lado imitando reacción al chat | Pantalla con métrica de viewers subiendo en vacío (sin viewers visibles, solo número creciente) |
+| E-02 | Futbolista en vestuario con humanoide masajista | Equipación genérica azul/blanca + bota en mano + humanoide cream-white masajeando otra pierna | Bota que late con luz interna como si tuviera corazón |
+| E-03 | Presentadora de tertulia con humanoide tertuliano | Vestido de plató + auricular invisible + humanoide cream-white sentado en silla giratoria de mesa | Reloj del programa que adelanta saltando minutos |
+| E-04 | Podcaster económico en estudio con humanoide invitado | Camisa abierta + micrófono de pie + humanoide cream-white frente a otro micrófono | Micrófono que sigue grabando descolgado de cualquier soporte, suspendido en aire |
+| E-05 | Cantante en backstage con humanoide vocalista de respaldo | Vestuario de gira + partitura en mano + humanoide cream-white de pie con micrófono auxiliar | Partitura cuyas notas se borran de la página cada vez que el cantante intenta leerlas |
+| E-06 | Periodista de pie de calle con humanoide entrevistado | Plumífero corporativo + micrófono + humanoide cream-white respondiendo en plaza pública | Cable del micrófono que gira sobre sí mismo formando bucles imposibles |
+
+### Algoritmo de selección por categoría tonal + display title
+
+El skill `/ficcion-draft § 8.x Hero` (paradigma personaje-acción-imposibilidad) sigue este algoritmo:
+
+1. Leer del frontmatter: `categoria-tonal:` + `display_title:` + `display_title_family:` + `Perfil POV` (de tabla del registro).
+2. Filtrar bandas por compatibilidad con el `Perfil POV` y con el rol/oficio que sugiere el `display_title`.
+3. Cruzar con la categoría tonal para acotar archetypes:
+   - **Inquietante** (40%): A-01, A-03, B-03, B-06, C-04, C-05, D-01, D-04, E-01, E-04
+   - **Radical** (15%): A-04, B-05, C-02, C-06, D-02, D-04, E-05
+   - **Ambiguo** (25%): A-02, A-05, B-01, B-04, C-03, D-05, E-02, E-06
+   - **Inspirador** (10%): A-04, B-07, C-01
+   - **Mundano** (10%): A-05, B-04, C-03, E-03
+4. Aplicar regla anti-repetición acotada al paradigma personaje-acción-imposibilidad:
+   - Excluir archetypes presentes en últimos 5 heros del paradigma.
+   - Verificar que la banda candidata no haya dominado los últimos 3 (no encadenar 3 relatos en misma banda).
+5. Proponer 3 candidatos a Rafael con razón explícita (banda + archetype + objeto-imposibilidad propuesto).
+6. Tras decisión, ensamblar el prompt usando el template canónico § 5.bis de [`asset-catalog.md`](asset-catalog.md) sustituyendo `[PERSONAJE]`, `[ACCIÓN VISIBLE]`, `[OBJETO-IMPOSIBILIDAD]`, `[SUPERFICIE/ESCENARIO]`.
+
+### Anti-repetición acotada al grupo
+
+**Regla dura 1 — archetype:** ningún archetype concreto (A-01, B-03, etc.) puede aparecer en 2 heros consecutivos del paradigma personaje-acción-imposibilidad. Excepción documentada en `arco-serie.md` solo si una serie tiene un archetype como sello editorial declarado.
+
+**Regla dura 2 — banda:** no encadenar 3 relatos seguidos en la misma banda. Si los últimos 2 fueron banda A, el siguiente debe rotar a B/C/D/E. Si los últimos 2 fueron de bandas distintas, libertad total para el siguiente. Excepción documentada igual que arriba.
+
+**Meta de diversidad:** en los primeros 10 heros del paradigma personaje-acción-imposibilidad, deben aparecer las 5 bandas al menos una vez cada una. Si tras 10 heros una banda nunca ha aparecido, el skill bloquea las otras bandas hasta que el siguiente relato corresponda a la banda faltante (forzado de cobertura).
+
+### Prompt fragments por banda
+
+Fragmentos canónicos por banda para ensamblar en el template § 5.bis. Reemplazan placeholders `[PERSONAJE]`, `[ACCIÓN VISIBLE]`, `[OBJETO-IMPOSIBILIDAD]`, `[SUPERFICIE/ESCENARIO]`.
+
+```
+# Banda A — Oficios domésticos / familia
+Foreground: A [woman / man / elder / child] in their [40s / 60s / 80s / under 12], wearing [domestic kitchen apron / robe / pyjamas with slippers / cardigan] visible from torso up, [actively stirring a pot / kneeling next to a vacuum / sitting in armchair tilted toward humanoid / spoon-feeding humanoid], face partially visible in soft amber light, expression of [worry / wonder / acceptance / curiosity].
+Setting: a Spanish home interior — modest [kitchen with tiled splashback / living room with TV cabinet and family photos / bedroom with wooden frame / child's room with stuffed animals], plain dark blue-gray paint visible at the upper third of the frame.
+
+# Banda B — Trabajadores reconocibles del día a día ES
+Foreground: A [woman / man] in their [25-55], wearing [supermarket cashier vest with name tag / delivery insulated backpack and helmet / building concierge blue jacket / teacher's blouse and cardigan / industrial overall in orange / sanitary pyjamas in light blue / nurse's tunic], face partially visible in soft amber light, [scanning at a barcode reader / handing a delivery bag / sorting mail at building lobby / writing on a small chalkboard / disassembling a humanoid on a workbench / wearing headphones in a dark teleoperation booth / examining a humanoid on a clinic bed].
+Setting: a [small Spanish supermarket counter / building entrance hall with mailboxes / classroom corner / mechanic workshop bench / dim teleoperator booth / SAS clinic exam room], plain dark blue-gray paint visible at the upper third of the frame.
+
+# Banda C — Funcionarios y oficios públicos
+Foreground: A [woman / man] in their [35-60], wearing [civil servant blazer with discreet pin / SS social services collared shirt / Hacienda tax office formal jacket / SEPE employment office gray cardigan / civil registrar dark robe / municipal worker fluorescent vest], face partially visible in soft amber light, [signing a file with a fountain pen / holding an open folder / pressing an ink stamp / facing a number-display screen / writing in a registry book with a calligraphy pen / standing next to a streetlight].
+Setting: a [public administrative office counter / SS service window / Hacienda desk with computer monitor / SEPE waiting hall / civil registry room with heavy wooden ledger / Spanish urban street at dusk], plain dark blue-gray paint visible at the upper third of the frame.
+The character's face must NOT resemble any real Spanish public official.
+
+# Banda D — Figuras públicas por rol
+Foreground: A [woman / man] in their [45-70], wearing [protocol jacket with abstract lapel pin / formal blazer with discreet pin / vintage worker jacket with union pin / black judicial robe / diplomatic protocol suit], face partially visible in soft amber light — face anonymous, NOT resembling any real political or public figure — [adjusting microphone at podium / signing minutes in plenary chamber / addressing crowd from union assembly stage / raising a gavel in courtroom / receiving a guest in protocol hall].
+Setting: an [empty Congress chamber with rows of seats / municipal plenary hall with semicircular tables / union assembly gymnasium with chairs in rows / wood-paneled courtroom / formal diplomatic reception hall], institutional shield kept abstract (no recognizable national flags or party logos), plain dark blue-gray paint visible at the upper third of the frame.
+The character's face must NOT resemble any real public figure, politician, judge, or diplomat. Generic Mediterranean adult features only.
+
+# Banda E — Cultura pop / mediática
+Foreground: A [woman / man] in their [22-50], wearing [oversized merch hoodie with abstract design / generic blue-and-white sports kit without team crest or sponsor / tertulia panel set dress / open-collar podcast shirt / on-tour stage outfit / TV reporter weatherproof jacket], face partially visible in soft amber light, [adjusting ring light at streaming desk / sitting in locker room with boot in hand / hosting at panel table / speaking into a podcast microphone / reading sheet music backstage / holding microphone on a public square].
+Setting: a [streamer setup with circular ring light and double monitor / generic sports locker room with metal lockers / TV tertulia round table set / podcast studio with acoustic foam / concert backstage with cases and cables / Spanish urban square at night with streetlights], plain dark blue-gray paint visible at the upper third of the frame.
+Sports kit colors must NOT match any real Spanish football team. Generic colors only.
+```
+
+```
+# Plantilla de objeto-imposibilidad (rellenar según display_title)
+And on the [SUPERFICIE / next to the character / suspended above the surface]: [OBJETO-IMPOSIBILIDAD: smoke rising in colored tendrils that shape into letters / liquid that emits its own warm amber light from inside / particles writing words in mid-air / a household object releasing a beam of dawn-like golden light from inside / a humanoid figure in cream-white matte performing a gesture incoherent with its supposed function — eating from an empty plate, praying, taking notes on a blank notebook, masturbating an empty hand, breastfeeding a non-existent infant — pose deliberately wrong, eerie but not horror], slightly out of focus to create an oneiric effect distinct from the sharply focused character. The impossibility-object is the visual translation of the paradox in the story's display title.
+```
+
 ## Revisión futura del catálogo
 
 - Si en las próximas 10 generaciones aparecen composiciones no cubiertas por los 15 archetypes, canonizar el nuevo archetype como 16, 17, etc. con su fila en la tabla.
 - Si un archetype se revela difícil para Gemini (genera reiteradamente text / neon / asian characters pese a las anti-triggers), documentarlo aquí como "prohibido por modelo" hasta que cambie.
 - Si Rafael validará una composición totalmente fuera del canon (rompiendo ADN fijo), ese hero NO se canoniza aquí; se trata como excepción editorial puntual y se documenta como tal en `asset-catalog.md`.
+- Lo mismo aplica al grupo `personaje-acción-imposibilidad`: si en las próximas 10 generaciones aparecen archetypes nuevos por banda, canonizar como A-06, B-08, C-07, etc. en la tabla correspondiente.

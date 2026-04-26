@@ -499,6 +499,93 @@ Para esta semilla (<semilla>) + categoría tonal <X>, propongo:
 
 **6. Excepciones documentadas.** Si Rafael fuerza un hook que ya está en `hooks_recientes`, el skill registra la excepción con razón en `PASOS.md` del relato (`hook_repetido_justificacion: <razón>`) y avisa: *"Rafael, este hook (X) se usó hace 3 relatos. ¿Confirmas la repetición y la razón? (sello-serie / tie-in / decisión editorial)"*. Sin razón → no avanzar.
 
+### 5.7-bis Elegir display title YouTube-style — OBLIGATORIO antes de prosa (regla dura 2026-04-26 PM)
+
+**Por qué este paso existe.** El `title:` corto interno (sustantivo simple 2-6 palabras: *La objeción*, *El operador nocturno*) sigue siendo el nombre del fichero `.md`, breadcrumb y URL slug. Pero el lector escaneando inbox de email, feed de YouTube o card OG en redes recibe primero un display title que aparece bajo la miniatura. La forma sustantivo-simple no compite con el algoritmo de descubrimiento; la forma declarativa con paradoja embebida (*"La cuidadora que reza para que su humanoide no la sustituya antes del tribunal médico"*) sí. Razón completa + canon: [`@rules/editorial.md § Display title declarativo YouTube-style`](../../.claude/rules/editorial.md). Catálogo familia G: [`@references/ficciones/hooks-taxonomia.md § Familia G`](../../references/ficciones/hooks-taxonomia.md).
+
+**1. Cargar catálogo G + display titles recientes.**
+- Leer [`@references/ficciones/hooks-taxonomia.md § Familia G`](../../references/ficciones/hooks-taxonomia.md) — 4 subtipos (G1 Oficio + acción imposible · G2 Acto cotidiano + objeto imposible · G3 Sujeto + paradoja temporal · G4 Función + sustitución imposible) + lista de anti-patterns.
+- Leer las últimas 5 filas de [`content/registro-ficciones.md`](../../content/registro-ficciones.md) (publicados + drafts en pre-pub) y extraer columnas `Display title family` y `Display title band` (esta última solo aplicable cuando family = G1).
+- Computar el conjunto `display_titles_recientes` (5 elementos) y `bandas_recientes` (subset de las G1).
+
+**2. Sugerir 3 candidatos al lector** (Rafael), con razón explícita:
+
+```
+🎬 Catálogo G: 4 subfamilias · Últimos 5 display titles: <G_a, G_b, G_c, G_d, G_e>
+   · Bandas usadas en últimos 5 G1: <A, C, D>
+
+Para esta semilla (<semilla>) + categoría tonal <X> + display_title sugerido:
+
+  [1] "<Display title 1>" (G1, banda <Y>) — <razón de paradoja embebida> · <N> palabras · NO usado en últimos 5 ✓
+  [2] "<Display title 2>" (G2) — <razón de paradoja embebida> · <N> palabras · NO usado en últimos 5 ✓
+  [3] "<Display title 3>" (G4) — <razón de paradoja embebida> · <N> palabras · NO usado en últimos 5 ✓
+
+¿Cuál usamos, o prefieres reformular?
+```
+
+**Lógica de priorización del skill al elegir los 3 candidatos:**
+
+- **Filtro duro 1:** descartar subfamilias G presentes en `display_titles_recientes` (excepción documentada en `arco-serie.md` si una serie tiene un G como sello editorial).
+- **Filtro duro 2 (solo G1):** descartar la banda de personaje si ya domina los últimos 3 G1 (regla "no encadenar 3 relatos en misma banda"). Banda obligada si una banda nunca apareció en los primeros 10 heros del paradigma personaje.
+- **Filtro semántico:** la paradoja embebida del display title debe estar **anclada al tema del relato + dato real**. Si el dato real es "AI Act art. 50", la paradoja del título lo materializa en una acción concreta (*"La cuidadora que reza para que su humanoide no la sustituya antes del tribunal médico"* refleja outsourcing-de-cuidados + brecha legal).
+- **Longitud:** entre 8 y 15 palabras. Demasiado corto = sin hook compositivo. Demasiado largo = se corta en línea 2 de Apple Mail / Gmail preview pane (≈70 chars).
+- **Anti-patterns prohibidos** (lista cerrada en `hooks-taxonomia.md § Familia G`):
+  - Sustantivo simple sin acción (formato del `title:` corto, no del `display_title:`).
+  - Pregunta retórica al lector ("¿Quién cuida a quién…?").
+  - Resumen explícito de la trama (anula la paradoja).
+  - Frase con dos cláusulas separadas por dos puntos ("Madrid, 2034: una cuidadora…").
+  - Em-dash en el medio del título ("El humanoide — y los sueños…").
+  - **Nombre propio real de figura pública** ("La ministra Yolanda Díaz que…") — bloqueo duro.
+  - Fuera de rango 8-15 palabras.
+
+**3. Si Rafael delega o no responde** → usar el candidato [1] sin pedir confirmación adicional.
+
+**4. Registrar en frontmatter:**
+- `display_title: "<Display title elegido>"` (entre comillas, mayúscula inicial sola, sin punto final).
+- `display_title_family: <G1|G2|G3|G4>`.
+- `display_title_band: <A|B|C|D|E>` solo si family = G1; vacío en otros casos.
+
+**5. Validar con grep pre-output (en paso § 9):**
+- `display_title:` presente y entre comillas.
+- Conteo de palabras 8-15.
+- `display_title_family:` presente con valor canónico.
+- Si G1 → `display_title_band:` presente.
+- Display title NO contiene nombre propio real de figura pública (matching contra lista futura `references/ficciones/figuras-publicas-vetadas.md`; mientras la lista no exista, lectura manual obligatoria por parte del skill).
+
+**6. Excepciones documentadas.** Si Rafael fuerza una subfamilia G ya en `display_titles_recientes`, el skill registra la excepción con razón en `PASOS.md` (`display_title_repetido_justificacion: <razón>`) y avisa antes de avanzar.
+
+### 5.7-ter Elegir tag poético tonal — OBLIGATORIO antes de prosa (regla dura 2026-04-26 PM)
+
+**Por qué este paso existe.** Las categorías tonales canon (inquietante / radical / ambiguo / inspirador / mundano) son **internas al pipeline** — sirven al algoritmo de matriz canon 40/15/25/10/10 y al auto-balanceo. Pero el lector que llega a un post de ficción se beneficia de una etiqueta editorial **ES poética y reconocible** que ancla el relato en una micro-categoría visible. Esa etiqueta es el `tag_poetico:`, mapeado de un catálogo cerrado de 10 a las 5 categorías tonales. Razón completa: [`@rules/editorial.md § Tag poético tonal`](../../.claude/rules/editorial.md).
+
+**1. Cargar mapeo canon (catálogo cerrado, 10 etiquetas):**
+
+| Categoría tonal | Tag poético ES (elegir 1 según eje dominante) |
+|---|---|
+| inquietante | *Hogar uncanny* (eje técnico-sensorial) · *Habitaciones extrañas* (eje espacial) |
+| radical | *Cuidados rotos* (eje afecto-cuidado) · *Diálogos rotos* (eje comunicativo) |
+| ambiguo | *Memorias prestadas* (eje memoria-identidad) · *Espacios subconscientes* (eje psíquico) |
+| inspirador | *Cocinas tibias* (eje material-doméstico) · *Anatomía emocional* (eje introspectivo) |
+| mundano | *Domingos eléctricos* (eje cotidiano) · *Física melancólica* (eje observacional) |
+
+**2. Sugerir 1 tag** del par correspondiente a la `categoria-tonal` declarada en paso 0.5, justificando el eje dominante:
+
+```
+🏷️ Categoría tonal: <inquietante | radical | ambiguo | inspirador | mundano>
+   Pares disponibles: "<Tag A> (<eje A>)" o "<Tag B> (<eje B>)"
+
+Para esta semilla, el eje dominante es <eje>: <razón>.
+Tag propuesto: "<Tag elegido>"
+
+¿Confirmas o prefieres el otro del par?
+```
+
+**3. Si Rafael delega** → usar el tag propuesto.
+
+**4. Registrar en frontmatter:** `tag_poetico: "<Tag elegido>"`.
+
+**5. Catálogo cerrado.** Si Rafael propone una etiqueta fuera de las 10 → no aceptar a nivel de relato individual. Documentar la propuesta en `PASOS.md § Tag poético propuesto fuera de catálogo` y abrir una nota para ampliar la regla en `editorial.md` antes del próximo relato. Mientras tanto, elegir el tag más cercano del catálogo cerrado.
+
 ### 6. Expandir a prosa con MRUs — voz castellana literaria peninsular
 
 **Antes de generar prosa, cargar OBLIGATORIAMENTE [`@references/ficciones/castellano-literario-es.md`](../../references/ficciones/castellano-literario-es.md) como contexto.** Este archivo es la base de la voz: 10 referentes ES contemporáneos con muestra textual (Urraca · Amat · Morales · Martínez · de la Cruz · Adón · Barba · Moreno · Mesa · Otero), 5 patrones transversales, 12 calcos EN→ES con alternativas literarias, 12 recursos ES positivos y checklist operativa. Origen: feedback Rafael 2026-04-19 sobre *El operador nocturno v1* — la prosa sonaba a traducción del inglés porque el skill no cargaba ningún modelo de prosa narrativa española literaria, solo frameworks universales (Pixar, MRUs, Paint The Villain).
@@ -719,6 +806,35 @@ Si hay violaciones → limpiar antes de entregar (no se pregunta al usuario).
 - [ ] **Villano humano, no robot**: el conflicto emocional debe ser identificable en 1 frase.
 - [ ] **Voz**: POV consistente (omnisciente O 1ª persona del personaje). **Excepción explícita a la regla de "primera persona plural" baseline.**
 - [ ] **Hook de apertura — `hook_type` declarado en frontmatter** (uno de los 24 canon de [`@references/ficciones/hooks-taxonomia.md § 2`](../../references/ficciones/hooks-taxonomia.md)). Sin él, output bloqueado.
+- [ ] **Display title YouTube-style — `display_title:` y `display_title_family:` declarados en frontmatter** (regla dura 2026-04-26 PM). Verificación grep:
+
+  ```bash
+  # (a) display_title presente, entre comillas, no vacío
+  grep -E '^display_title:\s*"[^"]+"' <relato.md>          # → 1 match
+
+  # (b) display_title 8-15 palabras
+  awk -F'"' '/^display_title:/ {n=split($2, w, " "); print n}' <relato.md>   # → 8-15
+
+  # (c) display_title_family presente con valor canónico G1-G4
+  grep -E '^display_title_family:\s*G[1-4]\b' <relato.md>   # → 1 match
+
+  # (d) Si family = G1 → display_title_band con valor A-E
+  grep -E '^display_title_family:\s*G1\b' <relato.md> && grep -E '^display_title_band:\s*[A-E]\b' <relato.md>
+  ```
+
+  Si alguno falla → output bloqueado. Detalle de la regla y catálogo G: § 5.7-bis + [`@references/ficciones/hooks-taxonomia.md § Familia G`](../../references/ficciones/hooks-taxonomia.md).
+- [ ] **Display title NO menciona nombre propio real de figura pública.** Lectura manual obligatoria + grep cruzado. Lista de nombres a vigilar (provisional hasta crear `references/ficciones/figuras-publicas-vetadas.md`): miembros del Gobierno de España actual, presidentes autonómicos, líderes de partidos parlamentarios, jueces del TC, presentadores y deportistas top-50 ES. Si match → reescribir como rol genérico ("La ministra que…", "El delantero que…", "El presentador que…"). Excepción permitida: diálogo del relato (no en título ni hero).
+- [ ] **Subfamilia G NO repetida en últimos 5 display titles del registro.** Consultar columna `Display title family` de [`content/registro-ficciones.md`](../../content/registro-ficciones.md). Excepción documentada en `arco-serie.md` (sello editorial de serie) o `PASOS.md § display_title_repetido_justificacion`.
+- [ ] **Si `display_title_family: G1` → banda no encadenada 3 veces seguidas.** Consultar columna `Display title band`. Detalle en [`assets/branding/ficcion-hero-archetypes.md § Grupo personaje-acción-imposibilidad`](../../assets/branding/ficcion-hero-archetypes.md).
+- [ ] **Tag poético — `tag_poetico:` declarado en frontmatter** (regla dura 2026-04-26 PM). Verificación grep:
+
+  ```bash
+  # tag_poetico presente con valor del catálogo cerrado de 10
+  grep -E '^tag_poetico:\s*"(Hogar uncanny|Habitaciones extrañas|Cuidados rotos|Diálogos rotos|Memorias prestadas|Espacios subconscientes|Cocinas tibias|Anatomía emocional|Domingos eléctricos|Física melancólica)"' <relato.md>   # → 1 match
+  ```
+
+  Si falla → output bloqueado. Detalle: § 5.7-ter + [`@.claude/rules/editorial.md § Tag poético tonal`](../../.claude/rules/editorial.md).
+- [ ] **Hero paradigma — `hero_paradigma:` declarado en frontmatter** con valor `personaje-accion-imposibilidad` (default desde 2026-04-26 PM para one-shots/miniseries) o `minimalista` (declarativo cuando objeto-testigo > personaje). Para episodios de serie con código declarado (Amparo, Ronda 3, MAIA), el campo puede omitirse o llevar el código de serie como valor (`amparo-domestic-warm`, `ronda-3-documental-social`, `maia-epistolar-dual`). Verificación: si one-shot/miniserie nueva y campo ausente → output bloqueado.
 - [ ] **Hook concreto NO repetido en últimos 5 relatos** (consultar columna `Hook` de [`content/registro-ficciones.md`](../../content/registro-ficciones.md)). Excepción documentada en `arco-serie.md` (sello de serie) o `PASOS.md` (tie-in / decisión editorial); sin justificación → cambiar.
 - [ ] **Primera frase / primer párrafo coincide con el `hook_type` declarado** — lectura manual obligatoria. Si no coincide o cae en uno de los 8 anti-patterns de `hooks-taxonomia.md § 5` (apertura ambiental neutra, resumen biográfico, filosofía abstracta, *"Todo empezó cuando…"*, primera frase explicativa, pregunta retórica al lector, presentación con adjetivos, descripción del robot como decorado) → reescribir antes de entregar.
 - [ ] **Variabilidad inter-relatos — 4 ejes estructurales NO repetidos en últimos 5** (regla dura 2026-04-26 PM). Verificar contra [`content/registro-ficciones.md`](../../content/registro-ficciones.md):
@@ -919,10 +1035,11 @@ Memoria de la regla: `feedback_ficcion_cierre_canonico.md`.
 
 ```yaml
 ---
-title: "Título del relato"
+title: "Título del relato"                              # Sustantivo simple 2-6 palabras (interno, slug-friendly fallback, breadcrumb)
+display_title: "El/La [rol] que [acción + objeto-imposibilidad]"   # Declarativo paradójico 8-15 palabras (subject newsletter, H1 web, OG title, alt-text miniatura, copy redes). OBLIGATORIO desde 2026-04-26 PM.
 seo_title: "Título SEO (max 55 chars)"
 meta_description: "Resumen con gancho (110-155 chars)"
-slug: slug-kebab-case
+slug: slug-kebab-case                                    # URL pública estable; deriva del title corto, no del display_title
 serie: familia-cortes
 episodio: 03
 longitud: flash | corto | mini-serie-episodio
@@ -932,29 +1049,41 @@ pov: omnisciente | primera-persona-tico
 tiempo-verbal: presente | pasado
 tag: Ficciones Domésticas
 tags-beehiiv: [Opinión]
+tag_poetico: "Hogar uncanny | Habitaciones extrañas | Cuidados rotos | Diálogos rotos | Memorias prestadas | Espacios subconscientes | Cocinas tibias | Anatomía emocional | Domingos eléctricos | Física melancólica"   # OBLIGATORIO. Catálogo cerrado de 10 mapeado a categoría tonal. Detalle: § 5.7-ter.
 dato-real: "INE: 20,1% españoles +65 años en 2033"
 villano-humano: "El silencio de las 18:00 (soledad de los mayores solos)"
 left-wall: "Fisiología aspirador 2033: sin brazos, LiDAR 360° solo superficies sólidas, sin acceso telefónico directo"
 big-lie: "Aspirador ha desarrollado modelo mental de rutinas humanas lo bastante preciso para detectar ausencia"
 framework: pixar-spine | 5-sentence | mrus
 categoria-tonal: inquietante | inquietante-heavy | radical | ambiguo | inspirador | mundano
+hook_type: "A3 Acto irreversible inminente"              # Hook de prosa (familia A-F), § 5.7. OBLIGATORIO.
+display_title_family: G1 | G2 | G3 | G4                  # Hook de display title (familia G), § 5.7-bis. OBLIGATORIO.
+display_title_band: A | B | C | D | E                    # Solo si display_title_family = G1. Banda de personaje. Catálogo: ficcion-hero-archetypes.md § Grupo personaje-acción-imposibilidad.
+hero_paradigma: minimalista | personaje-accion-imposibilidad     # § 5 vs § 5.bis de asset-catalog.md. Default desde 2026-04-26 PM = personaje-accion-imposibilidad.
 status: borrador
 created: YYYY-MM-DD
 hero-image: assets/hero-<slug>.png
 ---
 ```
 
-### Hero image — 1 código visual por serie (regla editorial)
+### Hero image — bifurcación de paradigma (one-shots/miniseries vs series con código declarado)
 
-Cada serie (y cada one-shot) de Ficciones Domésticas tiene **un código visual propio y consistente** para que el lector la reconozca de un vistazo. Sistema completo + precedentes en la memoria [`feedback_ficcion_hero_style.md`](../../../RRP-DEV/.claude/memory/feedback_ficcion_hero_style.md) (léela ANTES de generar cualquier hero de ficción).
+Tras 2026-04-26 PM, los heros de Ficciones Domésticas se generan en uno de **3 paradigmas posibles**, decididos en este orden:
 
-**Regla universal (los 5 estilos la cumplen):**
-- Siempre humano + robot/tech en el mismo frame. Si solo sale humano → no es hero ROBOHOGAR.
+1. **Si el relato pertenece a una serie con código visual ya declarado** (La Casa de Amparo · Crónicas de Ronda 3 · Cartas a MAIA) → aplicar el **código de la serie** (existente, sin cambios). Ver tabla más abajo.
+2. **Si el relato es one-shot o miniserie nueva sin código declarado y `hero_paradigma:` del frontmatter es `personaje-accion-imposibilidad`** (default desde 2026-04-26 PM) → aplicar el **canon § 5.bis** de [`assets/branding/asset-catalog.md`](../../assets/branding/asset-catalog.md) + archetype del grupo `personaje-acción-imposibilidad` de [`assets/branding/ficcion-hero-archetypes.md`](../../assets/branding/ficcion-hero-archetypes.md).
+3. **Si el relato es one-shot/miniserie nueva y `hero_paradigma: minimalista`** (declarativo cuando el objeto-testigo aislado del relato es más fuerte que cualquier personaje en frame, ej: tela ceremonial de *La objeción*) → aplicar el **canon § 5** minimalista existente + archetype 01-15 de [`ficcion-hero-archetypes.md`](../../assets/branding/ficcion-hero-archetypes.md).
+
+**Regla universal (los 3 paradigmas la cumplen):**
 - No ventana exterior visible (Gemini mete neones con caracteres asiáticos — ver `assets/branding/nano-banana-prompt-base.md`).
-- No LEDs/neones/glow en robots (excepciones puntuales: glow dorado ojos Asimov, pinpoint azul Black Mirror).
+- No LEDs/neones/glow en robots (excepciones puntuales: glow dorado ojos Asimov, pinpoint azul Black Mirror; nunca en heros del nuevo paradigma).
 - No texto, letras ni caracteres asiáticos.
+- Dimensiones obligatorias 1200×630 (`--model 2 --aspect 16:9 --size 2K` + crop Pillow).
+- Banda D (figuras públicas por rol) del paradigma personaje-acción-imposibilidad: **identidad por rol y atrezzo**, nunca cara reconocible de figura real. Regen si Gemini la mete.
 
-**Códigos visuales activos (consultar arco-serie.md § 9 de cada serie + memoria para precedente canónico):**
+#### Paradigma 1 — Serie con código visual declarado (La Casa de Amparo · Ronda 3 · MAIA)
+
+Cada serie tiene un **código visual propio y consistente** para que el lector la reconozca de un vistazo. Sistema completo + precedentes en la memoria [`feedback_ficcion_hero_style.md`](../../../RRP-DEV/.claude/memory/feedback_ficcion_hero_style.md) (léela ANTES de generar cualquier hero de serie). En este paradigma, **siempre humano + robot/tech en el mismo frame** (regla heredada del canon de serie).
 
 | Serie | Código | Rasgos clave |
 |---|---|---|
@@ -966,9 +1095,9 @@ Cada serie (y cada one-shot) de Ficciones Domésticas tiene **un código visual 
 - **Asimov oil painting** — solo para tapa de ebook recopilatorio (~500 subs, roadmap ficciones)
 - **Black Mirror frío** — solo para sub-línea *"Relatos inversos de Black Mirror"* (relatos inquietantes, sistema humano como amenaza, robot neutro)
 
-**Al crear una nueva serie o one-shot:**
+**Al crear una nueva serie:**
 1. Definir el código visual en `arco-serie.md` § 9 "Notas de producción" → "Hero image recurrente" ANTES del primer episodio — framing + paleta + luz + referencias cinematográficas + elementos constantes del universo.
-2. Registrarlo también en esta tabla del skill si va a reutilizarse.
+2. Registrarlo también en esta tabla si va a reutilizarse.
 3. Mantener el código estable episodio a episodio — variar escena y humano, no el sistema visual.
 
 **Prompt base por serie (adaptar a la escena del episodio):**
@@ -983,8 +1112,51 @@ Cada serie (y cada one-shot) de Ficciones Domésticas tiene **un código visual 
 No text, no letters, no Asian characters, no windows to exterior, no LEDs.
 ```
 
+#### Paradigma 2 — One-shots/miniseries nuevas con `hero_paradigma: personaje-accion-imposibilidad` (DEFAULT desde 2026-04-26 PM)
+
+Canon `personaje-acción-imposibilidad` de [`asset-catalog.md § 5.bis`](../../assets/branding/asset-catalog.md). Adaptación de la gramática compositiva YouTube anglo (personaje + acción + objeto-imposibilidad) al lenguaje fotográfico still-life ROBOHOGAR (After Yang / Hammershoi / Wenders), **sin** copiar oil painting / digital painting.
+
+**Composición obligatoria** (resumen del canon § 5.bis — referenciar el archivo para detalle completo):
+
+1. **Personaje** identificable por oficio/rol/atrezzo en primer plano. Edad/género coherente con `Perfil POV` del frontmatter.
+2. **Acción visible** ejecutada por el personaje — pose dinámica que traduce visualmente el verbo del `display_title:`.
+3. **Objeto-imposibilidad** materializado físicamente que traduce la paradoja del `display_title:` (humo de color, líquido luminoso, partículas que escriben, luz que escapa, humanoide en gesto incoherente).
+4. **Composición regla de tercios** — personaje en una zona, objeto-imposibilidad a contrapunto, foco lumínico ámbar diagonal sobre la unión.
+5. **Fondo** azul `#1E2A3A` matte plain unmarked en tercio superior. Reduce vs minimalista (2/3) porque el personaje ocupa más altura.
+
+**Algoritmo de selección de archetype** (skill `/nano-banana` modo ficción + `/ficcion-draft`):
+
+1. Leer del frontmatter: `categoria-tonal:` + `display_title:` + `display_title_family:` + `display_title_band:` (si G1) + `Perfil POV` (de la fila correspondiente del registro).
+2. Cargar [`ficcion-hero-archetypes.md § Grupo personaje-acción-imposibilidad`](../../assets/branding/ficcion-hero-archetypes.md).
+3. Filtrar archetypes por banda obligada (`display_title_band` si G1) o sugerida (mejor encaje con el `display_title` y `Perfil POV` si no es G1).
+4. Filtrar por compatibilidad con la categoría tonal (tabla de "Algoritmo de selección por categoría tonal" del catálogo).
+5. **Anti-repetición acotada al paradigma:** excluir archetypes presentes en últimos 5 heros del paradigma personaje-acción-imposibilidad (columna `Archetype` de la tabla `§ 5 · Registro de heros ficción` filtrada por `Paradigma = personaje-acción-imposibilidad`). Excluir banda dominante en últimos 3 (no encadenar 3 relatos en misma banda).
+6. **Forzado de cobertura:** si en los primeros 10 heros del paradigma una banda nunca apareció, bloquear las otras hasta que el siguiente relato corresponda a la banda faltante.
+7. Proponer 3 candidatos a Rafael con razón explícita (banda + archetype + objeto-imposibilidad propuesto).
+8. Tras decisión, ensamblar el prompt usando el template canónico § 5.bis sustituyendo `[PERSONAJE]`, `[ACCIÓN VISIBLE]`, `[OBJETO-IMPOSIBILIDAD]`, `[SUPERFICIE/ESCENARIO]`. Fragments por banda en `ficcion-hero-archetypes.md § Prompt fragments por banda`.
+
+**Validación pre-output (8 puntos del canon § 5.bis):**
+
+- [ ] Personaje identificable por rol/oficio en primer plano (no solo silueta abstracta).
+- [ ] Acción concreta visible coherente con el verbo del `display_title` declarado.
+- [ ] Objeto-imposibilidad materializado físicamente que traduce la paradoja.
+- [ ] Fondo azul `#1E2A3A` matte en tercio superior, plain unmarked, sin neones/caracteres/texto.
+- [ ] Foco lumínico cálido ámbar diagonal único.
+- [ ] Test 120px — silueta del personaje + objeto-imposibilidad se distinguen a thumbnail.
+- [ ] Cero LEDs / glow / paneles luminosos.
+- [ ] Si banda D: la cara del personaje NO es reconocible como figura concreta. Regen si fallo.
+
+#### Paradigma 3 — One-shots/miniseries nuevas con `hero_paradigma: minimalista` (declarativo)
+
+Canon § 5 minimalista existente. Aplica solo cuando el relato tiene un objeto-testigo aislado más fuerte que cualquier personaje en frame (ej: tela ceremonial de *La objeción*, tetrabrik de *El operador nocturno*). El skill **pregunta a Rafael** si hay duda sobre cuál paradigma aplicar; default sin pregunta = paradigma 2 (personaje-acción-imposibilidad).
+
+Detalle completo del canon § 5 minimalista + 15 archetypes en [`ficcion-hero-archetypes.md`](../../assets/branding/ficcion-hero-archetypes.md). Anti-repetición acotada al paradigma minimalista (no contra el paradigma 2).
+
+#### Operativa común a los 3 paradigmas
+
 - **Fallback si Rafael no quiere hero:** usar monograma R sobre fondo ámbar claro como placeholder neutro.
-- Añadir la nueva imagen a `assets/branding/asset-catalog.md` bajo sección "Heros ficción" indicando código visual aplicado.
+- Añadir la nueva imagen a `asset-catalog.md § 5 · Registro de heros ficción` indicando paradigma + banda (si aplica) + archetype.
+- Si hero generado falla cualquier validación → archivar la v en `<slug>/assets/_archive/hero-v<N>-<motivo>-YYYY-MM-DD.png` y regenerar con v+1.
 
 ### Copia audiolibro para el vault Obsidian — OBLIGATORIA
 

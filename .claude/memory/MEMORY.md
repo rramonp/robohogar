@@ -43,6 +43,7 @@
 - [feedback_ficcion_hook_obligatorio.md](feedback_ficcion_hook_obligatorio.md) — Hook fuerte obligatorio en apertura (24 tipos canon en hooks-taxonomia.md) + no repetir mismo hook en últimos 5 relatos
 - [feedback_ficcion_cierre_canonico.md](feedback_ficcion_cierre_canonico.md) — Cierre canónico obligatorio con `Fin.` + sección "Lo real detrás del relato" + comentarios HTML trazabilidad
 - [feedback_ficcion_anti_self_plagio.md](feedback_ficcion_anti_self_plagio.md) — Sistema multinivel anti-self-plagio: bloqueo duro 4 ejes + tropos quemados + saturación voces ES + grep cruzado + intensidad narrativa cinematográfica por defecto
+- [feedback_ficcion_display_title_y_hero_personaje_accion.md](feedback_ficcion_display_title_y_hero_personaje_accion.md) — display_title declarativo (familia G) + tag poético catálogo cerrado + hero personaje-acción-imposibilidad con 5 bandas. Default 2026-04-26 PM, no retroactivo
 
 ## Feedback — Beehiiv & Platform
 - [feedback_beehiiv_tipografia_bold_tablas.md](feedback_beehiiv_tipografia_bold_tablas.md) — Formato técnico Beehiiv maestro: DM Sans Semibold (600) + Inter Regular · bold SÍ/NO + bug copy-paste (usar <strong>, nunca <span class="bold">) · tablas mobile-first máx 4 cols ≤25 chars

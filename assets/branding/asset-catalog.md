@@ -356,12 +356,111 @@ Usar `assets/branding/social/thumbnail-default-1200x630.png` como placeholder ne
 
 Columna `Archetype` usa la codificación `A·B/C·D` de [`ficcion-hero-archetypes.md`](ficcion-hero-archetypes.md) o el número 01-15 si coincide con un archetype canónico. La regla anti-repetición prohíbe 2 filas consecutivas del mismo grupo (one-shot / serie-X) con el mismo archetype.
 
-| # | Serie / One-shot | Slug relato | Fecha | Versión | Archetype | Objeto-testigo | Toque sci-fi |
-|---|---|---|---|---|---|---|---|
-| 1 | One-shot | `el-operador-nocturno` | 2026-04-20 | v6 | 02 (A1·B1·D.i) | Tetrabrik de leche blanco sin branding | Tarjeta ID plastificada en blanco con cordón (operador filipino invisible) — leído como C5/ausencia tardía |
-| 2 | One-shot | `el-que-viene-a-tomar-cafe` | 2026-04-20 | v3 | 01 (A1·C1·D.i) | Taza blanca con vapor sobre mantel de hule con cenefa de olivos | Mano sintética humanoide reposando junto a la taza (el humanoide "Ramón") |
-| 3 | One-shot | `setenta-y-dos-horas` | 2026-04-20 | v3 | 07 (A1·C2·D.i) | Yoyó rojo de madera sobre parquet de roble con sombra larga | Humanoide Tata encogido en rincón al fondo, desenfocado, como abrigo colgado de percha |
-| 4 | One-shot | `la-objecion` | 2026-04-24 | v8 | 10 (A4·B1+C2·D.i) | Tela ceremonial tri-fold (amarillo central con escudo heráldico abstracto + rojos plegados) sobre mesilla wenge del despacho, vista a través de puerta entreabierta desde el pasillo oscuro | Humanoide VELA-9 cream-white encogido en el rincón contra la pared azul del despacho, rodillas recogidas, cabeza inclinada como en reposo/objeción. Lámpara doméstica upper-right ilumina solo la bandera y al humanoide. v1·v2·v3·v4·v5·v6·v7 archivadas (v2 era A1·C1·D.i idéntica a #2 Café). |
+**Columnas `Paradigma` y `Banda` (añadidas 2026-04-26 PM):**
+- `Paradigma` = `minimalista` (canon § 5 · object-testigo · sin personaje en primer plano) o `personaje-acción-imposibilidad` (canon § 5.bis · personaje + acción + objeto-imposibilidad).
+- `Banda` aplica solo si `Paradigma = personaje-acción-imposibilidad`: una de A (oficios domésticos) · B (trabajadores ES) · C (funcionarios) · D (figuras públicas) · E (cultura pop). Vacía para `minimalista`.
+
+| # | Serie / One-shot | Slug relato | Fecha | Versión | Paradigma | Banda | Archetype | Objeto-testigo / Objeto-imposibilidad | Toque sci-fi / Personaje |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | One-shot | `el-operador-nocturno` | 2026-04-20 | v6 | minimalista | — | 02 (A1·B1·D.i) | Tetrabrik de leche blanco sin branding | Tarjeta ID plastificada en blanco con cordón (operador filipino invisible) — leído como C5/ausencia tardía |
+| 2 | One-shot | `el-que-viene-a-tomar-cafe` | 2026-04-20 | v3 | minimalista | — | 01 (A1·C1·D.i) | Taza blanca con vapor sobre mantel de hule con cenefa de olivos | Mano sintética humanoide reposando junto a la taza (el humanoide "Ramón") |
+| 3 | One-shot | `setenta-y-dos-horas` | 2026-04-20 | v3 | minimalista | — | 07 (A1·C2·D.i) | Yoyó rojo de madera sobre parquet de roble con sombra larga | Humanoide Tata encogido en rincón al fondo, desenfocado, como abrigo colgado de percha |
+| 4 | One-shot | `la-objecion` | 2026-04-24 | v8 | minimalista | — | 10 (A4·B1+C2·D.i) | Tela ceremonial tri-fold (amarillo central con escudo heráldico abstracto + rojos plegados) sobre mesilla wenge del despacho, vista a través de puerta entreabierta desde el pasillo oscuro | Humanoide VELA-9 cream-white encogido en el rincón contra la pared azul del despacho, rodillas recogidas, cabeza inclinada como en reposo/objeción. Lámpara doméstica upper-right ilumina solo la bandera y al humanoide. v1·v2·v3·v4·v5·v6·v7 archivadas (v2 era A1·C1·D.i idéntica a #2 Café). |
+
+---
+
+## 5.bis Heros de ficción — **canon `personaje-acción-imposibilidad`** (2026-04-26 PM, paralelo al § 5)
+
+> **Canon visual nuevo paralelo al § 5 minimalista.** Aplica solo a one-shots y miniseries futuras. Las 3 series activas con código declarado (La Casa de Amparo, Crónicas de Ronda 3, Cartas a MAIA) **no se tocan** — mantienen su código existente. Default desde 2026-04-26 = `personaje-acción-imposibilidad`. El paradigma `portada minimalista · objeto-testigo` (§ 5) queda como opción declarativa cuando el relato lo pida explícitamente. Origen del canon: feedback Rafael 2026-04-26 PM viendo recomendaciones de YouTube anglo de "Domestic Fictions" — adoptamos su gramática compositiva (personaje + acción + objeto-imposibilidad) **sin** copiar su estilo oil painting / digital painting; mantenemos look-and-feel still-life ROBOHOGAR.
+
+### Principio editorial
+
+La portada vehicula el **hook compositivo** que el `display_title` declara verbalmente. Si el `display_title:` dice *"La cuidadora que reza para que su humanoide no la sustituya antes del tribunal médico"*, la miniatura muestra a una cuidadora identificable por delantal/mandil en cocina **rezando** (acción visible) con un humanoide al fondo y un **objeto-imposibilidad** que materializa la paradoja (el expediente médico levitando sobre la mesa). El paratexto verbal y el paratexto visual cargan el mismo hook desde dos canales — el lector escaneando inbox o feed lo percibe como un golpe único, no como dos elementos separados.
+
+### ADN visual ROBOHOGAR fijo (heredado de § 5)
+
+Lo que **no cambia** respecto al canon minimalista:
+
+1. **Estilo** — fotografía editorial still-life cinematográfico. After Yang (Kogonada) · Hammershoi · Wenders *Perfect Days* · Crewdson *domestic stillness*. **Cero oil painting / digital painting / cartoon / anime.** Cero estilo "ilustración pintada" tipo canal anglo.
+2. **Paleta** — fondo azul noche `#1E2A3A` matte (pared) + foco lateral cálido ámbar único. Macro depth of field. Grano fino cinematic grade.
+3. **Anti-sign-guard activo** — cero neones, cero caracteres asiáticos, cero LEDs/glow, cero texto, cero ventanas a exterior con caracteres. Frase canónica que esquiva el bug de Gemini sigue siendo: `"solid dark empty wall, plain matte dark blue-gray paint, completely bare and unmarked"`.
+4. **Dimensiones obligatorias** — 1200×630 (`--model 2 --aspect 16:9 --size 2K` + crop Pillow). Detalle: `nano-banana-prompt-base.md § Dimensiones obligatorias`.
+5. **Test 120px** — silueta y foco deben distinguirse a thumbnail Beehiiv landing.
+
+### Lo nuevo (gramática compositiva)
+
+Cinco diferencias respecto al § 5 minimalista:
+
+| Elemento | § 5 minimalista (object-testigo) | § 5.bis personaje-acción-imposibilidad |
+|---|---|---|
+| **Personaje en frame** | Ausente (humanoide encogido permitido al fondo desenfocado) | **Presente en primer plano** identificable por oficio/rol/atrezzo |
+| **Acción** | Estática — objeto en reposo, escena contemplativa | **Dinámica** — personaje ejecutando una acción concreta visible (forjando, cosiendo, midiendo, firmando, vigilando, hirviendo) |
+| **Carga del frame** | Negative space dominante, 1 objeto-testigo aislado | **3 elementos** en relación tensa: personaje + acción + objeto-imposibilidad |
+| **Imposibilidad visual** | Sutil (mano sintética, tarjeta ID en blanco, sombra desde off-frame) | **Materializada físicamente**: humo de color anómalo, líquido luminoso, partículas que escriben, luz que escapa de un objeto cotidiano, humanoide encogido en gesto incoherente con su función |
+| **Composición** | Objeto centrado por regla de tercios, fondo 2/3 superior | **Personaje en una zona del frame, objeto-imposibilidad a contrapunto**, foco lumínico ámbar diagonal sobre la unión |
+
+### Especificación obligatoria
+
+| Elemento | Especificación |
+|---|---|
+| **Aspect ratio** | `landscape` 16:9 → crop Pillow → 1200×630 |
+| **Personaje** | 1 personaje principal identificable por oficio/rol del relato. Visible torso + cabeza, o silueta lateral con identidad clara por atrezzo. Edad/género coherente con el `Perfil POV` declarado en frontmatter. |
+| **Atrezzo del rol** | Identificación por oficio: delantal de cocina, bata sanitaria, mono de operario, chaleco fluorescente municipal, chaqueta de pleno político, sudadera con anillo de luz de streamer, bota de fútbol, micrófono institucional, gafas de leer. Catálogo por banda en [`ficcion-hero-archetypes.md § Grupo personaje-acción-imposibilidad`](ficcion-hero-archetypes.md). |
+| **Acción visible** | Pose dinámica: personaje haciendo algo concreto (no contemplativo). Verbo del `display_title` se traduce visualmente. |
+| **Objeto-imposibilidad** | 1 elemento que materializa la paradoja del `display_title`. Tipos canónicos: humo de color (azul, ámbar, púrpura), líquido luminoso, partículas que escriben palabras al aire, luz que escapa de objeto cotidiano (nevera abierta con luz dorada, libro abierto con haz, taza con vapor que dibuja figuras), humanoide encogido en gesto incoherente con su función (humanoide "rezando" mientras el personaje carga, humanoide "comiendo" caldo del aire, humanoide tomando notas en pluma sobre cuaderno vacío). |
+| **Fondo** | `solid dark empty wall, plain matte dark blue-gray paint, completely bare and unmarked, filling the upper third of the frame`. (Reduce 2/3 → 1/3 superior respecto a § 5 porque el personaje ocupa más altura del frame.) |
+| **Superficie/escenario doméstico** | Coherente con el rol del personaje: cocina (banda A), trastienda/portal/finca (banda B), mostrador institucional/sala administrativa (banda C), sala de pleno/despacho político (banda D), set/vestuario/estudio (banda E). |
+| **Luz** | `Warm domestic lamp light from the upper left casting amber highlight on the [PERSONAJE] and the [OBJETO-IMPOSIBILIDAD], leaving the [SUPERFICIE] in soft blur`. Una única fuente. Patch ámbar diagonal sobre la unión personaje↔objeto. |
+| **Profundidad** | Personaje en focal plane, objeto-imposibilidad ligeramente fuera de foco para diferenciarse de un decorado normal (efecto onírico). |
+| **Texto** | NUNCA. |
+| **Neones / caracteres asiáticos / LEDs** | NUNCA. |
+| **Identidad de figura pública (banda D)** | **Por rol y atrezzo solamente**, nunca cara reconocible de figura real. Si Gemini genera cara que recuerda a político/famoso real → regenerar. Verificación pre-output: `¿esta cara podría confundirse con figura pública concreta?` → si sí, regen. |
+
+### Prompt template canónico — copiar y adaptar
+
+```
+Tabletop scene photograph in cinematic still life style.
+Foreground: [PERSONAJE: descripción de rol + atrezzo + pose dinámica + edad aproximada].
+The character is [ACCIÓN VISIBLE: gerundio que traduce visualmente el verbo del display_title].
+Beside [him/her], on the [SUPERFICIE]: [OBJETO-IMPOSIBILIDAD: descripción material del fenómeno paradójico — humo de color X, líquido luminoso Y, partículas que escriben, luz dorada que escapa de Z, humanoide cream-white en gesto W].
+Background is solid dark empty wall, plain matte dark blue-gray paint, completely bare and unmarked, filling the upper third of the frame.
+The [SUPERFICIE/ESCENARIO] fills the bottom two thirds.
+Warm domestic lamp light from the upper left casting amber highlight on the [PERSONAJE] and the [OBJETO-IMPOSIBILIDAD], leaving the [SUPERFICIE] in soft blur. Macro depth of field, the character in sharp focus, the impossibility-object slightly out of focus for an oneiric effect.
+Aesthetic: editorial still life photography, Kogonada After Yang, Wim Wenders Perfect Days, Hammershoi interior restraint, Gregory Crewdson domestic stillness. NOT oil painting, NOT digital painting, NOT illustration. Cinematic photographic frame.
+No text, no signs, no neon, no LEDs, no Asian characters, no glowing parts on the humanoid, no windows visible to exterior.
+The [PERSONAJE]'s face must NOT resemble any real public figure or politician.
+```
+
+### Validación pre-output (8 puntos obligatorios)
+
+- [ ] Personaje identificable por rol/oficio en primer plano (no solo silueta abstracta).
+- [ ] Acción concreta visible coherente con el verbo del `display_title` declarado en frontmatter.
+- [ ] Objeto-imposibilidad materializado físicamente que traduce la paradoja del `display_title`.
+- [ ] Fondo azul `#1E2A3A` matte en el tercio superior, plain unmarked, sin neones/caracteres/texto.
+- [ ] Foco lumínico cálido ámbar diagonal único, sin multifuente.
+- [ ] Test 120px — silueta del personaje + objeto-imposibilidad se distinguen a thumbnail.
+- [ ] Cero LEDs / glow / paneles luminosos en humanoide o tecnología visible.
+- [ ] Si banda D (figura pública por rol): la cara del personaje NO es reconocible como figura concreta.
+
+Si falla alguno → archivar la v en `<slug>/assets/_archive/hero-v<N>-<motivo>-YYYY-MM-DD.png` y regenerar con v+1.
+
+### Anti-repetición acotada al paradigma
+
+La regla anti-repetición de archetypes aplica **solo dentro del paradigma personaje-acción-imposibilidad**, no contra los heros minimalistas (§ 5). Operativa:
+
+1. Filtrar el registro `§ 5 · Registro de heros ficción` por columna `Paradigma = personaje-acción-imposibilidad` (nueva columna añadida desde 2026-04-26 PM; los heros antiguos quedan etiquetados `Paradigma = minimalista`).
+2. Coger los últimos 5 heros del paradigma personaje. Extraer columnas `Archetype` y `Banda`.
+3. **Bloqueo dura 1:** nunca repetir mismo `Archetype` concreto en últimos 5.
+4. **Bloqueo dura 2:** rotar entre las 5 bandas (A oficios domésticos · B trabajadores ES · C funcionarios · D figuras públicas · E cultura pop) — no encadenar 3 relatos seguidos en la misma banda salvo excepción documentada en `arco-serie.md`.
+
+### Registro de heros ficción — extensión de columnas
+
+Para que la regla anti-repetición acotada funcione, el registro `§ 5 · Registro de heros ficción` añade DOS columnas a partir del primer hero del nuevo paradigma:
+
+- `Paradigma` — `minimalista` (los 4 publicados pre-canon nuevo: Operador, Café, Setenta, Objeción) o `personaje-acción-imposibilidad` (desde el siguiente).
+- `Banda` — solo aplicable cuando `Paradigma = personaje-acción-imposibilidad`. Una de A/B/C/D/E. Vacío para minimalista.
+
+Los 4 heros publicados se quedan con `Paradigma = minimalista · Banda = —`. El siguiente hero será el primer registro con `Paradigma = personaje-acción-imposibilidad · Banda = <X>`.
 
 ---
 

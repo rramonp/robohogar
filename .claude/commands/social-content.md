@@ -16,7 +16,8 @@ Output listo para copiar/pegar en cada plataforma.
 
 - Leer el artículo/newsletter más reciente de `content/published/` o `content/drafts/`
 - Si Rafael especifica uno concreto, usar ese
-- Extraer: título, hook, datos clave, opinión principal, link a Beehiiv
+- Extraer: título, hook, datos clave, opinión principal, link a Beehiiv.
+- **Si la fuente es un relato de ficción**: el "título" para social copy es el `display_title:` del frontmatter (declarativo paradójico tipo *"La cuidadora que reza para que su humanoide no la sustituya antes del tribunal médico"*), no el `title:` corto interno. El `display_title` ya carga el hook embebido — usarlo tal cual como apertura de LinkedIn/X/IG/WhatsApp ahorra trabajo de redacción y mantiene coherencia entre subject del newsletter, H1 web del post y card OG. Si el frontmatter no tiene `display_title:` (relato pre-2026-04-26 PM o no aplicable), seguir la convención existente con el `title:` corto + un hook editorial breve. Catálogo y regla: [`@.claude/rules/editorial.md § Display title declarativo YouTube-style`](../../.claude/rules/editorial.md).
 - **Leer flag `Evergreen`** del artículo en `content/registro-articulos.md` (o del frontmatter si es artículo nuevo):
   - `true` → generar posts normalmente + añadir cabecera `evergreen: true` al YAML del `.md` social
   - `false` → generar posts igual pero marcar cabecera `evergreen: false` + añadir nota **"⚠️ Post reactivo sobre noticia con fecha — NO reutilizar en redes después de 2026-MM-DD (fecha_publicación + 3 meses). Publicar solo en su ventana de relevancia."**

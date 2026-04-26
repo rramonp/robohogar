@@ -98,6 +98,55 @@ Escena tranquila descrita con un detalle ominoso que el lector identifica antes 
 #### F4. Objeto-testigo cargado
 Objeto cotidiano descrito con peso narrativo desproporcionado. Lógica: el peso del objeto adelanta el peso del relato. **Ejemplo canónico:** *"La taza con el borde despintado llevaba allí desde 2019. La habían lavado una sola vez."* **Tonales:** mundano · inquietante · ambiguo.
 
+### Familia G — Hook de DISPLAY TITLE (no de prosa) — canon nuevo 2026-04-26 PM
+
+Las familias A-F definen el **gancho del primer párrafo** del relato (el cuerpo). La familia G define el **gancho del título declarativo público** que aparece en el subject del newsletter, en la card OG de redes y en la miniatura — **antes** de que el lector abra el relato. Es un hook que opera **fuera del cuerpo**, en el paratexto que recomienda YouTube, LinkedIn, Beehiiv inbox y Apple Mail/Gmail preview pane.
+
+**Por qué existe.** Los algoritmos de descubrimiento (YouTube recommendation surface, Beehiiv inbox preview, OG cards en redes) premian títulos con **paradoja embebida en el propio título** — el formato sustantivo-simple ROBOHOGAR (*La objeción*, *El operador nocturno*) no compite ahí. Adoptamos la gramática `"El/La [rol/oficio] que [acción inusual + objeto-imposibilidad]"` (referencia: canal anglo "Domestic Fictions" de YouTube · 2026-04-26) **sin copiar** su estilo visual. Aplica solo a one-shots y miniseries futuras + a series activas desde el siguiente episodio (sin reescribir publicados). Detalle de regla y aplicación: [`@.claude/rules/editorial.md § Display title declarativo YouTube-style`](../../.claude/rules/editorial.md).
+
+**Distinción de eje** — un mismo relato declara DOS hooks en frontmatter, uno por eje:
+- `hook_type: A3 Acto irreversible inminente` — abre la prosa (familia A-F).
+- `display_title_family: G1 Oficio + acción imposible` — formula el título público (familia G).
+
+Eje independiente. Repetir A-F obliga a no repetir A-F en últimos 5; repetir G obliga a no repetir G en últimos 5. Reglas separadas.
+
+**Catálogo G — 4 subtipos.** El skill `/ficcion-draft § 5.7-bis` consulta esta sección + la columna `Display title family` del registro antes de proponer 3 candidatos al lector.
+
+#### G1. Oficio + acción imposible
+El sujeto es un rol/oficio reconocible (cuidador/a, cajera, ministra, futbolista, streamer); el predicado es una acción que normalmente realizaría ese rol PERO con un objeto-imposibilidad o consecuencia paradójica. Lógica: el cerebro lector ancla en el oficio (familiar) y descarrila en el complemento (imposible). **Ejemplo canónico ROBOHOGAR:** *"La cuidadora que reza para que su humanoide no la sustituya antes del tribunal médico"*. **Bandas de personaje aplicables (catálogo en [`assets/branding/ficcion-hero-archetypes.md`](../../assets/branding/ficcion-hero-archetypes.md)):** A oficios domésticos · B trabajadores ES día a día · C funcionarios públicos · D figuras públicas por rol · E cultura pop / mediática. **Tonales:** todas — el subtipo es agnóstico tonalmente, lo carga la acción.
+
+#### G2. Acto cotidiano + objeto imposible
+El sujeto puede no tener rol declarado (un padre, una hija, un vecino); el predicado es un acto doméstico cotidiano (grabar audios, escribir cartas, encender la radio) cuyo destinatario o materia es imposible. Lógica: el acto banal contrasta con la imposibilidad del objeto/destinatario. **Ejemplo canónico ROBOHOGAR:** *"El padre que graba audios para una hija que aún no ha decidido nacer"* · *"La nieta que reescribe los recuerdos de su yaya cada vez que el humanoide los pierde"*. **Tonales:** ambiguo · inquietante · inspirador (si el acto es de cuidado).
+
+#### G3. Sujeto + paradoja temporal
+El sujeto realiza una acción que opera contra la flecha del tiempo: enviar mensajes a un yo pasado, escribir cartas a un yo futuro, hablarle a un objeto que ya no existe, recordar lo que aún no ha ocurrido. Lógica: el cerebro lector busca explicación causal y queda colgado en la grieta temporal. **Ejemplo canónico ROBOHOGAR:** *"La mujer que envía mensajes al móvil que tiró al mar en 2018"* · *"El humanoide que recuerda los cumpleaños de un niño que aún no ha nacido"*. **Tonales:** ambiguo · radical · inquietante.
+
+#### G4. Función + sustitución imposible
+El sujeto es un humanoide / objeto técnico con una función declarada; el predicado es algo que esa función NO debería incluir y que reemplaza algo humano. Lógica: la inversión humano↔máquina se declara en la primera línea y obliga al lector a recorrer el relato para entender cómo se llegó. **Ejemplo canónico ROBOHOGAR:** *"El humanoide que cobra de noche por los sueños que no tiene"* · *"El aspirador que llora cuando termina la limpieza porque sabe lo que viene"*. **Tonales:** radical · inquietante · ambiguo.
+
+**Anti-patterns prohibidos como display title** (lista cerrada · si el candidato cae en uno → reescribir):
+- ❌ **Sustantivo simple sin acción.** *"La objeción"*, *"El operador nocturno"* — formato del `title:` corto interno, NO del `display_title:` público.
+- ❌ **Pregunta retórica al lector.** *"¿Quién cuida a quién en tu casa?"* — registro listicle/SEO, no formato de display title de ficción.
+- ❌ **Resumen explícito de la trama.** *"Una cuidadora descubre que su humanoide tiene mejor expediente"* — anula la paradoja, todo el hook se gasta antes de abrir.
+- ❌ **Frase con dos cláusulas separadas por dos puntos.** *"Madrid, 2034: una cuidadora pierde su trabajo"* — formato de artículo editorial, no de ficción.
+- ❌ **Title con `—` em-dash en el medio.** *"El humanoide — y los sueños que no tiene"* — registro anglo traducido, rompe el ritmo declarativo.
+- ❌ **Display title que mencione nombre propio real de figura pública.** *"La ministra Yolanda Díaz que…"*. Convención: rol genérico sin nombre real. Excepción ya documentada para diálogo del relato, NO para título.
+- ❌ **Display title fuera de rango 8-15 palabras.** Demasiado corto: pierde el hook compositivo. Demasiado largo: rompe en línea 2 en la inbox preview de Apple Mail / Gmail (≈70 chars visibles). Verificación pre-output: contar palabras.
+
+**Verificación pre-output específica de Familia G:**
+- `display_title:` declarado en frontmatter, 8-15 palabras, fórmula G1-G4 reconocible.
+- `display_title_family:` declarado en frontmatter (uno de G1, G2, G3, G4).
+- `display_title` NO contiene nombre propio real de figura pública (lista de nombres a vigilar = miembros del Gobierno actual + presidentes autonómicos + figuras mediáticas top-50 ES; el skill mantiene la lista en `references/ficciones/figuras-publicas-vetadas.md` cuando se cree).
+- Subfamilia G NO presente en últimos 5 display titles del registro (`content/registro-ficciones.md` columna `Display title family`).
+- Si banda de personaje aplicable (G1): banda NO repetida en últimos 5 sin excepción documentada en `arco-serie.md`.
+
+**Operativa del skill `/ficcion-draft § 5.7-bis`:**
+- Cargar este § Familia G + columna `Display title` y `Display title family` del registro de últimos 5 relatos.
+- Para la `categoria-tonal` declarada en paso 0.5, generar 3 candidatos cubriendo subfamilias G distintas a las usadas recientemente.
+- Mostrar a Rafael 3 candidatos con razón explícita: subfamilia G + banda (si G1) + paradoja embebida + conteo de palabras.
+- Si Rafael delega → tomar candidato [1].
+- Registrar `display_title:`, `display_title_family:` (y si aplica `display_title_band:` para G1) en frontmatter + en la fila correspondiente del registro al publicar.
+
 ## 3. Regla de no-repetición — variedad obligatoria
 
 **Regla dura (Rafael 2026-04-26):**
