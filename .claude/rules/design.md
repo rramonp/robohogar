@@ -53,6 +53,23 @@ Clean, editorial, magazine-style (inspiración MIT Technology Review). Espaciado
 
 **Incidente origen 2026-04-23:** árbol de decisión ASCII del borrador #10 (*mejor-robot-aspirador-mascotas-2026*) usaba caracteres box-drawing con indentación progresiva. En desktop se veía bien; en móvil las líneas largas de la rama más profunda rompían wrap donde no tocaba y la estructura del árbol se perdía entera — Rafael lo detectó al instante (*"el cuadro es inviable en móvil, todo se desorganiza"*). Solución canonizada: patrón `.decision-cards` con tarjetas apiladas + preguntas numeradas + paths Sí/No como pill-blocks. El patrón antiguo (monospace `<pre>`) queda prohibido para contenidos publicables.
 
+**Regla dura — referencia espacial 2D PROHIBIDA en prosa que apunta a bloques apilados** (canonizada 2026-04-26 tras incidente borrador `mejor-robot-aspirador-barato-2026`). Cualquier bloque visual que en mobile-first se renderiza **apilado en stack vertical** (cuadro qué-sí qué-no, dos cards comparativas, decision-cards Sí/No, infographics 2-col que colapsan a 1-col) NO se puede referenciar en la prosa con palabras de layout 2D ("columna izquierda", "columna derecha", "lado izquierdo", "a la izquierda", "a la derecha", "del lado derecho", "el de al lado"). En desktop podrían leerse en horizontal y la referencia espacial sería correcta — pero el 80 % del tráfico ROBOHOGAR es móvil, donde los dos bloques están uno encima del otro y "izquierda/derecha" deja al lector confundido buscando algo que no existe.
+
+**Sustituir por referencia semántica** que funciona en cualquier viewport:
+- **Por contenido:** *"lo que sí está / lo que no está"*, *"las cinco cosas que sí esperar / las cinco que no"*, *"la lista verde / la roja"*.
+- **Por orden de lectura vertical:** *"el primer cuadro / el segundo"*, *"la lista de arriba / la de abajo"* (siempre que el orden DOM sea estable y el de abajo de verdad esté abajo en mobile).
+- **Por color/etiqueta del bloque:** *"el bloque ámbar / el gris"*, *"el cuadro ✅ / el cuadro 🚫"*.
+
+**Verificación pre-output (grep, debe devolver 0):**
+
+```bash
+grep -nE "\b(columnas? (izquierd[oa]|derech[oa])|lados? (izquierd[oa]|derech[oa])|del (lado|panel|cuadro|recuadro) (izquierd[oa]|derech[oa])|a la (izquierda|derecha)|en la (izquierda|derecha))\b" <borrador.html|md>
+```
+
+Si matchea → reescribir antes de entregar. Implementado como **calco 23** en `validate-prose-es § Capa 1` (deterministic), meta = 0 matches.
+
+**Incidente origen 2026-04-26:** borrador `mejor-robot-aspirador-barato-2026` cerraba la sección "5 expectativas" con *"Si las cinco cosas de la columna izquierda te bastan y las cinco de la derecha no son rotura para ti..."*. El cuadro qué-sí qué-no del artículo se renderiza apilado verticalmente en móvil (es lo correcto mobile-first). Rafael lo detectó al pegar el .md (*"NO SON COLUMNAS IZQ DCHA, son cuadros uno encima de otro"*). Cambio aplicado: regla canonizada + validador automático calco 23 + grep pre-output en `/content-draft`.
+
 Skills que generan contenido publicable (`/content-draft`, `/ficcion-draft`, `/pdf-brand`, `/social-content`, futuros) aplican esta regla sin excepción.
 
 ## Integridad imagen ↔ caption

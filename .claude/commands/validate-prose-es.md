@@ -137,6 +137,10 @@ check 21 "Pasiva con dar a actor institucional" "\\bse (da|dio|daba|dan|dieron|d
 # Calco 22 (v5 · 2026-04-24) — frase relativa descriptiva en lugar de adjetivo/sustantivo ES idiomático
 # Origen: subtítulo "un botón que no hace ruido" en La objeción (detectado por Rafael leyendo, validador no lo cogió)
 check 22 "Frase relativa descriptiva ↔ adjetivo ES" "(un[oa]?|el|la|los|las|este|esta|estos|estas|ese|esa|esos|esas) [a-záéíóúñ]+ que no (hace|se [a-záéíóúñ]+|para de [a-záéíóúñ]+|deja de [a-záéíóúñ]+|tiene [a-záéíóúñ]+)"
+# Calco 23 (v6 · 2026-04-26) — referencia espacial 2D ("columna izquierda/derecha", "lado izquierdo") en bloques que en mobile-first se renderizan apilados
+# Origen: borrador 'mejor-robot-aspirador-barato-2026' decía "Si las cinco cosas de la columna izquierda te bastan y las cinco de la derecha..." cuando el cuadro qué-sí qué-no es stack vertical en móvil (80% del tráfico). Rafael lo detectó al leer el .md.
+# Reescribir usando referencia semántica: "el bloque verde / el rojo", "lo que sí / lo que no", "el primer cuadro / el segundo", "la lista de arriba / la de abajo".
+check 23 "Referencia espacial 2D en stack vertical mobile-first" "\\b(columnas? (izquierd[oa]|derech[oa])|lados? (izquierd[oa]|derech[oa])|del (lado|panel|cuadro|recuadro) (izquierd[oa]|derech[oa])|a la (izquierda|derecha)|en la (izquierda|derecha))\\b"
 
 echo ""
 echo "═══ CAPA 1 TOTAL · $TOTAL matches literales (calcos 20 aparte) ═══"
@@ -144,7 +148,7 @@ echo "═══ CAPA 1 TOTAL · $TOTAL matches literales (calcos 20 aparte) ═�
 
 **Interpretación de matches:**
 
-- **Calcos 1, 3, 13, 16, 17, 18, 20, 21:** meta = 0. Cualquier match es error. Reescribir.
+- **Calcos 1, 3, 13, 16, 17, 18, 20, 21, 23:** meta = 0. Cualquier match es error. Reescribir.
 - **Calcos 4, 5, 7, 14, 15, 19, 22:** revisar contexto. Pueden tener excepciones legítimas (cita de manual en calco 15, adverbio ocasional en calco 4, pasiva refleja legítima en calco 5, frase relativa deliberadamente literaria en calco 22). El autor debe defender cada match en la respuesta.
 - Si TOTAL ≥ 1 en calcos meta=0 → **BLOQUEO automático**. Fix obligatorio antes de Capa 2.
 

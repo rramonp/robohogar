@@ -486,6 +486,27 @@ else:
 
 **Incidente origen:** borrador #10 *mejor-robot-aspirador-mascotas-2026* v1 (2026-04-23) entregó 5 `.model-card` con solo 2 fotos (Ecovacs X8, Dreame X50), argumentando en `PASOS.md` "remisión editorial al artículo #6 contenedor" como justificación para Roborock Qrevo Curv 2 / Eufy X10 / Cecotec Conga 11090. Rafael rechazó al revisar: *"no puede ser que pongamos artículos y analicemos productos sin poner fotos"*. Añadió las 3 fotos manualmente y canonizó la regla dura: todo producto analizado SÍ, todo descartado NO. Este paso 8.5 cinco automatiza el check para que no vuelva a pasar.
 
+### 8.5 seis. Referencia espacial 2D PROHIBIDA en stack mobile-first — OBLIGATORIO antes de entregar borrador
+
+Regla dura desde 2026-04-26. Aplica `@rules/design.md § Mobile-first § Regla dura — referencia espacial 2D`. La prosa NO puede referenciar bloques apilados verticalmente con palabras de layout 2D (*"columna izquierda"*, *"columna derecha"*, *"a la izquierda"*, *"a la derecha"*, *"el de al lado"*, *"del lado izquierdo"*) cuando esos bloques en mobile-first se renderizan uno encima del otro. El 80% del tráfico es móvil → la referencia espacial deja al lector buscando algo que no existe.
+
+**Cuándo aplica el check:** todo borrador que incluya cuadros qué-sí qué-no, cards comparativas 2-up, decision-cards Sí/No, infographics 2-col que colapsan a 1-col en móvil, cualquier patrón de "dos bloques iguales lado a lado en desktop / apilados en móvil".
+
+**Sustitución obligatoria por referencia semántica:**
+- Por contenido: *"lo que sí está / lo que no está"*, *"las cinco cosas que sí esperar / las cinco que no"*.
+- Por orden de lectura vertical: *"el primer cuadro / el segundo"*, *"la lista de arriba / la de abajo"*.
+- Por color/etiqueta del bloque: *"el bloque ámbar / el gris"*, *"el cuadro ✅ / el cuadro 🚫"*.
+
+**Verificación pre-output (grep, debe devolver 0):**
+
+```bash
+grep -niE "\b(columnas? (izquierd[oa]|derech[oa])|lados? (izquierd[oa]|derech[oa])|del (lado|panel|cuadro|recuadro) (izquierd[oa]|derech[oa])|a la (izquierda|derecha)|en la (izquierda|derecha))\b" <borrador.html> <borrador.md>
+```
+
+Si matchea → reescribir antes de entregar. Implementado además como **calco 23** en `validate-prose-es § Capa 1` (deterministic, meta = 0).
+
+**Incidente origen 2026-04-26:** borrador `mejor-robot-aspirador-barato-2026` cerraba la sección "5 expectativas" con *"Si las cinco cosas de la columna izquierda te bastan y las cinco de la derecha no son rotura para ti..."*. El cuadro qué-sí qué-no del artículo se renderiza apilado verticalmente en móvil. Rafael lo detectó al pegar el .md (*"NO SON COLUMNAS IZQ DCHA, son cuadros uno encima de otro"*). Este paso automatiza el check para que no vuelva a pasar.
+
 ### 8.6. Formato técnico Beehiiv — OBLIGATORIO antes de entregar borrador
 
 Verificar contra `@rules/editorial.md § Formato técnico (Beehiiv)`. Aplica a TODO tipo de contenido (review, comparativa, editorial, guía, cheatsheet, newsletter).
