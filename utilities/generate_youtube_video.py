@@ -6,7 +6,12 @@ Uso:
 
 Layout del vídeo (1280×720, 25 fps):
   - Background full-frame: cover YouTube del relato (estático todo el vídeo).
-  - Waveform inferior: barra ámbar `#F5A623` de 120 px alto siguiendo el audio.
+  - Waveform inferior tipo "speaker visualizer" simétrico: dos bandas ámbar
+    `#F5A623` de 200 px (400 px combinados, 55% del frame) — espejo vertical
+    para crear el efecto canal estéreo. Halo ámbar difuso (gblur sigma 8)
+    detrás del trazo nítido para look neón coherente con la marca. Más
+    prominente que el cline plano original; decisión Rafael 2026-04-26
+    ("se ve muy pequeña, no llama").
   - Chyron de capítulo: "Capítulo I — La cocina" con fade in/out de 1 s + 3 s
     sostenido + 1 s fade out, centrado vertical 15% desde arriba, aparece al
     cruzar la marca temporal de cada capítulo del `chunks-index.json`.
@@ -71,10 +76,25 @@ FONT_FILE = "assets/fonts/arialbd.ttf"
 # del fichero. YouTube re-encoda al subir.
 VIDEO_WIDTH = 1280
 VIDEO_HEIGHT = 720
-WAVEFORM_HEIGHT = 120
+
+# Altura de cada banda del waveform. La banda combinada (espejo simétrico)
+# mide 2*WAVEFORM_HEIGHT — ocupa el 55 % inferior del frame con valor 200,
+# lo que equivale a un "speaker visualizer" estilo Spotify Canvas.
+# Si Rafael lo encuentra invasivo en algún cover concreto, bajar a 150 (banda
+# combinada 300 px = 42 % del frame). Si quiere aún más impacto, subir a 240.
+# Originalmente 120 (cline plano sin espejo) — cambio 2026-04-26.
+WAVEFORM_HEIGHT = 200
 
 # Color ámbar ROBOHOGAR para el waveform — coherencia visual con la marca.
 WAVEFORM_COLOR = "0xF5A623"
+
+# Sigma del gaussian blur del halo ámbar (look neón). Valores típicos:
+#   - 4-6  : halo sutil, look editorial.
+#   - 8    : halo perceptible, default ROBOHOGAR (decisión Rafael 2026-04-26).
+#   - 12+  : halo muy difuso, look retrowave/cyberpunk pronunciado.
+# El halo se renderiza por debajo del trazo nítido (overlay en 2 capas) para
+# que el trazo principal siga siendo legible y crujiente sobre el cover.
+WAVEFORM_GLOW_SIGMA = 8
 
 # Timing de los chyrons de capítulo. La onset es 1 s antes de la marca
 # del capítulo (fade in mientras el oyente aún oye el final del capítulo
@@ -231,14 +251,37 @@ def build_filter_complex(chapters: list[dict], with_logo: bool = False) -> str:
         f"crop={VIDEO_WIDTH}:{VIDEO_HEIGHT},format=yuv420p[bg]"
     )
 
-    # 2. Waveform: showwaves del audio en color ámbar, mode cline (continuous line).
+    # 2. Waveform "speaker visualizer" simétrico con halo ámbar:
+    #    Pipeline:
+    #      a) showwaves base (cline ámbar de WAVEFORM_HEIGHT px de alto).
+    #      b) split=2 → dos streams idénticos [wave_a][wave_b].
+    #      c) [wave_b] → vflip (lóbulos hacia arriba en lugar de abajo).
+    #      d) vstack [wave_top]+[wave_a] → banda simétrica de 2*WAVEFORM_HEIGHT.
+    #      e) split=2 → [wave_glow_in] (para difuminar) + [wave_sharp] (nítido).
+    #      f) [wave_glow_in] → gblur sigma=WAVEFORM_GLOW_SIGMA → halo difuso.
+    #
+    #    Resultado: una banda con DOS capas — un halo ámbar difuso que ocupa
+    #    el espacio alrededor del trazo + el trazo nítido encima. Look "neón"
+    #    coherente con el ámbar ROBOHOGAR.
+    #
+    #    Coste extra de render: ~10-15 % vs cline plano (gblur sobre RGBA
+    #    de 1280x400 es la operación más cara, pero portátil moderna lo hace
+    #    en pocos segundos para 15-25 min de audio).
     parts.append(
         f"[0:a]showwaves=s={VIDEO_WIDTH}x{WAVEFORM_HEIGHT}"
-        f":colors={WAVEFORM_COLOR}:mode=cline,format=rgba[wave]"
+        f":colors={WAVEFORM_COLOR}:mode=cline,format=rgba,split=2[wave_a][wave_b]"
     )
+    parts.append(f"[wave_b]vflip[wave_top]")
+    parts.append(f"[wave_top][wave_a]vstack,split=2[wave_glow_in][wave_sharp]")
+    parts.append(f"[wave_glow_in]gblur=sigma={WAVEFORM_GLOW_SIGMA}[wave_glow]")
 
-    # 3. Bg + waveform inferior. y=H-h pone el wave pegado al borde inferior.
-    parts.append(f"[bg][wave]overlay=0:H-h[v0]")
+    # 3. Bg + halo glow + waveform nítido (3 capas en orden de profundidad):
+    #    primero pegamos el glow difuso al cover, luego el trazo crujiente
+    #    encima. Ambos overlays a y=H-h (pegados al borde inferior). Como la
+    #    banda combinada mide 2*WAVEFORM_HEIGHT, ocupa la mitad inferior del
+    #    frame (con WAVEFORM_HEIGHT=200 → 400 px de los 720 = 55%).
+    parts.append(f"[bg][wave_glow]overlay=0:H-h[bg_with_glow]")
+    parts.append(f"[bg_with_glow][wave_sharp]overlay=0:H-h[v0]")
 
     # 4. Chyrons por capítulo, cada uno chained al anterior.
     current_label = "v0"
