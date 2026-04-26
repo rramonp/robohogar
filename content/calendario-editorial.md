@@ -45,9 +45,9 @@ Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurre
 
 | # | Tema evergreen | Keyword SEO primaria | Intención | Estacional | Tangible acoplado | Prioridad |
 |---|----------------|----------------------|-----------|-----------|-------------------|-----------|
-| E1 | Mejor robot cortacésped 2026 | `mejor robot cortacésped` | Compra directa | ⭐ Primavera-verano (abr-jul) | Hoja de Compra cortacésped | Alta urgente |
+| E1 | ✅ Mejor robot cortacésped 2026 | `mejor robot cortacésped` | Compra directa | ⭐ Primavera-verano (abr-jul) | Hoja de Compra cortacésped (pendiente activar) | ✅ Publicado 2026-04-21: https://robohogar.com/p/mejor-robot-cortacesped-2026 |
 | E2 | Mejor robot aspirador barato (<300 €) | `robot aspirador barato 2026` | Compra long-tail | No | Checklist "5 preguntas sub-300" | Alta |
-| E3 | Mejor robot aspirador para mascotas (perro/gato) | `robot aspirador pelos mascota` | Compra segmento | No | Checklist "pelos y rodillos" | Alta |
+| E3 | ✅ Mejor robot aspirador para mascotas (perro/gato) | `robot aspirador pelos mascota` | Compra segmento | No | Checklist "pelos y rodillos" (inline) | ✅ Publicado 2026-04-23: https://robohogar.com/p/mejor-robot-aspirador-mascotas-2026 |
 | E4 | Mejor robot aspirador para piso pequeño (<60 m²) | `robot aspirador piso pequeño` | Compra long-tail low-competition | No | Decision tree "pisos <60 m²" | Alta |
 | E5 | Roomba vs Roborock vs Dreame: diferencias reales 2026 | `roomba vs roborock vs dreame` | Comparativa educativa | No | Tabla comparativa 1-pager | Alta |
 | E6 | Mejor robot limpia-cristales 2026 | `robot limpia cristales` | Compra nicho low-competition | No | Hoja de Compra limpia-cristales | Media |
@@ -88,13 +88,13 @@ Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurre
 | ~~Alta~~ | ~~Humanoides domésticos 2026: los 7 que puedes comprar/reservar~~ | ~~Comparativa~~ | ~~robot humanoide comprar 2026~~ | ~~🔥🔥🔥~~ | ✅ Publicado 2026-04-17: https://robohogar.com/p/humanoides-domesticos-2026-comparativa |
 | Alta | Sunday Memo: el anti-humanoide de $1.150M | Editorial | sunday robotics memo | 🔥🔥🔥 | Bloomberg+TechCrunch. Ruedas>piernas |
 | Alta | Apple entra en robótica doméstica | Editorial | apple home robot 2026 | 🔥🔥🔥 | Hub 2026, robot 2027. Mainstream masivo |
-| Alta | Un humanoide bate el récord mundial humano de media maratón (y sigue sin doblar la ropa) | Editorial | humanoide maratón pekín récord | 🔥🔥🔥 | Unitree H1 50:26 Pekín 19-abr-2026. Xataka ya lo cubre. Digest 2026-04-20 |
+| ~~Alta~~ | ~~Un humanoide bate el récord mundial humano de media maratón (y sigue sin doblar la ropa)~~ | ~~Editorial~~ | ~~humanoide maratón pekín récord~~ | ~~🔥🔥🔥~~ | ✅ Publicado 2026-04-20: https://robohogar.com/p/humanoide-maraton-pekin-record-mundial |
 | Alta | MOVA ya está en España: el catálogo completo del hogar robotizado | Review/Editorial | mova españa catálogo | 🔥🔥 | Evento Hamburgo 14-abr-2026. 5 medios ES cubren. Aspirador+cortacésped+piscinas+cristales+3D. Digest 2026-04-20 |
 | Alta | Stanford: humanoides fallan el 88% de tareas domésticas. ¿Qué estamos comprando? | Editorial | humanoide fallo hogar stanford | 🔥🔥 | AI Index Report 2026 + Behavior-1K. Ancla anti-hype para 6 meses. Digest 2026-04-20 |
 | Media | DJI ROMO: el primer aspirador del fabricante de drones llega a España (797€) | Review | dji romo aspirador review | 🔥🔥 | DJI Store Iberia activo. Herencia dronera aplicada a suelos. Digest 2026-04-20 |
 | Media | Ecovacs Deebot X12 OmniCyclone + FocusJet | Update comparativa | ecovacs deebot x12 omnicyclone | 🔥🔥 | Flagship 15-abr-2026. Integrar en "Mejor aspirador 2026" cuando precio ES. Digest 2026-04-20 |
 | Media | Husqvarna Automower 308V: cortacésped wire-free 800 m² | Review/Guía | husqvarna 308v review | 🔥 | Alimenta guía cortacésped primavera/verano. Digest 2026-04-20 |
-| ~~Alta~~ | ~~Mejor robot aspirador 2026~~ | ~~Guía de compra~~ | ~~mejor robot aspirador 2026~~ | ~~🔥🔥~~ | 📝 Borrador 2026-04-18 · slug: `mejor-robot-aspirador-2026` · 6 modelos (Roborock Qrevo Curv 2, Dreame X50 Ultra, MOVA V70 Ultra, Ecovacs X8 Pro Omni, Samsung Combo AI Steam, Cecotec Conga 11090) · Sin gate (F1 tangible inline) |
+| ~~Alta~~ | ~~Mejor robot aspirador 2026~~ | ~~Guía de compra~~ | ~~mejor robot aspirador 2026~~ | ~~🔥🔥~~ | ✅ Publicado 2026-04-19: https://robohogar.com/p/mejor-robot-aspirador-2026 |
 | Alta | Robot cortacésped: guía de compra | Guía | robot cortacésped | 🔥🔥 | Temporada primavera/verano. Incluir Husqvarna NERA + RockMow + Gardena Sileno Sense |
 | Media | Samsung Jet Bot Steam Ultra: Samsung entra en aspiradores premium | Review | samsung jet bot steam ultra | 🔥🔥 | Marca masiva ES. Fregado a 100°C. Digest 2026-04-17 |
 | Media | MOVA V70 Ultra: submarca de Dreame llega a España | Review | mova v70 ultra | 🔥🔥 | 1.399€ mayo 2026, 40.000 Pa |
@@ -213,7 +213,13 @@ Relatos cortos de ciencia ficción doméstica (2030-2040) con personajes recurre
 | 2026-04-14 | Review/Comparativa | Robots de escritorio con IA | mejor-robot-asistente-ia-2026 |
 | 2026-04-15 | Editorial/Opinión | Humanoides en casa | humanoides-en-casa-cuanto-falta |
 | 2026-04-16 | Editorial/Opinión | Roborock Saros Z70 brazo mecánico | roborock-saros-z70-review |
-| 2026-04-18 | Guía de compra | Mejor robot aspirador 2026 | mejor-robot-aspirador-2026 |
+| 2026-04-17 | Comparativa | Humanoides domésticos 2026 (los 7 que puedes comprar) | humanoides-domesticos-2026-comparativa |
+| 2026-04-17 | Editorial | NEO va a fábricas (acuerdo 1X+EQT) | neo-humanoide-fabricas-eqt |
+| 2026-04-18 | Review | Samsung Jet Bot Steam Ultra | samsung-jet-bot-steam-ultra-review |
+| 2026-04-19 | Guía de compra | Mejor robot aspirador 2026 | mejor-robot-aspirador-2026 |
+| 2026-04-20 | Editorial | Humanoide bate récord maratón Pekín | humanoide-maraton-pekin-record-mundial |
+| 2026-04-21 | Guía de compra (E1) | Mejor robot cortacésped 2026 | mejor-robot-cortacesped-2026 |
+| 2026-04-23 | Guía de compra (E3) | Mejor robot aspirador para mascotas 2026 | mejor-robot-aspirador-mascotas-2026 |
 
 ---
 

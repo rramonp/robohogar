@@ -73,6 +73,8 @@ Antes de publicar `content/podcast/feed.xml` a R2, **TODOS los assets referencia
 
 **Implementación.** [`utilities/validate_podcast_assets.py`](../../utilities/validate_podcast_assets.py) hace HEAD a cada URL referenciada. Modo `--heal` sube las que falten desde la ruta local canónica (vía REST API Cloudflare). Si una falta y no hay local → aborta con mensaje específico. Los dos uploaders del feed ([`upload_rss_to_r2.py`](../../utilities/upload_rss_to_r2.py) y [`upload_rss_to_r2_via_api.py`](../../utilities/upload_rss_to_r2_via_api.py)) invocan este validador como pre-step obligatorio antes del upload del feed.
 
+**Cuál uploader usar.** [`upload_rss_to_r2.py`](../../utilities/upload_rss_to_r2.py) es el camino por defecto: usa el endpoint S3-compatible de R2 (boto3, credenciales `R2_ACCESS_KEY` / `R2_SECRET_KEY` de [`settings.local.json`](../settings.local.json)). [`upload_rss_to_r2_via_api.py`](../../utilities/upload_rss_to_r2_via_api.py) es el **fallback REST** para usar cuando el endpoint S3 de R2 está caído por outage parcial Cloudflare (síntoma típico: `EndpointConnectionError`, `503 Service Unavailable` o timeouts en boto3 mientras el dashboard de Cloudflare sigue accesible). El fallback usa la REST API directa con `CLOUDFLARE_API_TOKEN` + `R2_ACCOUNT_ID`. Mismo resultado funcional, distinto plano de control. Si ambos fallan a la vez → R2 caído entero, esperar a status.cloudflare.com.
+
 **Mapeo de keys canónicas R2 → ruta local** (ampliar este mapeo en `validate_podcast_assets.py § derive_paths` cuando se añadan tipos nuevos al feed):
 
 | Key R2 | Local |

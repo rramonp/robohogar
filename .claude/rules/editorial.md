@@ -292,14 +292,7 @@ Cada match → revisar manualmente. Si no hay `<a href>` cercano ni framing → 
 
 ## Anti-IA checklist — OBLIGATORIO para TODO contenido
 
-Todo contenido publicado (artículo, review, comparativa, editorial, guía, newsletter Y ficción) DEBE pasar [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) antes del output final.
-
-- **§1 Universal** aplica a todos: artículos, reviews, comparativas, editoriales, guías, newsletters.
-- **§2 Ficción** aplica ADEMÁS a relatos (Palahniuk cero thought verbs, subtexto > texto, especificidad Chiang).
-
-Skills que generan prosa publicable integran esta regla como paso pre-output obligatorio (ver `ficcion-draft.md` paso 8, `content-draft.md` paso 8.5). Cualquier nuevo skill que genere prosa publicable debe heredar esta regla.
-
-Razón: la IA tiene tics (palabras como *tapiz/entramado/intrincado/matizado*, tricolon mecánico, em-dashes en cascada, clichés sensoriales) que el lector humano identifica sin saber nombrarlos — y en un newsletter con voz personal destruyen confianza. La checklist es la lista negra + reglas positivas que evita esto.
+Regla heredada de [CLAUDE.md § Output Validation](../../CLAUDE.md). Canon único: [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) — §1 Universal aplica a todo (artículos, reviews, comparativas, editoriales, guías, newsletters), §2 Ficción aplica además a relatos. Skills que generan prosa publicable la integran pre-output (`content-draft § 8.5`, `ficcion-draft § 8`).
 
 ## Controles pre-publicación — 12 checks
 

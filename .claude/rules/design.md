@@ -107,21 +107,6 @@ Cuando un borrador necesita un snippet HTML que NO forma parte del cuerpo editor
 
 Skills que generan borradores aplican esta regla cuando el HTML destino incluye cualquier banner lead magnet o snippet embebible.
 
-**Ampliación 2026-04-23 — bloques visuales complejos del cuerpo editorial (árboles de decisión, infografías, tarjetas apiladas, tablas estilizadas).** El patrón `.snippet-block` no es solo para banners/CTAs: aplica también a **cualquier bloque visual del cuerpo del artículo que dependa de CSS propio** y tenga que pegarse en Beehiiv vía `/html` → Custom HTML block. Ejemplo canónico: el árbol de decisión de 4 preguntas en `content/articulos/mejor-robot-aspirador-mascotas-2026/borrador.html` (3 snippets totales: CTA final · Banner Hoja de Compra · Árbol de decisión).
+**Ampliación 2026-04-23 — bloques visuales del cuerpo editorial (árboles de decisión, infografías, tarjetas apiladas, tablas estilizadas).** El patrón `.snippet-block` aplica también a cualquier bloque visual del cuerpo que dependa de CSS propio y tenga que pegarse en Beehiiv vía `/html`. Regla: preview renderizado + snippet inline copy-paste con estilos inline (las clases CSS del borrador no viajan a Beehiiv).
 
-**Regla: preview renderizado + snippet inline copy-paste.** Cuando un bloque visual del cuerpo requiere CSS para leerse correctamente (decision-tree, pasos numerados con iconos, tarjetas comparativas, callouts estilizados), el borrador lleva **dos representaciones en orden**:
-
-1. **Preview renderizado** (HTML con clases CSS del `<style>` global del borrador) — Rafael lo ve al abrir el preview en navegador para validar que el bloque queda bien con el resto del artículo. Precedido por comentario HTML: `<!-- Preview renderizado del X (solo visible en el borrador; no copiar a Beehiiv) -->`.
-
-2. **Snippet-block con el HTML en estilos inline** inmediatamente después — `<pre><code>` escapado con `&lt;` / `&gt;` / `&amp;`. Rafael lo copia a Beehiiv vía `/html` → Custom HTML block. **Los estilos inline son obligatorios**: las clases CSS del borrador no viajan a Beehiiv (el editor aplica su propio estilo al hacer paste directo), así que cada elemento del snippet-inline debe llevar `style="..."` con todos los estilos necesarios para sobrevivir al paste.
-
-**Requisitos del HTML del snippet inline** (mobile-first obligatorio):
-- Stack natural vertical sin `@media queries` (Beehiiv Custom HTML no siempre respeta media queries según plantilla/email).
-- Padding + font-size + line-height razonables para 375 px.
-- Paleta ROBOHOGAR: crema `#FFF9EF`, ámbar `#F5A623`, gris `#6B7280`, texto `#0C0C0C`, blanco `#FFFFFF`.
-- `font-family` declarada explícitamente en el contenedor raíz (`'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif` para cuerpo, `'DM Sans',sans-serif` para títulos).
-- Sin `<strong>` dentro de elementos con fondo crema si el bloque es tipo checklist/callout (regla `@rules/editorial.md § Política de negritas`); usar `<span style="font-weight:700;...">` con color que justifique el énfasis.
-
-**Incidente origen:** borrador #10 *mejor-robot-aspirador-mascotas-2026* entregó el árbol de decisión solo con clases CSS (`.decision-cards / .decision-card / .path`). Rafael al pegarlo a Beehiiv perdió todos los estilos (*"no me queda bien ponerlo como texto directamente desde el newsletter"*). Solución: añadir `.snippet-block` con el HTML inline equivalente, manteniendo el preview renderizado arriba para validación visual del borrador. El patrón ahora es norma para cualquier bloque visual complejo del cuerpo — no solo banners y CTAs.
-
-Skills que generan borradores (`/content-draft`, `/pdf-brand`, futuros) aplican esta regla cuando el borrador incluye bloques visuales con CSS propio. Verificación pre-output: por cada `<div class="decision-cards">`, `<div class="infographic">`, `<div class="comparison-cards">` o equivalente con CSS de clase en el cuerpo editorial, debe existir un `.snippet-block` correspondiente con el HTML en estilos inline equivalentes.
+**Plantillas canónicas de bloques inline + checklist mobile-first 375 px + incidente origen** → [`content/templates/tangibles-snippets.md`](../../content/templates/tangibles-snippets.md). Skills que generan borradores leen ese archivo directamente. Verificación pre-output: por cada `<div class="decision-cards">` / `<div class="infographic">` / `<div class="comparison-cards">` o equivalente en el cuerpo editorial, debe existir un `.snippet-block` correspondiente con HTML en estilos inline.
