@@ -187,7 +187,7 @@ Cada semana, junto al newsletter en robohogar.com.
 **Pinned comment** (Rafael lo pega manual a posteriori — la API no lo permite desde 2023):
 
 ```
-¿Te ha enganchado el relato? Lee el texto completo (con notas finales del autor) y suscríbete al newsletter en robohogar.com — cada semana mando análisis de robótica doméstica + un relato nuevo de Ficciones Domésticas como este.
+¿Te ha gustado el relato? Lee el texto completo (con notas finales del autor) y suscríbete al newsletter en robohogar.com — cada semana mando análisis de robótica doméstica + un relato nuevo de Ficciones Domésticas como este.
 
 🔗 https://robohogar.com/p/<slug>
 ```

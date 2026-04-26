@@ -371,7 +371,7 @@ def build_pinned_comment_text(slug: str, frontmatter: dict) -> str:
     Sin "BUY NOW" ni hype.
     """
     hook = frontmatter.get("meta_description", "")
-    return f"""¿Te ha enganchado el relato? Lee el texto completo (con notas finales del autor) y suscríbete al newsletter en robohogar.com — cada semana mando análisis de robótica doméstica + un relato nuevo de Ficciones Domésticas como este.
+    return f"""¿Te ha gustado el relato? Lee el texto completo (con notas finales del autor) y suscríbete al newsletter en robohogar.com — cada semana mando análisis de robótica doméstica + un relato nuevo de Ficciones Domésticas como este.
 
 🔗 https://robohogar.com/p/{slug}"""
 
