@@ -68,6 +68,8 @@ Ficha corta por modelo: para quién sí, para quién no, precio actual y dónde 
 
 Es el robot que cambia el segmento. LiDAR fiable, base de auto-vaciado con bolsa de 2,5 litros (vacías una vez al mes), succión declarada de 5.000 Pa y app PVP solo en castellano. El fregado es por mopa vibratoria —no rotativa, no caliente— y rinde para mantener un piso liso de baldosa o parquet. Punto débil: sin sistema anti-enredo serio, pelo largo de mascota se trenza igual que en cualquier rodillo convencional. Para piso medio, una persona o pareja sin mascota de pelo largo, es la elección obvia bajo 300 €.
 
+---
+
 ### Roborock Q5 Pro — el mínimo viable con LiDAR sub-200 €
 
 **179-219 € (PVP 329 €) · a la venta en Amazon.es y es.roborock.com**
@@ -76,6 +78,8 @@ Es el robot que cambia el segmento. LiDAR fiable, base de auto-vaciado con bolsa
 *Imagen: Roborock Q5 Pro, gama de entrada con LiDAR de la marca. Fuente: Roborock España.*
 
 Si la base de auto-vaciado no te va a entrar en el rincón disponible o no quieres pagarla, el Q5 Pro es el mismo cerebro de navegación del Q10 sin la estación. Vacías el depósito a mano cada 4-7 días según uso. Misma app, misma calidad de mapeo. Es el mínimo defendible si quieres LiDAR y no estás dispuesto a bajar a marcas menos conocidas. Recomendable para piso pequeño (<60 m²) donde la estación no aporta tanto.
+
+---
 
 ### Cecotec Conga 11090 Spin Revolution Home&Wash — si valoras el servicio técnico peninsular
 
@@ -86,6 +90,8 @@ Si la base de auto-vaciado no te va a entrar en el rincón disponible o no quier
 
 Cecotec es valenciana y eso pesa: si el rodillo se rompe o la base falla, hay taller peninsular, atención telefónica en castellano y recambios en MediaMarkt. La succión declarada de 11.000 Pa es la cifra más alta del segmento (con la advertencia de que cada marca mide a su manera y no son cifras directamente comparables). Navegación giroscópica con mejoras por cámara — un escalón por debajo del LiDAR de Roborock en pisos con distribución complicada, pero suficiente para una casa de planta abierta. Para el comprador que prioriza poder llamar a un teléfono ES si algo falla.
 
+---
+
 ### Xiaomi Robot Vacuum X20+ — base de auto-vaciado XL y ecosistema Mi Home
 
 **253-289 € · a la venta en Amazon.es, Mi.com España y MediaMarkt**
@@ -95,6 +101,8 @@ Cecotec es valenciana y eso pesa: si el rodillo se rompe o la base falla, hay ta
 
 El X20+ tiene base de auto-vaciado de 4 litros (la mayor del segmento — vacías cada 6-8 semanas en uso medio), LiDAR y app Mi Home en castellano que ya integra parcialmente Matter, el estándar abierto de smart home. Si en casa ya tienes bombillas, sensores o cámaras Xiaomi, este encaja sin fricción. Punto débil: el fregado por mopa arrastrada está un escalón por debajo del de Roborock, y la app Mi Home requiere cuenta china en algunos casos según firmware. Para el comprador con piso grande y ya dentro del ecosistema Xiaomi.
 
+---
+
 ### TP-Link Tapo RV30 MAX Plus — el caballo oscuro de 2026
 
 **199-249 € · a la venta en Amazon.es y MediaMarkt**
@@ -103,6 +111,8 @@ El X20+ tiene base de auto-vaciado de 4 litros (la mayor del segmento — vacía
 *Imagen: TP-Link Tapo RV30 MAX Plus, robot aspirador con LiDAR y base de auto-vaciado. Fuente: TP-Link.*
 
 TP-Link entró tarde al mercado de robots aspirador, pero llegó con la espalda cubierta: LiDAR, base de auto-vaciado, succión declarada de 5.300 Pa y la confianza de una marca que lleva veinte años vendiendo routers en España. El precio rompe la categoría — base de auto-vaciado por menos de 250 € no la tiene casi nadie más. La app Tapo es decente y la integración con Matter va en aumento. Punto débil: catálogo de accesorios y consumibles más reducido que Roborock o Xiaomi; si rompes una rueda, la pieza tarda más en llegar. Para el comprador que prioriza relación prestaciones-precio sobre marca consolidada.
+
+---
 
 ### iRobot Roomba 105 Combo — si prefieres pagar por la marca histórica
 
@@ -164,12 +174,6 @@ Por encima de la asignación, la tabla resume las tres dimensiones que importan 
 
 📋 **Pega aquí Snippet 4 — CTA Suscripción final**
 
-**Más en ROBOHOGAR:**
-
-- [Mejor robot aspirador 2026: la guía general (gama alta y media)](https://robohogar.com/p/mejor-robot-aspirador-2026)
-- [Mejor robot aspirador para mascotas 2026: el árbol de decisión ROBOHOGAR](https://robohogar.com/p/mejor-robot-aspirador-mascotas-2026)
-- [Samsung Jet Bot Steam Ultra: review del aspirador con vapor a 100 °C](https://robohogar.com/p/samsung-jet-bot-steam-ultra-review)
-
 *Algunos enlaces pueden ser de afiliado. Si compras a través de ellos, ROBOHOGAR puede ganar una comisión sin coste extra para ti. Esto nunca condiciona qué incluimos ni el orden de la guía: nuestro filtro es el mismo para los seis modelos analizados, los cobremos por afiliación o no. Precios consultados a 26 de abril de 2026 en Amazon.es, MediaMarkt, El Corte Inglés y webs oficiales de cada fabricante; pueden variar.*
 
 ---
@@ -183,6 +187,6 @@ Por encima de la asignación, la tabla resume las tres dimensiones que importan 
 | 1 | Banner Hoja de Compra | Tras el hero, antes del H2 "Por qué el segmento..." |
 | 2 | Cuadro qué-sí qué-no estilizado (opcional) | Tras los bullets sí/no — solo si quieres look ROBOHOGAR crema/ámbar en lugar de los bullets nativos de Beehiiv |
 | 3 | Banner Hoja de Compra (cierre) | Tras el H2 "Los 4 errores", antes del H2 "Tabla resumen" |
-| 4 | CTA Suscripción final | Tras "¿Sabías que…?", antes de "Más en ROBOHOGAR" |
+| 4 | CTA Suscripción final | Tras "¿Sabías que…?", antes del disclaimer (Beehiiv inyecta "Keep Reading" automáticamente bajo el post — no añadir lista de internal links manual) |
 
 **Variantes elegidas (por recomendación IA):** hook v1 (stat impactante) · veredicto v1 (por perfil de comprador) · ¿sabías? v3 (comparativa temporal). Si quieres otra variante, mira `borrador.html` y sustituye el bloque correspondiente del Markdown.

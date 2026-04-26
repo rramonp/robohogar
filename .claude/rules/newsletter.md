@@ -48,7 +48,7 @@ Debe devolver 0 matches. Si aparece, sustituir por `https://robohogar.com`.
 
 Dark-themed, centrado, 4 elementos (pregunta + beneficio + botón + trust-line). Obligatorio como **snippet final** de todo artículo no-ficción (review, comparativa, editorial, guía, tutorial, newsletter). Se pega en Beehiiv vía `/html` → Custom HTML block.
 
-**Posición en el esqueleto del borrador:** justo después del bloque `¿Sabías que…?` + su `<div class="separator"></div>`, y antes del bloque `Más en ROBOHOGAR` (internal linking) + disclaimer. Razón: el CTA principal se presenta antes del jumpoff a otros artículos — si el lector va a convertir, lo hace aquí; si no, sigue leyendo por los links de abajo.
+**Posición en el esqueleto del borrador:** justo después del bloque `¿Sabías que…?` + su `<div class="separator"></div>`, y antes del disclaimer final. Razón: el CTA principal cierra el contenido editorial — Beehiiv inyecta automáticamente bajo cada post un bloque "Keep Reading" con los 3 posts más recientes, así que NO incluir un bloque manual "Más en ROBOHOGAR" / lista de internal links (regla dura 2026-04-26 — duplica el bloque automático y ensucia el cierre).
 
 **Relación con el banner Hoja de Compra:** son bloques distintos y compatibles. Hoja de Compra (si aplica por categoría) va en posición intro o cierre-tras-veredicto como tangible específico. Este CTA va al **final absoluto del contenido editorial** como invitación al newsletter raíz, sin UTM (regla `§ URL destino de CTAs de suscripción — SIEMPRE landing`).
 

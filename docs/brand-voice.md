@@ -181,9 +181,11 @@ Todos los links deben ser reales — nunca placeholders (#).
 
 Cuando tengamos Amazon Associates, añadir `?tag=robohogar-21` a cada URL de Amazon.
 
-### Sección "Más en ROBOHOGAR"
+### Sección "Más en ROBOHOGAR" — NO incluir manualmente
 
-Al generar cada artículo, incluir la sección 📚 Más en ROBOHOGAR con links a los artículos ya publicados. Consultar `content/published/` y los posts en robohogar.com para obtener títulos y URLs reales. Si no hay artículos publicados todavía, omitir la sección.
+**Regla dura desde 2026-04-26.** Beehiiv inyecta automáticamente bajo cada post un bloque "Keep Reading" con los 3 posts más recientes de la publication. Insertar manualmente un `<p><strong>Más en ROBOHOGAR:</strong></p>` con `<ul>` de links duplica el bloque y ensucia el cierre del artículo. Borradores históricos publicados antes de esta regla quedan como están (no re-editar lo ya pegado en Beehiiv); borradores nuevos NO incluyen este bloque.
+
+Internal linking sigue siendo válido **dentro de la prosa** del artículo (callouts, comparativas, mención cruzada de reviews), donde el contexto justifica el link. Lo que se elimina es la lista al final.
 
 ---
 

@@ -597,7 +597,7 @@ Si el conteo no coincide → auto-corregir antes de entregar. Además, verificar
 
 **Activo desde 2026-04-22.** Todo borrador no-ficción (review, comparativa, editorial, guía, tutorial, newsletter semanal) cierra con un snippet CTA dark al newsletter raíz. Canon y HTML exacto: `@rules/newsletter.md § Snippet canónico · banner CTA suscripción al final de artículo (no-ficción)`. Las ficciones NO llevan este CTA — usan el suyo propio (`§ Snippet canónico · banner suscripción al final de ficción`).
 
-**Posición exacta en el esqueleto:** justo después del bloque `¿Sabías que…?` + su `<div class="separator"></div>`, y antes del bloque `Más en ROBOHOGAR` + disclaimer. Estructura resultante:
+**Posición exacta en el esqueleto:** justo después del bloque `¿Sabías que…?` + su `<div class="separator"></div>`, y antes del disclaimer final. Estructura resultante:
 
 ```
 <h2>💡 ¿Sabías que…?</h2>
@@ -609,10 +609,10 @@ Si el conteo no coincide → auto-corregir antes de entregar. Además, verificar
   <p class="snippet-hint">En Beehiiv: escribe <code>/html</code> → "Custom HTML block" → pega el código de abajo.</p>
   <pre><code>&lt;div style="..."&gt;...&lt;/div&gt;</code></pre>
 </div>
-<p><strong>Más en ROBOHOGAR:</strong></p>
-<ul>...</ul>
 <p class="disclaimer">...</p>
 ```
+
+**Prohibido el bloque "Más en ROBOHOGAR" / "Keep Reading" manual** (regla dura 2026-04-26). Beehiiv ya inyecta automáticamente bajo cada post un bloque "Keep Reading" con los 3 posts más recientes de la publication. Insertar manualmente un `<p><strong>Más en ROBOHOGAR:</strong></p> + <ul>` duplica el bloque y ensucia el cierre. **NO incluirlo nunca** en borradores nuevos. Borradores históricos publicados antes de esta regla se quedan como están (no re-editar lo ya pegado en Beehiiv).
 
 **Reglas:**
 
@@ -631,9 +631,12 @@ grep -c "¿Te ha servido este análisis?" <borrador.html>   # debe ser 1
 # (b) El CTA NO debe llevar UTM
 grep -nE '¿Te ha servido[^<]*</div>.*utm_' <borrador.html>  # debe ser 0
 
-# (c) Posición correcta: después del ¿Sabías que? + separator, antes de Más en ROBOHOGAR
-grep -nE 'Sabías que|¿Te ha servido|Más en ROBOHOGAR' <borrador.html>
-# el orden de líneas debe ser: Sabías → ¿Te ha servido → Más en ROBOHOGAR
+# (c) Posición correcta: después del ¿Sabías que? + separator, antes del disclaimer
+grep -nE 'Sabías que|¿Te ha servido|class="disclaimer"' <borrador.html>
+# el orden de líneas debe ser: Sabías → ¿Te ha servido → disclaimer
+
+# (d) Prohibido bloque manual "Más en ROBOHOGAR" — Beehiiv lo inyecta solo
+grep -niE 'Más en ROBOHOGAR|Keep Reading' <borrador.html>   # debe ser 0
 ```
 
 Si algún check falla → auto-corregir antes de entregar. No dejar en PASOS.md como "pendiente".
