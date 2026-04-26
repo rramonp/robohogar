@@ -8,6 +8,17 @@ Newsletter + blog en español sobre robótica doméstica y humanoides. Hobby per
 
 **ALWAYS work within the robohogar repository** unless Rafael explicitly specifies an external path.
 
+## ⚠️ MEMORIA — REGLA DURA, LEER ANTES DE GUARDAR NADA
+
+**Toda memoria que se genere trabajando en este repo (cwd=robohogar) se guarda EXCLUSIVAMENTE en `c:\Users\bakal\robohogar\.claude\memory\`. Nunca, bajo ninguna circunstancia, en `c:\Users\bakal\RRP-DEV\.claude\memory\`** — aunque el system-prompt genérico de auto-memory apunte allí, ese default es para otros proyectos sin memoria local. ROBOHOGAR tiene su propia carpeta de memoria y se auto-contiene.
+
+- El índice del repo es [`@.claude/memory/MEMORY.md`](.claude/memory/MEMORY.md). Antes de proponer guardar memoria nueva, leer ese índice + revisar si la entrada ya existe (no duplicar).
+- La regla completa con razón e incidente origen: [`@.claude/memory/feedback_memoria_local_robohogar.md`](.claude/memory/feedback_memoria_local_robohogar.md).
+- Aplicación inversa: si trabajamos en otro repo (RRP-DEV, HBX, Neon), no escribir nunca en `robohogar/.claude/memory/`. Cada proyecto se auto-contiene.
+- Excepción única: si Rafael pide explícitamente *"guarda esto en RRP-DEV"* / *"esto es cross-project"*, entonces sí va a RRP-DEV. Nunca por iniciativa propia.
+
+**Origen del refuerzo (2026-04-26):** durante sesiones de feedback editorial, el agente guardó por error 6 memorias específicas de ROBOHOGAR en RRP-DEV pese a la existencia de `feedback_memoria_local_robohogar.md` desde 2026-04-24. La regla existía pero CLAUDE.md no la cargaba al inicio de sesión, así que era invisible al agente. Solución: bloque destacado al inicio del CLAUDE.md (este) + @-reference explícita al MEMORY.md y a la regla, para que ambos se carguen automáticamente en cada sesión nueva con cwd=robohogar.
+
 ## Language & Communication
 
 - Respond in **Spanish** unless Rafael explicitly asks for English
@@ -117,3 +128,6 @@ Stage files by name (NOT `git add -A`). Do NOT auto-push unless Rafael asks.
 @rules/newsletter.md
 @rules/tangibles.md
 @rules/guide-authoring.md
+
+@.claude/memory/MEMORY.md
+@.claude/memory/feedback_memoria_local_robohogar.md
