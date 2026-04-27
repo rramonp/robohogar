@@ -51,6 +51,7 @@
 - [feedback_ficcion_subtitulos_descriptivos.md](feedback_ficcion_subtitulos_descriptivos.md) — "## I. Título sobrio" en vez de romanos pelados; aplica a md, HTML Beehiiv y audiolibro TTS
 - [feedback_ficcion_modalidades_visuales.md](feedback_ficcion_modalidades_visuales.md) — Catálogo cerrado M1-M6 (paleta+atmósfera) + ángulo A1-A5. Anti-repetición últimos 3, transversal a paradigma. Default desde 2026-04-27, no retroactivo
 - [feedback_ficcion_composiciones_canon.md](feedback_ficcion_composiciones_canon.md) — Catálogo cerrado C-01..C-12 (12 patrones macro en 5 familias). Selección aleatoria con anti-repetición últimos 5 + bloqueo de familia si las 3 últimas son misma familia. Default desde 2026-04-28
+- [feedback_ficcion_3_candidatos_composiciones_distintas.md](feedback_ficcion_3_candidatos_composiciones_distintas.md) — Las 3 hero options son SIEMPRE 3 C-XX distintas (nunca 3 variantes de la misma cambiando objeto-imposibilidad). Regla dura 2026-04-28 PM tras Pipo
 
 ## Feedback — Beehiiv & Platform
 - [feedback_beehiiv_tipografia_bold_tablas.md](feedback_beehiiv_tipografia_bold_tablas.md) — Formato técnico Beehiiv maestro: DM Sans Semibold (600) + Inter Regular · bold SÍ/NO + bug copy-paste (usar <strong>, nunca <span class="bold">) · tablas mobile-first máx 4 cols ≤25 chars
