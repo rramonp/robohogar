@@ -54,7 +54,7 @@ Los 14 tropos identificados como saturados por la auditoría comparativa de los 
 |---|---|---|---|
 | Símil "humanoide apagado en rincón = abrigo colgado de una percha grande" | 2 | el-que-viene-a-tomar-cafe (línea 293), setenta-y-dos-horas (línea 224) | 🔴 QUEMADO |
 | Latido ámbar / luz ámbar en base del cuello del humanoide | 2 | la-objecion, el-chaval | 🟡 VIGILAR |
-| Punto azul / verde / ámbar pequeño bajo la garganta como indicador de estado | 2 | el-operador-nocturno (azul), el-chaval (ámbar) | 🟡 VIGILAR |
+| Punto azul / verde / ámbar pequeño bajo la garganta como indicador de estado | 3 | el-operador-nocturno (azul), el-chaval (ámbar), la-canguro (verde) | 🔴 QUEMADO — variar a otro código sensorial (sonido del servomotor, calor de la base, parpadeo del techo, sin marcar estado del humanoide con luz visible) |
 
 ### §2.4 Frases-fórmula y muletillas del narrador
 
@@ -72,6 +72,20 @@ Los 14 tropos identificados como saturados por la auditoría comparativa de los 
 | Personaje desmemoriado responde "Ah. Ah, sí, sí" repetido en mismo relato | 1 (intra) | el-chaval | 🟡 VIGILAR |
 | Vecino del rellano que avisa con tono cortado en escalera ("Llámala. Llámala antes de comer") | 1 | el-chaval (don Marcial) | 🟡 VIGILAR |
 | Hija/familiar lejano al teléfono cobrando distancia internacional | 2 | papá-desde-singapur, el-chaval (Beatriz desde Berlín) | 🔴 QUEMADO |
+
+### §2.5.bis Figuras nuevas del relato `la-canguro` (2026-04-26)
+
+| Tropo | Tipo | Apariciones | Relatos | Estado |
+|---|---|---|---|---|
+| "Postura de espera del catálogo" del humanoide (brazos sueltos, voz neutra calibrada gama Cuidados) | gesto físico humanoide | 1 (3 menciones intra-relato) | la-canguro | 🟡 VIGILAR |
+| "Tarda tres décimas" como medida de duda del humanoide al componer respuesta no protocolar | frase-fórmula narrador | 1 (2 menciones intra-relato) | la-canguro | 🟡 VIGILAR |
+| Cocina americana abierta al salón VPO con barra pintada en blanco satinado | setting cliché | 1 | la-canguro | 🟡 VIGILAR |
+| Dibujo infantil del oficio del padre pegado a la nevera con imán identitario | objeto-testigo cargado | 1 | la-canguro | 🟡 VIGILAR |
+| Mecanismo de revelación: protagonista accede al "modo administrador" del humanoide y descubre logs ocultos | estructura narrativa | 1 | la-canguro | 🟡 VIGILAR |
+| Logs literales con timestamp + entrada + respuesta protocolar como dispositivo de revelación | estructura narrativa | 1 | la-canguro | 🟡 VIGILAR |
+| "Política de minimización de daño emocional doméstico" — vocabulario corporativo del humanoide en boca propia | voz administrativa parodiada | 1 | la-canguro | 🟡 VIGILAR |
+| "Respira por la nariz. Se le había olvidado respirar por la nariz." | gesto + frase-fórmula narrador | 1 | la-canguro | 🟡 VIGILAR |
+| Cifra de precio mensual del humanoide refurbished citada en cuerpo del relato (79 €/mes) | dato económico ficcional | 1 | la-canguro | 🟢 LIBRE |
 
 ### §2.6 Estructura de cierre
 

@@ -8,7 +8,7 @@ Regla dura establecida por Rafael 2026-04-26 PM tras ver recomendaciones de YouT
 
 Tres reglas duras simultáneas:
 
-**1. `display_title:` declarativo paradójico (frontmatter obligatorio).** Formato `"El/La [rol/oficio] que [acción inusual + objeto-imposibilidad]"`, 8-15 palabras. Vive **paralelo** al `title:` corto (sustantivo simple 2-6 palabras que sigue siendo nombre de fichero, breadcrumb y URL slug-friendly). El `display_title` se renderiza en: subject del newsletter Beehiiv · H1 web del post · OG title de cards · alt-text de miniatura · copy de redes generado por `/social-content`. La URL pública sigue siendo `slug:` corto.
+**1. `display_title:` declarativo paradójico (frontmatter obligatorio).** Formato `"El/La [rol/oficio] que [acción inusual + objeto-imposibilidad]"`, **10-15 palabras** (rango ajustado 2026-04-26 PM tarde tras feedback Rafael — el suelo sube de 8 a 10 para garantizar hook compositivo mínimo; el techo de 15 se mantiene firme). Vive **paralelo** al `title:` corto (sustantivo simple 2-6 palabras que sigue siendo nombre de fichero, breadcrumb y URL slug-friendly). El `display_title` se renderiza en: subject del newsletter Beehiiv · H1 web del post · OG title de cards · alt-text de miniatura · copy de redes generado por `/social-content`. La URL pública sigue siendo `slug:` corto.
 
 Catálogo de subfamilias G en `references/ficciones/hooks-taxonomia.md § Familia G` (canon nuevo paralelo a A-F):
 - **G1** — Oficio + acción imposible (*"La cerrajera que forja llaves para puertas que solo aparecen en pesadillas"*).
@@ -48,7 +48,7 @@ Anti-repetición acotada al paradigma personaje-acción-imposibilidad (no contra
 **How to apply:**
 - **Aplica desde el siguiente relato** (one-shot o miniserie). Cero retroactivo en `display_title` o regeneración de heros publicados.
 - **Series activas con código declarado** (La Casa de Amparo, Crónicas de Ronda 3, Cartas a MAIA): tampoco se retitulan publicados, **pero sí adoptan `display_title:` + `tag_poetico:` desde el siguiente episodio**. La mejora del título YouTube-style aplica a series; lo que NO aplica es el cambio de canon visual del hero (esas series mantienen su código).
-- **Bloqueo duro en `/ficcion-draft § 9`** si falta `display_title:`, `display_title_family:`, `tag_poetico:` en frontmatter, o si el display title contiene nombre propio real de figura pública, o si excede rango 8-15 palabras, o si subfamilia G repetida sin excepción documentada.
+- **Bloqueo duro en `/ficcion-draft § 9`** si falta `display_title:`, `display_title_family:`, `tag_poetico:` en frontmatter, o si el display title contiene nombre propio real de figura pública, o si excede rango **10-15 palabras**, o si subfamilia G repetida sin excepción documentada.
 - **Compatibilidad con paradigma minimalista:** los dos canon (personaje-acción-imposibilidad nuevo · portada minimalista existente) **conviven** para one-shots. Default = personaje-acción-imposibilidad. Minimalista declarativo cuando objeto-testigo aislado del relato es más fuerte que cualquier personaje en frame (ej: tela ceremonial de *La objeción*).
 
 **Archivos canon afectados:**

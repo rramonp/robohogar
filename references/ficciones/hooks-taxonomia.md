@@ -131,10 +131,10 @@ El sujeto es un humanoide / objeto técnico con una función declarada; el predi
 - ❌ **Frase con dos cláusulas separadas por dos puntos.** *"Madrid, 2034: una cuidadora pierde su trabajo"* — formato de artículo editorial, no de ficción.
 - ❌ **Title con `—` em-dash en el medio.** *"El humanoide — y los sueños que no tiene"* — registro anglo traducido, rompe el ritmo declarativo.
 - ❌ **Display title que mencione nombre propio real de figura pública.** *"La ministra Yolanda Díaz que…"*. Convención: rol genérico sin nombre real. Excepción ya documentada para diálogo del relato, NO para título.
-- ❌ **Display title fuera de rango 8-15 palabras.** Demasiado corto: pierde el hook compositivo. Demasiado largo: rompe en línea 2 en la inbox preview de Apple Mail / Gmail (≈70 chars visibles). Verificación pre-output: contar palabras.
+- ❌ **Display title fuera de rango 10-15 palabras.** Demasiado corto (<10): pierde el hook compositivo paradójico de la fórmula G. Demasiado largo (>15): rompe en línea 2 en la inbox preview de Apple Mail / Gmail (≈70 chars visibles) y se siente sobrecompuesto al leer. Rango ajustado 2026-04-26 PM tarde — el suelo sube de 8 a 10 para garantizar mínimo compositivo, el techo se mantiene en 15. Verificación pre-output: contar palabras.
 
 **Verificación pre-output específica de Familia G:**
-- `display_title:` declarado en frontmatter, 8-15 palabras, fórmula G1-G4 reconocible.
+- `display_title:` declarado en frontmatter, **10-15 palabras**, fórmula G1-G4 reconocible.
 - `display_title_family:` declarado en frontmatter (uno de G1, G2, G3, G4).
 - `display_title` NO contiene nombre propio real de figura pública (lista de nombres a vigilar = miembros del Gobierno actual + presidentes autonómicos + figuras mediáticas top-50 ES; el skill mantiene la lista en `references/ficciones/figuras-publicas-vetadas.md` cuando se cree).
 - Subfamilia G NO presente en últimos 5 display titles del registro (`content/registro-ficciones.md` columna `Display title family`).

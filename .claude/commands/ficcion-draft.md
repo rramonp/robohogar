@@ -528,7 +528,7 @@ Para esta semilla (<semilla>) + categoría tonal <X> + display_title sugerido:
 - **Filtro duro 1:** descartar subfamilias G presentes en `display_titles_recientes` (excepción documentada en `arco-serie.md` si una serie tiene un G como sello editorial).
 - **Filtro duro 2 (solo G1):** descartar la banda de personaje si ya domina los últimos 3 G1 (regla "no encadenar 3 relatos en misma banda"). Banda obligada si una banda nunca apareció en los primeros 10 heros del paradigma personaje.
 - **Filtro semántico:** la paradoja embebida del display title debe estar **anclada al tema del relato + dato real**. Si el dato real es "AI Act art. 50", la paradoja del título lo materializa en una acción concreta (*"La cuidadora que reza para que su humanoide no la sustituya antes del tribunal médico"* refleja outsourcing-de-cuidados + brecha legal).
-- **Longitud:** entre 8 y 15 palabras. Demasiado corto = sin hook compositivo. Demasiado largo = se corta en línea 2 de Apple Mail / Gmail preview pane (≈70 chars).
+- **Longitud:** entre **10 y 15 palabras** (ajustado 2026-04-26 PM tarde — suelo sube de 8 a 10 para garantizar hook compositivo mínimo de fórmula G). Demasiado corto (<10) = sin hook compositivo. Demasiado largo (>15) = se corta en línea 2 de Apple Mail / Gmail preview pane (≈70 chars).
 - **Anti-patterns prohibidos** (lista cerrada en `hooks-taxonomia.md § Familia G`):
   - Sustantivo simple sin acción (formato del `title:` corto, no del `display_title:`).
   - Pregunta retórica al lector ("¿Quién cuida a quién…?").
@@ -536,7 +536,7 @@ Para esta semilla (<semilla>) + categoría tonal <X> + display_title sugerido:
   - Frase con dos cláusulas separadas por dos puntos ("Madrid, 2034: una cuidadora…").
   - Em-dash en el medio del título ("El humanoide — y los sueños…").
   - **Nombre propio real de figura pública** ("La ministra Yolanda Díaz que…") — bloqueo duro.
-  - Fuera de rango 8-15 palabras.
+  - Fuera de rango **10-15 palabras**.
 
 **3. Si Rafael delega o no responde** → usar el candidato [1] sin pedir confirmación adicional.
 
@@ -547,7 +547,7 @@ Para esta semilla (<semilla>) + categoría tonal <X> + display_title sugerido:
 
 **5. Validar con grep pre-output (en paso § 9):**
 - `display_title:` presente y entre comillas.
-- Conteo de palabras 8-15.
+- Conteo de palabras **10-15** (rango ajustado 2026-04-26 PM tarde — suelo 8→10).
 - `display_title_family:` presente con valor canónico.
 - Si G1 → `display_title_band:` presente.
 - Display title NO contiene nombre propio real de figura pública (matching contra lista futura `references/ficciones/figuras-publicas-vetadas.md`; mientras la lista no exista, lectura manual obligatoria por parte del skill).
@@ -812,8 +812,8 @@ Si hay violaciones → limpiar antes de entregar (no se pregunta al usuario).
   # (a) display_title presente, entre comillas, no vacío
   grep -E '^display_title:\s*"[^"]+"' <relato.md>          # → 1 match
 
-  # (b) display_title 8-15 palabras
-  awk -F'"' '/^display_title:/ {n=split($2, w, " "); print n}' <relato.md>   # → 8-15
+  # (b) display_title 10-15 palabras
+  awk -F'"' '/^display_title:/ {n=split($2, w, " "); print n}' <relato.md>   # → 10-15
 
   # (c) display_title_family presente con valor canónico G1-G4
   grep -E '^display_title_family:\s*G[1-4]\b' <relato.md>   # → 1 match
@@ -1036,7 +1036,7 @@ Memoria de la regla: `feedback_ficcion_cierre_canonico.md`.
 ```yaml
 ---
 title: "Título del relato"                              # Sustantivo simple 2-6 palabras (interno, slug-friendly fallback, breadcrumb)
-display_title: "El/La [rol] que [acción + objeto-imposibilidad]"   # Declarativo paradójico 8-15 palabras (subject newsletter, H1 web, OG title, alt-text miniatura, copy redes). OBLIGATORIO desde 2026-04-26 PM.
+display_title: "El/La [rol] que [acción + objeto-imposibilidad]"   # Declarativo paradójico 10-15 palabras (subject newsletter, H1 web, OG title, alt-text miniatura, copy redes). OBLIGATORIO desde 2026-04-26 PM. Rango ajustado 2026-04-26 PM tarde (suelo 8→10).
 seo_title: "Título SEO (max 55 chars)"
 meta_description: "Resumen con gancho (110-155 chars)"
 slug: slug-kebab-case                                    # URL pública estable; deriva del title corto, no del display_title
