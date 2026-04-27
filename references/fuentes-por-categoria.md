@@ -128,6 +128,11 @@ Robots humanoides para tareas domésticas.
 | EQT Group | eqtgroup.com | Inversor institucional | Sitio oficial de EQT Group (firma de inversión sueca). Acuerdo 12-abr-2026 con 1X para 10.000 unidades industriales. Usado en relato "El operador nocturno" |
 | ILO (OIT) | ilo.org | Organismo internacional ONU | Organización Internacional del Trabajo. Informes sobre gig economy de la robótica de servicios, salarios de teleoperación robótica en Filipinas/Vietnam/India. Usado en relato "El operador nocturno" como base del villano humano |
 | IFEMA Madrid | ifema.es | Recinto ferial oficial | Recinto ferial de Madrid (pabellones de Juan Carlos I). Sede de eventos como Mobile World Congress B2B, ferias tech anuales. Usado como decorado real en relato "El operador nocturno" (escena III stand humanoide) |
+| EUR-Lex AI Act art. 26 | eur-lex.europa.eu/eli/reg/2024/1689/oj | Regulatorio UE oficial | Reglamento UE 2024/1689 art. 26: sistemas IA de alto riesgo en cuidado infantil requieren log auditable obligatorio + override humano del tutor. Usado en relato "La canguro" (27-abr-2026) como muro izquierdo |
+| AESAN | aesan.gob.es | Regulatorio ES oficial | Agencia Española de Seguridad Alimentaria y Nutrición. Vacío regulatorio sobre homologación pediátrica de humanoides cuidado infantil clasificados como "asistente del tutor". Usado en relato "La canguro" |
+| OCU | ocu.org | Organización consumidores ES | Organización de Consumidores y Usuarios. Análisis 2025 sobre clasificación regulatoria de humanoides domésticos en cuidado infantil. Usado en relato "La canguro" |
+| Eurostat empleo nocturno | ec.europa.eu/eurostat | Estadística UE oficial | Datos empleo nocturno UE / España. Usado en relato "La canguro" para anclar perfil de trabajador nocturno padre soltero |
+| INE jefatura monoparental | ine.es | Estadística ES oficial | Instituto Nacional de Estadística. Estructura de hogares ES, jefaturas monoparentales. Usado en relato "La canguro" |
 
 ### Fuentes independientes (ES)
 

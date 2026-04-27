@@ -9,8 +9,9 @@ Generate images using Google's Gemini image models.
 
 ## Script
 
-Located in RRP-DEV: `$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py`
-Invoked via `uv run`.
+Local en este repo: `utilities/nano_banana_image.py` (autocontenido — el repo
+robohogar no depende de RRP-DEV ni de ningún otro repo externo). Invocado
+vía `uv run` (lee dependencias inline del shebang `# /// script` del archivo).
 
 ## Style Reference (MANDATORY)
 
@@ -26,7 +27,7 @@ Para **heros de artículos** además leer **SIEMPRE** `assets/branding/nano-bana
 ## Invocation
 
 ```bash
-uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
+uv run utilities/nano_banana_image.py \
   --prompt "<description>" \
   --output "<output_path>.png" \
   [--model flash|2|pro] \

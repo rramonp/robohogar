@@ -16,7 +16,7 @@ La dirección de arte es eso: conservar el sello, romper la repetición.
 |---|---|---|
 | Fondo | Pared matte `#1E2A3A` completamente bare/unmarked | Cantidad de pared visible; puede cortarse por otros planos |
 | Superficie doméstica | Siempre alguna (encimera, parquet, mesilla, cama, suelo, estante) | Tipo, material, textura, ángulo, cantidad en el frame |
-| Paleta | Azul noche + ámbar cálido como único color-luz | Intensidad y dirección del ámbar (lateral, cenital, backlight, ausente) |
+| Paleta + atmósfera | **Modalidad visual declarada** (M1-M6, ver § 6.bis) — el "color-luz único" sigue siendo invariante por hero, pero la modalidad rota relato a relato | Color de la fuente única (M1 ámbar nocturno · M2 cobalto tormenta · M3 diurno plomizo · M4 atardecer magenta · M5 amanecer brumoso · M6 fluorescente clínico) |
 | Objeto-testigo | 1 por relato (Chekhov's gun) | Escala, posición, estado (entero/roto/envuelto/caído/reflejado), tratamiento |
 | Toque sintético | **Siempre presente** (no opcional) · matte cream-white · sin LEDs ni glow · justificado narrativamente | Tipo (mano / fragmento / silueta / ausencia / sombra), posición |
 | Texto / neón / caracteres asiáticos | Nunca | Nunca |
@@ -418,6 +418,134 @@ Sports kit colors must NOT match any real Spanish football team. Generic colors 
 # Plantilla de objeto-imposibilidad (rellenar según display_title)
 And on the [SUPERFICIE / next to the character / suspended above the surface]: [OBJETO-IMPOSIBILIDAD: smoke rising in colored tendrils that shape into letters / liquid that emits its own warm amber light from inside / particles writing words in mid-air / a household object releasing a beam of dawn-like golden light from inside / a humanoid figure in cream-white matte performing a gesture incoherent with its supposed function — eating from an empty plate, praying, taking notes on a blank notebook, masturbating an empty hand, breastfeeding a non-existent infant — pose deliberately wrong, eerie but not horror], slightly out of focus to create an oneiric effect distinct from the sharply focused character. The impossibility-object is the visual translation of the paradox in the story's display title.
 ```
+
+## Modalidades visuales (M1-M6) — eje cromático ortogonal a ambos paradigmas
+
+> **Catálogo cerrado de 6 modalidades** que aplican a los dos paradigmas (minimalista § 5 + personaje-acción-imposibilidad § 5.bis). Canonizado 2026-04-27 PM tras feedback de Rafael: los 4 heros más recientes compartían exactamente la modalidad M1 (ámbar nocturno default heredado), y la galería `/Ficciones` de Beehiiv se leía como "el mismo hero con personajes distintos". Solución: forzar rotación entre 6 modalidades con anti-repetición propia, manteniendo el resto del ADN visual.
+
+### ADN inmutable (NO se toca en ninguna modalidad)
+
+- Estilo painterly editorial (Penguin Modern Classics) — **NO** oil painting anglo, **NO** foto, **NO** cartoon.
+- Chiaroscuro dramático con **foco lumínico único** (Hopper-meets-Caravaggio).
+- Composición del paradigma vigente: minimalista (objeto-testigo + sintético sutil) **o** personaje-acción-imposibilidad (personaje + acción + objeto-imposibilidad materializado).
+- Tight medium close-up + legibilidad a thumbnail 120×67 px.
+- Anti-sign-guard activo (cero neones, cero caracteres asiáticos, cero LEDs/glow, cero texto).
+- Aspect 16:9 → crop 1200×630 (`--model 2 --aspect 16:9 --size 2K` + Pillow).
+
+### Lo que la modalidad SÍ cambia
+
+Color de la fuente lumínica única, paleta dominante, atmósfera de la escena, hora del día implícita, weather/condiciones. La estructura compositiva (regla de tercios, masa de personaje vs masa de objeto, presencia humanoide) la sigue gobernando el archetype.
+
+### Catálogo cerrado de modalidades
+
+| # | Modalidad | Paleta dominante | Tipo de fuente única | Atmósfera / hora | Tonalidades preferentes |
+|---|---|---|---|---|---|
+| **M1** | **Ámbar nocturno** *(default heredado)* | Azul noche `#1E2A3A` + ámbar `#F5A623` | Lámpara doméstica off-frame cálida (D.i) | Interior nocturno, calma tensa | inquietante · ambiguo · mundano-doméstico |
+| **M2** | **Cobalto tormenta** | Azul cobalto profundo + acentos cian/púrpura + cristal mojado | Backlight tras ventana lluviosa (D.ii) o cenital fría (D.iv) | Interior + tormenta o ventana al exterior nocturno | inquietante · radical |
+| **M3** | **Diurno plomizo** | Gris-azulado pálido + ocre apagado + blancos crudos | Luz norte difusa sin sol directo, sin lámpara doméstica | Interior gris día, melancolía mundana | mundano · ambiguo |
+| **M4** | **Atardecer magenta-naranja** | Magenta cálido + naranja sandía + sombras violetas largas | Ventana lateral horizontal baja (D.iii reinterpretada) | Crepúsculo dorado, despedida, cierre | inspirador · ambiguo |
+| **M5** | **Amanecer brumoso** | Verde-azulado helado + crema lechoso + ámbar tenue de respaldo | Cenital difusa o backlight blanco con vapor / niebla | Madrugada con niebla, vigilia, vapor de café | ambiguo · inspirador · mundano |
+| **M6** | **Fluorescente clínico-institucional** | Verde-cian frío + blanco fluorescente + sombras turquesa | Cenital uniforme fría (D.iv reinterpretada en interior cerrado) | Hospital, oficina, cocina industrial, despacho institucional, comisaría | radical · inquietante (setting institucional) |
+
+### Cómo combina la modalidad con el archetype
+
+Modalidad y archetype son **ejes ortogonales**. La modalidad sustituye el bloque `[D]` (luz) del prompt template canónico por el prompt fragment de la modalidad; el resto del prompt (encuadre A, sujeto B/C en paradigma minimalista; banda + acción + objeto-imposibilidad en paradigma personaje) se compone normalmente.
+
+| Eje | Catálogo | Sustituye en prompt |
+|---|---|---|
+| Encuadre (A) — paradigma minimalista | A1-A5 | Bloque `[A]` |
+| Sujeto (B/C) — paradigma minimalista | B1-B5 + C1-C5 | Bloques `[B]` / `[C]` |
+| Banda (paradigma personaje) | A-E | Bloque `[PERSONAJE + ESCENARIO]` |
+| Archetype concreto | 01-15 (mini) o A-01..E-06 (personaje) | Combinación coherente |
+| **Modalidad visual** | **M1-M6** | **Bloque `[D]` luz/paleta/atmósfera** |
+| Frontmatter `modalidad_visual:` | Obligatorio | — |
+
+### Regla dura anti-repetición — modalidad
+
+**Ninguna modalidad puede aparecer en los últimos 3 heros publicados** (transversal a paradigma — un hero minimalista M1 cuenta contra un hero personaje M1). El skill consulta `content/registro-ficciones.md` columna `Modalidad visual` antes de proponer.
+
+Adicional: **ángulo (A1-A5)** queda como eje ortogonal con anti-repetición propia (últimos 3 heros, también transversal). Ejecuta lo que la regla del paradigma minimalista ya prescribía pero no se cumplía.
+
+### Mapeo categoría tonal → modalidades preferentes
+
+El skill propone 1-2 modalidades del subset preferente; Rafael valida o pide alternativa. Tabla NO exclusiva — un relato puede pedir modalidad fuera de su preferente si encaja narrativamente (lo declara en `PASOS.md § Hero`).
+
+| Categoría tonal | Modalidades preferentes |
+|---|---|
+| inquietante (40%) | M1 · M2 · M6 |
+| radical (15%) | M2 · M6 |
+| ambiguo (25%) | M3 · M4 · M5 |
+| inspirador (10%) | M4 · M5 |
+| mundano (10%) | M1 · M3 |
+
+### Meta de cobertura inicial
+
+En los próximos 10 heros publicados desde 2026-04-27, deben aparecer **al menos 5 de las 6 modalidades** (i.e. ninguna queda sin estrenar salvo una). Si tras 10 heros una modalidad nunca apareció, el skill bloquea las otras hasta que el siguiente relato corresponda a la modalidad faltante (forzado de cobertura, mismo patrón que las bandas A-E del paradigma personaje).
+
+### Prompt fragments por modalidad
+
+Fragmentos en inglés listos para componer el prompt. Sustituyen el bloque `[D]` (luz) del template canónico (§ 5 minimalista) o el bloque equivalente de luz/paleta del template § 5.bis (paradigma personaje). Mantienen el chiaroscuro de fuente única y respetan los anti-triggers globales.
+
+```
+# M1 · Ámbar nocturno (default heredado)
+Single warm domestic lamp source from the upper left, off-frame, casting a narrow amber
+highlight only on the main subject and a strip of the surface, deep blue-gray shadow
+elsewhere, palette dominated by dark cobalt-navy walls and pools of warm amber
+(#F5A623), nocturnal interior atmosphere, no neon, no LEDs, no Asian characters,
+chiaroscuro Hopper-meets-Caravaggio, painterly editorial Penguin Modern Classics finish.
+
+# M2 · Cobalto tormenta
+Single dramatic backlight from a rain-streaked window behind the subject, deep cobalt
+and navy palette with cyan and violet accents on wet glass and metal, faint scattered
+amber from a small interior fixture as residual warmth, storm atmosphere with subtle
+rain droplets visible on the window plane, no neon, no LEDs, no Asian characters,
+chiaroscuro Hopper-meets-Caravaggio, painterly editorial Penguin Modern Classics finish.
+
+# M3 · Diurno plomizo
+Single source of cold north-facing diffuse daylight from an off-frame window, no sun
+direct, no domestic lamp active, palette of pale gray-blue walls and muted ochre fabrics
+with raw whites, soft directional shadow with very little contrast on backgrounds and
+deep contrast on subject's silhouette, overcast Spanish midday atmosphere, no neon,
+no LEDs, no Asian characters, painterly editorial Penguin Modern Classics finish with
+chiaroscuro emphasis kept on the subject only.
+
+# M4 · Atardecer magenta-naranja
+Single low horizontal sunset light from an off-frame side window, palette of warm
+magenta and watermelon-orange highlights with long violet shadows stretching across
+walls and surfaces, deep cobalt residual in the recesses, golden-hour atmosphere of
+farewell and closure, no neon, no LEDs, no Asian characters, chiaroscuro Hopper-meets-
+Caravaggio with the warm side of the frame strongly saturated and the cold side
+plunging into violet darkness, painterly editorial Penguin Modern Classics finish.
+
+# M5 · Amanecer brumoso
+Single milky backlight from an off-frame window or skylight at dawn, palette of cold
+teal-blue mist with creamy whites and a faint amber accent on the subject's near edge,
+visible mist or kitchen steam diffusing the light, atmosphere of vigil at first hour
+with damp interior air, no neon, no LEDs, no Asian characters, painterly editorial
+Penguin Modern Classics finish, chiaroscuro softened by the mist but still legible on
+the subject's silhouette.
+
+# M6 · Fluorescente clínico-institucional
+Single overhead clinical fluorescent fixture casting hard top-down cold light, palette
+of cyan-green ambient with white-blue highlights and turquoise shadow pools, sterile
+institutional interior (hospital corridor / SEPE waiting hall / municipal office / police
+station / industrial kitchen), no neon, no LED glow, no Asian characters, chiaroscuro
+contrast between the harsh fluorescent overhead and the deep teal shadows beneath
+furniture and figures, painterly editorial Penguin Modern Classics finish.
+```
+
+### Verificación pre-output (modalidad)
+
+- [ ] Frontmatter `modalidad_visual:` declarado y entre M1-M6 (bloqueo si falta).
+- [ ] Modalidad propuesta no coincide con ninguna de las **3 últimas** publicadas (consultar `registro-ficciones.md` columna `Modalidad visual`).
+- [ ] Ángulo de cámara (A1-A5) no coincide con los **3 últimos** publicados (columna `Ángulo`).
+- [ ] La paleta visible en el render coincide con la modalidad declarada (auditoría visual a ojo: M2 no debe leerse cálido, M4 no debe leerse frío, etc.).
+- [ ] Foco lumínico **único** mantenido (no aparecen 2 fuentes contradictorias por la mezcla de modalidades).
+- [ ] Anti-sign-guard sigue limpio en todas las modalidades (M2/M6 son las más arriesgadas — Gemini puede meter neones de tormenta en M2 o pantallas LED clínicas en M6).
+
+### Backfill retroactivo de los 9 publicados
+
+Los 9 relatos publicados pre-2026-04-27 PM se backfillean con `Modalidad visual = M1` y `Ángulo = A1` en `registro-ficciones.md`. **No se regeneran sus heros** — la regla aplica desde el siguiente relato (decisión Rafael 2026-04-27 vía AskUserQuestion).
 
 ## Revisión futura del catálogo
 

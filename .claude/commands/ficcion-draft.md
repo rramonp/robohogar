@@ -1060,6 +1060,9 @@ hook_type: "A3 Acto irreversible inminente"              # Hook de prosa (famili
 display_title_family: G1 | G2 | G3 | G4                  # Hook de display title (familia G), § 5.7-bis. OBLIGATORIO.
 display_title_band: A | B | C | D | E                    # Solo si display_title_family = G1. Banda de personaje. Catálogo: ficcion-hero-archetypes.md § Grupo personaje-acción-imposibilidad.
 hero_paradigma: minimalista | personaje-accion-imposibilidad     # § 5 vs § 5.bis de asset-catalog.md. Default desde 2026-04-26 PM = personaje-accion-imposibilidad.
+modalidad_visual: M1 | M2 | M3 | M4 | M5 | M6                    # Modalidad visual del hero (eje cromático ortogonal a paradigma + archetype). Catálogo: ficcion-hero-archetypes.md § Modalidades visuales. Anti-repetición últimos 3. OBLIGATORIO desde 2026-04-27 PM. M1=Ámbar nocturno (default heredado) · M2=Cobalto tormenta · M3=Diurno plomizo · M4=Atardecer magenta · M5=Amanecer brumoso · M6=Fluorescente clínico.
+angulo_camara: A1 | A2 | A3 | A4 | A5                            # Encuadre del hero. A1=lateral eye-level · A2=cenital · A3=ángulo bajo · A4=a través de marco · A5=extreme macro. Anti-repetición últimos 3. OBLIGATORIO desde 2026-04-27 PM.
+composicion_canon: C-01 | C-02 | C-03 | C-04 | C-05 | C-06 | C-07 | C-08 | C-09 | C-10 | C-11 | C-12   # Patrón compositivo macro del frame (eje ortogonal a modalidad/ángulo/banda). Catálogo: ficcion-hero-composiciones-canon.md. Anti-repetición últimos 5 + bloqueo familia (I-V) si las últimas 3 son misma familia. OBLIGATORIO desde 2026-04-28. Selección aleatoria con filtro tonal — el skill propone 3 candidatos del pool, Rafael decide. C-01 Two-shot íntimo · C-02 Close-up emocional · C-03 Detalle manos · C-04 Espacio monumental · C-05 Eje simétrico · C-06 Pantalla/holograma · C-07 Ventana al exterior · C-08 Frontal teatral · C-09 Over-the-shoulder · C-10 Exterior nocturno · C-11 Decadencia/caos · C-12 Color-pop saturado.
 status: borrador
 created: YYYY-MM-DD
 hero-image: assets/hero-<slug>.png
@@ -1075,11 +1078,12 @@ Tras 2026-04-26 PM, los heros de Ficciones Domésticas se generan en uno de **3 
 3. **Si el relato es one-shot/miniserie nueva y `hero_paradigma: minimalista`** (declarativo cuando el objeto-testigo aislado del relato es más fuerte que cualquier personaje en frame, ej: tela ceremonial de *La objeción*) → aplicar el **canon § 5** minimalista existente + archetype 01-15 de [`ficcion-hero-archetypes.md`](../../assets/branding/ficcion-hero-archetypes.md).
 
 **Regla universal (los 3 paradigmas la cumplen):**
-- No ventana exterior visible (Gemini mete neones con caracteres asiáticos — ver `assets/branding/nano-banana-prompt-base.md`).
+- No ventana exterior visible salvo cuando la modalidad la requiere explícitamente (M2 Cobalto tormenta, M4 Atardecer, M5 Amanecer); en esos casos la ventana es plana, sin paisaje urbano detallado, para evitar que Gemini meta neones con caracteres asiáticos. Ver `assets/branding/nano-banana-prompt-base.md`.
 - No LEDs/neones/glow en robots (excepciones puntuales: glow dorado ojos Asimov, pinpoint azul Black Mirror; nunca en heros del nuevo paradigma).
 - No texto, letras ni caracteres asiáticos.
 - Dimensiones obligatorias 1200×630 (`--model 2 --aspect 16:9 --size 2K` + crop Pillow).
 - Banda D (figuras públicas por rol) del paradigma personaje-acción-imposibilidad: **identidad por rol y atrezzo**, nunca cara reconocible de figura real. Regen si Gemini la mete.
+- **Modalidad visual `M1-M6` declarada en frontmatter + ángulo `A1-A5` declarado** (paradigmas 2 y 3 — los one-shots/miniseries). Anti-repetición transversal a paradigmas: ninguna modalidad ni ángulo en los últimos 3 heros publicados. Series activas (Amparo/Ronda 3/MAIA, paradigma 1) NO usan M1-M6 — mantienen código fijo declarado. Catálogo + prompt fragments: `assets/branding/ficcion-hero-archetypes.md § Modalidades visuales (M1-M6)`.
 
 #### Paradigma 1 — Serie con código visual declarado (La Casa de Amparo · Ronda 3 · MAIA)
 
@@ -1124,27 +1128,47 @@ Canon `personaje-acción-imposibilidad` de [`asset-catalog.md § 5.bis`](../../a
 4. **Composición regla de tercios** — personaje en una zona, objeto-imposibilidad a contrapunto, foco lumínico ámbar diagonal sobre la unión.
 5. **Fondo** azul `#1E2A3A` matte plain unmarked en tercio superior. Reduce vs minimalista (2/3) porque el personaje ocupa más altura.
 
-**Algoritmo de selección de archetype** (skill `/nano-banana` modo ficción + `/ficcion-draft`):
+**Algoritmo de selección de composición + archetype + modalidad + ángulo** (skill `/nano-banana` modo ficción + `/ficcion-draft`):
 
 1. Leer del frontmatter: `categoria-tonal:` + `display_title:` + `display_title_family:` + `display_title_band:` (si G1) + `Perfil POV` (de la fila correspondiente del registro).
-2. Cargar [`ficcion-hero-archetypes.md § Grupo personaje-acción-imposibilidad`](../../assets/branding/ficcion-hero-archetypes.md).
+2. Cargar [`ficcion-hero-archetypes.md § Grupo personaje-acción-imposibilidad`](../../assets/branding/ficcion-hero-archetypes.md) **y § Modalidades visuales (M1-M6)** **y [`ficcion-hero-composiciones-canon.md`](../../assets/branding/ficcion-hero-composiciones-canon.md) § Catálogo (C-01..C-12)**.
 3. Filtrar archetypes por banda obligada (`display_title_band` si G1) o sugerida (mejor encaje con el `display_title` y `Perfil POV` si no es G1).
 4. Filtrar por compatibilidad con la categoría tonal (tabla de "Algoritmo de selección por categoría tonal" del catálogo).
 5. **Anti-repetición acotada al paradigma:** excluir archetypes presentes en últimos 5 heros del paradigma personaje-acción-imposibilidad (columna `Archetype` de la tabla `§ 5 · Registro de heros ficción` filtrada por `Paradigma = personaje-acción-imposibilidad`). Excluir banda dominante en últimos 3 (no encadenar 3 relatos en misma banda).
-6. **Forzado de cobertura:** si en los primeros 10 heros del paradigma una banda nunca apareció, bloquear las otras hasta que el siguiente relato corresponda a la banda faltante.
-7. Proponer 3 candidatos a Rafael con razón explícita (banda + archetype + objeto-imposibilidad propuesto).
-8. Tras decisión, ensamblar el prompt usando el template canónico § 5.bis sustituyendo `[PERSONAJE]`, `[ACCIÓN VISIBLE]`, `[OBJETO-IMPOSIBILIDAD]`, `[SUPERFICIE/ESCENARIO]`. Fragments por banda en `ficcion-hero-archetypes.md § Prompt fragments por banda`.
+6. **Forzado de cobertura banda:** si en los primeros 10 heros del paradigma una banda nunca apareció, bloquear las otras hasta que el siguiente relato corresponda a la banda faltante.
+6.bis. **Selección de composición canon (C-01..C-12) — eje compositivo ortogonal · ALEATORIO con anti-repetición** (regla 2026-04-28 tras feedback Rafael "necesito más variedad compositiva tipo YouTube anglo"):
+   - Leer `content/registro-ficciones.md` columna `Comp.` y guardar las **5 últimas composiciones** publicadas + las **3 últimas familias** (I-V) publicadas.
+   - Filtrar pool de 12 composiciones por compatibilidad con `categoria-tonal` (mapeo del catálogo § Mapeo composición → tonalidades preferentes).
+   - Excluir las 5 últimas composiciones publicadas → pool A.
+   - Si las 3 últimas composiciones publicadas pertenecen a la misma familia (I-V), excluir esa familia entera del pool → pool B.
+   - Aplicar compatibilidad con banda si paradigma personaje-acción (mapeo § Compatibilidades especiales con bandas).
+   - Si pool resultante < 3 candidatos: relajar filtro tonal (paso de "preferentes" a "todas excepto anti-repetición").
+   - **Random.choice de 3 candidatos** del pool resultante — **REGLA DURA: las 3 composiciones C-XX deben ser totalmente distintas entre sí** (canonizada 2026-04-28 PM tras feedback Rafael en Pipo: *"quiero tres opciones con composiciones totalmente distintas, no tres prácticamente idénticas con pequeñas diferencias muy sutiles"*). Prohibido devolver 3 variantes de la misma C-XX cambiando solo el objeto-imposibilidad / pose / luz secundaria. Si una C-XX parece encajar perfecto, aun así proponer 2 más de C-XX distintas para que Rafael elija con contraste real. **Ideal:** las 3 vienen además de **familias distintas** (I/II/III/IV/V) cuando el pool lo permita, para máximo contraste compositivo macro. Verificación pre-output del paso: si `len(set(candidatos.C)) < 3` → resamplear hasta tener 3 únicos. Si `len(set(candidatos.familia)) < 3` → resamplear si el pool lo permite; si no, declarar el motivo en la respuesta.
+   - **Forzado de cobertura:** si en los primeros 12 heros desde 2026-04-28 una composición nunca apareció, bloquear las otras hasta que toque la faltante.
+   - Skill propone los 3 candidatos a Rafael con razón explícita (composición + familia + por qué encaja con tonal/POV/display_title + ejemplo del referente anglo del catálogo).
 
-**Validación pre-output (8 puntos del canon § 5.bis):**
+7. **Selección de modalidad visual (M1-M6) — eje cromático ortogonal** (regla 2026-04-27):
+   - Leer `content/registro-ficciones.md` columnas `Modalidad visual` + `Ángulo` y guardar las **3 últimas modalidades** y los **3 últimos ángulos** publicados (transversal a paradigma — un hero minimalista cuenta).
+   - Filtrar pool de 6 modalidades por compatibilidad con `categoria-tonal` (mapeo del catálogo § Modalidades visuales § Mapeo categoría tonal).
+   - Excluir las 3 últimas modalidades publicadas → pool resultante de candidatos.
+   - **Forzado de cobertura modalidad:** si en los primeros 10 heros desde 2026-04-27 una modalidad nunca apareció, bloquear las otras hasta que toque la faltante.
+   - Si pool queda vacío por filtros → relajar mapeo tonal (no la anti-repetición); declarar excepción tonal en `PASOS.md § Hero` con motivo.
+8. **Selección de ángulo (A1-A5)** — independiente de modalidad: excluir los 3 últimos ángulos publicados; preferir ángulo que case con la acción del `display_title` (ej: A2 cenital para acciones que se leen mejor desde arriba; A3 ángulo bajo para tensión vertical; A1 default lateral si ningún criterio narrativo prevalece).
+9. Proponer **3 candidatos completos** a Rafael con razón explícita por candidato: **composición C-XX (familia + referente anglo) + banda + archetype + modalidad M# (paleta + atmósfera) + ángulo A#** + objeto-imposibilidad propuesto. Cada candidato es una combinación distinta de los 4 ejes para maximizar variabilidad. **REGLA DURA — las 3 composiciones C-XX son distintas entre sí** (no 3 variantes de la misma C cambiando solo objeto-imposibilidad / pose / luz secundaria). Verificación: `len(set([c1.C, c2.C, c3.C])) == 3` o regenerar.
+10. Tras decisión: rellenar frontmatter `composicion_canon:` + `modalidad_visual:` + `angulo_camara:`. Ensamblar el prompt **sustituyendo el bloque "Composition" del template canónico § 5.bis por el prompt fragment de la composición C-XX elegida** (catálogo `ficcion-hero-composiciones-canon.md § Prompt fragments por composición`), **y reemplazando el bloque `[D]` (luz/paleta/atmósfera) por el prompt fragment de la modalidad M# elegida** (`ficcion-hero-archetypes.md § Prompt fragments por modalidad`). El bloque "Aesthetic" (painterly book cover + Penguin Modern Classics + chiaroscuro Hopper) y los anti-triggers se mantienen intactos en cualquier combinación.
+
+**Validación pre-output (canon § 5.bis + modalidades visuales):**
 
 - [ ] Personaje identificable por rol/oficio en primer plano (no solo silueta abstracta).
 - [ ] Acción concreta visible coherente con el verbo del `display_title` declarado.
 - [ ] Objeto-imposibilidad materializado físicamente que traduce la paradoja.
-- [ ] Fondo azul `#1E2A3A` matte en tercio superior, plain unmarked, sin neones/caracteres/texto.
-- [ ] Foco lumínico cálido ámbar diagonal único.
-- [ ] Test 120px — silueta del personaje + objeto-imposibilidad se distinguen a thumbnail.
-- [ ] Cero LEDs / glow / paneles luminosos.
+- [ ] Fondo del tercio superior matte plain unmarked, sin texto ni caracteres asiáticos. Color del fondo coherente con la **modalidad declarada** (M1 azul noche · M2 cobalto profundo · M3 gris-azulado pálido · M4 violeta-magenta · M5 teal lechoso · M6 cyan-verde frío).
+- [ ] **Foco lumínico ÚNICO** mantenido (chiaroscuro de fuente única). Color de la fuente coherente con la modalidad (M1 ámbar cálido · M2 backlight cobalto/cian · M3 norte difusa neutra · M4 sunset magenta-naranja · M5 milky backlight con vapor · M6 fluorescente cenital fría).
+- [ ] Test 120px — silueta del personaje + objeto-imposibilidad se distinguen a thumbnail. Las modalidades M3/M5 son las más arriesgadas en thumbnail (menos contraste cromático) — verificar con cuidado.
+- [ ] Cero LEDs / glow / paneles luminosos. Cero neones (M2 y M6 son las más arriesgadas — Gemini puede meter neones en M2 ventanas de tormenta o pantallas LED en M6 hospitales).
 - [ ] Si banda D: la cara del personaje NO es reconocible como figura concreta. Regen si fallo.
+- [ ] **Modalidad y ángulo declarados en frontmatter** (`modalidad_visual:` + `angulo_camara:`) y NO repetidos en los 3 últimos heros publicados (consultar `content/registro-ficciones.md`).
+- [ ] **Composición canon declarada** (`composicion_canon: C-XX`) y NO repetida en los 5 últimos publicados. Si las 3 últimas son misma familia (I-V), la nueva está en familia distinta. El render entregado debe leer claramente como la composición declarada (auditoría visual a ojo — declarar C-04 monumental y entregar two-shot íntimo = regen).
 
 #### Paradigma 3 — One-shots/miniseries nuevas con `hero_paradigma: minimalista` (declarativo)
 

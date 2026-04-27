@@ -64,20 +64,15 @@ DEFAULT_CATEGORY_ID = "24"
 def build_youtube_title(frontmatter: dict) -> str:
     """Construye el título YouTube según el patrón canónico de Ficciones Domésticas.
 
-    Reglas (decisión Rafael 2026-04-25):
-      - **Plural OBLIGATORIO**: "Ficciones Domésticas", NO "Ficción Doméstica".
-        Razones: (1) coincide con el nombre canónico de la serie en CLAUDE.md +
-        bible + descripción del canal; (2) algoritmo YouTube agrupa contenido
-        por strings repetidos en títulos — todos los relatos comparten esa
-        cola y YouTube los ofrece como "siguiente vídeo" entre ellos.
-      - **Hook primero, etiqueta después**: el título del relato va al inicio
-        para crear curiosity gap (Mobile YouTube corta a ~60 chars; el hook
-        debe estar a salvo en los primeros chars).
-      - **Em-dash con espacios** (` — `) entre hook y serie. Permitido en
-        títulos de YouTube (regla `editorial.md` solo prohíbe em-dash en
-        trust-lines ≤15 palabras).
+    **Patrón YouTube-style desde 2026-04-27 (decisión Rafael):** si el frontmatter
+    tiene `display_title:` (canon § 5.bis G-family · 10-15 palabras paradójicas),
+    se usa ese literal SIN sufijo de serie. Razón: el display_title ya carga el
+    hook compositivo entero; añadir " — Ficciones Domésticas" superaría 100 chars
+    y forzaría truncado con "…" que destruye el remate del gancho. La marca de
+    serie se cubre por la descripción del vídeo + canal + playlist (suficiente
+    para clasificación algorítmica sin canibalizar el title).
 
-    3 patrones según el contexto del relato:
+    Patrón legacy (relatos anteriores a 2026-04-26 PM sin `display_title:`):
 
     | Caso | Patrón | Detección |
     |---|---|---|
@@ -85,10 +80,22 @@ def build_youtube_title(frontmatter: dict) -> str:
     | Episodio serie | `{title} · {SerieDisplay} #{N} — Ficciones Domésticas` | `frontmatter.serie != "_one-shots"` y `frontmatter.episodio` numérico |
     | Piloto serie nueva | `{title} — Ficciones Domésticas · Piloto` | `frontmatter.tipo == "piloto"` (opt-in explícito) |
 
-    Cap defensivo: 100 chars (límite YouTube). Si el título compuesto excede,
-    truncar el hook (no la cola "Ficciones Domésticas") para preservar la
-    palabra-marca al final.
+    Reglas legacy (decisión Rafael 2026-04-25, vigentes para relatos sin display_title):
+      - **Plural OBLIGATORIO**: "Ficciones Domésticas", NO "Ficción Doméstica".
+      - **Hook primero, etiqueta después**: el título del relato va al inicio.
+      - **Em-dash con espacios** (` — `) entre hook y serie.
+
+    Cap defensivo: 100 chars (límite YouTube). Si el título compuesto legacy
+    excede, truncar el hook (no la cola "Ficciones Domésticas") para preservar
+    la palabra-marca al final.
     """
+    # Patrón YouTube-style 2026-04-27: display_title pelado sin sufijo.
+    display_title = (frontmatter.get("display_title") or "").strip()
+    if display_title:
+        if len(display_title) > 100:
+            display_title = display_title[:99].rstrip() + "…"
+        return display_title
+
     relato_title = frontmatter.get("title", "Sin título").strip()
     serie = (frontmatter.get("serie") or "").strip()
     episodio = frontmatter.get("episodio")

@@ -5,34 +5,39 @@ Uso:
     python utilities/generate_podcast_rss.py
 
 Lee:
-  - `content/podcast/canal-metadata.md` — frontmatter con metadata canónica
-    del canal (título, descripción, idioma, categoría iTunes, autor, owner,
-    artwork URL, copyright).
-  - `content/registro-articulos.md` (opcional) y `content/ficciones/**/<slug>/`
-    para descubrir los relatos publicados con audiolibro.
-  - Por cada slug detectado:
-      * `assets/audio/ficciones/<slug>-chunks-index.json` (duración, chapters)
-      * `content/ficciones/**/<slug>/<fecha>-<slug>.md` (frontmatter: title,
-        meta_description, fecha publicación)
-      * URL pública del MP3 en R2 (construida desde R2_FEED_PUBLIC_URL +
-        slug.mp3)
-      * URL del cover podcast (construida desde R2_FEED_PUBLIC_URL +
-        covers/<slug>-podcast-1400x1400.jpg)
+  - `content/podcast/canal-metadata.md` — frontmatter con metadata del canal
+    (título, descripción, idioma, categoría iTunes, autor, owner, artwork URL).
+  - `content/podcast/episodes.json` — manifest declarativo de episodios
+    (fuente de verdad commiteada al repo). Cada entrada lleva: slug, title,
+    subtitle (display_title YouTube-style), summary, pub_date_rfc2822,
+    duration_hms (HH:MM:SS), mp3_bytes, cover_cache_bust, guid.
 
 Output:
   - `content/podcast/feed.xml` — RSS 2.0 con itunes namespace, válido en
-    Apple Podcasts / Spotify / Amazon Music. Reemplaza versión anterior.
+    Apple Podcasts / Spotify / Amazon Music.
 
 Spec: https://podcasters.apple.com/support/823-podcast-requirements
-Validador recomendado tras cada generación: https://castfeedvalidator.com
+Validador recomendado: https://castfeedvalidator.com
 
-Idempotente: re-ejecutar produce el mismo XML si nada cambió. El `<guid>`
-de cada item se deriva del slug (NO del URL ni del path) para que las
-plataformas no traten un episodio como "nuevo" si la URL del MP3 cambia.
+**Por qué el manifest declarativo (decisión arquitectónica 2026-04-27):**
+Antes el script descubría episodios escaneando `assets/audio/ficciones/*-chunks-index.json`.
+Esos chunks-index están en `.gitignore` (son outputs grandes del TTS, no fuente),
+así que viven solo en la máquina donde se generó el audiolibro. Si Rafael
+trabajaba desde otra máquina o cambiaba hardware, regenerar el feed borraba
+todos los episodios cuyos chunks-index no estaban localmente. Solución: el
+manifest commiteado al repo es la fuente única de verdad. Los chunks-index
+siguen en su sitio para `audiobook-distribute § generate_youtube_video`
+(necesita los timestamps de capítulos), pero el feed RSS es independiente.
 
-Si no hay episodios todavía (setup inicial, Bloque 3 de la guía), genera
-un canal válido con 0 items — Spotify y Amazon aceptan, Apple los rechaza
-para review (subir el primer episodio antes de pedir alta en Apple).
+Spec: https://podcasters.apple.com/support/823-podcast-requirements
+Validador recomendado: https://castfeedvalidator.com
+
+Idempotente: re-ejecutar produce el mismo XML si nada cambió en el manifest.
+El `<guid>` de cada item es inmutable (declarado en el manifest).
+
+Si el manifest tiene 0 episodios, genera un canal válido vacío — Spotify y
+Amazon aceptan, Apple los rechaza para review (subir el primer episodio
+antes de pedir alta en Apple).
 """
 
 import hashlib
@@ -53,9 +58,7 @@ if hasattr(sys.stdout, "reconfigure"):
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SETTINGS_FILE = REPO_ROOT / ".claude" / "settings.local.json"
 CANAL_METADATA_FILE = REPO_ROOT / "content" / "podcast" / "canal-metadata.md"
-FICTIONS_ROOT = REPO_ROOT / "content" / "ficciones"
-AUDIO_DIR = REPO_ROOT / "assets" / "audio" / "ficciones"
-COVERS_DIR = AUDIO_DIR / "covers"
+EPISODES_MANIFEST = REPO_ROOT / "content" / "podcast" / "episodes.json"
 OUTPUT_FEED = REPO_ROOT / "content" / "podcast" / "feed.xml"
 
 FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
@@ -136,96 +139,58 @@ def load_canal_metadata() -> dict:
 
 
 # ══════════════════════════════════════════════════════════════════════════
-# Descubrimiento de episodios
+# Carga de episodios desde el manifest declarativo
 # ══════════════════════════════════════════════════════════════════════════
 
-def discover_episodes() -> list[dict]:
-    """Encuentra todos los relatos con audiolibro generado.
+REQUIRED_EPISODE_FIELDS = (
+    "slug", "title", "subtitle", "summary",
+    "pub_date_rfc2822", "duration_hms", "mp3_bytes", "guid",
+)
 
-    Heurística: existe `<slug>-chunks-index.json` en `assets/audio/ficciones/`.
-    Para cada uno, busca el `.md` correspondiente para extraer metadata.
-    Devuelve lista ordenada por pubDate descendente (más reciente primero
-    al final del proceso, porque RSS readers asumen orden cronológico).
+
+def load_episodes_from_manifest() -> list[dict]:
+    """Lee episodios del manifest commiteado al repo.
+
+    El manifest es la fuente única de verdad del feed (fix arquitectónico
+    2026-04-27 — antes el script glob los chunks-index, que están en
+    .gitignore y solo viven en la máquina donde se generó el audiolibro).
+
+    Valida que cada entrada tenga los campos obligatorios. Falla amigablemente
+    con el slug exacto del episodio incompleto.
     """
-    episodes = []
-    for index_file in AUDIO_DIR.glob("*-chunks-index.json"):
-        # Slug = nombre sin sufijo "-chunks-index.json"
-        slug = index_file.stem.replace("-chunks-index", "")
-        try:
-            data = json.loads(index_file.read_text(encoding="utf-8"))
-        except json.JSONDecodeError:
-            print(f"  WARNING: {index_file.name} no es JSON valido, saltando.")
-            continue
+    if not EPISODES_MANIFEST.exists():
+        sys.exit(
+            f"ERROR: no existe {EPISODES_MANIFEST.relative_to(REPO_ROOT)}\n"
+            "Crear con la plantilla del fix 2026-04-27 — ver el commit que añadió este script."
+        )
 
-        # Buscar el .md del relato.
-        md_matches = list(FICTIONS_ROOT.glob(f"**/{slug}/*-{slug}.md"))
-        if not md_matches:
-            md_matches = [m for m in FICTIONS_ROOT.glob(f"**/{slug}/*.md")
-                          if m.stem.lower() not in {"pasos", "readme"}]
-        if not md_matches:
-            print(f"  WARNING: chunks-index para '{slug}' pero sin .md fuente, saltando.")
-            continue
+    try:
+        data = json.loads(EPISODES_MANIFEST.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        sys.exit(f"ERROR: episodes.json inválido: {e}")
 
-        md = md_matches[0]
-        fm = parse_frontmatter(md)
+    episodes = data.get("episodes", [])
+    if not isinstance(episodes, list):
+        sys.exit("ERROR: episodes.json: 'episodes' debe ser una lista.")
 
-        # Fecha de publicación: primera opción frontmatter['date'], si no
-        # parsear del filename `YYYY-MM-DD-<slug>.md`, si no fallback a
-        # mtime del .md (creado tarde pero mejor que nada).
-        pub_date = parse_pub_date(fm, md)
+    for i, ep in enumerate(episodes):
+        missing = [f for f in REQUIRED_EPISODE_FIELDS if f not in ep]
+        if missing:
+            slug = ep.get("slug", f"<entry #{i}>")
+            sys.exit(
+                f"ERROR: episodio '{slug}' en episodes.json sin campos: {', '.join(missing)}.\n"
+                f"Campos obligatorios: {', '.join(REQUIRED_EPISODE_FIELDS)}."
+            )
 
-        episodes.append({
-            "slug": slug,
-            "title": fm.get("title", slug.replace("-", " ").title()),
-            "description": fm.get("meta_description") or fm.get("subtitle", ""),
-            "pub_date": pub_date,
-            "duration_seconds": data["total_duration_seconds"],
-            "narration_chars": data.get("narration_chars", 0),
-        })
-
-    # Orden: más reciente primero (RSS standard).
-    episodes.sort(key=lambda e: e["pub_date"], reverse=True)
+    # El manifest viene ya ordenado más-reciente-arriba por convención
+    # (las entradas nuevas se prependen). Si el orden está roto, ordenamos
+    # por pub_date descendente como fallback defensivo.
     return episodes
-
-
-def parse_pub_date(fm: dict, md_path: Path) -> datetime:
-    """Determina la fecha de publicación del episodio.
-
-    Orden de preferencia:
-      1. frontmatter['date'] si está presente y parseable.
-      2. Filename `YYYY-MM-DD-<slug>.md` → parsea YYYY-MM-DD.
-      3. Mtime del .md como fallback.
-    """
-    date_str = fm.get("date") or fm.get("pubDate")
-    if date_str:
-        try:
-            dt = datetime.strptime(date_str, "%Y-%m-%d")
-            return dt.replace(tzinfo=timezone.utc, hour=9)  # 9 AM CET típico
-        except ValueError:
-            pass
-
-    # Filename pattern: YYYY-MM-DD-<slug>.md
-    name = md_path.stem
-    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})-", name)
-    if m:
-        year, month, day = map(int, m.groups())
-        return datetime(year, month, day, 9, 0, 0, tzinfo=timezone.utc)
-
-    # Fallback: mtime.
-    return datetime.fromtimestamp(md_path.stat().st_mtime, tz=timezone.utc)
 
 
 # ══════════════════════════════════════════════════════════════════════════
 # Generación del XML
 # ══════════════════════════════════════════════════════════════════════════
-
-def format_itunes_duration(seconds: float) -> str:
-    """Apple Podcasts acepta HH:MM:SS, MM:SS o segundos. HH:MM:SS es lo más universal."""
-    s = int(round(seconds))
-    h, rem = divmod(s, 3600)
-    m, s = divmod(rem, 60)
-    return f"{h:02d}:{m:02d}:{s:02d}"
-
 
 def build_channel_xml(canal: dict, items_xml: str) -> str:
     """Compone el XML completo del feed con namespace iTunes + content."""
@@ -270,56 +235,49 @@ def build_channel_xml(canal: dict, items_xml: str) -> str:
 
 
 def build_item_xml(episode: dict, env: dict, canal: dict) -> str:
-    """XML de un único `<item>` del feed."""
+    """XML de un único `<item>` del feed.
+
+    Toma todos los datos del manifest (no del filesystem). Idempotente:
+    misma entrada del manifest → mismo XML byte-a-byte.
+    """
     slug = episode["slug"]
     feed_base = env["R2_FEED_PUBLIC_URL"].rstrip("/")
     mp3_url = f"{feed_base}/{slug}.mp3"
-    # Cache-bust automático en la cover del episodio: `?v=<hash8>` derivado
-    # del contenido del JPG local. Si el cover cambia (re-generación tras
-    # editar el hero), el hash cambia → URL distinta para Spotify/Amazon
-    # → refetch automático. NO se aplica al MP3 (`enclosure`) porque
-    # cambiar la URL del MP3 puede hacer que Apple duplique el episodio.
-    local_cover = COVERS_DIR / f"{slug}-podcast-1400x1400.jpg"
-    cover_url = f"{feed_base}/covers/{slug}-podcast-1400x1400.jpg{cache_bust_query(local_cover)}"
 
-    # Tamaño del MP3 para `<enclosure length>`. Si no podemos medirlo
-    # localmente, fallback a 0 (Apple lo tolera pero no es ideal).
-    local_mp3 = AUDIO_DIR / f"{slug}.mp3"
-    mp3_size = local_mp3.stat().st_size if local_mp3.exists() else 0
-
-    pub_date = format_datetime(episode["pub_date"])
-    duration = format_itunes_duration(episode["duration_seconds"])
+    # Cache-bust del cover episode: query string `?v=<cache_bust>` declarado
+    # en el manifest. Si Rafael regenera el cover (e.g. tras editar hero),
+    # bumpear `cover_cache_bust` en el manifest fuerza refetch en plataformas
+    # que cachean por URL. NO se aplica al MP3 (`enclosure`) porque cambiar
+    # la URL haría que Apple duplique el episodio.
+    cache_bust = episode.get("cover_cache_bust", "")
+    cover_url = f"{feed_base}/covers/{slug}-podcast-1400x1400.jpg"
+    if cache_bust:
+        cover_url += f"?v={cache_bust}"
 
     # Show notes: hook narrativo + CTA al post web. Va en `<itunes:summary>`
-    # y `<description>` (HTML permitido en description vía CDATA).
-    # `home_url` es la landing del newsletter (sin /p/<slug>) — la usamos
-    # para envolver la última mención "robohogar.com" del párrafo de cierre
-    # como <a href> clickable. Amazon Music y Apple respetan los <a> del
-    # CDATA, Spotify hace strip.
+    # y `<description>` (HTML permitido vía CDATA). Amazon Music y Apple
+    # respetan los <a> del CDATA, Spotify hace strip.
     web_url = f"{canal['link'].rstrip('/')}/p/{slug}"
     home_url = canal["link"].rstrip("/")
-    summary_text = episode["description"]
+    summary_text = episode["summary"]
     description_html = f"""<p>{escape(summary_text)}</p>
 
 <p>▶ Lee el relato completo + suscríbete al newsletter: <a href="{escape(web_url)}">{escape(web_url)}</a></p>
 
 <p>Ficciones Domésticas — relatos de ciencia ficción próxima sobre robótica en el hogar. Cada semana, junto al newsletter en <a href="{escape(home_url)}">robohogar.com</a>.</p>"""
 
-    # GUID derivado del slug = inmutable para siempre. Las plataformas
-    # identifican el episodio por GUID, no por URL del MP3.
-    guid = f"robohogar-ficciones-{slug}"
-
     return f"""    <item>
       <title>{escape(episode['title'])}</title>
       <link>{escape(web_url)}</link>
       <description><![CDATA[{description_html}]]></description>
+      <itunes:subtitle>{escape(episode['subtitle'])}</itunes:subtitle>
       <itunes:summary>{escape(summary_text)}</itunes:summary>
       <itunes:author>{escape(canal['author'])}</itunes:author>
       <itunes:image href="{escape(cover_url)}" />
-      <enclosure url="{escape(mp3_url)}" length="{mp3_size}" type="audio/mpeg" />
-      <guid isPermaLink="false">{escape(guid)}</guid>
-      <pubDate>{pub_date}</pubDate>
-      <itunes:duration>{duration}</itunes:duration>
+      <enclosure url="{escape(mp3_url)}" length="{episode['mp3_bytes']}" type="audio/mpeg" />
+      <guid isPermaLink="false">{escape(episode['guid'])}</guid>
+      <pubDate>{episode['pub_date_rfc2822']}</pubDate>
+      <itunes:duration>{episode['duration_hms']}</itunes:duration>
       <itunes:explicit>false</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
     </item>"""
@@ -335,13 +293,16 @@ def main() -> None:
     print(f"Feed self URL: {canal['feed_self_url']}")
     print()
 
-    print(f"Descubriendo episodios en {AUDIO_DIR.relative_to(REPO_ROOT)}...")
-    episodes = discover_episodes()
+    print(f"Cargando manifest {EPISODES_MANIFEST.relative_to(REPO_ROOT)}...")
+    episodes = load_episodes_from_manifest()
     print(f"  Encontrados {len(episodes)} episodio(s):")
     for ep in episodes:
-        date_str = ep["pub_date"].strftime("%Y-%m-%d")
-        dur_min = ep["duration_seconds"] / 60
-        print(f"  - {date_str} · {ep['slug']} ({dur_min:.1f} min)")
+        # Extracción defensiva del año-mes-día del RFC2822 para reportar
+        # con formato consistente, sin parsear (evita romper si el formato
+        # tiene variantes de zona horaria).
+        date_token = ep["pub_date_rfc2822"].split(" ", 4)
+        date_str = f"{date_token[3]}-{date_token[2]}-{date_token[1]}" if len(date_token) >= 4 else ep["pub_date_rfc2822"]
+        print(f"  - {date_str} · {ep['slug']} ({ep['duration_hms']})")
     print()
 
     items_xml = "\n".join(build_item_xml(ep, env, canal) for ep in episodes)

@@ -1,8 +1,13 @@
 ---
 title: "El que viene a tomar café"
+display_title: "La hija que cada mañana programa al humanoide para que sea el padre muerto de su madre"
+display_title_family: G4
+display_title_band: A
 seo_title: "El que viene a tomar café · Ficciones Domésticas"
 meta_description: "Vallecas, 2032. Una hija cuida a su madre con demencia. Cada mañana enciende al humanoide y le pide que sea su padre muerto. Hasta que la hermana lo descubre."
 slug: el-que-viene-a-tomar-cafe
+tag_poetico: "Memorias prestadas"
+hero_paradigma: personaje-accion-imposibilidad
 tipo: one-shot
 longitud: standalone
 palabras: 3250
@@ -21,7 +26,7 @@ status: borrador
 created: 2026-04-19
 updated: 2026-04-20
 version: v2
-hero-image: pendiente
+hero-image: assets/hero-el-que-viene-a-tomar-cafe-v6.png
 ---
 
 # El que viene a tomar café

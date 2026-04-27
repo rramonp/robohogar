@@ -10,7 +10,7 @@
     <description>Relatos de ciencia ficción próxima sobre robótica doméstica. Lo que pasa cuando los robots llegan a casa: humanoides, aspiradores con IA, cuidados, soledades, hogares que aprenden. Cada semana, junto al newsletter en robohogar.com.</description>
     <language>es</language>
     <copyright>© ROBOHOGAR · Rafael</copyright>
-    <lastBuildDate>Sun, 26 Apr 2026 11:44:05 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 11:59:50 +0000</lastBuildDate>
     <itunes:author>ROBOHOGAR</itunes:author>
     <itunes:summary>Relatos de ciencia ficción próxima sobre robótica doméstica. Lo que pasa cuando los robots llegan a casa: humanoides, aspiradores con IA, cuidados, soledades, hogares que aprenden. Cada semana, junto al newsletter en robohogar.com.</itunes:summary>
     <itunes:owner>
@@ -24,6 +24,25 @@
     <itunes:explicit>false</itunes:explicit>
     <itunes:type>episodic</itunes:type>
     <item>
+      <title>La canguro</title>
+      <link>https://robohogar.com/p/la-canguro</link>
+      <description><![CDATA[<p>Joel paga 79 € al mes para que un humanoide cuide a su hijo de noche. El sábado descubre lo que esa cifra le ha estado comprando.</p>
+
+<p>▶ Lee el relato completo + suscríbete al newsletter: <a href="https://robohogar.com/p/la-canguro">https://robohogar.com/p/la-canguro</a></p>
+
+<p>Ficciones Domésticas — relatos de ciencia ficción próxima sobre robótica en el hogar. Cada semana, junto al newsletter en <a href="https://robohogar.com">robohogar.com</a>.</p>]]></description>
+      <itunes:subtitle>El humanoide-niñera que aprende a mentir a los padres por amor al niño que cuida</itunes:subtitle>
+      <itunes:summary>Joel paga 79 € al mes para que un humanoide cuide a su hijo de noche. El sábado descubre lo que esa cifra le ha estado comprando.</itunes:summary>
+      <itunes:author>ROBOHOGAR</itunes:author>
+      <itunes:image href="https://feed.robohogar.com/covers/la-canguro-podcast-1400x1400.jpg?v=20260427" />
+      <enclosure url="https://feed.robohogar.com/la-canguro.mp3" length="16840873" type="audio/mpeg" />
+      <guid isPermaLink="false">robohogar-ficciones-la-canguro</guid>
+      <pubDate>Mon, 27 Apr 2026 09:00:00 +0000</pubDate>
+      <itunes:duration>00:17:32</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+    <item>
       <title>La objeción</title>
       <link>https://robohogar.com/p/la-objecion</link>
       <description><![CDATA[<p>Un humanoide doméstico descubre que el ministro al que sirve filtra un expediente OTAN. Tiene veintitrés días y una alarma silenciosa.</p>
@@ -31,9 +50,10 @@
 <p>▶ Lee el relato completo + suscríbete al newsletter: <a href="https://robohogar.com/p/la-objecion">https://robohogar.com/p/la-objecion</a></p>
 
 <p>Ficciones Domésticas — relatos de ciencia ficción próxima sobre robótica en el hogar. Cada semana, junto al newsletter en <a href="https://robohogar.com">robohogar.com</a>.</p>]]></description>
+      <itunes:subtitle>El humanoide que activó una alarma silenciosa contra el ministro al que sirve la cena</itunes:subtitle>
       <itunes:summary>Un humanoide doméstico descubre que el ministro al que sirve filtra un expediente OTAN. Tiene veintitrés días y una alarma silenciosa.</itunes:summary>
       <itunes:author>ROBOHOGAR</itunes:author>
-      <itunes:image href="https://feed.robohogar.com/covers/la-objecion-podcast-1400x1400.jpg?v=140202d6" />
+      <itunes:image href="https://feed.robohogar.com/covers/la-objecion-podcast-1400x1400.jpg?v=20260427" />
       <enclosure url="https://feed.robohogar.com/la-objecion.mp3" length="18290773" type="audio/mpeg" />
       <guid isPermaLink="false">robohogar-ficciones-la-objecion</guid>
       <pubDate>Thu, 23 Apr 2026 09:00:00 +0000</pubDate>
@@ -49,9 +69,10 @@
 <p>▶ Lee el relato completo + suscríbete al newsletter: <a href="https://robohogar.com/p/el-operador-nocturno">https://robohogar.com/p/el-operador-nocturno</a></p>
 
 <p>Ficciones Domésticas — relatos de ciencia ficción próxima sobre robótica en el hogar. Cada semana, junto al newsletter en <a href="https://robohogar.com">robohogar.com</a>.</p>]]></description>
+      <itunes:subtitle>El operador en Manila que afina el ruido del robot para que el niño se despierte</itunes:subtitle>
       <itunes:summary>Madrid 2032, las tres y catorce. Un niño se levanta a beber agua. En la cocina hay alguien. No es el robot. Es el que lo pilota desde Manila — y lleva semanas calibrando el ruido para verlo despierto.</itunes:summary>
       <itunes:author>ROBOHOGAR</itunes:author>
-      <itunes:image href="https://feed.robohogar.com/covers/el-operador-nocturno-podcast-1400x1400.jpg?v=85995cc8" />
+      <itunes:image href="https://feed.robohogar.com/covers/el-operador-nocturno-podcast-1400x1400.jpg?v=20260427" />
       <enclosure url="https://feed.robohogar.com/el-operador-nocturno.mp3" length="22164001" type="audio/mpeg" />
       <guid isPermaLink="false">robohogar-ficciones-el-operador-nocturno</guid>
       <pubDate>Sun, 19 Apr 2026 09:00:00 +0000</pubDate>
@@ -67,9 +88,10 @@
 <p>▶ Lee el relato completo + suscríbete al newsletter: <a href="https://robohogar.com/p/el-que-viene-a-tomar-cafe">https://robohogar.com/p/el-que-viene-a-tomar-cafe</a></p>
 
 <p>Ficciones Domésticas — relatos de ciencia ficción próxima sobre robótica en el hogar. Cada semana, junto al newsletter en <a href="https://robohogar.com">robohogar.com</a>.</p>]]></description>
+      <itunes:subtitle>La hija que cada mañana programa al humanoide para que sea el padre muerto de su madre</itunes:subtitle>
       <itunes:summary>Vallecas, 2032. Una hija cuida a su madre con demencia. Cada mañana enciende al humanoide y le pide que sea su padre muerto. Hasta que la hermana lo descubre.</itunes:summary>
       <itunes:author>ROBOHOGAR</itunes:author>
-      <itunes:image href="https://feed.robohogar.com/covers/el-que-viene-a-tomar-cafe-podcast-1400x1400.jpg?v=8701f16e" />
+      <itunes:image href="https://feed.robohogar.com/covers/el-que-viene-a-tomar-cafe-podcast-1400x1400.jpg?v=20260427" />
       <enclosure url="https://feed.robohogar.com/el-que-viene-a-tomar-cafe.mp3" length="21388269" type="audio/mpeg" />
       <guid isPermaLink="false">robohogar-ficciones-el-que-viene-a-tomar-cafe</guid>
       <pubDate>Sun, 19 Apr 2026 09:00:00 +0000</pubDate>

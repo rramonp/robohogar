@@ -1,8 +1,13 @@
 ---
 title: "La objeción"
+display_title: "El humanoide que activó una alarma silenciosa contra el ministro al que sirve la cena"
+display_title_family: G4
+display_title_band: D
 seo_title: "La objeción | Ficciones Domésticas ROBOHOGAR"
 meta_description: "Un humanoide doméstico descubre que el ministro al que sirve filtra un expediente OTAN. Tiene veintitrés días y una alarma silenciosa."
 slug: la-objecion
+tag_poetico: "Diálogos rotos"
+hero_paradigma: personaje-accion-imposibilidad
 serie: _one-shots
 episodio: null
 longitud: standalone
@@ -20,7 +25,7 @@ framework: pixar-spine
 categoria-tonal: inquietante
 status: borrador
 created: 2026-04-23
-hero-image: assets/hero-la-objecion-v8.png
+hero-image: assets/hero-la-objecion-v9.png
 ---
 
 # La objeción

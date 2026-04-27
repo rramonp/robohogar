@@ -315,7 +315,7 @@ Ahorra cuota API vs regenerar los N chunks completos.
 
 Esta regla es la aplicación a Ficciones del patrón canónico ya canonizado en [`@rules/design.md § Bloques de código para snippets HTML inline en borradores`](../../.claude/rules/design.md). Aplica a TODO `beehiiv-paste.html` de Ficciones (con o sin audiolibro).
 
-**Estructura obligatoria del `beehiiv-paste.html`** tras `/audiobook-generate` — 7 `.snippet-block` (3 meta + 4 /html) más el cuerpo del relato:
+**Estructura obligatoria del `beehiiv-paste.html`** tras `/audiobook-generate` — **8 `.snippet-block`** (3 meta + 5 /html: audio email + audio web + frontispicio + Lo real + CTA) más el cuerpo del relato. **Snippet 2.5 (Frontispicio · título corto)** canonizado 2026-04-27 — funciona como página título interior del libro impreso (patrón Anagrama / Penguin Modern Classics): tras los snippets utilitarios de audio, el lector entra al cuerpo del relato encontrando el **título corto del relato** (`title:` del frontmatter, no `display_title:`) en grande sobre fondo blanco con eyebrow ámbar `Ficciones Domésticas`. Funciona como sello editorial de la pieza, anclando su identidad como obra mientras el `display_title` largo (en el H1 visible del post) hace de hook vendor:
 
 ```
 <!DOCTYPE html><html><head><style>.snippet-block { ... }</style></head><body>
@@ -350,6 +350,16 @@ Esta regla es la aplicación a Ficciones del patrón canónico ya canonizado en 
   <p class="snippet-header">📋 Snippet 2 · Audiolibro web-only · hide from email</p>
   <p class="snippet-hint">/html → Custom HTML block → engranaje → Hide from email.</p>
   <pre><code>&lt;div...&gt;...&lt;/div&gt;&lt;script&gt;...&lt;/script&gt;</code></pre>
+</div>
+
+<div class="snippet-block">  <!-- Snippet 2.5: frontispicio título corto -->
+  <p class="snippet-header">📋 Snippet 2.5 · Frontispicio · título corto entre audio y cuerpo</p>
+  <p class="snippet-hint">/html → Custom HTML block → pega el código. Va después de Snippet 2 y antes del primer H2 del cuerpo. Lleva el `title:` corto del frontmatter, NO el `display_title:` largo.</p>
+  <pre><code>&lt;div style=&quot;margin: 56px 0 40px; padding: 0; text-align: center; font-family: &#x27;DM Sans&#x27;, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;&quot;&gt;
+  &lt;div style=&quot;color: #F5A623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;&quot;&gt;Ficciones Domésticas&lt;/div&gt;
+  &lt;div style=&quot;font-family: &#x27;DM Sans&#x27;, sans-serif; font-size: 32px; font-weight: 700; color: #0C0C0C; line-height: 1.15; margin: 0; letter-spacing: -0.3px;&quot;&gt;&lt;TÍTULO CORTO&gt;&lt;/div&gt;
+  &lt;div style=&quot;display: inline-block; width: 36px; height: 2px; background: #F5A623; margin: 18px auto 0;&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </div>
 
 <!-- CUERPO DEL RELATO (texto editor normal en Beehiiv, NO snippet-block) -->
@@ -401,14 +411,17 @@ Esta regla es la aplicación a Ficciones del patrón canónico ya canonizado en 
 ```bash
 FILE="content/ficciones/**/<slug>/beehiiv-paste.html"
 
-# (a) Siete .snippet-block (3 Meta A/B/C + 4 /html: audiolibro x2 + Lo real + CTA)
-grep -c 'class="snippet-block"' "$FILE"  # esperado: 7
+# (a) Ocho .snippet-block (3 Meta A/B/C + 5 /html: audiolibro x2 + frontispicio + Lo real + CTA)
+grep -c 'class="snippet-block"' "$FILE"  # esperado: 8
 
 # (a2) Meta A, Meta B y Meta C presentes
 grep -cE '📝 Meta [ABC]' "$FILE"  # esperado: 3
 
-# (a3) Snippets 1-4 presentes
-grep -cE '📋 Snippet [1-4]' "$FILE"  # esperado: 4
+# (a3) Snippets 1, 2, 2.5, 3, 4 presentes
+grep -cE '📋 Snippet (1|2|2\.5|3|4)' "$FILE"  # esperado: 5
+
+# (a4) Frontispicio con eyebrow Ficciones Domésticas
+grep -c 'Ficciones Dom&eacute;sticas\|Ficciones Domésticas' "$FILE"  # esperado: ≥1
 
 # (b) HTML escapado dentro de los <pre><code> de los 4 snippets /html
 grep -c '&lt;\|&gt;' "$FILE"  # esperado: >0 (típico ~25-40 según relato)
@@ -431,7 +444,7 @@ Si (a) ≠ 7 o (e) > 0 o (f) > 0 → reescribir el `beehiiv-paste.html` antes de
 
 **Aplicación retroactiva:** los `beehiiv-paste.html` previos al refuerzo 2026-04-26 (la-objecion publicada con `<div>` inline, el-pendiente borrador) NO se actualizan retroactivamente salvo petición explícita — la versión publicada en Beehiiv ya está correcta y el archivo del repo es histórico de cómo se pegó. Aplica solo a relatos nuevos desde 2026-04-26 (`el-operador-nocturno` en adelante).
 
-**Ficciones SIN audiolibro:** el `beehiiv-paste.html` lleva 5 `.snippet-block` (Meta A + Meta B + Meta C + Snippet 1 = "Lo real detrás del relato" + Snippet 2 = CTA suscripción ficción), sin los dos del audiolibro. La estructura general se mantiene.
+**Ficciones SIN audiolibro:** el `beehiiv-paste.html` lleva 6 `.snippet-block` (Meta A + Meta B + Meta C + Snippet 1 = Frontispicio título corto + Snippet 2 = "Lo real detrás del relato" + Snippet 3 = CTA suscripción ficción), sin los dos del audiolibro. La estructura general se mantiene; el Frontispicio sigue siendo Snippet 1 antes del cuerpo del relato.
 
 ### 6.5. chunks-index.json — automático, no requiere acción
 

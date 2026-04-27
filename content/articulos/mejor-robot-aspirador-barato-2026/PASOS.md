@@ -80,7 +80,7 @@ Matte solid-colored surfaces without any illumination, without any patterns, wit
 **v1 — Producto + escena home cálida (default editorial)**
 
 ```bash
-uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
+uv run utilities/nano_banana_image.py \
   --model 2 --aspect 16:9 --size 2K \
   --output "content/articulos/mejor-robot-aspirador-barato-2026/assets/hero-mejor-robot-aspirador-barato-2026-v1.png" \
   --prompt "Single rounded white robot vacuum cleaner with visible LiDAR sensor turret on top, sitting on a warm honey-colored parquet floor in a Spanish living room, soft golden morning sunlight from a tall window on the left, a small woven rug visible on the right edge, plain cream wall behind, low camera angle very close to the floor, very shallow depth of field, <SUFFIX>"
@@ -89,7 +89,7 @@ uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
 **v2 — Detalle del LiDAR / cinematográfico**
 
 ```bash
-uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
+uv run utilities/nano_banana_image.py \
   --model 2 --aspect 16:9 --size 2K \
   --output "content/articulos/mejor-robot-aspirador-barato-2026/assets/hero-mejor-robot-aspirador-barato-2026-v2.png" \
   --prompt "Close-up of a single white robot vacuum cleaner with visible round LiDAR sensor on top, three-quarter angle, warm amber morning sunlight from the left, parquet floor with subtle dust particles in the light beam, very shallow depth of field, plain cream wall in soft blur, editorial product hero composition, <SUFFIX>"
@@ -98,7 +98,7 @@ uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
 **v3 — Robot en piso pequeño (perfil "<60 m²")**
 
 ```bash
-uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
+uv run utilities/nano_banana_image.py \
   --model 2 --aspect 16:9 --size 2K \
   --output "content/articulos/mejor-robot-aspirador-barato-2026/assets/hero-mejor-robot-aspirador-barato-2026-v3.png" \
   --prompt "Single small white robot vacuum cleaner emerging from under a low wooden sofa in a cozy small Spanish apartment, late afternoon golden light, hardwood floor, plain cream wall, intimate home composition, very shallow depth of field, <SUFFIX>"

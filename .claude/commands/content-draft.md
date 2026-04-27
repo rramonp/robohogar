@@ -128,7 +128,7 @@ Ambas decisiones se declaran en PASOS.md § Decisiones editoriales (paso 8).
 
 ### 6. Generar hero image (OBLIGATORIO — 3 variantes)
 
-Generar 3 variantes con composiciones distintas → `content/articulos/<slug>/assets/hero-<slug>-v{1,2,3}.png`. Script: `$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py`.
+Generar 3 variantes con composiciones distintas → `content/articulos/<slug>/assets/hero-<slug>-v{1,2,3}.png`. Script local: `utilities/nano_banana_image.py`.
 
 **⚠️ Configuración obligatoria (regla dura 2026-04-21 — reincidente):**
 - Modelo: `--model 2` (o `--model pro`). **NUNCA `flash`** — el `flash` (gemini-2.5-flash-image) ignora silenciosamente el parámetro `--aspect` y genera siempre cuadrado 1024×1024, rompiendo el estándar OG 1200×630.

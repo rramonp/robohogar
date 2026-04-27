@@ -272,18 +272,30 @@ Asignando a playlists...
 
 **Salida en el resumen final**: las URLs públicas de las playlists tocadas se imprimen junto al `videoId` para copy-paste rápido al canal/landing.
 
-### 5. Regenerar y subir RSS feed
+### 5. Añadir al manifest + regenerar y subir RSS feed
 
 ```bash
+# (a) Añadir/actualizar la entrada del episodio en el manifest commiteado al repo
+python utilities/add_episode_to_manifest.py <slug>
+
+# (b) Regenerar feed.xml desde el manifest
 python utilities/generate_podcast_rss.py
+
+# (c) Subir feed a R2 (con validación auto-heal de assets faltantes)
 python utilities/upload_rss_to_r2.py
 ```
 
-Re-escanea `assets/audio/ficciones/*-chunks-index.json` (el del slug nuevo + todos los anteriores) y reconstruye `content/podcast/feed.xml` con todos los `<item>` ordenados por pubDate descendente.
+**Fuente de verdad: [`content/podcast/episodes.json`](../../content/podcast/episodes.json)** — manifest commiteado al repo. Fix arquitectónico 2026-04-27: antes `generate_podcast_rss.py` descubría episodios escaneando `assets/audio/ficciones/*-chunks-index.json`, pero esos archivos están en `.gitignore` y solo viven en la máquina donde se generó el audiolibro — regenerar el feed desde una máquina sin chunks-index borraba episodios silenciosamente. El manifest hace el feed independiente del estado local.
 
-Cada `<item>` lleva:
-- `<title>`: `frontmatter.title` del relato.
-- `<itunes:summary>`: `meta_description` del frontmatter.
+[`add_episode_to_manifest.py`](../../utilities/add_episode_to_manifest.py) es **idempotente**: si el slug ya existe en el manifest, actualiza in-place preservando el `guid` (inmutable). Si no, prepende al principio (más reciente arriba). Recolecta los datos de:
+- Frontmatter del relato `.md` (title, display_title → subtitle, meta_description → summary, published date)
+- `<slug>-chunks-index.json` (duración total)
+- MP3 local (Content-Length real para `<enclosure length>`)
+
+Cada `<item>` resultante en `feed.xml` lleva:
+- `<title>`: del manifest (`title:` corto).
+- `<itunes:subtitle>`: del manifest (`display_title:` largo YouTube-style).
+- `<itunes:summary>` y `<description>`: del manifest (`summary:`, igual al `meta_description` del frontmatter).
 - `<description>`: HTML CDATA con hook + CTA al newsletter (`<a href>` al post web).
 - `<enclosure url="...mp3" length="..." type="audio/mpeg" />`.
 - `<guid isPermaLink="false">robohogar-ficciones-<slug></guid>` — inmutable, identificador único del episodio para las plataformas.
@@ -558,7 +570,8 @@ Causa: error de timestamping del `chunks-index.json`. Velocidad uniforme tiene e
   - [`utilities/youtube_playlists.py`](../../utilities/youtube_playlists.py) — helper de playlists (idempotente).
   - [`utilities/audiobook_constants.py`](../../utilities/audiobook_constants.py) — `SERIES_DISPLAY_NAMES` + naming canónico de playlists, compartido entre upload y backfill.
   - [`utilities/backfill_youtube_playlists.py`](../../utilities/backfill_youtube_playlists.py) — script de mantenimiento idempotente que escanea snapshots y asigna a playlists. Útil tras añadir series nuevas a `SERIES_DISPLAY_NAMES`, o si Rafael borra/recrea una playlist en Studio.
-  - [`utilities/generate_podcast_rss.py`](../../utilities/generate_podcast_rss.py)
+  - [`utilities/add_episode_to_manifest.py`](../../utilities/add_episode_to_manifest.py) — añade/actualiza entrada en `content/podcast/episodes.json` (manifest commiteado al repo, fuente de verdad del feed RSS desde fix 2026-04-27).
+  - [`utilities/generate_podcast_rss.py`](../../utilities/generate_podcast_rss.py) — lee manifest + canal-metadata, escupe `content/podcast/feed.xml`.
   - [`utilities/upload_rss_to_r2.py`](../../utilities/upload_rss_to_r2.py)
 - Memoria pronunciación marca: [`feedback_robohogar_tts_pronunciation.md`](../../../RRP-DEV/.claude/memory/feedback_robohogar_tts_pronunciation.md).
 - Memoria versionado: [`feedback_never_overwrite_images.md`](../../../RRP-DEV/.claude/memory/feedback_never_overwrite_images.md).
