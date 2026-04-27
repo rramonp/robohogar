@@ -1,8 +1,13 @@
 ---
 title: "El operador nocturno"
+display_title: "El operador en Manila que afina el ruido del robot para que el niño se despierte"
+display_title_family: G2
+display_title_band: A
 seo_title: "El operador nocturno · Ficciones Domésticas ROBOHOGAR"
 meta_description: "Madrid 2032, las tres y catorce. Un niño se levanta a beber agua. En la cocina hay alguien. No es el robot. Es el que lo pilota desde Manila — y lleva semanas calibrando el ruido para verlo despierto."
 slug: el-operador-nocturno
+tag_poetico: "Hogar uncanny"
+hero_paradigma: personaje-accion-imposibilidad
 serie: null
 one-shot: true
 longitud: standalone
@@ -22,7 +27,7 @@ categoria-tonal: inquietante-heavy
 status: borrador-v3
 created: 2026-04-19
 updated: 2026-04-19
-hero-image: assets/hero-el-operador-nocturno.png
+hero-image: assets/hero-el-operador-nocturno-v7.png
 categoria: ficcion
 ---
 

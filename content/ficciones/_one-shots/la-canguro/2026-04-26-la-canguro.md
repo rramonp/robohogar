@@ -27,9 +27,11 @@ hero_paradigma: personaje-accion-imposibilidad
 referente-principal: Belén Gopegui
 referente-secundario: Pierre Lemaitre
 intensidad-narrativa: Cinematográfico
-status: borrador
+status: publicado
 created: 2026-04-26
-hero-image: assets/hero-la-canguro.png
+published: 2026-04-27
+url: https://robohogar.com/p/la-canguro
+hero-image: assets/hero-la-canguro-v4.png
 ---
 
 # La canguro

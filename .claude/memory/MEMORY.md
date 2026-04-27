@@ -44,11 +44,17 @@
 - [feedback_ficcion_cierre_canonico.md](feedback_ficcion_cierre_canonico.md) — Cierre canónico obligatorio con `Fin.` + sección "Lo real detrás del relato" + comentarios HTML trazabilidad
 - [feedback_ficcion_anti_self_plagio.md](feedback_ficcion_anti_self_plagio.md) — Sistema multinivel anti-self-plagio: bloqueo duro 4 ejes + tropos quemados + saturación voces ES + grep cruzado + intensidad narrativa cinematográfica por defecto
 - [feedback_ficcion_display_title_y_hero_personaje_accion.md](feedback_ficcion_display_title_y_hero_personaje_accion.md) — display_title declarativo (familia G) + tag poético catálogo cerrado + hero personaje-acción-imposibilidad con 5 bandas. Default 2026-04-26 PM, no retroactivo
+- [feedback_ficcion_hero_painterly_chiaroscuro.md](feedback_ficcion_hero_painterly_chiaroscuro.md) — Hero § 5.bis ajustado 2026-04-27: estilo painterly book cover (NO foto, NO oil anglo) + chiaroscuro Hopper/Caravaggio + expresión emocional fuerte + tight close-up + foco lumínico único protagonista. la-canguro v4 = primer hero del canon ajustado
+- [feedback_ficcion_frontispicio_titulo_corto.md](feedback_ficcion_frontispicio_titulo_corto.md) — Frontispicio interior con `title:` corto entre Snippet 2 audio y cuerpo. Patrón Anagrama/Penguin: cubierta con hook largo (display_title H1), página título interior con nombre real obra (frontispicio sobrio). Canon Snippet 2.5 audiobook-generate
+- [feedback_ficcion_hero_archetypes_catalogo.md](feedback_ficcion_hero_archetypes_catalogo.md) — 15 archetypes compositivos para heros (A·B/C·D) con regla anti-repetición y selección por tonalidad
+- [feedback_ficcion_hero_cotidiano_mas_scifi.md](feedback_ficcion_hero_cotidiano_mas_scifi.md) — Regla permanente: hero siempre cotidiano + toque sci-fi/humanoide mezclados, nunca still life puro
+- [feedback_ficcion_subtitulos_descriptivos.md](feedback_ficcion_subtitulos_descriptivos.md) — "## I. Título sobrio" en vez de romanos pelados; aplica a md, HTML Beehiiv y audiolibro TTS
 
 ## Feedback — Beehiiv & Platform
 - [feedback_beehiiv_tipografia_bold_tablas.md](feedback_beehiiv_tipografia_bold_tablas.md) — Formato técnico Beehiiv maestro: DM Sans Semibold (600) + Inter Regular · bold SÍ/NO + bug copy-paste (usar <strong>, nunca <span class="bold">) · tablas mobile-first máx 4 cols ≤25 chars
 - [feedback_beehiiv_digital_product_fields.md](feedback_beehiiv_digital_product_fields.md) — Ficha Beehiiv obligatoria por tangible (beehiiv-ficha.md) con 10 campos + 4 defaults
 - [feedback_beehiiv_email_web_dual_block.md](feedback_beehiiv_email_web_dual_block.md) — Widgets interactivos: 2 bloques con visibility toggles opuestos (email-only + web-only)
+- [feedback_archive_snippet_url_prefilter.md](feedback_archive_snippet_url_prefilter.md) — Archive Beehiiv: deeplink desde URL externa NO viable. <script> strippeado + :target roto en Next.js+RSC. Filtro funciona solo con click manual (radios :checked). Para deeplinks: posts dedicados por categoría o migración fuera de Beehiiv
 - [feedback_robohogar_byline_mayusculas.md](feedback_robohogar_byline_mayusculas.md) — Byline = ROBOHOGAR en mayúsculas, sin "Rafael de". Históricos no se migran en bulk
 - [feedback_welcome_flow_mvp.md](feedback_welcome_flow_mvp.md) — Welcome flow MVP 2 emails hasta ~200 subs; expansión a 4 con open rate >50%
 
@@ -82,6 +88,7 @@
 
 ## Feedback — Meta (memoria del propio sistema)
 - [feedback_memoria_local_robohogar.md](feedback_memoria_local_robohogar.md) — Toda memoria generada aquí se queda EXCLUSIVAMENTE en robohogar/.claude/memory/. Nunca escribir a RRP-DEV/ desde este repo
+- [feedback_repo_isolado_de_rrp_dev.md](feedback_repo_isolado_de_rrp_dev.md) — Repo robohogar 100% autocontenido (2026-04-27). nano-banana + ui-ux-pro-max migrados a utilities/skills locales. Cero cross-calls a RRP-DEV. Verificación grep pre-commit incluida
 
 ## Feedback — Guides & Sync
 - [feedback_robohogar_obsidian_sync.md](feedback_robohogar_obsidian_sync.md) — Tras cada edit a guia-implementacion.md (y docs ROBOHOGAR consultados en Obsidian), cp inmediato al vault. Sin sync, Rafael ve contenido stale

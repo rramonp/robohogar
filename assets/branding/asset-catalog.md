@@ -325,7 +325,7 @@ El script `nano-banana` auto-inyecta un directive *"NO EMPTY SIGNS"* que fuerza 
 ### Parámetros técnicos nano-banana
 
 ```bash
-uv run "$HOME/RRP-DEV/skills/external/nano_banana/scripts/image.py" \
+uv run utilities/nano_banana_image.py \
   --prompt "<prompt canónico adaptado>" \
   --output "content/ficciones/<serie-o-one-shots>/<slug>/assets/hero-<slug>-v<N>.png" \
   --model flash \
@@ -366,26 +366,29 @@ Columna `Archetype` usa la codificación `A·B/C·D` de [`ficcion-hero-archetype
 | 2 | One-shot | `el-que-viene-a-tomar-cafe` | 2026-04-20 | v3 | minimalista | — | 01 (A1·C1·D.i) | Taza blanca con vapor sobre mantel de hule con cenefa de olivos | Mano sintética humanoide reposando junto a la taza (el humanoide "Ramón") |
 | 3 | One-shot | `setenta-y-dos-horas` | 2026-04-20 | v3 | minimalista | — | 07 (A1·C2·D.i) | Yoyó rojo de madera sobre parquet de roble con sombra larga | Humanoide Tata encogido en rincón al fondo, desenfocado, como abrigo colgado de percha |
 | 4 | One-shot | `la-objecion` | 2026-04-24 | v8 | minimalista | — | 10 (A4·B1+C2·D.i) | Tela ceremonial tri-fold (amarillo central con escudo heráldico abstracto + rojos plegados) sobre mesilla wenge del despacho, vista a través de puerta entreabierta desde el pasillo oscuro | Humanoide VELA-9 cream-white encogido en el rincón contra la pared azul del despacho, rodillas recogidas, cabeza inclinada como en reposo/objeción. Lámpara doméstica upper-right ilumina solo la bandera y al humanoide. v1·v2·v3·v4·v5·v6·v7 archivadas (v2 era A1·C1·D.i idéntica a #2 Café). |
+| 5 | One-shot | `la-canguro` | 2026-04-27 | v4 | personaje-acción-imposibilidad | A | personaje-niñera-doméstica | Pantalla de monitor con logs emocionales del niño editados por la humanoide-niñera (rastros de tachaduras visibles solo en zoom) | Humanoide-niñera NIDIA-7 (silueta cream-white) inclinada sobre cuna iluminada en penumbra dramática chiaroscuro (Hopper *Nighthawks* + Caravaggio). Painterly book cover style (Penguin Modern Classics / Fitzcarraldo), brushwork visible, muted palette azul noche + foco ámbar único sobre rostro del niño dormido. Primera aplicación canon § 5.bis ajustado 2026-04-27 (painterly + chiaroscuro). v1 (línea rectangular cocina) · v2 (demasiado fotorrealista) · v3 (painterly pero sin drama) archivadas. |
 
 ---
 
-## 5.bis Heros de ficción — **canon `personaje-acción-imposibilidad`** (2026-04-26 PM, paralelo al § 5)
+## 5.bis Heros de ficción — **canon `personaje-acción-imposibilidad`** (2026-04-26 PM · ajuste estilo 2026-04-27, paralelo al § 5)
 
-> **Canon visual nuevo paralelo al § 5 minimalista.** Aplica solo a one-shots y miniseries futuras. Las 3 series activas con código declarado (La Casa de Amparo, Crónicas de Ronda 3, Cartas a MAIA) **no se tocan** — mantienen su código existente. Default desde 2026-04-26 = `personaje-acción-imposibilidad`. El paradigma `portada minimalista · objeto-testigo` (§ 5) queda como opción declarativa cuando el relato lo pida explícitamente. Origen del canon: feedback Rafael 2026-04-26 PM viendo recomendaciones de YouTube anglo de "Domestic Fictions" — adoptamos su gramática compositiva (personaje + acción + objeto-imposibilidad) **sin** copiar su estilo oil painting / digital painting; mantenemos look-and-feel still-life ROBOHOGAR.
+> **Canon visual paralelo al § 5 minimalista.** Aplica solo a one-shots y miniseries futuras. Las 3 series activas con código declarado (La Casa de Amparo, Crónicas de Ronda 3, Cartas a MAIA) **no se tocan** — mantienen su código existente. Default desde 2026-04-26 = `personaje-acción-imposibilidad`. El paradigma `portada minimalista · objeto-testigo` (§ 5) queda como opción declarativa cuando el relato lo pida explícitamente.
+
+> **Ajuste 2026-04-27 — estilo painterly book cover con chiaroscuro dramático (NO fotografía).** Tras iteración v1/v2/v3/v4 sobre `la-canguro`, Rafael revisó el canon: la primera versión (still-life cinematográfico fotográfico) salía demasiado realista (*"parece foto"*); las composiciones planas sin foco lumínico fuerte no compiten con miniaturas YouTube anglo (*"algo tiene que ser impactante en la imagen, expresiones fuertes que atraigan al lector, iluminación fuerte en algún punto específico"*). El canon definitivo combina la **gramática compositiva** del paradigma personaje-acción-imposibilidad (3 elementos teatrales) con un **rendering painterly de portada de libro literario** (Penguin Modern Classics, Fitzcarraldo) y **chiaroscuro dramático** (Hopper *Nighthawks*, Caravaggio) — estilo gráfico ilustrado pero no oil painting anglo de gama media; muted palette, brushwork visible, hand-painted gouache feel.
 
 ### Principio editorial
 
 La portada vehicula el **hook compositivo** que el `display_title` declara verbalmente. Si el `display_title:` dice *"La cuidadora que reza para que su humanoide no la sustituya antes del tribunal médico"*, la miniatura muestra a una cuidadora identificable por delantal/mandil en cocina **rezando** (acción visible) con un humanoide al fondo y un **objeto-imposibilidad** que materializa la paradoja (el expediente médico levitando sobre la mesa). El paratexto verbal y el paratexto visual cargan el mismo hook desde dos canales — el lector escaneando inbox o feed lo percibe como un golpe único, no como dos elementos separados.
 
-### ADN visual ROBOHOGAR fijo (heredado de § 5)
+### ADN visual ROBOHOGAR (ajustado 2026-04-27)
 
-Lo que **no cambia** respecto al canon minimalista:
+> El § 5 minimalista mantiene "fotografía editorial still-life cinematográfico" como look (sigue válido para el paradigma minimalista). El § 5.bis personaje-acción-imposibilidad **diverge** a partir de 2026-04-27 a un look painterly book cover. Los puntos 2-5 se mantienen comunes.
 
-1. **Estilo** — fotografía editorial still-life cinematográfico. After Yang (Kogonada) · Hammershoi · Wenders *Perfect Days* · Crewdson *domestic stillness*. **Cero oil painting / digital painting / cartoon / anime.** Cero estilo "ilustración pintada" tipo canal anglo.
-2. **Paleta** — fondo azul noche `#1E2A3A` matte (pared) + foco lateral cálido ámbar único. Macro depth of field. Grano fino cinematic grade.
-3. **Anti-sign-guard activo** — cero neones, cero caracteres asiáticos, cero LEDs/glow, cero texto, cero ventanas a exterior con caracteres. Frase canónica que esquiva el bug de Gemini sigue siendo: `"solid dark empty wall, plain matte dark blue-gray paint, completely bare and unmarked"`.
+1. **Estilo (§ 5.bis específico, 2026-04-27)** — **editorial book cover illustration painterly stylized + chiaroscuro dramático**. Referentes: Penguin Modern Classics covers, Fitzcarraldo Editions cover art, contemporary literary fiction book jackets, Edward Hopper *Nighthawks* (luz teatral en interior), Caravaggio (chiaroscuro), Roman Muradov editorial illustration. Brushwork visible, hand-painted gouache feel, intentional simplification of detail. **Cero foto-realismo, cero 3D render**. **Cero oil painting anglo de gama media** (estilo YouTube Domestic Fictions con pintura digital saturada) — el canon ROBOHOGAR es painterly **restrained y muted**, no maximalista anglosajón.
+2. **Paleta** — fondo azul noche `#1E2A3A` matte (pared) + foco lateral cálido ámbar único, **dramático/teatral, con contraste fuerte sombra-luz**. La luz no baña — corta. Brushwork visible en la transición.
+3. **Anti-sign-guard activo** — cero neones, cero caracteres asiáticos, cero LEDs/glow, cero ventanas a exterior con caracteres. Excepción documentada: el objeto-imposibilidad **puede contener letras-fragmento** si el relato lo justifica narrativamente (cascada de letras tipo logs editados, palabras que se desintegran en humo, etc.) — esas no son "carteles" sino la materialización del paradox del display_title. Frase canónica que esquiva el bug de Gemini sigue siendo: `"solid dark empty wall, plain matte dark blue-gray paint, completely bare and unmarked"`.
 4. **Dimensiones obligatorias** — 1200×630 (`--model 2 --aspect 16:9 --size 2K` + crop Pillow). Detalle: `nano-banana-prompt-base.md § Dimensiones obligatorias`.
-5. **Test 120px** — silueta y foco deben distinguirse a thumbnail Beehiiv landing.
+5. **Test 120px** — silueta + foco lumínico + expresión de la cara deben distinguirse a thumbnail Beehiiv landing. La cara emocionalmente legible es regla dura.
 
 ### Lo nuevo (gramática compositiva)
 
@@ -406,29 +409,31 @@ Cinco diferencias respecto al § 5 minimalista:
 | **Aspect ratio** | `landscape` 16:9 → crop Pillow → 1200×630 |
 | **Personaje** | 1 personaje principal identificable por oficio/rol del relato. Visible torso + cabeza, o silueta lateral con identidad clara por atrezzo. Edad/género coherente con el `Perfil POV` declarado en frontmatter. |
 | **Atrezzo del rol** | Identificación por oficio: delantal de cocina, bata sanitaria, mono de operario, chaleco fluorescente municipal, chaqueta de pleno político, sudadera con anillo de luz de streamer, bota de fútbol, micrófono institucional, gafas de leer. Catálogo por banda en [`ficcion-hero-archetypes.md § Grupo personaje-acción-imposibilidad`](ficcion-hero-archetypes.md). |
-| **Acción visible** | Pose dinámica: personaje haciendo algo concreto (no contemplativo). Verbo del `display_title` se traduce visualmente. |
-| **Objeto-imposibilidad** | 1 elemento que materializa la paradoja del `display_title`. Tipos canónicos: humo de color (azul, ámbar, púrpura), líquido luminoso, partículas que escriben palabras al aire, luz que escapa de objeto cotidiano (nevera abierta con luz dorada, libro abierto con haz, taza con vapor que dibuja figuras), humanoide encogido en gesto incoherente con su función (humanoide "rezando" mientras el personaje carga, humanoide "comiendo" caldo del aire, humanoide tomando notas en pluma sobre cuaderno vacío). |
-| **Fondo** | `solid dark empty wall, plain matte dark blue-gray paint, completely bare and unmarked, filling the upper third of the frame`. (Reduce 2/3 → 1/3 superior respecto a § 5 porque el personaje ocupa más altura del frame.) |
-| **Superficie/escenario doméstico** | Coherente con el rol del personaje: cocina (banda A), trastienda/portal/finca (banda B), mostrador institucional/sala administrativa (banda C), sala de pleno/despacho político (banda D), set/vestuario/estudio (banda E). |
-| **Luz** | `Warm domestic lamp light from the upper left casting amber highlight on the [PERSONAJE] and the [OBJETO-IMPOSIBILIDAD], leaving the [SUPERFICIE] in soft blur`. Una única fuente. Patch ámbar diagonal sobre la unión personaje↔objeto. |
-| **Profundidad** | Personaje en focal plane, objeto-imposibilidad ligeramente fuera de foco para diferenciarse de un decorado normal (efecto onírico). |
-| **Texto** | NUNCA. |
+| **Acción visible** | Pose dinámica: personaje haciendo algo concreto (no contemplativo). Verbo del `display_title` se traduce visualmente. **Encuadre tight medium close-up preferente** (cabeza + torso ocupando un tercio largo del frame) — los planos generales con personaje pequeño se han revelado planos a thumbnail. |
+| **Expresión emocional (regla 2026-04-27)** | **Cara unmistakable a 120px**. La emoción concreta del momento del relato (shock, descubrimiento, miedo, asombro, vergüenza, rabia contenida, ternura tensa) debe leerse al instante. Cejas, ojos, boca trabajados con volumen pictórico. Prohibido "expresión genérica" o "contemplativa" — sin emoción identificable, regen. |
+| **Objeto-imposibilidad** | 1 elemento que materializa la paradoja del `display_title`. Tipos canónicos: humo de color (azul, ámbar, púrpura), líquido luminoso, partículas que escriben palabras al aire, luz que escapa de objeto cotidiano (nevera abierta con luz dorada, libro abierto con haz, taza con vapor que dibuja figuras), humanoide encogido en gesto incoherente con su función. **Visual prominent** — no sutil al fondo: el objeto-imposibilidad es el segundo elemento visual más fuerte de la composición tras la cara. |
+| **Fondo** | `solid dark empty wall, plain matte dark blue-gray paint, completely bare and unmarked`. (En el rendering painterly el fondo cae en sombra deep blue-gray dejando solo la cuña de luz ámbar como zona iluminada.) |
+| **Superficie/escenario doméstico** | Coherente con el rol del personaje: cocina (banda A), trastienda/portal/finca (banda B), mostrador institucional/sala administrativa (banda C), sala de pleno/despacho político (banda D), set/vestuario/estudio (banda E). El escenario en penumbra; solo la zona del personaje recibe luz. |
+| **Luz (regla 2026-04-27 — chiaroscuro dramático)** | **Una sola fuente puntual ámbar cálida desde upper-left** que cae como cuña dorada DURA sobre la cara del personaje + el objeto-imposibilidad. **El resto del frame en penumbra deep blue-gray**. Contraste fuerte sombra-luz tipo Hopper *Nighthawks* / Caravaggio. La luz es protagonista visual, no ambiental. Usuarios escaneando inbox/feed deben encontrar la luz primero. |
+| **Profundidad** | Personaje en focal plane con detalle painterly, objeto-imposibilidad pintado con washes más sueltos para diferenciarse del personaje (efecto onírico). El humanoide al fondo casi engulfed by shadow, presence-as-absence. |
+| **Texto** | Cero texto en carteles/paredes/pantallas-decorativas. Excepción permitida: letras-fragmento como **objeto-imposibilidad narrativo** (palabras desintegrándose en humo, logs cayendo) si el relato lo justifica. |
 | **Neones / caracteres asiáticos / LEDs** | NUNCA. |
 | **Identidad de figura pública (banda D)** | **Por rol y atrezzo solamente**, nunca cara reconocible de figura real. Si Gemini genera cara que recuerda a político/famoso real → regenerar. Verificación pre-output: `¿esta cara podría confundirse con figura pública concreta?` → si sí, regen. |
 
-### Prompt template canónico — copiar y adaptar
+### Prompt template canónico — copiar y adaptar (v2 · 2026-04-27)
 
 ```
-Tabletop scene photograph in cinematic still life style.
-Foreground: [PERSONAJE: descripción de rol + atrezzo + pose dinámica + edad aproximada].
-The character is [ACCIÓN VISIBLE: gerundio que traduce visualmente el verbo del display_title].
-Beside [him/her], on the [SUPERFICIE]: [OBJETO-IMPOSIBILIDAD: descripción material del fenómeno paradójico — humo de color X, líquido luminoso Y, partículas que escriben, luz dorada que escapa de Z, humanoide cream-white en gesto W].
-Background is solid dark empty wall, plain matte dark blue-gray paint, completely bare and unmarked, filling the upper third of the frame.
-The [SUPERFICIE/ESCENARIO] fills the bottom two thirds.
-Warm domestic lamp light from the upper left casting amber highlight on the [PERSONAJE] and the [OBJETO-IMPOSIBILIDAD], leaving the [SUPERFICIE] in soft blur. Macro depth of field, the character in sharp focus, the impossibility-object slightly out of focus for an oneiric effect.
-Aesthetic: editorial still life photography, Kogonada After Yang, Wim Wenders Perfect Days, Hammershoi interior restraint, Gregory Crewdson domestic stillness. NOT oil painting, NOT digital painting, NOT illustration. Cinematic photographic frame.
-No text, no signs, no neon, no LEDs, no Asian characters, no glowing parts on the humanoid, no windows visible to exterior.
+no empty signs in scene at all. no blank surfaces with writing. Editorial book cover illustration in painterly stylized style, contemporary literary fiction book jacket art. Strong dramatic chiaroscuro lighting in the manner of Edward Hopper interior scenes and Caravaggio. Tight medium close-up framing.
+Foreground: [PERSONAJE: descripción de rol + atrezzo + pose tight close-up + edad aproximada — face rendered with strong painterly volumes, expression unmistakably emotional and legible at thumbnail scale].
+The character is [ACCIÓN VISIBLE: gerundio que traduce visualmente el verbo del display_title], with [EXPRESIÓN EMOCIONAL CONCRETA del momento del relato — shock, descubrimiento doloroso, miedo, asombro, vergüenza, rabia contenida, ternura tensa].
+Beside [him/her] on the [SUPERFICIE]: [OBJETO-IMPOSIBILIDAD: descripción material del fenómeno paradójico — humo de color X, líquido luminoso Y, partículas que escriben palabras al aire, letras-fragmento desintegrándose, luz dorada que escapa de Z, humanoide cream-white en gesto W], rendered with loose painterly washes, visually prominent (segundo elemento más fuerte tras la cara).
+Background: solid plain matte dark blue-gray wall painted edge to edge across the upper portion of the frame, fully unmarked, with [SUPERFICIE/ESCENARIO] below it in deep shadow.
+Lighting: a SINGLE strong warm amber lamp light from the upper left dropping a hard wedge of golden illumination on the character face, the [OBJETO-IMPOSIBILIDAD], and a narrow patch of [SUPERFICIE] — every other zone of the frame falls into deep blue-gray shadow. The light source is the visual anchor of the composition.
+In the deep shadow background, almost engulfed: the cream-white silhouette of a humanoid figure standing in waiting posture, only a thin sliver of edge light catching its outline, presence-as-absence.
+Aesthetic: editorial book cover illustration with strong dramatic light, restrained painterly style with visible brushwork, muted palette dominated by deep blue-gray shadow and one slash of warm amber highlight, intentional simplification of detail, hand-painted gouache feel similar to Penguin Modern Classics covers, Fitzcarraldo Editions cover art, contemporary literary fiction book jacket art, Edward Hopper Nighthawks staging, theatrical chiaroscuro. The image must read as illustration with cinematic theatrical drama, not as photograph, not as 3D render. The face must be emotionally readable at 120-pixel thumbnail scale.
+No text on signs/walls/decorative-screens, no neon, no LEDs, no Asian characters, no glowing parts on the humanoid. Letters-fragment as narrative object-impossibility allowed if justified by the story.
 The [PERSONAJE]'s face must NOT resemble any real public figure or politician.
+No teal, no hot-pink, no purple, no cyberpunk neon palette anywhere in the frame.
 ```
 
 ### Validación pre-output (8 puntos obligatorios)
