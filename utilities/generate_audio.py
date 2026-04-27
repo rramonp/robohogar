@@ -65,7 +65,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 
 # Decisiones canon del plan audiolibros (docs/plan-audiolibros-ficciones.md).
-VOICE_ID = "GojDwihhnL1f7RrBuXsJ"  # Luis — Polished, Mature and Credible
+VOICE_ID = "o0SveC0zgHFuCsEO3vHR"  # Gabo — Deep, Evocative and Resonant (default desde 2026-04-27, sustituye Luis GojDwihhnL1f7RrBuXsJ)
 MODEL_ID = "eleven_multilingual_v2"
 # mp3_44100_128 coincide con intro-ficciones.mp3 (44.1kHz mono 128kbps).
 OUTPUT_FORMAT = "mp3_44100_128"
@@ -411,16 +411,70 @@ SPANISH_ORDINALS = {
 # `Tres meses antes` / `Las últimas dos semanas`. Fix terciario 2026-04-26
 # (slug "el-operador-nocturno"): regex con `[^,;:\n]` rechazaba 3 headings
 # legítimos por contener coma → 0 capítulos detectados, fallback "Relato".
-# Fix definitivo: límite 1-60 chars + sin `;:` (sí coma) + filtro orden
-# secuencial post-regex que ya bloquea spurios.
+# Fix cuaternario 2026-04-27 (slug "pipo"): regex exigía `\.\s*$` y heading
+# `Parte cuatro. ¿Jugamos?` falló por terminar en `?`. El filtro post-regex
+# hizo break al saltar el 4 y perdimos también 5 y 6 → solo 3/6 detectados.
+# Fix: aceptar `[.?!]\s*$` como terminador (interrogación y exclamación son
+# headings literarios legítimos en relatos con preguntas como título).
 MAX_CHAPTER_TITLE_CHARS = 60
 CHAPTER_HEADING_RE = re.compile(
-    r"^(?:Parte\s+)?({ordinals})\.\s+([^;:\n]{{1,{maxlen}}}?)\.\s*$".format(
+    r"^(?:Parte\s+)?({ordinals})\.\s+([^;:\n]{{1,{maxlen}}}?)([.?!])\s*$".format(
         ordinals="|".join(SPANISH_ORDINALS.keys()),
         maxlen=MAX_CHAPTER_TITLE_CHARS,
     ),
     re.MULTILINE | re.IGNORECASE,
 )
+
+
+# Regex LAXO de detección de capítulos — sirve sólo como red de seguridad
+# contra que el regex estricto se quede corto ante una convención nueva
+# (heading con `?`/`!`, comas, etc.). NO se usa para construir capítulos
+# reales (no captura terminador). Empareja cualquier línea que empieza con
+# un ordinal canónico seguido de punto + algo de texto, sea cual sea su
+# terminador. Si laxo > estricto, hay headings legítimos que el estricto
+# se está saltando — abort con mensaje claro listándolos.
+LAX_CHAPTER_HEADING_RE = re.compile(
+    r"^(?:Parte\s+)?({ordinals})\.[ \t]+[^\n]+$".format(
+        ordinals="|".join(SPANISH_ORDINALS.keys()),
+    ),
+    re.MULTILINE | re.IGNORECASE,
+)
+
+
+def assert_no_chapters_lost(text: str) -> None:
+    """Aborta si el regex estricto detecta menos headings que el laxo.
+
+    Defensa contra bugs futuros del CHAPTER_HEADING_RE. Cuando aparece
+    una convención nueva (heading con `?` 2026-04-27 pipo, heading con
+    coma 2026-04-26 el-operador-nocturno, etc.) el regex estricto se queda
+    corto silenciosamente — el script genera el MP3 y solo al ver el
+    chunks-index.json se nota que faltan capítulos. Para entonces ya
+    hemos gastado los créditos.
+
+    Esta función corre ANTES del TTS. Si laxo encuentra `Parte cuatro. ¿Jugamos?`
+    pero el estricto no lo captura, abort listando los headings perdidos
+    + sugerencia de revisar `CHAPTER_HEADING_RE` antes de consumir cuota.
+    """
+    lax_lines = [m.group(0).strip() for m in LAX_CHAPTER_HEADING_RE.finditer(text)]
+    strict_chapters = detect_chapters(text)
+    if len(lax_lines) <= len(strict_chapters):
+        return  # OK: el estricto cubre todo lo que el laxo ve.
+
+    # Diff: qué líneas laxas no están en los chapters estrictos.
+    strict_chartexts = {ch["char_text"] for ch in strict_chapters}
+    lost = [line for line in lax_lines if line not in strict_chartexts]
+    msg = (
+        "\n[ABORT pre-TTS] El detector estricto se ha saltado headings que el "
+        f"detector laxo SÍ ve. Encontrados {len(lax_lines)} headings laxos vs "
+        f"{len(strict_chapters)} estrictos. Headings perdidos:\n"
+        + "\n".join(f"  - {line!r}" for line in lost)
+        + "\n\nProbable causa: convención de heading nueva (terminador `?`/`!`, "
+        "ordinal compuesto, etc.). Revisa CHAPTER_HEADING_RE en este archivo "
+        "antes de gastar créditos ElevenLabs. Si los headings perdidos son "
+        "legítimos, amplía el regex y añade un caso de regresión a "
+        "utilities/tests/test_chapter_detection.py."
+    )
+    raise SystemExit(msg)
 
 
 def detect_chapters(text: str) -> list[dict]:
@@ -446,9 +500,17 @@ def detect_chapters(text: str) -> list[dict]:
     raw = []
     for m in CHAPTER_HEADING_RE.finditer(text):
         ordinal_key = m.group(1).capitalize()
+        title = m.group(2).strip()
+        terminator = m.group(3)
+        # `.` no aporta información al título limpio (el lector lo lee como
+        # ruido visual: "El altar." → "El altar"). `?` y `!` SÍ son parte
+        # semántica del heading literario (`¿Jugamos?` / `¡Vámonos!`) y
+        # deben sobrevivir al render del chyron y a los YouTube chapters.
+        if terminator in ("?", "!"):
+            title = f"{title}{terminator}"
         raw.append({
             "number": SPANISH_ORDINALS[ordinal_key],
-            "title": m.group(2).strip(),
+            "title": title,
             "char_position": m.start(),
             "char_text": m.group(0).strip(),
         })
@@ -605,6 +667,14 @@ def main() -> None:
     # skill /audiobook-generate ya debería haberlo aplicado al construir
     # audiolibro.txt. Idempotente.
     text = apply_tts_brand_substitutions(text)
+
+    # Guardia de detección de capítulos ANTES del TTS — si el regex estricto
+    # se ha quedado corto ante una convención nueva (`¿Jugamos?` con `?`,
+    # `Madrid, un martes a las...` con coma, etc.) abort aquí y no gastamos
+    # créditos. Imprime los headings perdidos para debugging inmediato.
+    # Origen 2026-04-27 tras el bug pipo (3/6 capítulos detectados sin aviso).
+    assert_no_chapters_lost(text)
+
     chunks = chunk_text(text)
     total_chars = sum(len(c) for c in chunks)
     print(f"Texto: {len(text):,} chars totales ({total_chars:,} en chunks).")

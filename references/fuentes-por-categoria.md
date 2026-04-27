@@ -133,6 +133,12 @@ Robots humanoides para tareas domésticas.
 | OCU | ocu.org | Organización consumidores ES | Organización de Consumidores y Usuarios. Análisis 2025 sobre clasificación regulatoria de humanoides domésticos en cuidado infantil. Usado en relato "La canguro" |
 | Eurostat empleo nocturno | ec.europa.eu/eurostat | Estadística UE oficial | Datos empleo nocturno UE / España. Usado en relato "La canguro" para anclar perfil de trabajador nocturno padre soltero |
 | INE jefatura monoparental | ine.es | Estadística ES oficial | Instituto Nacional de Estadística. Estructura de hogares ES, jefaturas monoparentales. Usado en relato "La canguro" |
+| BOE RD 110/2015 RAEE | boe.es/buscar/act.php?id=BOE-A-2015-1762 | Regulatorio ES oficial | Real Decreto 110/2015 sobre residuos de aparatos eléctricos y electrónicos. Marco legal ES de gestión RAEE (recogida, reciclado, responsabilidad fabricante). Usado en relato "Pipo" (27-abr-2026) como muro izquierdo del descarte de humanoide-niñera. |
+| Eurostat e-waste ES | ec.europa.eu/eurostat/web/products-eurostat-news/-/ddn-20250424-1 | Estadística UE oficial | Datos Eurostat sobre tasa de reciclaje de residuo electrónico en España (<50% sobre lo generado, peor en medio rural). Usado en relato "Pipo" como ancla del vertedero ilegal en monte de Cuenca. |
+| INE despoblación rural | ine.es/jaxiT3/Tabla.htm?t=2853 | Estadística ES oficial | Tablas INE sobre despoblación de zonas vaciadas Cuenca/Soria/Teruel. Usado en relato "Pipo" para anclar el setting Serranía de Cuenca como territorio donde aparatos urbanos terminan abandonados. |
+| BBC News Aibo discontinuado | bbc.com/news/technology-31023426 | Medio internacional | Cobertura BBC del cierre del soporte oficial de Aibo de Sony (discontinuado 2006, sin servicio técnico hasta el revival 2018). Precedente histórico de humanoides domésticos huérfanos. Usado en relato "Pipo" para anclar el cierre del servicio técnico HOGAR-K3. |
+| Figure | figure.ai | Fabricante oficial | Sitio oficial de Figure AI (humanoide doméstico de propósito general). Specs Figure 02/03, baterías que superan las 72h en prototipos 2025. Usado en relato "Pipo" para anclar la batería del humanoide-niñera abandonado. |
+| Apptronik | apptronik.com | Fabricante oficial | Sitio oficial de Apptronik (Apollo humanoide). Specs autonomía 72h en prototipos 2025. Usado en relato "Pipo" como tercera fuente del cluster baterías humanoides. |
 
 ### Fuentes independientes (ES)
 

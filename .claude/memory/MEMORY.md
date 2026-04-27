@@ -88,6 +88,8 @@
 - [feedback_robohogar_tts_pronunciation.md](feedback_robohogar_tts_pronunciation.md) — Marca en TTS = `ROBO, OGAR` (coma + espacio) para evitar aspiración inglesa de la H por Multilingual v2. Visible en HTML/copy queda como `ROBOHOGAR` (no coma)
 - [reference_robohogar_elevenlabs_balance.md](reference_robohogar_elevenlabs_balance.md) — Contador local saldo ElevenLabs (utilities/elevenlabs_balance.py) sincroniza desde /v1/usage/character-stats; bloquea TTS pre-flight si saldo insuficiente. Plan Creator 121.880 créditos/mes reset día 25
 - [reference_robohogar_r2_rest_fallback.md](reference_robohogar_r2_rest_fallback.md) — Fallback REST API (utilities/upload_rss_to_r2_via_api.py) cuando endpoint S3 R2 está caído por outage parcial Cloudflare. Diagnosticar primero (ping rango 172.64), no asumir local
+- [feedback_audiobook_voz_default_gabo.md](feedback_audiobook_voz_default_gabo.md) — 2026-04-27: voz default audiobooks Gabo (`o0SveC0zgHFuCsEO3vHR`) sustituye Luis. Y `/ficcion-draft` auto-encadena `/audiobook-generate` (cambia regla "manual only"). Histórico Luis intacto
+- [reference_chapter_detection_defenses.md](reference_chapter_detection_defenses.md) — Detector de capítulos audiolibro (4 bugs en 4 días). Defensas duraderas: guard pre-TTS `assert_no_chapters_lost` (aborta antes de gastar créditos si laxo > estricto) + 10 tests regresión `utilities/tests/test_chapter_detection.py`. Disciplina: test primero, fix después
 
 ## Feedback — Meta (memoria del propio sistema)
 - [feedback_memoria_local_robohogar.md](feedback_memoria_local_robohogar.md) — Toda memoria generada aquí se queda EXCLUSIVAMENTE en robohogar/.claude/memory/. Nunca escribir a RRP-DEV/ desde este repo

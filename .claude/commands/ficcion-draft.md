@@ -897,16 +897,41 @@ Si hay violaciones → limpiar antes de entregar (no se pregunta al usuario).
 ### Archivos a generar
 
 ```
-content/ficciones/<serie>/
-  ├── YYYY-MM-DD-<slug>.md        ← el relato (Markdown con frontmatter)
-  ├── YYYY-MM-DD-<slug>.html      ← versión HTML Beehiiv (opcional, si se va a publicar)
-  ├── PASOS.md                    ← checklist de publicación + metadata SEO
+content/ficciones/<serie>/<slug>/
+  ├── YYYY-MM-DD-<slug>.md         ← el relato (Markdown con frontmatter, fuente de verdad)
+  ├── audiolibro.txt               ← versión TTS-optimizada (OBLIGATORIA, input de /audiobook-generate)
+  ├── beehiiv-paste.html           ← bloques copy-paste para Beehiiv (8 snippets con audio · 6 sin audio)
+  ├── lo-real-snippet.html         ← snippet "Lo real detrás del relato" inline-styled
+  ├── PASOS.md                     ← checklist de publicación + metadata SEO
   └── assets/
-      └── hero-<slug>.png         ← hero still cinematográfico (opcional)
+      └── hero-<slug>.png          ← hero still cinematográfico
+
+assets/audio/ficciones/
+  ├── <slug>.mp3                   ← audiolibro completo (intro + narración + outro), ContentType audio/mpeg
+  └── <slug>-chunks-index.json     ← timestamps por capítulo para YouTube/Podcast chapters
+
+R2 bucket robohogar-audio:
+  ├── <slug>.mp3                   ← MP3 público (URL https://pub-...r2.dev/<slug>.mp3)
+  └── covers/<slug>-podcast-1400x1400.jpg  ← cover (generado por /audiobook-distribute)
 
 $HBX_VAULT/.../05-01_Robotica Newsletter/02-Drafts/Ficciones/
-  └── <Título del relato> (audiolibro).md   ← copia optimizada para TTS (OBLIGATORIA, ver § Copia audiolibro)
+  └── <Título del relato> (audiolibro).md   ← mirror del audiolibro.txt + bloque triple-backtick para Reader
 ```
+
+### Auto-encadenado /audiobook-generate — REGLA DURA 2026-04-27
+
+**Cuando Rafael pide un relato de Ficciones Domésticas, el output esperado incluye MP3 subido a R2 + `beehiiv-paste.html` con 8 snippets canónicos**, NO solo el `.md` del relato. El skill encadena automáticamente:
+
+1. Generar `audiolibro.txt` aplicando las reglas TTS canon (§ Copia audiolibro paso 9 — romanos→`Parte N. <título>.`, modelos `HOGAR-K3`→`HOGAR ka tres`, cursivas eliminadas, sin "Lo real", sin frontmatter, sin separadores).
+2. Pre-flight de saldo ElevenLabs vía `utilities/elevenlabs_balance.py check`. Si insuficiente → bloqueo con mensaje claro a Rafael ("Saldo X créditos, necesarios Y. Esperar reset día 25 / subir plan / generar sin audio con `--no-audio`").
+3. Llamar `python utilities/generate_audio.py <audiolibro.txt> <slug>` → MP3 final + URL R2 + duración tras concat.
+4. Reescribir `beehiiv-paste.html` al patrón canon **8 snippets** (Meta A/B/C + Snippet 1=audio email + Snippet 2=audio web + Snippet 2.5=Frontispicio título corto + Snippet 3=Lo real + Snippet 4=CTA). Detalle: [`@.claude/commands/audiobook-generate.md § 6.4`](audiobook-generate.md).
+
+**Override `--no-audio`:** si Rafael pide explícitamente *"genérame el relato sin audio"* o el saldo ElevenLabs es insuficiente, el flujo cierra con 6 snippets (Meta A/B/C + Snippet 1=Frontispicio + Snippet 2=Lo real + Snippet 3=CTA), sin tocar la API. El frontispicio (Snippet 1 sin audio · Snippet 2.5 con audio) **es OBLIGATORIO en ambos casos** — patrón Anagrama/Penguin Modern Classics canonizado 2026-04-27, detalle: [`feedback_ficcion_frontispicio_titulo_corto.md`](../memory/feedback_ficcion_frontispicio_titulo_corto.md).
+
+**Voz default:** Gabo (`o0SveC0zgHFuCsEO3vHR`) desde 2026-04-27 — sustituye Luis. Detalle: [`feedback_audiobook_voz_default_gabo.md`](../memory/feedback_audiobook_voz_default_gabo.md).
+
+**Cambia la regla previa "MANUAL-ONLY":** la economía de API se gestiona por pre-flight de saldo + opción `--no-audio`, no por bloqueo manual default. Razón: Rafael publica el relato en el newsletter Beehiiv y quiere que el lector escuche el audiolibro desde el email/web sin segundo paso manual. Cita literal 2026-04-27: *"para el futuro, si pido que me generes el artículo de un relato de ficcion también quiero que me generes el mp3 y lo subas ya que quiero los snippets html para escucharlo desde el newsletter"*.
 
 **Reglas:**
 - El `.md` del repo es la **fuente de verdad** para revisión y publicación (frontmatter, metadata, cursivas, comentarios HTML con dato-real y villano-humano).

@@ -5,7 +5,6 @@
 <title>Pipo · Beehiiv paste</title>
 <style>
 body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 24px; color: #0C0C0C; line-height: 1.65; }
-h1 { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.2; margin: 0 0 8px; }
 h2 { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 22px; line-height: 1.3; margin: 36px 0 12px; }
 p { margin: 0 0 16px; font-size: 16px; }
 em { font-style: italic; }
@@ -19,47 +18,110 @@ em { font-style: italic; }
 </head>
 <body>
 
-<!--
-══════════════════════════════════════════════════════════════
-  ORDEN DE PEGADO EN BEEHIIV — Pipo
-══════════════════════════════════════════════════════════════
-  1. Crear post nuevo en Beehiiv.
-  2. Pegar Meta A en el campo "Title" del editor.
-  3. Pegar Meta B en el campo "Subtitle" del editor + reusar como "Meta description" del SEO panel.
-  4. Pegar Meta C en el campo "URL slug" del editor (panel SEO/Settings) → URL pública: https://robohogar.com/p/pipo
-  5. Pegar el cuerpo del relato (H2 + párrafos) como texto editor normal.
-  6. Pegar Snippet 1 (Lo real detrás del relato) vía /html → "Custom HTML block".
-  7. Pegar Snippet 2 (CTA suscripción ficción) vía /html → "Custom HTML block".
-  8. Settings: Type = Email and web (si F2+) o Web only (si F1). Tags: Ficciones Domésticas + ficciones.
-══════════════════════════════════════════════════════════════
--->
+<!-- ════════════════════════════════════════════════════════════════
+INSTRUCCIONES (estos comentarios HTML no se pegan en Beehiiv)
+
+ORDEN DE PEGADO (estado actual: CON AUDIOLIBRO · 8 snippets):
+  (Meta A)    Title del post                       → campo "Title"
+  (Meta B)    Subtítulo / dek                      → campo "Subtitle" + "Meta description" SEO
+  (Meta C)    URL slug                             → campo "URL slug" (panel SEO)
+  (Snippet 1) Audiolibro email-only                → /html → engranaje → Hide from web
+  (Snippet 2) Audiolibro web-only                  → /html → engranaje → Hide from email
+  (Snippet 2.5) Frontispicio · título corto        → /html → entre Snippet 2 y primer H2
+  (Cuerpo)    Cuerpo del relato (h2 + p)           → editor de texto normal
+  (Snippet 3) "Lo real detrás del relato"          → /html
+  (Snippet 4) CTA suscripción ficción              → /html
+
+Audiolibro:
+  - URL R2:    https://pub-b56f5adc8cbc43b496efa01905f715f7.r2.dev/pipo.mp3
+  - Duración:  18 min (1110.2 s)
+  - Voz:       Gabo (default desde 2026-04-27)
+  - Tamaño:    17.3 MB
+
+SEO metadata extra:
+  - SEO title: Pipo · Ficciones Domésticas ROBOHOGAR
+  - Tags Beehiiv: Opinión + Ficciones Domésticas
+
+Featured image: hero-pipo.jpg (paradigma personaje-acción-imposibilidad).
+Publicar como: Email and web.
+═════════════════════════════════════════════════════════════════════ -->
 
 <!-- ═══ META A · Title del post ═══ -->
 <div class="snippet-block">
-  <p class="snippet-header">📝 Meta A · Title del post</p>
-  <p class="snippet-hint">Pegar en el campo "Title" del editor — NO es /html.</p>
-  <pre><code>El cazador que apunta a la nieta de chatarra que el robot lleva dos años soldando</code></pre>
+  <p class="snippet-header">📝 Meta A · Title · campo "Title" del editor</p>
+  <p class="snippet-hint">No es /html — es el campo de título del post. Pegar tal cual. Display title YouTube-style (G1, banda B · 14 palabras) con prefijo 🎧 (audiolibro disponible).</p>
+  <pre><code>🎧 El cazador que apunta a la nieta de chatarra que el robot lleva dos años soldando</code></pre>
 </div>
 
 <!-- ═══ META B · Subtítulo / dek ═══ -->
 <div class="snippet-block">
-  <p class="snippet-header">📝 Meta B · Subtítulo / dek</p>
-  <p class="snippet-hint">Pegar en el campo "Subtitle" del editor + reutilizar como "Meta description" en el panel SEO — NO es /html.</p>
+  <p class="snippet-header">📝 Meta B · Subtítulo · campo "Subtitle" + "Meta description" SEO</p>
+  <p class="snippet-hint">No es /html — es el subtítulo / dek del post. Pegar también como meta_description en el SEO panel.</p>
   <pre><code>Cuidados rotos · Un padre vuelve al pinar donde tiró el robot de su hijo y se encuentra con que lleva dos años soldando una hija de chatarra.</code></pre>
 </div>
 
 <!-- ═══ META C · URL slug ═══ -->
 <div class="snippet-block">
-  <p class="snippet-header">📝 Meta C · URL slug</p>
-  <p class="snippet-hint">Pegar en el campo "URL slug" del editor (panel SEO/Settings) — NO es /html. URL pública: https://robohogar.com/p/pipo</p>
+  <p class="snippet-header">📝 Meta C · URL slug · campo "URL slug" del editor</p>
+  <p class="snippet-hint">No es /html — es el slug del post. URL pública resultante: https://robohogar.com/p/pipo</p>
   <pre><code>pipo</code></pre>
 </div>
 
-<!-- ═══ FRONTISPICIO INTERIOR · título corto ═══ -->
-<h1>Pipo</h1>
-<p style="font-style: italic; color: #6B7280; margin-top: -4px; margin-bottom: 32px;">Una ficción de ROBOHOGAR.</p>
+<!-- ═══ SNIPPET 1 · AUDIOLIBRO EMAIL-ONLY ═══ -->
+<div class="snippet-block">
+  <p class="snippet-header">📋 Snippet 1 · Audiolibro email-only · hide from web</p>
+  <p class="snippet-hint">/html → Custom HTML block → engranaje → Hide from web.</p>
+  <pre><code>&lt;div style=&quot;margin: 32px 0; padding: 20px; background: #FAFAFA; border: 1px solid #D1D5DB; border-radius: 8px; font-family: Arial, Helvetica, sans-serif;&quot;&gt;
+  &lt;p style=&quot;margin: 0 0 10px; font-size: 15px; font-weight: bold; color: #0C0C0C;&quot;&gt;🎧 Audiolibro disponible · 18 min&lt;/p&gt;
+  &lt;p style=&quot;margin: 0; font-size: 14px; color: #374151; line-height: 1.5;&quot;&gt;
+    El reproductor no se muestra en tu cliente de email.
+    &lt;a href=&quot;https://robohogar.com/p/pipo&quot; style=&quot;color: #F5A623; font-weight: 600; text-decoration: none;&quot;&gt;Escúchalo en la web&lt;/a&gt;
+    o
+    &lt;a href=&quot;https://pub-b56f5adc8cbc43b496efa01905f715f7.r2.dev/pipo.mp3&quot; style=&quot;color: #F5A623; font-weight: 600; text-decoration: none;&quot;&gt;descarga el MP3 directo&lt;/a&gt;.
+  &lt;/p&gt;
+&lt;/div&gt;</code></pre>
+</div>
 
-<!-- ═══ CUERPO DEL RELATO ═══ -->
+<!-- ═══ SNIPPET 2 · AUDIOLIBRO WEB-ONLY ═══ -->
+<div class="snippet-block">
+  <p class="snippet-header">📋 Snippet 2 · Audiolibro web-only · hide from email</p>
+  <p class="snippet-hint">/html → Custom HTML block → engranaje → Hide from email.</p>
+  <pre><code>&lt;div style=&quot;margin: 32px 0; padding: 20px; background: #FAFAFA; border: 1px solid rgba(12,12,12,0.15); border-radius: 8px; font-family: &#x27;Inter&#x27;, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;&quot;&gt;
+  &lt;p style=&quot;margin: 0 0 12px; font-size: 14px; font-weight: 600; color: #0C0C0C;&quot;&gt;
+    🎧 Escuchar · &lt;span style=&quot;color: #6B7280; font-weight: 400;&quot;&gt;18 min&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;audio id=&quot;audio-pipo&quot; controls preload=&quot;none&quot; style=&quot;width: 100%; height: 44px;&quot; src=&quot;https://pub-b56f5adc8cbc43b496efa01905f715f7.r2.dev/pipo.mp3&quot;&gt;&lt;/audio&gt;
+  &lt;a href=&quot;https://pub-b56f5adc8cbc43b496efa01905f715f7.r2.dev/pipo.mp3&quot; download style=&quot;display: inline-block; margin-top: 10px; font-size: 13px; color: #F5A623; text-decoration: none; font-weight: 500;&quot;&gt;
+    ⬇ Descargar MP3
+  &lt;/a&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  (function() {
+    var audio = document.getElementById(&#x27;audio-pipo&#x27;);
+    if (!audio || !(&#x27;mediaSession&#x27; in navigator)) return;
+    audio.addEventListener(&#x27;play&#x27;, function() {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: &#x27;Pipo&#x27;,
+        artist: &#x27;ROBOHOGAR · Ficciones Domésticas&#x27;,
+        artwork: []
+      });
+    });
+  })();
+&lt;/script&gt;</code></pre>
+</div>
+
+<!-- ═══ SNIPPET 2.5 · FRONTISPICIO · TÍTULO CORTO ═══ -->
+<div class="snippet-block">
+  <p class="snippet-header">📋 Snippet 2.5 · Frontispicio · título corto entre audio y cuerpo</p>
+  <p class="snippet-hint">/html → Custom HTML block → pega el código. Funciona como página título interior del libro impreso (Anagrama, Penguin Modern Classics): tras los snippets utilitarios de audio, el lector entra al cuerpo del relato con el nombre real de la obra anclando la pieza. Va después de Snippet 2 y antes del primer H2 del cuerpo.</p>
+  <pre><code>&lt;div style=&quot;margin: 56px 0 40px; padding: 0; text-align: center; font-family: &#x27;DM Sans&#x27;, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;&quot;&gt;
+  &lt;div style=&quot;color: #F5A623; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;&quot;&gt;Ficciones Domésticas&lt;/div&gt;
+  &lt;div style=&quot;font-family: &#x27;DM Sans&#x27;, sans-serif; font-size: 32px; font-weight: 700; color: #0C0C0C; line-height: 1.15; margin: 0; letter-spacing: -0.3px;&quot;&gt;Pipo&lt;/div&gt;
+  &lt;div style=&quot;display: inline-block; width: 36px; height: 2px; background: #F5A623; margin: 18px auto 0;&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
+<!-- ════════ CUERPO DEL RELATO (editor de texto normal en Beehiiv) ════════ -->
 
 <h2>I. Las manos</h2>
 
@@ -229,9 +291,9 @@ em { font-style: italic; }
 
 <p class="fin">Fin.</p>
 
-<!-- ═══ SNIPPET 1 · LO REAL DETRÁS DEL RELATO ═══ -->
+<!-- ═══ SNIPPET 3 · LO REAL DETRÁS DEL RELATO ═══ -->
 <div class="snippet-block">
-  <p class="snippet-header">📋 Snippet 1 · Lo real detrás del relato</p>
+  <p class="snippet-header">📋 Snippet 3 · Lo real detrás del relato · tras "Fin."</p>
   <p class="snippet-hint">En Beehiiv: escribe <code>/html</code> → "Custom HTML block" → pega el código.</p>
   <pre><code>&lt;div style=&quot;margin:32px 0;padding:24px 28px;background:#FFF9EF;border-left:4px solid #F5A623;border-radius:4px;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;&quot;&gt;
   &lt;div style=&quot;color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;&quot;&gt;Lo real detrás del relato&lt;/div&gt;
@@ -241,9 +303,9 @@ em { font-style: italic; }
 &lt;/div&gt;</code></pre>
 </div>
 
-<!-- ═══ SNIPPET 2 · CTA SUSCRIPCIÓN FICCIÓN ═══ -->
+<!-- ═══ SNIPPET 4 · CTA SUSCRIPCIÓN FICCIÓN ═══ -->
 <div class="snippet-block">
-  <p class="snippet-header">📋 Snippet 2 · CTA suscripción ficción</p>
+  <p class="snippet-header">📋 Snippet 4 · CTA suscripción ficción · final del post</p>
   <p class="snippet-hint">En Beehiiv: escribe <code>/html</code> → "Custom HTML block" → pega el código.</p>
   <pre><code>&lt;div style=&quot;margin:40px 0 24px;padding:32px 24px;background:#283642;border-radius:10px;color:#FFFFFF;font-family:'Inter',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;text-align:center;&quot;&gt;
   &lt;div style=&quot;color:#F5A623;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;&quot;&gt;ROBOHOGAR&lt;/div&gt;
