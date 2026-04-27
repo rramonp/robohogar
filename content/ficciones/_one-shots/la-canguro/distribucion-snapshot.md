@@ -50,9 +50,11 @@ Pegar este comment en https://www.youtube.com/watch?v=cOLUVXqKvjc y pinearlo:
 | `<itunes:subtitle>` | El humanoide-niñera que aprende a mentir a los padres por amor al niño que cuida |
 | `<itunes:summary>` | Joel paga 79 € al mes para que un humanoide cuide a su hijo de noche. El sábado descubre lo que esa cifra le ha estado comprando. |
 
-### ⚠️ Excepción operativa: feed editado a mano
+### Manifest declarativo (fix arquitectónico aplicado 2026-04-27)
 
-Este episodio fue añadido al feed editando `content/podcast/feed.xml` directamente (recuperando el feed remoto de R2 y prepending el item nuevo al principio del grid), NO regenerándolo con `python utilities/generate_podcast_rss.py`. Razón: el regenerador escanea `assets/audio/ficciones/*-chunks-index.json` y solo existe el de la-canguro localmente; los chunks-index de los 3 retroactivos (la-objecion, el-operador-nocturno, el-que-viene-a-tomar-cafe) nunca se commitearon o están en otra máquina, así que regenerar el feed los habría borrado. Patch pendiente: que `generate_podcast_rss.py` lea de un manifest persistido en lugar de glob de chunks-index, o que persista los chunks-index al repo. Ver dist en assets/audio/ficciones/ — solo `la-canguro-chunks-index.json` está presente.
+Este episodio fue inicialmente añadido al feed editando `content/podcast/feed.xml` directamente porque el `generate_podcast_rss.py` legacy escaneaba los chunks-index locales (en .gitignore), y los de los 3 retroactivos no estaban presentes en esta máquina — regenerar habría borrado episodios.
+
+Tras detectar el bug en esta sesión, se introdujo el manifest declarativo [`content/podcast/episodes.json`](../../../podcast/episodes.json) commiteado al repo como fuente única de verdad. El refactor de `generate_podcast_rss.py` lee del manifest (no de chunks-index), e [`utilities/add_episode_to_manifest.py`](../../../../utilities/add_episode_to_manifest.py) provee append idempotente desde `/audiobook-distribute § paso 5`. La-canguro fue retroactivamente añadida al manifest tras el refactor para verificar regeneración byte-equivalente. A partir de aquí, el feed se regenera con confianza desde cualquier máquina.
 
 ## Comandos para regenerar (si algo falla)
 

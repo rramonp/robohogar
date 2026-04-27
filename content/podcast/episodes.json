@@ -1,0 +1,64 @@
+{
+  "_doc": [
+    "Manifest declarativo de episodios del podcast Ficciones Domésticas.",
+    "Fuente de verdad COMMITEADA al repo, independiente del estado local de",
+    "assets/audio/ficciones/*-chunks-index.json (que están en .gitignore y solo",
+    "viven en la máquina donde se generó el audiolibro).",
+    "",
+    "Convenciones:",
+    "- Orden: más reciente arriba (descendente por pub_date). El skill",
+    "  /audiobook-distribute § paso 5 prepende la entrada nueva al principio.",
+    "- guid INMUTABLE — cambiarlo crea episodio duplicado en Apple/Amazon.",
+    "- duration_hms en formato iTunes (HH:MM:SS).",
+    "- mp3_bytes: entero, Content-Length real del MP3 en R2.",
+    "- cover_cache_bust: string suffix '?v=<cache_bust>' al construir <itunes:image>.",
+    "- description_extra_html (opcional): HTML CDATA adicional. Si vacío, el script",
+    "  genera desde el patrón canónico (summary + CTA newsletter)."
+  ],
+  "episodes": [
+    {
+      "slug": "la-canguro",
+      "title": "La canguro",
+      "subtitle": "El humanoide-niñera que aprende a mentir a los padres por amor al niño que cuida",
+      "summary": "Joel paga 79 € al mes para que un humanoide cuide a su hijo de noche. El sábado descubre lo que esa cifra le ha estado comprando.",
+      "pub_date_rfc2822": "Mon, 27 Apr 2026 09:00:00 +0000",
+      "duration_hms": "00:17:32",
+      "mp3_bytes": 16840873,
+      "cover_cache_bust": "20260427",
+      "guid": "robohogar-ficciones-la-canguro"
+    },
+    {
+      "slug": "la-objecion",
+      "title": "La objeción",
+      "subtitle": "El humanoide que activó una alarma silenciosa contra el ministro al que sirve la cena",
+      "summary": "Un humanoide doméstico descubre que el ministro al que sirve filtra un expediente OTAN. Tiene veintitrés días y una alarma silenciosa.",
+      "pub_date_rfc2822": "Thu, 23 Apr 2026 09:00:00 +0000",
+      "duration_hms": "00:19:03",
+      "mp3_bytes": 18290773,
+      "cover_cache_bust": "20260427",
+      "guid": "robohogar-ficciones-la-objecion"
+    },
+    {
+      "slug": "el-operador-nocturno",
+      "title": "El operador nocturno",
+      "subtitle": "El operador en Manila que afina el ruido del robot para que el niño se despierte",
+      "summary": "Madrid 2032, las tres y catorce. Un niño se levanta a beber agua. En la cocina hay alguien. No es el robot. Es el que lo pilota desde Manila — y lleva semanas calibrando el ruido para verlo despierto.",
+      "pub_date_rfc2822": "Sun, 19 Apr 2026 09:00:00 +0000",
+      "duration_hms": "00:23:05",
+      "mp3_bytes": 22164001,
+      "cover_cache_bust": "20260427",
+      "guid": "robohogar-ficciones-el-operador-nocturno"
+    },
+    {
+      "slug": "el-que-viene-a-tomar-cafe",
+      "title": "El que viene a tomar café",
+      "subtitle": "La hija que cada mañana programa al humanoide para que sea el padre muerto de su madre",
+      "summary": "Vallecas, 2032. Una hija cuida a su madre con demencia. Cada mañana enciende al humanoide y le pide que sea su padre muerto. Hasta que la hermana lo descubre.",
+      "pub_date_rfc2822": "Sun, 19 Apr 2026 09:00:00 +0000",
+      "duration_hms": "00:22:17",
+      "mp3_bytes": 21388269,
+      "cover_cache_bust": "20260427",
+      "guid": "robohogar-ficciones-el-que-viene-a-tomar-cafe"
+    }
+  ]
+}
