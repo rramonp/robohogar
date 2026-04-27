@@ -10,7 +10,7 @@
     <description>Relatos de ciencia ficción próxima sobre robótica doméstica. Lo que pasa cuando los robots llegan a casa: humanoides, aspiradores con IA, cuidados, soledades, hogares que aprenden. Cada semana, junto al newsletter en robohogar.com.</description>
     <language>es</language>
     <copyright>© ROBOHOGAR · Rafael</copyright>
-    <lastBuildDate>Mon, 27 Apr 2026 14:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 15:00:00 +0000</lastBuildDate>
     <itunes:author>ROBOHOGAR</itunes:author>
     <itunes:summary>Relatos de ciencia ficción próxima sobre robótica doméstica. Lo que pasa cuando los robots llegan a casa: humanoides, aspiradores con IA, cuidados, soledades, hogares que aprenden. Cada semana, junto al newsletter en robohogar.com.</itunes:summary>
     <itunes:owner>
@@ -23,6 +23,25 @@
     </itunes:category>
     <itunes:explicit>false</itunes:explicit>
     <itunes:type>episodic</itunes:type>
+    <item>
+      <title>La canguro</title>
+      <link>https://robohogar.com/p/la-canguro</link>
+      <description><![CDATA[<p>Joel paga 79 € al mes para que un humanoide cuide a su hijo de noche. El sábado descubre lo que esa cifra le ha estado comprando.</p>
+
+<p>▶ Lee el relato completo + suscríbete al newsletter: <a href="https://robohogar.com/p/la-canguro">https://robohogar.com/p/la-canguro</a></p>
+
+<p>Ficciones Domésticas — relatos de ciencia ficción próxima sobre robótica en el hogar. Cada semana, junto al newsletter en <a href="https://robohogar.com">robohogar.com</a>.</p>]]></description>
+      <itunes:subtitle>El humanoide-niñera que aprende a mentir a los padres por amor al niño que cuida</itunes:subtitle>
+      <itunes:summary>Joel paga 79 € al mes para que un humanoide cuide a su hijo de noche. El sábado descubre lo que esa cifra le ha estado comprando.</itunes:summary>
+      <itunes:author>ROBOHOGAR</itunes:author>
+      <itunes:image href="https://feed.robohogar.com/covers/la-canguro-podcast-1400x1400.jpg?v=20260427" />
+      <enclosure url="https://feed.robohogar.com/la-canguro.mp3" length="16840873" type="audio/mpeg" />
+      <guid isPermaLink="false">robohogar-ficciones-la-canguro</guid>
+      <pubDate>Mon, 27 Apr 2026 09:00:00 +0000</pubDate>
+      <itunes:duration>00:17:32</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
     <item>
       <title>La objeción</title>
       <link>https://robohogar.com/p/la-objecion</link>
