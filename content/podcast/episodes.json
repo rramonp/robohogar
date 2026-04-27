@@ -17,6 +17,17 @@
   ],
   "episodes": [
     {
+      "slug": "pipo",
+      "title": "Pipo",
+      "subtitle": "El cazador que apunta a la nieta de chatarra que el robot lleva dos años soldando",
+      "summary": "Cuidados rotos · Un padre vuelve al pinar donde tiró el robot de su hijo y se encuentra con que lleva dos años soldando una hija de chatarra.",
+      "pub_date_rfc2822": "Mon, 27 Apr 2026 09:00:00 +0000",
+      "duration_hms": "00:18:30",
+      "mp3_bytes": 17764145,
+      "cover_cache_bust": "20260427",
+      "guid": "robohogar-ficciones-pipo"
+    },
+    {
       "slug": "la-canguro",
       "title": "La canguro",
       "subtitle": "El humanoide-niñera que aprende a mentir a los padres por amor al niño que cuida",

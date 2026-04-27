@@ -10,7 +10,7 @@
     <description>Relatos de ciencia ficción próxima sobre robótica doméstica. Lo que pasa cuando los robots llegan a casa: humanoides, aspiradores con IA, cuidados, soledades, hogares que aprenden. Cada semana, junto al newsletter en robohogar.com.</description>
     <language>es</language>
     <copyright>© ROBOHOGAR · Rafael</copyright>
-    <lastBuildDate>Mon, 27 Apr 2026 11:59:50 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 19:31:14 +0000</lastBuildDate>
     <itunes:author>ROBOHOGAR</itunes:author>
     <itunes:summary>Relatos de ciencia ficción próxima sobre robótica doméstica. Lo que pasa cuando los robots llegan a casa: humanoides, aspiradores con IA, cuidados, soledades, hogares que aprenden. Cada semana, junto al newsletter en robohogar.com.</itunes:summary>
     <itunes:owner>
@@ -23,6 +23,25 @@
     </itunes:category>
     <itunes:explicit>false</itunes:explicit>
     <itunes:type>episodic</itunes:type>
+    <item>
+      <title>Pipo</title>
+      <link>https://robohogar.com/p/pipo</link>
+      <description><![CDATA[<p>Cuidados rotos · Un padre vuelve al pinar donde tiró el robot de su hijo y se encuentra con que lleva dos años soldando una hija de chatarra.</p>
+
+<p>▶ Lee el relato completo + suscríbete al newsletter: <a href="https://robohogar.com/p/pipo">https://robohogar.com/p/pipo</a></p>
+
+<p>Ficciones Domésticas — relatos de ciencia ficción próxima sobre robótica en el hogar. Cada semana, junto al newsletter en <a href="https://robohogar.com">robohogar.com</a>.</p>]]></description>
+      <itunes:subtitle>El cazador que apunta a la nieta de chatarra que el robot lleva dos años soldando</itunes:subtitle>
+      <itunes:summary>Cuidados rotos · Un padre vuelve al pinar donde tiró el robot de su hijo y se encuentra con que lleva dos años soldando una hija de chatarra.</itunes:summary>
+      <itunes:author>ROBOHOGAR</itunes:author>
+      <itunes:image href="https://feed.robohogar.com/covers/pipo-podcast-1400x1400.jpg?v=20260427" />
+      <enclosure url="https://feed.robohogar.com/pipo.mp3" length="17764145" type="audio/mpeg" />
+      <guid isPermaLink="false">robohogar-ficciones-pipo</guid>
+      <pubDate>Mon, 27 Apr 2026 09:00:00 +0000</pubDate>
+      <itunes:duration>00:18:30</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
     <item>
       <title>La canguro</title>
       <link>https://robohogar.com/p/la-canguro</link>
