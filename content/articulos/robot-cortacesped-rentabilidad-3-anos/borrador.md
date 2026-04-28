@@ -1,12 +1,12 @@
-# ¿Robot cortacésped o tradicional? La cuenta a 3 años que no te hace ningún comercial
+# ¿Robot cortacésped o tradicional? La cuenta a 3 años, sin trampas
 
-Hicimos los números a 3 años por tamaño de jardín y por valor de tu hora. Por encima de 400 m², comparado con jardinero profesional, el robot se paga solo en menos de 24 meses. Por debajo, depende de cuánto vale tu sábado. Calculadora de rentabilidad ROBOHOGAR incluida.
+Hicimos los números a 3 años por tamaño de jardín y por valor de tu hora. Por encima de 400 m², comparado con jardinero profesional, el robot se paga solo en menos de 24 meses. Por debajo, depende de cuántas horas le dedicas hoy. Calculadora de rentabilidad ROBOHOGAR incluida.
 
 ROBOHOGAR · 28 abril 2026 · 9 min de lectura
 
 ---
 
-> El robot cortacésped no se paga solo "porque es muy moderno". Se paga solo, o no, dependiendo del metraje de tu jardín, de qué hacías antes para mantenerlo y de cuánto vale tu sábado por la mañana. Hicimos la cuenta a tres años en los tres escenarios típicos del jardín español, sin trampas y sin descuentos imaginarios.
+> El robot cortacésped se paga solo, o no, dependiendo de tres cosas: el tamaño de tu jardín, qué hacías hoy para mantenerlo y cuántas horas le dedicas. Hicimos la cuenta a tres años en los tres escenarios típicos del jardín español, con precios reales.
 
 > Esta cuenta está pensada para el jardín particular español en abril de 2026. Tres alternativas reales: cortacésped manual de gasolina (lo que tienes en el trastero hace diez años), servicio profesional de jardinería (lo que pagas si delegas), y robot cortacésped en sus dos rangos típicos —entry-level con cable perimetral, 600-900 €, y wire-free con LiDAR o satélite, 1.500-2.500 €—. Precios contrastados con tarifas oficiales de fabricantes y con datos del INE sobre tarifas de jardinería profesional. La calculadora va al final, sin gate ni email obligatorio: léela, contrástala con tu caso, decide.
 
@@ -17,7 +17,7 @@ ROBOHOGAR · 28 abril 2026 · 9 min de lectura
 
 ## Los 4 datos que necesitas (y los que no necesitas)
 
-La cuenta de la rentabilidad no es complicada — es matemática de cuarto de la ESO con cuatro datos. El error de los anuncios de fabricante es invertir el orden, vender el robot primero y forzar después los datos para que cuadre el ahorro. Aquí va al revés.
+Para saber si te compensa un robot cortacésped solo hacen falta cuatro datos. Lo difícil no es hacer la cuenta, es hacerla en el orden correcto: primero tu situación, después el robot. Si empiezas mirando el robot, terminas justificando una compra que ya habías decidido.
 
 **Dato 1 — metros cuadrados reales de césped.** No la parcela total, no el patio, no el huerto: solo la superficie verde que hoy se corta. Se mide en cinco minutos con Google Earth (selecciona *medir polígono*) o con cinta métrica si tienes mano. Es el dato que más equivocaciones genera porque la mayoría de la gente sobreestima un 30-40 % su jardín de memoria.
 
@@ -35,19 +35,19 @@ Los datos que *no* necesitas: la marca del robot que te recomiendan, la tecnolog
 
 Los anuncios suelen vender el robot con una sola variable: *"para jardines de hasta X metros cuadrados"*. Es engañoso. La rentabilidad real depende de la combinación entre superficie y solución previa. Tres ejemplos rápidos para enseñar por qué:
 
-**Caso A — 200 m² que cortas tú con eléctrico de cable.** El cortacésped eléctrico te costó 150 € y dura años. La gasolina es cero, el mantenimiento mínimo. Cortas en 40 minutos cada quince días. El robot, aunque sea entry-level, te cuesta 700 € de salida para ahorrar lo que vale una pizza al mes. La cuenta no sale a tres años, ni siquiera a cinco. Aquí los m² te juegan en contra.
+**Caso A — 200 m² que cortas tú con eléctrico de cable.** El cortacésped eléctrico te costó 150 € y dura años. La gasolina es cero, el mantenimiento mínimo. Cortas en 40 minutos cada quince días. El robot, aunque sea entry-level, te cuesta 700 € de salida para ahorrar lo que vale una pizza al mes. La cuenta no sale a tres años, ni siquiera a cinco. Aquí los metros cuadrados no compensan.
 
 **Caso B — 600 m² que cortas tú con cortacésped de gasolina.** El cortacésped lleva diez años, gasta gasolina, te roba dos sábados al mes y te obliga a una revisión anual de 50-80 €. Robot wire-free de gama media (1.300-1.500 €). Aquí entran las horas tuyas en la ecuación: si valoras tu hora a 7 €/h, el robot se paga en torno a tres veranos. Si la valoras a 15, en menos de dos.
 
 **Caso C — 600 m² que delegas en jardinero profesional.** Mismo jardín que el caso B, pero tu solución previa cuesta 35-45 € por visita × 22 visitas/año = 770-990 €/año. El robot wire-free de 1.500 € se paga literalmente en menos de 24 meses, sin contar el valor de tu tiempo (que aquí ya era cero, porque delegabas). El metraje es el mismo que el caso B, pero la cuenta se acelera.
 
-El cortacésped tradicional *nunca* deja de ser barato si lo comparas solo con la inversión inicial. Donde el robot gana es en lo que tu solución previa *también* te estaba costando — en horas, en gasolina, en visitas pagadas. Por eso los anuncios que solo enseñan precio de venta del robot mienten por omisión.
+El cortacésped tradicional *nunca* deja de ser barato si lo comparas solo con la inversión inicial. Donde el robot gana es en lo que tu solución previa *también* te estaba costando — en horas, en gasolina, en visitas pagadas. Por eso los anuncios que solo enseñan precio de venta del robot dejan fuera la mitad de la cuenta.
 
 ---
 
 ## Los 3 escenarios típicos del jardín español
 
-Cubrimos al 90 % de los lectores con tres tamaños tipo. Los precios son medias cruzadas con fichas oficiales de fabricantes y tarifas reales de jardinería ES (Idealista publica recopilatorios anuales sobre tarifas medias de jardinero). El cálculo es a 36 meses, IVA incluido, sin descuentos imaginarios.
+Cubrimos al 90 % de los lectores con tres tamaños tipo. Los precios son medias cruzadas con fichas oficiales de fabricantes y tarifas reales de jardinería ES (Idealista publica recopilatorios anuales sobre tarifas medias de jardinero). El cálculo es a 36 meses, IVA incluido, con precios reales y sin promociones puntuales.
 
 ### Escenario 1 — jardín pequeño (200-300 m²)
 
@@ -65,11 +65,11 @@ Cubrimos al 90 % de los lectores con tres tamaños tipo. Los precios son medias 
 
 **Robot wire-free de gama media** (Worx Landroid Vision M800, Mammotion YUKA mini 2): 1.100-1.200 €, 25 €/año electricidad + cuchillas. **Total 3 años:** 1.275 €.
 
-Frente al gasolina propio, el robot cuesta 595 € más en directo, pero recupera ~240 horas tuyas. Empate franco a 7 €/h, victoria del robot a partir de 12 €/h. Frente al servicio profesional, el robot ahorra 1.000-1.700 € a 3 años en directo, sin trucos. Aquí la cuenta es brutal y a favor del robot.
+Frente al gasolina propio, el robot cuesta 595 € más en directo, pero recupera ~240 horas tuyas. Empate franco a 7 €/h, victoria del robot a partir de 12 €/h. Frente al servicio profesional, el robot ahorra 1.000-1.700 € a 3 años en directo, sin trucos. Aquí la diferencia es grande y a favor del robot.
 
 ### Escenario 3 — jardín grande (800-1.500 m²)
 
-**Tradicional gasolina:** ya no compensa hacerlo a mano salvo masoquismo. La mayoría delega.
+**Tradicional gasolina:** a este metraje ya no compensa hacerlo a mano salvo que disfrutes haciéndolo. La mayoría delega.
 
 **Servicio profesional:** 50-70 €/visita × 24 visitas/año = 1.200-1.680 €/año. **Total 3 años:** 3.600-5.040 €. Tiempo: 0 horas.
 

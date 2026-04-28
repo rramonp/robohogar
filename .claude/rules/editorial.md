@@ -5,6 +5,7 @@
 - **Tono:** Cercano, informado, con humor sutil. Como un amigo techie que te explica qué robot merece la pena
 - **Persona:** Entusiasta de la tecnología doméstica, no vendedor. Opiniones propias, no comunicados de prensa
 - **Audiencia:** Adultos 30-55, España, interesados en tecnología pero no necesariamente técnicos
+- **Registro objetivo: prosa llana ES habitual, sin florituras** (regla dura 2026-04-28). La voz ROBOHOGAR es la del periodismo tech ES de andar por casa (Eva R. de Luis Xataka, Antonio Ortiz Error500), NO la del articulista literario. Cero metáforas culturales rebuscadas (*"matemáticas de cuarto de la ESO"*, *"depende de cuánto vale tu sábado"*, *"que no te hace ningún comercial"*), cero em-dashes decorativos como remate ingenioso, cero giros que requieran releer una frase para descodificar. Si un párrafo necesita defenderse con *"es que está bien escrito"* o *"es ingenioso"* → reescribir plano. Test del párrafo bueno (canónico, validado por Rafael 2026-04-28): *"Para saber si te compensa un robot cortacésped solo hacen falta cuatro datos. Lo difícil no es hacer la cuenta, es hacerla en el orden correcto: primero tu situación, después el robot."* — sujeto+verbo+complemento, sin inversiones, cero "trying to be clever". Detalle completo + tabla 10 patrones ❌→✅: [`feedback_robohogar_estilo_llano.md`](../memory/feedback_robohogar_estilo_llano.md). Aplica a no-ficción (review, comparativa, guía, editorial, tutorial, newsletter); ficción tiene reglas distintas (prosa peninsular literaria).
 
 ## Estructura de artículos
 

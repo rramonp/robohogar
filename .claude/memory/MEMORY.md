@@ -18,6 +18,7 @@
 - [feedback_robohogar_pre_publish_polish.md](feedback_robohogar_pre_publish_polish.md) — 12 checks pre-publicación (5 craft A1-A5 + 7 coherencia interna B1-B7)
 - [feedback_robohogar_no_fake_testing_claims.md](feedback_robohogar_no_fake_testing_claims.md) — Prohibido "hemos probado", cifras de ahorro inventadas, tiempos/dB no medidos
 - [feedback_robohogar_no_vulgar_bro_talk.md](feedback_robohogar_no_vulgar_bro_talk.md) — Prohibidas expresiones vulgares o bro-talk ("se la saca", "la peta", etc.)
+- [feedback_robohogar_estilo_llano.md](feedback_robohogar_estilo_llano.md) — Prosa ROBOHOGAR llana, ES habitual, sin florituras anglo ni metáforas culturales. Tabla 10 patrones ❌→✅ (incidente 2026-04-28 cortacésped ROI)
 - [feedback_curse_of_knowledge_check.md](feedback_curse_of_knowledge_check.md) — Check Pinker-style: acrónimos, modelos, jerga anglo requieren contexto en primera mención
 - [feedback_anti_anglicismos_es.md](feedback_anti_anglicismos_es.md) — 8 reglas anti-anglicismos en copy ES (saludos, subject, tú+plural editorial, etc.)
 - [feedback_anti_calcos_lexicos_es.md](feedback_anti_calcos_lexicos_es.md) — Calcos 13-22 canonizados; componer ES directo desde el primer token, no traducir
