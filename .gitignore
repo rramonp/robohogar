@@ -249,3 +249,6 @@ assets/audio/ficciones/covers/*.jpg
 # fuente de verdad es el dashboard ElevenLabs, este JSON es proyección local.
 utilities/_state/*.json
 !utilities/_state/.gitkeep
+
+# Claude Code session lock — session-specific runtime state, not for version control
+.claude/scheduled_tasks.lock
