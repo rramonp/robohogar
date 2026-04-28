@@ -265,6 +265,9 @@ Reviews, configuración, mantenimiento de robots cortacésped. Catalogado 2026-0
 - **Statista Market Outlook — Lawn Mowers Spain** (https://www.statista.com/outlook/cmo/household-appliances/large-appliances/lawn-mowers/spain) — penetración ES vs EU.
 - **INE encuesta tiempo tareas domésticas** (https://www.ine.es/prensa/ect_2023.pdf) — tiempo dedicado a jardinería en hogares ES.
 - **Husqvarna Group corporate news — EPOS 2024** (https://www.husqvarna.com/international/about-us/corporate-news/2024/epos-wire-free-milestone) — contexto histórico adopción wire-free.
+- **INE Encuesta de Empleo del Tiempo 2023** (https://www.ine.es/dyngs/Prensa/EET2023.htm) — tiempo dedicado al cuidado del jardín y huerto: 62 minutos/día entre quienes lo declaran como actividad regular. Usado en `robot-cortacesped-rentabilidad-3-anos` (cifra ancla del cálculo de horas/año).
+- **Idealista — recopilatorios servicios para el hogar** (https://www.idealista.com/news/inmobiliario/vivienda/) — tarifas medias jardinero ES por hora y zona urbana/rural. Actualizado anualmente.
+- **Habitissimo — calculadoras de presupuesto jardinería** (https://www.habitissimo.es/) — alternativa a Idealista para tarifa por visita y por hora del servicio profesional ES. Ambos cruzados en el cálculo del escenario "delegas en jardinero" del artículo de rentabilidad.
 
 ---
 

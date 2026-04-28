@@ -47,7 +47,7 @@
 
 **Estado (21-abr-2026):**
 
-- ✅ **13 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [🎧 Ficción · El humanoide-niñera que aprende a mentir a los padres por amor al niño que cuida](https://robohogar.com/p/la-canguro) (2026-04-27 · primer relato canon § 5.bis painterly chiaroscuro + display_title YouTube-style + frontispicio Snippet 2.5 · audiolibro 17,5 min).
+- ✅ **14 artículos publicados** — catálogo completo en [`content/registro-articulos.md`](../content/registro-articulos.md). Último: [¿Robot cortacésped o tradicional? La cuenta a 3 años, sin trampas](https://robohogar.com/p/robot-cortacesped-rentabilidad-3-anos) (2026-04-28 · E12 backlog evergreen · primer artículo con tangible `tabla-standalone` calculadora rentabilidad por 3 escenarios · regla canonizada *prosa llana ES sin florituras* tras este artículo).
 - ❌ **0 suscriptores** · newsletter semanal diferida hasta 30-50 subs.
 - ❌ **0 Ficciones Domésticas** publicadas (pilar experimental pendiente de arrancar).
 - ✅ **Pipeline de skills funcionando** (`/research-digest` · `/content-draft` · `/nano-banana` · `/post-publish` · `/social-content` · `/obsidian-robohogar`).
@@ -113,11 +113,12 @@ Detalle + razones: memoria `feedback_seo_first_pivote.md`.
 - [x] **Next 4 —** ~~Primera Ficción Doméstica *"El operador nocturno"* (one-shot standalone · pivote tonal inquietante-heavy · audiolibro Luis 23 min)~~ → Publicado 26-abr-2026. URL: https://robohogar.com/p/el-operador-nocturno
 - [x] **Next 5 —** ~~Ficción Doméstica *"La canguro"* (one-shot · primer relato canon § 5.bis painterly chiaroscuro + display_title G4/A YouTube-style + frontispicio Snippet 2.5 · audiolibro Luis 17,5 min)~~ → Publicado 27-abr-2026. URL: https://robohogar.com/p/la-canguro
 - [x] **Next 6 —** ~~Ficción Doméstica *"El cristalero"* (one-shot · primer relato canon § Composición canon del audiolibro = frontispicio sonoro Gabo intercalado tras bumper Luis · audiolibro 23 min · canon `generate_audio.py` schema_version=3 establecido tras este relato)~~ → Publicado 28-abr-2026. URL: https://robohogar.com/p/el-cristalero
-- [ ] **Next 7 —** **Evergreen E12 — Robot cortacésped vs tradicional: ROI en 3 años** (estacional mismo pico abr-jul · cluster SEO con E1 vía internal linking) · frase trigger: *"Retomamos evergreen — empezamos E12 ROI cortacésped"* · `/content-draft Robot cortacésped vs cortacésped tradicional: ROI en 3 años` · ver [calendario-editorial.md § Backlog Evergreen SEO](../content/calendario-editorial.md)
+- [x] **Next 7 —** ~~Evergreen E12 — Robot cortacésped vs tradicional: ROI en 3 años (estacional abr-jul · cluster con E1 · primer artículo con tangible tipo `tabla-standalone` calculadora rentabilidad)~~ → Publicado 28-abr-2026. URL: https://robohogar.com/p/robot-cortacesped-rentabilidad-3-anos
 - [ ] **Next 8 —** **Evergreen E4 — Mejor robot aspirador para piso pequeño (<60 m²)** (long-tail baja competencia, perfil ES típico, no estacional) · frase trigger: *"Retomamos evergreen — empezamos E4 piso pequeño"* · `/content-draft`
 - [ ] **Next 9 —** **Evergreen E5 — Aspirador robot vs escoba inteligente: ¿reemplazo o complemento?** (long-tail comparativo · cluster SEO aspiradores) · frase trigger: *"Retomamos evergreen — empezamos E5 aspirador vs escoba"* · `/content-draft`
+- [ ] **Next 10 —** **Evergreen E13 — Roomba vs Roborock vs Dreame: diferencias reales 2026** (comparativa de marcas alta intención compra · internal linking goldmine vs todas las reviews aspirador previas) · frase trigger: *"Retomamos evergreen — empezamos E13 Roomba vs Roborock vs Dreame"* · `/content-draft`
 
-**Último artículo publicado:** #13 *🎧 Ficción · El limpiacristales que dibuja una rosa cada noche para el humanoide que firmará su despido* (2026-04-28).
+**Último artículo publicado:** #14 *¿Robot cortacésped o tradicional? La cuenta a 3 años, sin trampas* (2026-04-28).
 **Último tangible publicado:** Hoja de Compra v2 PDF (2026-04-18) → `content/lead-magnets/hoja-compra/`.
 
 ### 🌍 Filtro mercado ES — regla base
