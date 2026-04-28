@@ -1,6 +1,6 @@
 # ¿Robot cortacésped o tradicional? La cuenta a 3 años que no te hace ningún comercial
 
-Hicimos los números a 3 años por tamaño de jardín y por valor de tu hora. Por encima de 400 m², comparado con jardinero profesional, el robot se paga solo en menos de 24 meses. Por debajo, depende de cuánto vale tu sábado. Calculadora ROI ROBOHOGAR incluida.
+Hicimos los números a 3 años por tamaño de jardín y por valor de tu hora. Por encima de 400 m², comparado con jardinero profesional, el robot se paga solo en menos de 24 meses. Por debajo, depende de cuánto vale tu sábado. Calculadora de rentabilidad ROBOHOGAR incluida.
 
 ROBOHOGAR · 28 abril 2026 · 9 min de lectura
 
@@ -17,7 +17,7 @@ ROBOHOGAR · 28 abril 2026 · 9 min de lectura
 
 ## Los 4 datos que necesitas (y los que no necesitas)
 
-La cuenta del ROI no es complicada — es matemática de cuarto de la ESO con cuatro datos. El error de los anuncios de fabricante es invertir el orden, vender el robot primero y forzar después los datos para que cuadre el ahorro. Aquí va al revés.
+La cuenta de la rentabilidad no es complicada — es matemática de cuarto de la ESO con cuatro datos. El error de los anuncios de fabricante es invertir el orden, vender el robot primero y forzar después los datos para que cuadre el ahorro. Aquí va al revés.
 
 **Dato 1 — metros cuadrados reales de césped.** No la parcela total, no el patio, no el huerto: solo la superficie verde que hoy se corta. Se mide en cinco minutos con Google Earth (selecciona *medir polígono*) o con cinta métrica si tienes mano. Es el dato que más equivocaciones genera porque la mayoría de la gente sobreestima un 30-40 % su jardín de memoria.
 
@@ -79,11 +79,11 @@ Frente al servicio profesional, el robot ahorra 1.000-2.400 € a 3 años en dir
 
 ---
 
-## La calculadora ROI ROBOHOGAR — 1 página
+## La calculadora de rentabilidad ROBOHOGAR — 1 página
 
 Resumen de los tres escenarios en una tabla que puedes consultar de un vistazo. Fila resaltada en ámbar = el escenario donde el robot gana sin discusión a 3 años. La *condición* es lo que tiene que cumplirse para que el robot empate o gane sobre tu solución actual.
 
-📋 **Pega aquí Snippet 1 — Tabla calculadora ROI** (sustituye al preview Markdown de abajo si lo pegas en blanco; mantiene el highlight ámbar de las filas ganadoras)
+📋 **Pega aquí Snippet 1 — Tabla calculadora de rentabilidad** (sustituye al preview Markdown de abajo si lo pegas en blanco; mantiene el highlight ámbar de las filas ganadoras)
 
 | Jardín | Tradicional · 3 años | Robot · 3 años | Condición para que el robot gane |
 |---|---|---|---|
