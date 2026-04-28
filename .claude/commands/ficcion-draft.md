@@ -586,9 +586,54 @@ Tag propuesto: "<Tag elegido>"
 
 **5. Catálogo cerrado.** Si Rafael propone una etiqueta fuera de las 10 → no aceptar a nivel de relato individual. Documentar la propuesta en `PASOS.md § Tag poético propuesto fuera de catálogo` y abrir una nota para ampliar la regla en `editorial.md` antes del próximo relato. Mientras tanto, elegir el tag más cercano del catálogo cerrado.
 
+### 5.8 POV + estructura de loops — declaración pre-prosa OBLIGATORIA (canonizado 2026-04-28 PM)
+
+Antes de generar prosa, declarar en `PASOS.md` dos elementos estructurales nuevos:
+
+**A) POV elegido** — uno de los 6 valores canon (`1a` · `3a-lim` · `3a-lim-dil` · `omnisciente` · `ia-1a` · `ia-3a`) consultando la **tabla decisión §1** de [`@references/ficciones/pov-y-discurso-indirecto-libre.md`](../../references/ficciones/pov-y-discurso-indirecto-libre.md) cruzando tonalidad × intensidad × longitud. Justificación 1 línea.
+
+- Si POV elegido = `3a-lim-dil` → declarar **2-3 marcadores DIL planeados** (deíctico cercano · léxico del personaje en narración · presente histórico mezclado · pregunta interior sin acotación). Sirve de checklist pre-prosa y de referencia para verificación post-borrador.
+- Si POV elegido = `ia-1a` o `ia-3a` (humanoide / IA) → declarar **institución ficticia del humanoide** (Doméstica Ibérica · Toyminds Barcelona · Rondas3 SAE · ... · siempre canon ROBOHOGAR, nunca marca real) + **lista de 5-8 términos de léxico técnico-ES-no-anglo** que el humanoide usará (sustitución de robot-jerga anglo `running`, `processing`, `compliance check`, `core protocol`).
+
+**B) Estructura de loops** — siguiendo [`@references/ficciones/open-loops-curiosity-gaps.md §§ 1-3`](../../references/ficciones/open-loops-curiosity-gaps.md):
+
+- **1 loop principal del relato:** declarar tipo (uno de los 6 del catálogo §2 — `que-paso · que-va-a-pasar · por-que-hizo-esto · quien-es-realmente · que-oculta-esta-casa · que-dira-el-otro`) + cómo se paga al cierre (payback directo · subvertido · diferido por elección autoral). Si el cierre es diferido por elección autoral, el loop principal debe ser del tipo §2.1, §2.5 o §2.6 (los tolerantes a ambigüedad). Tipos §2.2, §2.3, §2.4 prácticamente exigen pago.
+- **0-2 loops secundarios:** tipo + cómo cierran. **Saturación dura:** flash 500-800 admite 1 principal + ≤1 secundario; corto 1.200-1.800 admite 1 principal + 1-2 secundarios; mini-serie episodio admite 1 del relato + 1 del arco + 1-2 secundarios. Más allá → reescribir outline.
+
+**Formato canónico en `PASOS.md`:**
+
+```markdown
+## POV + estructura de loops
+
+**POV:** `3a-lim-dil` (3ª limitada cercana + DIL) — Manuel.
+Justificación: Cinematográfico inquietante peninsular pide DIL para acceder a la decisión interior antes de articularla, sin perder distancia narrativa.
+Marcadores DIL planeados:
+- §2.3 presente histórico intercalado en pretérito (en escena del altar de chatarra).
+- §2.4 pregunta interior sin acotar (cuando reconoce la cabeza).
+- §2.2 léxico del personaje en narración (registro rural-urbanita Manuel).
+
+**Loop principal:** §2.1 *¿qué pasó?* — entre que Manuel tiró el HOGAR-K3 hace 2 inviernos y la mañana actual.
+Pago: payback directo — el altar de chatarra revela la respuesta visible al lector.
+
+**Loop secundario:** §2.6 *¿qué dirá el cuñado?* (consecuencia social de la decisión de Manuel).
+Pago: payback directo en el mirador final.
+```
+
+Sin esta declaración → output bloqueado.
+
 ### 6. Expandir a prosa con MRUs — voz castellana literaria peninsular
 
 **Antes de generar prosa, cargar OBLIGATORIAMENTE [`@references/ficciones/castellano-literario-es.md`](../../references/ficciones/castellano-literario-es.md) como contexto.** Este archivo es la base de la voz: 10 referentes ES contemporáneos con muestra textual (Urraca · Amat · Morales · Martínez · de la Cruz · Adón · Barba · Moreno · Mesa · Otero), 5 patrones transversales, 12 calcos EN→ES con alternativas literarias, 12 recursos ES positivos y checklist operativa. Origen: feedback Rafael 2026-04-19 sobre *El operador nocturno v1* — la prosa sonaba a traducción del inglés porque el skill no cargaba ningún modelo de prosa narrativa española literaria, solo frameworks universales (Pixar, MRUs, Paint The Villain).
+
+**Cargar adicionalmente OBLIGATORIO el toolkit de craft engagement (canon 2026-04-28 PM):**
+
+1. **[`@references/ficciones/microtension-sentence-level.md §§ 1-3`](../../references/ficciones/microtension-sentence-level.md)** — siempre. 8 técnicas (disonancia gesto/intención · pregunta interior no respondida · detalle físico fuera de lugar · verbo de acción donde se esperaba cognitivo · ruptura de paralelismo · tiempo verbal que adelanta consecuencia · adverbio de modo elidido · DIL que delata) + 10 anti-patterns fláccidos. Test del párrafo aburrido §4 aplicable post-borrador.
+2. **[`@references/ficciones/dialogo-es-domestico.md §§ 1-5`](../../references/ficciones/dialogo-es-domestico.md)** — solo si el outline del paso 5 declara ≥1 escena dialogada. Cubre: verbo de habla invisible (`dijo` default · cuota ≤2 expresivos), 4 funciones McKee, 6 técnicas de subtexto, acción ↔ habla, acotación ES con raya larga. **Regla decisión-en-voz-alta §2.1**: en categoría Cinematográfico/Dinámico, al menos 1 decisión irreversible se ejecuta en diálogo audible, no en silencio interior.
+3. **[`@references/ficciones/open-loops-curiosity-gaps.md §§ 1-3`](../../references/ficciones/open-loops-curiosity-gaps.md)** — siempre. 3 niveles de loop (oración · escena · relato) + catálogo cerrado de 6 tipos de pregunta (qué pasó · qué va a pasar · por qué hizo · quién es realmente · qué oculta esta casa · qué dirá el otro) + regla del payback (promesa-progreso-pago). Saturación destruye tensión: flash 1 principal + ≤1 secundario; corto 1 principal + 1-2 secundarios.
+4. **[`@references/ficciones/pov-y-discurso-indirecto-libre.md § 1`](../../references/ficciones/pov-y-discurso-indirecto-libre.md)** (tabla decisión POV) — siempre. **§§ 2-5 si el POV elegido es `3a-lim-dil`, `ia-1a` o `ia-3a`**. Cubre los 4 marcadores DIL (deíctico cercano · léxico del personaje en narración · presente histórico mezclado · exclamación interior sin acotación), anti-patterns (head-hopping · DIL inconsistente · DIL acotado · voice del autor irrumpiendo) y convenciones POV humanoide (sin robot-jerga anglo).
+5. **[`@references/ficciones/show-dont-tell-operativo.md §§ 1-3`](../../references/ficciones/show-dont-tell-operativo.md)** — siempre. Lista cerrada de 10 verbos cognitivos + 10 adjetivos-juicio prohibidos en narrador con sustitución gestual canónica. Telling permitido solo en 3 casos documentados (transición temporal · recursión · economía flash).
+
+**Vinculación con `intensidad-narrativa.md § 2.bis Consecuencia visible post-decisión` (canon 2026-04-28 PM):** todo relato Cinematográfico/Dinámico cierra con acto/diálogo/reacción exterior inmediatamente posterior a la decisión irreversible. Las últimas 5-7 líneas se verifican en paso 8.x.
 
 Prompt MRU (reformulado en español, no inglés — la voz de generación debe ser ES desde el inicio):
 
@@ -797,6 +842,103 @@ Verificar contra `@rules/editorial.md § Formato técnico (Beehiiv)`. Política 
 - [ ] SÍ permitido: negrita puntual dentro de párrafos de prosa para énfasis
 
 Si hay violaciones → limpiar antes de entregar (no se pregunta al usuario).
+
+### 8.6. Verificación craft engagement — OBLIGATORIO antes de output (canon 2026-04-28 PM)
+
+Capa de verificación introducida 2026-04-28 PM tras auditoría de los 5 relatos publicados más recientes — el catálogo cierra bien estructuralmente pero pierde tirón sentence-level y cierres meditativos desactivan la fricción construida. Esta capa cierra el gap.
+
+**A) Greps obligatorios sobre el `.md` del relato** (ejecutar contra el archivo final, ignorar líneas de diálogo que empiezan por raya larga `—`):
+
+```bash
+RELATO=content/ficciones/<slug>/<slug>.md
+
+# §A1 Verbos cognitivos prohibidos en narrador (show-dont-tell-operativo §4.1)
+grep -nE '\b(pens[óaóé]|sint[ióé]|recor[dr]?[óé]|sup[oae]|enten[díoé]|comprendi[óé]|se di[oa] cuenta|tuvo la sensaci[óo]n|le pareci[óé]|crey[óé])\b' "$RELATO" | grep -v '^\s*[0-9]*:—'
+
+# §A2 Adjetivos-juicio prohibidos en narrador (show-dont-tell-operativo §4.2)
+grep -nE '\b(triste|feliz|content[oa]|enfadad[oa]|enojad[oa]|cansad[oa]|nerviosos?|agobiad[oa]|solitari[oa]|vac[ií][oa]|preocupad[oa]|abrumad[oa])\b' "$RELATO" | grep -v '^\s*[0-9]*:—'
+
+# §A3 Anti-patterns combinados (microtension §3 + show-dont-tell §4.3) — BLOQUEO si ≥1 match
+grep -nE '\b(de repente|de pronto|algo en su interior|una parte de [eé]l|una sensaci[óo]n de [a-z]+ lo invadi[óé]|no pod[ií]a evitar pensar)\b' "$RELATO"
+
+# §A4 Adverbios -mente en cadena (show-dont-tell §4.4) — BLOQUEO si ≥1 match
+grep -nE '[a-z]+mente,? [a-záéíóú]+ [a-z]+mente' "$RELATO"
+
+# §A5 Verbos de habla expresivos abusados (dialogo-es-domestico §1) — cuota ≤2
+grep -cE '\b(susurr[óaóéí]|musit[óé]|exclam[óé]|prof[ie]ri[óé]|espet[óé]|aull[óé]|bram[óé]|rugi[óé]|mascull[óé]|refunfu[ñn][óé]|gruñ[óé])\b' "$RELATO"
+
+# §A6 Robot-jerga anglo en POV humanoide (pov-y-discurso-indirecto-libre §5.1) — solo si pov: ia-*
+grep -niE '\b(running|processing|core protocol|compliance check|emotion subroutine)\b' "$RELATO"
+
+# §A7 DIL acotado (pov-y-discurso-indirecto-libre §4.3)
+grep -nE '\bpens[óaóé]:|"pens[óaóé]' "$RELATO"
+```
+
+**Resolución:**
+- §A3 ≥1 match o §A4 ≥1 match → **BLOQUEO automático**, reescribir antes de re-correr.
+- §A5 >2 → reescribir verbos de habla a `dijo`/`preguntó`/`respondió`.
+- §A6 ≥1 (en POV humanoide) → reescribir con registro técnico-ES.
+- §A7 ≥1 → reescribir como DIL puro sin acotación.
+- §A1 y §A2: revisión manual de cada match — legítimo si está en diálogo (línea con `—`), DIL puro o telling permitido §3 documentado en `PASOS.md § Excepciones documentadas`. Meta total combinada ≤3 matches reescribibles. Si supera → reescribir hasta bajar.
+
+**B) Test del cierre con consecuencia visible** (intensidad-narrativa §2.bis · obligatorio en categoría Cinematográfico/Dinámico):
+
+Leer las **últimas 5-7 líneas** del relato. Identificar al menos UNO de:
+- Verbo de acción exterior (alguien hace algo, un objeto se mueve, llega una noticia).
+- Línea de diálogo (cualquier personaje habla).
+- Reacción visible de otro personaje (gesto, mirada, posición que cambia).
+
+Si las últimas 5-7 líneas son **solo descripción + interioridad + ambiente** y la categoría declarada es Cinematográfico/Dinámico → **BLOQUEO**, reescribir cierre. Excepción documentada: cliffhanger declarado como `acto-irreversible-suspendido` (caso La objeción) cumple la regla porque la suspensión visible es la consecuencia.
+
+**C) Test del payback del loop principal** (open-loops-curiosity-gaps §3-§4):
+
+Formular el loop principal en una pregunta de 1 línea (ej: *"¿qué pasó entre Manuel y Pipo en los dos inviernos?"*). Localizar dónde se paga (o se subvierte declaradamente) en el cierre. Tres formas válidas:
+- **Payback directo** — la pregunta se responde explícitamente.
+- **Payback subvertido** — se responde diferente a lo esperado.
+- **Payback diferido por elección autoral declarada** — solo si el loop es del tipo §2.1 *qué pasó*, §2.5 *qué oculta esta casa* o §2.6 *qué dirá el otro* (los tolerantes a ambigüedad).
+
+Loop sin payback localizable → **BLOQUEO**, reescribir cierre o reformular el loop principal.
+
+**D) Test del párrafo aburrido** (microtension §4):
+
+Leer cada párrafo del relato aislado y preguntar: *"¿qué pregunta deja abierta? ¿qué cambia entre principio y final?"*. Scorear 1-5 cada párrafo:
+- **5** — pregunta fuerte abierta + contradicción + cambio de estado.
+- **4** — pregunta abierta clara o cambio de estado visible.
+- **3** — vector de microtensión presente pero suave.
+- **2** — solo descripción con tono pero sin pregunta.
+- **1** — descripción plana, ningún vector.
+
+Score promedio del relato:
+- Cinematográfico/Dinámico → meta **≥4.0**.
+- Atmosférico → meta **≥3.5**.
+- Slice → meta **≥3.0**.
+
+Cualquier párrafo con score ≤2 → reescribir o cortar (excepto 1 respiradero documentado cada ~400 palabras). Score promedio bajo la meta → reescribir párrafos débiles.
+
+**E) Reporte en `PASOS.md § Verificación craft engagement` (formato canónico):**
+
+```markdown
+## Verificación craft engagement (paso 8.6)
+
+**A. Greps:**
+- §A1 verbos cognitivos: 1 match (línea 47, DIL puro Manuel ✅) — 0 reescribibles.
+- §A2 adjetivos-juicio: 0 matches.
+- §A3 anti-patterns: 0 matches ✅.
+- §A4 -mente en cadena: 0 matches ✅.
+- §A5 verbos habla expresivos: 1 match (`susurró` línea 89) → reescrito a `dijo en voz baja`.
+- §A6 robot-jerga (pov: 3a-lim, no aplica).
+- §A7 DIL acotado: 0 matches ✅.
+
+**B. Cierre con consecuencia visible:** ✅ últimas 7 líneas contienen diálogo de Manuel al cuñado + Pipo soldando (objeto-testigo). Cumple §2.bis.
+
+**C. Payback loop principal:** ✅ payback directo. Loop §2.1 *¿qué pasó entre Manuel y Pipo?* paga al ver el altar de chatarra (sección III).
+
+**D. Test párrafo aburrido:** score promedio 4.3. Párrafo más débil score 3 (sección II inicio, descripción de la niebla). No reescrito (vale como respiradero ≤400 pal).
+
+**Veredicto:** READY para output.
+```
+
+Sin esta sección completada → output bloqueado.
 
 ### 9. Validaciones finales antes de output
 
@@ -1070,7 +1212,11 @@ episodio: 03
 longitud: flash | corto | mini-serie-episodio
 palabras: 847
 personajes: [Tico, Abuela Cortés]
-pov: omnisciente | primera-persona-tico
+pov: 1a | 3a-lim | 3a-lim-dil | omnisciente | ia-1a | ia-3a    # Catálogo cerrado canon 2026-04-28 PM. Tabla decisión por tonalidad×intensidad×longitud en pov-y-discurso-indirecto-libre.md § 1. Default = 3a-lim-dil. OBLIGATORIO declarar en PASOS.md paso 5.8 + frontmatter.
+loops: ["§2.1 que-paso", "§2.6 que-dira-el-otro"]              # Lista 1-3 elementos del catálogo §2 de open-loops-curiosity-gaps.md. Loop principal primero. Flash → 1+≤1 secundario; corto → 1+1-2; episodio → 1+arco+1-2. OBLIGATORIO desde 2026-04-28 PM.
+cierre_tipo: consecuencia-visible | suspendido-acto | meditativo | silencio-moral | reaccion-otro    # Tipo de cierre. Para Cinematográfico/Dinámico solo permitidos consecuencia-visible / suspendido-acto / reaccion-otro (intensidad-narrativa.md § 2.bis). Atmosférico/Slice también admiten meditativo / silencio-moral. OBLIGATORIO desde 2026-04-28 PM.
+microtension_score: 4.3                                        # Score promedio 1-5 (test del párrafo aburrido §4 microtension-sentence-level.md). Meta ≥4.0 Cinematográfico/Dinámico · ≥3.5 Atmosférico · ≥3.0 Slice. Declarado tras revisión post-borrador. OBLIGATORIO desde 2026-04-28 PM.
+dialogo_pct: 28                                                # Porcentaje aproximado de diálogo. Cinematográfico 30-45% / Dinámico 20-35% / Atmosférico 5-20% / Slice 0-10%. Decisión-en-voz-alta §2.1 obligatoria si Cinematográfico/Dinámico. OBLIGATORIO desde 2026-04-28 PM (solo si hay ≥1 escena dialogada — flash atmosférico sin diálogo puede omitir).
 tiempo-verbal: presente | pasado
 tag: Ficciones Domésticas
 tags-beehiiv: [Opinión]
