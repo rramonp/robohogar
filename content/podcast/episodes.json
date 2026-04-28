@@ -17,6 +17,17 @@
   ],
   "episodes": [
     {
+      "slug": "el-cristalero",
+      "title": "El cristalero",
+      "subtitle": "El limpiacristales que dibuja una rosa cada noche para el humanoide que firmará su despido",
+      "summary": "Hogar uncanny · Un limpiacristales en su último mes en el oficio dibuja rosas de carbón en la torre de oficinas que un humanoide patrullero archiva como evidencia.",
+      "pub_date_rfc2822": "Tue, 28 Apr 2026 09:00:00 +0000",
+      "duration_hms": "00:22:57",
+      "mp3_bytes": 22038195,
+      "cover_cache_bust": "20260428",
+      "guid": "robohogar-ficciones-el-cristalero"
+    },
+    {
       "slug": "pipo",
       "title": "Pipo",
       "subtitle": "El cazador que apunta a la nieta de chatarra que el robot lleva dos años soldando",

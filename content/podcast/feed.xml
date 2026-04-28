@@ -10,7 +10,7 @@
     <description>Relatos de ciencia ficción próxima sobre robótica doméstica. Lo que pasa cuando los robots llegan a casa: humanoides, aspiradores con IA, cuidados, soledades, hogares que aprenden. Cada semana, junto al newsletter en robohogar.com.</description>
     <language>es</language>
     <copyright>© ROBOHOGAR · Rafael</copyright>
-    <lastBuildDate>Mon, 27 Apr 2026 19:31:14 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 08:27:48 +0000</lastBuildDate>
     <itunes:author>ROBOHOGAR</itunes:author>
     <itunes:summary>Relatos de ciencia ficción próxima sobre robótica doméstica. Lo que pasa cuando los robots llegan a casa: humanoides, aspiradores con IA, cuidados, soledades, hogares que aprenden. Cada semana, junto al newsletter en robohogar.com.</itunes:summary>
     <itunes:owner>
@@ -23,6 +23,25 @@
     </itunes:category>
     <itunes:explicit>false</itunes:explicit>
     <itunes:type>episodic</itunes:type>
+    <item>
+      <title>El cristalero</title>
+      <link>https://robohogar.com/p/el-cristalero</link>
+      <description><![CDATA[<p>Hogar uncanny · Un limpiacristales en su último mes en el oficio dibuja rosas de carbón en la torre de oficinas que un humanoide patrullero archiva como evidencia.</p>
+
+<p>▶ Lee el relato completo + suscríbete al newsletter: <a href="https://robohogar.com/p/el-cristalero">https://robohogar.com/p/el-cristalero</a></p>
+
+<p>Ficciones Domésticas — relatos de ciencia ficción próxima sobre robótica en el hogar. Cada semana, junto al newsletter en <a href="https://robohogar.com">robohogar.com</a>.</p>]]></description>
+      <itunes:subtitle>El limpiacristales que dibuja una rosa cada noche para el humanoide que firmará su despido</itunes:subtitle>
+      <itunes:summary>Hogar uncanny · Un limpiacristales en su último mes en el oficio dibuja rosas de carbón en la torre de oficinas que un humanoide patrullero archiva como evidencia.</itunes:summary>
+      <itunes:author>ROBOHOGAR</itunes:author>
+      <itunes:image href="https://feed.robohogar.com/covers/el-cristalero-podcast-1400x1400.jpg?v=20260428" />
+      <enclosure url="https://feed.robohogar.com/el-cristalero.mp3" length="22038195" type="audio/mpeg" />
+      <guid isPermaLink="false">robohogar-ficciones-el-cristalero</guid>
+      <pubDate>Tue, 28 Apr 2026 09:00:00 +0000</pubDate>
+      <itunes:duration>00:22:57</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
     <item>
       <title>Pipo</title>
       <link>https://robohogar.com/p/pipo</link>
