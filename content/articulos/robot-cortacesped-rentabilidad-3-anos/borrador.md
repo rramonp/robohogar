@@ -10,8 +10,8 @@ ROBOHOGAR · 28 abril 2026 · 9 min de lectura
 
 > Esta cuenta está pensada para el jardín particular español en abril de 2026. Tres alternativas reales: cortacésped manual de gasolina (lo que tienes en el trastero hace diez años), servicio profesional de jardinería (lo que pagas si delegas), y robot cortacésped en sus dos rangos típicos —entry-level con cable perimetral, 600-900 €, y wire-free con LiDAR o satélite, 1.500-2.500 €—. Precios contrastados con tarifas oficiales de fabricantes y con datos del INE sobre tarifas de jardinería profesional. La calculadora va al final, sin gate ni email obligatorio: léela, contrástala con tu caso, decide.
 
-🖼️ **HERO** · Jardín mediterráneo español al atardecer, robot cortacésped trabajando solo, pareja al fondo en terraza con café y libro · subir aquí
-*Composición ROBOHOGAR · jardín mediterráneo español típico, robot cortacésped trabajando solo, dueños recuperando la tarde. La cuenta de la rentabilidad empieza por aquí: cuánto vale ese rato.*
+🖼️ **HERO** · Yuxtaposición editorial · cortacésped manual gasolina rojo abandonado a la izquierda + robot moderno a la derecha trabajando sobre césped a rayas · subir `hero-robot-cortacesped-rentabilidad-3-anos-v2.webp`
+*Composición ROBOHOGAR · yuxtaposición editorial · cortacésped manual de gasolina abandonado a un lado del muro de piedra mediterráneo, robot moderno trabajando al otro. La cuenta a 3 años empieza por aquí: qué hacías hoy y qué vas a hacer a partir de ahora.*
 
 ---
 

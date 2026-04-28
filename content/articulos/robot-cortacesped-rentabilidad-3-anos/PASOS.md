@@ -255,9 +255,9 @@ Solo hero en este artículo. **No lleva inline images de productos** — es un a
 
 | Variante | PNG generado | Crop 1200×630 | WebP exportado | Sin neones | Sin texto | Notas |
 |---|---|---|---|---|---|---|
-| v1 lifestyle | ✅ 1308 KB | ✅ 1200×630 | ✅ 154 KB | ✅ | ✅ | Composición canónica: chalet ES atardecer + robot trabajando + pareja en terraza con café/libro al fondo. Paleta ámbar mediterránea perfecta. |
-| v2 yuxtaposición | ✅ 1401 KB (2º intento; 1º falló 503 UNAVAILABLE) | ✅ 1200×630 | ✅ 180 KB | ✅ | ✅ | Yuxtaposición editorial fuerte: cortacésped rojo viejo + bidón combustible a la izquierda sobre césped descuidado, robot blanco moderno a la derecha sobre césped rayado, muro piedra al fondo. |
-| v3 close-up | ✅ 966 KB | ✅ 1200×630 | ✅ 77 KB | ✅ | ✅ | Tight low-angle product hero. Robot blanco/negro sobre césped recién cortado, briznas volando, bokeh dorado backlight. Sin humanos. Cinematográfico. |
+| v1 lifestyle | ✅ 1308 KB | ✅ 1200×630 | ✅ 154 KB | ✅ | ✅ | Composición canónica: chalet ES atardecer + robot trabajando + pareja en terraza con café/libro al fondo. Paleta ámbar mediterránea perfecta. **Archivada 2026-04-28 PM** tras rotación a v2. |
+| **v2 yuxtaposición** ⬅️ ELEGIDA | ✅ 1401 KB (2º intento; 1º falló 503 UNAVAILABLE) | ✅ 1200×630 | ✅ 180 KB | ✅ | ✅ | Yuxtaposición editorial fuerte: cortacésped rojo viejo + bidón combustible a la izquierda sobre césped descuidado, robot blanco moderno a la derecha sobre césped rayado, muro piedra al fondo. **Rotada de archive a hero principal 2026-04-28 PM** — el contraste viejo/nuevo refuerza la tesis del artículo (qué hacías hoy → qué vas a hacer) mejor que el lifestyle v1. Pendiente upload a Beehiiv como Featured image + actualizar URL CDN en archive snippet. |
+| v3 close-up | ✅ 966 KB | ✅ 1200×630 | ✅ 77 KB | ✅ | ✅ | Tight low-angle product hero. Robot blanco/negro sobre césped recién cortado, briznas volando, bokeh dorado backlight. Sin humanos. Cinematográfico. Archivada. |
 
 ---
 
