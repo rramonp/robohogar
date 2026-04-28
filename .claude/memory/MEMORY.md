@@ -85,6 +85,7 @@
 - [feedback_robohogar_archive_heroes.md](feedback_robohogar_archive_heroes.md) — Archivar heros no usados en assets/_archive/, nunca rm
 
 ## Feedback & Reference — Audio production & infra
+- [feedback_audiolibro_titulo_obligatorio.md](feedback_audiolibro_titulo_obligatorio.md) — Frontispicio sonoro obligatorio: intro Luis → título Gabo (announce prosody) → cuerpo → outro. CLI 3er arg + chunks-index v3 desde 2026-04-28 PM
 - [feedback_robohogar_tts_pronunciation.md](feedback_robohogar_tts_pronunciation.md) — Marca en TTS = `ROBO, OGAR` (coma + espacio) para evitar aspiración inglesa de la H por Multilingual v2. Visible en HTML/copy queda como `ROBOHOGAR` (no coma)
 - [reference_robohogar_elevenlabs_balance.md](reference_robohogar_elevenlabs_balance.md) — Contador local saldo ElevenLabs (utilities/elevenlabs_balance.py) sincroniza desde /v1/usage/character-stats; bloquea TTS pre-flight si saldo insuficiente. Plan Creator 121.880 créditos/mes reset día 25
 - [reference_robohogar_r2_rest_fallback.md](reference_robohogar_r2_rest_fallback.md) — Fallback REST API (utilities/upload_rss_to_r2_via_api.py) cuando endpoint S3 R2 está caído por outage parcial Cloudflare. Diagnosticar primero (ping rango 172.64), no asumir local

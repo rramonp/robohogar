@@ -101,7 +101,7 @@ Detalle + razones: memoria `feedback_seo_first_pivote.md`.
 
 ## 📍 Dónde estoy hoy — siguiente paso
 
-> Última actualización: 27-abr-2026, tras publicar #13 *[🎧 Ficción · El humanoide-niñera que aprende a mentir a los padres por amor al niño que cuida](https://robohogar.com/p/la-canguro)* (one-shot Ficciones Domésticas · primer relato con canon § 5.bis painterly chiaroscuro + display_title G4/A YouTube-style + frontispicio Snippet 2.5 · audiolibro 17,5 min con voz Luis ElevenLabs).
+> Última actualización: 28-abr-2026, tras publicar #14 *[🎧 Ficción · El limpiacristales que dibuja una rosa cada noche para el humanoide que firmará su despido](https://robohogar.com/p/el-cristalero)* (one-shot Ficciones Domésticas · primer relato con canon § Composición canon del audiolibro: frontispicio sonoro intercalado tras el bumper Luis con voz Gabo + prosodia de anuncio · audiolibro 23 min · canon `generate_audio.py` schema_version=3 establecido tras este relato).
 
 ### 📌 Próximos 3 next steps
 
@@ -112,11 +112,12 @@ Detalle + razones: memoria `feedback_seo_first_pivote.md`.
 - [x] **Next 3 —** ~~Publicar artículo #11 *"Mejor robot aspirador barato 2026"* (E2 evergreen long-tail sub-300 €, primer artículo entregado vía paste-md a Beehiiv)~~ → Publicado 26-abr-2026. URL: https://robohogar.com/p/mejor-robot-aspirador-barato-2026
 - [x] **Next 4 —** ~~Primera Ficción Doméstica *"El operador nocturno"* (one-shot standalone · pivote tonal inquietante-heavy · audiolibro Luis 23 min)~~ → Publicado 26-abr-2026. URL: https://robohogar.com/p/el-operador-nocturno
 - [x] **Next 5 —** ~~Ficción Doméstica *"La canguro"* (one-shot · primer relato canon § 5.bis painterly chiaroscuro + display_title G4/A YouTube-style + frontispicio Snippet 2.5 · audiolibro Luis 17,5 min)~~ → Publicado 27-abr-2026. URL: https://robohogar.com/p/la-canguro
-- [ ] **Next 6 —** **Evergreen E12 — Robot cortacésped vs tradicional: ROI en 3 años** (estacional mismo pico abr-jul · cluster SEO con E1 vía internal linking) · frase trigger: *"Retomamos evergreen — empezamos E12 ROI cortacésped"* · `/content-draft Robot cortacésped vs cortacésped tradicional: ROI en 3 años` · ver [calendario-editorial.md § Backlog Evergreen SEO](../content/calendario-editorial.md)
-- [ ] **Next 7 —** **Evergreen E4 — Mejor robot aspirador para piso pequeño (<60 m²)** (long-tail baja competencia, perfil ES típico, no estacional) · frase trigger: *"Retomamos evergreen — empezamos E4 piso pequeño"* · `/content-draft`
-- [ ] **Next 8 —** **Evergreen E5 — Aspirador robot vs escoba inteligente: ¿reemplazo o complemento?** (long-tail comparativo · cluster SEO aspiradores) · frase trigger: *"Retomamos evergreen — empezamos E5 aspirador vs escoba"* · `/content-draft`
+- [x] **Next 6 —** ~~Ficción Doméstica *"El cristalero"* (one-shot · primer relato canon § Composición canon del audiolibro = frontispicio sonoro Gabo intercalado tras bumper Luis · audiolibro 23 min · canon `generate_audio.py` schema_version=3 establecido tras este relato)~~ → Publicado 28-abr-2026. URL: https://robohogar.com/p/el-cristalero
+- [ ] **Next 7 —** **Evergreen E12 — Robot cortacésped vs tradicional: ROI en 3 años** (estacional mismo pico abr-jul · cluster SEO con E1 vía internal linking) · frase trigger: *"Retomamos evergreen — empezamos E12 ROI cortacésped"* · `/content-draft Robot cortacésped vs cortacésped tradicional: ROI en 3 años` · ver [calendario-editorial.md § Backlog Evergreen SEO](../content/calendario-editorial.md)
+- [ ] **Next 8 —** **Evergreen E4 — Mejor robot aspirador para piso pequeño (<60 m²)** (long-tail baja competencia, perfil ES típico, no estacional) · frase trigger: *"Retomamos evergreen — empezamos E4 piso pequeño"* · `/content-draft`
+- [ ] **Next 9 —** **Evergreen E5 — Aspirador robot vs escoba inteligente: ¿reemplazo o complemento?** (long-tail comparativo · cluster SEO aspiradores) · frase trigger: *"Retomamos evergreen — empezamos E5 aspirador vs escoba"* · `/content-draft`
 
-**Último artículo publicado:** #13 *🎧 Ficción · El humanoide-niñera que aprende a mentir a los padres por amor al niño que cuida* (2026-04-27).
+**Último artículo publicado:** #13 *🎧 Ficción · El limpiacristales que dibuja una rosa cada noche para el humanoide que firmará su despido* (2026-04-28).
 **Último tangible publicado:** Hoja de Compra v2 PDF (2026-04-18) → `content/lead-magnets/hoja-compra/`.
 
 ### 🌍 Filtro mercado ES — regla base

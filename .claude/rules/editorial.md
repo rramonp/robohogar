@@ -243,6 +243,42 @@ Pilar experimental (~10% del content mix). Relatos cortos de ciencia ficción do
     - **Backfill retroactivo:** los 6 publicados con hero existente se backfillean con la composición que mejor describe su frame (best-fit aproximado, no implica rerender). Tabla en el catálogo. Las 7 composiciones nuevas (C-13..C-19) NO se aplican retroactivamente — son default desde el siguiente relato.
     - **ADN visual (painterly book cover + chiaroscuro + foco único + anti-sign-guard) + regla "cotidiano + sci-fi mezclados" se mantienen en todas las composiciones** — la composición es solo el patrón gramatical macro del frame, no toca el rendering.
 
+- **Composición canon del audiolibro — frontispicio sonoro obligatorio** (regla dura 2026-04-28 PM tras feedback Rafael reproduciendo `el-cristalero.mp3` v1: el bumper Luis cerraba con *"Una Ficción Doméstica de ROBOHOGAR"* y el cuerpo Gabo arrancaba directamente con *"Treinta y un turnos. Mauricio le dio la hoja…"* sin anclar la pieza con su propio nombre — sensación de "te cuento una historia cualquiera" en lugar de "abre el libro X y léelo"). Aplica a TODO audiolibro generado por `/audiobook-generate` para Ficciones Domésticas — one-shots, miniseries, episodios de serie, sin excepción. La composición canónica del MP3 es:
+
+  | Pieza | Voz | Duración típica | Función |
+  |---|---|---|---|
+  | Bumper intro | Luis | ~2.5s | tarjeta de marca *"Ficciones de ROBO, OGAR"* |
+  | Silencio | — | 2s | respiro entre marca y libro |
+  | **Anuncio del título** | **Gabo** | **~1-2s** | **frontispicio sonoro, equivalente al Snippet 2.5 HTML** |
+  | Silencio | — | 2s | respiro entre frontispicio y cuerpo |
+  | Cuerpo del relato | Gabo | minutos | narración íntima |
+  | Silencio | — | 3s | respiro emocional pre-cierre de marca |
+  | Bumper outro | Luis | ~12s | CTA final de marca |
+
+  - **Texto leído como anuncio:** el `title:` corto del frontmatter del relato (ej: *"El cristalero"*), idéntico letra por letra al frontispicio HTML del Snippet 2.5 que Rafael pega en Beehiiv. **Nunca el `display_title:`** declarativo largo — eso es para subject de email + H1 web + OG card, no para audio (15 palabras leídas como tarjeta de título suenan a sinopsis, no a frontispicio). El skill añade automáticamente punto final si el frontmatter no lo trae (idempotente).
+
+  - **Voz Gabo** (mismo locutor del cuerpo). Razón: el narrador del libro lee su propio frontispicio — es el patrón Penguin / Anagrama del audiolibro impreso. Luis se mantiene exclusivamente como bumper de marca (intro + outro). Cambiar de Gabo a Luis para el título rompería la metáfora "abro el libro y empiezo a leer".
+
+  - **Parámetros prosódicos especiales del TTS** (críticos: con defaults, frases ≤3 palabras se leen como inicio de oración incompleta):
+    - `previous_text="Una Ficción Doméstica de ROBO, OGAR."` (cierre simulado del bumper Luis canónico). Sin esto, Multilingual v2 no sabe que viene tras una sentencia cerrada y aplica entonación de continuación.
+    - `voice_settings.style = 0.5` (cuerpo: 0.0). Da expresividad de presentación, no de narración íntima.
+    - `voice_settings.stability = 0.4` (cuerpo: 0.5). Suficiente variación para que el cierre del título caiga en pitch como final declarativo.
+    - `next_text` ausente (no se pasa). Evita que el modelo encadene con el cuerpo sin pausa.
+
+  - **`utilities/generate_audio.py § synthesize_title_announce`** implementa esto. CLI: `python utilities/generate_audio.py <audiolibro.txt> <slug> "<title corto>"` (3er arg obligatorio desde 2026-04-28 PM). Sin él, el script aborta con mensaje claro.
+
+  - **`chunks-index.json` schema_version = 3** desde 2026-04-28 PM: añade `title_text`, `title_duration_seconds`, `silence_after_title_seconds`. Los `chapters[].start_seconds` se calculan con offset = intro + sil_after_intro + título + sil_after_title (la narración empieza tras el frontispicio, no tras el silencio post-intro). Implicación downstream: los timestamps de capítulos del MP4 YouTube + chapters de descripción RSS se desplazan ~3-4s respecto al canon previo.
+
+  - **MP4 YouTube hereda automáticamente.** `/audiobook-distribute` compone el MP4 con el MP3 final como pista de audio + waveform/chyrons. El título leído ya está horneado en el MP3 → aparece en el MP4 sin trabajo extra. Los chapters de la descripción YouTube usan los offsets nuevos del `chunks-index.json` (schema v3).
+
+  - **Aplicación retroactiva:** los 5 audiolibros publicados pre-2026-04-28 PM (`el-que-viene-a-tomar-cafe`, `la-canguro`, `la-objecion`, `papa-desde-singapur`, `pipo`) **NO se regeneran** — el coste TTS de regenerar 5 cuerpos enteros es ~60K créditos (50% cuota mensual Creator). Aplica desde el siguiente relato (`el-cristalero` ya en R2 con título intercalado vía one-shot `intercalate_title_*` 2026-04-28). Si en el futuro un relato pre-canon necesita re-mastering por otro motivo (ej: texto editado, voz cambiada), el título se inyecta en esa pasada — no antes.
+
+  - **Coste por relato:** ~10-20 chars adicionales TTS por título (~10-20 créditos ElevenLabs, despreciable frente a los 12-15K del cuerpo medio).
+
+  - **Verificación pre-output del skill `/audiobook-generate`:** el `title:` corto del frontmatter del relato debe existir y no estar vacío. Si falta, abort. La regla canon del frontispicio HTML (Snippet 2.5) ya garantizaba que el `title:` corto existe en todos los relatos desde 2026-04-26 — esta regla solo añade que también vive como anuncio sonoro.
+
+  Detalle e incidente origen: memoria `feedback_audiolibro_titulo_obligatorio.md`.
+
 Skill: `/ficcion-draft`. Pipeline completo: `@.claude/commands/ficcion-draft.md`.
 Bible maestra + canon transversal de series: `@references/ficciones/series-bible-maestra.md`.
 Knowledge base: `@references/writewithai/07-ficcion-y-narrativa-serializada.md`.

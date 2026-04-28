@@ -147,16 +147,30 @@ Preguntar: *"¿Procedo a generar el MP3 o quieres tocar algo primero?"*
 
 ### 4. Generar el audio
 
+**CLI canon (3 args obligatorios desde 2026-04-28 PM):**
+
 ```bash
-python utilities/generate_audio.py content/ficciones/**/<slug>/audiolibro.txt <slug>
+python utilities/generate_audio.py content/ficciones/**/<slug>/audiolibro.txt <slug> "<title corto>"
 ```
 
-El script (ver [`utilities/generate_audio.py`](../../utilities/generate_audio.py)) hace:
-- Chunking por párrafos ≤4500 chars (límite Multilingual v2).
+El 3er arg es el **`title:` corto del frontmatter** del relato (ej: `"El cristalero"`, `"La objeción"`, `"Pipo"`), **NO el `display_title:`** declarativo largo. Se lee como tarjeta de título entre el bumper Luis y el cuerpo del relato (frontispicio sonoro, equivalente sonoro del Snippet 2.5 HTML). Sin este arg, el script aborta con mensaje claro. Detalle: `@rules/editorial.md § Composición canon del audiolibro`.
+
+**Cómo extraer el `title:` corto** del frontmatter del relato:
+
+```bash
+grep -E "^title:" content/ficciones/**/<slug>/<fecha>-<slug>.md | head -1 | sed 's/^title:[[:space:]]*//' | sed 's/^"//;s/"$//'
+```
+
+Pasarlo entre comillas dobles al CLI. El script normaliza idempotentemente: añade punto final si falta.
+
+**El script** (ver [`utilities/generate_audio.py`](../../utilities/generate_audio.py)) hace:
+- Chunking del cuerpo por párrafos ≤4500 chars (límite Multilingual v2).
 - TTS por chunk con voz **Gabo** para el cuerpo (`o0SveC0zgHFuCsEO3vHR`, default desde 2026-04-27 — sustituye Luis `GojDwihhnL1f7RrBuXsJ` solo en el cuerpo del relato), modelo `eleven_multilingual_v2`, formato `mp3_44100_128`, con `previous_text`/`next_text` para prosodia coherente entre chunks.
-- Concatenación ffmpeg: **intro Luis** (2.53s) + 2s silencio + chunks narración Gabo + 3s silencio + **outro Luis** (11.89s), recodificando todo a 44.1kHz mono 128kbps. Canon híbrido bumpers Luis + cuerpo Gabo restaurado 2026-04-28 tras revertir el experimento "100% Gabo" del 2026-04-27 PM. El silencio de 3s antes del outro (decisión 2026-04-25) da respiro narrativo entre el FIN del relato y la CTA final de marca.
+- **TTS extra del anuncio del título** con voz Gabo (mismo locutor) pero parámetros prosódicos especiales: `style=0.5`, `stability=0.4`, `previous_text="Una Ficción Doméstica de ROBO, OGAR."` (cierre simulado del bumper Luis). Sin estos parámetros, frases ≤3 palabras se leen como inicio de oración incompleta. Canon obligatorio desde 2026-04-28 PM tras incidente `el-cristalero` v1.
+- Concatenación ffmpeg: **intro Luis** (2.53s) + 2s silencio + **anuncio del título Gabo** (~1-2s) + 2s silencio + chunks narración Gabo + 3s silencio + **outro Luis** (11.89s), recodificando todo a 44.1kHz mono 128kbps. Canon híbrido bumpers Luis + cuerpo Gabo restaurado 2026-04-28 tras revertir el experimento "100% Gabo" del 2026-04-27 PM. El silencio de 3s antes del outro (decisión 2026-04-25) da respiro narrativo entre el FIN del relato y la CTA final de marca.
 - Upload a R2 bucket `robohogar-audio` con ContentType `audio/mpeg`, key = `<slug>.mp3`.
 - Versionado local (`_chunks-<slug>/` persistente para debug o regeneración parcial).
+- `chunks-index.json` con schema_version=3 desde 2026-04-28 PM: incluye `title_text`, `title_duration_seconds`, `silence_after_title_seconds`. Los offsets de capítulos se calculan con `narration_start = intro + sil_after_intro + título + sil_after_title`.
 
 Output del script: URL pública del MP3 + duración final + path local.
 
