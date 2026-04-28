@@ -23,6 +23,7 @@
 - [feedback_anti_calcos_lexicos_es.md](feedback_anti_calcos_lexicos_es.md) — Calcos 13-22 canonizados; componer ES directo desde el primer token, no traducir
 - [feedback_validate_prose_es_auto.md](feedback_validate_prose_es_auto.md) — /validate-prose-es auto tras generar prosa publicable (ficcion, content, social, pdf-brand)
 - [feedback_content_draft_inline_images.md](feedback_content_draft_inline_images.md) — /content-draft paso 7: imágenes inline con WebSearch+WebFetch+curl, nunca diferir a manual
+- [feedback_borrador_md_paste_ready.md](feedback_borrador_md_paste_ready.md) — /content-draft emite SIEMPRE borrador.md paste-ready Markdown junto a borrador.html (canon 2026-04-26, reincidente 2026-04-28)
 - [feedback_editorial_es_kb.md](feedback_editorial_es_kb.md) — /content-draft y /social-content cargan references/editorial-es/ antes de generar copy
 - [feedback_digest_backlog_consolidado.md](feedback_digest_backlog_consolidado.md) — /research-digest consolida backlog vivo (Pool A+B con vigencia) en recomendación autosuficiente
 - [feedback_robohogar_evergreen_flag.md](feedback_robohogar_evergreen_flag.md) — Clasificar artículos evergreen true/false para backlog social FASE 4B+

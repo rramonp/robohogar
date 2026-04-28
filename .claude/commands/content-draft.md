@@ -120,11 +120,65 @@ Ambas decisiones se declaran en PASOS.md § Decisiones editoriales (paso 8).
 
 ### 5. Output
 
-- **Carpeta del artículo:** `content/articulos/<slug>/borrador.html`
-- **Assets:** `content/articulos/<slug>/assets/`
+- **Carpeta del artículo:** `content/articulos/<slug>/`
+  - `borrador.html` — preview con CSS ROBOHOGAR + 3 variantes hooks/veredicto/sabias visibles + snippets HTML escapados embebidos para que Rafael vea estructura completa al revisar
+  - `borrador.md` — **paste-ready Markdown del cuerpo editorial para Beehiiv (OBLIGATORIO, ver § 5 bis)**
+  - `PASOS.md` — decisiones editoriales + 12 checks + mapa visual + status hero (paso 8)
+- **Assets:** `content/articulos/<slug>/assets/` — heros 1200×630 (.png + .webp) + figures inline
 - **Vault Obsidian:** `$HBX_VAULT/RRP/RRP_ONEDRIVE/HBX/05_Personal/05-01_Robotica Newsletter/02-Drafts/YYYY-MM-DD-slug.md`
   (usar template vault: `Templates/Template Article Draft.md`)
   `$HBX_VAULT` se resuelve automáticamente en cada máquina (desktop=cri-c, laptop=bakal)
+
+### 5 bis. `borrador.md` paste-ready — OBLIGATORIO (canonizado 2026-04-26 con `mejor-robot-aspirador-barato-2026`)
+
+**Razón:** Rafael publica en Beehiiv haciendo copy-paste. El editor de Beehiiv acepta Markdown nativo en el área de cuerpo editorial (H1, H2, párrafos, blockquotes, listas, tablas), pero **NO** acepta los snippets HTML con estilos inline — esos se pegan aparte vía `/html` → "Custom HTML block". El `borrador.html` es preview con todo embebido (útil para revisión visual y `/post-publish`); el `borrador.md` es la versión paste-ready limpia que Rafael copia al editor en bloque y luego complementa pegando los snippets en sus posiciones.
+
+Sin `borrador.md`, Rafael tiene que extraer manualmente la prosa del HTML, decidir variantes, eliminar snippets embebidos, convertir tags HTML a Markdown — trabajo que el skill puede emitir directamente. **Incidente origen 2026-04-28:** borrador #14 (`robot-cortacesped-rentabilidad-3-anos`) entregado solo con `borrador.html`; Rafael preguntó *"se te ha olvidado el .md o qué ha ocurrido?"*. Causa: el skill mencionaba el output `.md` solo en el vault de Obsidian, no en el repo. Esta sección lo documenta como output co-igual del repo.
+
+**Estructura canónica del `borrador.md`** (orden fijo):
+
+1. `# H1` del artículo
+2. Subtítulo en línea propia (sin H2/H3, sin formato — texto plano que Beehiiv mete como `<p class="subtitle">`)
+3. `ROBOHOGAR · DD mes YYYY · N min de lectura` (byline en línea propia)
+4. `---` separador
+5. **Hook elegido** (la variante recomendada por la IA en el `borrador.html` — v1 por defecto) como `> blockquote`. NO incluir las 3 variantes ni el bloque `variant-reco`; el `.md` es el paste-ready final, no el preview de selección. Si Rafael quiere otra variante, edita el `.md` antes de pegar.
+6. **Intro callout** como `> blockquote` separado (segunda blockquote consecutiva; Beehiiv los renderiza como dos callouts apilados).
+7. `🖼️ **HERO** · <descripción composición> · subir aquí` + línea con caption en cursiva. Marcador para que Rafael recuerde subir el hero WebP elegido al campo "Featured image" + opcionalmente como primer `<img>` del cuerpo.
+8. (Si aplica) `📋 **Pega aquí Snippet 1 — <descripción>**` para el banner Hoja de Compra intro. **No aplica** si la categoría está fuera del scope (cortacésped, humanoide, mascota-robot, asistente-ia-escritorio, ficcion, editorial-sin-angulo-compra).
+9. `---` separador
+10. `## H2 sección 1` + prosa Markdown (negritas con `**`, cursivas con `*`, listas con `-`, sub-headings con `### H3`).
+11. (Repetir H2 + prosa para cada sección)
+12. Tablas en Markdown puro (Beehiiv las acepta) + marcador `📋 **Pega aquí Snippet N — Tabla resumen comparativa**` ANTES de la tabla Markdown si la tabla quiere mantener el highlight ámbar de las filas ganadoras (la Markdown pura pierde el `<thead>` con fondo gris y la fila `winner` ámbar). El lector en preview ve la Markdown pura como referencia; al pegar en Beehiiv, Rafael decide si pega la versión Markdown plana o el snippet HTML estilizado.
+13. **Veredicto elegido** (variante recomendada IA, v1 por defecto) como `> blockquote` precedido por `## 🏆 Nuestro veredicto`. NO incluir las 3 variantes.
+14. `## 💡 ¿Sabías que…?` + prosa de la variante elegida (v1 por defecto) + link de fuente `[Fuente: <X>](url)`. NO incluir las 3 variantes.
+15. `📋 **Pega aquí Snippet N — CTA Suscripción final**` (siempre, en todo artículo no-ficción desde 2026-04-22).
+16. `---` separador
+17. Disclaimer en cursiva (línea final).
+
+**Reglas duras:**
+
+- **Cero HTML en `borrador.md`.** Solo Markdown puro. Si el cuerpo del artículo necesita un bloque que no se puede expresar en Markdown (callouts crema/ámbar, decision-cards, comparativas con winner row), va como `📋 **Pega aquí Snippet N — <descripción>**` + (opcional) la versión Markdown plana del mismo contenido como fallback que Rafael puede usar si decide no pegar el snippet HTML.
+- **Variantes ya elegidas.** El `.md` lleva UNA versión de hook + UNA de veredicto + UNA de ¿sabías que? — la recomendada por la IA en el `borrador.html`. Las 3 variantes solo viven en el `borrador.html` para preview/selección visual de Rafael. Si Rafael cambia de opinión, edita el `.md` antes de pegar.
+- **Marcadores `📋 Pega aquí Snippet N` numerados** en el orden en que aparecen en el cuerpo editorial. Coinciden 1:1 con los `<div class="snippet-block">` del `borrador.html`. Sirven de checklist mental: si en el editor Beehiiv terminas con N marcadores sin pegar, faltan N snippets.
+- **Marcadores `🖼️ HERO` y `🖼️ FIG N`** numerados en el orden de aparición. Para el hero, recordatorio de subir el WebP. Para figures inline, recordatorio de pegar el `<img>` con su caption (Beehiiv tiene su propio uploader de imágenes — Rafael sube el JPG/WebP del repo y mete el caption a mano).
+
+**Verificación pre-output (script):**
+
+```bash
+# Existencia obligatoria
+test -f content/articulos/<slug>/borrador.md && echo "✅ .md existe" || echo "❌ FALTA borrador.md"
+
+# Cero etiquetas HTML en el .md (excepto links Markdown que tienen <>)
+grep -nE '<(div|span|h[1-6]|p|ul|ol|li|table|thead|tbody|tr|td|th|strong|em|b|i)\b' content/articulos/<slug>/borrador.md && echo "❌ HTML detectado en .md (debe ser Markdown puro)" || echo "✅ Markdown puro"
+
+# Marcadores Snippet/HERO/FIG presentes
+grep -cE '📋 \*\*Pega aquí Snippet' content/articulos/<slug>/borrador.md
+grep -cE '🖼️ \*\*HERO\*\*|🖼️ \*\*FIG' content/articulos/<slug>/borrador.md
+```
+
+Si `.md` no existe o contiene HTML → bloqueo del output del skill. Re-emitir antes de entregar a Rafael.
+
+**Patrón canónico de referencia:** [`content/articulos/mejor-robot-aspirador-barato-2026/borrador.md`](../../content/articulos/mejor-robot-aspirador-barato-2026/borrador.md) (primer artículo donde se canonizó el patrón) y [`content/articulos/robot-cortacesped-rentabilidad-3-anos/borrador.md`](../../content/articulos/robot-cortacesped-rentabilidad-3-anos/borrador.md) (segundo, post-incidente).
 
 ### 6. Generar hero image (OBLIGATORIO — 3 variantes)
 
