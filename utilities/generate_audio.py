@@ -5,13 +5,16 @@ Pipeline end-to-end:
   1. Lee `audiolibro.txt` TTS-optimizado del relato.
   2. Divide en chunks por párrafos respetando el límite ~4500 chars/request
      del plan Starter ElevenLabs.
-  3. Llama `/v1/text-to-speech/{voice_id}` por cada chunk con voz Luis
-     (GojDwihhnL1f7RrBuXsJ) y modelo Multilingual v2. Pasa previous_text /
+  3. Llama `/v1/text-to-speech/{voice_id}` por cada chunk con voz Gabo
+     (o0SveC0zgHFuCsEO3vHR — default desde 2026-04-27, sustituye Luis para
+     el cuerpo del relato) y modelo Multilingual v2. Pasa previous_text /
      next_text para mantener prosodia coherente entre chunks.
-  4. Concatena con ffmpeg: intro + 2s silencio + chunks narración + 3s
-     silencio + outro, recodificando todo a 44.1kHz mono 128kbps MP3
-     consistente. El silencio de 3s antes del outro es respiro narrativo
-     entre el FIN del relato y la CTA final de marca (decisión 2026-04-25).
+  4. Concatena con ffmpeg: intro Luis + 2s silencio + chunks narración Gabo
+     + 3s silencio + outro Luis, recodificando todo a 44.1kHz mono 128kbps
+     MP3 consistente. El silencio de 3s antes del outro es respiro
+     narrativo entre el FIN del relato y la CTA final de marca (decisión
+     2026-04-25). Canon híbrido bumpers Luis + cuerpo Gabo restaurado
+     2026-04-28 tras revertir el experimento "100% Gabo" del 2026-04-27 PM.
   5. Sube el MP3 final a Cloudflare R2 bucket (ContentType audio/mpeg)
      y devuelve la URL pública.
 
@@ -27,7 +30,8 @@ Requisitos:
   - `.claude/settings.local.json` con ELEVENLABS_API_KEY + R2_* (5 vars).
   - `boto3` instalado (pip install boto3).
   - ffmpeg accesible vía PATH o WinGet install path Gyan.FFmpeg*.
-  - `assets/audio/intro-ficciones.mp3` y `outro-ficciones.mp3` pregenerados.
+  - `assets/audio/intro-ficciones.mp3` y `outro-ficciones.mp3` pregenerados
+    (voz Luis — son los bumpers de marca, distintos de la voz del cuerpo).
 
 Idempotencia: los chunks temporales se guardan en
 `assets/audio/ficciones/_chunks-<slug>/` — sirven para debug si el audio
@@ -65,7 +69,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 
 # Decisiones canon del plan audiolibros (docs/plan-audiolibros-ficciones.md).
-VOICE_ID = "o0SveC0zgHFuCsEO3vHR"  # Gabo — Deep, Evocative and Resonant (default desde 2026-04-27, sustituye Luis GojDwihhnL1f7RrBuXsJ)
+VOICE_ID = "o0SveC0zgHFuCsEO3vHR"  # Gabo — Deep, Evocative and Resonant (default cuerpo desde 2026-04-27, sustituye Luis GojDwihhnL1f7RrBuXsJ que se mantiene en intro/outro como bumpers de marca)
 MODEL_ID = "eleven_multilingual_v2"
 # mp3_44100_128 coincide con intro-ficciones.mp3 (44.1kHz mono 128kbps).
 OUTPUT_FORMAT = "mp3_44100_128"
@@ -250,12 +254,13 @@ def call_elevenlabs_tts(
         "voice_settings": {
             # stability 0.5: balance entre consistencia y variación expresiva
             "stability": 0.5,
-            # similarity_boost 0.75: mantiene tono de la voz Luis sin perder
-            # naturalidad (1.0 suena robótico en narrativa larga)
+            # similarity_boost 0.75: mantiene tono de la voz del cuerpo
+            # (Gabo) sin perder naturalidad (1.0 suena robótico en
+            # narrativa larga)
             "similarity_boost": 0.75,
             # style 0.0: narración natural, sin exagerar tono emocional
             "style": 0.0,
-            # speaker_boost True: refuerza identidad de Luis entre chunks
+            # speaker_boost True: refuerza identidad del narrador entre chunks
             "use_speaker_boost": True,
         },
     }
@@ -549,8 +554,9 @@ def build_chunks_index(
     Estrategia de timestamping de capítulos: velocidad uniforme global.
       Calculamos chars/segundo sobre la narración total (excluyendo intro,
       silencio y outro) y mapeamos cada char_position a un offset relativo.
-      Para Luis ES Multilingual v2 sale ~16-20 cps, suficientemente uniforme
-      entre chunks para que el error sea de 1-3 s, dentro de tolerancia.
+      Para Gabo ES Multilingual v2 sale ~12-14 cps (más pausado que Luis
+      ~16-20 cps), suficientemente uniforme entre chunks para que el error
+      sea de 1-3 s, dentro de tolerancia.
     """
     # Duraciones reales de cada chunk (medidas con ffprobe, no estimadas).
     # Sirven para que downstream pueda ofrecer timestamps muy precisos por
@@ -562,8 +568,9 @@ def build_chunks_index(
     narration_duration = sum(chunk_durations)
 
     # Velocidad de narración chars/segundo. Fallback razonable si ffprobe
-    # falló (devolvió 0.0): ~17 cps que es la media empírica de Luis ES.
-    cps = narration_chars / narration_duration if narration_duration > 0 else 17.0
+    # falló (devolvió 0.0): ~13 cps que es la media empírica de Gabo ES
+    # (default desde 2026-04-27; Luis era ~17 cps, más rápido).
+    cps = narration_chars / narration_duration if narration_duration > 0 else 13.0
 
     # Detectar capítulos sobre el texto narrativo.
     chapters_raw = detect_chapters(text)

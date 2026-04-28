@@ -130,6 +130,16 @@ Ambas decisiones se declaran en PASOS.md § Decisiones editoriales (paso 8).
 
 Generar 3 variantes con composiciones distintas → `content/articulos/<slug>/assets/hero-<slug>-v{1,2,3}.png`. Script local: `utilities/nano_banana_image.py`.
 
+**⚠️ REGLA DURA — las 3 variantes son 3 IDEAS / COMPOSICIONES / PLANOS / ENCUADRES claramente distintos** (canonizada 2026-04-28 PM tarde tras feedback Rafael ampliando el alcance de la regla de ficción a todo `/nano-banana`: *"cuando generes miniaturas con nano banana para relatos o artículos te asegures de que las tres versiones que generas tengan composiciones bien distintas, ideas, planos, etc. No que sean prácticamente la misma idea con pequeñas variaciones"*). **Prohibido**: 3 variantes que comparten la misma escena con el robot girado, la misma cocina con luz movida, el mismo producto en 3 ángulos próximos. **Verificación pre-output del paso:** las 3 variantes deben describirse en `PASOS.md § Hero` con un párrafo cada una declarando **gramática del frame distinta** (plano, encuadre, sujeto principal, ambiente, escala, paleta dominante, distancia de cámara). Si las 3 descripciones son intercambiables → regenerar el set antes de ejecutar el script. Detalle universal: [`feedback_3_candidatos_composiciones_distintas.md`](../../.claude/memory/feedback_ficcion_3_candidatos_composiciones_distintas.md).
+
+**Sugerencias de variabilidad por tipo de artículo** (no exclusivo — combinar libremente):
+- **Plano** — detalle de producto en mano · plano americano del usuario con producto · plano amplio del entorno doméstico con producto.
+- **Sujeto principal** — el producto · el usuario en acción · el espacio doméstico · el problema que el producto resuelve.
+- **Ambiente / hora** — luz natural diurna · luz artificial nocturna · golden hour · luz dura cenital.
+- **Escala / distancia** — macro detalle · medium close-up · plano general.
+- **Paleta** — cálida ámbar/madera · fría azul/metal · neutra blancos/grises · contrastada (cálido-frío).
+- **Tipo de toma** — product hero estático · escena de uso doméstico · still life de mesa · ambient escena en movimiento.
+
 **⚠️ Configuración obligatoria (regla dura 2026-04-21 — reincidente):**
 - Modelo: `--model 2` (o `--model pro`). **NUNCA `flash`** — el `flash` (gemini-2.5-flash-image) ignora silenciosamente el parámetro `--aspect` y genera siempre cuadrado 1024×1024, rompiendo el estándar OG 1200×630.
 - Aspect: `--aspect 16:9`.
@@ -989,7 +999,7 @@ Cada variante puede usar una fuente distinta (no obligatorio citar todas desde l
 
 ### Reglas comunes (hook + veredicto + ¿sabías que?)
 
-- Las 3 variantes deben aportar **ángulos genuinamente distintos**, no reformulaciones léxicas del mismo contenido.
+- Las 3 variantes deben aportar **ángulos genuinamente distintos**, no reformulaciones léxicas del mismo contenido. (Regla hermana de la § 6 Hero image — aplica a cualquier set de 3 candidatos: hooks, veredictos, ¿sabías qué?, heros).
 - El label `[SECCIÓN vN · ángulo]` y las clases `hook-option` / `veredicto-option` / `sabias-option` son obligatorias — `/post-publish` las usa como checkpoint.
 - Cada variante debe ser **autosuficiente y legible** sin el contexto de las otras dos (por si Rafael lee el preview fuera de orden).
 - Los datos numéricos/estadísticos deben ser **reales y verificables**, no inventados entre variantes. Si no tienes dato sólido para una variante, usa un ángulo cualitativo en lugar de inventar cifra.

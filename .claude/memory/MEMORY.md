@@ -50,8 +50,8 @@
 - [feedback_ficcion_hero_cotidiano_mas_scifi.md](feedback_ficcion_hero_cotidiano_mas_scifi.md) — Regla permanente: hero siempre cotidiano + toque sci-fi/humanoide mezclados, nunca still life puro
 - [feedback_ficcion_subtitulos_descriptivos.md](feedback_ficcion_subtitulos_descriptivos.md) — "## I. Título sobrio" en vez de romanos pelados; aplica a md, HTML Beehiiv y audiolibro TTS
 - [feedback_ficcion_modalidades_visuales.md](feedback_ficcion_modalidades_visuales.md) — Catálogo cerrado M1-M6 (paleta+atmósfera) + ángulo A1-A5. Anti-repetición últimos 3, transversal a paradigma. Default desde 2026-04-27, no retroactivo
-- [feedback_ficcion_composiciones_canon.md](feedback_ficcion_composiciones_canon.md) — Catálogo cerrado C-01..C-12 (12 patrones macro en 5 familias). Selección aleatoria con anti-repetición últimos 5 + bloqueo de familia si las 3 últimas son misma familia. Default desde 2026-04-28
-- [feedback_ficcion_3_candidatos_composiciones_distintas.md](feedback_ficcion_3_candidatos_composiciones_distintas.md) — Las 3 hero options son SIEMPRE 3 C-XX distintas (nunca 3 variantes de la misma cambiando objeto-imposibilidad). Regla dura 2026-04-28 PM tras Pipo
+- [feedback_ficcion_composiciones_canon.md](feedback_ficcion_composiciones_canon.md) — Catálogo cerrado C-01..C-19 (19 patrones macro en 5 familias; C-01..C-12 base 2026-04-27 + C-13..C-19 ampliación 2026-04-28 PM tarde). Selección aleatoria con anti-repetición últimos 5 + bloqueo de familia si las 3 últimas son misma familia
+- [feedback_ficcion_3_candidatos_composiciones_distintas.md](feedback_ficcion_3_candidatos_composiciones_distintas.md) — Regla universal: las 3 candidatos de imagen son SIEMPRE 3 ideas/composiciones/planos/encuadres distintos (ficción C-XX + artículos + cualquier `/nano-banana` 3-options). Origen Pipo 2026-04-28 PM, ampliación universal 2026-04-28 PM tarde
 
 ## Feedback — Beehiiv & Platform
 - [feedback_beehiiv_tipografia_bold_tablas.md](feedback_beehiiv_tipografia_bold_tablas.md) — Formato técnico Beehiiv maestro: DM Sans Semibold (600) + Inter Regular · bold SÍ/NO + bug copy-paste (usar <strong>, nunca <span class="bold">) · tablas mobile-first máx 4 cols ≤25 chars
@@ -88,7 +88,7 @@
 - [feedback_robohogar_tts_pronunciation.md](feedback_robohogar_tts_pronunciation.md) — Marca en TTS = `ROBO, OGAR` (coma + espacio) para evitar aspiración inglesa de la H por Multilingual v2. Visible en HTML/copy queda como `ROBOHOGAR` (no coma)
 - [reference_robohogar_elevenlabs_balance.md](reference_robohogar_elevenlabs_balance.md) — Contador local saldo ElevenLabs (utilities/elevenlabs_balance.py) sincroniza desde /v1/usage/character-stats; bloquea TTS pre-flight si saldo insuficiente. Plan Creator 121.880 créditos/mes reset día 25
 - [reference_robohogar_r2_rest_fallback.md](reference_robohogar_r2_rest_fallback.md) — Fallback REST API (utilities/upload_rss_to_r2_via_api.py) cuando endpoint S3 R2 está caído por outage parcial Cloudflare. Diagnosticar primero (ping rango 172.64), no asumir local
-- [feedback_audiobook_voz_default_gabo.md](feedback_audiobook_voz_default_gabo.md) — 2026-04-27: voz default audiobooks Gabo (`o0SveC0zgHFuCsEO3vHR`) sustituye Luis. Y `/ficcion-draft` auto-encadena `/audiobook-generate` (cambia regla "manual only"). Histórico Luis intacto
+- [feedback_audiobook_voz_default_gabo.md](feedback_audiobook_voz_default_gabo.md) — 2026-04-28: canon híbrido bumpers Luis + cuerpo Gabo (revierte "100% Gabo" del 27 PM). `/ficcion-draft` auto-encadena `/audiobook-generate`. Histórico Luis intacto
 - [reference_chapter_detection_defenses.md](reference_chapter_detection_defenses.md) — Detector de capítulos audiolibro (4 bugs en 4 días). Defensas duraderas: guard pre-TTS `assert_no_chapters_lost` (aborta antes de gastar créditos si laxo > estricto) + 10 tests regresión `utilities/tests/test_chapter_detection.py`. Disciplina: test primero, fix después
 
 ## Feedback — Meta (memoria del propio sistema)

@@ -1,6 +1,6 @@
 # Composiciones canónicas para heros de Ficciones Domésticas
 
-Catálogo de **12 patrones compositivos macro** (C-01..C-12) extraídos del canal "Domestic Fictions" de YouTube y aprobados por Rafael 2026-04-27 como referente visual de variabilidad. Cada composición es un patrón **gramatical de frame** distinto: encuadre, profundidad, relación entre planos, atmósfera. Aplica a **todos los paradigmas** de hero ficción (minimalista § 5 + personaje-acción-imposibilidad § 5.bis).
+Catálogo de **19 patrones compositivos macro** (C-01..C-19) extraídos del canal "Domestic Fictions" de YouTube y aprobados por Rafael 2026-04-27 (C-01..C-12) y 2026-04-28 (C-13..C-19) como referente visual de variabilidad. Cada composición es un patrón **gramatical de frame** distinto: encuadre, profundidad, relación entre planos, atmósfera. Aplica a **todos los paradigmas** de hero ficción (minimalista § 5 + personaje-acción-imposibilidad § 5.bis).
 
 Eje **ortogonal** a:
 - **Modalidad visual** M1-M6 (paleta + color de la fuente lumínica única).
@@ -14,13 +14,13 @@ Las 9 miniaturas test del 2026-04-27 (3 por relato: 72h, Papá, Llave) salieron 
 
 ## Reglas duras
 
-1. **Frontmatter `composicion_canon: C-01..C-12` obligatorio** desde 2026-04-28. Sin él, output del skill bloqueado.
+1. **Frontmatter `composicion_canon: C-01..C-19` obligatorio** desde 2026-04-28. Sin él, output del skill bloqueado.
 2. **Anti-repetición:** no repetir misma composición en los **últimos 5 heros publicados** (transversal a paradigma). Skill consulta `content/registro-ficciones.md` columna `Comp.`.
-3. **Selección aleatoria + filtro de compatibilidad:** el skill `/ficcion-draft § 8.x Hero` filtra el pool de 12 por compatibilidad con `categoria-tonal` (mapeo más abajo) + `Perfil POV` + composición coherente con `display_title`, excluye las 5 últimas, y propone **3 candidatos aleatorios** del pool resultante. Rafael valida o pide alternativa.
+3. **Selección aleatoria + filtro de compatibilidad:** el skill `/ficcion-draft § 8.x Hero` filtra el pool de 19 por compatibilidad con `categoria-tonal` (mapeo más abajo) + `Perfil POV` + composición coherente con `display_title`, excluye las 5 últimas, y propone **3 candidatos aleatorios** del pool resultante. Rafael valida o pide alternativa.
 3.bis. **Regla dura — los 3 candidatos son SIEMPRE 3 composiciones C-XX totalmente distintas** (canonizado 2026-04-28 PM tras feedback Rafael en la generación de Pipo: *"cuando me das tres opciones, quiero tres opciones con composiciones totalmente distintas, no tres prácticamente idénticas con pequeñas diferencias muy sutiles"*). Prohibido proponer 3 variantes de la misma C-XX cambiando solo el objeto-imposibilidad / pose / luz secundaria. Si el skill cree que una C-XX concreta encaja perfecto, igualmente debe proponer 2 más de C-XX distintas para que Rafael decida con contraste real — el valor del paso es exploratorio, no confirmatorio. **Ideal:** las 3 vienen además de **familias distintas** (I/II/III/IV/V) cuando el pool lo permita, para máximo contraste compositivo macro. **Verificación pre-output:** `len(set([c1.C, c2.C, c3.C])) == 3` o resamplear; `len(set([c1.fam, c2.fam, c3.fam])) == 3` ideal o declarar motivo si el pool no lo permite. Aplica también al skill `/nano-banana` cuando se invoca en modo ficción.
 4. **Anti-cuadricula compositiva:** si las últimas 3 composiciones publicadas pertenecen a la misma familia (I-V), forzar familia distinta para la siguiente.
 5. **ADN visual y regla "cotidiano + sci-fi mezclados" se mantienen** en todas las composiciones — humanoide siempre presente (explícito o como sombra/silueta/objeto sintético), painterly book cover obligatorio, chiaroscuro con foco único, anti-sign-guard activo.
-6. **Meta de cobertura inicial:** en los próximos 12 heros desde 2026-04-28, deben aparecer **al menos 8 de las 12 composiciones**. Si tras 12 una composición nunca apareció, el skill bloquea las otras hasta que toque la faltante.
+6. **Meta de cobertura inicial:** en los próximos 19 heros desde 2026-04-28, deben aparecer **al menos 12 de las 19 composiciones**. Si tras 19 una composición nunca apareció, el skill bloquea las otras hasta que toque la faltante.
 
 ## Catálogo
 
@@ -50,6 +50,22 @@ Detalle macro o medium-macro de manos trabajando un objeto + atrezzo identificad
 - **Tonalidades preferentes:** inquietante · mundano · radical.
 - **Inspirado en:** *Robotic tailor stitching microscopic trackers · Antique restoration robot.*
 
+#### C-13 · Three-shot teatral horizontal con oficio
+
+Tres figuras alineadas horizontalmente en un mismo plano de un taller / consulta / atelier / estudio: artesano-personaje a un extremo trabajando un objeto central, objeto/maniquí/destinatario en el centro como pivot, y receptor/cliente/observador al otro extremo. Suelen tener distinta profundidad pero tridelimitan el frame en tercios verticales. Foco lumínico cálido único cae sobre el objeto central que conecta a los tres.
+
+- **Gancho compositivo:** la composición teatral en tercios fuerza al lector a leer una **transacción ritualizada de oficio** — quién hace, sobre qué, para quién. Los tres roles quedan claros a thumbnail.
+- **Tonalidades preferentes:** ambiguo · inspirador · radical (cuando el receptor es coercionado).
+- **Inspirado en:** *The tailor who sews sensors into wedding dresses to detect a groom's mechanical heart.*
+
+#### C-18 · Detalle de manos con altar / fondo ceremonial simétrico
+
+Híbrido C-03 + C-05. Detalle medium-macro de manos en primer plano trabajando un objeto-imposibilidad delicado, **mientras el fondo es un altar / atril / retablo / mecanismo monumental rigurosamente simétrico** con elementos flanqueantes (velas, columnas, vitrales, engranajes gigantes, símbolos religiosos o gremiales). El gesto íntimo del oficio se inscribe en una arquitectura ceremonial.
+
+- **Gancho compositivo:** la fricción entre el gesto íntimo (manos) y la solemnidad del fondo (altar) declara visualmente que **lo que se hace aquí es ritual**, no rutina. Carga moral fuerte.
+- **Tonalidades preferentes:** inquietante · radical · ambiguo.
+- **Inspirado en:** *An antique clockmaker who replaces mechanical gears with synthetic humanoid heart valves.*
+
 ### Familia II — Plano arquitectónico monumental
 
 #### C-04 · Espacio institucional con perspectiva profunda
@@ -67,6 +83,22 @@ Composición central absoluta. Figura(s) en eje vertical + simetría horizontal 
 - **Gancho compositivo:** la simetría produce gravedad ceremonial — confrontación ritual, juicio, juramento.
 - **Tonalidades preferentes:** radical.
 - **Inspirado en:** *Robotic judge calculating sentences · The robot priest absolution · The robotic organist congregation.*
+
+#### C-14 · Contrapicado de escala asimétrica humano↔máquina
+
+Cámara contrapicada baja (a la altura del tobillo / suelo). Figura humana **pequeña** en primer plano (niño, anciano frágil, persona sentada o agachada) con máquina / humanoide / dron militar **enorme** en el mismo encuadre, dominando el frame por encima. Ambas figuras en el mismo plano de profundidad — no es perspectiva monumental al estilo C-04, es **contraste físico de cuerpos** en la misma estancia/calle/sala.
+
+- **Gancho compositivo:** el contrapicado convierte al humano en silueta vulnerable y a la máquina en presencia totémica. El lector lee desnivel de poder antes de leer la escena.
+- **Tonalidades preferentes:** inquietante · radical · ambiguo.
+- **Inspirado en:** *An orphan who tricks the patrol robot into playing hide and seek forever.*
+
+#### C-15 · Bóveda / cúpula con reunión circular ritual
+
+Geometría arqueada del fondo (sótano abovedado, cripta, refugio subterráneo, cisterna, hangar arqueado, capilla, observatorio cupular). Figura central (o pareja central) sentada / de pie en el eje, **rodeada por una audiencia dispuesta en círculo** (niños, ancianos, fieles, supervivientes, alumnos). Profundidad mantenida por la curva del techo. Pantallas o iconos colgantes pueden reforzar la geometría arqueada.
+
+- **Gancho compositivo:** la geometría circular sugiere ritual de comunidad clandestina — narración oral, ceremonia, asamblea. Distinta de la perspectiva monumental rígida (C-04) y del eje altar simétrico (C-05).
+- **Tonalidades preferentes:** ambiguo · inspirador · radical.
+- **Inspirado en:** *An insomniac teacher who uses discarded robot voices to narrate forgotten history to orphans.*
 
 ### Familia III — Frame dentro de frame
 
@@ -86,6 +118,14 @@ Una ventana, puerta, cristal de balcón o puerta entreabierta muestra una segund
 - **Tonalidades preferentes:** ambiguo · inquietante · inspirador.
 - **Inspirado en:** *Smart cradle mimicking heartbeat · Navigation droid blind billionaire · Gardening drone invasive species (variante con casa al fondo) · Automated pilot crashing plane.*
 
+#### C-19 · Cabina cerrada con ventana a exterior radical
+
+Variante extrema de C-07. El interior es **claustrofóbico y técnico** (cabina de avión, escotilla espacial, búnker, observatorio, submarino, ascensor minero, sala de control). El exterior visto por la ventana NO es doméstico ni reconocible: es **cosmos estrellado, dunas marcianas, mar abierto en tormenta, tundra ártica, cráter de impacto, ciudad bombardeada al fondo, cielo de tormenta extraterrestre**. El personaje está sentado o de pie con auriculares / casco / monitor en mano, **el humanoide o dron exterior comparte la composición** (visto pequeño contra el exterior radical).
+
+- **Gancho compositivo:** la fricción interior-cerrado / exterior-abismal coloca al personaje en posición de soledad técnica frente a algo demasiado grande. Distinto del C-07 (donde el exterior es legible y cercano).
+- **Tonalidades preferentes:** inquietante · ambiguo · radical.
+- **Inspirado en:** *The pilot who teaches a cargo drone how to recognize constellations during long flights.*
+
 ### Familia IV — Frontal teatral / over-the-shoulder
 
 #### C-08 · Frontal teatral con atrezzo simbólico
@@ -103,6 +143,14 @@ Espalda de figura en primer plano (humano o humanoide), ocupando 30-40% del fram
 - **Gancho compositivo:** el lector se convierte en el observador — comparte ángulo de visión con el personaje, comparte la transgresión.
 - **Tonalidades preferentes:** inquietante · radical.
 - **Inspirado en:** *Cleaning droid documenting household waste · Automated lawyer losing cases (variante backshot) · The librarian droid burning books (variante silueta + fuego al fondo).*
+
+#### C-16 · Foco lumínico cenital extremo (quirúrgico / teatral)
+
+Tight bust shot (cabeza + manos + atrezzo) con **luz cenital absoluta** cayendo en pico desde arriba. Sombras duras debajo de cejas, nariz, mentón, hombros. Atmósfera de quirófano / mesa de autopsia / escenario teatral con un solo spotlight / interrogatorio. El humanoide o tech-elemento entra como **objeto en las manos del personaje** (un dedo robótico de juguete, una placa de circuito, un órgano sintético) recibiendo también el rayo cenital.
+
+- **Gancho compositivo:** la luz cenital teatraliza el momento como ritual técnico bajo escrutinio. El gesto de las manos sostiene el peso narrativo. Distinto del C-02 close-up emocional (lateral diagonal) — aquí la luz **cae desde arriba** y produce dramatismo de mesa de operaciones.
+- **Tonalidades preferentes:** inquietante · radical.
+- **Inspirado en:** *The surgeon who replaces his trembling hands with the precise fingers of a toy · The judge who asks a household robot to testify (variante con luz divina cenital sobre el robot testigo).*
 
 ### Familia V — Atmósfera ambiental + color-pop
 
@@ -130,30 +178,38 @@ Paleta general sobria/painterly canónica + UNA zona con acento cromático satur
 - **Tonalidades preferentes:** radical · inquietante.
 - **Inspirado en:** *Automated florist arranging toxic flowers · Humanoid influencer sabotaging face · The librarian droid burning books (color-pop fuego) · Digital butler holograma turquesa.*
 
+#### C-17 · Ritual outdoor con horizonte desolado / apocalíptico
+
+Exterior amplio bajo cielo crepuscular o post-tormenta. Personaje en primer plano realizando **gesto ritual concreto** (arrodillado en absolución, alzando objeto, encendiendo vela, depositando ofrenda, cubriendo cuerpo, cavando, bendiciendo) sobre objeto-imposibilidad (cuerpo de robot caído, placa de circuito iluminada, órgano sintético, máquina rota, drone destruido). Detrás, el horizonte se extiende en **capas de paisaje desolado**: vertedero, llano post-industrial, ciudad bombardeada, cementerio de chatarra, dunas, ladera quemada, cráter, basurero electrónico. Cielo magenta-naranja-óxido o gris plomizo dramático.
+
+- **Gancho compositivo:** el contraste entre el gesto de cuidado/ritual íntimo y el paisaje de desastre amplifica la carga moral. Distinto del C-10 (foco icónico distante puntual) — aquí no hay punto de luz lejano, hay **paisaje desolado completo en capas**.
+- **Tonalidades preferentes:** radical · inquietante · ambiguo (cuando hay esperanza posible) · inspirador (cuando el ritual es de cuidado).
+- **Inspirado en:** *A priest who performs last rites for robots discarded in the city landfill.*
+
 ## Mapeo composición → tonalidades preferentes (resumen)
 
 | Tonalidad | Composiciones preferentes (no exclusivo) |
 |---|---|
-| inquietante (40%) | C-02 · C-03 · C-04 · C-06 · C-07 · C-09 · C-10 · C-11 · C-12 |
-| radical (15%) | C-02 · C-04 · C-05 · C-08 · C-09 · C-11 · C-12 |
-| ambiguo (25%) | C-01 · C-02 · C-06 · C-07 · C-10 · C-11 |
-| inspirador (10%) | C-01 · C-07 |
-| mundano (10%) | C-01 · C-03 · C-10 |
+| inquietante (40%) | C-02 · C-03 · C-04 · C-06 · C-07 · C-09 · C-10 · C-11 · C-12 · C-14 · C-16 · C-17 · C-18 · C-19 |
+| radical (15%) | C-02 · C-04 · C-05 · C-08 · C-09 · C-11 · C-12 · C-13 · C-14 · C-15 · C-16 · C-17 · C-18 · C-19 |
+| ambiguo (25%) | C-01 · C-02 · C-06 · C-07 · C-10 · C-11 · C-13 · C-14 · C-15 · C-17 · C-18 · C-19 |
+| inspirador (10%) | C-01 · C-07 · C-13 · C-15 · C-17 |
+| mundano (10%) | C-01 · C-03 · C-10 · C-13 |
 
 ## Compatibilidades especiales con bandas (paradigma personaje)
 
-- **Banda A (oficios domésticos):** mejor con C-01 · C-03 · C-07 · C-08 · C-12.
-- **Banda B (trabajadores ES día a día):** mejor con C-03 · C-08 · C-09 · C-11.
-- **Banda C (funcionarios públicos):** mejor con C-04 · C-05 · C-06 · C-08.
-- **Banda D (figuras públicas por rol):** mejor con C-04 · C-05 · C-08 (atrezzo institucional).
-- **Banda E (cultura pop / mediática):** mejor con C-02 · C-06 · C-08 · C-12.
+- **Banda A (oficios domésticos):** mejor con C-01 · C-03 · C-07 · C-08 · C-12 · C-13 · C-16 · C-18.
+- **Banda B (trabajadores ES día a día):** mejor con C-03 · C-08 · C-09 · C-11 · C-13 · C-16 · C-19.
+- **Banda C (funcionarios públicos):** mejor con C-04 · C-05 · C-06 · C-08 · C-15 · C-16 · C-19.
+- **Banda D (figuras públicas por rol):** mejor con C-04 · C-05 · C-08 · C-15 · C-16 (atrezzo institucional).
+- **Banda E (cultura pop / mediática):** mejor con C-02 · C-06 · C-08 · C-12 · C-14 · C-16.
 
-Las composiciones cross-banda (C-09 over-the-shoulder, C-10 exterior nocturno, C-11 caos) sirven a cualquier banda — son las **comodín** para forzar variedad cuando una banda lleva 2 relatos consecutivos en composición C-08 frontal teatral.
+Las composiciones cross-banda (C-09 over-the-shoulder, C-10 exterior nocturno, C-11 caos, **C-14 contrapicado escala**, **C-17 ritual outdoor desolado**, **C-19 cabina exterior radical**) sirven a cualquier banda — son las **comodín** para forzar variedad cuando una banda lleva 2 relatos consecutivos en composición C-08 frontal teatral.
 
 ## Algoritmo de selección aleatoria con anti-repetición
 
 ```
-1. Cargar pool completo: C-01..C-12.
+1. Cargar pool completo: C-01..C-19.
 2. Filtrar por mapeo tonal (composiciones preferentes para la categoría tonal del relato).
 3. Excluir las 5 últimas composiciones publicadas (consultar registro-ficciones.md columna Comp.).
 4. Excluir composición que coincida con familia (I-V) si las últimas 3 publicadas son de la misma familia.
@@ -205,11 +261,32 @@ Composition: an interior room in disarray — [furniture broken / objects piled 
 
 # C-12 · Color-pop saturado single-zone
 Composition: the overall scene rendered in muted painterly palette dominated by deep blue-gray shadow + the modality's main hue, EXCEPT one specific zone occupying 15 to 25 percent of the frame where saturated color erupts — [magenta flowers in a vase / fuchsia hologram / orange fire on hearth / violet neon tube / fluorescent green liquid in beaker / pink dress on a body / amber smoke writing words]. The color-pop is the second strongest visual element after the personaje's face. The matte cream-white humanoid is positioned beside or interacting with the color-pop zone. Hard focal light cuts across the personaje's face and the color-pop zone, fusing them into a single emotional unit.
+
+# C-13 · Three-shot teatral horizontal con oficio
+Composition: a horizontal three-shot in a workshop / atelier / consulting room / studio, three figures arranged across the frame in vertical thirds. Left third: the personaje-artisan working with concentrated attention, role attire and trade tool clearly visible, painterly emotion legible on the face. Center third: the object central of the trade — [mannequin / dress / device / specimen / instrument] receiving the artisan's labor, occupying the visual pivot of the frame. Right third: the receiver — a client / patient / observer / commissioner — facing the center, painterly waiting expression. The matte cream-white humanoid is one of the three figures (artisan, object, or receiver) or stands as a fourth witness in deep shadow. Hard focal light from above-left lands on the central object, knitting all three roles into a single ritual transaction.
+
+# C-14 · Contrapicado de escala asimétrica humano↔máquina
+Composition: low-angle camera positioned near the floor (ankle height), looking up. Foreground: a small vulnerable human figure (child, elderly, seated, crouched) occupying the lower third of the frame, painterly emotion legible on the face. Looming above and behind, a massive humanoid / patrol robot / surveillance drone / industrial machine, painterly volumes on its plates and joints, dominating the upper two thirds of the frame. Both figures share the same physical space (alleyway, hallway, room, stairwell) — not architectural perspective. Hard focal light comes from above the machine, casting the human into deep shadow except for face and hands. Strong vertical contrast of scale.
+
+# C-15 · Bóveda / cúpula con reunión circular ritual
+Composition: an arched / vaulted / cupolated interior — [underground basement / crypt / shelter / cistern / arched hangar / chapel / observatory dome]. The vault's curved ceiling occupies the upper third of the frame, framing the scene. A central figure (or pair) is seated or standing on the vertical axis, surrounded by a circular audience of figures (children, elders, faithful, students, survivors) arranged radially around the center. Suspended screens, lanterns, or icons may reinforce the arch. The matte cream-white humanoid stands among the audience or beside the central figure, plain matte surface. Hard focal light from above (skylight, hanging lamp, central candle) drops a vertical wedge on the central figure, with the audience falling into deep painted shadow toward the periphery.
+
+# C-16 · Foco lumínico cenital extremo (quirúrgico / teatral)
+Composition: a tight bust-shot of the personaje (head, shoulders, hands holding an object), framed at chest height. Lighting comes from a single source directly overhead (surgical lamp / theatrical spotlight / interrogation light / autopsy ceiling lamp), casting hard shadows under brows, nose, chin, shoulders. Atmosphere of operating room / autopsy table / theatrical stage with single spotlight / interrogation chamber. The personaje's hands hold the object-impossibility (synthetic finger, circuit board, organ, prosthetic component) — the object also receives the vertical light beam. Background falls into total deep painted shadow. The matte cream-white humanoid presence is suggested by the object in hand or by a sliver of cream-white fabric at the edge.
+
+# C-17 · Ritual outdoor con horizonte desolado / apocalíptico
+Composition: wide outdoor exterior under crepuscular or post-storm sky (magenta-orange-rust or plumb-gray dramatic gradient). Foreground: the personaje performing a concrete ritual gesture — [kneeling in absolution / lifting an object skyward / lighting a candle / depositing an offering / covering a body / digging / blessing / closing eyelids] — over the object-impossibility (fallen humanoid body, glowing circuit board, synthetic organ, broken machine, crushed drone, electronic remains). Background: layered desolate landscape extending to the horizon — [city landfill / post-industrial plain / bombed cityscape / electronic-waste cemetery / dunes / scorched hillside / impact crater / bone-yard of machinery]. The matte cream-white humanoid is the object of the ritual or stands as silent witness behind the personaje. Hard focal light from low sun raking across the foreground figure and the object.
+
+# C-18 · Detalle de manos con altar / fondo ceremonial simétrico
+Composition: medium-macro of human hands in foreground working a delicate object-impossibility (synthetic heart valve, mechanical gear with organic tissue, glowing element, miniature humanoid component) — painterly volumes on knuckles and tool. The background is a strictly symmetrical altar / atrium / retable / monumental clockwork / shrine / guild seal, with flanking ceremonial elements (candles, columns, gears, stained glass, religious or guild symbols, mirrored sconces). The vertical axis of the altar runs straight up from between the hands. Painterly volumes on the altar fall into chiaroscuro. The matte cream-white humanoid presence is implied by the object in hand or by a partial silhouette in the symmetric background. Hard focal light from above (altar source) lands on the hands and the object, the symmetric background falling into reverent shadow.
+
+# C-19 · Cabina cerrada con ventana a exterior radical
+Composition: a tight, claustrophobic technical interior — [aircraft cockpit / spacecraft hatch / bunker control room / submarine cabin / mining elevator / observatory station] — occupying the foreground and middle ground. A window, viewport, or porthole on one side opens onto an exterior that is NOT domestic or urban but radically alien: cosmic starfield, Martian dunes, stormy open sea, arctic tundra, impact crater landscape, bombed city skyline at horizon, alien storm sky. The personaje is seated or standing inside the cabin, headphones / helmet / instrument in hand, painterly profile or three-quarter pose, looking toward the window or at a tool. The matte cream-white humanoid (or external drone) appears small against the radical exterior, visible through the window. Hard focal light from inside (instrument panel glow) on the personaje's face; cold ambient light from the radical exterior on the window frame. Hard contrast warm-interior / cold-exterior.
 ```
 
 ## Verificación pre-output (composición)
 
-- [ ] Frontmatter `composicion_canon:` declarado y entre C-01..C-12 (bloqueo si falta).
+- [ ] Frontmatter `composicion_canon:` declarado y entre C-01..C-19 (bloqueo si falta).
 - [ ] Composición no aparece en las 5 últimas publicadas (consultar `registro-ficciones.md`).
 - [ ] Composición compatible con `categoria-tonal` declarada (consultar mapeo) — si no, motivo declarado en `PASOS.md § Hero`.
 - [ ] Si las últimas 3 son de la misma familia (I-V), la nueva está en otra familia.

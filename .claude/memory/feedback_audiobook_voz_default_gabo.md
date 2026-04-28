@@ -1,23 +1,32 @@
 ---
-name: Voz default audiobooks Gabo + auto-encadenado /audiobook-generate desde /ficcion-draft
-description: Canon 2026-04-27 — Gabo (`o0SveC0zgHFuCsEO3vHR`) sustituye a Luis como voz default ElevenLabs para todo audiolibro nuevo de Ficciones. Y `/ficcion-draft` encadena automáticamente `/audiobook-generate` para que el `beehiiv-paste.html` salga con los 8 snippets canónicos (incluidos los MP3 email/web). Cambia la regla anterior "manual only".
+name: Voz audiobooks canon híbrido Luis+Gabo + auto-encadenado /audiobook-generate desde /ficcion-draft
+description: Canon 2026-04-28 — híbrido bumpers Luis + cuerpo Gabo. Cuerpo del relato narrado con Gabo (`o0SveC0zgHFuCsEO3vHR`, default desde 2026-04-27); bumpers intro/outro mantienen voz Luis (`GojDwihhnL1f7RrBuXsJ`) para continuidad sonora y separación marca/narrador. Revierte el experimento "100% Gabo" del 2026-04-27 PM tarde. Y `/ficcion-draft` encadena automáticamente `/audiobook-generate` para que el `beehiiv-paste.html` salga con los 8 snippets canónicos (incluidos los MP3 email/web). Cambia la regla anterior "manual only".
 type: feedback
 ---
 
 Dos cambios canon establecidos por Rafael 2026-04-27 PM tras el primer relato `pipo` (que se generó sin audio):
 
-## 1. Voz default Gabo
+## 1. Voz canon híbrido — bumpers Luis + cuerpo Gabo
 
-**Regla:** todo audiolibro nuevo de Ficciones Domésticas se genera con voz **Gabo** (`o0SveC0zgHFuCsEO3vHR` — Gabo - Deep, Evocative and Resonant, My Voices ElevenLabs). Sustituye a Luis (`GojDwihhnL1f7RrBuXsJ`) como voz por defecto.
+**Regla (canon 2026-04-28):** todo audiolibro nuevo de Ficciones Domésticas se genera con voz **Gabo** (`o0SveC0zgHFuCsEO3vHR` — Gabo - Deep, Evocative and Resonant) en el **cuerpo del relato**, y voz **Luis** (`GojDwihhnL1f7RrBuXsJ` — Luis - Polished, Mature and Credible) en los **bumpers intro/outro de marca**. Las dos voces conviven dentro del mismo MP3: el oyente arranca y cierra con Luis (sello sonoro de marca ROBOHOGAR) y escucha la prosa narrativa con Gabo.
 
-**Why:** Rafael quiere voz más grave, evocativa y resonante para los relatos de Ficciones Domésticas — el peso moral y la prosa peninsular literaria del catálogo (radical-Cuidados rotos, inquietante-Hogar uncanny, etc.) gana con un tono más profundo que Luis. Decisión tras escuchar la prueba A/B con `pipo` (relato radical-Cuidados rotos). Aplica desde el siguiente relato.
+**Why:** Rafael quiere voz Gabo (más grave, evocativa, resonante) para la prosa peninsular literaria del catálogo (radical-Cuidados rotos, inquietante-Hogar uncanny, etc.) — el peso moral del cuerpo gana con un tono más profundo. Pero los bumpers funcionan como **sello sonoro de marca**, no como prosa narrativa: la voz Luis (más pulida, profesional, "creíble") encaja mejor con el rol de presentador de marca y mantiene continuidad con los 3 relatos publicados pre-cambio (la-objecion, el-operador-nocturno, el-que-viene-a-tomar-cafe). El contraste tonal Luis→Gabo→Luis ancla además al lector entre marca y ficción.
+
+Decisión tomada el 2026-04-28 tras un día con bumpers 100% Gabo. Cita literal: *"cambio de opinion para los audiolibros y su distribucion nos quedamos con intro y outro voz de Luis y voz del relato Gabo"*. Aplica desde el siguiente relato.
 
 **How to apply:**
-- `utilities/generate_audio.py` línea 68: `VOICE_ID = "o0SveC0zgHFuCsEO3vHR"  # Gabo` (ya cambiado).
-- `.claude/commands/audiobook-generate.md`: descripción del skill + paso 4 + tabla TTS-friendly mencionan Gabo como default (ya cambiado).
-- **Histórico mantenido sin cambios:** `la-objecion`, `el-operador-nocturno`, `el-que-viene-a-tomar-cafe` quedan publicados con voz Luis. No se regeneran salvo que Rafael lo pida explícitamente. La columna "Voz" del registro de ficciones (si se añade) refleja el histórico.
-- **Bumpers de marca (intro-ficciones.mp3 + outro-ficciones.mp3)** regenerados con voz Gabo el **2026-04-27 PM tarde** tras decisión de Rafael *"100% Gabo desde el siguiente relato"* (al escuchar pipo con bumpers Luis + cuerpo Gabo). Bumpers Luis previos versionados como `intro-ficciones-luis-v1.mp3` y `outro-ficciones-luis-v1.mp3` (regla never overwrite). Duraciones nuevas: intro 2.83s (vs Luis 2.53s · +0.3s), outro 8.68s (vs Luis 11.89s · −3.2s, Gabo dice más fluido). El script `generate_audio.py` mide bumpers con ffprobe, no requiere ajuste de constantes. Coste regeneración: ~107 créditos ElevenLabs (~136 chars). Aplicación: relatos siguientes a pipo (la-llave-inglesa, el-pendiente, etc.) tendrán 100% Gabo. **pipo se queda como está** (Luis bumpers + Gabo cuerpo) — relato ya publicado, no se reprocesa retroactivamente. Texto canónico de bumpers + script puntual: [`utilities/_archive/generate_bumpers_gabo_2026_04_27.py`](../../utilities/_archive/generate_bumpers_gabo_2026_04_27.py).
-- **Excepción explícita de relato:** Rafael puede pedir voz distinta para un relato concreto (`/audiobook-generate <slug> --voice luis`) — el script lo soporta via override, pero el default fijo es Gabo.
+- `utilities/generate_audio.py`: `VOICE_ID = "o0SveC0zgHFuCsEO3vHR"` (Gabo) sigue en el cuerpo del relato (línea 68). Los bumpers son archivos pregrabados — el script no los regenera, los concatena vía ffmpeg desde `assets/audio/intro-ficciones.mp3` y `outro-ficciones.mp3` (que ahora son Luis otra vez).
+- `assets/audio/intro-ficciones.mp3` y `outro-ficciones.mp3` = **voz Luis** (canónicos desde 2026-04-28). Duraciones: intro 2.53s · outro 11.89s. Bumpers Gabo del 2026-04-27 versionados como `intro-ficciones-gabo-v1.mp3` y `outro-ficciones-gabo-v1.mp3` (regla never overwrite). Bumpers Luis previos siguen como `intro-ficciones-luis-v1.mp3` y `outro-ficciones-luis-v1.mp3` (idénticos a los canónicos actuales — backup histórico).
+- `.claude/commands/audiobook-generate.md`: descripción del skill + paso 4 + pre-requisito mencionan canon híbrido (ya cambiado).
+- **Histórico mantenido sin cambios:** los 3 relatos pre-cambio voz cuerpo (la-objecion, el-operador-nocturno, el-que-viene-a-tomar-cafe) quedan publicados con voz Luis 100%. Pipo (2026-04-27 AM) ya se publicó con Luis bumpers + Gabo cuerpo — coincide exactamente con el canon híbrido restaurado, no requiere reproceso. Ningún audiolibro publicado se regenera retroactivamente.
+- **Excepción explícita de relato:** Rafael puede pedir voz distinta del cuerpo para un relato concreto (`/audiobook-generate <slug> --voice luis`) — el script lo soporta via override, pero el default del cuerpo es Gabo y los bumpers son Luis siempre.
+
+### Histórico de la decisión (para sesiones futuras que pregunten qué pasó con "100% Gabo")
+
+1. **2026-04-22:** FASE 0 cierra con voz Luis 100% (bumpers Luis + cuerpo Luis). 3 relatos publicados.
+2. **2026-04-27 AM:** prueba A/B en `pipo` con cuerpo Gabo (Luis bumpers + Gabo cuerpo). Rafael valida la voz Gabo para cuerpo.
+3. **2026-04-27 PM tarde:** Rafael decide *"100% Gabo desde el siguiente relato"*. Bumpers regenerados a Gabo (script puntual: `utilities/_archive/generate_bumpers_gabo_2026_04_27.py`). Duraciones Gabo: intro 2.83s · outro 8.68s. Coste regeneración: ~107 créditos ElevenLabs.
+4. **2026-04-28:** Rafael revierte. Canon final = híbrido bumpers Luis + cuerpo Gabo. Bumpers Luis restaurados como canónicos. Pipo resulta ser el primer y único relato pre-2026-04-28 con la fórmula híbrida ya activa accidentalmente.
 
 ## 2. Auto-encadenado `/audiobook-generate` desde `/ficcion-draft`
 

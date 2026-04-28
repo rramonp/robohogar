@@ -1,6 +1,6 @@
 # Audiobook Generate — generador de audiolibros para Ficciones Domésticas
 
-Genera el audiolibro MP3 de un relato de Ficciones Domésticas: lee el texto, construye la versión TTS-optimizada, llama a la API de ElevenLabs con **voz Gabo** (default desde 2026-04-27, sustituye Luis), concatena con intro/outro de marca, sube a Cloudflare R2 y devuelve los 4 strings listos para copy-paste en Beehiiv.
+Genera el audiolibro MP3 de un relato de Ficciones Domésticas: lee el texto, construye la versión TTS-optimizada, llama a la API de ElevenLabs con **voz Gabo** para el cuerpo del relato (default desde 2026-04-27), concatena con bumpers de marca **intro/outro en voz Luis** (canon híbrido restaurado 2026-04-28 tras revertir el experimento "100% Gabo"), sube a Cloudflare R2 y devuelve los 4 strings listos para copy-paste en Beehiiv.
 
 **INVOCACIÓN SIEMPRE MANUAL.** NUNCA se encadena automáticamente desde `/ficcion-draft` ni `/post-publish`. El audio se genera solo sobre texto final aprobado para no quemar cuota API en iteraciones editoriales. Regla dura del plan.
 
@@ -29,7 +29,7 @@ Solo cuando Rafael lo pida explícitamente:
 Antes de invocar, Claude debe verificar:
 
 - [ ] `.claude/settings.local.json` tiene las 6 env vars (`ELEVENLABS_API_KEY`, `R2_ACCOUNT_ID`, `R2_ACCESS_KEY`, `R2_SECRET_KEY`, `R2_BUCKET`, `R2_PUBLIC_URL`). Si faltan → ejecutar `python utilities/verify_elevenlabs_auth.py` + `python utilities/verify_r2_auth.py` para diagnosticar.
-- [ ] `assets/audio/intro-ficciones.mp3` y `outro-ficciones.mp3` existen (bumpers de marca generados una vez en FASE 0 con voz Luis — no se regeneran al cambiar la voz default a Gabo: el cambio canon de voz aplica a la narración del relato; intro/outro mantienen continuidad sonora con los 3 publicados pre-2026-04-27 y se regenerarán sólo si Rafael lo pide explícitamente).
+- [ ] `assets/audio/intro-ficciones.mp3` y `outro-ficciones.mp3` existen (bumpers de marca en voz Luis — canon híbrido: bumpers Luis + cuerpo Gabo. Los bumpers Gabo generados 2026-04-27 PM tarde quedan versionados como `intro-ficciones-gabo-v1.mp3` y `outro-ficciones-gabo-v1.mp3` tras revertir el canon "100% Gabo" el 2026-04-28).
 - [ ] `ffmpeg` accesible vía PATH o WinGet install location. El script `utilities/generate_audio.py` ya detecta ambos.
 - [ ] `boto3` instalado (`pip install boto3`).
 - [ ] **Cuota ElevenLabs suficiente para el relato** — verificación automática vía contador local [`utilities/elevenlabs_balance.py`](../../utilities/elevenlabs_balance.py). El módulo sincroniza saldo desde el endpoint `/v1/usage/character-stats` (que SÍ funciona con la API key estándar de ROBOHOGAR; el endpoint `/v1/user/subscription` requiere permiso `user_read` que la key no tiene → bloqueado HTTP 401). Verificación:
@@ -107,7 +107,7 @@ Aplicar las siguientes transformaciones:
 | HTML comments | `<!-- ... -->` | (eliminar) |
 | Títulos con hash | `# El que viene a tomar café` | `El que viene a tomar café.` (sin hash, con punto final) |
 
-**Lo que NO se toca** (Gabo / Luis los manejan bien):
+**Lo que NO se toca** (Gabo en cuerpo / Luis en bumpers los manejan bien):
 - Em-dashes `—` (pausas narrativas ES)
 - Nombres propios (Pilar, Almudena, Vallecas, Bilbao, Atleti, etc.)
 - Acrónimos-palabra cortos (SAMUR, AVE, IMSERSO)
@@ -153,8 +153,8 @@ python utilities/generate_audio.py content/ficciones/**/<slug>/audiolibro.txt <s
 
 El script (ver [`utilities/generate_audio.py`](../../utilities/generate_audio.py)) hace:
 - Chunking por párrafos ≤4500 chars (límite Multilingual v2).
-- TTS por chunk con voz **Gabo** (`o0SveC0zgHFuCsEO3vHR`, default desde 2026-04-27 — sustituye Luis `GojDwihhnL1f7RrBuXsJ` que se mantiene como histórico de los 3 publicados pre-cambio), modelo `eleven_multilingual_v2`, formato `mp3_44100_128`, con `previous_text`/`next_text` para prosodia coherente entre chunks.
-- Concatenación ffmpeg: intro (2.53s) + 2s silencio + chunks narración + 3s silencio + outro (11.89s), recodificando todo a 44.1kHz mono 128kbps. El silencio de 3s antes del outro (decisión 2026-04-25) da respiro narrativo entre el FIN del relato y la CTA final de marca.
+- TTS por chunk con voz **Gabo** para el cuerpo (`o0SveC0zgHFuCsEO3vHR`, default desde 2026-04-27 — sustituye Luis `GojDwihhnL1f7RrBuXsJ` solo en el cuerpo del relato), modelo `eleven_multilingual_v2`, formato `mp3_44100_128`, con `previous_text`/`next_text` para prosodia coherente entre chunks.
+- Concatenación ffmpeg: **intro Luis** (2.53s) + 2s silencio + chunks narración Gabo + 3s silencio + **outro Luis** (11.89s), recodificando todo a 44.1kHz mono 128kbps. Canon híbrido bumpers Luis + cuerpo Gabo restaurado 2026-04-28 tras revertir el experimento "100% Gabo" del 2026-04-27 PM. El silencio de 3s antes del outro (decisión 2026-04-25) da respiro narrativo entre el FIN del relato y la CTA final de marca.
 - Upload a R2 bucket `robohogar-audio` con ContentType `audio/mpeg`, key = `<slug>.mp3`.
 - Versionado local (`_chunks-<slug>/` persistente para debug o regeneración parcial).
 
@@ -481,7 +481,7 @@ Estructura JSON (schema_version: 2):
 
 Anclado a inicio de línea (re.MULTILINE) + ordinal case-insensitive + título corto + punto final. Evita falsos positivos de párrafos que contengan "Uno." mid-sentence (cardinales numéricos narrativos).
 
-**Mapping char→tiempo:** velocidad uniforme global. `chars_per_second = narration_chars / narration_duration` calculado tras el TTS. Asume que el narrador (Gabo / Luis) lee a velocidad constante entre chapters — error real ±5% (1-3 s en chapters de 5+ minutos), tolerable para YouTube chapters donde el espectador acepta offset menor.
+**Mapping char→tiempo:** velocidad uniforme global. `chars_per_second = narration_chars / narration_duration` calculado tras el TTS. Asume que el narrador (Gabo en cuerpo, default desde 2026-04-27 — Luis era ~17 cps en histórico pre-cambio) lee a velocidad constante entre chapters — error real ±5% (1-3 s en chapters de 5+ minutos), tolerable para YouTube chapters donde el espectador acepta offset menor.
 
 **Fallback sin capítulos detectados:** si el relato no tiene headings `Uno. Dos. Tres.` ni `Parte uno. Parte dos.` (relatos flash <800 palabras o experimentales), se genera 1 chapter sintético `{"number": 1, "title": "Relato", "start_seconds": <intro+silencio>}` para que YouTube tenga al menos 1 entry válida.
 

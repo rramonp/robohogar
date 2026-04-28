@@ -13,6 +13,21 @@ Local en este repo: `utilities/nano_banana_image.py` (autocontenido — el repo
 robohogar no depende de RRP-DEV ni de ningún otro repo externo). Invocado
 vía `uv run` (lee dependencias inline del shebang `# /// script` del archivo).
 
+## Regla universal — 3 candidatos = 3 ideas / composiciones / planos distintos
+
+Cuando este skill se invoca para generar **3 candidatos** (cualquier hero de artículo, hero de ficción, social card, banner, variante de logo) **las 3 son SIEMPRE 3 ideas / composiciones / planos / encuadres / atmósferas claramente distintas**. Prohibido devolver 3 variantes que comparten la misma escena con detalles sutiles cambiados (mismo robot girado · misma cocina con luz movida · mismo producto en 3 ángulos próximos · mismo personaje con expresión distinta).
+
+**Cita literal Rafael 2026-04-28 PM tarde:** *"cuando generes miniaturas con nano banana para relatos o artículos te asegures de que las tres versiones que generas tengan composiciones bien distintas, ideas, planos, etc. No que sean prácticamente la misma idea con pequeñas variaciones"*. Regla hermana de la regla canónica de ficción C-XX (composiciones canon distintas) ampliada a alcance universal del skill.
+
+**Verificación pre-output (obligatoria antes de ejecutar el script de Gemini):** describir las 3 variantes en chat con un párrafo cada una declarando — gramática del frame, sujeto principal, plano (detalle / medium / amplio), distancia de cámara, ambiente / hora del día, paleta dominante, atmósfera. Si las 3 descripciones **resultan intercambiables** entre sí o sugieren la misma escena con detalles cambiados → **regenerar el set antes de invocar el script**, no entregar a Gemini ni ejecutar la API.
+
+**Casos especiales por modo:**
+- **Modo 1 — hero de artículo:** las 3 deben jugar con planos / sujeto / ambiente / paleta distintos (decision tree de `nano-banana-prompt-base.md` + sugerencias de `/content-draft § 6`).
+- **Modo 2 — hero de ficción:** las 3 son 3 composiciones canon C-01..C-19 distintas (idealmente de 3 familias distintas I/II/III/IV/V). Catálogo: [`assets/branding/ficcion-hero-composiciones-canon.md`](../../assets/branding/ficcion-hero-composiciones-canon.md). Detalle: `/ficcion-draft § 6.bis`.
+- **Logos / social cards / banners:** las 3 son 3 conceptos / layouts claramente distintos, no 3 reordenamientos del mismo grid.
+
+Detalle universal con incidente origen: [`feedback_3_candidatos_composiciones_distintas.md`](../../.claude/memory/feedback_ficcion_3_candidatos_composiciones_distintas.md).
+
 ## Style Reference (MANDATORY)
 
 **Before generating ANY image**, read `assets/branding/asset-catalog.md`. Es la fuente única de verdad para:
