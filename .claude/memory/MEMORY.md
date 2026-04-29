@@ -30,6 +30,7 @@
 - [feedback_digest_backlog_consolidado.md](feedback_digest_backlog_consolidado.md) — /research-digest consolida backlog vivo (Pool A+B con vigencia) en recomendación autosuficiente
 - [feedback_robohogar_evergreen_flag.md](feedback_robohogar_evergreen_flag.md) — Clasificar artículos evergreen true/false para backlog social FASE 4B+
 - [feedback_seo_first_pivote.md](feedback_seo_first_pivote.md) — Pivote SEO 2026-04-20: ratio 3 evergreens/1 reactivo/1 ficción. Outreach manual cerrado
+- [feedback_recomendar_segun_estadio_proyecto.md](feedback_recomendar_segun_estadio_proyecto.md) — Recomendar siguiente artículo según estadio (F1 0-50 subs prioriza evergreen estructural + estacional, NO reviews puntuales con "ventana viralidad")
 - [feedback_robohogar_hero_1200x630_y_validador_es.md](feedback_robohogar_hero_1200x630_y_validador_es.md) — Hero = 1200×630 exacto (--model 2 --aspect 16:9 --size 2K + crop). Validador ES de calcos
 
 ## Feedback — Fiction (Ficciones Domésticas)
