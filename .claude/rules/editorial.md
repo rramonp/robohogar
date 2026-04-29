@@ -438,6 +438,47 @@ Cada match → revisar manualmente. Si no hay `<a href>` cercano ni framing → 
 
 **Fundamento empírico:** auditoría 2026-04-20 de los 8 artículos publicados detectó 14 claims sin fuente o con framing deficiente (Samsung NaviBot 2003 posiblemente erróneo, Tesla 20.000M sin cita, 99,99% bacterias sin link, "el único compañero inteligente" exagerado, etc.). Lista canónica en [`references/audit-2026-04-20-unsourced-claims.md`](../../references/audit-2026-04-20-unsourced-claims.md) como corpus de referencia + ejemplos canónicos para futuros artículos.
 
+## Cero promesas de actualización futura de precios
+
+Regla dura 2026-04-29. Hermana de "Honestidad de primera persona" y "Tangibles — sin roadmap futuro". Aplica a TODO copy publicable (cuerpo de artículo, fig caption, disclaimer afiliados, footer de PDF tangible, banner, social, newsletter).
+
+**Principio:** ROBOHOGAR es un editor único con 3-5 h/semana. No vamos a volver a cada artículo evergreen a actualizar precios cada 6 meses. Cualquier promesa explícita o implícita de revisión futura es una mentira programada al lector — el evergreen se queda con los precios del momento de publicación, y si en 12 meses el precio real es más bajo, *es lo que hay*.
+
+**Prohibido en cuerpo, captions, disclaimers, footers de PDF, banner, social, newsletter:**
+
+- *"Precios actualizados a [mes] [año]"* · *"Precio actualizado a abril 2026"*
+- *"Precios consultados a [fecha]"* · *"Precios verificados el [fecha]"* · *"verificados en abril 2026"*
+- *"Datos y precios verificados [fecha] — pueden cambiar"* · *"pueden cambiar en revisiones futuras"*
+- *"Revisión semestral prevista para [fecha]"* · *"Revisión estacional prevista para febrero-marzo 2027"*
+- *"Próxima revisión de precios: [fecha]"*
+- Cualquier formulación que insinúe al lector que ROBOHOGAR va a volver a este artículo a poner precios nuevos.
+
+**Excepción permitida (factual, sin promesa):** anclar un dato concreto en su fuente — *"según la ficha oficial de Samsung"*, *"el rango actual en Amazon.es"* — dentro de una frase específica sobre ese dato. La diferencia: la versión permitida ata el dato a su fuente y no implica revisión; la versión prohibida promete update.
+
+**Cierres canónicos sin promesa:**
+
+- Tabla comparativa (intro): *"Lo importante, en una fila. Fila resaltada = mejor compra global hoy para el comprador español medio."*
+- Disclaimer afiliados: cierra tras *"Todas las marcas pertenecen a sus respectivos propietarios."* — sin coletilla de fecha.
+- Footer del PDF tangible: cierra tras *"Algunos links del contenido ROBOHOGAR pueden ser afiliados; ninguno en este PDF."* — sin *"pueden cambiar en revisiones futuras"*.
+- Lista de precios en cuerpo: encabezar con *"Precios en España:"* o equivalente sin fecha.
+
+**Verificación pre-output (greps, debe ser 0 matches):**
+
+```bash
+# (a) Promesas explícitas de revisión
+grep -niE 'revisión\s+(semestral|estacional|de\s+precios)\s+prevista|próxima\s+revisión.*precio|pueden\s+cambiar\s+en\s+revisiones?\s+futuras?|verifica\s+precios\s+reales' <archivo>
+
+# (b) Coletillas de fecha de verificación de precios
+grep -niE 'precios?\s+(actualizad|consultad|verificad)[oa]s?\s+(a|en|el)\s+([0-9]{1,2}-?[a-z]{3}|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre|enero|febrero|marzo)' <archivo>
+
+# (c) Coletilla de disclaimer de afiliados con fecha
+grep -niE 'datos\s+y\s+precios\s+verificad' <archivo>
+```
+
+Skills herederos: `/content-draft` paso 8.x corre los 3 greps pre-output. `/post-publish` aplica triaje (evidente + fix obvio → auto-fix en borrador + published). `/pdf-brand` validators bloquean los patrones a-c en footers de PDF.
+
+**Incidente origen 2026-04-29:** Rafael indicó que no va a poder mantener actualizados los precios de los evergreens y que algunos artículos prometían explícitamente revisiones futuras. Auditoría detectó 8 borradores + 6 published + 1 master template + 1 PDF tangible v3 con frases tipo *"Precios actualizados a abril 2026"*, *"revisión semestral prevista para octubre 2026"*, *"verificados en Amazon.es el 18-abr-2026"*. Limpiados todos. Memoria del incidente: [`feedback_no_promesas_actualizacion_precios.md`](../memory/feedback_no_promesas_actualizacion_precios.md).
+
 ## Anti-IA checklist — OBLIGATORIO para TODO contenido
 
 Regla heredada de [CLAUDE.md § Output Validation](../../CLAUDE.md). Canon único: [`@references/anti-ia-checklist.md`](../../references/anti-ia-checklist.md) — §1 Universal aplica a todo (artículos, reviews, comparativas, editoriales, guías, newsletters), §2 Ficción aplica además a relatos. Skills que generan prosa publicable la integran pre-output (`content-draft § 8.5`, `ficcion-draft § 8`).

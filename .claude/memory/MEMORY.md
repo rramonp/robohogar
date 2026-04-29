@@ -17,6 +17,7 @@
 - [feedback_robohogar_no_phantom_references.md](feedback_robohogar_no_phantom_references.md) — Cero referencias fantasma en artículo (subtítulo/callout que promete contenido inexistente)
 - [feedback_robohogar_pre_publish_polish.md](feedback_robohogar_pre_publish_polish.md) — 12 checks pre-publicación (5 craft A1-A5 + 7 coherencia interna B1-B7)
 - [feedback_robohogar_no_fake_testing_claims.md](feedback_robohogar_no_fake_testing_claims.md) — Prohibido "hemos probado", cifras de ahorro inventadas, tiempos/dB no medidos
+- [feedback_no_promesas_actualizacion_precios.md](feedback_no_promesas_actualizacion_precios.md) — Cero promesas de revisión futura de precios. Evergreens quedan con los precios del momento de publicación
 - [feedback_robohogar_no_vulgar_bro_talk.md](feedback_robohogar_no_vulgar_bro_talk.md) — Prohibidas expresiones vulgares o bro-talk ("se la saca", "la peta", etc.)
 - [feedback_robohogar_estilo_llano.md](feedback_robohogar_estilo_llano.md) — Prosa ROBOHOGAR llana, ES habitual, sin florituras anglo ni metáforas culturales. Tabla 10 patrones ❌→✅ (incidente 2026-04-28 cortacésped ROI)
 - [feedback_curse_of_knowledge_check.md](feedback_curse_of_knowledge_check.md) — Check Pinker-style: acrónimos, modelos, jerga anglo requieren contexto en primera mención
